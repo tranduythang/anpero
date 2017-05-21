@@ -1,0 +1,503 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+namespace Anpero
+{
+    public class StringHelpper
+    {
+        public StringHelpper()
+        {
+            //
+            // TODO: Add constructor logic here
+            //
+            //conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            //conn.Open();
+        }
+  
+        public static string MultiTextReplace(string input, string mapping)
+        {
+            if (!string.IsNullOrEmpty(mapping))
+            {
+                string[] mapingList = mapping.Split(',');
+                if (mapingList.Length > 0)
+                {
+                    for (int i = 0; i < mapingList.Length; i++)
+                    {
+                        if (!string.IsNullOrEmpty(mapingList[i]))
+                        {
+                            string[] rule = mapingList[i].Split('>');
+                            input = Regex.Replace(input, rule[0].Trim(), rule[1].Trim(), RegexOptions.IgnoreCase);
+                            if (input.Equals(rule[1].Trim()))
+                                return input;
+                        }
+                    }
+                }
+            }
+            return input;
+        }
+        public static Boolean isInternetUrl(String url)
+        {
+            string pattern = @"http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?";
+
+            if (Regex.IsMatch(url, pattern, RegexOptions.IgnoreCase))
+            {
+                return true;
+
+            }
+            else
+            {
+
+
+                return false;
+            }
+
+        }
+        public static string URLBBCodeToATag(String s)
+        {
+            s = Regex.Replace(s, @"\[URL\](http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?)\[\/URL\]", @"<a href=""$1"" target='_blank' rel='nofollow'/>$1</a>", RegexOptions.IgnoreCase);
+            return s;
+        }
+        public static Boolean isEmail(String Email)
+        {
+
+            // string pattern = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
+            try
+            {
+                if (Email != null)
+                {
+                    return Regex.IsMatch(Email, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
+
+        }
+        public static Boolean isYouToBeLink(String link)
+        {
+
+
+            try
+            {
+                string pattern = @"^http://youtu.be/([A-Z0-9]*_?\-?[A-Z0-9]*)*$";
+                if (Regex.IsMatch(link, pattern, RegexOptions.IgnoreCase))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public static String GetYouTubeAgument(String link)
+        {
+            try
+            {
+
+                int lengths = link.Length;
+                int i = link.LastIndexOf("/");
+                return link.Substring(i, lengths - i);
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
+        public static string imgBBCodeToImgTag(String s)
+        {
+            s = Regex.Replace(s, @"\[IMG\](https?://(?:[a-z0-9\-\.]+\.)+[a-z0-9]{2,6}(?:/[^/#?]+)+\.(?:jpg|gif|png|jpeg))\[\/IMG\]", @"<img src=""$1""/>", RegexOptions.IgnoreCase);
+            s = Regex.Replace(s, @"\[IMG alt=""([^/><*&?]+)""\](https?://(?:[a-z0-9\-\.]+\.)+[a-z0-9]{2,6}(?:/[^/#?]+)+\.(?:jpg|gif|png|jpeg))\[\/IMG\]", @"<img src=""$2"" alt=""$1""/>", RegexOptions.IgnoreCase);
+            return s;
+        }
+        public static string ImgTagtoimgBBCode(String s)
+        {
+            s = Regex.Replace(s, @"<img src=""(https?://(?:[a-z0-9\-\.]+\.)+[a-z0-9]{2,6}(?:/[^/#?]+)+\.(?:jpg|gif|png|jpeg))"">", @"[IMG]$1[/IMG]", RegexOptions.IgnoreCase);
+            s = Regex.Replace(s, @"<img src=""(https?://(?:[a-z0-9\-\.]+\.)+[a-z0-9]{2,6}(?:/[^/#?]+)+\.(?:jpg|gif|png|jpeg))"" \/>", @"[IMG]$1[/IMG]", RegexOptions.IgnoreCase);
+            s = Regex.Replace(s, @"<img src=""(https?://(?:[a-z0-9\-\.]+\.)+[a-z0-9]{2,6}(?:/[^/#?]+)+\.(?:jpg|gif|png|jpeg))"" alt=""([^/><*&?]+)""\/>", @"[IMG alt=""$2""]$1[/IMG]", RegexOptions.IgnoreCase);
+            s = Regex.Replace(s, @"<img src=""(https?://(?:[a-z0-9\-\.]+\.)+[a-z0-9]{2,6}(?:/[^/#?]+)+\.(?:jpg|gif|png|jpeg))"" alt=""([^/><*&?]+)"">", @"[IMG alt=""$2""]$1[/IMG]", RegexOptions.IgnoreCase);
+            return s;
+        }
+        public static String RemoveScript(String s)
+        {
+            ///check
+            ///
+            if (string.IsNullOrEmpty(s))
+            {
+
+                return s;
+            }
+            else
+            {
+                s = s.Replace("--", "_");
+                s = s.Replace("'", "");
+
+            }
+
+            return Regex.Replace(s, "<script.*?</script>", "", RegexOptions.Singleline | RegexOptions.IgnoreCase);
+
+        }
+        public static String checkHackSql(String s)
+        {
+            s = s.ToLower();
+            s = RemoveScript(s);
+            s = s.Replace("--", "_");
+            s = s.Replace("'", "");
+            s = Regex.Replace("drop", "/kg", "drops", RegexOptions.IgnoreCase);
+            s = Regex.Replace("@", "/kg", "(at)", RegexOptions.IgnoreCase);
+            // s = Regex.Replace("update", "/kg", "updates", RegexOptions.IgnoreCase);
+            //s = Regex.Replace("insert", "/kg", "inserts", RegexOptions.IgnoreCase);
+
+
+            return s;
+        }
+        public static String removeHtmlTangs(String s)
+        {
+            if (!string.IsNullOrEmpty(s))
+            {
+                return Regex.Replace(s, @"<.*?>", string.Empty);
+
+            }
+            else { return s; }
+
+        }
+        #region const
+        public const string uniChars =
+          "àáảãạâầấẩẫậăằắẳẵặèéẻẽẹêềếểễệđìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵÀÁẢÃẠÂẦẤẨẪẬĂẰẮẲẴẶÈÉẺẼẸÊỀẾỂỄỆĐÌÍỈĨỊÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴÂĂĐÔƠƯ";
+
+        public const string KoDauChars = "aaaaaaaaaaaaaaaaaeeeeeeeeeeediiiiiooooooooooooooooouuuuuuuuuuuyyyyyAAAAAAAAAAAAAAAAAEEEEEEEEEEEDIIIIIOOOOOOOOOOOOOOOOOUUUUUUUUUUUYYYYYAADOOU";
+        #endregion
+        public static bool isVnPhone(String input)
+        {
+            bool valid = true;
+
+            if (input != null && input.Length > 9)
+            {
+                input = input.Replace(" ", String.Empty).Trim();
+                input = input.Replace("+", "0").Replace("-", "").Replace(".", "");
+
+
+                if (input.Length < 10 || input.Length > 16)
+                {
+                    valid = false;
+                }
+            }
+            else
+            {
+                valid = false;
+            }
+
+            try
+            {
+                Convert.ToDouble(input);
+                valid = true;
+            }
+            catch (Exception)
+            {
+
+                valid = false;
+            }
+
+
+            return valid;
+        }
+        public static string UnicodeToKoDau(string s)
+        {
+            string retVal = String.Empty;
+            int pos;
+            for (int i = 0; i < s.Length; i++)
+            {
+                pos = uniChars.IndexOf(s[i].ToString());
+                if (pos >= 0)
+                    retVal += KoDauChars[pos];
+                else
+                    retVal += s[i];
+            }
+            return retVal;
+        }
+        public static string toURLgach(String title)
+        {
+            title = UnicodeToKoDau(title).ToLower();
+            Regex regex = new Regex("[^a-zA-Z0-9 -]");
+            title = regex.Replace(title, String.Empty);
+
+
+            if (title.Length > 35)
+            {
+                title = title.Substring(0, 35);
+
+            }
+            title = title.Trim().ToLower();
+            title = title.Replace(" ", "-").Replace(@"--", "-");
+            return title.Replace(@"--", "-").Replace(@"–", "");
+        }
+        public static string toURLgachTag(String title)
+        {
+            title = UnicodeToKoDau(title);
+            Regex regex = new Regex("[^a-zA-Z0-9 -,]");
+            title = regex.Replace(title, String.Empty);
+            if (title.Length > 150)
+            {
+                title = title.Substring(0, 150);
+
+            }
+            title = title.Trim().ToLower();
+            title = title.Replace(" ", "-").Replace(@"--", "-");
+            return title.Replace(@"--", "-").Replace(@"–", "");
+        }
+        public static String SubString(int maxLeng, String inPut)
+        {
+            if (!String.IsNullOrEmpty(inPut))
+            {
+                if (inPut.Length >= maxLeng)
+                {
+                    inPut = inPut.Substring(0, maxLeng - 2) + " ..";
+                }
+            }
+
+            return inPut;
+
+
+        }
+        public static String ConVertToMoneyFormatInt(String s)
+        {
+            int dotIndex = s.LastIndexOf(".");
+            if (s != null && !DBNull.Value.Equals(s))
+            {
+                if (s == "0" || s == "0.00")
+                {
+                    return "0";
+                }
+                if (s.Length > (dotIndex + 3) && dotIndex != -1)
+                {
+                    s = s.Substring(0, dotIndex + 2);
+
+                }
+                return string.Format("{0:##,###}", Convert.ToDecimal(s));
+
+            }
+            else
+            {
+                return "0";
+            }
+        }
+        public static String ConVertToMoneyFormat(String s)
+        {
+            int dotIndex = s.LastIndexOf(".");
+            if (s != null && !DBNull.Value.Equals(s))
+            {
+                if (s == "0" || s == "0.00")
+                {
+                    return "0";
+                }
+                if (s.Length > (dotIndex + 3) && dotIndex != -1)
+                {
+                    s = s.Substring(0, dotIndex + 2);
+
+                }
+                return string.Format("{0:##,###.00}", Convert.ToDecimal(s));
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+      
+        public static string toSplitURLgach(String title)
+        {
+            title = removeHtmlTangs(title);
+
+            title = UnicodeToKoDau(title);
+            Regex regex = new Regex("[^a-zA-Z0-9 -]");
+            title = regex.Replace(title, String.Empty);
+            if (title.Length > 50)
+            {
+                title = title.Substring(0, 50);
+
+            }
+            title = title.Trim();
+            title = title.Replace("'", String.Empty).Replace("|", String.Empty).Replace(" ", "-").Replace("!", "").Replace(" ", "-").Replace(@"\", String.Empty).Replace(@"/", String.Empty).Replace(@"?", "").Replace(@"<", "").Replace(@">", "").Replace(@"(", "").Replace(@")", "").Replace(@"--", "-").Replace(@":", String.Empty);
+            return System.Web.HttpUtility.UrlEncode(title).Replace(@"%0", "").Replace(@"%1", "").Replace(@"%2c", ",").Replace(@"%3a", String.Empty);
+        }
+
+        /// <summary>
+        /// Chuyển dạng số dang dạng chứ đọc tiếng vie
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        public static string ToStringVN(Decimal number)
+        {
+            string s = number.ToString("#");
+            string[] so = new string[] { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" };
+            string[] hang = new string[] { "", "nghìn", "triệu", "tỷ" };
+            int i, j, donvi, chuc, tram;
+            string str = " ";
+            bool booAm = false;
+            double decS = 0;
+            //Tung addnew
+            try
+            {
+                decS = Convert.ToDouble(s.ToString());
+            }
+            catch
+            {
+            }
+            if (decS < 0)
+            {
+                decS = -decS;
+                s = decS.ToString();
+                booAm = true;
+            }
+            i = s.Length;
+            if (i == 0)
+                str = so[0] + str;
+            else
+            {
+                j = 0;
+                while (i > 0)
+                {
+                    donvi = Convert.ToInt32(s.Substring(i - 1, 1));
+                    i--;
+                    if (i > 0)
+                        chuc = Convert.ToInt32(s.Substring(i - 1, 1));
+                    else
+                        chuc = -1;
+                    i--;
+                    if (i > 0)
+                        tram = Convert.ToInt32(s.Substring(i - 1, 1));
+                    else
+                        tram = -1;
+                    i--;
+                    if ((donvi > 0) || (chuc > 0) || (tram > 0) || (j == 3))
+                        str = hang[j] + str;
+                    j++;
+                    if (j > 3) j = 1;
+                    if ((donvi == 1) && (chuc > 1))
+                        str = "một " + str;
+                    else
+                    {
+                        if ((donvi == 5) && (chuc > 0))
+                            str = "lăm " + str;
+                        else if (donvi > 0)
+                            str = so[donvi] + " " + str;
+                    }
+                    if (chuc < 0)
+                        break;
+                    else
+                    {
+                        if ((chuc == 0) && (donvi > 0)) str = "lẻ " + str;
+                        if (chuc == 1) str = "mười " + str;
+                        if (chuc > 1) str = so[chuc] + " mươi " + str;
+                    }
+                    if (tram < 0) break;
+                    else
+                    {
+                        if ((tram > 0) || (chuc > 0) || (donvi > 0)) str = so[tram] + " trăm " + str;
+                    }
+                    str = " " + str;
+                }
+            }
+            if (booAm) str = "Âm " + str;
+            return UpperFirstCharacter(str) + "đồng chẵn.";
+        }
+        public static string ToStringVN(int number)
+        {
+            string s = number.ToString("#");
+            string[] so = new string[] { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" };
+            string[] hang = new string[] { "", "nghìn", "triệu", "tỷ" };
+            int i, j, donvi, chuc, tram;
+            string str = " ";
+            double decS = 0;
+            //Tung addnew
+            try
+            {
+                decS = Convert.ToDouble(s.ToString());
+            }
+            catch
+            {
+            }
+            if (decS < 0)
+            {
+                decS = -decS;
+                s = decS.ToString();
+            }
+            i = s.Length;
+            if (i == 0)
+                str = so[0] + str;
+            else
+            {
+                j = 0;
+                while (i > 0)
+                {
+                    donvi = Convert.ToInt32(s.Substring(i - 1, 1));
+                    i--;
+                    if (i > 0)
+                        chuc = Convert.ToInt32(s.Substring(i - 1, 1));
+                    else
+                        chuc = -1;
+                    i--;
+                    if (i > 0)
+                        tram = Convert.ToInt32(s.Substring(i - 1, 1));
+                    else
+                        tram = -1;
+                    i--;
+                    if ((donvi > 0) || (chuc > 0) || (tram > 0) || (j == 3))
+                        str = hang[j] + str;
+                    j++;
+                    if (j > 3) j = 1;
+                    if ((donvi == 1) && (chuc > 1))
+                        str = "một " + str;
+                    else
+                    {
+                        if ((donvi == 5) && (chuc > 0))
+                            str = "lăm " + str;
+                        else if (donvi > 0)
+                            str = so[donvi] + " " + str;
+                    }
+                    if (chuc < 0)
+                        break;
+                    else
+                    {
+                        if ((chuc == 0) && (donvi > 0)) str = "lẻ " + str;
+                        if (chuc == 1) str = "mười " + str;
+                        if (chuc > 1) str = so[chuc] + " mươi " + str;
+                    }
+                    if (tram < 0) break;
+                    else
+                    {
+                        if ((tram > 0) || (chuc > 0) || (donvi > 0)) str = so[tram] + " trăm " + str;
+                    }
+                    str = " " + str;
+                }
+            }
+            return UpperFirstCharacter(str);
+        }
+
+        static string UpperFirstCharacter(string s)
+        {
+            // Check for empty string.
+            if (string.IsNullOrEmpty(s))
+            {
+                return string.Empty;
+            }
+            // Return char and concat substring.
+            return char.ToUpper(s[0]) + s.Substring(1);
+        }
+    }
+}
