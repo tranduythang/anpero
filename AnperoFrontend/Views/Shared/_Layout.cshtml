@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kute shop - themelot.net Option 6</title>
     <title>@ViewBag.Title - My ASP.NET Application</title>    
+
     @Styles.Render("~/Content/css")
     <link rel="stylesheet" type="text/css" href="/assets/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css" />    
     <link rel="stylesheet" type="text/css" href="/assets/css/option6.css" />
+   
 </head>
 <body class="option6">
     <div id="header" class="header">
         <div class="top-header">
-            <div class="container">              
+            <div class="container">
                 <div class="support-link">
                     <a href="#">Thông tin cửa hàng</a>
                     <a href="#">Hỗ trợ</a>
@@ -26,7 +28,7 @@
         <div class="container main-header">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-3 logo">
-                    <a href="index.html"><img alt="Kute shop - themelot.net" src="assets/data/option6/logo.png" /></a>
+                    <a href="index.html"><img alt="Kute shop - themelot.net" src="/assets/data/option6/logo.png" /></a>
                 </div>
                 <div class="col-xs-7 col-sm-8 col-md-7 header-search-box">
                     <form class="form-inline">
@@ -53,7 +55,8 @@
                 </div>
                 <div class="col-xs-5 col-sm-3 col-md-2 group-button-header">
                     <a title="Compare" href="#" class="btn-compare">compare</a>
-                    <a title="My wishlist" href="#" class="btn-heart">wishlist</a>
+                    
+                    <a title="Chia sẻ trên google+" href="https://plus.google.com/share?url=@HttpContext.Current.Request.Url.AbsoluteUri" class="btn-heart">wishlist</a>
                     <div class="btn-cart" id="cart-block">
                         <a title="My cart" href="cart.html">Cart</a>
                         <span class="notify notify-right">2</span>
@@ -132,8 +135,8 @@
                                                         <li><a href="#">Intimates</a></li>
                                                     </ul>
                                                 </div>
-                                            
-                                               
+
+
                                             </div>
                                         </div>
                                     </li>
@@ -404,8 +407,13 @@
     @Scripts.Render("~/bundles/bootstrap")
 
     <script type="text/javascript" src="/assets/lib/jquery/jquery-1.11.2.min.js"></script>
-
-
+    <script src="https://apis.google.com/js/platform.js" async defer> </script>
+    <script>      
+      function renderWidget() {
+        gapi.plusone.render("widget-div" );
+      }
+    </script>
+    <div id="widget-div"></div>
     @RenderSection("scripts", required: false)
 </body>
 </html>

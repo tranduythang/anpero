@@ -19,7 +19,7 @@
 
 -------------------------------------------------------------------*/
 .option6 span.notify-right{
-	background: url('../images/notify-right-6.png') no-repeat;
+	background: url('/assets/images/notify-right-6.png') no-repeat;
 }
 .option6 #main-menu .navbar .navbar-nav>li>a span.notify-right{
 	top: -20px;
@@ -64,7 +64,7 @@
 .count-down-time2 .icon-clock{
   width: 23px;
   height: 26px;
-  background: url("../images/icon-clock.png") no-repeat center center;
+  background: url("/assets/images/icon-clock.png") no-repeat center center;
   display: inline-block;
   margin-top: 5px;
 }
@@ -219,13 +219,13 @@
 	line-height: inherit;
 }
 .option6 .group-button-header .btn-cart{
-	background: url("../images/icon-cart-round6.png") no-repeat center center;
+	background: url("/assets/images/icon-cart-round6.png") no-repeat center center;
 }
 .option6 .group-button-header .btn-heart{
-	  background: url("../images/icon-heart-round6.png") no-repeat center center;
+	  background: url("/assets/images/icon-heart-round6.png") no-repeat center center;
 }
 .option6 .group-button-header .btn-compare{
-	background: url("../images/icon-compare-round6.png") no-repeat center center;
+	background: url("/assets/images/icon-compare-round6.png") no-repeat center center;
 }
 
 .option6 .nav-top-menu.nav-ontop{
@@ -535,7 +535,7 @@
 	right: 5px;
 	color: #fff;
 	font-weight: normal;
-	background: url("../images/icon-angle-right.png") no-repeat right center;
+	background: url("/assets/images/icon-angle-right.png") no-repeat right center;
 	top: 50%;
 	-ms-transform: translateY(-50%);
 	-webkit-transform: translateY(-50%);
@@ -665,10 +665,10 @@
   font-size: 48px;
 }
 .option6 .product-featured .owl-next{
-	background: url("../images/next.png") no-repeat center center;
+	background: url("/assets/images/next.png") no-repeat center center;
 }
 .option6 .product-featured .owl-prev{
-	background: url("../images/prev.png") no-repeat center center;
+	background: url("/assets/images/prev.png") no-repeat center center;
 }
 .option6 .product-featured .owl-prev .fa, 
 .option6 .product-featured .owl-next .fa{
@@ -677,11 +677,11 @@
 	display: none;
 }
 .option6 .product-featured .owl-prev:hover{
-	background: url("../images/prev.png") no-repeat center center;
+	background: url("/assets/images/prev.png") no-repeat center center;
 }
 
 .option6 .product-featured .owl-next:hover{
-	background: url("../images/next.png") no-repeat center center;
+	background: url("/assets/images/next.png") no-repeat center center;
 }
 
 .option6 .product-featured .deal-product{
@@ -737,7 +737,7 @@
 	text-decoration: line-through;
 }
 .option6 .product-featured .deal-product .price .sale-price{
-	background: url("../images/sale-bg.png") no-repeat;
+	background: url("/assets/images/sale-bg.png") no-repeat;
 	color: #fff;
 	padding: 0 7px;
 }
@@ -822,7 +822,7 @@
 	opacity: 1;
 }
 .option6 .product-list li .add-to-cart a {
-	  background: url("../images/icon-cart-option2.png") no-repeat left center;
+	  background: url("/assets/images/icon-cart-option2.png") no-repeat left center;
 }
 .option6 .product-list li .quick-view a.compare:before{
 	  content: "\f066";
@@ -919,7 +919,7 @@
 /** electronic **/
 
 .option6 .category-featured.electronic .product-featured{
-	background: #fff url('../images/cat-br1.png') no-repeat left bottom;
+	background: #fff url('/assets/images/cat-br1.png') no-repeat left bottom;
 }
 .option6 .category-featured.electronic .sub-category-list a:hover{
 	color: #0090c9;
@@ -962,7 +962,7 @@
 }
 /** digital **/
 .option6 .category-featured.digital .product-featured{
-	background: #fff url('../images/cat-br2.png') no-repeat left bottom;
+	background: #fff url('/assets/images/cat-br2.png') no-repeat left bottom;
 }
 .option6 .category-featured.digital .sub-category-list a:hover{
 	color: #3f5eca;
@@ -1004,7 +1004,7 @@
 }
 /** furniture **/
 .option6 .category-featured.furniture .product-featured{
-	background: #fff url('../images/cat-br3.png') no-repeat left bottom;
+	background: #fff url('/assets/images/cat-br3.png') no-repeat left bottom;
 }
 .option6 .category-featured.furniture .sub-category-list a:hover{
 	color: #669900;
