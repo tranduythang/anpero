@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kute shop - themelot.net Option 6</title>
-    <title>@ViewBag.Title - My ASP.NET Application</title>    
+    <title>@ViewBag.Title - My ASP.NET Application</title>
 
     @Styles.Render("~/Content/css")
     <link rel="stylesheet" type="text/css" href="/assets/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css" />    
+    <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/option6.css" />
-   
+
 </head>
 <body class="option6">
     <div id="header" class="header">
@@ -27,84 +27,81 @@
         <!-- MAIN HEADER -->
         <div class="container main-header">
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-3 logo">
-                    <a href="index.html"><img alt="Kute shop - themelot.net" src="/assets/data/option6/logo.png" /></a>
-                </div>
-                <div class="col-xs-7 col-sm-8 col-md-7 header-search-box">
-                    <form class="form-inline">
-                        <div class="form-group form-category">
-                            <select class="select-category">
-                                <option value="2">All Categories</option>
-                                <option value="1">Men</option>
-                                <option value="2">Women</option>
-                            </select>
-                        </div>
-                        <div class="form-group input-serach">
-                            <input type="text" placeholder="Keyword here...">
-                        </div>
-                        <button type="submit" class="pull-right btn-search"></button>
-                    </form>
-                    <div class="keyword">
-                        <p class="lebal">Keywords:</p>
-                        <p>
-                            <a href="#">T-shirt, </a>
-                            <a href="#">Leggings, </a>
-                            <a href="#">Cotton, ...</a>
-                        </p>
+                @if (ViewData["commonInfo"] != null)
+                {
+                  AnperoFrontend.AnperoService.Webconfig   commonInfo = (AnperoFrontend.AnperoService.Webconfig)ViewData["commonInfo"];
+                    <div class="col-xs-12 col-sm-12 col-md-3 logo">
+                        <a href="/"><img alt="@commonInfo.Desc" src="@commonInfo.Logo" /></a>
                     </div>
-                </div>
-                <div class="col-xs-5 col-sm-3 col-md-2 group-button-header">
-                    <a title="Compare" href="#" class="btn-compare">compare</a>
-                    
-                    <a title="Chia sẻ trên google+" href="https://plus.google.com/share?url=@HttpContext.Current.Request.Url.AbsoluteUri" class="btn-heart">wishlist</a>
-                    <div class="btn-cart" id="cart-block">
-                        <a title="My cart" href="cart.html">Cart</a>
-                        <span class="notify notify-right">2</span>
-                        <div class="cart-block">
-                            <div class="cart-block-content">
-                                <h5 class="cart-title">2 Items in my cart</h5>
-                                <div class="cart-block-list">
-                                    <ul>
-                                        <li class="product-info">
-                                            <div class="p-left">
-                                                <a href="#" class="remove_link"></a>
-                                                <a href="#">
-                                                    <img class="img-responsive" src="assets/data/product-100x122.jpg" alt="p10">
-                                                </a>
-                                            </div>
-                                            <div class="p-right">
-                                                <p class="p-name">Donec Ac Tempus</p>
-                                                <p class="p-rice">61,19 €</p>
-                                                <p>Qty: 1</p>
-                                            </div>
-                                        </li>
-                                        <li class="product-info">
-                                            <div class="p-left">
-                                                <a href="#" class="remove_link"></a>
-                                                <a href="#">
-                                                    <img class="img-responsive" src="assets/data/product-s5-100x122.jpg" alt="p10">
-                                                </a>
-                                            </div>
-                                            <div class="p-right">
-                                                <p class="p-name">Donec Ac Tempus</p>
-                                                <p class="p-rice">61,19 €</p>
-                                                <p>Qty: 1</p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="toal-cart">
-                                    <span>Total</span>
-                                    <span class="toal-price pull-right">122.38 €</span>
-                                </div>
-                                <div class="cart-buttons">
-                                    <a href="order.html" class="btn-check-out">Checkout</a>
+                    <div class="col-xs-7 col-sm-8 col-md-7 header-search-box">
+                        <form class="form-inline">
+                            <div class="form-group form-category">
+                                <select class="select-category">
+                                    <option value="2">All Categories</option>
+                                    <option value="1">Men</option>
+                                    <option value="2">Women</option>
+                                </select>
+                            </div>
+                            <div class="form-group input-serach">
+                                <input type="text" placeholder="Tìm kiếm mọi thứ...">
+                            </div>
+                            <button type="submit" class="pull-right btn-search"></button>
+                        </form>                      
+                    </div>
+                    <div class="col-xs-5 col-sm-3 col-md-2 group-button-header">
+                        <a title="Compare" href="#" class="btn-compare">compare</a>
+
+                        <a  target="_blank" title="Chia sẻ trên google+" href="https://plus.google.com/share?url=@HttpContext.Current.Request.Url.AbsoluteUri" class="btn-heart">wishlist</a>
+                        <div class="btn-cart" id="cart-block">
+                            <a title="My cart" href="cart.html">Cart</a>
+                            <span class="notify notify-right">2</span>
+                            <div class="cart-block">
+                                <div class="cart-block-content">
+                                    <h5 class="cart-title">2 Items in my cart</h5>
+                                    <div class="cart-block-list">
+                                        <ul>
+                                            <li class="product-info">
+                                                <div class="p-left">
+                                                    <a href="#" class="remove_link"></a>
+                                                    <a href="#">
+                                                        <img class="img-responsive" src="assets/data/product-100x122.jpg" alt="p10">
+                                                    </a>
+                                                </div>
+                                                <div class="p-right">
+                                                    <p class="p-name">Donec Ac Tempus</p>
+                                                    <p class="p-rice">61,19 €</p>
+                                                    <p>Qty: 1</p>
+                                                </div>
+                                            </li>
+                                            <li class="product-info">
+                                                <div class="p-left">
+                                                    <a href="#" class="remove_link"></a>
+                                                    <a href="#">
+                                                        <img class="img-responsive" src="assets/data/product-s5-100x122.jpg" alt="p10">
+                                                    </a>
+                                                </div>
+                                                <div class="p-right">
+                                                    <p class="p-name">Donec Ac Tempus</p>
+                                                    <p class="p-rice">61,19 €</p>
+                                                    <p>Qty: 1</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="toal-cart">
+                                        <span>Total</span>
+                                        <span class="toal-price pull-right">122.38 €</span>
+                                    </div>
+                                    <div class="cart-buttons">
+                                        <a href="order.html" class="btn-check-out">Checkout</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                </div>
+                    </div>
+                }
+
             </div>
 
         </div>
@@ -113,59 +110,59 @@
             <div class="container">
                 <div class="row">
                     @*<div class="col-sm-3" id="box-vertical-megamenus">
-                        <div class="box-vertical-megamenus">
-                            <h4 class="title">
-                                <span class="btn-open-mobile"><i class="fa fa-bars"></i></span>
-                            </h4>
-                            <div class="vertical-menu-content is-home">
-                                <ul class="vertical-menu-list">
-                                    <li><a href="#">Electronics</a></li>
-                                    <li>
-                                        <a class="parent" href="#">Sports &amp; Outdoors</a>
-                                        <div class="vertical-dropdown-menu">
-                                            <div class="vertical-groups col-sm-12">
-                                                <div class="mega-group col-sm-4">
-                                                    <h4 class="mega-group-header"><span>Tennis</span></h4>
-                                                    <ul class="group-link-default">
-                                                        <li><a href="#">Tennis</a></li>
-                                                        <li><a href="#">Coats &amp; Jackets</a></li>
-                                                        <li><a href="#">Blouses &amp; Shirts</a></li>
-                                                        <li><a href="#">Tops &amp; Tees</a></li>
-                                                        <li><a href="#">Hoodies &amp; Sweatshirts</a></li>
-                                                        <li><a href="#">Intimates</a></li>
-                                                    </ul>
+                            <div class="box-vertical-megamenus">
+                                <h4 class="title">
+                                    <span class="btn-open-mobile"><i class="fa fa-bars"></i></span>
+                                </h4>
+                                <div class="vertical-menu-content is-home">
+                                    <ul class="vertical-menu-list">
+                                        <li><a href="#">Electronics</a></li>
+                                        <li>
+                                            <a class="parent" href="#">Sports &amp; Outdoors</a>
+                                            <div class="vertical-dropdown-menu">
+                                                <div class="vertical-groups col-sm-12">
+                                                    <div class="mega-group col-sm-4">
+                                                        <h4 class="mega-group-header"><span>Tennis</span></h4>
+                                                        <ul class="group-link-default">
+                                                            <li><a href="#">Tennis</a></li>
+                                                            <li><a href="#">Coats &amp; Jackets</a></li>
+                                                            <li><a href="#">Blouses &amp; Shirts</a></li>
+                                                            <li><a href="#">Tops &amp; Tees</a></li>
+                                                            <li><a href="#">Hoodies &amp; Sweatshirts</a></li>
+                                                            <li><a href="#">Intimates</a></li>
+                                                        </ul>
+                                                    </div>
+
+
                                                 </div>
-
-
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li><a href="#">Electronics</a></li>
-                                    <li>
-                                        <a class="parent" href="#">Sports &amp; Outdoors</a>
-                                        <div class="vertical-dropdown-menu">
-                                            <div class="vertical-groups col-sm-12">
-                                                <div class="mega-group col-sm-4">
-                                                    <h4 class="mega-group-header"><span>Tennis</span></h4>
-                                                    <ul class="group-link-default">
-                                                        <li><a href="#">Tennis</a></li>
-                                                        <li><a href="#">Coats &amp; Jackets</a></li>
-                                                        <li><a href="#">Blouses &amp; Shirts</a></li>
-                                                        <li><a href="#">Tops &amp; Tees</a></li>
-                                                        <li><a href="#">Hoodies &amp; Sweatshirts</a></li>
-                                                        <li><a href="#">Intimates</a></li>
-                                                    </ul>
+                                        </li>
+                                        <li><a href="#">Electronics</a></li>
+                                        <li>
+                                            <a class="parent" href="#">Sports &amp; Outdoors</a>
+                                            <div class="vertical-dropdown-menu">
+                                                <div class="vertical-groups col-sm-12">
+                                                    <div class="mega-group col-sm-4">
+                                                        <h4 class="mega-group-header"><span>Tennis</span></h4>
+                                                        <ul class="group-link-default">
+                                                            <li><a href="#">Tennis</a></li>
+                                                            <li><a href="#">Coats &amp; Jackets</a></li>
+                                                            <li><a href="#">Blouses &amp; Shirts</a></li>
+                                                            <li><a href="#">Tops &amp; Tees</a></li>
+                                                            <li><a href="#">Hoodies &amp; Sweatshirts</a></li>
+                                                            <li><a href="#">Intimates</a></li>
+                                                        </ul>
+                                                    </div>
+
+
                                                 </div>
-
-
                                             </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="all-category"><span class="open-cate">Xem tất cả</span></div>
+                                        </li>
+                                    </ul>
+                                    <div class="all-category"><span class="open-cate">Xem tất cả</span></div>
+                                </div>
                             </div>
-                        </div>
-                    </div>*@
+                        </div>*@
                     <div id="main-menu" class="col-sm-9 main-menu">
                         <nav class="navbar navbar-default">
                             <div class="container-fluid">
@@ -408,10 +405,10 @@
 
     <script type="text/javascript" src="/assets/lib/jquery/jquery-1.11.2.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer> </script>
-    <script>      
-      function renderWidget() {
-        gapi.plusone.render("widget-div" );
-      }
+    <script>
+        function renderWidget() {
+            gapi.plusone.render("widget-div");
+        }
     </script>
     <div id="widget-div"></div>
     @RenderSection("scripts", required: false)

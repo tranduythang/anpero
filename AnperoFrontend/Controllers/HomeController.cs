@@ -8,6 +8,7 @@ namespace AnperoFrontend.Controllers
 {
     public class HomeController : Controller
     {
+        [BuildCommonHtml]
         public ActionResult Index()
         {
             return View();
