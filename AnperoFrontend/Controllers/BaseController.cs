@@ -18,8 +18,10 @@ namespace AnperoFrontend.Controllers
         {
             
             AnperoService.AnperoService service = new AnperoService.AnperoService();
-            filterContext.Controller.ViewData["commonInfo"] = service.GetCommonConfig(CommonConfig.StoreID, CommonConfig.TokenKey);
-           
+            var rs= service.GetCommonConfig(CommonConfig.StoreID, CommonConfig.TokenKey);
+            filterContext.Controller.ViewData["commonInfo"] = rs;
+
+
         }
     }
     public partial class CommonConfig
