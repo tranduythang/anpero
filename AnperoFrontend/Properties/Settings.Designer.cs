@@ -26,7 +26,7 @@ namespace AnperoFrontend.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://anpero.azurewebsites.net/AnperoService.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://wsv.anpero.com/AnperoService.asmx")]
         public string AnperoFrontend_AnperoService_AnperoService {
             get {
                 return ((string)(this["AnperoFrontend_AnperoService_AnperoService"]));

@@ -6,11 +6,14 @@ using System.Web.Mvc;
 
 namespace AnperoFrontend.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         [BuildCommonHtml]
         public ActionResult Index()
         {
+            WebService.AnperoService service = new WebService.AnperoService();
+             var searchResult=  service.SearchProduct(StoreID, TokenKey, "", "", "", 1, 999999999, 1, 4, "", SearchOrder.TimeDesc, 2);
+            ViewData["sellingProduct"] = (Anpero.SearchResult)searchResult;
             return View();
         }
 

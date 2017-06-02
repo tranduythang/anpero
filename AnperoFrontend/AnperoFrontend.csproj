@@ -179,7 +179,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="Web References\AnperoService\Reference.cs">
+    <Compile Include="Web References\WebService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -1045,7 +1045,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Web References\AnperoService\AnperoService.disco" />
+    <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1080,11 +1080,14 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <None Include="Web References\AnperoService\Reference.map">
+    <None Include="Web References\WebService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Web References\AnperoService\Webconfig.datasource">
+    <Content Include="Web References\WebService\SearchResult1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebService\Webconfig1.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
   </ItemGroup>
@@ -1097,7 +1100,7 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\Shoes Store.pubxml" />
-    <None Include="Web References\AnperoService\AnperoService.wsdl" />
+    <None Include="Web References\WebService\AnperoService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -1106,10 +1109,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://anpero.azurewebsites.net/AnperoService.asmx">
+    <WebReferenceUrl Include="http://wsv.anpero.com/AnperoService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\AnperoService\</RelPath>
-      <UpdateFromURL>http://anpero.azurewebsites.net/AnperoService.asmx</UpdateFromURL>
+      <RelPath>Web References\WebService\</RelPath>
+      <UpdateFromURL>http://wsv.anpero.com/AnperoService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

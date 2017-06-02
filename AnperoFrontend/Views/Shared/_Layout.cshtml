@@ -25,20 +25,20 @@
                 <div class="container">
                     @if (!string.IsNullOrEmpty(commonInfo.HotLine))
                     {
-                        <div class="currency"><a href="tel:@commonInfo.HotLine">Click để gọi: @commonInfo.HotLine</a></div>
+                    <div class="currency"><a href="tel:@commonInfo.HotLine">Click để gọi: @commonInfo.HotLine</a></div>
                     }
                     @if (!string.IsNullOrEmpty(commonInfo.Skype) || !string.IsNullOrEmpty(commonInfo.FaceBookLink))
                     {
-                        <div class="top-bar-social">
-                            @if (!string.IsNullOrEmpty(commonInfo.Skype))
+                    <div class="top-bar-social">
+                        @if (!string.IsNullOrEmpty(commonInfo.Skype))
                             {
-                                <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
+                            <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
                             }
-                            @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                        @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
                             {
-                                <a href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" target="_blank"><i class="fa fa-facebook"></i></a>
                             }
-                        </div>
+                    </div>
                     }
                     <div class="support-link">
                         <a href="#">Thông tin cửa hàng</a>
@@ -52,9 +52,29 @@
                         <a href="/"><img alt="@commonInfo.Desc" src="@commonInfo.Logo" /></a>
                     </div>
                     <div class="col-xs-7 col-sm-8 col-md-7 header-search-box">
-                        <form class="form-inline" action="/search" name="search" id="search">                           
+                        <form class="form-inline" action="/search" name="search" id="search" method="get">
+                            <div class="form-group form-category" name="category">
+                                <select class="select-category">
+                                    <option value="0">Danh mục sản phẩm</option>
+                                    @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                                    {
+                                        for (int i = 0; i < commonInfo.ProductCategoryList.Length; i++)
+                                        {
+                                            if (commonInfo.ProductCategoryList[i].ChildCategory != null && commonInfo.ProductCategoryList[i].ChildCategory.Length > 0)
+                                            {
+                                                for (int j = 0; j < commonInfo.ProductCategoryList[i].ChildCategory.Length; j++)
+                                                {
+                                                    <option value="@commonInfo.ProductCategoryList[i].ChildCategory[j].Id">@commonInfo.ProductCategoryList[i].ChildCategory[j].Name</option>
+                                                }
+
+                                            }
+                                        }
+                                    }
+                                </select>
+                            </div>
+
                             <div class="form-group input-serach">
-                                <input type="text" placeholder="Tìm kiếm mọi thứ...">
+                                <input type="text" placeholder="Tìm kiếm mọi thứ..." name="keyword">
                             </div>
                             <button type="submit" class="pull-right btn-search" id="btnSearch"></button>
                         </form>
