@@ -20,7 +20,7 @@
         <!-- MAIN HEADER -->
         @if (ViewData["commonInfo"] != null)
         {
-            AnperoFrontend.AnperoService.Webconfig commonInfo = (AnperoFrontend.AnperoService.Webconfig)ViewData["commonInfo"];
+            AnperoFrontend.WebService.Webconfig commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
             <div class="top-header">
                 <div class="container">
                     @if (!string.IsNullOrEmpty(commonInfo.HotLine))

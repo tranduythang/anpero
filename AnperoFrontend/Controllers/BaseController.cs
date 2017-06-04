@@ -44,7 +44,7 @@ namespace AnperoFrontend.Controllers
 
         public static string PriceDesc = "pricedesc";
         public static string PricedAsc = "pricedasc";
-        public static string TimeDesc = "idDesc";
+        public static string TimeDesc = "timeDesc";
         public static string NameDesc = "nameDesc";
         public static string NameAsc = "nameAsc";
     }

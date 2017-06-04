@@ -12,7 +12,8 @@ namespace AnperoFrontend.Controllers
         public ActionResult Index()
         {
             WebService.AnperoService service = new WebService.AnperoService();
-             var searchResult=  service.SearchProduct(StoreID, TokenKey, "", "", "", 1, 999999999, 1, 4, "", SearchOrder.TimeDesc, 2);
+            
+            var searchResult=  service.SearchProduct(StoreID, TokenKey, "", "", "", 1, 999999999, 1, 4, "", SearchOrder.TimeDesc, 0);
             ViewData["sellingProduct"] = searchResult;
             return View();
         }
