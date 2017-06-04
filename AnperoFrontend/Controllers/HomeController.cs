@@ -12,9 +12,19 @@ namespace AnperoFrontend.Controllers
         public ActionResult Index()
         {
             WebService.AnperoService service = new WebService.AnperoService();
-            
-            var searchResult=  service.SearchProduct(StoreID, TokenKey, "", "", "", 1, 999999999, 1, 4, "", SearchOrder.TimeDesc, 0);
-            ViewData["sellingProduct"] = searchResult;
+            WebService.SearchResult searchResult = new WebService.SearchResult();
+            int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
+            if (HttpRuntime.Cache["newestProduct" ] != null)
+            {
+                  searchResult = (WebService.SearchResult)HttpRuntime.Cache["newestProduct"];
+            }
+            else
+            {
+                searchResult = service.SearchProduct(StoreID, TokenKey, "", "", "", 1, 999999999, 1, 4, "", SearchOrder.TimeDesc, 0);
+                HttpRuntime.Cache.Insert("newestProduct", searchResult, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+            }
+        
+            ViewData["newestProduct"] = searchResult;
             return View();
         }
 

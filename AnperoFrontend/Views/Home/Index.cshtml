@@ -1,7 +1,6 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 
-
 }
 <div class="container">
     <div class="service ">
@@ -59,9 +58,9 @@
                     <div class="tab-container">
                         <div id="tab-1" class="tab-panel active">
                             <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}'>
-                                @if (ViewData["sellingProduct"] != null)
+                                @if (ViewData["newestProduct"] != null)
                                 {
-                                    AnperoFrontend.WebService.SearchResult productSearchResult = (AnperoFrontend.WebService.SearchResult)ViewData["sellingProduct"];
+                                    AnperoFrontend.WebService.SearchResult productSearchResult = (AnperoFrontend.WebService.SearchResult)ViewData["newestProduct"];
                                     if (productSearchResult.Item != null && productSearchResult.Item.Length > 0)
                                     {
                                         foreach (var item in productSearchResult.Item)
@@ -98,7 +97,6 @@
                                                         {
                                                             <span class="price product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Vprice.ToString()) đ</span>
                                                         }
-
                                                     </div>
                                                    
                                                 </div>
