@@ -13,7 +13,7 @@ namespace AnperoFrontend.Controllers
         {
             WebService.AnperoService service = new WebService.AnperoService();
              var searchResult=  service.SearchProduct(StoreID, TokenKey, "", "", "", 1, 999999999, 1, 4, "", SearchOrder.TimeDesc, 2);
-            ViewData["sellingProduct"] = (Anpero.SearchResult)searchResult;
+            ViewData["sellingProduct"] = searchResult;
             return View();
         }
 
