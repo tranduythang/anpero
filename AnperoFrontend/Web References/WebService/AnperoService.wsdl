@@ -110,8 +110,25 @@
           <s:element minOccurs="1" maxOccurs="1" name="Warranty" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="IsSale" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rank" type="s:int" />
         </s:sequence>
       </s:complexType>
+      <s:element name="GetProductDetai">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductDetaiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductDetaiResult" type="tns:ProductItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetCommonConfigSoapIn">
@@ -126,6 +143,12 @@
   <wsdl:message name="SearchProductSoapOut">
     <wsdl:part name="parameters" element="tns:SearchProductResponse" />
   </wsdl:message>
+  <wsdl:message name="GetProductDetaiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductDetai" />
+  </wsdl:message>
+  <wsdl:message name="GetProductDetaiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductDetaiResponse" />
+  </wsdl:message>
   <wsdl:portType name="AnperoServiceSoap">
     <wsdl:operation name="GetCommonConfig">
       <wsdl:input message="tns:GetCommonConfigSoapIn" />
@@ -134,6 +157,10 @@
     <wsdl:operation name="SearchProduct">
       <wsdl:input message="tns:SearchProductSoapIn" />
       <wsdl:output message="tns:SearchProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDetai">
+      <wsdl:input message="tns:GetProductDetaiSoapIn" />
+      <wsdl:output message="tns:GetProductDetaiSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="AnperoServiceSoap" type="tns:AnperoServiceSoap">
@@ -156,6 +183,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetProductDetai">
+      <soap:operation soapAction="http://tempuri.org/GetProductDetai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="AnperoServiceSoap12" type="tns:AnperoServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -170,6 +206,15 @@
     </wsdl:operation>
     <wsdl:operation name="SearchProduct">
       <soap12:operation soapAction="http://tempuri.org/SearchProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDetai">
+      <soap12:operation soapAction="http://tempuri.org/GetProductDetai" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

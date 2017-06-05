@@ -16,7 +16,7 @@ namespace Anpero
             //conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             //conn.Open();
         }
-  
+
         public static string MultiTextReplace(string input, string mapping)
         {
             if (!string.IsNullOrEmpty(mapping))
@@ -38,7 +38,7 @@ namespace Anpero
             }
             return input;
         }
-        public static Boolean isInternetUrl(String url)
+        public static Boolean isUrl(String url)
         {
             string pattern = @"http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?";
 
@@ -152,20 +152,6 @@ namespace Anpero
             return Regex.Replace(s, "<script.*?</script>", "", RegexOptions.Singleline | RegexOptions.IgnoreCase);
 
         }
-        public static String checkHackSql(String s)
-        {
-            s = s.ToLower();
-            s = RemoveScript(s);
-            s = s.Replace("--", "_");
-            s = s.Replace("'", "");
-            s = Regex.Replace("drop", "/kg", "drops", RegexOptions.IgnoreCase);
-            s = Regex.Replace("@", "/kg", "(at)", RegexOptions.IgnoreCase);
-            // s = Regex.Replace("update", "/kg", "updates", RegexOptions.IgnoreCase);
-            //s = Regex.Replace("insert", "/kg", "inserts", RegexOptions.IgnoreCase);
-
-
-            return s;
-        }
         public static String removeHtmlTangs(String s)
         {
             if (!string.IsNullOrEmpty(s))
@@ -230,21 +216,21 @@ namespace Anpero
             }
             return retVal;
         }
-        public static string toURLgach(String title)
+        public static string toURLgach(String inputtring)
         {
-            title = UnicodeToKoDau(title).ToLower();
+            inputtring = UnicodeToKoDau(inputtring).ToLower();
             Regex regex = new Regex("[^a-zA-Z0-9 -]");
-            title = regex.Replace(title, String.Empty);
+            inputtring = regex.Replace(inputtring, String.Empty);
 
 
-            if (title.Length > 35)
+            if (inputtring.Length > 35)
             {
-                title = title.Substring(0, 35);
+                inputtring = inputtring.Substring(0, 35);
 
             }
-            title = title.Trim().ToLower();
-            title = title.Replace(" ", "-").Replace(@"--", "-");
-            return title.Replace(@"--", "-").Replace(@"–", "");
+            inputtring = inputtring.Trim().ToLower();
+            inputtring = inputtring.Replace(" ", "-").Replace(@"--", "-");
+            return inputtring.Replace(@"--", "-").Replace(@"–", "");
         }
         public static string toURLgachTag(String title)
         {
@@ -318,7 +304,7 @@ namespace Anpero
                 return null;
             }
         }
-      
+
         public static string toSplitURLgach(String title)
         {
             title = removeHtmlTangs(title);
@@ -333,9 +319,8 @@ namespace Anpero
             }
             title = title.Trim();
             title = title.Replace("'", String.Empty).Replace("|", String.Empty).Replace(" ", "-").Replace("!", "").Replace(" ", "-").Replace(@"\", String.Empty).Replace(@"/", String.Empty).Replace(@"?", "").Replace(@"<", "").Replace(@">", "").Replace(@"(", "").Replace(@")", "").Replace(@"--", "-").Replace(@":", String.Empty);
-            return System.Web.HttpUtility.UrlEncode(title).Replace(@"%0", "").Replace(@"%1", "").Replace(@"%2c", ",").Replace(@"%3a", String.Empty);
+            return System.Web.HttpUtility.UrlEncode(title).Replace(@"%0", "").Replace(@"%1", "").Replace(@"%2c", ",").Replace(@"%3a", String.Empty).ToLower();
         }
-
         /// <summary>
         /// Chuyển dạng số dang dạng chứ đọc tiếng vie
         /// </summary>
@@ -488,8 +473,7 @@ namespace Anpero
             }
             return UpperFirstCharacter(str);
         }
-
-        static string UpperFirstCharacter(string s)
+        public static string UpperFirstCharacter(string s)
         {
             // Check for empty string.
             if (string.IsNullOrEmpty(s))
@@ -498,6 +482,29 @@ namespace Anpero
             }
             // Return char and concat substring.
             return char.ToUpper(s[0]) + s.Substring(1);
+        }
+        public static string GetProductLink(string productName, int productId)
+        {
+            if (!string.IsNullOrEmpty(productName) && productId > 0)
+            {
+                return "/" + toURLgach(productName) + "-p" + productId;
+            }
+            else
+            {
+                return "/";
+            }
+        }
+        public static string GetProductLink(string parentCatName, string productName, int productId)
+        {
+            if (!string.IsNullOrEmpty(parentCatName) && !string.IsNullOrEmpty(productName) && productId > 0)
+            {
+                return "/" + toURLgach(parentCatName) + "/" + toURLgach(productName) + "-p" + productId;
+            }
+            else
+            {
+                return "/";
+            }
+
         }
     }
 }
