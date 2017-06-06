@@ -98,7 +98,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="OriginID" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="CatName" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="ParentId" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Vprice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="SalePrice" type="s:decimal" />
           <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:decimal" />
           <s:element minOccurs="0" maxOccurs="1" name="UpdateTime" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="OriginName" type="s:string" />
@@ -111,6 +111,10 @@
           <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="IsSale" type="s:boolean" />
           <s:element minOccurs="1" maxOccurs="1" name="Rank" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShortDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SaleEndTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Script" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KeyWord" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="GetProductDetai">

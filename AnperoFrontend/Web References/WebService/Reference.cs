@@ -428,7 +428,7 @@ namespace AnperoFrontend.WebService {
         
         private int parentIdField;
         
-        private decimal vpriceField;
+        private decimal salePriceField;
         
         private decimal priceField;
         
@@ -453,6 +453,14 @@ namespace AnperoFrontend.WebService {
         private bool isSaleField;
         
         private int rankField;
+        
+        private string shortDescField;
+        
+        private string saleEndTimeField;
+        
+        private string scriptField;
+        
+        private string keyWordField;
         
         /// <remarks/>
         public int OriginID {
@@ -485,12 +493,12 @@ namespace AnperoFrontend.WebService {
         }
         
         /// <remarks/>
-        public decimal Vprice {
+        public decimal SalePrice {
             get {
-                return this.vpriceField;
+                return this.salePriceField;
             }
             set {
-                this.vpriceField = value;
+                this.salePriceField = value;
             }
         }
         
@@ -611,6 +619,46 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.rankField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ShortDesc {
+            get {
+                return this.shortDescField;
+            }
+            set {
+                this.shortDescField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SaleEndTime {
+            get {
+                return this.saleEndTimeField;
+            }
+            set {
+                this.saleEndTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Script {
+            get {
+                return this.scriptField;
+            }
+            set {
+                this.scriptField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string KeyWord {
+            get {
+                return this.keyWordField;
+            }
+            set {
+                this.keyWordField = value;
             }
         }
     }

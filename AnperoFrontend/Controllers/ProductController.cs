@@ -12,9 +12,12 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult Index(int id)
         {
+          
             WebService.AnperoService sv = new WebService.AnperoService();
             WebService.ProductItem item= sv.GetProductDetai(StoreID,TokenKey,id);
             ViewData["prDetail"] = item;
+            ViewBag.Title = item.PrName;
+            
             return View();
         }
     }
