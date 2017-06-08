@@ -506,5 +506,29 @@ namespace Anpero
             }
 
         }
+        public static string GetCategoryLink(string categoryName, int CategoryId)
+        {
+            if (!string.IsNullOrEmpty(categoryName) && !string.IsNullOrEmpty(categoryName) && CategoryId > 0)
+            {
+                return "/" + toURLgach(categoryName) + "-cat" + CategoryId;
+            }
+            else
+            {
+                return "/";
+            }
+
+        }
+        public static string GetParentCategoryLink(string parentCategoryName, int parentCategoryId)
+        {
+            if (!string.IsNullOrEmpty(parentCategoryName) && !string.IsNullOrEmpty(parentCategoryName) && parentCategoryId > 0)
+            {
+                return "/" + toURLgach(parentCategoryName) + "-c" + parentCategoryId;
+            }
+            else
+            {
+                return "/";
+            }
+
+        }
     }
 }

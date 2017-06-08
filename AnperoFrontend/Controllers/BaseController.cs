@@ -11,7 +11,7 @@ namespace AnperoFrontend.Controllers
 
         public static int StoreID = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["storeID"]);
         public static string TokenKey = System.Configuration.ConfigurationManager.AppSettings["storeTokenKey"];
-
+        public static int shortCacheTime= Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
     }
     public class BuildCommonHtml : ActionFilterAttribute
     {

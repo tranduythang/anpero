@@ -33,6 +33,8 @@ namespace AnperoFrontend.WebService {
         
         private System.Threading.SendOrPostCallback SearchProductOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetSaleProductOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetProductDetaiOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
@@ -80,6 +82,9 @@ namespace AnperoFrontend.WebService {
         public event SearchProductCompletedEventHandler SearchProductCompleted;
         
         /// <remarks/>
+        public event GetSaleProductCompletedEventHandler GetSaleProductCompleted;
+        
+        /// <remarks/>
         public event GetProductDetaiCompletedEventHandler GetProductDetaiCompleted;
         
         /// <remarks/>
@@ -115,12 +120,12 @@ namespace AnperoFrontend.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SearchProduct", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public SearchResult SearchProduct(int storeId, string tokenKey, string catId, string parentCatId, string originId, int priceFrom, int priceTo, int curentPage, int pageSite, string keyWord, string order, int minPrioty) {
+        public SearchResult SearchProduct(int storeId, string tokenKey, string CategoryId, string parentCategoryId, string originId, int priceFrom, int priceTo, int curentPage, int pageSite, string keyWord, string order, int minPrioty) {
             object[] results = this.Invoke("SearchProduct", new object[] {
                         storeId,
                         tokenKey,
-                        catId,
-                        parentCatId,
+                        CategoryId,
+                        parentCategoryId,
                         originId,
                         priceFrom,
                         priceTo,
@@ -133,20 +138,20 @@ namespace AnperoFrontend.WebService {
         }
         
         /// <remarks/>
-        public void SearchProductAsync(int storeId, string tokenKey, string catId, string parentCatId, string originId, int priceFrom, int priceTo, int curentPage, int pageSite, string keyWord, string order, int minPrioty) {
-            this.SearchProductAsync(storeId, tokenKey, catId, parentCatId, originId, priceFrom, priceTo, curentPage, pageSite, keyWord, order, minPrioty, null);
+        public void SearchProductAsync(int storeId, string tokenKey, string CategoryId, string parentCategoryId, string originId, int priceFrom, int priceTo, int curentPage, int pageSite, string keyWord, string order, int minPrioty) {
+            this.SearchProductAsync(storeId, tokenKey, CategoryId, parentCategoryId, originId, priceFrom, priceTo, curentPage, pageSite, keyWord, order, minPrioty, null);
         }
         
         /// <remarks/>
-        public void SearchProductAsync(int storeId, string tokenKey, string catId, string parentCatId, string originId, int priceFrom, int priceTo, int curentPage, int pageSite, string keyWord, string order, int minPrioty, object userState) {
+        public void SearchProductAsync(int storeId, string tokenKey, string CategoryId, string parentCategoryId, string originId, int priceFrom, int priceTo, int curentPage, int pageSite, string keyWord, string order, int minPrioty, object userState) {
             if ((this.SearchProductOperationCompleted == null)) {
                 this.SearchProductOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSearchProductOperationCompleted);
             }
             this.InvokeAsync("SearchProduct", new object[] {
                         storeId,
                         tokenKey,
-                        catId,
-                        parentCatId,
+                        CategoryId,
+                        parentCategoryId,
                         originId,
                         priceFrom,
                         priceTo,
@@ -161,6 +166,37 @@ namespace AnperoFrontend.WebService {
             if ((this.SearchProductCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.SearchProductCompleted(this, new SearchProductCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetSaleProduct", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ProductItem[] GetSaleProduct(int storeId, string tokenKey) {
+            object[] results = this.Invoke("GetSaleProduct", new object[] {
+                        storeId,
+                        tokenKey});
+            return ((ProductItem[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetSaleProductAsync(int storeId, string tokenKey) {
+            this.GetSaleProductAsync(storeId, tokenKey, null);
+        }
+        
+        /// <remarks/>
+        public void GetSaleProductAsync(int storeId, string tokenKey, object userState) {
+            if ((this.GetSaleProductOperationCompleted == null)) {
+                this.GetSaleProductOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetSaleProductOperationCompleted);
+            }
+            this.InvokeAsync("GetSaleProduct", new object[] {
+                        storeId,
+                        tokenKey}, this.GetSaleProductOperationCompleted, userState);
+        }
+        
+        private void OnGetSaleProductOperationCompleted(object arg) {
+            if ((this.GetSaleProductCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetSaleProductCompleted(this, new GetSaleProductCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -462,6 +498,8 @@ namespace AnperoFrontend.WebService {
         
         private string keyWordField;
         
+        private bool isInstockField;
+        
         /// <remarks/>
         public int OriginID {
             get {
@@ -661,6 +699,16 @@ namespace AnperoFrontend.WebService {
                 this.keyWordField = value;
             }
         }
+        
+        /// <remarks/>
+        public bool IsInstock {
+            get {
+                return this.isInstockField;
+            }
+            set {
+                this.isInstockField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -789,6 +837,32 @@ namespace AnperoFrontend.WebService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((SearchResult)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void GetSaleProductCompletedEventHandler(object sender, GetSaleProductCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetSaleProductCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetSaleProductCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public ProductItem[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((ProductItem[])(this.results[0]));
             }
         }
     }
