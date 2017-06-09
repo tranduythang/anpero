@@ -62,8 +62,8 @@
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
             <s:element minOccurs="0" maxOccurs="1" name="tokenKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="catId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="parentCatId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CategoryId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parentCategoryId" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="originId" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="priceFrom" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="priceTo" type="s:int" />
@@ -98,7 +98,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="OriginID" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="CatName" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="ParentId" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Vprice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="SalePrice" type="s:decimal" />
           <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:decimal" />
           <s:element minOccurs="0" maxOccurs="1" name="UpdateTime" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="OriginName" type="s:string" />
@@ -111,8 +111,28 @@
           <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="IsSale" type="s:boolean" />
           <s:element minOccurs="1" maxOccurs="1" name="Rank" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShortDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SaleEndTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Script" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KeyWord" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsInstock" type="s:boolean" />
         </s:sequence>
       </s:complexType>
+      <s:element name="GetSaleProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSaleProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSaleProductResult" type="tns:ArrayOfProductItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetProductDetai">
         <s:complexType>
           <s:sequence>
@@ -143,6 +163,12 @@
   <wsdl:message name="SearchProductSoapOut">
     <wsdl:part name="parameters" element="tns:SearchProductResponse" />
   </wsdl:message>
+  <wsdl:message name="GetSaleProductSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSaleProduct" />
+  </wsdl:message>
+  <wsdl:message name="GetSaleProductSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSaleProductResponse" />
+  </wsdl:message>
   <wsdl:message name="GetProductDetaiSoapIn">
     <wsdl:part name="parameters" element="tns:GetProductDetai" />
   </wsdl:message>
@@ -157,6 +183,10 @@
     <wsdl:operation name="SearchProduct">
       <wsdl:input message="tns:SearchProductSoapIn" />
       <wsdl:output message="tns:SearchProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleProduct">
+      <wsdl:input message="tns:GetSaleProductSoapIn" />
+      <wsdl:output message="tns:GetSaleProductSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetProductDetai">
       <wsdl:input message="tns:GetProductDetaiSoapIn" />
@@ -176,6 +206,15 @@
     </wsdl:operation>
     <wsdl:operation name="SearchProduct">
       <soap:operation soapAction="http://tempuri.org/SearchProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleProduct">
+      <soap:operation soapAction="http://tempuri.org/GetSaleProduct" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -206,6 +245,15 @@
     </wsdl:operation>
     <wsdl:operation name="SearchProduct">
       <soap12:operation soapAction="http://tempuri.org/SearchProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleProduct">
+      <soap12:operation soapAction="http://tempuri.org/GetSaleProduct" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

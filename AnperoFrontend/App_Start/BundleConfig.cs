@@ -29,14 +29,10 @@ namespace AnperoFrontend
               "~/assets/lib/select2/css/select2.min.css",
               "~/assets/lib/owl.carousel/owl.carousel.css",
               "~/assets/lib/jquery-ui/jquery-ui.css",
-              "~/assets/css/animate.css"
+              "~/assets/css/animate.css",
+              "~/assets/css/reset.css"
            ));
-
-
-
-
-
-
+            BundleTable.EnableOptimizations = true;
         }
     }
 }

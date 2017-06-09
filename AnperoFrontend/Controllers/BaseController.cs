@@ -11,7 +11,35 @@ namespace AnperoFrontend.Controllers
 
         public static int StoreID = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["storeID"]);
         public static string TokenKey = System.Configuration.ConfigurationManager.AppSettings["storeTokenKey"];
+        public static int shortCacheTime= Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
+        public void SetupCommonProduct()
+        {
+            WebService.ProductItem[] saleProduct;
+            WebService.SearchResult BestsaleProduct;
+            WebService.AnperoService sv = new WebService.AnperoService();
+            if (HttpRuntime.Cache["saleProduct"] != null)
+            {
+                saleProduct = (WebService.ProductItem[])HttpRuntime.Cache["saleProduct"];
+            }
+            else
+            {
+                saleProduct = sv.GetSaleProduct(StoreID, TokenKey);
+                HttpRuntime.Cache.Insert("saleProduct", saleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+            }
+            ViewData["saleProduct"] = saleProduct;
 
+
+            if (HttpRuntime.Cache["BestsaleProduct"] != null)
+            {
+                BestsaleProduct = (WebService.SearchResult)HttpRuntime.Cache["BestsaleProduct"];
+            }
+            else
+            {
+                BestsaleProduct = sv.SearchProduct(StoreID, TokenKey, "", "", "", 0, 99999999, 1, 5, "", SearchOrder.TimeDesc, 1);
+                HttpRuntime.Cache.Insert("BestsaleProduct", BestsaleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+            }
+            ViewData["BestsaleProduct"] = BestsaleProduct;
+        }
     }
     public class BuildCommonHtml : ActionFilterAttribute
     {
