@@ -1862,7 +1862,8 @@ span.notify-right{
 }
 
 .popular-tabs .product-list li .left-block{
-    
+    min-height:317px;
+    overflow:hidden;
 }
 .popular-tabs .product-list li{
       border: 1px solid #eaeaea;
