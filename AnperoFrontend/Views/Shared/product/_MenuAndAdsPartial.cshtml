@@ -85,7 +85,9 @@
                                     </div>
                                     <div class="right-block">
                                         <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(saleProduct[0].PrName, saleProduct[0].Id)">@saleProduct[0].PrName</a></h5>
-
+                                        <div class="show-count-down">
+                                            <span class="countdown-lastest" data-y="2017" data-m="7" data-d="1" data-h="00" data-i="00" data-s="00"></span>
+                                        </div>
                                         <div class="content_price">
                                             <span class="price product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(saleProduct[0].SalePrice.ToString()) đ</span>
                                             <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(saleProduct[0].Price.ToString()) đ</span>
@@ -131,6 +133,9 @@
                                         <p class="product-name">
                                             <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[i].PrName,bestSaleList.Item[i].Id)">@bestSaleList.Item[i].PrName</a>
                                         </p>
+                                        <div class="show-count-down">
+                                            <span class="countdown-lastest" data-y="2017" data-m="7" data-d="1" data-h="00" data-i="00" data-s="00"></span>
+                                        </div>
                                         @if (bestSaleList.Item[i].IsSale)
                                         {
                                             
@@ -166,6 +171,7 @@
                                         <p class="product-name">
                                             <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[i].PrName,bestSaleList.Item[i].Id)">@bestSaleList.Item[i].PrName</a>
                                         </p>
+                                       
                                         <p class="product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(bestSaleList.Item[i].Price.ToString())</p>
                                         <p class="product-star">
                                             <i class="fa fa-star"></i>

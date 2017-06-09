@@ -4534,18 +4534,19 @@ span.notify-right{
 .today-deals .deals-product-list .product-info{
   margin-top: 10px;
 }
-.today-deals .deals-product-list .product-info .show-count-down{
+.show-count-down{
   text-align: center;
+  margin-bottom:5px;
 }
-.today-deals .deals-product-list .product-info .show-count-down .box-count{
+.show-count-down .box-count{
   display: inline-block;
   margin-right: 2px;
   color: #ff3366;
 }
-.today-deals .deals-product-list .product-info .show-count-down .dot{
+.show-count-down .dot{
   display: none;
 }
-.today-deals .deals-product-list .product-info .show-count-down .box-count .number{
+.show-count-down .box-count .number{
   
   width: 100%;
   float: left;
@@ -4553,7 +4554,7 @@ span.notify-right{
   padding: 5px 0;
   font-size: 16px;
 }
-.today-deals .deals-product-list .product-info .show-count-down .box-count .text{
+.show-count-down .box-count .text{
   background: #eaeaea;
   font-size: 12px;
   margin-top: 1px;

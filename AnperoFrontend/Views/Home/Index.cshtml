@@ -57,7 +57,7 @@
                             </ul>
                             <div class="tab-container">
                                 <div id="tab-1" class="tab-panel active">
-                                    <ul class="row product-list grid" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}'>
+                                    <ul class="row product-list grid">
                                         @if (ViewData["newestProduct"] != null)
                                         {
                                             AnperoFrontend.WebService.SearchResult productSearchResult = (AnperoFrontend.WebService.SearchResult)ViewData["newestProduct"];
@@ -65,7 +65,7 @@
                                             {
                                                 foreach (var item in productSearchResult.Item)
                                                 {
-                                                    <li class="col-sx-12 col-sm-3">
+                                                    <li class="col-sx-12 col-sm-4">
                                                         <div class="left-block">
                                                             <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
                                                                 <img class="img-responsive" alt="@item.PrName" src="@item.Images" />
