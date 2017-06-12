@@ -278,6 +278,10 @@ namespace AnperoFrontend.WebService {
         
         private ProductCategory[] productCategoryListField;
         
+        private string emailField;
+        
+        private string addressField;
+        
         /// <remarks/>
         public Menu[] MenuList {
             get {
@@ -365,6 +369,26 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.productCategoryListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Email {
+            get {
+                return this.emailField;
+            }
+            set {
+                this.emailField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Address {
+            get {
+                return this.addressField;
+            }
+            set {
+                this.addressField = value;
             }
         }
     }
@@ -499,6 +523,8 @@ namespace AnperoFrontend.WebService {
         private string keyWordField;
         
         private bool isInstockField;
+        
+        private string[] imagesSlideField;
         
         /// <remarks/>
         public int OriginID {
@@ -707,6 +733,16 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.isInstockField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string[] ImagesSlide {
+            get {
+                return this.imagesSlideField;
+            }
+            set {
+                this.imagesSlideField = value;
             }
         }
     }

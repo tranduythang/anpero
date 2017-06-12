@@ -28,6 +28,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="Logo" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Desc" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="ProductCategoryList" type="tns:ArrayOfProductCategory" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfMenu">
@@ -116,6 +118,12 @@
           <s:element minOccurs="0" maxOccurs="1" name="Script" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="KeyWord" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="IsInstock" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImagesSlide" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="GetSaleProduct">
