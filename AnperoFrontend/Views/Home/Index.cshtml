@@ -1,6 +1,48 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<div id="home-slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8" style="padding-right: 0px;">
+                <div class="homeslider">
+                    <ul id="contenhomeslider-customPage">
+                        <li><a href="#"><img alt="Funky roots" src="assets/data/option6/slide1.jpg" title="Funky roots" /></a></li>
+                        <li><img alt="Funky roots" src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
+                        <li><img alt="Funky roots" src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
+                    </ul>
+                    <div class="bx-control">
+                        <div class="slide-prev">
+                            <span id="bx-prev"></span>
+                        </div>
+                        <div id="bx-pager" class="slide-pager">
+                            <a data-slide-index="0" href="">1</a>
+                            <a data-slide-index="1" href="">2</a>
+                            <a data-slide-index="2" href="">3</a>
+                        </div>
+                        <div class="slide-next">
+                            <span id="bx-next"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 group-banner-slider" style="padding-left: 2px; padding-right: 14px;">
+
+                <div class="banner-opacity sm-banner">
+                    <a href="#"><img src="assets/data/option6/banner13.jpg" alt="Banner"></a>
+                </div>
+                <div class="banner-opacity sm-banner">
+                    <a href="#"><img src="http://media.anpero.com/images/62017/boracute/12017060514121483.jpg" alt="Banner"></a>
+                </div>
+                <div class="banner-opacity sm-banner">
+                    <a href="#"><img src="http://media.anpero.com/images/62017/boracute/12017060514121483.jpg" alt="Banner"></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="service ">
         <div class="col-xs-6 col-sm-3 service-item">
@@ -69,7 +111,7 @@
                                                         <div class="left-block">
                                                             <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
                                                                 <img class="img-responsive" alt="@item.PrName" src="@item.Images" />
-                                                                @if (item.Rank > 1)
+                                                                @if (item.Rank >= 1)
                                                                 {
                                                                     <div class="featured-text"><span>Bán chạy</span></div>
                                                                 }
@@ -84,7 +126,7 @@
                                                                 <span class="product-new">Mới</span>
                                                                 @if (item.IsSale)
                                                                 {
-                                                                    <span class="product-sale">Giá tốt</span>
+                                                                    <span class="product-sale">@Anpero.StringHelpper.ConVertToMoneyFormatInt((item.SalePrice-item.Price).ToString())</span>
                                                                 }
                                                             </div>
                                                         </div>

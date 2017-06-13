@@ -52,13 +52,15 @@
                                     <div class="product-container">
                                         <div class="left-block">
                                             <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">
-                                                <img class="img-responsive" alt="product" src="@saleProduct[0].Images" />
+                                                <img class="img-responsive" alt="product" src="@item.Images" />
                                             </a>
                                             <div class="price-percent-reduction2">giảm @Anpero.StringHelpper.ConVertToMoneyFormatInt((item.Price - item.SalePrice).ToString())</div>
                                         </div>
                                         <div class="right-block">
                                             <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">@item.PrName</a></h5>
-
+                                            <div class="show-count-down">
+                                                <span class="countdown-lastest" data-y="@item.SaleEndTime.Substring(0,4)" data-m="@item.SaleEndTime.Substring(4,2)" data-d="@item.SaleEndTime.Substring(6,2)" data-h="0" data-i="00" data-s="10"></span>
+                                            </div>
                                             <div class="content_price">
                                                 <span class="price product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice.ToString()) đ</span>
                                                 <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString()) đ</span>
@@ -86,7 +88,7 @@
                                     <div class="right-block">
                                         <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(saleProduct[0].PrName, saleProduct[0].Id)">@saleProduct[0].PrName</a></h5>
                                         <div class="show-count-down">
-                                            <span class="countdown-lastest" data-y="2017" data-m="7" data-d="1" data-h="00" data-i="00" data-s="00"></span>
+                                            <span class="countdown-lastest" data-y="@saleProduct[0].SaleEndTime.Substring(0,4)" data-m="@saleProduct[0].SaleEndTime.Substring(4,2)" data-d="@saleProduct[0].SaleEndTime.Substring(6,2)" data-h="0" data-i="00" data-s="10"></span>
                                         </div>
                                         <div class="content_price">
                                             <span class="price product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(saleProduct[0].SalePrice.ToString()) đ</span>
