@@ -524,6 +524,8 @@ namespace AnperoFrontend.WebService {
         
         private bool isInstockField;
         
+        private string[] imagesSlideField;
+        
         /// <remarks/>
         public int OriginID {
             get {
@@ -731,6 +733,16 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.isInstockField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string[] ImagesSlide {
+            get {
+                return this.imagesSlideField;
+            }
+            set {
+                this.imagesSlideField = value;
             }
         }
     }

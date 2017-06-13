@@ -32,38 +32,20 @@
                                         <img id="product-zoom" src='@item.Images' data-zoom-image="@item.Images" />
                                     </div>
                                     <div class="product-img-thumb" id="gallery_01">
-                                        <ul class="owl-carousel" data-items="3" data-nav="true" data-dots="false" data-margin="20" data-loop="true">
+                                        @if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
+                                        {
+                                            <ul class="owl-carousel" data-items="3" data-nav="true" data-dots="false" data-margin="20" data-loop="true">
+                                           @foreach (var images in item.ImagesSlide)
+                                           {
                                             <li>
-                                                <a href="#" data-image="assets/data/product-s3-420x512.jpg" data-zoom-image="assets/data/product-s3-850x1036.jpg">
-                                                    <img id="product-zoom" src="assets/data/product-s3-100x122.jpg" />
+                                                <a href="#" data-image="@images" data-zoom-image="@images">
+                                                    <img id="product-zoom" src="@images" />
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="#" data-image="assets/data/product-s2-420x512.jpg" data-zoom-image="assets/data/product-s2-850x1036.jpg">
-                                                    <img id="product-zoom" src="assets/data/product-s2-100x122.jpg" />
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" data-image="assets/data/product-420x512.jpg" data-zoom-image="assets/data/product-850x1036.jpg">
-                                                    <img id="product-zoom" src="assets/data/product-100x122.jpg" />
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" data-image="assets/data/product-s4-420x512.jpg" data-zoom-image="assets/data/product-s4-850x1036.jpg">
-                                                    <img id="product-zoom" src="assets/data/product-s4-100x122.jpg" />
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" data-image="assets/data/product-s5-420x512.jpg" data-zoom-image="assets/data/product-s5-850x1036.jpg">
-                                                    <img id="product-zoom" src="assets/data/product-s5-100x122.jpg" />
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" data-image="assets/data/product-s6-420x512.jpg" data-zoom-image="assets/data/product-s6-850x1036.jpg">
-                                                    <img id="product-zoom" src="assets/data/product-s6-100x122.jpg" />
-                                                </a>
-                                            </li>
-                                        </ul>
+                                           }    
+                                            </ul>
+                                        }
+
                                     </div>
                                 </div>
                                 <!-- product-imge-->
