@@ -35,14 +35,14 @@
                                         @if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
                                         {
                                             <ul class="owl-carousel" data-items="3" data-nav="true" data-dots="false" data-margin="20" data-loop="true">
-                                           @foreach (var images in item.ImagesSlide)
-                                           {
-                                            <li>
-                                                <a href="#" data-image="@images" data-zoom-image="@images">
-                                                    <img id="product-zoom" src="@images" />
-                                                </a>
-                                            </li>
-                                           }    
+                                                @foreach (var images in item.ImagesSlide)
+                                                {
+                                                    <li>
+                                                        <a href="#" data-image="@images" data-zoom-image="@images">
+                                                            <img id="product-zoom" src="@images" />
+                                                        </a>
+                                                    </li>
+                                                }
                                             </ul>
                                         }
 
@@ -131,8 +131,6 @@
                                 <li class="active">
                                     <a aria-expanded="false" data-toggle="tab" href="#product-detail">Thông tin sản phẩm</a>
                                 </li>
-
-
                             </ul>
                             <div class="tab-container">
                                 <div id="product-detail" class="tab-panel active">
@@ -161,7 +159,6 @@
                                                             {
                                                                 <div class="price-percent-reduction2">giảm @Anpero.StringHelpper.ConVertToMoneyFormatInt((item.Price - item.SalePrice).ToString())</div>
                                                             }
-
                                                         </a>
                                                         <div class="quick-view">
                                                             <a title="Add to my wishlist" class="heart" href="#"></a>
@@ -224,7 +221,6 @@
         <script type="text/javascript" src="/assets/lib/fancyBox/jquery.fancybox.js"></script>
         <script type="text/javascript" src="/assets/lib/countdown/jquery.plugin.js"></script>
         <script type="text/javascript" src="/assets/lib/countdown/jquery.countdown.js"></script>
-
         @item.Script
         <script>
             /** COUNT DOWN **/

@@ -282,6 +282,14 @@ namespace Anpero
                 return "0";
             }
         }
+        public static String ConVertToMoneyFormatInt(int input)
+        {
+            return ConVertToMoneyFormatInt(input.ToString());
+        }
+        public static String ConVertToMoneyFormatInt(decimal input)
+        {
+            return ConVertToMoneyFormatInt(input.ToString());
+        }
         public static String ConVertToMoneyFormat(String s)
         {
             int dotIndex = s.LastIndexOf(".");

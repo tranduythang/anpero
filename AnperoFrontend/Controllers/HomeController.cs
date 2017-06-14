@@ -23,7 +23,8 @@ namespace AnperoFrontend.Controllers
                 searchResult = service.SearchProduct(StoreID, TokenKey, "", "", "", 1, 999999999, 1, 4, "", SearchOrder.TimeDesc, 0);
                 HttpRuntime.Cache.Insert("newestProduct", searchResult, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
             }
-        
+            ViewData["slide"] =service.GetAdsSlide(StoreID, TokenKey, PageContent.Slide);
+            ViewData["AdsSlide"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads1);
             ViewData["newestProduct"] = searchResult;
             return View();
         }
