@@ -1863,10 +1863,10 @@ span.notify-right{
 
 .popular-tabs .product-list li .left-block{
     min-height:317px;
+    max-height:350px;
     overflow:hidden;
 }
-.popular-tabs .product-list li{
-      border: 1px solid #eaeaea;
+.popular-tabs .product-list li{      
       padding-bottom: 10px;
       overflow: hidden;
 }
@@ -3378,6 +3378,7 @@ span.notify-right{
   border: 1px solid #eaeaea;
   overflow: hidden;
   padding-bottom: 10px;
+  min-height:460px;
 }
 .product-list .info-orther{
   display: none;
@@ -5211,7 +5212,7 @@ span.notify-right{
   opacity: 0.8;
 }
 .sm-banner{
-    height: 158px;
+    height: 135px;
     margin-bottom: 2px;
     overflow: hidden;
 }
