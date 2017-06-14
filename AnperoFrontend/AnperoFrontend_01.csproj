@@ -1007,6 +1007,9 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Shared\product\_MenuAndAdsPartial.cshtml" />
     <Content Include="Views\Product\Category.cshtml" />
+    <Content Include="Web References\WebService\Ads.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

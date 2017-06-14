@@ -15,33 +15,33 @@
 
 </head>
 <body class="option6">
-@if (ViewData["commonInfo"] != null)
-{
-    AnperoFrontend.WebService.Webconfig commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
-    <div id="header" class="header">
+    @if (ViewData["commonInfo"] != null)
+    {
+        AnperoFrontend.WebService.Webconfig commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+        <div id="header" class="header">
 
-        <!--/.top-header -->
-        <!-- MAIN HEADER -->
-       
-            
+            <!--/.top-header -->
+            <!-- MAIN HEADER -->
+
+
             <div class="top-header">
                 <div class="container">
                     @if (!string.IsNullOrEmpty(commonInfo.HotLine))
                     {
-                    <div class="currency"><a href="tel:@commonInfo.HotLine">Click để gọi: @commonInfo.HotLine</a></div>
+                        <div class="currency"><a href="tel:@commonInfo.HotLine">Click để gọi: @commonInfo.HotLine</a></div>
                     }
                     @if (!string.IsNullOrEmpty(commonInfo.Skype) || !string.IsNullOrEmpty(commonInfo.FaceBookLink))
                     {
-                    <div class="top-bar-social">
-                        @if (!string.IsNullOrEmpty(commonInfo.Skype))
+                        <div class="top-bar-social">
+                            @if (!string.IsNullOrEmpty(commonInfo.Skype))
                             {
-                        <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
+                                <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
                             }
-                        @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                            @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
                             {
-                        <a href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" target="_blank"><i class="fa fa-facebook"></i></a>
                             }
-                    </div>
+                        </div>
                     }
                     <div class="support-link">
                         <a href="#">Thông tin cửa hàng</a>
@@ -67,7 +67,7 @@
                                             {
                                                 for (int j = 0; j < commonInfo.ProductCategoryList[i].ChildCategory.Length; j++)
                                                 {
-                                    <option value="@commonInfo.ProductCategoryList[i].ChildCategory[j].Id">@commonInfo.ProductCategoryList[i].ChildCategory[j].Name</option>
+                                                    <option value="@commonInfo.ProductCategoryList[i].ChildCategory[j].Id">@commonInfo.ProductCategoryList[i].ChildCategory[j].Name</option>
                                                 }
 
                                             }
@@ -137,7 +137,7 @@
                 </div>
 
             </div>
-        <!-- END MANIN HEADER -->
+            <!-- END MANIN HEADER -->
             <div id="nav-top-menu" class="nav-top-menu">
                 <div class="container">
                     <div class="row">
@@ -159,25 +159,27 @@
                                                 {
                                                     if (commonInfo.MenuList[i].ChidMenu != null && commonInfo.MenuList[i].ChidMenu.Length > 0)
                                                     {
-                                            <li class="dropdown">
-                                                <a href="category.html" data-toggle="dropdown">@commonInfo.MenuList[i].Tittle</a>
-                                                <ul class="dropdown-menu container-fluid">
-                                                    <li class="block-container">
-                                                        <ul class="block">
-                                                            @for (int j = 0; j < commonInfo.MenuList[i].ChidMenu.Length; j++)
+
+                                                        <li class="dropdown">
+                                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(commonInfo.MenuList[i].Tittle,commonInfo.MenuList[i].Id)" data-toggle="dropdown">@commonInfo.MenuList[i].Tittle</a>
+                                                            <ul class="dropdown-menu container-fluid">
+                                                                <li class="block-container">
+                                                                    <ul class="block">
+                                                                        @for (int j = 0; j < commonInfo.MenuList[i].ChidMenu.Length; j++)
+
                                                                         {
-                                                                        <li class="link_container"><a href="@commonInfo.MenuList[i].ChidMenu[j].Link">@commonInfo.MenuList[i].ChidMenu[j].Tittle</a></li>
+                                                                            <li class="link_container"><a href="@commonInfo.MenuList[i].ChidMenu[j].Link">@commonInfo.MenuList[i].ChidMenu[j].Tittle</a></li>
                                                                         }
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
                                                     }
                                                     else
                                                     {
-                                            <li>
-                                                <a href="@commonInfo.MenuList[i].Link">@commonInfo.MenuList[i].Tittle</a>
-                                            </li>
+                                                        <li>
+                                                            <a href="@commonInfo.MenuList[i].Link">@commonInfo.MenuList[i].Tittle</a>
+                                                        </li>
                                                     }
 
 
@@ -206,79 +208,79 @@
                     </div>
                 </div>
             </div>
-      
-    </div>
 
-    @RenderBody()
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)   
-    <footer id="footer">
-        <div class="container">
-            @Html.Raw(commonInfo.Footer)
-            <div id="introduce-box" class="row">
-                <div class="col-md-6">
-                    <div id="address-box">
-                        <a href="/"><img src="@commonInfo.Logo" alt="logo"></a>
-                        <div id="address-list">
-                            <div class="tit-name">Địa chỉ:</div>
-                            <div class="tit-contain">@commonInfo.Address</div>
-                            <div class="tit-name">Phone:</div>
-                            <div class="tit-contain">@commonInfo.HotLine</div>
-                            <div class="tit-name">Email:</div>
-                            <div class="tit-contain">@commonInfo.Email</div>
+        </div>
+
+        @RenderBody()
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+        <footer id="footer">
+            <div class="container">
+                @Html.Raw(commonInfo.Footer)
+                <div id="introduce-box" class="row">
+                    <div class="col-md-6">
+                        <div id="address-box">
+                            <a href="/"><img src="@commonInfo.Logo" alt="logo"></a>
+                            <div id="address-list">
+                                <div class="tit-name">Địa chỉ:</div>
+                                <div class="tit-contain">@commonInfo.Address</div>
+                                <div class="tit-name">Phone:</div>
+                                <div class="tit-contain">@commonInfo.HotLine</div>
+                                <div class="tit-name">Email:</div>
+                                <div class="tit-contain">@commonInfo.Email</div>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="col-md-6">
+                        <div id="contact-box">
+                            @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                            {
+                                <div class="fb-page"
+                                     data-href="@commonInfo.FaceBookLink"
+                                     data-width="380"
+                                     data-hide-cover="false"
+                                     data-show-facepile="false"
+                                     data-show-posts="false"></div>
+                            }
+
+                        </div>
+
+                    </div>
                 </div>
-             
-                <div class="col-md-6">
-                    <div id="contact-box">
-                        @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                        {
-                            <div class="fb-page"
-                                 data-href="@commonInfo.FaceBookLink"
-                                 data-width="380"
-                                 data-hide-cover="false"
-                                 data-show-facepile="false"
-                                 data-show-posts="false"></div>
-                        }
-                   
+
+                <div id="footer-menu-box">
+                    <div class="col-sm-12">
+                        <ul class="footer-menu-list">
+                            <li><a href="/home/about">Giới thiệu về chúng tôi</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-12">
+                        <ul class="footer-menu-list">
+                            <li><a href="/policy/ship">Chính sách vận chuyển</a></li>
+                            <li><a href="/policy/rollback">Chính sách đổi trả</a></li>
+                            <li><a href="/policy/shipping">Chính sách bảo hành</a></li>
+                            <li><a href="/policy/payment">Hướng dẫn thanh toán</a></li>
+
+                            <li><a href="/home/contact">Liên hệ</a></li>
+
+                        </ul>
                     </div>
 
+                    <p class="text-center">Copyrights © 2015 KuteShop. All Rights Reserved. Designed by <a href="http://anpero.com" title="thiết kế web bán hàng anpro">Anpero.com</a></p>
                 </div>
             </div>
-
-            <div id="footer-menu-box">
-                <div class="col-sm-12">
-                    <ul class="footer-menu-list">
-                        <li><a href="/home/about">Giới thiệu về chúng tôi</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-12">
-                    <ul class="footer-menu-list">
-                        <li><a href="/policy/ship">Chính sách vận chuyển</a></li>
-                        <li><a href="/policy/rollback">Chính sách đổi trả</a></li>
-                        <li><a href="/policy/shipping">Chính sách bảo hành</a></li>
-                        <li><a href="/policy/payment">Hướng dẫn thanh toán</a></li>
-
-                        <li><a href="/home/contact">Liên hệ</a></li>
-
-                    </ul>
-                </div>
-
-                <p class="text-center">Copyrights © 2015 KuteShop. All Rights Reserved. Designed by <a href="http://anpero.com" title="thiết kế web bán hàng anpro">Anpero.com</a></p>
-            </div>
-        </div>
-    </footer>
-    <div id="fb-root"></div>
-    <script>
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId=369348303254756";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-}
+        </footer>
+        <div id="fb-root"></div>
+        <script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId=369348303254756";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+    }
 </body>
 </html>
