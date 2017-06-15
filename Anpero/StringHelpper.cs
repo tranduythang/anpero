@@ -526,6 +526,18 @@ namespace Anpero
             }
 
         }
+        public static string GetArticleLink(string ArticleTitle, int ArticleId)
+        {
+            if (!string.IsNullOrEmpty(ArticleTitle) && !string.IsNullOrEmpty(ArticleTitle) && ArticleId > 0)
+            {
+                return "/" + toURLgach(ArticleTitle) + "-a" + ArticleId;
+            }
+            else
+            {
+                return "/";
+            }
+
+        }
         public static string GetParentCategoryLink(string parentCategoryName, int parentCategoryId)
         {
             if (!string.IsNullOrEmpty(parentCategoryName) && !string.IsNullOrEmpty(parentCategoryName) && parentCategoryId > 0)
@@ -538,5 +550,30 @@ namespace Anpero
             }
 
         }
+        public static String ConvertTimeVN(String YYYYMMddhhmmss)
+        {
+            try
+            {
+                if (YYYYMMddhhmmss.Length >= 8)
+                {
+                    String year = YYYYMMddhhmmss.Substring(0, 4);
+                    String month = YYYYMMddhhmmss.Substring(4, 2);
+                    String day = YYYYMMddhhmmss.Substring(6, 2);
+                    return day + " tháng " + month + " năm " + year;
+                }
+                else
+                {
+                    return "";
+                }
+            }
+            catch (Exception)
+            {
+
+                return "";
+            }
+
+
+        }
+        /// <summary>
     }
 }

@@ -16,7 +16,15 @@
                         <div id="view-product-list" class="view-product-list">
 
                             <h2 class="page-heading">
-                                <span class="page-heading-title">@productList.Item[0].CatName</span>
+                                @if (ViewBag.isParent != null)
+                                {
+                                    <span class="page-heading-title">@productList.Item[0].ParentCatName</span>
+                                }
+                                else
+                                {
+                                    <span class="page-heading-title">@productList.Item[0].CatName</span>
+                                }
+                                
                             </h2>
                             <ul class="display-product-option">
                                 <li class="view-as-grid selected">
@@ -33,7 +41,7 @@
                                         <div class="product-container">
                                             <div class="left-block">
                                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">
-                                                    <img class="img-responsive" alt="@item.PrName</" src="@item.Images" />
+                                                    <img class="img-responsive" alt="@item.PrName" src="@item.Images" />
                                                     @if (item.Rank > 1)
                                                     {
                                                         <div class="featured-text"><span>Bán chạy</span></div>

@@ -29,6 +29,10 @@ namespace AnperoFrontend.WebService {
     [System.Web.Services.WebServiceBindingAttribute(Name="AnperoServiceSoap", Namespace="http://tempuri.org/")]
     public partial class AnperoService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
+        private System.Threading.SendOrPostCallback SearchArticleOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetArticleByIdOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetAdsSlideOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetCommonConfigOperationCompleted;
@@ -82,6 +86,12 @@ namespace AnperoFrontend.WebService {
         }
         
         /// <remarks/>
+        public event SearchArticleCompletedEventHandler SearchArticleCompleted;
+        
+        /// <remarks/>
+        public event GetArticleByIdCompletedEventHandler GetArticleByIdCompleted;
+        
+        /// <remarks/>
         public event GetAdsSlideCompletedEventHandler GetAdsSlideCompleted;
         
         /// <remarks/>
@@ -101,6 +111,78 @@ namespace AnperoFrontend.WebService {
         
         /// <remarks/>
         public event GetProductDetaiCompletedEventHandler GetProductDetaiCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SearchArticle", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public SearchArticleResults SearchArticle(int storeId, string tokenKey, int CategoryId, int curentPage, int pageSite, int minPrioty) {
+            object[] results = this.Invoke("SearchArticle", new object[] {
+                        storeId,
+                        tokenKey,
+                        CategoryId,
+                        curentPage,
+                        pageSite,
+                        minPrioty});
+            return ((SearchArticleResults)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SearchArticleAsync(int storeId, string tokenKey, int CategoryId, int curentPage, int pageSite, int minPrioty) {
+            this.SearchArticleAsync(storeId, tokenKey, CategoryId, curentPage, pageSite, minPrioty, null);
+        }
+        
+        /// <remarks/>
+        public void SearchArticleAsync(int storeId, string tokenKey, int CategoryId, int curentPage, int pageSite, int minPrioty, object userState) {
+            if ((this.SearchArticleOperationCompleted == null)) {
+                this.SearchArticleOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSearchArticleOperationCompleted);
+            }
+            this.InvokeAsync("SearchArticle", new object[] {
+                        storeId,
+                        tokenKey,
+                        CategoryId,
+                        curentPage,
+                        pageSite,
+                        minPrioty}, this.SearchArticleOperationCompleted, userState);
+        }
+        
+        private void OnSearchArticleOperationCompleted(object arg) {
+            if ((this.SearchArticleCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SearchArticleCompleted(this, new SearchArticleCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetArticleById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public BlogItem GetArticleById(int storeId, string tokenKey, int id) {
+            object[] results = this.Invoke("GetArticleById", new object[] {
+                        storeId,
+                        tokenKey,
+                        id});
+            return ((BlogItem)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetArticleByIdAsync(int storeId, string tokenKey, int id) {
+            this.GetArticleByIdAsync(storeId, tokenKey, id, null);
+        }
+        
+        /// <remarks/>
+        public void GetArticleByIdAsync(int storeId, string tokenKey, int id, object userState) {
+            if ((this.GetArticleByIdOperationCompleted == null)) {
+                this.GetArticleByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetArticleByIdOperationCompleted);
+            }
+            this.InvokeAsync("GetArticleById", new object[] {
+                        storeId,
+                        tokenKey,
+                        id}, this.GetArticleByIdOperationCompleted, userState);
+        }
+        
+        private void OnGetArticleByIdOperationCompleted(object arg) {
+            if ((this.GetArticleByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetArticleByIdCompleted(this, new GetArticleByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAdsSlide", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -384,41 +466,158 @@ namespace AnperoFrontend.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Ads {
+    public partial class SearchArticleResults {
         
-        private string clickUrlField;
+        private BlogItem[] itemListField;
         
-        private string descriptionField;
-        
-        private string imagesUrlField;
+        private int resultsCountField;
         
         /// <remarks/>
-        public string ClickUrl {
+        public BlogItem[] ItemList {
             get {
-                return this.clickUrlField;
+                return this.itemListField;
             }
             set {
-                this.clickUrlField = value;
+                this.itemListField = value;
             }
         }
         
         /// <remarks/>
-        public string Description {
+        public int ResultsCount {
             get {
-                return this.descriptionField;
+                return this.resultsCountField;
             }
             set {
-                this.descriptionField = value;
+                this.resultsCountField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2046.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class BlogItem {
+        
+        private int idField;
+        
+        private string titleField;
+        
+        private string createDateField;
+        
+        private string shotDescField;
+        
+        private string thumbField;
+        
+        private string subCategoryField;
+        
+        private string tagField;
+        
+        private string tagKhongDauField;
+        
+        private int viewTimeField;
+        
+        private string contentField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
             }
         }
         
         /// <remarks/>
-        public string ImagesUrl {
+        public string Title {
             get {
-                return this.imagesUrlField;
+                return this.titleField;
             }
             set {
-                this.imagesUrlField = value;
+                this.titleField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CreateDate {
+            get {
+                return this.createDateField;
+            }
+            set {
+                this.createDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ShotDesc {
+            get {
+                return this.shotDescField;
+            }
+            set {
+                this.shotDescField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Thumb {
+            get {
+                return this.thumbField;
+            }
+            set {
+                this.thumbField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SubCategory {
+            get {
+                return this.subCategoryField;
+            }
+            set {
+                this.subCategoryField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Tag {
+            get {
+                return this.tagField;
+            }
+            set {
+                this.tagField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string TagKhongDau {
+            get {
+                return this.tagKhongDauField;
+            }
+            set {
+                this.tagKhongDauField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ViewTime {
+            get {
+                return this.viewTimeField;
+            }
+            set {
+                this.viewTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Content {
+            get {
+                return this.contentField;
+            }
+            set {
+                this.contentField = value;
             }
         }
     }
@@ -992,6 +1191,103 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.addressField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2046.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Ads {
+        
+        private string clickUrlField;
+        
+        private string descriptionField;
+        
+        private string imagesUrlField;
+        
+        /// <remarks/>
+        public string ClickUrl {
+            get {
+                return this.clickUrlField;
+            }
+            set {
+                this.clickUrlField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ImagesUrl {
+            get {
+                return this.imagesUrlField;
+            }
+            set {
+                this.imagesUrlField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void SearchArticleCompletedEventHandler(object sender, SearchArticleCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SearchArticleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SearchArticleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public SearchArticleResults Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((SearchArticleResults)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void GetArticleByIdCompletedEventHandler(object sender, GetArticleByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetArticleByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetArticleByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public BlogItem Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((BlogItem)(this.results[0]));
             }
         }
     }

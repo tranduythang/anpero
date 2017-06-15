@@ -59,7 +59,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -67,7 +66,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -108,7 +106,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
       <Private>True</Private>
@@ -690,6 +687,7 @@
     <Content Include="assets\data\zoom-thumb2.jpg" />
     <Content Include="assets\data\zoom-thumb3.jpg" />
     <Content Include="assets\fonts\fontello.svg" />
+    <Content Include="assets\images\384x135.jpg" />
     <Content Include="assets\images\add-cart.png" />
     <Content Include="assets\images\banchay.png" />
     <Content Include="assets\images\bar.png" />
@@ -892,47 +890,8 @@
     <Content Include="assets\lib\owl.carousel\owl.carousel.min.js" />
     <Content Include="assets\lib\select2\css\select2.css" />
     <Content Include="assets\lib\select2\css\select2.min.css" />
-    <Content Include="assets\lib\select2\js\i18n\az.js" />
-    <Content Include="assets\lib\select2\js\i18n\bg.js" />
-    <Content Include="assets\lib\select2\js\i18n\ca.js" />
-    <Content Include="assets\lib\select2\js\i18n\cs.js" />
-    <Content Include="assets\lib\select2\js\i18n\da.js" />
-    <Content Include="assets\lib\select2\js\i18n\de.js" />
     <Content Include="assets\lib\select2\js\i18n\en.js" />
-    <Content Include="assets\lib\select2\js\i18n\es.js" />
-    <Content Include="assets\lib\select2\js\i18n\et.js" />
-    <Content Include="assets\lib\select2\js\i18n\eu.js" />
-    <Content Include="assets\lib\select2\js\i18n\fa.js" />
-    <Content Include="assets\lib\select2\js\i18n\fi.js" />
-    <Content Include="assets\lib\select2\js\i18n\fr.js" />
-    <Content Include="assets\lib\select2\js\i18n\gl.js" />
-    <Content Include="assets\lib\select2\js\i18n\he.js" />
-    <Content Include="assets\lib\select2\js\i18n\hi.js" />
-    <Content Include="assets\lib\select2\js\i18n\hr.js" />
-    <Content Include="assets\lib\select2\js\i18n\hu.js" />
-    <Content Include="assets\lib\select2\js\i18n\id.js" />
-    <Content Include="assets\lib\select2\js\i18n\is.js" />
-    <Content Include="assets\lib\select2\js\i18n\it.js" />
-    <Content Include="assets\lib\select2\js\i18n\ko.js" />
-    <Content Include="assets\lib\select2\js\i18n\lt.js" />
-    <Content Include="assets\lib\select2\js\i18n\lv.js" />
-    <Content Include="assets\lib\select2\js\i18n\mk.js" />
-    <Content Include="assets\lib\select2\js\i18n\nb.js" />
-    <Content Include="assets\lib\select2\js\i18n\nl.js" />
-    <Content Include="assets\lib\select2\js\i18n\pl.js" />
-    <Content Include="assets\lib\select2\js\i18n\pt-BR.js" />
-    <Content Include="assets\lib\select2\js\i18n\pt.js" />
-    <Content Include="assets\lib\select2\js\i18n\ro.js" />
-    <Content Include="assets\lib\select2\js\i18n\ru.js" />
-    <Content Include="assets\lib\select2\js\i18n\sk.js" />
-    <Content Include="assets\lib\select2\js\i18n\sr.js" />
-    <Content Include="assets\lib\select2\js\i18n\sv.js" />
-    <Content Include="assets\lib\select2\js\i18n\th.js" />
-    <Content Include="assets\lib\select2\js\i18n\tr.js" />
-    <Content Include="assets\lib\select2\js\i18n\uk.js" />
     <Content Include="assets\lib\select2\js\i18n\vi.js" />
-    <Content Include="assets\lib\select2\js\i18n\zh-CN.js" />
-    <Content Include="assets\lib\select2\js\i18n\zh-TW.js" />
     <Content Include="assets\lib\select2\js\select2.full.js" />
     <Content Include="assets\lib\select2\js\select2.full.min.js" />
     <Content Include="assets\lib\select2\js\select2.js" />
@@ -1063,6 +1022,9 @@
     <Content Include="Web References\WebService\ProductItem.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
+    <Content Include="Web References\WebService\BlogItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
     <None Include="Web References\WebService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -1071,6 +1033,9 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
     <Content Include="Web References\WebService\Webconfig1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebService\SearchArticleResults.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
   </ItemGroup>
