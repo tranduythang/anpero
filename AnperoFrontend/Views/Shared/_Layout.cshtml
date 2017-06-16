@@ -1,4 +1,11 @@
-﻿
+﻿@{ 
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+
+}
 
 
 <!DOCTYPE html>
@@ -15,9 +22,8 @@
 
 </head>
 <body class="option6">
-    @if (ViewData["commonInfo"] != null)
-    {
-        AnperoFrontend.WebService.Webconfig commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+ 
+    
         <div id="header" class="header">
 
             <!--/.top-header -->
@@ -289,6 +295,6 @@
   js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId=369348303254756";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-    }
+    
 </body>
 </html>
