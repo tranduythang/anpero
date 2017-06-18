@@ -526,6 +526,18 @@ namespace Anpero
             }
 
         }
+        public static string GetBlogCategoryLink(string categoryName, int CategoryId)
+        {
+            if (!string.IsNullOrEmpty(categoryName) && !string.IsNullOrEmpty(categoryName) && CategoryId > 0)
+            {
+                return "/" + toURLgach(categoryName) + "-b" + CategoryId;
+            }
+            else
+            {
+                return "/";
+            }
+
+        }
         public static string GetArticleLink(string ArticleTitle, int ArticleId)
         {
             if (!string.IsNullOrEmpty(ArticleTitle) && !string.IsNullOrEmpty(ArticleTitle) && ArticleId > 0)

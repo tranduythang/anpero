@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anpero", "Anpero\Anpero.csproj", "{B88546AC-D123-448F-BD9B-7287E7CE1B38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnperoFrontend_01", "AnperoFrontend\AnperoFrontend_01.csproj", "{0036A2E3-FC1E-459F-A84E-1A441FF6E685}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop_Frontend_01", "AnperoFrontend\Shop_Frontend_01.csproj", "{0036A2E3-FC1E-459F-A84E-1A441FF6E685}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR_Frontend_01", "HR_Service_Frontend_01\HR_Frontend_01.csproj", "{FD58635E-76A4-4CA0-98F4-E4C54C4CB931}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{0036A2E3-FC1E-459F-A84E-1A441FF6E685}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0036A2E3-FC1E-459F-A84E-1A441FF6E685}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0036A2E3-FC1E-459F-A84E-1A441FF6E685}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD58635E-76A4-4CA0-98F4-E4C54C4CB931}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD58635E-76A4-4CA0-98F4-E4C54C4CB931}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD58635E-76A4-4CA0-98F4-E4C54C4CB931}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD58635E-76A4-4CA0-98F4-E4C54C4CB931}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
