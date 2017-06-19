@@ -42,7 +42,7 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                if (s.ResultsCount > 0)
+                if (s.ItemList.Length > 0)
                 {
                     ViewBag.Title = s.ItemList[0].CategoryName;
                     ViewBag.CategoryName = s.ItemList[0].CategoryName;
