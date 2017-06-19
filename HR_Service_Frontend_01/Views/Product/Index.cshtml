@@ -67,7 +67,7 @@
                                     {
                                         <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice.ToString()) đ</span>
                                         <span class="old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString()) đ</span>
-                                        <span class="discount">@Anpero.StringHelpper.ConVertToMoneyFormatInt((item.SalePrice- item.Price).ToString()) đ</span>
+                                        <span class="discount">@Anpero.StringHelpper.ConVertToMoneyFormatInt((item.SalePrice - item.Price).ToString()) đ</span>
                                     }
                                     else
                                     {
@@ -80,11 +80,11 @@
                                         Trạng thái:
                                         @if (item.IsInstock)
                                         {
-                                            <span class="in-stock">Còn hàng</span>
+                                            <span class="in-stock">Sẵn sàn</span>
                                         }
                                         else
                                         {
-                                            <span class="in-stock">Tạm hết hàng</span>
+                                            <span class="in-stock">Đang bận</span>
                                         }
                                     </p>
                                     <p>Tình trạng: mới</p>
@@ -103,11 +103,11 @@
                                     <div class="button-group">
                                         @if (item.IsInstock)
                                         {
-                                            <a class="btn-add-cart" href="#">Thêm vào giỏ hàng</a>
+                                            <a class="btn-add-cart" href="#">Chọn</a>
                                         }
                                         else
                                         {
-                                            <a class="btn-add-cart" href="#">Tạm hết hàng</a>
+                                            <a class="btn-add-cart" href="#">Đang bận</a>
                                         }
                                     </div>
 
@@ -126,18 +126,22 @@
                             </div>
                         </div>
                         <!-- tab product -->
-                        <div class="product-tab">
-                            <ul class="nav-tab">
-                                <li class="active">
-                                    <a aria-expanded="false" data-toggle="tab" href="#product-detail">Thông tin sản phẩm</a>
-                                </li>
-                            </ul>
-                            <div class="tab-container">
-                                <div id="product-detail" class="tab-panel active">
-                                    @Html.Raw(item.Detail)
+                        @if (!string.IsNullOrEmpty(item.Detail))
+                        {
+                            <div class="product-tab">
+                                <ul class="nav-tab">
+                                    <li class="active">
+                                        <a aria-expanded="false" data-toggle="tab" href="#product-detail">Thông tin sản phẩm</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-container">
+                                    <div id="product-detail" class="tab-panel active">
+                                        @Html.Raw(item.Detail)
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        }
+
                         <!-- ./tab product -->
                         <!-- box product -->
                         <div class="page-product-box">

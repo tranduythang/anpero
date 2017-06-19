@@ -23,7 +23,11 @@ namespace AnperoFrontend.Controllers
             else
             {
                 rs = service.SearchArticle(StoreID, TokenKey, 0, 1, 4, 1);
-                HttpRuntime.Cache.Insert("TopArticle", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                if (rs != null)
+                {
+                    HttpRuntime.Cache.Insert("TopArticle", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                }
+               
             }
             ViewData["FeatureArticle"] = rs;
         }
@@ -39,7 +43,11 @@ namespace AnperoFrontend.Controllers
             else
             {
                 saleProduct = sv.GetSaleProduct(StoreID, TokenKey);
-                HttpRuntime.Cache.Insert("saleProduct", saleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                if (saleProduct != null)
+                {
+                    HttpRuntime.Cache.Insert("saleProduct", saleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                }
+               
             }
             ViewData["saleProduct"] = saleProduct;
 
@@ -51,7 +59,11 @@ namespace AnperoFrontend.Controllers
             else
             {
                 BestsaleProduct = sv.SearchProduct(StoreID, TokenKey, "", "", "", 0, 99999999, 1, 5, "", SearchOrder.TimeDesc, 1);
-                HttpRuntime.Cache.Insert("BestsaleProduct", BestsaleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                if (BestsaleProduct != null)
+                {
+                    HttpRuntime.Cache.Insert("BestsaleProduct", BestsaleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                }
+               
             }
             ViewData["BestsaleProduct"] = BestsaleProduct;
         }
@@ -71,7 +83,11 @@ namespace AnperoFrontend.Controllers
                 WebService.AnperoService service = new WebService.AnperoService();
                 var rs = service.GetCommonConfig(CommonConfig.StoreID, CommonConfig.TokenKey);
                 filterContext.Controller.ViewData["commonInfo"] = rs;
-                HttpRuntime.Cache.Insert("commonInfo", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);                
+                if (rs != null)
+                {
+                    HttpRuntime.Cache.Insert("commonInfo", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                }
+                              
 
             }
           

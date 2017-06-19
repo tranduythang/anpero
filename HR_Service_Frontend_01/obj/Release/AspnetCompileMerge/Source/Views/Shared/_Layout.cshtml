@@ -49,7 +49,7 @@
                         </div>
                     }
                     <div class="support-link">
-                        <a href="#">Thông tin cửa hàng</a>
+                        <a href="#">Thông tin liên hệ</a>
                         <a href="#">Hỗ trợ</a>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                         <form class="form-inline" action="/search" name="search" id="search" method="get">
                             <div class="form-group form-category" name="category">
                                 <select class="select-category">
-                                    <option value="0">Danh mục sản phẩm</option>
+                                    <option value="0">Danh mục dịch vụ</option>
                                     @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                                     {
                                         for (int i = 0; i < commonInfo.ProductCategoryList.Length; i++)
@@ -190,7 +190,7 @@
 
                                                 }
                                             }
-
+                                            <li class="active"><a href="/blogs">Blog</a></li>
                                         </ul>
                                         <ul class="nav navbar-nav navbar-right">
                                             <li><a class="link-buytheme" href="tel:@commonInfo.HotLine"><i class="fa fa-angle-double-right"></i> Click để tư vấn @commonInfo.HotLine</a></li>
@@ -269,12 +269,9 @@
                         </ul>
                     </div>
                     <div class="col-sm-12">
-                        <ul class="footer-menu-list">
-                            <li><a href="/policy/ship">Chính sách vận chuyển</a></li>
-                            <li><a href="/policy/rollback">Chính sách đổi trả</a></li>
-                            <li><a href="/policy/shipping">Chính sách bảo hành</a></li>
+                        <ul class="footer-menu-list">                          
+                        
                             <li><a href="/policy/payment">Hướng dẫn thanh toán</a></li>
-
                             <li><a href="/home/contact">Liên hệ</a></li>
 
                         </ul>

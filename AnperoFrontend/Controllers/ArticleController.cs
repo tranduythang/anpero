@@ -63,7 +63,11 @@ namespace AnperoFrontend.Controllers
             {
                 List<WebService.BlogCategory> categoryList = service.GetBlogCategory(StoreID, TokenKey).ToList();
                 ViewData["categoryMenuList"] = categoryList;
-                HttpRuntime.Cache.Insert("categoryMenuList", categoryList, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                if (categoryList != null)
+                {
+                    HttpRuntime.Cache.Insert("categoryMenuList", categoryList, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                }
+               
             }
 
             GetTopArticle();

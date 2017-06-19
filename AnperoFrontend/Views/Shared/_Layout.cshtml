@@ -63,7 +63,7 @@
                         <form class="form-inline" action="/search" name="search" id="search" method="get">
                             <div class="form-group form-category" name="category">
                                 <select class="select-category">
-                                    <option value="0">Danh mục sản phẩm</option>
+                                    <option value="0">Danh mục sản phẩm</option>
                                     @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                                     {
                                         for (int i = 0; i < commonInfo.ProductCategoryList.Length; i++)
@@ -190,7 +190,7 @@
 
                                                 }
                                             }
-
+                                            <li class="active"><a href="/blogs">Blog</a></li>
                                         </ul>
                                         <ul class="nav navbar-nav navbar-right">
                                             <li><a class="link-buytheme" href="tel:@commonInfo.HotLine"><i class="fa fa-angle-double-right"></i> Click để tư vấn @commonInfo.HotLine</a></li>
