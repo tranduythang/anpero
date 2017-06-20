@@ -1,4 +1,4 @@
-﻿@{ 
+﻿@{
     AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
     if (ViewData["commonInfo"] != null)
     {
@@ -13,6 +13,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewBag.Title</title>
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:type" content="website" />
+    <meta name="distribution" content="Global" />
+    <meta name="revisit-after" content="1 days" />
+    <meta http-equiv="REFRESH" content="1800" />
+    <meta name="robots" content="index,follow,all" />
+
+    <meta property="og:title" content="@ViewBag.Title" />
     @RenderSection("health", required: false)
     @Styles.Render("~/Content/css")
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
@@ -21,279 +29,283 @@
 
 </head>
 <body class="option6">
- 
-    
-        <div id="header" class="header">
 
-            <!--/.top-header -->
-            <!-- MAIN HEADER -->
+    <div id="header" class="header">
+
+        <!--/.top-header -->
+        <!-- MAIN HEADER -->
 
 
-            <div class="top-header">
-                <div class="container">
-                    @if (!string.IsNullOrEmpty(commonInfo.HotLine))
-                    {
-                        <div class="currency"><a href="tel:@commonInfo.HotLine">Click để gọi: @commonInfo.HotLine</a></div>
-                    }
-                    @if (!string.IsNullOrEmpty(commonInfo.Skype) || !string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                    {
-                        <div class="top-bar-social">
-                            @if (!string.IsNullOrEmpty(commonInfo.Skype))
-                            {
-                                <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
-                            }
-                            @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                            {
-                                <a href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" target="_blank"><i class="fa fa-facebook"></i></a>
-                            }
-                        </div>
-                    }
-                    <div class="support-link">
-                        <a href="#">Thông tin cửa hàng</a>
-                        <a href="#">Hỗ trợ</a>
+        <div class="top-header">
+            <div class="container">
+                @if (!string.IsNullOrEmpty(commonInfo.HotLine))
+                {
+                    <div class="currency"><a href="tel:@commonInfo.HotLine">Click để gọi: @commonInfo.HotLine</a></div>
+                }
+                @if (!string.IsNullOrEmpty(commonInfo.Skype) || !string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                {
+                    <div class="top-bar-social">
+                        @if (!string.IsNullOrEmpty(commonInfo.Skype))
+                        {
+                            <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
+                        }
+                        @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                        {
+                            <a href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" target="_blank"><i class="fa fa-facebook"></i></a>
+                        }
                     </div>
+                }
+                <div class="support-link">
+                    <a href="#">Thông tin cửa hàng</a>
+                    <a href="#">Hỗ trợ</a>
                 </div>
             </div>
-            <div class="container main-header">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-3 logo">
-                        <a href="/"><img alt="@commonInfo.Desc" src="@commonInfo.Logo" /></a>
-                    </div>
-                    <div class="col-xs-7 col-sm-8 col-md-7 header-search-box">
-                        <form class="form-inline" action="/search" name="search" id="search" method="get">
-                            <div class="form-group form-category" name="category">
-                                <select class="select-category">
-                                    <option value="0">Danh mục sản phẩm</option>
-                                    @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+        </div>
+        <div class="container main-header">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-3 logo">
+                    <a href="/"><img alt="@commonInfo.Desc" src="@commonInfo.Logo" /></a>
+                </div>
+                <div class="col-xs-7 col-sm-8 col-md-7 header-search-box">
+                    <form class="form-inline" action="/search" name="search" id="search" method="get">
+                        <div class="form-group form-category" name="category">
+                            <select class="select-category">
+                                <option value="0">Danh mục sản phẩm</option>
+                                @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                                {
+                                    for (int i = 0; i < commonInfo.ProductCategoryList.Length; i++)
                                     {
-                                        for (int i = 0; i < commonInfo.ProductCategoryList.Length; i++)
+                                        if (commonInfo.ProductCategoryList[i].ChildCategory != null && commonInfo.ProductCategoryList[i].ChildCategory.Length > 0)
                                         {
-                                            if (commonInfo.ProductCategoryList[i].ChildCategory != null && commonInfo.ProductCategoryList[i].ChildCategory.Length > 0)
+                                            for (int j = 0; j < commonInfo.ProductCategoryList[i].ChildCategory.Length; j++)
                                             {
-                                                for (int j = 0; j < commonInfo.ProductCategoryList[i].ChildCategory.Length; j++)
-                                                {
-                                                    <option value="@commonInfo.ProductCategoryList[i].ChildCategory[j].Id">@commonInfo.ProductCategoryList[i].ChildCategory[j].Name</option>
-                                                }
-
+                                                <option value="@commonInfo.ProductCategoryList[i].ChildCategory[j].Id">@commonInfo.ProductCategoryList[i].ChildCategory[j].Name</option>
                                             }
+
                                         }
                                     }
-                                </select>
-                            </div>
+                                }
+                            </select>
+                        </div>
 
-                            <div class="form-group input-serach">
-                                <input type="text" placeholder="Tìm kiếm mọi thứ..." name="keyword">
-                            </div>
-                            <button type="submit" class="pull-right btn-search" id="btnSearch"></button>
-                        </form>
-                    </div>
-                    <div class="col-xs-5 col-sm-3 col-md-2 group-button-header">
-                        <a target="_blank" title="Chia sẻ trên google+" href="https://plus.google.com/share?url=@HttpContext.Current.Request.Url.AbsoluteUri" class="btn-heart">wishlist</a>
-                        <div class="btn-cart" id="cart-block">
-                            <a title="My cart" href="cart.html">Cart</a>
-                            <span class="notify notify-right">2</span>
-                            <div class="cart-block">
-                                <div class="cart-block-content">
-                                    <h5 class="cart-title">2 Items in my cart</h5>
-                                    <div class="cart-block-list">
-                                        <ul>
-                                            <li class="product-info">
-                                                <div class="p-left">
-                                                    <a href="#" class="remove_link"></a>
-                                                    <a href="#">
-                                                        <img class="img-responsive" src="assets/data/product-100x122.jpg" alt="p10">
-                                                    </a>
-                                                </div>
-                                                <div class="p-right">
-                                                    <p class="p-name">Donec Ac Tempus</p>
-                                                    <p class="p-rice">61,19 €</p>
-                                                    <p>Qty: 1</p>
-                                                </div>
-                                            </li>
-                                            <li class="product-info">
-                                                <div class="p-left">
-                                                    <a href="#" class="remove_link"></a>
-                                                    <a href="#">
-                                                        <img class="img-responsive" src="assets/data/product-s5-100x122.jpg" alt="p10">
-                                                    </a>
-                                                </div>
-                                                <div class="p-right">
-                                                    <p class="p-name">Donec Ac Tempus</p>
-                                                    <p class="p-rice">61,19 €</p>
-                                                    <p>Qty: 1</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="toal-cart">
-                                        <span>Total</span>
-                                        <span class="toal-price pull-right">122.38 €</span>
-                                    </div>
-                                    <div class="cart-buttons">
-                                        <a href="order.html" class="btn-check-out">Checkout</a>
-                                    </div>
+                        <div class="form-group input-serach">
+                            <input type="text" placeholder="Tìm kiếm mọi thứ..." name="keyword">
+                        </div>
+                        <button type="submit" class="pull-right btn-search" id="btnSearch"></button>
+                    </form>
+                </div>
+                <div class="col-xs-5 col-sm-3 col-md-2 group-button-header">
+                    <a target="_blank" title="Chia sẻ trên google+" href="https://plus.google.com/share?url=@HttpContext.Current.Request.Url.AbsoluteUri" class="btn-heart">wishlist</a>
+                    <div class="btn-cart" id="cart-block">
+                        <a title="My cart" href="cart.html">Cart</a>
+                        <span class="notify notify-right">2</span>
+                        <div class="cart-block">
+                            <div class="cart-block-content">
+                                <h5 class="cart-title">2 Items in my cart</h5>
+                                <div class="cart-block-list">
+                                    <ul>
+                                        <li class="product-info">
+                                            <div class="p-left">
+                                                <a href="#" class="remove_link"></a>
+                                                <a href="#">
+                                                    <img class="img-responsive" src="assets/data/product-100x122.jpg" alt="p10">
+                                                </a>
+                                            </div>
+                                            <div class="p-right">
+                                                <p class="p-name">Donec Ac Tempus</p>
+                                                <p class="p-rice">61,19 €</p>
+                                                <p>Qty: 1</p>
+                                            </div>
+                                        </li>
+                                        <li class="product-info">
+                                            <div class="p-left">
+                                                <a href="#" class="remove_link"></a>
+                                                <a href="#">
+                                                    <img class="img-responsive" src="assets/data/product-s5-100x122.jpg" alt="p10">
+                                                </a>
+                                            </div>
+                                            <div class="p-right">
+                                                <p class="p-name">Donec Ac Tempus</p>
+                                                <p class="p-rice">61,19 €</p>
+                                                <p>Qty: 1</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="toal-cart">
+                                    <span>Total</span>
+                                    <span class="toal-price pull-right">122.38 €</span>
+                                </div>
+                                <div class="cart-buttons">
+                                    <a href="order.html" class="btn-check-out">Checkout</a>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
 
                 </div>
 
-            </div>
-            <!-- END MANIN HEADER -->
-            <div id="nav-top-menu" class="nav-top-menu">
-                <div class="container">
-                    <div class="row">
-                        <div id="main-menu" class="col-sm-9 main-menu">
-                            <nav class="navbar navbar-default">
-                                <div class="container-fluid">
-                                    <div class="navbar-header">
-                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                                            <i class="fa fa-bars"></i>
-                                        </button>
-                                        <a class="navbar-brand" href="#">MENU</a>
-                                    </div>
-                                    <div id="navbar" class="navbar-collapse collapse">
-                                        <ul class="nav navbar-nav">
-                                            <li class="active"><a href="/">Home</a></li>
-                                            @if (commonInfo.MenuList != null)
-                                            {
-                                                for (int i = 0; i < commonInfo.MenuList.Length; i++)
-                                                {
-                                                    if (commonInfo.MenuList[i].ChidMenu != null && commonInfo.MenuList[i].ChidMenu.Length > 0)
-                                                    {
 
-                                                        <li class="dropdown">
-                                                            <a href="@commonInfo.MenuList[i].Link" data-toggle="dropdown">@commonInfo.MenuList[i].Tittle</a>
-                                                            <ul class="dropdown-menu container-fluid">
-                                                                <li class="block-container">
-                                                                    <ul class="block">
-                                                                        @for (int j = 0; j < commonInfo.MenuList[i].ChidMenu.Length; j++)
-
-                                                                        {
-                                                                            <li class="link_container"><a href="@commonInfo.MenuList[i].ChidMenu[j].Link">@commonInfo.MenuList[i].ChidMenu[j].Tittle</a></li>
-                                                                        }
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    }
-                                                    else
-                                                    {
-                                                        <li>
-                                                            <a href="@commonInfo.MenuList[i].Link">@commonInfo.MenuList[i].Tittle</a>
-                                                        </li>
-                                                    }
-
-
-                                                }
-                                            }
-                                            <li class="active"><a href="/blog">Blog</a></li>
-                                        </ul>
-                                        <ul class="nav navbar-nav navbar-right">
-                                            <li><a class="link-buytheme" href="tel:@commonInfo.HotLine"><i class="fa fa-angle-double-right"></i> Click để tư vấn @commonInfo.HotLine</a></li>
-                                        </ul>
-                                    </div><!--/.nav-collapse -->
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                    <!-- userinfo on top-->
-                    <div id="form-search-opntop">
-                    </div>
-                    <!-- userinfo on top-->
-                    <div id="user-info-opntop">
-                    </div>
-                    <!-- CART ICON ON MMENU -->
-                    <div id="shopping-cart-box-ontop">
-                        <i class="fa fa-shopping-cart"></i>
-                        <div class="shopping-cart-box-ontop-content"></div>
-                    </div>
-                </div>
             </div>
 
         </div>
-
-        @RenderBody()
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-        <footer id="footer">
+        <!-- END MANIN HEADER -->
+        <div id="nav-top-menu" class="nav-top-menu">
             <div class="container">
-                @Html.Raw(commonInfo.Footer)
-                <div id="introduce-box" class="row">
-                    <div class="col-md-6">
-                        <div id="address-box">
-                            <a href="/"><img src="@commonInfo.Logo" alt="logo"></a>
-                            <div id="address-list">
-                                <div class="tit-name">Địa chỉ:</div>
-                                <div class="tit-contain">@commonInfo.Address</div>
-                                <div class="tit-name">Phone:</div>
-                                <div class="tit-contain">@commonInfo.HotLine</div>
-                                <div class="tit-name">Email:</div>
-                                <div class="tit-contain">@commonInfo.Email</div>
-                                @if(string.IsNullOrEmpty(commonInfo.Skype))
-                                {
-                                    <div class="tit-name">Skype:</div>
-                                    <div class="tit-contain"><a href="skype:@commonInfo.Skype?call"></a> @commonInfo.Skype</div>
-                                }
-                                
+                <div class="row">
+                    <div id="main-menu" class="col-sm-9 main-menu">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                        <i class="fa fa-bars"></i>
+                                    </button>
+                                    <a class="navbar-brand" href="#">MENU</a>
+                                </div>
+                                <div id="navbar" class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav">
+                                        <li class="active"><a href="/">Home</a></li>
+                                        @if (commonInfo.MenuList != null)
+                                        {
+                                            for (int i = 0; i < commonInfo.MenuList.Length; i++)
+                                            {
+                                                if (commonInfo.MenuList[i].ChidMenu != null && commonInfo.MenuList[i].ChidMenu.Length > 0)
+                                                {
+
+                                                    <li class="dropdown">
+                                                        <a href="@commonInfo.MenuList[i].Link" data-toggle="dropdown">@commonInfo.MenuList[i].Tittle</a>
+                                                        <ul class="dropdown-menu container-fluid">
+                                                            <li class="block-container">
+                                                                <ul class="block">
+                                                                    @for (int j = 0; j < commonInfo.MenuList[i].ChidMenu.Length; j++)
+
+                                                                    {
+                                                                        <li class="link_container"><a href="@commonInfo.MenuList[i].ChidMenu[j].Link">@commonInfo.MenuList[i].ChidMenu[j].Tittle</a></li>
+                                                                    }
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a href="@commonInfo.MenuList[i].Link">@commonInfo.MenuList[i].Tittle</a>
+                                                    </li>
+                                                }
+
+
+                                            }
+                                        }
+                                        <li class="active"><a href="/blog">Blog</a></li>
+                                    </ul>
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><a class="link-buytheme" href="tel:@commonInfo.HotLine"><i class="fa fa-angle-double-right"></i> Click để tư vấn @commonInfo.HotLine</a></li>
+                                    </ul>
+                                </div><!--/.nav-collapse -->
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div id="contact-box" style="text-align: right;">
-                            @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                            {
-                            
-                                    <div class="fb-page"
-                                         data-tabs="messages"
-                                         data-href="@Html.Raw(commonInfo.FaceBookLink)"
-                                         data-width="500"                                         	
-                                         data-height="280"
-                                         data-hide-cover="false"></div>
-                            }
-                         
-                        </div>
-
+                        </nav>
                     </div>
                 </div>
-
-                <div id="footer-menu-box">
-                    <div class="col-sm-12">
-                        <ul class="footer-menu-list">
-                            <li><a href="/home/about">Giới thiệu về chúng tôi</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-12">
-                        <ul class="footer-menu-list">
-                            <li><a href="/policy/ship">Chính sách vận chuyển</a></li>
-                            <li><a href="/policy/rollback">Chính sách đổi trả</a></li>
-                            <li><a href="/policy/shipping">Chính sách bảo hành</a></li>
-                            <li><a href="/policy/payment">Hướng dẫn thanh toán</a></li>
-
-                            <li><a href="/home/contact">Liên hệ</a></li>
-
-                        </ul>
-                    </div>
-
-                    <p class="text-center">Copyrights © 2015 Minh Khoi Store. All Rights Reserved. Designed by <a href="http://anpero.com" title="thiết kế web bán hàng anpro">Anpero.com</a></p>
+                <!-- userinfo on top-->
+                <div id="form-search-opntop">
+                </div>
+                <!-- userinfo on top-->
+                <div id="user-info-opntop">
+                </div>
+                <!-- CART ICON ON MMENU -->
+                <div id="shopping-cart-box-ontop">
+                    <i class="fa fa-shopping-cart"></i>
+                    <div class="shopping-cart-box-ontop-content"></div>
                 </div>
             </div>
-        </footer>
-        <div id="fb-root"></div>
-        <div id="fb-root"></div>
-        <script>
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId=369348303254756";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-    
+        </div>
+
+    </div>
+
+    @RenderBody()
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <footer id="footer">
+        <div class="container">
+            @Html.Raw(commonInfo.Footer)
+            <div id="introduce-box" class="row">
+                <div class="col-md-6">
+                    <div id="address-box">
+                        <a href="/"><img src="@commonInfo.Logo" alt="logo"></a>
+                        <div id="address-list">
+                            <div class="tit-name">Địa chỉ:</div>
+                            <div class="tit-contain">@commonInfo.Address</div>
+                            <div class="tit-name">Phone:</div>
+                            <div class="tit-contain">@commonInfo.HotLine (ms Hương)</div>
+                            <div class="tit-name">Phone:</div>
+                           
+                            @if (string.IsNullOrEmpty(commonInfo.Email))
+                            {
+                                <div class="tit-name">Email:</div>
+                                <div class="tit-contain">@commonInfo.Email</div>
+                            }
+
+                            @if (string.IsNullOrEmpty(commonInfo.Skype))
+                            {
+                                <div class="tit-name">Skype:</div>
+                                    <div class="tit-contain"><a href="skype:@commonInfo.Skype?call"></a> @commonInfo.Skype</div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div id="contact-box" style="text-align: right;">
+                        @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                        {
+
+                            <div class="fb-page"
+                                 data-tabs="messages"
+                                 data-href="@Html.Raw(commonInfo.FaceBookLink)"
+                                 data-width="500"
+                                 data-height="280"
+                                 data-hide-cover="false"></div>
+                        }
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="footer-menu-box">
+                <div class="col-sm-12">
+                    <ul class="footer-menu-list">
+                        <li><a href="/home/about">Giới thiệu về chúng tôi</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-12">
+                    <ul class="footer-menu-list">
+                        <li><a href="/policy/ship">Chính sách vận chuyển</a></li>
+                        <li><a href="/policy/rollback">Chính sách đổi trả</a></li>
+                        <li><a href="/policy/shipping">Chính sách bảo hành</a></li>
+                        <li><a href="/policy/payment">Hướng dẫn thanh toán</a></li>
+
+                        <li><a href="/home/contact">Liên hệ</a></li>
+
+                    </ul>
+                </div>
+
+                <p class="text-center">Copyrights © 2015 Minh Khoi Store. All Rights Reserved. Designed by <a href="http://anpero.com" title="thiết kế web bán hàng anpro">Anpero.com</a></p>
+            </div>
+        </div>
+    </footer>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId=369348303254756";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
 </body>
 </html>

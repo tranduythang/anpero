@@ -13,6 +13,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewBag.Title</title>
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:type" content="website" />
+    <meta name="distribution" content="Global" />
+    <meta name="revisit-after" content="1 days" />
+    <meta http-equiv="REFRESH" content="1800" />
+    <meta name="robots" content="index,follow,all" />
     @RenderSection("health", required: false)
     @Styles.Render("~/Content/css")
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
@@ -224,16 +230,21 @@
             <div class="container">
                 @Html.Raw(commonInfo.Footer)
                 <div id="introduce-box" class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div id="address-box">
                             <a href="/"><img src="@commonInfo.Logo" alt="logo"></a>
                             <div id="address-list">
                                 <div class="tit-name">Địa chỉ:</div>
                                 <div class="tit-contain">@commonInfo.Address</div>
-                                <div class="tit-name">Phone:</div>
-                                <div class="tit-contain">@commonInfo.HotLine</div>
-                                <div class="tit-name">Email:</div>
-                                <div class="tit-contain">@commonInfo.Email</div>
+                                <div class="tit-name">Ms Hương:</div>
+                                <div class="tit-contain">0982.088.264 - 0906.299.482</div>
+                                <div class="tit-name">Mr Phú:</div>
+                                <div class="tit-contain">091.987.1689 (mr Phú)</div>
+                                @if (string.IsNullOrEmpty(commonInfo.Email))
+                                {
+                                    <div class="tit-name">Email:</div>
+                                    <div class="tit-contain">@commonInfo.Email</div>
+                                }
                                 @if(string.IsNullOrEmpty(commonInfo.Skype))
                                 {
                                     <div class="tit-name">Skype:</div>
@@ -243,24 +254,43 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="introduce-title">Dịch vụ giúp việc</div>
+                                <ul id="introduce-company" class="introduce-list">
+                                    <li><a href="http://giupviec247.net/giup-viec-sang-di-toi-ve-cat118">Sáng đi tối về</a></li>
+                                    <li><a href="http://giupviec247.net/giup-viec-o-lai-nha-cat119">Làm việc ở lại nhà</a></li>
+                                    <li><a href="http://giupviec247.net/giup-viec-theo-gio-cat117">Giúp việc theo giờ</a></li>
+                                    <li><a href="http://giupviec247.net/cham-soc-tre-em-cat120">Chăm sóc trẻ em</a></li>
+                                    <li><a href="http://giupviec247.net/cham-nguoi-gia-nguoi-cao-tuoi-cat121">Chăm sóc người cao tuổi</a></li>
+                                    <li><a href="http://giupviec247.net/giup-viec-theo-gio-cat117">Giúp việc theo giờ</a></li>
+                                    
+                                </ul>
+                            </div>
+                          
+                        </div>
+                    </div>
+                        <div class="col-md-4">
+                            <div id="contact-box" style="text-align: right;">
+                                @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                                {
 
-                    <div class="col-md-6">
-                        <div id="contact-box" style="text-align: right;">
-                            @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                            {
-                            
                                     <div class="fb-page"
                                          data-tabs="messages"
                                          data-href="@Html.Raw(commonInfo.FaceBookLink)"
-                                         data-width="500"                                         	
+                                         data-width="500"
                                          data-height="280"
                                          data-hide-cover="false"></div>
-                            }
-                         
-                        </div>
+                                }
 
+                            </div>
+
+                        </div>
                     </div>
-                </div>
+
+
 
                 <div id="footer-menu-box">
                     <div class="col-sm-12">

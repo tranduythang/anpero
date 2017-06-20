@@ -5216,3 +5216,7 @@ span.notify-right{
     margin-bottom: 2px;
     overflow: hidden;
 }
+.post-thumb{
+    max-height:300px;
+    overflow:hidden;
+}

@@ -4215,6 +4215,10 @@ span.notify-right{
   margin-bottom: 0px;
   
 }
+.post-thumb{
+    max-height:300px;
+    overflow:hidden;
+}
 .blog-list-sidebar li .post-thumb{
   width: 80px;
   float: left;

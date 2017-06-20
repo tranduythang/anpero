@@ -13,6 +13,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewBag.Title</title>
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:type" content="website" />
+    <meta name="distribution" content="Global" />
+    <meta name="revisit-after" content="1 days" />
+    <meta http-equiv="REFRESH" content="1800" />
+    <meta name="robots" content="index,follow,all" />
     @RenderSection("health", required: false)
     @Styles.Render("~/Content/css")
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
@@ -190,7 +196,7 @@
 
                                                 }
                                             }
-                                            <li class="active"><a href="/blogs">Blog</a></li>
+                                            <li class="active"><a href="/blog">Blog</a></li>
                                         </ul>
                                         <ul class="nav navbar-nav navbar-right">
                                             <li><a class="link-buytheme" href="tel:@commonInfo.HotLine"><i class="fa fa-angle-double-right"></i> Click để tư vấn @commonInfo.HotLine</a></li>
@@ -230,10 +236,15 @@
                             <div id="address-list">
                                 <div class="tit-name">Địa chỉ:</div>
                                 <div class="tit-contain">@commonInfo.Address</div>
-                                <div class="tit-name">Phone:</div>
-                                <div class="tit-contain">@commonInfo.HotLine</div>
-                                <div class="tit-name">Email:</div>
-                                <div class="tit-contain">@commonInfo.Email</div>
+                                <div class="tit-name">Ms Hương:</div>
+                                <div class="tit-contain">0982.088.264 - 0906.299.482</div>
+                                <div class="tit-name">Mr Phú:</div>
+                                <div class="tit-contain">091.987.1689 (mr Phú)</div>
+                                @if (string.IsNullOrEmpty(commonInfo.Email))
+                                {
+                                    <div class="tit-name">Email:</div>
+                                    <div class="tit-contain">@commonInfo.Email</div>
+                                }
                                 @if(string.IsNullOrEmpty(commonInfo.Skype))
                                 {
                                     <div class="tit-name">Skype:</div>
