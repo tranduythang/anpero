@@ -20,7 +20,9 @@ namespace AnperoFrontend
                        "~/assets/lib/jquery.bxslider/jquery.bxslider.min.js",
                        "~/assets/lib/owl.carousel/owl.carousel.min.js",
                        "~/assets/js/jquery.actual.min.js",
-                       "~/assets/js/theme-script.js"
+                       "~/assets/js/theme-script.js",
+                       "~/Scripts/jquery.cokie.min.js",
+                       "~/Scripts/jquery.ShoppingCart.js"
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

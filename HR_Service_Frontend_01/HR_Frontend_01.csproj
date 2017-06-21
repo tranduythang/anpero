@@ -151,6 +151,7 @@
     <Content Include="assets\css\option6.css" />
     <Content Include="assets\css\reset.css" />
     <Content Include="assets\css\responsive.css" />
+    <Content Include="assets\css\style3.css" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\data\01_blue-dress.jpg" />
     <Content Include="assets\data\02_yellow-dress.jpg" />
@@ -913,6 +914,8 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\jquery.cokie.min.js" />
+    <Content Include="Scripts\ShoppingCart.js" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Shared\product\_MenuAndAdsPartial.cshtml" />
     <Content Include="Views\Product\Category.cshtml" />
@@ -922,6 +925,7 @@
     <Content Include="Views\Article\Index.cshtml" />
     <Content Include="Views\Article\Category.cshtml" />
     <Content Include="Views\Shared\article\_MenuAndAdsPartial.cshtml" />
+    <Content Include="Views\Product\Checkout.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1044,7 +1048,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>32561</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:5678</IISUrl>
+          <IISUrl>http://localhost:5679</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

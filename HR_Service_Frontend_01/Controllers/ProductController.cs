@@ -53,7 +53,7 @@ namespace AnperoFrontend.Controllers
                 page = Convert.ToInt32(pageQuery);
             }
             WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.SearchResult rs = sv.GetProductByParentCategory(StoreID, TokenKey,id, page, 14, 0);
+            WebService.SearchResult rs = sv.GetProductByParentCategory(StoreID, TokenKey, id, page, 14, 0);
             ViewData["productList"] = rs;
             ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
             ViewBag.isParent = "1";
@@ -63,6 +63,12 @@ namespace AnperoFrontend.Controllers
             }
             SetupCommonProduct();
             return View("Category");
+        }
+        [BuildCommonHtml]
+        public ActionResult Checkout()
+        {
+
+            return View();
         }
     }
 }
