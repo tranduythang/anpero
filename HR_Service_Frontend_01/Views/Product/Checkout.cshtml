@@ -8,7 +8,7 @@
         <div class="breadcrumb clearfix">
             <a class="home" href="#" title="Return to Home">Home</a>
             <span class="navigation-pipe">&nbsp;</span>
-            <span class="navigation_page">Checkout</span>
+            <span class="navigation_page">Tạo đơn hàng</span>
         </div>
         <!-- ./breadcrumb -->
         <!-- page heading-->
@@ -26,7 +26,7 @@
                             <label for="first_name_1" class="required">Họ tên (*)</label>
                             <input class="input form-control" type="text" name="" id="cName">
                         </div>
-                       
+
                     </li>
                     <li class="row">
                         <div class="col-sm-6">
@@ -39,14 +39,14 @@
                         </div><!--/ [col] -->
 
                         <div class="col-sm-12">
-                            <label for="email_address_1" class="required">Địa chỉ</label>
-                        <textarea class="input form-control"  name="" id="cAddress"></textarea>
-                            
+                            <label for="email_address_1" class="required">Địa chỉ (*)</label>
+                            <textarea class="input form-control" name="" id="cAddress"></textarea>
+
                         </div><!--/ [col] -->
 
                     </li>
                 </ul>
-                
+
             </div>
             <h3 class="checkout-sep">2. Phương thức vận chuyển</h3>
             <div class="box-border">
@@ -62,76 +62,26 @@
                     </li>
                     <li>
                         <p class="subcaption bold">Free Shipping</p>
-                        <label for="radio_button_4"><input type="radio" name="radio_3" id="radio_button_4"> Vận chuyển nhanh 80.000đ</label>
+                        <label for="radio_button_5"><input type="radio" name="radio_5" id="radio_button_5"> Vận chuyển nhanh 80.000đ</label>
                     </li>
                 </ul>
-                <button class="button">Continue</button>
             </div>
-          
-            <h3 class="checkout-sep">6. Thông tin đ</h3>
+
+            <h3 class="checkout-sep">6. Thông tin sản phẩm</h3>
             <div class="box-border">
                 <table class="table table-bordered table-responsive cart_summary">
                     <thead>
                         <tr>
-                            <th class="cart_product">Product</th>
-                            <th>Description</th>
-                            <th>Avail.</th>
-                            <th>Unit price</th>
-                            <th>Qty</th>
-                            <th>Total</th>
+                            <th class="cart_product">Ảnh</th>
+                            <th>Thông tin</th>
+                            <th>Tình trạng.</th>
+                            <th>Đơn giá</th>
+                            <th>Số lượng</th>
+                            <th>Tổng</th>
                             <th class="action"><i class="fa fa-trash-o"></i></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td class="cart_product">
-                                <a href="#"><img src="assets/data/product-100x122.jpg" alt="Product"></a>
-                            </td>
-                            <td class="cart_description">
-                                <p class="product-name"><a href="#">Frederique Constant </a></p>
-                                <small class="cart_ref">SKU : #123654999</small><br>
-                                <small><a href="#">Color : Beige</a></small><br>
-                                <small><a href="#">Size : S</a></small>
-                            </td>
-                            <td class="cart_avail"><span class="label label-success">In stock</span></td>
-                            <td class="price"><span>61,19 €</span></td>
-                            <td class="qty">
-                                <input class="form-control input-sm" type="text" value="1">
-                                <a href="#"><i class="fa fa-caret-up"></i></a>
-                                <a href="#"><i class="fa fa-caret-down"></i></a>
-                            </td>
-                            <td class="price">
-                                <span>61,19 €</span>
-                            </td>
-                            <td class="action">
-                                <a href="#">Delete item</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="cart_product">
-                                <a href="#"><img src="assets/data/product-100x122.jpg" alt="Product"></a>
-                            </td>
-                            <td class="cart_description">
-                                <p class="product-name"><a href="#">Frederique Constant </a></p>
-                                <small class="cart_ref">SKU : #123654999</small><br>
-                                <small><a href="#">Color : Beige</a></small><br>
-                                <small><a href="#">Size : S</a></small>
-                            </td>
-                            <td class="cart_avail"><span class="label label-success">In stock</span></td>
-                            <td class="price"><span>61,19 €</span></td>
-                            <td class="qty">
-                                <input class="form-control input-sm" type="text" value="1">
-                                <a href="#"><i class="fa fa-caret-up"></i></a>
-                                <a href="#"><i class="fa fa-caret-down"></i></a>
-                            </td>
-                            <td class="price">
-                                <span>61,19 €</span>
-                            </td>
-                            <td class="action">
-                                <a href="#">Delete item</a>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody id="prCatCtTable"></tbody>
                     <tfoot>
                         <tr>
                             <td colspan="2" rowspan="2"></td>
@@ -144,9 +94,16 @@
                         </tr>
                     </tfoot>
                 </table>
-                <button class="button pull-right">Place Order</button>
+                <button class="button pull-right">Đặt hàng</button>
             </div>
         </div>
     </div>
 </div>
 
+@section scripts{
+    <script>
+        $(window).load(function () {
+            Cart.bindCartTable();
+        });
+    </script>
+}

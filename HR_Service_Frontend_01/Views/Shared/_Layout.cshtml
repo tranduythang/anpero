@@ -97,47 +97,21 @@
                     <div class="col-xs-5 col-sm-3 col-md-2 group-button-header">
                         <a target="_blank" title="Chia sẻ trên google+" href="https://plus.google.com/share?url=@HttpContext.Current.Request.Url.AbsoluteUri" class="btn-heart">wishlist</a>
                         <div class="btn-cart" id="cart-block">
-                            <a title="My cart" href="cart.html">Cart</a>
-                            <span class="notify notify-right">2</span>
+                            <a title="My cart" href="/product/checkout">Cart</a>
+                            <span class="notify notify-right spN"></span>
                             <div class="cart-block">
                                 <div class="cart-block-content">
-                                    <h5 class="cart-title">2 Items in my cart</h5>
+                                    <h5 class="cart-title"><span class="spN"></span> Sản phẩm</h5>
                                     <div class="cart-block-list">
-                                        <ul>
-                                            <li class="product-info">
-                                                <div class="p-left">
-                                                    <a href="#" class="remove_link"></a>
-                                                    <a href="#">
-                                                        <img class="img-responsive" src="assets/data/product-100x122.jpg" alt="p10">
-                                                    </a>
-                                                </div>
-                                                <div class="p-right">
-                                                    <p class="p-name">Donec Ac Tempus</p>
-                                                    <p class="p-rice">61,19 €</p>
-                                                    <p>Qty: 1</p>
-                                                </div>
-                                            </li>
-                                            <li class="product-info">
-                                                <div class="p-left">
-                                                    <a href="#" class="remove_link"></a>
-                                                    <a href="#">
-                                                        <img class="img-responsive" src="assets/data/product-s5-100x122.jpg" alt="p10">
-                                                    </a>
-                                                </div>
-                                                <div class="p-right">
-                                                    <p class="p-name">Donec Ac Tempus</p>
-                                                    <p class="p-rice">61,19 €</p>
-                                                    <p>Qty: 1</p>
-                                                </div>
-                                            </li>
+                                        <ul id="prCatCt">                                           
                                         </ul>
                                     </div>
-                                    <div class="toal-cart">
+                                    <div class="toal-cart" style="display:none;">
                                         <span>Total</span>
-                                        <span class="toal-price pull-right">122.38 €</span>
+                                        <span class="toal-price pull-right" id="ttSC"></span>
                                     </div>
-                                    <div class="cart-buttons">
-                                        <a href="order.html" class="btn-check-out">Checkout</a>
+                                    <div class="cart-buttons" style="display:none;">
+                                        <a href="/product/checkout" class="btn-check-out">Thanh toán</a>
                                     </div>
                                 </div>
                             </div>
@@ -234,13 +208,14 @@
                     <div class="col-md-4">
                         <div id="address-box">
                             <a href="/"><img src="@commonInfo.Logo" alt="logo"></a>
-                            <div id="address-list">
+                            <div id="address-list">                                
                                 <div class="tit-name">Địa chỉ:</div>
                                 <div class="tit-contain">@commonInfo.Address</div>
-                                <div class="tit-name">Ms Hương:</div>
-                                <div class="tit-contain">0982.088.264 - 0906.299.482</div>
-                                <div class="tit-name">Mr Phú:</div>
+                                <div class="tit-name">Phone 1:</div>
+                                <div class="tit-contain">@commonInfo.HotLine (ms Hương)</div>
+                                <div class="tit-name">Phone 2:</div>
                                 <div class="tit-contain">091.987.1689 (mr Phú)</div>
+                                
                                 @if (string.IsNullOrEmpty(commonInfo.Email))
                                 {
                                     <div class="tit-name">Email:</div>
@@ -312,8 +287,10 @@
             </div>
         </footer>
         <div id="fb-root"></div>
-        <div id="fb-root"></div>
+
+    <script src="/Scripts/ShoppingCart.js"></script>
         <script>
+   
 (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;

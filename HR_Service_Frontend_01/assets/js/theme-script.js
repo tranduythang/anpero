@@ -7,6 +7,7 @@
         // auto width megamenu
         auto_width_megamenu();
         resizeTopmenu();
+        Cart.bindCart();
     });
     /* ---------------------------------------------
      Scripts ready

@@ -22,7 +22,7 @@ namespace AnperoFrontend
                        "~/assets/js/jquery.actual.min.js",
                        "~/assets/js/theme-script.js",
                        "~/Scripts/jquery.cokie.min.js",
-                       "~/Scripts/jquery.ShoppingCart.js"
+                       "~/Scripts/Anpero.Common.js"
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
