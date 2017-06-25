@@ -31,7 +31,7 @@
                     <li class="row">
                         <div class="col-sm-6">
                             <label for="company_name_1">Số điện thoại (*)</label>
-                            <input class="input form-control" type="text" name="" id="cPhoe">
+                            <input class="input form-control" type="text" name="" id="cPhone">
                         </div>
                         <div class="col-sm-6">
                             <label for="company_name_1">Email</label>
@@ -58,16 +58,16 @@
 
                     <li>
                         <p class="subcaption bold">Giao hàng tận nơi</p>
-                        <label for="radio_button_4"><input type="radio" name="radio_3" id="radio_button_4"> Vận chuyển thường 40.000đ</label>
+                        <label for="radio_button_4"><input type="radio" name="radio_3" id="radio_button_4" value="40000"> Vận chuyển thường 40.000đ</label>
                     </li>
                     <li>
-                        <p class="subcaption bold">Free Shipping</p>
-                        <label for="radio_button_5"><input type="radio" name="radio_5" id="radio_button_5"> Vận chuyển nhanh 80.000đ</label>
+                        
+                        <label for="radio_button_5"><input type="radio" name="radio_3" id="radio_button_5" value="80000"> Vận chuyển nhanh 80.000đ</label>
                     </li>
                 </ul>
             </div>
 
-            <h3 class="checkout-sep">6. Thông tin sản phẩm</h3>
+            <h3 class="checkout-sep">3. Kiểm tra lại thông tin sản phẩm</h3>
             <div class="box-border">
                 <table class="table table-bordered table-responsive cart_summary">
                     <thead>
@@ -85,25 +85,32 @@
                     <tfoot>
                         <tr>
                             <td colspan="2" rowspan="2"></td>
-                            <td colspan="3">Total products (tax incl.)</td>
-                            <td colspan="2">122.38 €</td>
+                            <td colspan="3">Tổng giá sản phẩm </td>
+                            <td colspan="2" id="ttPrCt">122.38 €</td>
                         </tr>
                         <tr>
-                            <td colspan="3"><strong>Total</strong></td>
-                            <td colspan="2"><strong>122.38 €</strong></td>
+                            <td colspan="3"><strong>Tổng đơn hàng (bao gồm ship)</strong></td>
+                            <td colspan="2"><strong id="ttOdCt">122.38 €</strong></td>
                         </tr>
                     </tfoot>
                 </table>
-                <button class="button pull-right">Đặt hàng</button>
+                <button class="button pull-right" id="orderBtn">Đặt hàng</button>
             </div>
         </div>
     </div>
 </div>
 
 @section scripts{
+<script src="~/Scripts/Bootrap.notify.js"></script>
     <script>
         $(window).load(function () {
             Cart.bindCartTable();
+            $("input[name=radio_3]").click(function () {
+                Cart.bindCartTable();
+            });
+            $("#orderBtn").click(function () {
+                Cart.sendOrder();
+            });
         });
     </script>
 }
