@@ -166,23 +166,33 @@
             valid = false;
             Util.notify("Lỗi: ", "Vui lòng nhập địa chỉ");
         }
-        if (_name == 'null' || _name == "") {
+        
+        if (_email!="" && !Util.isEmail(_email)) {
             valid = false;
+            Util.notify("Lỗi: ", "Email không đúng định dạng");
         }
-        if (!Util.isEmail(_email)) {
+        
+        if (_phone == "" || _phone == 'null') {
             valid = false;
+            Util.notify("Lỗi: ", "Số điện không được để trống");
+        } else if (!Util.isVnFone(_phone)) {
+            valid = false;
+            Util.notify("Lỗi: ", "Số điện không đúng định dạng");
         }
-        if (_phone != "" && _phone != 'null' && !Util.isVnFone(_phone)) {
-            valid = false;
+        var captchaResponse = grecaptcha.getResponse(googleCatcha);
+        if (captchaResponse == "" || captchaResponse == null) {
+            grecaptcha.reset();
+            Util.notify("Lỗi", "Vui lòng nhập click vào ô kiểm tra");
+            valid= false;
         }
         if (valid) {
             $.ajax({
-                type: "post",
-                url: "",
+                method: "post",
+                url: "/handler/ProductHandler.ashx",
                 datatype: "text/plain",
-                data: {},
+                data: { op: "CreateOrder", captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address,ProductList: $.cookie("CartList") },
                 success: function () {
-
+                    grecaptcha.reset();
                 }
             });
         }

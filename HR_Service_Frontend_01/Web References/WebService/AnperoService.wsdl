@@ -119,6 +119,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="ProductCategoryList" type="tns:ArrayOfProductCategory" />
           <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AnperoPlugin" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfMenu">

@@ -94,6 +94,10 @@
                         </tr>
                     </tfoot>
                 </table>
+                <div class="col-md-12">
+                    <div id="g-recaptcha" class="pull-right"></div>
+                </div>
+                
                 <button class="button pull-right" id="orderBtn">Đặt hàng</button>
             </div>
         </div>
@@ -102,8 +106,12 @@
 
 @section scripts{
 <script src="~/Scripts/Bootrap.notify.js"></script>
+<script src="https://www.google.com/recaptcha/api.js"></script>
     <script>
+        var googleCatcha;
+
         $(window).load(function () {
+       
             Cart.bindCartTable();
             $("input[name=radio_3]").click(function () {
                 Cart.bindCartTable();
@@ -111,6 +119,13 @@
             $("#orderBtn").click(function () {
                 Cart.sendOrder();
             });
+            googleCatcha = grecaptcha.render('g-recaptcha', {
+                'sitekey': googleCapchaSitekey,
+                'theme': 'light',
+                'hl': 'vi'
+            });
         });
+
+
     </script>
 }

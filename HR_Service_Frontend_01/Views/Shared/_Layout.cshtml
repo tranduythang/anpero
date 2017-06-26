@@ -199,6 +199,7 @@
         @RenderBody()
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
+        @Html.Raw(commonInfo.AnperoPlugin)
         @RenderSection("scripts", required: false)
         <footer id="footer">
             <div class="container">
