@@ -107,8 +107,6 @@
             $("#ttPrCt").html(Util.toMoneyFormat(ttSC) + " đ");
             $("#ttOdCt").html(Util.toMoneyFormat(parseInt(ttSC) + parseInt(shipingFee)) + " đ");
             $("#prCatCtTable").html(htmlCat);
-
-
         }
     },
     remove: function (prId) {
@@ -176,6 +174,17 @@
         }
         if (_phone != "" && _phone != 'null' && !Util.isVnFone(_phone)) {
             valid = false;
+        }
+        if (valid) {
+            $.ajax({
+                type: "post",
+                url: "",
+                datatype: "text/plain",
+                data: {},
+                success: function () {
+
+                }
+            });
         }
     }
 }

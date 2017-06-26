@@ -81,7 +81,6 @@
                                                 {
                                                     <option value="@commonInfo.ProductCategoryList[i].ChildCategory[j].Id">@commonInfo.ProductCategoryList[i].ChildCategory[j].Name</option>
                                                 }
-
                                             }
                                         }
                                     }
@@ -216,12 +215,12 @@
                                 <div class="tit-name">Phone 2:</div>
                                 <div class="tit-contain">091.987.1689 (mr Phú)</div>
                                 
-                                @if (string.IsNullOrEmpty(commonInfo.Email))
+                                @if(!string.IsNullOrEmpty(commonInfo.Email))
                                 {
                                     <div class="tit-name">Email:</div>
                                     <div class="tit-contain">@commonInfo.Email</div>
                                 }
-                                @if(string.IsNullOrEmpty(commonInfo.Skype))
+                                @if(!string.IsNullOrEmpty(commonInfo.Skype))
                                 {
                                     <div class="tit-name">Skype:</div>
                                     <div class="tit-contain"><a href="skype:@commonInfo.Skype?call"></a> @commonInfo.Skype</div>
@@ -239,9 +238,10 @@
                                     <li><a href="http://giupviec247.net/giup-viec-sang-di-toi-ve-cat118">Sáng đi tối về</a></li>
                                     <li><a href="http://giupviec247.net/giup-viec-o-lai-nha-cat119">Làm việc ở lại nhà</a></li>
                                     <li><a href="http://giupviec247.net/giup-viec-theo-gio-cat117">Giúp việc theo giờ</a></li>
-                                    <li><a href="http://giupviec247.net/cham-soc-tre-em-cat120">Chăm sóc trẻ em</a></li>
-                                    <li><a href="http://giupviec247.net/cham-nguoi-gia-nguoi-cao-tuoi-cat121">Chăm sóc người cao tuổi</a></li>
-                                    <li><a href="http://giupviec247.net/giup-viec-theo-gio-cat117">Giúp việc theo giờ</a></li>                                    
+                                    <li><a href="http://giupviec247.net/cham-soc-tre-em-cat120" title="dịch vụ trông trẻ">Chăm sóc trẻ em</a></li>
+                                    <li><a href="http://giupviec247.net/cham-nguoi-gia-nguoi-cao-tuoi-cat121" title="dịch vụ giúp việc chăm sóc người già">Chăm sóc người cao tuổi</a></li>
+                                    <li><a href="http://giupviec247.net/giup-viec-theo-gio-cat117" title="giúp việc theo giờ">Giúp việc theo giờ</a></li>
+                                    <li><a href="http://giupviecngoaigiaodoan.com" title="giúp việc ngoại giao đoàn">Giúp việc ngoại giao đoàn</a></li>
                                 </ul>
                             </div>
                           
@@ -282,7 +282,7 @@
                         </ul>
                     </div>
 
-                    <p class="text-center">Copyrights © 2015 Minh Khoi Store. All Rights Reserved. Designed by <a href="http://anpero.com" title="thiết kế web bán hàng anpro">Anpero.com</a></p>
+                    <p class="text-center">Copyrights © 2015 Giupviecngoaigiaodoan.com & GiupViec247.net . All Rights Reserved. Designed by <a href="http://anpero.com" title="thiết kế web bán hàng anpro">Anpero.com</a></p>
                 </div>
             </div>
         </footer>
