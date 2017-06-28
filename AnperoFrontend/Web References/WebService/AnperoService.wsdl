@@ -63,6 +63,30 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="AddOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="st" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="captcha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductList" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="price" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="shippingMethod" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="modeDetail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddOrderResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetAdsSlide">
         <s:complexType>
           <s:sequence>
@@ -120,6 +144,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="AnperoPlugin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfMenu">
@@ -326,6 +351,12 @@
   <wsdl:message name="GetArticleByIdSoapOut">
     <wsdl:part name="parameters" element="tns:GetArticleByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="AddOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:AddOrder" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:AddOrderResponse" />
+  </wsdl:message>
   <wsdl:message name="GetAdsSlideSoapIn">
     <wsdl:part name="parameters" element="tns:GetAdsSlide" />
   </wsdl:message>
@@ -383,6 +414,10 @@
       <wsdl:input message="tns:GetArticleByIdSoapIn" />
       <wsdl:output message="tns:GetArticleByIdSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="AddOrder">
+      <wsdl:input message="tns:AddOrderSoapIn" />
+      <wsdl:output message="tns:AddOrderSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetAdsSlide">
       <wsdl:input message="tns:GetAdsSlideSoapIn" />
       <wsdl:output message="tns:GetAdsSlideSoapOut" />
@@ -429,6 +464,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetArticleById">
       <soap:operation soapAction="http://tempuri.org/GetArticleById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrder">
+      <soap:operation soapAction="http://tempuri.org/AddOrder" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -522,6 +566,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetArticleById">
       <soap12:operation soapAction="http://tempuri.org/GetArticleById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrder">
+      <soap12:operation soapAction="http://tempuri.org/AddOrder" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

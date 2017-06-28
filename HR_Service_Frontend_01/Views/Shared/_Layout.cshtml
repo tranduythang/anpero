@@ -68,8 +68,8 @@
                     </div>
                     <div class="col-xs-7 col-sm-8 col-md-7 header-search-box">
                         <form class="form-inline" action="/search" name="search" id="search" method="get">
-                            <div class="form-group form-category" name="category">
-                                <select class="select-category">
+                            <div class="form-group form-category">
+                                <select class="select-category" name="category">
                                     <option value="0">Danh mục dịch vụ</option>
                                     @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                                     {

@@ -191,25 +191,7 @@
             grecaptcha.reset();
             Util.notify("Lỗi", "Vui lòng nhập click vào ô kiểm tra");
             valid= false;
-        }
-        //switch (i) {
-        //    case 0:
-        //        return "Trực tiếp";
-        //    case 1:
-        //        return "Chuyển phát thường và thu tiền tại nhà";
-        //    case 2:
-        //        return "Chuyển phát nhanh và thu tiền tại nhà";
-        //    case 3:
-        //        return "Thanh toán online và chuyển phát thường";
-        //    case 4:
-        //        return "Thanh toán online và chuyển phát nhanh";
-        //    case 6:
-        //        return "Chuyển khoản và chuyển phát thường";
-        //    case 7:
-        //        return "Chuyển khoản và chuyển phát nhanh";
-        //    default:
-        //        return "Chuyển phát thường";
-        //}
+        }       
         if (valid) {
             $("#cartContent1").hide();
             $("#cartContent2").show();
@@ -222,8 +204,8 @@
                 success: function (rs) {
                     if (!isNaN(rs)) {
                         $.removeCookie('CartList', { path: '/' });
-                        $("#cartContent2").html("<h4>Đơn hàng số #" + rs + " đã được gửi thành công tới bộ phận bán hàng. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</h4>");
-                        Util.notify("", "Đơn hàng đã được gửi tới bộ phận bán hàng. ");                        
+                        $("#cartContent2").html("<h4>Đơn hàng số #" + rs + " đã được gửi thành công tới bộ nhân sự. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</h4>");
+                        Util.notify("", "Đơn hàng đã được gửi tới bộ phận bán hàng. ");
                     } else {
                         Util.notify("", rs);
                         $("#cartContent1").show();

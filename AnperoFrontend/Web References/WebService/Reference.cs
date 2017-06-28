@@ -33,6 +33,8 @@ namespace AnperoFrontend.WebService {
         
         private System.Threading.SendOrPostCallback GetArticleByIdOperationCompleted;
         
+        private System.Threading.SendOrPostCallback AddOrderOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetAdsSlideOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetCommonConfigOperationCompleted;
@@ -92,6 +94,9 @@ namespace AnperoFrontend.WebService {
         
         /// <remarks/>
         public event GetArticleByIdCompletedEventHandler GetArticleByIdCompleted;
+        
+        /// <remarks/>
+        public event AddOrderCompletedEventHandler AddOrderCompleted;
         
         /// <remarks/>
         public event GetAdsSlideCompletedEventHandler GetAdsSlideCompleted;
@@ -186,6 +191,55 @@ namespace AnperoFrontend.WebService {
             if ((this.GetArticleByIdCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetArticleByIdCompleted(this, new GetArticleByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddOrder", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int AddOrder(int st, string tokenKey, string captcha, string name, string email, string phone, string address, string ProductList, int price, int shippingMethod, string modeDetail) {
+            object[] results = this.Invoke("AddOrder", new object[] {
+                        st,
+                        tokenKey,
+                        captcha,
+                        name,
+                        email,
+                        phone,
+                        address,
+                        ProductList,
+                        price,
+                        shippingMethod,
+                        modeDetail});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AddOrderAsync(int st, string tokenKey, string captcha, string name, string email, string phone, string address, string ProductList, int price, int shippingMethod, string modeDetail) {
+            this.AddOrderAsync(st, tokenKey, captcha, name, email, phone, address, ProductList, price, shippingMethod, modeDetail, null);
+        }
+        
+        /// <remarks/>
+        public void AddOrderAsync(int st, string tokenKey, string captcha, string name, string email, string phone, string address, string ProductList, int price, int shippingMethod, string modeDetail, object userState) {
+            if ((this.AddOrderOperationCompleted == null)) {
+                this.AddOrderOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddOrderOperationCompleted);
+            }
+            this.InvokeAsync("AddOrder", new object[] {
+                        st,
+                        tokenKey,
+                        captcha,
+                        name,
+                        email,
+                        phone,
+                        address,
+                        ProductList,
+                        price,
+                        shippingMethod,
+                        modeDetail}, this.AddOrderOperationCompleted, userState);
+        }
+        
+        private void OnAddOrderOperationCompleted(object arg) {
+            if ((this.AddOrderCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AddOrderCompleted(this, new AddOrderCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1179,6 +1233,8 @@ namespace AnperoFrontend.WebService {
         
         private string anperoPluginField;
         
+        private string nameField;
+        
         /// <remarks/>
         public Menu[] MenuList {
             get {
@@ -1298,6 +1354,16 @@ namespace AnperoFrontend.WebService {
                 this.anperoPluginField = value;
             }
         }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -1393,6 +1459,32 @@ namespace AnperoFrontend.WebService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((BlogItem)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void AddOrderCompletedEventHandler(object sender, AddOrderCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AddOrderCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AddOrderCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
             }
         }
     }

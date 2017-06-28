@@ -128,6 +128,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="handler\ProductHandler.ashx.cs">
+      <DependentUpon>ProductHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -909,12 +912,16 @@
     <Content Include="index6.html" />
     <Content Include="login.html" />
     <Content Include="order.html" />
+    <Content Include="handler\ProductHandler.ashx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Scripts\Anpero.Common.js" />
+    <Content Include="Scripts\Bootrap.notify.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Scripts\jquery.cokie.min.js" />
+    <Content Include="Scripts\ShoppingCart.js" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Shared\product\_MenuAndAdsPartial.cshtml" />
     <Content Include="Views\Product\Category.cshtml" />
@@ -924,6 +931,7 @@
     <Content Include="Views\Article\Index.cshtml" />
     <Content Include="Views\Article\Category.cshtml" />
     <Content Include="Views\Shared\article\_MenuAndAdsPartial.cshtml" />
+    <Content Include="Views\Product\Checkout.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

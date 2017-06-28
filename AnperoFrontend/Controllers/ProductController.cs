@@ -8,6 +8,7 @@ namespace AnperoFrontend.Controllers
 {
     public class ProductController : BaseController
     {
+
         // GET: Product
         [BuildCommonHtml]
         public ActionResult Index(int id)
@@ -43,6 +44,7 @@ namespace AnperoFrontend.Controllers
 
             return View();
         }
+       
         [BuildCommonHtml]
         public ActionResult ParentCategory(int id)
         {
@@ -53,7 +55,7 @@ namespace AnperoFrontend.Controllers
                 page = Convert.ToInt32(pageQuery);
             }
             WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.SearchResult rs = sv.GetProductByParentCategory(StoreID, TokenKey,id, page, 14, 0);
+            WebService.SearchResult rs = sv.GetProductByParentCategory(StoreID, TokenKey, id, page, 14, 0);
             ViewData["productList"] = rs;
             ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
             ViewBag.isParent = "1";
@@ -63,6 +65,34 @@ namespace AnperoFrontend.Controllers
             }
             SetupCommonProduct();
             return View("Category");
+        }
+        [BuildCommonHtml]
+        public ActionResult Search(string id,string keyword)
+        {            
+            string pageQuery = Request.QueryString["page"];
+            int page = 1;
+            if (!string.IsNullOrEmpty(pageQuery))
+            {
+                page = Convert.ToInt32(pageQuery);
+            }
+            WebService.AnperoService sv = new WebService.AnperoService();
+            WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, id, "", "", 0, 999999, page, 14, keyword, SearchOrder.NameDesc, 0);
+            ViewData["productList"] = rs;
+            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+            if (rs != null && rs.Item.Length > 0)
+            {
+                ViewBag.Title = rs.Item[0].CatName;
+            }
+
+            SetupCommonProduct();
+
+            return View("Category");
+        }
+        [BuildCommonHtml]
+        public ActionResult Checkout()
+        {
+
+            return View();
         }
     }
 }
