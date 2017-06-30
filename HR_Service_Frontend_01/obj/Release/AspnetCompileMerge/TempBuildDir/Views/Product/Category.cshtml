@@ -11,7 +11,7 @@
                 @if (ViewData["productList"] != null)
                 {
                     AnperoFrontend.WebService.SearchResult productList = (AnperoFrontend.WebService.SearchResult)ViewData["productList"];
-                    if (productList.ResultCount > 0)
+                    if (productList.Item.Length > 0)
                     {
                         <div id="view-product-list" class="view-product-list">
 
@@ -55,7 +55,7 @@
                                                     <a title="Quick view" class="search" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)"></a>
                                                 </div>
                                                 <div class="add-to-cart">
-                                                    <a title="Add to Cart" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">Add to Cart</a>
+                                                    <a title="Add to Cart" href="javascript:Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName')">Chọn</a>
                                                 </div>
                                             </div>
                                             <div class="right-block">

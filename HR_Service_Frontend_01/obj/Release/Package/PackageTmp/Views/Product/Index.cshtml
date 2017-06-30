@@ -121,11 +121,11 @@
                                     <div class="button-group">
                                         @if (item.IsInstock)
                                         {
-                                            <a class="btn-add-cart" href="#">Chọn</a>
+                                            <a class="btn-add-cart" href="javascript:Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName')">Chọn</a>
                                         }
                                         else
                                         {
-                                            <a class="btn-add-cart" href="#">Đang bận</a>
+                                            <a class="btn-add-cart" href="javascript:void(0);">Đang bận</a>
                                         }
                                     </div>
 
@@ -149,7 +149,7 @@
                             <div class="product-tab">
                                 <ul class="nav-tab">
                                     <li class="active">
-                                        <a aria-expanded="false" data-toggle="tab" href="#product-detail">Thông tin sản phẩm</a>
+                                        <a aria-expanded="false" data-toggle="tab" href="#product-detail">Thông tin chi tiết</a>
                                     </li>
                                 </ul>
                                 <div class="tab-container">

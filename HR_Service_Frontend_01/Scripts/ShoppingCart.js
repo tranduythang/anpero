@@ -17,14 +17,12 @@
                     checkExited = true;
                 }
             }
+            // if this product no in cart list
             if (!checkExited) {
                 Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });
             }
-        }
-        var date = new Date();
-        var minutes = 60 * 2;
-        date.setTime(date.getTime() + (minutes * 60 * 1000));
-        $.cookie("CartList", JSON.stringify(Cart.list), { expires: date, path: '/' });
+        }        
+        $.cookie("CartList", JSON.stringify(Cart.list), {path: '/' });
         window.location.href = "/product/checkout";
     },
     addProduct2: function (_id, _price) {
@@ -34,15 +32,12 @@
         }
         for (var i = 0; i < Cart.list.length; i++) {
             if (Cart.list[i].id == _id) {
-                Cart.list[i].price =  parseInt(Cart.list[i].price)
+                Cart.list[i].price = parseInt(Cart.list[i].price)
                 Cart.list[i].quantity = parseInt(Cart.list[i].quantity) + 1;
                 $("#prQuantity_" + _id).val(Cart.list[i].quantity);
             }
-        }        
-        var date = new Date();
-        var minutes = 60 * 2;
-        date.setTime(date.getTime() + (minutes * 60 * 1000));
-        $.cookie("CartList", JSON.stringify(Cart.list), { expires: date, path: '/' });
+        }
+        $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
         Cart.bindCartTable();
     },
     bindCart: function () {
@@ -72,7 +67,7 @@
     },
     bindCartTable: function () {
         var ttSC = 0;
-      
+
         var htmlCat = "";
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
@@ -119,7 +114,7 @@
         var date = new Date();
         var minutes = 60 * 2;
         date.setTime(date.getTime() + (minutes * 60 * 1000));
-        $.cookie("CartList", JSON.stringify(Cart.list), { expires: date, path: '/' });
+        $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
         Cart.bindCart();
     },
     remove2: function (prId) {
@@ -128,33 +123,27 @@
             if (Cart.list[i].id == prId) {
                 Cart.list.splice(i, 1);
             }
-        }
-        var date = new Date();
-        var minutes = 60 * 2;
-        date.setTime(date.getTime() + (minutes * 60 * 1000));
-        $.cookie("CartList", JSON.stringify(Cart.list), { expires: date, path: '/' });
+        }        
+        $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
         Cart.bindCartTable();
     },
     remove3: function (_id) {
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
-            Cart.list = jQuery.parseJSON($.cookie("CartList")); 
+            Cart.list = jQuery.parseJSON($.cookie("CartList"));
         }
         for (var i = 0; i < Cart.list.length; i++) {
-            
+
             if (Cart.list[i].id == _id && parseInt(Cart.list[i].quantity) > 1) {
                 Cart.list[i].price = parseInt(Cart.list[i].price);
                 Cart.list[i].quantity = parseInt(Cart.list[i].quantity) - 1;
             }
-        }
-        var date = new Date();
-        var minutes = 60 * 2;
-        date.setTime(date.getTime() + (minutes * 60 * 1000));
-        $.cookie("CartList", JSON.stringify(Cart.list), { expires: date, path: '/' });
+        }        
+        $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
         Cart.bindCartTable();
     },
     sendOrder: function () {
-      
-     
+
+
         var valid = true;
         var _name = $("#cName").val();
         var _detail = $("#detail").val();
@@ -173,12 +162,12 @@
             valid = false;
             Util.notify("Lỗi: ", "Vui lòng nhập địa chỉ");
         }
-        
-        if (_email!="" && !Util.isEmail(_email)) {
+
+        if (_email != "" && !Util.isEmail(_email)) {
             valid = false;
             Util.notify("Lỗi: ", "Email không đúng định dạng");
         }
-        
+
         if (_phone == "" || _phone == 'null') {
             valid = false;
             Util.notify("Lỗi: ", "Số điện không được để trống");
@@ -190,7 +179,7 @@
         if (captchaResponse == "" || captchaResponse == null) {
             grecaptcha.reset();
             Util.notify("Lỗi", "Vui lòng nhập click vào ô kiểm tra");
-            valid= false;
+            valid = false;
         }
         //switch (i) {
         //    case 0:
@@ -218,18 +207,18 @@
                 method: "post",
                 url: "/handler/ProductHandler.ashx",
                 datatype: "text/plain",
-                data: { op: "CreateOrder",detail:_detail, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, ProductList: $.cookie("CartList"), shipingFee: _shipingFee },
+                data: { op: "CreateOrder", detail: _detail, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, ProductList: $.cookie("CartList"), shipingFee: _shipingFee },
                 success: function (rs) {
                     if (!isNaN(rs)) {
                         $.removeCookie('CartList', { path: '/' });
-                        $("#cartContent2").html("<h4>Đơn hàng số #" + rs + " đã được gửi thành công tới bộ phận bán hàng. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</h4>");
-                        Util.notify("", "Đơn hàng đã được gửi tới bộ phận bán hàng. ");                        
+                        $("#cartContent2").html("<h4>Đơn hàng số #" + rs + " đã được gửi thành công tới bộ phận nhân sự. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</h4>");
+                        Util.notify("", "Đơn hàng đã được gửi tới bộ phận nhân sự. ");
                     } else {
                         Util.notify("", rs);
                         $("#cartContent1").show();
                         grecaptcha.reset();
                     }
-                    
+
                 }
             });
         }
