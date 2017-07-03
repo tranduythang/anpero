@@ -69,6 +69,7 @@ namespace AnperoFrontend.Controllers
                 }
                
             }
+
             GetTopArticle();
         }
     }

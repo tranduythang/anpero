@@ -17,7 +17,7 @@
         </h2>
         <!-- ../page heading-->
         <div class="page-content checkout-page" id="cartContent1">
-            <h3 class="checkout-sep">1. Thông tin khách hàng</h3>
+            <h3 class="checkout-sep">1. Thông tin nhận hàng</h3>
             <div class="box-border">
                 <ul>
                     <li class="row">
@@ -67,8 +67,25 @@
                     </li>
                 </ul>
             </div>
+            <h3 class="checkout-sep">3. Phương thức thanh toán</h3>
+            <div class="box-border">
+                <ul class="shipping_method">
+                    <li>
+                        <p class="subcaption bold">Tại cửa hàng</p>
+                        <label for="radio_button_3"><input type="radio" checked name="radio_4" id="radio_button_4" value="0" data-ship="0">Miễn phí 0đ</label>
+                    </li>
 
-            <h3 class="checkout-sep">3. Kiểm tra lại thông tin sản phẩm</h3>
+                    <li>
+                        <p class="subcaption bold">Giao hàng tận nơi</p>
+                        <label for="radio_button_51"><input type="radio" name="radio_4" id="radio_button_51" value="1" data-ship="0"> Chuyển khoản 0đ</label>
+                    </li>
+                    <li>
+                        <label for="radio_button_6"><input type="radio" name="radio_4" id="radio_button_6" value="2" data-ship="15000"> Thu tiền tại nhà khi giao hàng</label>
+                    </li>
+
+                </ul>
+            </div>
+            <h3 class="checkout-sep">4. Kiểm tra lại thông tin sản phẩm</h3>
             <div class="box-border">
                 <table class="table table-bordered table-responsive cart_summary">
                     <thead>
@@ -95,8 +112,6 @@
                         </tr>
                     </tfoot>
                 </table>
-
-
                 <div class="col-md-12">
                     <div id="g-recaptcha" class="pull-right"></div>
                 </div>
@@ -116,6 +131,9 @@
 
             Cart.bindCartTable();
             $("input[name=radio_3]").click(function () {
+                Cart.bindCartTable();
+            });
+            $("input[name=radio_4]").click(function () {
                 Cart.bindCartTable();
             });
             $("#orderBtn").click(function () {

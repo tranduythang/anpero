@@ -21,8 +21,8 @@
             if (!checkExited) {
                 Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });
             }
-        }
-        $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
+        }        
+        $.cookie("CartList", JSON.stringify(Cart.list), {path: '/' });
         window.location.href = "/product/checkout";
     },
     addProduct2: function (_id, _price) {
@@ -66,11 +66,14 @@
         }
     },
     bindCartTable: function () {
+
         var ttSC = 0;
 
+        var _paymentFee = $('input[name=radio_4]:checked').attr("data-ship");
         var htmlCat = "";
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
+           
             $(".spN").html(Cart.list.length);
             for (var i = 0; i < Cart.list.length; i++) {
                 ttSC += parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity);
@@ -99,8 +102,9 @@
 
             }
             var shipingFee = $('input[name=radio_3]:checked').attr("data-ship");
+
             $("#ttPrCt").html(Util.toMoneyFormat(ttSC) + " đ");
-            $("#ttOdCt").html(Util.toMoneyFormat(parseInt(ttSC) + parseInt(shipingFee)) + " đ");
+            $("#ttOdCt").html(Util.toMoneyFormat(parseInt(ttSC) + parseInt(shipingFee) + parseInt(_paymentFee)) + " đ");
             $("#prCatCtTable").html(htmlCat);
         }
     },
@@ -123,7 +127,7 @@
             if (Cart.list[i].id == prId) {
                 Cart.list.splice(i, 1);
             }
-        }
+        }        
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
         Cart.bindCartTable();
     },
@@ -137,7 +141,7 @@
                 Cart.list[i].price = parseInt(Cart.list[i].price);
                 Cart.list[i].quantity = parseInt(Cart.list[i].quantity) - 1;
             }
-        }
+        }        
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
         Cart.bindCartTable();
     },
@@ -149,7 +153,9 @@
         var _detail = $("#detail").val();
 
         var _shipingType = $('input[name=radio_3]:checked').val();
+        var _paymentType = $('input[name=radio_4]:checked').val();
         var _shipingFee = $('input[name=radio_3]:checked').attr("data-ship");
+        var _paymentFee = $('input[name=radio_4]:checked').attr("data-ship");
 
         var _email = $("#cMail").val();
         var _phone = $("#cPhone").val();
@@ -181,6 +187,8 @@
             Util.notify("Lỗi", "Vui lòng nhập click vào ô kiểm tra");
             valid = false;
         }
+        _payMentType=0;
+       
         //switch (i) {
         //    case 0:
         //        return "Trực tiếp";
@@ -199,20 +207,24 @@
         //    default:
         //        return "Chuyển phát thường";
         //}
+        
         if (valid) {
             $("#cartContent1").hide();
             $("#cartContent2").show();
             $("#cartContent2").html("<h4>Đơn hàng đang được gửi ...</h4>");
+            $("#ajax_loader").show();
             $.ajax({
                 method: "post",
                 url: "/handler/ProductHandler.ashx",
                 datatype: "text/plain",
-                data: { op: "CreateOrder", detail: _detail, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, ProductList: $.cookie("CartList"), shipingFee: _shipingFee },
+                data: { op: "CreateOrder", detail: _detail,PayMentType:_payMentType, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, ProductList: $.cookie("CartList"), shipingFee:parseInt(_shipingFee)+parseInt(_paymentFee) },
                 success: function (rs) {
+                    $("#ajax_loader").hide();
                     if (!isNaN(rs)) {
                         $.removeCookie('CartList', { path: '/' });
                         $("#cartContent2").html("<h4>Đơn hàng số #" + rs + " đã được gửi thành công tới bộ phận bán hàng. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</h4>");
                         Util.notify("", "Đơn hàng đã được gửi tới bộ phận bán hàng. ");
+                     
                     } else {
                         Util.notify("", rs);
                         $("#cartContent1").show();

@@ -38,23 +38,23 @@ namespace AnperoFrontend.Controllers
                 {
                     HttpRuntime.Cache.Insert("newestProduct", searchResult, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
-              
+               
             }
            
             ViewData["newestProduct"] = searchResult;
 
         }
-    
+        [BuildCommonHtml]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
-
+        [BuildCommonHtml]
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+         
 
             return View();
         }

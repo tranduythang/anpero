@@ -67,7 +67,7 @@ namespace AnperoFrontend.Controllers
             return View("Category");
         }
         [BuildCommonHtml]
-        public ActionResult Search(string id,string keyword)
+        public ActionResult Search(string category, string keyword)
         {            
             string pageQuery = Request.QueryString["page"];
             int page = 1;
@@ -76,7 +76,7 @@ namespace AnperoFrontend.Controllers
                 page = Convert.ToInt32(pageQuery);
             }
             WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, id, "", "", 0, 999999, page, 14, keyword, SearchOrder.NameDesc, 0);
+            WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, category,"", "", 0, 999999999, page, 14, keyword, SearchOrder.NameDesc, 0);
             ViewData["productList"] = rs;
             ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
             if (rs != null && rs.Item.Length > 0)

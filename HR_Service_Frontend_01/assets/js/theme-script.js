@@ -236,22 +236,6 @@
             $(this).closest('.title').toggleClass('active');
             return false;
         })
-        /* Product qty */
-        $(document).on('click','.btn-plus-down',function(){
-            var value = parseInt($('#option-product-qty').val());
-            value = value -1;
-            if(value <=0) return false;
-            $('#option-product-qty').val(value);
-            return false;
-        })
-        $(document).on('click','.btn-plus-up',function(){
-            var value = parseInt($('#option-product-qty').val());
-            value = value +1;
-            if(value <=0) return false;
-            $('#option-product-qty').val(value);
-            return false;
-        })
-        /* Close vertical */
         $(document).on('click','*',function(e){
             var container = $("#box-vertical-megamenus");
             if (!container.is(e.target) && container.has(e.target).length === 0){
@@ -264,30 +248,7 @@
                 container.find('.vertical-menu-content').hide();
                 container.find('.title').removeClass('active');
             }
-        })
-        /* Send conttact*/
-        $(document).on('click','#btn-send-contact',function(){
-            var subject = $('#subject').val(),
-                email   = $('#email').val(),
-                order_reference = $('#order_reference').val(),
-                message = $('#message').val();
-            var data = {
-                subject:subject,
-                email:email,
-                order_reference:order_reference,
-                message:message
-            }
-            $.post('ajax_contact.php',data,function(result){
-                if(result.trim()=="done"){
-                    $('#email').val('');
-                    $('#order_reference').val('');
-                    $('#message').val('');
-                    $('#message-box-conact').html('<div class="alert alert-info">Your message was sent successfully. Thanks</div>');
-                }else{
-                    $('#message-box-conact').html(result);
-                }
-            })
-        })
+        })      
     });
     /* ---------------------------------------------
      Scripts resize

@@ -62,34 +62,18 @@
                                     </div>
 
                                 </div>
-                                <div class="product-price-group">
-                                    @{
-                                        string unitName = "";
-                                        if (item.SalePrice > 0 && item.SalePrice < 100000)
-                                        {
-                                            unitName = "/ giờ";
-                                        }
-                                        else if (item.SalePrice >= 100000 && item.SalePrice < 1000000)
-                                        {
-                                            unitName = "/ ngày";
-
-                                        }
-                                        else if (item.SalePrice >= 1000000)
-                                        {
-                                            unitName = "/ tháng";
-                                        }
-                                    }
+                                <div class="product-price-group">                                 
                                  
                                     @if (item.IsSale)
                                     {
-                                        <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice.ToString()) đ @unitName</span>
+                                        <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice.ToString()) đ </span>
                                        
                                         <span class="old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString()) đ</span>
                                         <span class="discount">@Anpero.StringHelpper.ConVertToMoneyFormatInt((item.SalePrice - item.Price).ToString()) đ</span>
                                     }
                                     else
                                     {
-                                        <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString()) đ @unitName</span>
+                                        <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString()) đ</span>
                                     }
                                 </div>
                                 <div class="info-orther">

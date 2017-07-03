@@ -34,16 +34,16 @@
                                     <div class="product-img-thumb" id="gallery_01">
                                         @if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
                                         {
-                                            <ul class="owl-carousel" data-items="3" data-nav="true" data-dots="false" data-margin="20" data-loop="true">
-                                                @foreach (var images in item.ImagesSlide)
+                                        <ul class="owl-carousel" data-items="3" data-nav="true" data-dots="false" data-margin="20" data-loop="true">
+                                            @foreach (var images in item.ImagesSlide)
                                                 {
-                                                    <li>
-                                                        <a href="#" data-image="@images" data-zoom-image="@images">
-                                                            <img id="product-zoom" src="@images" />
-                                                        </a>
-                                                    </li>
+                                                <li>
+                                                    <a href="#" data-image="@images" data-zoom-image="@images">
+                                                        <img id="product-zoom" src="@images" />
+                                                    </a>
+                                                </li>
                                                 }
-                                            </ul>
+                                        </ul>
                                         }
 
                                     </div>
@@ -79,17 +79,17 @@
                                             unitName = "/ tháng";
                                         }
                                     }
-                                 
+
                                     @if (item.IsSale)
                                     {
-                                        <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice.ToString()) đ @unitName</span>
-                                       
-                                        <span class="old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString()) đ</span>
-                                        <span class="discount">@Anpero.StringHelpper.ConVertToMoneyFormatInt((item.SalePrice - item.Price).ToString()) đ</span>
+                                    <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice.ToString()) đ @unitName</span>
+
+                                    <span class="old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString()) đ</span>
+                                    <span class="discount">@Anpero.StringHelpper.ConVertToMoneyFormatInt((item.SalePrice - item.Price).ToString()) đ</span>
                                     }
                                     else
                                     {
-                                        <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString()) đ @unitName</span>
+                                    <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString()) đ @unitName</span>
                                     }
                                 </div>
                                 <div class="info-orther">
@@ -98,34 +98,34 @@
                                         Trạng thái:
                                         @if (item.IsInstock)
                                         {
-                                            <span class="in-stock">Sẵn sàn</span>
+                                        <span class="in-stock">Sẵn sàn</span>
                                         }
                                         else
                                         {
-                                            <span class="in-stock">Đang bận</span>
+                                        <span class="in-stock">Đang bận</span>
                                         }
                                     </p>
                                     <p>Tình trạng: mới</p>
                                     @if (item.Warranty > 0)
                                     {
-                                        <p>Bảo hành: @item.Warranty tháng</p>
+                                    <p>Kinh nghiệm: @item.Warranty Năm</p>
                                     }
                                 </div>
                                 @if (item.ShortDesc != null && item.ShortDesc.Length > 0)
                                 {
-                                    <div class="product-desc">
-                                        @Html.Raw(item.ShortDesc)
-                                    </div>
+                                <div class="product-desc">
+                                    @Html.Raw(item.ShortDesc)
+                                </div>
                                 }
                                 <div class="form-action">
                                     <div class="button-group">
                                         @if (item.IsInstock)
                                         {
-                                            <a class="btn-add-cart" href="javascript:Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName')">Chọn</a>
+                                        <a class="btn-add-cart" href="javascript:Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName')">Chọn</a>
                                         }
                                         else
                                         {
-                                            <a class="btn-add-cart" href="javascript:void(0);">Đang bận</a>
+                                        <a class="btn-add-cart" href="javascript:void(0);">Đang bận</a>
                                         }
                                     </div>
 
@@ -143,23 +143,21 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- tab product -->
                         @if (!string.IsNullOrEmpty(item.Detail))
                         {
-                            <div class="product-tab">
-                                <ul class="nav-tab">
-                                    <li class="active">
-                                        <a aria-expanded="false" data-toggle="tab" href="#product-detail">Thông tin chi tiết</a>
-                                    </li>
-                                </ul>
-                                <div class="tab-container">
-                                    <div id="product-detail" class="tab-panel active">
-                                        @Html.Raw(item.Detail)
-                                    </div>
+                        <div class="product-tab">
+                            <ul class="nav-tab">
+                                <li class="active">
+                                    <a aria-expanded="false" data-toggle="tab" href="#product-detail">Thông tin chi tiết</a>
+                                </li>
+                            </ul>
+                            <div class="tab-container">
+                                <div id="product-detail" class="tab-panel active">
+                                    @Html.Raw(item.Detail)
                                 </div>
                             </div>
+                        </div>
                         }
-
                         <!-- ./tab product -->
                         <!-- box product -->
                         <div class="page-product-box">
@@ -172,49 +170,49 @@
                                     {
                                         foreach (var items in relateProduct.Item)
                                         {
-                                            <li class="col-sx-12 col-sm-3">
-                                                <div class="product-container">
-                                                    <div class="left-block">
-                                                        <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,@item.Id)">
-                                                            <img class="img-responsive" alt="@item.PrName" src="@items.Images" />
-                                                            @if (item.IsSale)
+                                <li class="col-sx-12 col-sm-3">
+                                    <div class="product-container">
+                                        <div class="left-block">
+                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,@item.Id)">
+                                                <img class="img-responsive" alt="@item.PrName" src="@items.Images" />
+                                                @if (item.IsSale)
                                                             {
-                                                                <div class="price-percent-reduction2">giảm @Anpero.StringHelpper.ConVertToMoneyFormatInt((item.Price - item.SalePrice).ToString())</div>
+                                                            <div class="price-percent-reduction2">giảm @Anpero.StringHelpper.ConVertToMoneyFormatInt((item.Price - item.SalePrice).ToString())</div>
                                                             }
-                                                        </a>
-                                                        <div class="quick-view">
-                                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                            <a title="Add to compare" class="compare" href="#"></a>
-                                                            <a title="Quick view" class="search" href="#"></a>
-                                                        </div>
-                                                        <div class="add-to-cart">
-                                                            <a title="Add to Cart" href="#add">Thêm vào giỏ hàng</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="right-block">
-                                                        <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,@item.Id)">@item.PrName</a></h5>
-                                                        <div class="product-star">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-half-o"></i>
-                                                        </div>
-                                                        <div class="content_price">
-                                                            @if (item.IsSale)
+                                            </a>
+                                            <div class="quick-view">
+                                                <a title="Add to my wishlist" class="heart" href="#"></a>
+                                                <a title="Add to compare" class="compare" href="#"></a>
+                                                <a title="Quick view" class="search" href="#"></a>
+                                            </div>
+                                            <div class="add-to-cart">
+                                                <a title="Add to Cart" href="#add">Thêm vào giỏ hàng</a>
+                                            </div>
+                                        </div>
+                                        <div class="right-block">
+                                            <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,@item.Id)">@item.PrName</a></h5>
+                                            <div class="product-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </div>
+                                            <div class="content_price">
+                                                @if (item.IsSale)
                                                             {
-                                                                <span class="price product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice.ToString())</span>
-                                                                <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString())</span>
+                                                            <span class="price product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice.ToString())</span>
+                                                            <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString())</span>
                                                             }
                                                             else
                                                             {
-                                                                <span class="price product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString())</span>
+                                                            <span class="price product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString())</span>
                                                             }
 
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
                                         }
                                     }
                                 }
@@ -245,26 +243,25 @@
         <script type="text/javascript" src="/assets/lib/countdown/jquery.countdown.js"></script>
         @item.Script
         <script>
-            /** COUNT DOWN **/
             $('[data-countdown]').each(function () {
-                var $this = $(this), finalDate = $(this).data('countdown');
-                $this.countdown(finalDate, function (event) {
-                    var fomat = '<span>%H</span><b></b><span>%M</span><b></b><span>%S</span>';
-                    $this.html(event.strftime(fomat));
-                });
-            });
+                                                    var $this = $(this), finalDate = $(this).data('countdown');
+                                                    $this.countdown(finalDate, function (event) {
+                                                        var fomat = '<span>%H</span><b></b><span>%M</span><b></b><span>%S</span>';
+                                                        $this.html(event.strftime(fomat));
+                                                    });
+                                                });
             if ($('.countdown-lastest').length > 0) {
-                var labels = ['Years', 'Months', 'Weeks', 'Days', 'Hrs', 'Mins', 'Secs'];
-                var layout = '<span class="box-count"><span class="number">{dnn}</span> <span class="text">Ngày</span></span><span class="dot">:</span><span class="box-count"><span class="number">{hnn}</span> <span class="text">Giờ</span></span><span class="dot">:</span><span class="box-count"><span class="number">{mnn}</span> <span class="text">Phút</span></span><span class="dot">:</span><span class="box-count"><span class="number">{snn}</span> <span class="text">Giây</span></span>';
-                $('.countdown-lastest').each(function () {
-                    var austDay = new Date($(this).data('y'), $(this).data('m') - 1, $(this).data('d'), $(this).data('h'), $(this).data('i'), $(this).data('s'));
-                    $(this).countdown({
-                        until: austDay,
-                        labels: labels,
-                        layout: layout
-                    });
-                });
-            }
+                                                    var labels = ['Years', 'Months', 'Weeks', 'Days', 'Hrs', 'Mins', 'Secs'];
+                                                    var layout = '<span class="box-count"><span class="number">{dnn}</span> <span class="text">Ngày</span></span><span class="dot">:</span><span class="box-count"><span class="number">{hnn}</span> <span class="text">Giờ</span></span><span class="dot">:</span><span class="box-count"><span class="number">{mnn}</span> <span class="text">Phút</span></span><span class="dot">:</span><span class="box-count"><span class="number">{snn}</span> <span class="text">Giây</span></span>';
+                                                    $('.countdown-lastest').each(function () {
+                                                        var austDay = new Date($(this).data('y'), $(this).data('m') - 1, $(this).data('d'), $(this).data('h'), $(this).data('i'), $(this).data('s'));
+                                                        $(this).countdown({
+                                                            until: austDay,
+                                                            labels: labels,
+                                                            layout: layout
+                                                        });
+                                                    });
+                                                }
         </script>
 
     }

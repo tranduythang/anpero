@@ -71,6 +71,18 @@ namespace AnperoFrontend.handler
                             }
                             break;
                         }
+                    case "sendContact":
+                        {   
+                            string name = context.Request["name"];
+                            string email = context.Request["email"];
+                            string phone = context.Request["phone"];
+                            string address = context.Request["address"];
+                            string detail = context.Request["message"];
+
+                            WebService.AnperoService sv = new WebService.AnperoService();
+                            rs= sv.addContact(st, TokenKey, name, email, phone, address, detail, HttpContext.Current.Request.UserHostAddress,captcha).ToString();
+                            break;
+                        }
                     default:
                         break;
                 }

@@ -21,7 +21,7 @@ namespace AnperoFrontend.Controllers
             GetTopArticle();
             return View();
         }
-     
+      
         private void GetNewestProduct()
         {
             WebService.AnperoService service = new WebService.AnperoService();
@@ -51,7 +51,7 @@ namespace AnperoFrontend.Controllers
 
             return View();
         }
-
+        [BuildCommonHtml]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

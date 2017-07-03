@@ -27,7 +27,7 @@ namespace AnperoFrontend.Controllers
                 {
                     HttpRuntime.Cache.Insert("TopArticle", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
-                
+               
             }
             ViewData["FeatureArticle"] = rs;
         }
@@ -47,7 +47,7 @@ namespace AnperoFrontend.Controllers
                 {
                     HttpRuntime.Cache.Insert("saleProduct", saleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
-            
+               
             }
             ViewData["saleProduct"] = saleProduct;
 
@@ -86,9 +86,8 @@ namespace AnperoFrontend.Controllers
                 if (rs != null)
                 {
                     HttpRuntime.Cache.Insert("commonInfo", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
-
                 }
-                       
+                              
 
             }
           

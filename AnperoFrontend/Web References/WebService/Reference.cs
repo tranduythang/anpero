@@ -29,6 +29,8 @@ namespace AnperoFrontend.WebService {
     [System.Web.Services.WebServiceBindingAttribute(Name="AnperoServiceSoap", Namespace="http://tempuri.org/")]
     public partial class AnperoService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
+        private System.Threading.SendOrPostCallback addContactOperationCompleted;
+        
         private System.Threading.SendOrPostCallback SearchArticleOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetArticleByIdOperationCompleted;
@@ -90,6 +92,9 @@ namespace AnperoFrontend.WebService {
         }
         
         /// <remarks/>
+        public event addContactCompletedEventHandler addContactCompleted;
+        
+        /// <remarks/>
         public event SearchArticleCompletedEventHandler SearchArticleCompleted;
         
         /// <remarks/>
@@ -121,6 +126,51 @@ namespace AnperoFrontend.WebService {
         
         /// <remarks/>
         public event GetProductDetailCompletedEventHandler GetProductDetailCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/addContact", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int addContact(int storeId, string tokenKey, string name, string email, string phone, string address, string detail, string clientIp, string captcha) {
+            object[] results = this.Invoke("addContact", new object[] {
+                        storeId,
+                        tokenKey,
+                        name,
+                        email,
+                        phone,
+                        address,
+                        detail,
+                        clientIp,
+                        captcha});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void addContactAsync(int storeId, string tokenKey, string name, string email, string phone, string address, string detail, string clientIp, string captcha) {
+            this.addContactAsync(storeId, tokenKey, name, email, phone, address, detail, clientIp, captcha, null);
+        }
+        
+        /// <remarks/>
+        public void addContactAsync(int storeId, string tokenKey, string name, string email, string phone, string address, string detail, string clientIp, string captcha, object userState) {
+            if ((this.addContactOperationCompleted == null)) {
+                this.addContactOperationCompleted = new System.Threading.SendOrPostCallback(this.OnaddContactOperationCompleted);
+            }
+            this.InvokeAsync("addContact", new object[] {
+                        storeId,
+                        tokenKey,
+                        name,
+                        email,
+                        phone,
+                        address,
+                        detail,
+                        clientIp,
+                        captcha}, this.addContactOperationCompleted, userState);
+        }
+        
+        private void OnaddContactOperationCompleted(object arg) {
+            if ((this.addContactCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.addContactCompleted(this, new addContactCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SearchArticle", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -1407,6 +1457,32 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.imagesUrlField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void addContactCompletedEventHandler(object sender, addContactCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class addContactCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal addContactCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
             }
         }
     }
