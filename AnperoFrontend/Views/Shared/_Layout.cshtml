@@ -1,12 +1,25 @@
 ﻿@{
     AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+
     if (ViewData["commonInfo"] != null)
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
-
+    string themeOptionText = "option6";
+    int themeOption = commonInfo.ThemeOption;
+    switch (commonInfo.ThemeOption)
+    {
+        case 1:
+            themeOptionText = "option6";
+            break;
+        case 2:
+            themeOptionText = "option5";
+            break;
+        case 3:
+            themeOptionText = "home option2";
+            break;
+    }
 }
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,17 +38,12 @@
     @Styles.Render("~/Content/css")
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/option6.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/@(themeOptionText+".css")" />
+
 
 </head>
-<body class="option6">
-
+<body class="@themeOptionText">
     <div id="header" class="header">
-
-        <!--/.top-header -->
-        <!-- MAIN HEADER -->
-
-
         <div class="top-header">
             <div class="container">
                 @if (!string.IsNullOrEmpty(commonInfo.HotLine))
@@ -173,7 +181,7 @@
                         </nav>
                     </div>
                 </div>
-                
+
                 <div id="form-search-opntop"></div>
                 <!-- userinfo on top-->
                 <div id="user-info-opntop"></div>
@@ -274,4 +282,5 @@
     </script>
 
 </body>
+
 </html>

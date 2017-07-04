@@ -72,7 +72,7 @@
                 <ul class="shipping_method">
                     <li>
                         <p class="subcaption bold">Tại cửa hàng</p>
-                        <label for="radio_button_3"><input type="radio" checked name="radio_4" id="radio_button_4" value="0" data-ship="0">Miễn phí 0đ</label>
+                        <label for="radio_button_41"><input type="radio" checked name="radio_4" id="radio_button_41" value="0" data-ship="0">Miễn phí 0đ</label>
                     </li>
 
                     <li>
@@ -120,6 +120,9 @@
             </div>
         </div>
         <div class="page-content checkout-page" id="cartContent2" style="display:none;"></div>
+        <div id='ajax_loader' style="position: fixed; left: 45%; top: 50%; display: none;">
+            <img src="~/assets/images/loading.gif" />
+        </div>
     </div>
 </div>
 @section scripts{
@@ -128,7 +131,8 @@
     <script>
         var googleCatcha;
         $(window).load(function () {
-
+            var width = $(window).width();
+            $("#ajax_loader").css("left", ((width / 2) - 100) + "px")
             Cart.bindCartTable();
             $("input[name=radio_3]").click(function () {
                 Cart.bindCartTable();

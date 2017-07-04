@@ -1285,6 +1285,8 @@ namespace AnperoFrontend.WebService {
         
         private string nameField;
         
+        private int themeOptionField;
+        
         /// <remarks/>
         public Menu[] MenuList {
             get {
@@ -1412,6 +1414,16 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ThemeOption {
+            get {
+                return this.themeOptionField;
+            }
+            set {
+                this.themeOptionField = value;
             }
         }
     }

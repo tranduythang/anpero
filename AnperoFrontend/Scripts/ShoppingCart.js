@@ -146,17 +146,13 @@
         Cart.bindCartTable();
     },
     sendOrder: function () {
-
-
         var valid = true;
         var _name = $("#cName").val();
         var _detail = $("#detail").val();
-
         var _shipingType = $('input[name=radio_3]:checked').val();
         var _paymentType = $('input[name=radio_4]:checked').val();
         var _shipingFee = $('input[name=radio_3]:checked').attr("data-ship");
-        var _paymentFee = $('input[name=radio_4]:checked').attr("data-ship");
-
+        var _paymentFee = $('input[name=radio_4]:checked').attr("data-ship"); 
         var _email = $("#cMail").val();
         var _phone = $("#cPhone").val();
         var _address = $("#cAddress").val();
@@ -187,27 +183,51 @@
             Util.notify("Lỗi", "Vui lòng nhập click vào ô kiểm tra");
             valid = false;
         }
+        if ($.cookie("CartList") == "[]") {
+            Util.notify("Lỗi", "Giỏ hàng đang trống không thể tạo đơn hàng");
+            valid = false;
+        }
         _payMentType=0;
-       
-        //switch (i) {
-        //    case 0:
-        //        return "Trực tiếp";
-        //    case 1:
-        //        return "Chuyển phát thường và thu tiền tại nhà";
-        //    case 2:
-        //        return "Chuyển phát nhanh và thu tiền tại nhà";
+        switch (_shipingType) {
+            case "0":
+                    _payMentType = 0;
+                break;
+             case "1":
+                 switch (_paymentType) {
+                     case "0":
+                         _payMentType = 0;
+                         break;
+                     case "1":
+                         _payMentType = 6;
+                         break;
+                     case "2":
+                         _payMentType = 1;
+                         break;
+                     default:
+                 }
+                 break;
+            case "2":
+                switch (_paymentType) {
+                    case "0":
+                        _payMentType = 0;
+                        break;
+                    case "1":
+                        _payMentType = 7;
+                        break;
+                    case "2":
+                        _payMentType = 2;
+                        break;
+                    default:
+                }
+                break;
+
+            default:
+                _payMentType = 0;
+        }        
         //    case 3:
         //        return "Thanh toán online và chuyển phát thường";
         //    case 4:
-        //        return "Thanh toán online và chuyển phát nhanh";
-        //    case 6:
-        //        return "Chuyển khoản và chuyển phát thường";
-        //    case 7:
-        //        return "Chuyển khoản và chuyển phát nhanh";
-        //    default:
-        //        return "Chuyển phát thường";
-        //}
-        
+        //      return "Thanh toán online và chuyển phát nhanh";
         if (valid) {
             $("#cartContent1").hide();
             $("#cartContent2").show();
@@ -230,7 +250,6 @@
                         $("#cartContent1").show();
                         grecaptcha.reset();
                     }
-
                 }
             });
         }

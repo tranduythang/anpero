@@ -743,6 +743,7 @@
     <Content Include="assets\images\kak3.png" />
     <Content Include="assets\images\latest-deal-title.png" />
     <Content Include="assets\images\list-view-bg.png" />
+    <Content Include="assets\images\loading.gif" />
     <Content Include="assets\images\logo.png" />
     <Content Include="assets\images\logo2.png" />
     <Content Include="assets\images\next.png" />
@@ -823,13 +824,13 @@
     <Content Include="assets\lib\jquery-ui\jquery-ui.structure.min.css" />
     <Content Include="assets\lib\jquery-ui\jquery-ui.theme.css" />
     <Content Include="assets\lib\jquery-ui\jquery-ui.theme.min.css" />
-    <Content Include="assets\lib\jquery.bxslider\images\bx_loader.gif" />
-    <Content Include="assets\lib\jquery.bxslider\images\controls.png" />
-    <Content Include="assets\lib\jquery.bxslider\jquery.bxslider.css" />
-    <Content Include="assets\lib\jquery.bxslider\jquery.bxslider.js" />
-    <Content Include="assets\lib\jquery.bxslider\jquery.bxslider.min.js" />
-    <Content Include="assets\lib\jquery.bxslider\plugins\jquery.easing.1.3.js" />
-    <Content Include="assets\lib\jquery.bxslider\plugins\jquery.fitvids.js" />
+    <Content Include="assets\lib\jquery-bxslider\images\bx_loader.gif" />
+    <Content Include="assets\lib\jquery-bxslider\images\controls.png" />
+    <Content Include="assets\lib\jquery-bxslider\jquery-bxslider.css" />
+    <Content Include="assets\lib\jquery-bxslider\jquery-bxslider.js" />
+    <Content Include="assets\lib\jquery-bxslider\jquery-bxslider.min.js" />
+    <Content Include="assets\lib\jquery-bxslider\plugins\jquery.easing.1.3.js" />
+    <Content Include="assets\lib\jquery-bxslider\plugins\jquery.fitvids.js" />
     <Content Include="assets\lib\jquery.countdown\jquery.countdown.js" />
     <Content Include="assets\lib\jquery.countdown\jquery.countdown.min.js" />
     <Content Include="assets\lib\jquery.elevatezoom.js" />
@@ -839,9 +840,9 @@
     <Content Include="assets\lib\jqzoom\jquery.jqzoom.css" />
     <Content Include="assets\lib\jqzoom\jquery.jqzoom.js" />
     <Content Include="assets\lib\jqzoom\zoomloader.gif" />
-    <Content Include="assets\lib\owl.carousel\owl.carousel.css" />
-    <Content Include="assets\lib\owl.carousel\owl.carousel.js" />
-    <Content Include="assets\lib\owl.carousel\owl.carousel.min.js" />
+    <Content Include="assets\lib\owl-carousel\owl-carousel.css" />
+    <Content Include="assets\lib\owl-carousel\owl.carousel.js" />
+    <Content Include="assets\lib\owl-carousel\owl-carousel.min.js" />
     <Content Include="assets\lib\select2\css\select2.css" />
     <Content Include="assets\lib\select2\css\select2.min.css" />
     <Content Include="assets\lib\select2\js\i18n\en.js" />
@@ -901,14 +902,13 @@
     <Content Include="assets\lib\font-awesome\scss\_stacked.scss" />
     <Content Include="assets\lib\font-awesome\scss\_variables.scss" />
     <Content Include="assets\lib\font-awesome\scss\font-awesome.scss" />
-    <Content Include="assets\lib\jquery.bxslider\bower.json" />
-    <Content Include="assets\lib\jquery.bxslider\readme.md" />
+    <Content Include="assets\lib\jquery-bxslider\bower.json" />
+    <Content Include="assets\lib\jquery-bxslider\readme.md" />
     <Content Include="index.html" />
     <Content Include="index2.html" />
     <Content Include="index3.html" />
     <Content Include="index4.html" />
     <Content Include="index5.html" />
-    <Content Include="index6.html" />
     <Content Include="login.html" />
     <Content Include="order.html" />
     <Content Include="handler\ProductHandler.ashx" />
@@ -931,6 +931,8 @@
     <Content Include="Views\Article\Category.cshtml" />
     <Content Include="Views\Shared\article\_MenuAndAdsPartial.cshtml" />
     <Content Include="Views\Product\Checkout.cshtml" />
+    <Content Include="Views\Shared\_partial\_HomeSlide_1.cshtml" />
+    <Content Include="Views\Shared\_partial\_HomeSlide_2.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -967,8 +969,6 @@
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Web References\WebService\ProductItem.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
