@@ -4,26 +4,26 @@
         <div class="col-sm-8" style="padding-right: 0px;">
             <div class="homeslider">
                 @if (ViewData["slide"] != null)
-        {
-            Ads[] slide = (Ads[])ViewData["slide"];
-            if (slide.Length > 0)
-            {
-                <ul id="contenhomeslider-customPage">
-                    @foreach (var item in slide)
+                {
+                    Ads[] slide = (Ads[])ViewData["slide"];
+                    if (slide.Length > 0)
                     {
-            <li><a href="@item.ClickUrl"><img alt="@item.Description" src="@item.ImagesUrl" title="@item.Description" /></a></li>
+                        <ul id="contenhomeslider-customPage">
+                        @foreach (var item in slide)
+                        {
+                         <li><a href="@item.ClickUrl"><img alt="@item.Description" src="@item.ImagesUrl" title="@item.Description" /></a></li>
+                        }
+                        </ul>
                     }
-                </ul>
-            }
-        }
-        else
-        {
-                <ul id="contenhomeslider-customPage">
-                    <li><a href="#"><img alt="Funky roots" src="assets/data/option6/slide1.jpg" title="Funky roots" /></a></li>
-                    <li><img alt="Funky roots" src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
-                    <li><img alt="Funky roots" src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
-                </ul>
-        }
+                }
+                else
+                {
+                    <ul id="contenhomeslider-customPage">
+                        <li><a href="#"><img alt="Funky roots" src="assets/data/option6/slide1.jpg" title="Funky roots" /></a></li>
+                        <li><img alt="Funky roots" src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
+                        <li><img alt="Funky roots" src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
+                    </ul>
+                }
 
 
                 <div class="bx-control">
@@ -43,30 +43,30 @@
         </div>
         <div class="col-sm-4 group-banner-slider" style="padding-left: 2px; padding-right: 14px;">
             @if (ViewData["AdsSlide"] != null)
-    {
-        Ads[] slide = (Ads[])ViewData["AdsSlide"];
-        if (slide.Length > 0)
-        {
-            foreach (var item in slide)
             {
-            <div class="banner-opacity sm-banner">
-                <a href="@item.ClickUrl"><img src="@item.ImagesUrl" alt="@item.Description"></a>
-            </div>
+                Ads[] slide = (Ads[])ViewData["AdsSlide"];
+                if (slide.Length > 0)
+                {
+                    foreach (var item in slide)
+                    {
+                        <div class="banner-opacity sm-banner">
+                            <a href="@item.ClickUrl"><img src="@item.ImagesUrl" alt="@item.Description"></a>
+                        </div>
+                    }
+                }
             }
-        }
-    }
-    else
-    {
-            <div class="banner-opacity sm-banner">
-                <a href="#"><img src="~/assets/images/384x135.jpg" alt=""></a>
-            </div>
-            <div class="banner-opacity sm-banner">
-                <a href="#"><img src="~/assets/images/384x135.jpg" alt=""></a>
-            </div>
-            <div class="banner-opacity sm-banner">
-                <a href="#"><img src="~/assets/images/384x135.jpg" alt=""></a>
-            </div>
-    }
+            else
+            {
+                <div class="banner-opacity sm-banner">
+                    <a href="#"><img src="~/assets/images/384x135.jpg" alt=""></a>
+                </div>
+                <div class="banner-opacity sm-banner">
+                    <a href="#"><img src="~/assets/images/384x135.jpg" alt=""></a>
+                </div>
+                <div class="banner-opacity sm-banner">
+                    <a href="#"><img src="~/assets/images/384x135.jpg" alt=""></a>
+                </div>
+            }
 
 
         </div>
