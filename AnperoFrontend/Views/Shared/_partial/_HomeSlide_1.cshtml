@@ -14,31 +14,67 @@
                          <li><a href="@item.ClickUrl"><img alt="@item.Description" src="@item.ImagesUrl" title="@item.Description" /></a></li>
                         }
                         </ul>
+                        <div class="bx-control">
+                            <div class="slide-prev">
+                                <span id="bx-prev"></span>
+                            </div>
+                            <div id="bx-pager" class="slide-pager">
+                                @for (int i = 0; i < slide.Length; i++)
+                                {
+                                    <a data-slide-index="@i" href="">@i</a>
+                                }
+                            </div>
+                            <div class="slide-next">
+                                <span id="bx-next"></span>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <ul id="contenhomeslider-customPage">
+                            <li><a href="#"><img alt="Funky roots" src="assets/data/option6/slide1.jpg" title="Funky roots" /></a></li>
+                            <li><img src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
+                            <li><img src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
+                        </ul>
+                        <div class="bx-control">
+                            <div class="slide-prev">
+                                <span id="bx-prev"></span>
+                            </div>
+                            <div id="bx-pager" class="slide-pager">
+                                <a data-slide-index="0" href="">1</a>
+                                <a data-slide-index="1" href="">2</a>
+                                <a data-slide-index="2" href="">3</a>
+                            </div>
+                            <div class="slide-next">
+                                <span id="bx-next"></span>
+                            </div>
+                        </div>
                     }
                 }
                 else
                 {
                     <ul id="contenhomeslider-customPage">
                         <li><a href="#"><img alt="Funky roots" src="assets/data/option6/slide1.jpg" title="Funky roots" /></a></li>
-                        <li><img alt="Funky roots" src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
-                        <li><img alt="Funky roots" src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
+                        <li><img  src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
+                        <li><img   src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
                     </ul>
+                    <div class="bx-control">
+                        <div class="slide-prev">
+                            <span id="bx-prev"></span>
+                        </div>
+                        <div id="bx-pager" class="slide-pager">
+                            <a data-slide-index="0" href="">1</a>
+                            <a data-slide-index="1" href="">2</a>
+                            <a data-slide-index="2" href="">3</a>
+                        </div>
+                        <div class="slide-next">
+                            <span id="bx-next"></span>
+                        </div>
+                    </div>
                 }
 
 
-                <div class="bx-control">
-                    <div class="slide-prev">
-                        <span id="bx-prev"></span>
-                    </div>
-                    <div id="bx-pager" class="slide-pager">
-                        <a data-slide-index="0" href="">1</a>
-                        <a data-slide-index="1" href="">2</a>
-                        <a data-slide-index="2" href="">3</a>
-                    </div>
-                    <div class="slide-next">
-                        <span id="bx-next"></span>
-                    </div>
-                </div>
+               
             </div>
         </div>
         <div class="col-sm-4 group-banner-slider" style="padding-left: 2px; padding-right: 14px;">
@@ -54,21 +90,31 @@
                         </div>
                     }
                 }
+                else
+                {
+                    <div class="banner-opacity sm-banner">
+                        <a href="#"><img src="~/assets/images/384x157.jpg" alt=""></a>
+                    </div>
+                    <div class="banner-opacity sm-banner">
+                        <a href="#"><img src="~/assets/images/384x157.jpg" alt=""></a>
+                    </div>
+                    <div class="banner-opacity sm-banner">
+                        <a href="#"><img src="~/assets/images/384x157.jpg" alt=""></a>
+                    </div>
+                }
             }
             else
             {
                 <div class="banner-opacity sm-banner">
-                    <a href="#"><img src="~/assets/images/384x135.jpg" alt=""></a>
+                    <a href="#"><img src="~/assets/images/384x157.jpg" alt=""></a>
                 </div>
                 <div class="banner-opacity sm-banner">
-                    <a href="#"><img src="~/assets/images/384x135.jpg" alt=""></a>
+                    <a href="#"><img src="~/assets/images/384x157.jpg" alt=""></a>
                 </div>
                 <div class="banner-opacity sm-banner">
-                    <a href="#"><img src="~/assets/images/384x135.jpg" alt=""></a>
+                    <a href="#"><img src="~/assets/images/384x157.jpg" alt=""></a>
                 </div>
             }
-
-
         </div>
     </div>
 </div>

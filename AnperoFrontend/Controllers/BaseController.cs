@@ -22,7 +22,7 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                rs = service.SearchArticle(StoreID, TokenKey, 0, 1, 4, 1);
+                rs = service.SearchArticle(StoreID, TokenKey, 0, 1, 4, 2);
                 if (rs != null)
                 {
                     HttpRuntime.Cache.Insert("TopArticle", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);

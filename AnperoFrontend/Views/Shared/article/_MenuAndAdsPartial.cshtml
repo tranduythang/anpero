@@ -13,7 +13,7 @@
 }
 <div class="column col-xs-12 col-sm-3" id="left_column">
     <!-- Blog category -->
-    @if (categoryList.Count > 0)
+    @if (categoryList!=null && categoryList.Count > 0)
     {
         <div class="block left-module">
             <p class="title_block">Các chuyên mục</p>
@@ -53,7 +53,7 @@
 
     <!-- ./blog category  -->
     <!-- Popular Posts -->
-    @if (TopArticle.ResultsCount > 0)
+    @if (TopArticle!=null && TopArticle.ItemList.Length > 0)
     {
 
         <div class="block left-module">
@@ -63,7 +63,7 @@
                 <div class="layered">
                     <div class="layered-content">
                         <ul class="blog-list-sidebar clearfix">
-                            @for (int i = 0; i < TopArticle.ResultsCount - 1; i++)
+                            @for (int i = 0; i < TopArticle.ItemList.Length - 1; i++)
                             {
                                 <li>
                                     <div class="post-thumb">
@@ -91,7 +91,7 @@
         <!-- Banner -->
             <div class="block left-module">
                 <div class="banner-opacity">
-                    <a href="@Anpero.StringHelpper.GetArticleLink(TopArticle.ItemList[TopArticle.ResultsCount-1].Title,TopArticle.ItemList[TopArticle.ResultsCount-1].Id)"><img src="@TopArticle.ItemList[TopArticle.ResultsCount-1].Thumb" alt="@TopArticle.ItemList[TopArticle.ResultsCount-1].Title"></a>
+                    <a href="@Anpero.StringHelpper.GetArticleLink(TopArticle.ItemList[TopArticle.ItemList.Length-1].Title,TopArticle.ItemList[TopArticle.ItemList.Length-1].Id)"><img src="@TopArticle.ItemList[TopArticle.ItemList.Length-1].Thumb" alt="@TopArticle.ItemList[TopArticle.ItemList.Length-1].Title"></a>
                 </div>
             </div>
     }

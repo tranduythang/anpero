@@ -9,13 +9,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="about.html">
-      <publishTime>05/22/2017 14:33:04</publishTime>
+      <publishTime>07/03/2017 09:58:41</publishTime>
     </File>
     <File Include="assets/checkout.html">
       <publishTime>06/05/2017 10:02:04</publishTime>
     </File>
     <File Include="assets/css/animate.css">
-      <publishTime>06/05/2017 10:02:04</publishTime>
+      <publishTime>06/21/2017 16:36:38</publishTime>
     </File>
     <File Include="assets/css/option2.css">
       <publishTime>06/05/2017 10:02:04</publishTime>
@@ -27,19 +27,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/05/2017 10:02:04</publishTime>
     </File>
     <File Include="assets/css/option5.css">
-      <publishTime>06/05/2017 16:50:03</publishTime>
+      <publishTime>07/06/2017 13:27:47</publishTime>
     </File>
     <File Include="assets/css/option6.css">
-      <publishTime>06/09/2017 15:20:18</publishTime>
+      <publishTime>06/21/2017 16:00:27</publishTime>
     </File>
     <File Include="assets/css/reset.css">
-      <publishTime>06/05/2017 10:02:04</publishTime>
+      <publishTime>06/21/2017 16:07:49</publishTime>
     </File>
     <File Include="assets/css/responsive.css">
-      <publishTime>06/05/2017 10:02:04</publishTime>
+      <publishTime>06/21/2017 16:36:34</publishTime>
     </File>
     <File Include="assets/css/style.css">
-      <publishTime>06/15/2017 08:56:46</publishTime>
+      <publishTime>07/06/2017 11:39:56</publishTime>
     </File>
     <File Include="assets/data/01_blue-dress.jpg">
       <publishTime>06/05/2017 10:02:04</publishTime>
@@ -1661,6 +1661,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="assets/images/384x135.jpg">
       <publishTime>06/15/2017 16:30:32</publishTime>
     </File>
+    <File Include="assets/images/384x157.jpg">
+      <publishTime>07/05/2017 15:01:00</publishTime>
+    </File>
     <File Include="assets/images/add-cart.png">
       <publishTime>06/05/2017 10:02:06</publishTime>
     </File>
@@ -1810,6 +1813,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="assets/images/list-view-bg.png">
       <publishTime>06/05/2017 10:02:06</publishTime>
+    </File>
+    <File Include="assets/images/loading.gif">
+      <publishTime>07/04/2017 10:09:39</publishTime>
     </File>
     <File Include="assets/images/logo.png">
       <publishTime>06/05/2017 10:02:06</publishTime>
@@ -2243,6 +2249,33 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="assets/lib/font-awesome/scss/_variables.scss">
       <publishTime>06/05/2017 10:02:06</publishTime>
     </File>
+    <File Include="assets/lib/jquery-bxslider/bower.json">
+      <publishTime>06/05/2017 10:02:06</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-bxslider/images/bx_loader.gif">
+      <publishTime>06/05/2017 10:02:06</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-bxslider/images/controls.png">
+      <publishTime>06/05/2017 10:02:06</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-bxslider/jquery-bxslider.css">
+      <publishTime>07/04/2017 17:54:22</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-bxslider/jquery-bxslider.js">
+      <publishTime>06/05/2017 10:02:06</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-bxslider/jquery-bxslider.min.js">
+      <publishTime>06/05/2017 10:02:06</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-bxslider/plugins/jquery.easing.1.3.js">
+      <publishTime>06/05/2017 10:02:06</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-bxslider/plugins/jquery.fitvids.js">
+      <publishTime>06/05/2017 10:02:06</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-bxslider/readme.md">
+      <publishTime>06/05/2017 10:02:06</publishTime>
+    </File>
     <File Include="assets/lib/jquery-ui/external/jquery/jquery.js">
       <publishTime>06/05/2017 10:02:06</publishTime>
     </File>
@@ -2367,6 +2400,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/05/2017 10:02:06</publishTime>
     </File>
     <File Include="assets/lib/jqzoom/zoomloader.gif">
+      <publishTime>06/05/2017 10:02:06</publishTime>
+    </File>
+    <File Include="assets/lib/owl-carousel/owl-carousel.css">
+      <publishTime>06/05/2017 10:02:06</publishTime>
+    </File>
+    <File Include="assets/lib/owl-carousel/owl-carousel.min.js">
+      <publishTime>06/05/2017 10:02:06</publishTime>
+    </File>
+    <File Include="assets/lib/owl-carousel/owl.carousel.js">
       <publishTime>06/05/2017 10:02:06</publishTime>
     </File>
     <File Include="assets/lib/owl.carousel/owl.carousel.css">
@@ -2520,22 +2562,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/05/2017 10:02:06</publishTime>
     </File>
     <File Include="bin/Anpero.dll">
-      <publishTime>06/19/2017 11:30:51</publishTime>
+      <publishTime>06/26/2017 16:48:16</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.dll">
-      <publishTime>06/19/2017 14:15:28</publishTime>
+      <publishTime>07/06/2017 09:58:26</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.XmlSerializers.dll">
-      <publishTime>06/19/2017 14:15:29</publishTime>
+      <publishTime>07/06/2017 09:58:27</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>06/09/2017 15:20:19</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>06/19/2017 14:15:42</publishTime>
+      <publishTime>07/06/2017 13:27:57</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>06/19/2017 14:15:42</publishTime>
+      <publishTime>07/06/2017 13:27:57</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>06/09/2017 15:20:20</publishTime>
@@ -2601,16 +2643,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/22/2017 14:33:05</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>05/22/2017 14:33:05</publishTime>
+      <publishTime>07/06/2017 11:49:48</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>05/22/2017 14:33:03</publishTime>
+    </File>
+    <File Include="handler/ProductHandler.ashx">
+      <publishTime>07/03/2017 17:27:52</publishTime>
     </File>
     <File Include="index.html">
       <publishTime>06/09/2017 15:20:19</publishTime>
     </File>
     <File Include="index2.html">
-      <publishTime>06/09/2017 15:20:19</publishTime>
+      <publishTime>07/04/2017 17:07:51</publishTime>
     </File>
     <File Include="index3.html">
       <publishTime>05/22/2017 14:33:05</publishTime>
@@ -2619,7 +2664,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/15/2017 17:26:22</publishTime>
     </File>
     <File Include="index5.html">
-      <publishTime>05/22/2017 14:33:05</publishTime>
+      <publishTime>07/05/2017 16:17:02</publishTime>
     </File>
     <File Include="index6.html">
       <publishTime>06/05/2017 17:02:31</publishTime>
@@ -2634,43 +2679,55 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/15/2017 15:17:23</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>06/19/2017 14:15:39</publishTime>
+      <publishTime>07/06/2017 13:27:55</publishTime>
+    </File>
+    <File Include="Scripts/Anpero.Common.js">
+      <publishTime>07/03/2017 09:55:16</publishTime>
+    </File>
+    <File Include="Scripts/Bootrap.notify.js">
+      <publishTime>07/03/2017 09:55:16</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
-      <publishTime>06/09/2017 15:20:18</publishTime>
+      <publishTime>07/03/2017 09:55:16</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js">
-      <publishTime>06/09/2017 15:20:18</publishTime>
+      <publishTime>07/03/2017 09:55:16</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.js">
-      <publishTime>06/09/2017 15:20:18</publishTime>
+      <publishTime>07/03/2017 09:55:16</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.min.js">
-      <publishTime>06/09/2017 15:20:18</publishTime>
+      <publishTime>07/03/2017 09:55:17</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.min.map">
-      <publishTime>06/09/2017 15:20:18</publishTime>
+      <publishTime>07/03/2017 09:55:17</publishTime>
+    </File>
+    <File Include="Scripts/jquery.cokie.min.js">
+      <publishTime>07/03/2017 09:55:17</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
-      <publishTime>06/09/2017 15:20:18</publishTime>
+      <publishTime>07/03/2017 09:55:17</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.min.js">
-      <publishTime>06/09/2017 15:20:18</publishTime>
+      <publishTime>07/03/2017 09:55:17</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.js">
-      <publishTime>06/09/2017 15:20:18</publishTime>
+      <publishTime>07/03/2017 09:55:17</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.min.js">
-      <publishTime>06/09/2017 15:20:18</publishTime>
+      <publishTime>07/03/2017 09:55:17</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.6.2.js">
-      <publishTime>06/09/2017 15:20:18</publishTime>
+      <publishTime>07/03/2017 09:55:17</publishTime>
     </File>
     <File Include="Scripts/respond.js">
-      <publishTime>06/09/2017 15:20:18</publishTime>
+      <publishTime>07/03/2017 09:55:17</publishTime>
     </File>
     <File Include="Scripts/respond.min.js">
-      <publishTime>06/09/2017 15:20:18</publishTime>
+      <publishTime>07/03/2017 09:55:17</publishTime>
+    </File>
+    <File Include="Scripts/ShoppingCart.js">
+      <publishTime>07/04/2017 13:40:54</publishTime>
     </File>
     <File Include="Views/Account/ConfirmEmail.cshtml">
       <publishTime>05/22/2017 14:33:03</publishTime>
@@ -2715,13 +2772,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/19/2017 08:59:58</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>06/15/2017 17:12:17</publishTime>
+      <publishTime>06/28/2017 17:53:14</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>06/16/2017 20:07:22</publishTime>
+      <publishTime>07/03/2017 17:39:30</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>06/20/2017 11:18:40</publishTime>
+      <publishTime>07/05/2017 17:42:31</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>05/22/2017 14:33:03</publishTime>
@@ -2742,13 +2799,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/22/2017 14:33:04</publishTime>
     </File>
     <File Include="Views/Product/Category.cshtml">
-      <publishTime>06/15/2017 15:43:13</publishTime>
+      <publishTime>07/03/2017 10:35:40</publishTime>
+    </File>
+    <File Include="Views/Product/Checkout.cshtml">
+      <publishTime>07/04/2017 10:31:56</publishTime>
     </File>
     <File Include="Views/Product/Index.cshtml">
-      <publishTime>06/14/2017 18:32:05</publishTime>
+      <publishTime>07/06/2017 08:49:13</publishTime>
     </File>
     <File Include="Views/Shared/article/_MenuAndAdsPartial.cshtml">
-      <publishTime>06/19/2017 08:59:58</publishTime>
+      <publishTime>07/06/2017 11:41:24</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>05/22/2017 14:33:04</publishTime>
@@ -2760,10 +2820,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2017 18:46:00</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>06/20/2017 12:16:15</publishTime>
+      <publishTime>07/05/2017 18:55:54</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>05/22/2017 14:33:04</publishTime>
+    </File>
+    <File Include="Views/Shared/_partial/_HomeSlide_1.cshtml">
+      <publishTime>07/05/2017 15:01:39</publishTime>
+    </File>
+    <File Include="Views/Shared/_partial/_HomeSlide_2.cshtml">
+      <publishTime>07/06/2017 09:05:19</publishTime>
+    </File>
+    <File Include="Views/Shared/_partial/_MainHeader_1.cshtml">
+      <publishTime>07/05/2017 16:13:50</publishTime>
+    </File>
+    <File Include="Views/Shared/_partial/_MainHeader_2.cshtml">
+      <publishTime>07/05/2017 16:25:01</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>05/22/2017 14:33:04</publishTime>
@@ -2772,28 +2844,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/05/2017 14:45:13</publishTime>
     </File>
     <File Include="Web References/WebService/Ads.datasource">
-      <publishTime>06/15/2017 19:10:42</publishTime>
+      <publishTime>07/04/2017 16:07:15</publishTime>
     </File>
     <File Include="Web References/WebService/BlogCategory.datasource">
-      <publishTime>06/19/2017 08:59:58</publishTime>
+      <publishTime>07/04/2017 16:07:15</publishTime>
     </File>
     <File Include="Web References/WebService/BlogItem.datasource">
-      <publishTime>06/15/2017 19:10:42</publishTime>
+      <publishTime>07/04/2017 16:07:15</publishTime>
     </File>
     <File Include="Web References/WebService/ProductItem.datasource">
-      <publishTime>06/15/2017 19:10:42</publishTime>
+      <publishTime>07/04/2017 16:07:15</publishTime>
     </File>
     <File Include="Web References/WebService/SearchArticleResults.datasource">
-      <publishTime>06/15/2017 19:10:42</publishTime>
+      <publishTime>07/04/2017 16:07:15</publishTime>
     </File>
     <File Include="Web References/WebService/SearchResult1.datasource">
-      <publishTime>06/15/2017 19:10:42</publishTime>
+      <publishTime>07/04/2017 16:07:15</publishTime>
     </File>
     <File Include="Web References/WebService/Webconfig1.datasource">
-      <publishTime>06/15/2017 19:10:42</publishTime>
+      <publishTime>07/04/2017 16:07:15</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/19/2017 09:24:18</publishTime>
+      <publishTime>07/05/2017 21:01:05</publishTime>
     </File>
   </ItemGroup>
 </Project>

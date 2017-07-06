@@ -693,6 +693,7 @@
     <Content Include="assets\data\zoom-thumb3.jpg" />
     <Content Include="assets\fonts\fontello.svg" />
     <Content Include="assets\images\384x135.jpg" />
+    <Content Include="assets\images\384x157.jpg" />
     <Content Include="assets\images\add-cart.png" />
     <Content Include="assets\images\banchay.png" />
     <Content Include="assets\images\bar.png" />
@@ -933,6 +934,8 @@
     <Content Include="Views\Product\Checkout.cshtml" />
     <Content Include="Views\Shared\_partial\_HomeSlide_1.cshtml" />
     <Content Include="Views\Shared\_partial\_HomeSlide_2.cshtml" />
+    <Content Include="Views\Shared\_partial\_MainHeader_1.cshtml" />
+    <Content Include="Views\Shared\_partial\_MainHeader_2.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

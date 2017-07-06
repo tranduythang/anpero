@@ -1,13 +1,12 @@
 ﻿@{
     AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
-
     if (ViewData["commonInfo"] != null)
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
     string themeOptionText = "option6";
     int themeOption = commonInfo.ThemeOption;
-    switch (commonInfo.ThemeOption)
+    switch (themeOption)
     {
         case 1:
             themeOptionText = "option6";
@@ -32,12 +31,15 @@
     <meta name="revisit-after" content="1 days" />
     <meta http-equiv="REFRESH" content="1800" />
     <meta name="robots" content="index,follow,all" />
-
     <meta property="og:title" content="@ViewBag.Title" />
     @RenderSection("health", required: false)
     @Styles.Render("~/Content/css")
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css" />
+    @if (themeOption == 2)
+    {
+        <link href="/assets/lib/jquery-bxslider/jquery-bxslider.css" rel="stylesheet" />
+    }
     <link rel="stylesheet" type="text/css" href="/assets/css/@(themeOptionText+".css")" />
 
 
@@ -48,7 +50,7 @@
             <div class="container">
                 @if (!string.IsNullOrEmpty(commonInfo.HotLine))
                 {
-                    <div class="currency"><a href="tel:@commonInfo.HotLine">Click để gọi: @commonInfo.HotLine</a></div>
+                    <div class="currency"><a href="tel:@commonInfo.HotLine"><strong>Hotline: @commonInfo.HotLine</strong></a></div>
                 }
                 @if (!string.IsNullOrEmpty(commonInfo.Skype) || !string.IsNullOrEmpty(commonInfo.FaceBookLink))
                 {
@@ -64,68 +66,21 @@
                     </div>
                 }
                 <div class="support-link">
-                    <a href="#">Thông tin cửa hàng</a>
-                    <a href="#">Hỗ trợ</a>
+                    <a href="/thong-tin-cua-hang-a60">Thông tin cửa hàng</a>
+                    <a href="/home/contact">Liên hệ</a>
                 </div>
             </div>
         </div>
-        <div class="container main-header">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-3 logo">
-                    <a href="/"><img alt="@commonInfo.Desc" src="@commonInfo.Logo" /></a>
-                </div>
-                <div class="col-xs-7 col-sm-8 col-md-7 header-search-box">
-                    <form class="form-inline" action="/search" name="search" id="search" method="get">
-                        <div class="form-group form-category" name="category">
-                            <select class="select-category">
-                                <option value="0">Danh mục sản phẩm</option>
-                                @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
-                                {
-                                    for (int i = 0; i < commonInfo.ProductCategoryList.Length; i++)
-                                    {
-                                        if (commonInfo.ProductCategoryList[i].ChildCategory != null && commonInfo.ProductCategoryList[i].ChildCategory.Length > 0)
-                                        {
-                                            for (int j = 0; j < commonInfo.ProductCategoryList[i].ChildCategory.Length; j++)
-                                            {
-                                                <option value="@commonInfo.ProductCategoryList[i].ChildCategory[j].Id">@commonInfo.ProductCategoryList[i].ChildCategory[j].Name</option>
-                                            }
-
-                                        }
-                                    }
-                                }
-                            </select>
-                        </div>
-
-                        <div class="form-group input-serach">
-                            <input type="text" placeholder="Tìm kiếm mọi thứ..." name="keyword">
-                        </div>
-                        <button type="submit" class="pull-right btn-search" id="btnSearch"></button>
-                    </form>
-                </div>
-                <div class="col-xs-5 col-sm-3 col-md-2 group-button-header">
-                    <a target="_blank" title="Chia sẻ trên google+" href="https://plus.google.com/share?url=@HttpContext.Current.Request.Url.AbsoluteUri" class="btn-heart">wishlist</a>
-                    <div class="btn-cart" id="cart-block">
-                        <a title="My cart" href="/product/checkout">Cart</a>
-                        <span class="notify notify-right spN"></span>
-                        <div class="cart-block">
-                            <div class="cart-block-content">
-                                <h5 class="cart-title"><span class="spN"></span> Sản phẩm</h5>
-                                <div class="cart-block-list">
-                                    <ul id="prCatCt"></ul>
-                                </div>
-                                <div class="toal-cart">
-                                    <span>Total</span>
-                                    <span class="toal-price pull-right" id="ttSC"></span>
-                                </div>
-                                <div class="cart-buttons">
-                                    <a href="/product/checkout" class="btn-check-out">Thanh toán</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @switch (commonInfo.ThemeOption)
+        {
+            case 2:
+                Html.RenderPartial("_partial/_MainHeader_2");
+                break;
+            default:
+                Html.RenderPartial("_partial/_MainHeader_1");
+                break;
+        }
+        
         <div id="nav-top-menu" class="nav-top-menu">
             <div class="container">
                 <div class="row">
@@ -171,11 +126,15 @@
                                                 }
                                             }
                                         }
-                                        <li class="active"><a href="/blog">Blog</a></li>
+                                        <li><a href="/blog">Blogs</a></li>
                                     </ul>
+                                @if (themeOption == 1|| themeOption==0)
+                                {
                                     <ul class="nav navbar-nav navbar-right">
-                                        <li><a class="link-buytheme" href="tel:@commonInfo.HotLine"><i class="fa fa-angle-double-right"></i> Click để tư vấn @commonInfo.HotLine</a></li>
+                                        <li><a class="link-buytheme" href="tel:@commonInfo.HotLine"><i class="fa fa-angle-double-right"></i> Đặt hàng: @commonInfo.HotLine</a></li>
                                     </ul>
+                                }
+                                    
                                 </div><!--/.nav-collapse -->
                             </div>
                         </nav>
@@ -202,7 +161,7 @@
         <div class="container">
             @Html.Raw(commonInfo.Footer)
             <div id="introduce-box" class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div id="address-box">
                         <a href="/"><img src="@commonInfo.Logo" alt="logo"></a>
                         <div id="address-list">
@@ -211,13 +170,13 @@
                             <div class="tit-name">Phone:</div>
                             <div class="tit-contain">@commonInfo.HotLine</div>
 
-                            @if (string.IsNullOrEmpty(commonInfo.Email))
+                            @if (!string.IsNullOrEmpty(commonInfo.Email))
                             {
                                 <div class="tit-name">Email:</div>
                                 <div class="tit-contain">@commonInfo.Email</div>
                             }
 
-                            @if (string.IsNullOrEmpty(commonInfo.Skype))
+                            @if (!string.IsNullOrEmpty(commonInfo.Skype))
                             {
                                 <div class="tit-name">Skype:</div>
                                 <div class="tit-contain"><a href="skype:@commonInfo.Skype?call"></a> @commonInfo.Skype</div>
@@ -226,29 +185,47 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-6">
-                    <div id="contact-box" style="text-align: right;">
-                        @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                        {
-
-                            <div class="fb-page"
-                                 data-tabs="messages"
-                                 data-href="@Html.Raw(commonInfo.FaceBookLink)"
-                                 data-width="500"
-                                 data-height="280"
-                                 data-hide-cover="false"></div>
-                        }
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="introduce-title">Thực phẩm sạch</div>
+                            <ul id="introduce-company" class="introduce-list">
+                                <li><a href="#" alter="Rau sạch, rau hữu cơ">Rau sạch, rau hữu cơ</a></li>
+                                <li><a href="#">Hoa quả sạch</a></li>
+                                <li><a href="#">Thịt lợn sạch</a></li>
+                                <li><a href="#">Thịt bò sạch</a></li>
+                                <li><a href="#">Thịt gà ta</a></li>
+                                <li><a href="#">Rau rừng</a></li>                             
+                            </ul>
+                        </div>
 
                     </div>
-
                 </div>
-            </div>
+                <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <div id="contact-box" style="text-align: right;">
+                            @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                            {
+
+                                <div class="fb-page"
+                                     data-tabs="messages"
+                                     data-href="@Html.Raw(commonInfo.FaceBookLink)"
+                                     data-width="500"
+                                     data-height="300"
+                                     data-hide-cover="false"></div>
+                            }
+
+                        </div>
+
+                    </div>
+                </div>
 
             <div id="footer-menu-box">
                 <div class="col-sm-12">
                     <ul class="footer-menu-list">
-                        <li><a href="/home/about">Giới thiệu về chúng tôi</a></li>
+                        <li><a href="/gioi-thieu-b76">Giới thiệu về chúng tôi</a></li>
+                        @*<li><a href="/home/about">Giới thiệu về chúng tôi</a></li>*@
                     </ul>
                 </div>
                 <div class="col-sm-12">
@@ -273,14 +250,12 @@
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId=369348303254756";
+            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
         $(window).load(function () {
             Cart.bindCart();
         });
     </script>
-
 </body>
-
 </html>

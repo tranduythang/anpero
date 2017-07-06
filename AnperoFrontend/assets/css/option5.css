@@ -177,7 +177,7 @@
 
 .option5 #main-menu .navbar{
 	border-radius: 0;
-	background: #f96d10;
+	background: #779225;
 }
 .option5 #main-menu .navbar-default .navbar-nav>li>a{
 	color: #fff;
@@ -189,7 +189,7 @@
 .option5 #main-menu .navbar .navbar-nav>li:hover, 
 .option5 #main-menu .navbar .navbar-nav>li.active{
 	background-image: none;
-	background: #e80000;
+	background: #0a770d;
 }
 .option5 #main-menu .navbar .navbar-nav>li:hover a, 
 .option5 #main-menu .navbar .navbar-nav>li.active a{
@@ -710,12 +710,12 @@
 }
 .option5 .category-featured.fashion .nav-menu .nav>li:hover a,
 .option5 .category-featured.fashion .nav-menu .nav>li.active a{
-	color: #ff3366;
+	color: #688022;
 }
 
 .option5 .category-featured.fashion .nav-menu .nav>li:hover a:after,
 .option5 .category-featured.fashion .nav-menu .nav>li.active a:after{
-	color: #ff3366;
+	color: #688022;
 }
 
 .option5 .category-featured.fashion .nav-menu .nav>li>a:before{
