@@ -2560,7 +2560,8 @@ span.notify-right{
 [14. footer]
 */
 #footer {
-    background: #eee;
+    /*background: #eee;*/
+    background:#39b54a;
 }
 
 /** add-box **/
@@ -2591,7 +2592,6 @@ span.notify-right{
     padding-top: 2px;
     padding-bottom: 2px;
 }
-
 .introduce-list {
     padding-left: 16px;
     list-style: inherit;
@@ -2702,9 +2702,7 @@ span.notify-right{
 }
 
 /** #footer-menu-box **/
-#footer{
-  background: #eaeaea;
-}
+
 #footer-menu-box {
     border-top: 1px solid #E1E1E1;
     margin-top: 10px;
@@ -2720,7 +2718,7 @@ span.notify-right{
 .footer-menu-list li{
     display: inline;
     padding: 0 7px 0 5px;
-    border-right: 1px solid #0066cc;
+    border-right: 1px solid #70e280;
 }
 .footer-menu-list li:last-child{
     border-right: none;
@@ -3104,10 +3102,10 @@ span.notify-right{
   text-align: center;
 }
 .btn-add-cart{
-    height: 35px;
+    height: 50px;
     width: auto;
-    line-height: 35px;
-    font-size: 14px;
+    line-height: 50px;
+    font-size: 18px;
     color: #fff;
     display: inline-block;
     margin: 0px auto;

@@ -50,7 +50,7 @@
             <div class="container">
                 @if (!string.IsNullOrEmpty(commonInfo.HotLine))
                 {
-                    <div class="currency"><a href="tel:@commonInfo.HotLine"><strong>Hotline: @commonInfo.HotLine</strong></a></div>
+                    <div class="currency"><a href="tel:@commonInfo.HotLine"><strong>Hotline: @commonInfo.HotLine - 0961614240 </strong></a></div>
                 }
                 @if (!string.IsNullOrEmpty(commonInfo.Skype) || !string.IsNullOrEmpty(commonInfo.FaceBookLink))
                 {
@@ -157,6 +157,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Html.Raw(commonInfo.AnperoPlugin)
     @RenderSection("scripts", required: false)
+    @Html.Raw(commonInfo.PageScript)
     <footer id="footer">
         <div class="container">
             @Html.Raw(commonInfo.Footer)
@@ -229,11 +230,13 @@
                     </ul>
                 </div>
                 <div class="col-sm-12">
-                    <ul class="footer-menu-list">
-                        <li><a href="/policy/ship">Chính sách vận chuyển</a></li>
-                        <li><a href="/policy/rollback">Chính sách đổi trả</a></li>
-                        <li><a href="/policy/shipping">Chính sách bảo hành</a></li>
-                        <li><a href="/policy/payment">Hướng dẫn thanh toán</a></li>
+                    <ul class="footer-menu-list">                        
+                        <li><a href="/chinh-sach-van-chuyen-a66">Chính sách vận chuyển</a></li>
+                        <li><a href="/chinh-sach-doi-tra-a67">Chính sách đổi trả</a></li>
+                        <li><a href="/huong-dan-thanh-toan-a68">Hướng dẫn thanh toán</a></li>
+                        @*<li><a href="/policy/ship">Chính sách vận chuyển</a></li>
+                        <li><a href="/policy/rollback">Chính sách đổi trả</a></li>                        
+                        <li><a href="/policy/payment">Hướng dẫn thanh toán</a></li>*@
 
                         <li><a href="/home/contact">Liên hệ</a></li>
 

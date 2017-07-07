@@ -77,7 +77,7 @@
                                     }
                                 </div>
                                 <div class="info-orther">
-                                    <p>Mã dịch vụ: #@item.Id</p>
+                                    <p>Mã sản phẩm: #@item.Id</p>
                                     <p>
                                         Trạng thái:
                                         @if (item.IsInstock)
@@ -105,11 +105,12 @@
                                     <div class="button-group">
                                         @if (item.IsInstock)
                                         {
-                                            <a class="btn-add-cart" href="javascript:Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName')">Thêm vào giỏ hàng</a>
+                                            <a class="btn-add-cart" href="javascript:Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName')">Đặt mua</a>
+                                            
                                         }
                                         else
                                         {
-                                            <a class="btn-add-cart" href="javascript:void(0);">Đang bận</a>
+                                            <a class="btn-add-cart" href="javascript:void(0);">Tạm hết hàng</a>
                                         }
                                     </div>
 
@@ -172,7 +173,7 @@
                                                             <a title="Quick view" class="search" href="#"></a>
                                                         </div>
                                                         <div class="add-to-cart">
-                                                            <a title="Add to Cart" href="#add">Thêm vào giỏ hàng</a>
+                                                            <a title="Add to Cart" href="#add">Đặt mua</a>
                                                         </div>
                                                     </div>
                                                     <div class="right-block">
