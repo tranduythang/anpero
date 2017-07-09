@@ -5,7 +5,9 @@
 	padding: 0;
 	*zoom: 1;
 }
-
+.homeslider .bx-wrapper {	
+	margin: 0 auto 0px !important;
+}
 .bx-wrapper img {
 	max-width: 100%;
 	display: block;
