@@ -1,0 +1,93 @@
+﻿@using AnperoFrontend.WebService;
+<div class="header-text-area text-center">
+    <div class="pogoSlider">
+        @if (ViewData["slide"] != null)
+        {
+            Ads[] slide = (Ads[])ViewData["slide"];
+            if (slide.Length > 0)
+            {
+                foreach (var item in slide)
+                {
+                    <div class="pogoSlider-slide" data-transition="fade" data-duration="3000" style="background: url(@item.ImagesUrl) no-repeat scroll 0 0 / cover;">
+                        <div class="table">
+                            <div class="table-cell">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-8 col-sm-offset-2 padding-top">
+                                            @item.Description
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+        }
+        else
+        {
+
+            <div class="pogoSlider-slide" data-transition="fade" data-duration="3000" style="background:url(/assets/images/slide-1.jpg) no-repeat scroll 0 0 / cover;">
+                <div class="table">
+                    <div class="table-cell">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-8 col-sm-offset-2 padding-top">
+                                    <h1 class="pogoSlider-slide-element" data-in="slideUp" data-out="expand" data-duration="800">WELCOME <span>TO HAPPY</span> PAWS</h1>
+                                    <p class="pogoSlider-slide-element" data-in="slideUp" data-out="expand" data-duration="800">We offer all the best quality products and services for your adorable pets.of a page when looking at its layout. The point of using Lorem Ipsum i like readable English.</p>
+                                    <p class="header-text-button pogoSlider-slide-element hidden-xs" data-in="expand" data-out="expand" data-duration="1200"><a href="#" class="battn">Hot Deals</a> <a href="#about" class="battn">View All Theme</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pogoSlider-slide" data-transition="fade" data-duration="3000" style="background:url(/assets/images/slide-1.jpg) no-repeat scroll 0 0 / cover;">
+                <div class="table">
+                    <div class="table-cell">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-8 col-sm-offset-2 padding-top">
+                                    <h1 class="pogoSlider-slide-element" data-in="slideUp" data-out="expand" data-duration="800">WELCOME <span>TO HAPPY</span> PAWS</h1>
+                                    <p class="pogoSlider-slide-element" data-in="slideUp" data-out="expand" data-duration="800">We offer all the best quality products and services for your adorable pets.of a page when looking at its layout. The point of using Lorem Ipsum i like readable English.</p>
+                                    <p class="header-text-button pogoSlider-slide-element hidden-xs" data-in="expand" data-out="expand" data-duration="800"><a href="#" class="battn">Hot Deals</a> <a href="#about" class="battn">View All Theme</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pogoSlider-slide" data-transition="fade" data-duration="3000" style="background:url(/assets/images/slide-3.jpg) no-repeat scroll 0 0 / cover;">
+                <div class="table">
+                    <div class="table-cell">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-8 col-sm-offset-2 padding-top">
+                                    <h1 class="pogoSlider-slide-element" data-in="slideUp" data-out="expand" data-duration="800">WELCOME <span>TO HAPPY</span> PAWS</h1>
+                                    <p class="pogoSlider-slide-element" data-in="slideUp" data-out="expand" data-duration="800">We offer all the best quality products and services for your adorable pets.of a page when looking at its layout. The point of using Lorem Ipsum i like readable English.</p>
+                                    <p class="header-text-button pogoSlider-slide-element hidden-xs" data-in="expand" data-out="expand" data-duration="800"><a href="#" class="battn">Hot Deals</a> <a href="#about" class="battn">View All Theme</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pogoSlider-slide" data-transition="fade" data-duration="3000" style="background: url(/assets/images/slide-4.jpg) no-repeat scroll 0 0 / cover;">
+                <div class="table">
+                    <div class="table-cell">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-8 col-sm-offset-2 padding-top">
+                                    <h1 class="pogoSlider-slide-element" data-in="slideUp" data-out="expand" data-duration="800">WELCOME <span>TO HAPPY</span> PAWS</h1>
+                                    <p class="pogoSlider-slide-element" data-in="slideUp" data-out="expand" data-duration="800">We offer all the best quality products and services for your adorable pets.of a page when looking at its layout. The point of using Lorem Ipsum i like readable English.</p>
+                                    <p class="header-text-button pogoSlider-slide-element hidden-xs" data-in="expand" data-out="expand" data-duration="800"><a href="#" class="battn">Hot Deals</a> <a href="#about" class="battn">View All Theme</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

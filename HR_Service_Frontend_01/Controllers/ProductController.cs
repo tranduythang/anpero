@@ -13,13 +13,20 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult Index(int id)
         {
-            WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.ProductItem item = sv.GetProductDetail(StoreID, TokenKey, id);
-            WebService.SearchResult relateProduct = sv.SearchProduct(StoreID, TokenKey, item.CatID.ToString(), "", "", 0, 999999, 1, 5, "", SearchOrder.TimeDesc, 0);
-            ViewData["relateProduct"] = relateProduct;
-            ViewData["prDetail"] = item;
-            ViewBag.Title = item.PrName;
-            SetupCommonProduct();
+            try
+            {
+                WebService.AnperoService sv = new WebService.AnperoService();
+                WebService.ProductItem item = sv.GetProductDetail(StoreID, TokenKey, id);
+                WebService.SearchResult relateProduct = sv.SearchProduct(StoreID, TokenKey, item.CatID.ToString(), "", "", 0, 999999, 1, 5, "", SearchOrder.TimeDesc, 0);
+                ViewData["relateProduct"] = relateProduct;
+                ViewData["prDetail"] = item;
+                ViewBag.Title = item.PrName;
+                SetupCommonProduct();
+            }
+            catch (Exception)
+            {
+            }
+          
             return View();
         }
         [BuildCommonHtml]
