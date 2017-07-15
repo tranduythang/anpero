@@ -145,7 +145,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="about.html" />
+    <Content Include="assets\html\about.html" />
     <Content Include="assets\checkout.html" />
     <Content Include="assets\css\animate.css" />
     <Content Include="assets\css\option2.css" />
@@ -868,15 +868,15 @@
     <Content Include="assets\lib\select2\js\select2.full.min.js" />
     <Content Include="assets\lib\select2\js\select2.js" />
     <Content Include="assets\lib\select2\js\select2.min.js" />
-    <Content Include="blog-detail.html" />
-    <Content Include="blog.html" />
-    <Content Include="category.html" />
-    <Content Include="category2.html" />
-    <Content Include="checkout.html" />
-    <Content Include="compare.html" />
-    <Content Include="detail.html" />
-    <Content Include="detail2.html" />
-    <Content Include="detail3.html" />
+    <Content Include="assets\html\blog-detail.html" />
+    <Content Include="assets\html\blog.html" />
+    <Content Include="assets\html\category.html" />
+    <Content Include="assets\html\category2.html" />
+    <Content Include="assets\html\checkout.html" />
+    <Content Include="assets\html\compare.html" />
+    <Content Include="assets\html\detail.html" />
+    <Content Include="assets\html\detail2.html" />
+    <Content Include="assets\html\detail3.html" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="assets\fonts\fontello.eot" />
@@ -921,13 +921,13 @@
     <Content Include="assets\lib\font-awesome\scss\font-awesome.scss" />
     <Content Include="assets\lib\jquery-bxslider\bower.json" />
     <Content Include="assets\lib\jquery-bxslider\readme.md" />
-    <Content Include="index.html" />
-    <Content Include="index2.html" />
-    <Content Include="index3.html" />
-    <Content Include="index4.html" />
-    <Content Include="index5.html" />
-    <Content Include="login.html" />
-    <Content Include="order.html" />
+    <Content Include="assets\html\index.html" />
+    <Content Include="assets\html\index2.html" />
+    <Content Include="assets\html\index3.html" />
+    <Content Include="assets\html\index4.html" />
+    <Content Include="assets\html\index5.html" />
+    <Content Include="assets\html\login.html" />
+    <Content Include="assets\html\order.html" />
     <Content Include="handler\ProductHandler.ashx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
