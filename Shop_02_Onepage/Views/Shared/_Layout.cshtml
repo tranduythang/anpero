@@ -25,18 +25,21 @@
 
 </head>
 <body>
-    <header class="top-area section-relative" id="home">
+    @if (ViewBag.pageName != null && !Request.Browser.IsMobileDevice && ViewBag.pageName == "home")
+    {
+        <header class="top-area section-relative" id="home">
+            @Html.Partial("_partial/_MainMenu")
+            @Html.Partial("_partial/_HomeSlide_1");
+        </header>
+    }
+    else
+    {
+    <header class="section-relative" id="home">
         @Html.Partial("_partial/_MainMenu")
-        @if (ViewBag.pageName != null && !Request.Browser.IsMobileDevice && ViewBag.pageName == "home")
-        {
-            Html.RenderPartial("_partial/_HomeSlide_1");
-        }
-
     </header>
+
+    }
     @RenderBody()
-    <!--=== JQUERY LIBRARY ====-->
-    <script src="js/vendor/jquery-2.2.4.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 
     <!--=== JQUERY LIBRARY ====-->
     <script src="/assets/js/vendor/jquery-224.js"></script>

@@ -13,46 +13,120 @@
     <meta name="keywords" content="@commonInfo.Desc" />
 }
 
-<div class="page-top">
+<section class="about-area section-padding section-relative" id="about">
     <div class="container">
-        <div class="page-top"></div>
-    </div>
-</div>
-@if (ViewData["AdsSlide2"] != null)
-{
-    Ads[] slide = (Ads[])ViewData["AdsSlide2"];
-    if (slide.Length > 0)
-    {
-        <div class="container">
-            <div class="row">
-                <div class="row banner-bottom">
-                    @for (int i = 0; i < slide.Length; i++)
-                    {
-                        if (i == 0)
-                        {
-                            <div class="col-sm-6 item-left">
-                                <div class="banner-boder-zoom">
-                                    <a href="@slide[0].ClickUrl"><img alt="@slide[0].Description" class="img-responsive" src="@slide[0].ImagesUrl" /></a>
-                                </div>
-                            </div>
-                        }
-                        if (i == 1)
-                        {
-                            <div class="col-sm-6 item-right">
-                                <div class="banner-boder-zoom">
-                                    <a href="@slide[1].ClickUrl"><img alt="@slide[1].Description" class="img-responsive" src="@slide[1].ImagesUrl" /></a>
-                                </div>
-                            </div>
-                        }
-
-                    }
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 text-right wow fadeIn">
+                <div class="page-title">
+                    <h2>Chủ đầu tư</h2>
+                </div>
+                <div class="about-text">
+                    <h3>Tổng Công ty Xây dựng Hà Nội</h3>
+                    <p>Với cơ sở vật chất và con người ngày càng được tăng cường, bằng lao động sáng tạo của mình, HANCORP đã thi công hàng nghìn công trình dân dụng, công nghiệp, giao thông thuỷ lợi, hạ tầng kỹ thuật, hạ tầng xã hội trên mọi miền đất nước và các công trình ở nước ngoài như Liên xô cũ, Cộng hoà I-Rắc và Cộng hoà dân chủ nhân dân Lào.</p>
+                    <div class="about-text-button">
+                        <a href="/tong-cong-ty-xay-dung-ha-noi-ctcp-a69" class="battn">Xem thêm</a>
+                    </div>
                 </div>
             </div>
         </div>
-    }
-    else
-    {
-     
-    }
-}
+    </div>
+</section>
 
+<!-- Start-Photography-Area-->
+<section class="photography-area padding-top" id="philosophy">
+    <div class="container">
+        <div class="row">
+            <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
+                <div class="page-title">
+                    <h2>Tổng quan dự án</h2>
+                    <p>Được bao bọc bởi hệ thống sông hồ và các công viên đã giúp Khu Ngoại Giao Đoàn tạo dựng được một không gian mở mà con người và tiên nhiêu luôn được giao hòa cùng nhau. Vị trí của Khu Ngoại Giao Đoàn và Ciputra còn được coi là huyệt phong thủy của Hà Nội, nằm trên trục Hồ Tây - Ba Vì. nơi đây luôn được mệnh danh là hồn cốt xứ Thăng Long rồng bay <a href="/tong-quan-du-an-chung-cu-ngoai-giao-a70" title="dự án ngoại giao đoàn">Xem thêm</a></p>
+                </div>
+            </div>
+        </div>
+        <div id="photographyCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="row">
+                <div class="col-xs-12 col-sm-5">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <a href="/tong-quan-du-an-chung-cu-ngoai-giao-a70" title="dự án ngoại giao đoàn">  <img src="~/assets/images/455x480.png" alt="cảnh quan ngoại giao đoàn"></a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-7">
+                    <ol class="carousel-indicators">
+                        <li data-target="#photographyCarousel" data-slide-to="0" class="active">
+                            <div class="single-photography">
+                                <div class="photography-icon">
+                                    <i class="fa fa-check"></i>
+                                </div>
+                                <h2>Tính pháp lý</h2>
+                                <p>Dự án được Thủ tướng Chính Phủ phê duyệt tại Quyết định số 415/QĐ-TTg ngày 11/4/2001 và quy hoạch chi tiết xây dựng 1/500 Khu Ngoại Giao Đoàn đã được chủ tịch Ủy Ban Nhân Dân thành phố Hà Nội Phê duyệt tại quết định số 46/2006/QĐ-UB ngày 10/4/2006</p>
+                            </div>
+                        </li>
+                        <li data-target="#photographyCarousel" data-slide-to="0">
+                            <div class="single-photography">
+                                <div class="photography-icon">
+                                    <i class="fa fa-university"></i>
+                                </div>
+                                <h2>Liên kết xung quanh</h2>
+                                <p>Cạnh khu đô thị mới Ciputra, khu đô thị Thành Phố Giao Lưu, KĐTM Cổ Nhuế và Khu đại sứ quán các nước, gần bệnh viện 19-8 Bộ Công An, Bệnh Viện E. <strong>Siêu thị mua sắm: </strong>Siêu thị Metro, Siêu thị BigC, Siêu thị Fivimark và các trung tâm mua sắm lớn xung quanh các khu đô thị.</p>
+                            </div>
+                        </li>
+                        <li data-target="#photographyCarousel" data-slide-to="0">
+                            <div class="single-photography">
+                                <div class="photography-icon">
+                                    <i class="fa fa-envira"></i>
+                                </div>
+                                <h2>Giao hòa cùng thiên nhiên</h2>
+                                <p>Được bao bọc bởi hệ thống sông hồ và các công viên đã giúp Khu Ngoại Giao Đoàn tạo dựng được một không gian mở mà con người và tiên nhiêu luôn được giao hòa cùng nhau</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End-Photography-Area-->
+<!-- Start-Blog-Area -->
+
+@if (ViewData["FeatureArticle"] != null)
+{
+    SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
+    <section class="blog-area section-padding" id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
+                    <div class="page-title">
+                        <h2>Thông tin mới nhất</h2>
+                        <p>Cập nhật các tiến độ, sơ đồ mặt bằng, nhà mẫu <a href="/blog" title="thông tin chung cư ngoại giao đoàn">Xem thêm tại đây</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row blog-slide">
+                @foreach (BlogItem item in FeatureArticle.ItemList)
+                {
+                    <div class="col-xs-12 wow fadeIn">
+                        <div class="single-blog">
+                            <div class="blog-photo">
+                                <a href="@Anpero.StringHelpper.GetArticleLink(item.Title, item.Id)"><img src="@item.Thumb" alt="@item.Title"></a>
+                                <div class="blog-date">
+                                    <h3>oct <span>@Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</span></h3>
+                                </div>
+                            </div>
+                            <h2>@Anpero.StringHelpper.SubString(30, item.Title)</h2>
+                            <p>@Anpero.StringHelpper.SubString(50, item.ShotDesc)</p>
+                            <a href="@Anpero.StringHelpper.GetArticleLink(item.Title, item.Id)">@Anpero.StringHelpper.SubString(30, item.Title)</a>
+                            <a href="@Anpero.StringHelpper.GetArticleLink(item.Title, item.Id)">Chi tiết</a>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </section>
+}
+}
+<!-- End-Blog-Area -->
+@Html.Partial("_partial/_contact")

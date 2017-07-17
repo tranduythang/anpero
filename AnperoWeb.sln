@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anpero", "Anpero\Anpero.csproj", "{B88546AC-D123-448F-BD9B-7287E7CE1B38}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop_02_OnePage", "Shop_02_Onepage\Shop_02_OnePage.csproj", "{E515C6BB-2763-4422-90D9-5F5F122D4626}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop_01_MultiProduct", "Shop_01_multiProduct\Shop_01_MultiProduct.csproj", "{0036A2E3-FC1E-459F-A84E-1A441FF6E685}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop_03_MultiProduct", "Shop_03_multiProduct\Shop_03_MultiProduct.csproj", "{974A627F-FDDD-4349-95B3-B0CE2BF33426}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0036A2E3-FC1E-459F-A84E-1A441FF6E685}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0036A2E3-FC1E-459F-A84E-1A441FF6E685}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0036A2E3-FC1E-459F-A84E-1A441FF6E685}.Release|Any CPU.Build.0 = Release|Any CPU
+		{974A627F-FDDD-4349-95B3-B0CE2BF33426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{974A627F-FDDD-4349-95B3-B0CE2BF33426}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{974A627F-FDDD-4349-95B3-B0CE2BF33426}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{974A627F-FDDD-4349-95B3-B0CE2BF33426}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

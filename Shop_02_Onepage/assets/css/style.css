@@ -551,7 +551,7 @@ textarea.form-control:focus {
     width: 50%;
     height: 100%;
     content: "";
-    background: url(images/about-img.png) no-repeat scroll right 20% bottom / auto 100%;
+    background: url(/assets/images/about-img.png) no-repeat scroll right 20% bottom / auto 100%;
 }
 
 .about-text h3 {
@@ -1216,7 +1216,7 @@ Contact Area
 ====================*/
 
 .contact-area .section-bg {
-    background-image: url("images/contact-bg.jpg");
+    background-image: url("/assets/images/contact-bg.jpg");
 }
 
 .contact-area .section-bg::after {

@@ -1,0 +1,14 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+        ViewBag.Title = commonInfo.Desc;
+    }
+
+}
+@section health{
+    <meta name="description" content="@commonInfo.Desc" />
+    <meta name="keywords" content="@commonInfo.Desc" />
+}
