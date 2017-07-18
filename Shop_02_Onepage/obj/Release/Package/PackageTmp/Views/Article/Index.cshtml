@@ -6,6 +6,22 @@
         item = (BlogItem)ViewData["blogdeltail"];
     }
 }
+<section class="photography-area padding-top" id="philosophy">
+    <div class="container">
+        <div class="row">
+            <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
+                <div class="page-title">
+                    <h2>@item.Title</h2>
+                </div>
+            </div>
+        </div>
+        <div id="photographyCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="row">                <div class="col-xs-12 col-sm-12">@Html.Raw(item.Content)</div>
+                
+            </div>
+        </div>
+    </div>
+</section>
 <div class="columns-container">
     <div class="container" id="columns">
         <!-- breadcrumb -->
@@ -24,9 +40,7 @@
             <!-- ./left colunm -->
             <!-- Center colunm-->
             <div class="center_column col-xs-12 col-sm-9" id="center_column">
-                <h1 class="page-heading">
-                    <span class="page-heading-title2">@item.Title</span>
-                </h1>
+               
                 <article class="entry-detail">
                     <div class="entry-meta-data">
                      
@@ -39,7 +53,7 @@
                     </div>
                    
                     <div class="content-text clearfix">
-                      @Html.Raw(item.Content)
+                     
                     </div>
                     <div class="entry-tags">
                         <span>Tags:</span>

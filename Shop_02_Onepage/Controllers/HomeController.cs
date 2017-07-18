@@ -10,14 +10,13 @@ namespace AnperoFrontend.Controllers
         public ActionResult Index()
         {
             WebService.AnperoService service = new WebService.AnperoService();
-
-            ViewData["slide"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Slide);
+           // ViewData["slide"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Slide);
             //ViewData["AdsSlide"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads1);
             //ViewData["AdsSlide2"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads2);
             ViewBag.pageName = "home";
-            GetNewestProduct();
-            SetupCommonProduct();
-            //GetTopArticle();
+            //GetNewestProduct();
+            //SetupCommonProduct();
+            GetTopArticle();
             SetUpSlideAds();
             return View();
         }

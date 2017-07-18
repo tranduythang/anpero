@@ -1450,3 +1450,51 @@ label.mt20.valid {
     background: #fff;
     color: #64BE43;
 }
+.breadcrumb {
+    background: none;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 17px;
+    line-height: normal;
+}
+#left_column .block {
+    border: 1px solid #eaeaea;
+}
+#left_column .left-module {
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+#left_column .block .title_block {
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid #eaeaea;
+    padding-left: 28px;
+    text-transform: uppercase;
+    padding-top: 11px;
+    padding-bottom: 12px;
+}
+#left_column .block .block_content {
+    padding: 15px 20px;
+}
+.layered .layered-content:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.tree-menu li {
+    line-height: 24px;
+    list-style:none;
+}
+li{ list-style:none;}
+.blog-posts {
+    line-height: 24px;
+    margin-top: 20px;
+}
+.blog-posts .post-item {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: 1px solid #eaeaea;
+    border-top: 1px solid #eaeaea;
+    margin-top: -1px;
+}
+.blog-posts a{color:#333;}
