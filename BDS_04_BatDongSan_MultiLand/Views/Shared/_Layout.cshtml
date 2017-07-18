@@ -46,32 +46,6 @@
 </head>
 <body class="@themeOptionText">
     <div id="header" class="header">
-        @*<div class="top-header">
-                <div class="container">
-                    @if (!string.IsNullOrEmpty(commonInfo.HotLine))
-                    {
-                        <div class="currency"><a href="tel:@commonInfo.HotLine"><strong>Hotline: @commonInfo.HotLine - 0961614240 </strong></a></div>
-                    }
-                    @if (!string.IsNullOrEmpty(commonInfo.Skype) || !string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                    {
-                        <div class="top-bar-social">
-                            @if (!string.IsNullOrEmpty(commonInfo.Skype))
-                            {
-                                <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
-                            }
-                            @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                            {
-                                <a href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" target="_blank"><i class="fa fa-facebook"></i></a>
-                            }
-                        </div>
-                    }
-                    <div class="support-link">
-                        <a href="/thong-tin-cua-hang-a60">Thông tin cửa hàng</a>
-                        <a href="/home/contact">Liên hệ</a>
-                    </div>
-                </div>
-            </div>*@
-
         @switch (commonInfo.ThemeOption)
         {
             case 2:
@@ -127,24 +101,14 @@
                                             }
                                         }
                                         <li><a href="/blog">Blogs</a></li>
-                                    </ul>
-                                    <ul class="nav navbar-nav navbar-right">
-                                        <li><a class="link-buytheme" href="tel:@commonInfo.HotLine"> <strong>Đặt hàng: @commonInfo.HotLine</strong> </a></li>
-                                    </ul>
+                                    </ul>                                 
                                 </div>
                             </div>
                         </nav>
                     </div>
                 </div>
 
-                <div id="form-search-opntop"></div>
-                <!-- userinfo on top-->
-                <div id="user-info-opntop"></div>
-                <!-- CART ICON ON MMENU -->
-                <div id="shopping-cart-box-ontop">
-                    <i class="fa fa-shopping-cart"></i>
-                    <div class="shopping-cart-box-ontop-content"></div>
-                </div>
+            
             </div>
         </div>
     </div>

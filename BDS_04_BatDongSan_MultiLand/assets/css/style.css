@@ -5171,6 +5171,7 @@ span.notify-right{
     overflow: hidden;
 }
 .post-thumb{
-    max-height:300px;
+    max-height:200px;
     overflow:hidden;
 }
+.entry-detail img{max-width:100%;}

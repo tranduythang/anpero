@@ -110,7 +110,7 @@
 [4. Header ]
 */
 .option6 .header{
-	background: #008a90;
+	background: #f5fbff;
 }
 .option6 .nav-top-menu{
 	background: transparent;
@@ -230,7 +230,7 @@
 }
 
 .option6 .nav-top-menu.nav-ontop{
-	background: #007176;
+	background: #055699;
 	height: 51px;
 }
 .option6 .nav-top-menu.nav-ontop .navbar-right{
@@ -246,7 +246,7 @@
 
 .option6 #main-menu .navbar{
 	border-radius: 0;
-	background: #007176;
+	background: #055699;
 }
 .option6 #main-menu .navbar-default .navbar-nav>li>a{
 	color: #fff;
@@ -258,7 +258,7 @@
 .option6 #main-menu .navbar .navbar-nav>li:hover, 
 .option6 #main-menu .navbar .navbar-nav>li.active{
 	background-image: none;
-	background: #00abb3;
+	background: #2795f0;
 }
 .option6 #main-menu .navbar .navbar-nav>li:hover a, 
 .option6 #main-menu .navbar .navbar-nav>li.active a{
@@ -1303,6 +1303,10 @@
 [13. Styles for devices(>=768px and <=992px)]
 */
 @media (min-width: 768px) and (max-width: 992px) {
+    .navbar-nav>li {
+    border-right: 1px solid #20466d;
+    border-left: 1px solid #4a84b5;
+    }
 	.option6 .group-button-header{
 		float: right;
 	}
