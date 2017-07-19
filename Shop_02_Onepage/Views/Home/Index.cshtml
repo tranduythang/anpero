@@ -112,7 +112,7 @@
                             <div class="blog-photo">
                                 <a href="@Anpero.StringHelpper.GetArticleLink(item.Title, item.Id)"><img src="@item.Thumb" alt="@item.Title"></a>
                                 <div class="blog-date">
-                                    <h3>oct <span>@Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</span></h3>
+                                    <h3><span>@Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</span></h3>
                                 </div>
                             </div>
                             <h2>@Anpero.StringHelpper.SubString(30, item.Title)</h2>
@@ -127,6 +127,4 @@
         </div>
     </section>
 }
-}
-<!-- End-Blog-Area -->
 @Html.Partial("_partial/_contact")

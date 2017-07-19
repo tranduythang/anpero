@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{99882966-4891-4CBA-98FA-F03E660BB90B}</ProjectGuid>
+    <ProjectGuid>{974A627F-FDDD-4349-95B3-B0CE2BF33426}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -145,19 +145,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\404error.html" />
-    <Content Include="assets\about-us.html" />
-    <Content Include="assets\blog-detail.html" />
-    <Content Include="assets\blog.html" />
-    <Content Include="assets\checkout-billing-info.html" />
-    <Content Include="assets\checkout-method.html" />
-    <Content Include="assets\checkout.html" />
-    <Content Include="assets\contact-us.html" />
-    <Content Include="assets\dashboard.html" />
     <Content Include="assets\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\fonts\site-icons.svg" />
-    <Content Include="assets\grid.html" />
     <Content Include="assets\images\404-img.png" />
     <Content Include="assets\images\arrow-down.png" />
     <Content Include="assets\images\arrow-right.png" />
@@ -221,10 +211,6 @@
     <Content Include="assets\images\newsletter_img.png" />
     <Content Include="assets\images\opc-ajax-loader.gif" />
     <Content Include="assets\images\orange.gif" />
-    <Content Include="assets\images\payment-1.png" />
-    <Content Include="assets\images\payment-2.png" />
-    <Content Include="assets\images\payment-3.png" />
-    <Content Include="assets\images\payment-4.png" />
     <Content Include="assets\images\plus-blue.png" />
     <Content Include="assets\images\plus-img.png" />
     <Content Include="assets\images\plus.png" />
@@ -254,7 +240,6 @@
     <Content Include="assets\images\tool_arrow_down_o.png" />
     <Content Include="assets\images\tool_arrow_up.png" />
     <Content Include="assets\images\top-arrow.png" />
-    <Content Include="assets\index.html" />
     <Content Include="assets\js\bootstrap.min.js" />
     <Content Include="assets\js\cloud-zoom.js" />
     <Content Include="assets\js\common.js" />
@@ -266,13 +251,6 @@
     <Content Include="assets\js\parallax.js" />
     <Content Include="assets\js\revslider.js" />
     <Content Include="assets\js\slider.js" />
-    <Content Include="assets\list.html" />
-    <Content Include="assets\login.html" />
-    <Content Include="assets\multiple-addresses.html" />
-    <Content Include="assets\newsletter.html" />
-    <Content Include="assets\product-detail.html" />
-    <Content Include="assets\quickview.html" />
-    <Content Include="assets\shopping-cart.html" />
     <Content Include="assets\stylesheet\bootstrap.min.css" />
     <Content Include="assets\stylesheet\flexslider.css" />
     <Content Include="assets\stylesheet\font-awesome.css" />
@@ -283,7 +261,6 @@
     <Content Include="assets\stylesheet\responsive.css" />
     <Content Include="assets\stylesheet\revslider.css" />
     <Content Include="assets\stylesheet\style.css" />
-    <Content Include="assets\wishlist.html" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="handler\ProductHandler.ashx" />

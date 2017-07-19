@@ -69,7 +69,22 @@
                                 for (int i = 0; i < commonInfo.MenuList.Length; i++)
                                 {
                                     <li>
-                                        <a href="@commonInfo.MenuList[i].Link">@commonInfo.MenuList[i].Tittle</a>
+                                        @if (ViewBag.pageName != null && !Request.Browser.IsMobileDevice && ViewBag.pageName == "home")
+                                        {
+                                            <a href="@commonInfo.MenuList[i].Link">@commonInfo.MenuList[i].Tittle</a>
+                                        }
+                                        else
+                                        {
+                                            if (commonInfo.MenuList[i].Link.Contains("/"))
+                                            {
+                                                <a href="@commonInfo.MenuList[i].Link">@commonInfo.MenuList[i].Tittle</a>
+                                            }
+                                            else
+                                            {
+                                                <a href="/@commonInfo.MenuList[i].Link">@commonInfo.MenuList[i].Tittle</a>
+                                            }
+
+                                        }
                                     </li>
                                 }
                             }
