@@ -35,13 +35,18 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
 </head>
 <body>
+    <!-- Header -->
     @Html.Partial("_partial/_MainHeader_1")
+    <!-- End Header-->
     @RenderBody()
     @*@Scripts.Render("~/bundles/jquery")*@
     @*@Scripts.Render("~/bundles/bootstrap")*@
     @Html.Raw(commonInfo.AnperoPlugin)
     @RenderSection("scripts", required: false)
     @Html.Raw(commonInfo.PageScript)
+    <!-- Footer -->
+    @Html.Partial("_partial/_MainFooter_1")
+    <!-- End Footer-->
     <!-- JavaScript -->
     <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
