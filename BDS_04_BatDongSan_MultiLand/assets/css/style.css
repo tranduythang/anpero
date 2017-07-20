@@ -2,6 +2,7 @@
 /* ----------------
  [1. Common styles]
  */
+
 body{
     font-family: 'Arial', sans-serif;
     font-size: 14px;
@@ -692,7 +693,7 @@ img.alignright{
  [ 3.3 Main header]
  */
 .main-header{
-    padding: 20px 0 30px 0;
+    padding: 20px 0 5px 0;
 }
 .main-header .header-search-box{
     margin-top: 17px;
@@ -958,7 +959,7 @@ span.notify-right{
  [ 3.4 Main menu]
  */
 .nav-top-menu{
-    background: #eee;
+    background: #f5f5f5;
 }
 /*-----------------
  [ 3.4.1 Vertical megamenus]
@@ -1210,7 +1211,7 @@ span.notify-right{
 }
 #main-menu .navbar .navbar-nav>li:hover,
 #main-menu .navbar .navbar-nav>li.active{
-  background: #ff3366;
+  background: #5083d2;
   color: #fff;
 }
 #main-menu .navbar .navbar-nav>li:hover>a,
@@ -1997,8 +1998,7 @@ span.notify-right{
 .product-list li .add-to-cart:hover{
   background-color: rgba(255,51,102,0.5);
 }
-.product-list li .add-to-cart a{
-    background: url("../images/add-cart.png") no-repeat left center;
+.product-list li .add-to-cart a{    
     height: 32px;
     line-height: 32px;
     color: #fff;
@@ -2560,8 +2560,8 @@ span.notify-right{
 [14. footer]
 */
 #footer {
-    /*background: #eee;*/
-    background:#39b54a;
+    
+    background:#60a5d8;
 }
 
 /** add-box **/
@@ -2819,7 +2819,7 @@ span.notify-right{
   padding-bottom: 12px;
 }
 #left_column .block .block_content{
-  padding:  15px 20px;
+  padding:  10px 10px;
 }
 .layered .layered_subtitle{
   color: #666;
@@ -3332,7 +3332,7 @@ span.notify-right{
   border: 1px solid #eaeaea;
   overflow: hidden;
   padding-bottom: 10px;
-  min-height:400px;
+  
 }
 .product-list .info-orther{
   display: none;
@@ -3380,8 +3380,8 @@ span.notify-right{
 }
 .product-list.list .add-to-cart a{
   height: 36px;
-  background: url("../images/cart.png") no-repeat left center;
-  margin-left: 15px;
+  
+  
   padding-left: 15px;
   width: 114px;
 }
@@ -5175,3 +5175,10 @@ span.notify-right{
     overflow:hidden;
 }
 .entry-detail img{max-width:100%;}
+.top1-banner{max-height:150px;overflow:hidden;}
+.search .form-control{
+    margin:5px 0 5px 0;
+}
+.search .btn{
+    margin:5px 0 15px 0;
+}

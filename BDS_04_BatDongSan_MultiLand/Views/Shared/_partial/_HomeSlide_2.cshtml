@@ -1,54 +1,33 @@
 ﻿@using AnperoFrontend.WebService;
-@if (ViewData["slide"] != null)
-{
-    Ads[] slide = (Ads[])ViewData["slide"];
-    if (slide.Length > 0)
-    {
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 header-top-right">
-                    <div class="homeslider">
-                        <ul id="contenhomeslider">
+@using AnperoFrontend.WebService;
+<div class="col-sm-9" style="padding-right: 0px;">
+            <div class="homeslider">
+                @if (ViewData["AdsSlide"] != null)
+                {
+                    Ads[] slide = (Ads[])ViewData["AdsSlide"];
+                    if (slide.Length > 0)
+                    {
+                        <ul class="owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                             @foreach (var item in slide)
                             {
                                 <li><a href="@item.ClickUrl"><img alt="@item.Description" src="@item.ImagesUrl" title="@item.Description" /></a></li>
                             }
                         </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
-    else
-    {
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 header-top-right">
-                    <div class="homeslider">
-                        <ul id="contenhomeslider">
-                            <li><img alt="Funky roots" src="assets/data/option5/slide1.jpg" title="Funky roots" /></li>
-                            <li><img alt="Funky roots" src="assets/data/option5/slide1.jpg" title="Funky roots" /></li>
-                            <li><img alt="Funky roots" src="assets/data/option5/slide1.jpg" title="Funky roots" /></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
-}
-else
-{
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 header-top-right">
-                <div class="homeslider">
-                    <ul id="contenhomeslider">
-                        <li><img alt="Funky roots" src="assets/data/option5/slide1.jpg" title="Funky roots" /></li>
-                        <li><img alt="Funky roots" src="assets/data/option5/slide1.jpg" title="Funky roots" /></li>
-                        <li><img alt="Funky roots" src="assets/data/option5/slide1.jpg" title="Funky roots" /></li>
+                        
+                    }
+                }
+                else
+                {
+                    <ul class="owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="5" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}'>
+                        <li><a href="#"><img alt="Funky roots" src="assets/data/option6/slide1.jpg" title="Funky roots" /></a></li>
+                        <li><img src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
+                        <li><img src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
+                        <li><img src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
+                        <li><img src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
                     </ul>
-                </div>
+                   
+                }
             </div>
         </div>
-    </div>
-}
+    
+    

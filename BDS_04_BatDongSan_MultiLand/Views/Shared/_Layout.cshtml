@@ -4,20 +4,6 @@
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
-    string themeOptionText = "option6";
-    int themeOption = commonInfo.ThemeOption;
-    switch (themeOption)
-    {
-        case 1:
-            themeOptionText = "option6";
-            break;
-        case 2:
-            themeOptionText = "option5";
-            break;
-        case 3:
-            themeOptionText = "home option2";
-            break;
-    }
 }
 <!DOCTYPE html>
 <html>
@@ -35,26 +21,22 @@
     @RenderSection("health", required: false)
     @Styles.Render("~/Content/css")
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css" />
-    @if (themeOption == 2)
-    {
-        <link href="/assets/lib/jquery-bxslider/jquery-bxslider.css" rel="stylesheet" />
-    }
-    <link rel="stylesheet" type="text/css" href="/assets/css/@(themeOptionText+".css")" />
-
-
-</head>
-<body class="@themeOptionText">
+    <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css" />    
+    <link rel="stylesheet" type="text/css" href="/assets/css/option5.css"/></head>
+<body class="option5">
     <div id="header" class="header">
-        @switch (commonInfo.ThemeOption)
-        {
-            case 2:
-                Html.RenderPartial("_partial/_MainHeader_2");
-                break;
-            default:
-                Html.RenderPartial("_partial/_MainHeader_1");
-                break;
-        }
+        <div class="container main-header">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-3 logo">
+                    <a href="/"><img alt="@commonInfo.Desc" src="@commonInfo.Logo" /></a>
+                </div>
+                @if (!Request.Browser.IsMobileDevice)
+                { <div class="col-xs-7 col-sm-8 col-md-9">
+                    @Html.Partial("_partial/_HomeSlide_1")
+                </div>
+                }
+            </div>
+        </div>
         <div id="nav-top-menu" class="nav-top-menu">
             <div class="container">
                 <div class="row">
@@ -101,14 +83,14 @@
                                             }
                                         }
                                         <li><a href="/blog">Blogs</a></li>
-                                    </ul>                                 
+                                    </ul>
                                 </div>
                             </div>
                         </nav>
                     </div>
                 </div>
 
-            
+
             </div>
         </div>
     </div>
@@ -144,20 +126,41 @@
                             }
 
                         </div>
+                        @if (!string.IsNullOrEmpty(commonInfo.Skype) || !string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                        {
+                            string thisUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+                            <div class="introduce-title" style="margin-top:10px;">Chia sẻ với bạn bè</div>
+                            <div class="social-link">
+                                @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                                {
+                                    <a href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" target="_blank"><i class="fa fa-facebook"></i></a>
+                                }
+                                @if (!string.IsNullOrEmpty(commonInfo.Skype))
+                                {
+                                    <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
+                                }
+
+                                <a href="https://plus.google.com/share?url=@thisUrl" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                <a href="http://pinterest.com/pinthis?url=@thisUrl" target="_blank"><i class="fa fa-pinterest-p"></i></a>
+                                <a href="http://www.twitter.com/share?url=@thisUrl" target="_blank"><i class="fa fa-twitter"></i></a>
+                            </div>
+                        }
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="introduce-title">Thực phẩm sạch</div>
-                            <ul id="introduce-company" class="introduce-list">
-                                <li><a href="#" alter="Rau sạch, rau hữu cơ">Rau sạch, rau hữu cơ</a></li>
-                                <li><a href="#">Hoa quả sạch</a></li>
-                                <li><a href="#">Thịt lợn sạch</a></li>
-                                <li><a href="#">Thịt bò sạch</a></li>
-                                <li><a href="#">Thịt gà ta</a></li>
-                                <li><a href="#">Rau rừng</a></li>
-                            </ul>
+                            <div class="introduce-title">Danh mục chính</div>
+                            @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                            {
+                                <ul id="introduce-company" class="introduce-list">
+                                    @foreach (var item in commonInfo.ProductCategoryList)
+                                    {
+                                        <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
+                                    }
+                                </ul>
+                            }
+                            
                         </div>
 
                     </div>
@@ -181,7 +184,6 @@
 
                 </div>
             </div>
-
             <div id="footer-menu-box">
                 <div class="col-sm-12">
                     <ul class="footer-menu-list">
@@ -215,10 +217,7 @@
             js = d.createElement(s); js.id = id;
             js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9";
             fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-        $(window).load(function () {
-            Cart.bindCart();
-        });
+        }(document, 'script', 'facebook-jssdk'));        
     </script>
 </body>
 </html>

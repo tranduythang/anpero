@@ -109,6 +109,35 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetRandomAdsSlide">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numberOfRecord" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRandomAdsSlideResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRandomAdsSlideResult" type="tns:ArrayOfAds" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAds">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Ads" nillable="true" type="tns:Ads" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Ads">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ClickUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImagesUrl" type="s:string" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetAdsSlide">
         <s:complexType>
           <s:sequence>
@@ -125,18 +154,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfAds">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Ads" nillable="true" type="tns:Ads" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="Ads">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="ClickUrl" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="ImagesUrl" type="s:string" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="GetCommonConfig">
         <s:complexType>
           <s:sequence>
@@ -386,6 +403,12 @@
   <wsdl:message name="AddOrderSoapOut">
     <wsdl:part name="parameters" element="tns:AddOrderResponse" />
   </wsdl:message>
+  <wsdl:message name="GetRandomAdsSlideSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRandomAdsSlide" />
+  </wsdl:message>
+  <wsdl:message name="GetRandomAdsSlideSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRandomAdsSlideResponse" />
+  </wsdl:message>
   <wsdl:message name="GetAdsSlideSoapIn">
     <wsdl:part name="parameters" element="tns:GetAdsSlide" />
   </wsdl:message>
@@ -451,6 +474,10 @@
       <wsdl:input message="tns:AddOrderSoapIn" />
       <wsdl:output message="tns:AddOrderSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetRandomAdsSlide">
+      <wsdl:input message="tns:GetRandomAdsSlideSoapIn" />
+      <wsdl:output message="tns:GetRandomAdsSlideSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetAdsSlide">
       <wsdl:input message="tns:GetAdsSlideSoapIn" />
       <wsdl:output message="tns:GetAdsSlideSoapOut" />
@@ -515,6 +542,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddOrder">
       <soap:operation soapAction="http://tempuri.org/AddOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRandomAdsSlide">
+      <soap:operation soapAction="http://tempuri.org/GetRandomAdsSlide" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -626,6 +662,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddOrder">
       <soap12:operation soapAction="http://tempuri.org/AddOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRandomAdsSlide">
+      <soap12:operation soapAction="http://tempuri.org/GetRandomAdsSlide" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -16,8 +16,7 @@ namespace AnperoFrontend
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/assets/lib/bootstrap/js/bootstrap.min.js",
-                      "~/assets/lib/select2/js/select2.min.js",
-                       "~/assets/lib/jquery-bxslider/jquery-bxslider.min.js",
+                      "~/assets/lib/select2/js/select2.min.js",                       
                        "~/assets/lib/owl-carousel/owl-carousel.min.js",
                        "~/assets/js/jquery.actual.min.js",
                        "~/assets/js/theme-script.js",                       

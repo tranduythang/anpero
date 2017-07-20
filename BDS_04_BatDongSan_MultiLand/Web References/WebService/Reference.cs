@@ -37,6 +37,8 @@ namespace AnperoFrontend.WebService {
         
         private System.Threading.SendOrPostCallback AddOrderOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetRandomAdsSlideOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetAdsSlideOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetCommonConfigOperationCompleted;
@@ -102,6 +104,9 @@ namespace AnperoFrontend.WebService {
         
         /// <remarks/>
         public event AddOrderCompletedEventHandler AddOrderCompleted;
+        
+        /// <remarks/>
+        public event GetRandomAdsSlideCompletedEventHandler GetRandomAdsSlideCompleted;
         
         /// <remarks/>
         public event GetAdsSlideCompletedEventHandler GetAdsSlideCompleted;
@@ -290,6 +295,41 @@ namespace AnperoFrontend.WebService {
             if ((this.AddOrderCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.AddOrderCompleted(this, new AddOrderCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetRandomAdsSlide", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Ads[] GetRandomAdsSlide(int storeId, string tokenKey, string type, int numberOfRecord) {
+            object[] results = this.Invoke("GetRandomAdsSlide", new object[] {
+                        storeId,
+                        tokenKey,
+                        type,
+                        numberOfRecord});
+            return ((Ads[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetRandomAdsSlideAsync(int storeId, string tokenKey, string type, int numberOfRecord) {
+            this.GetRandomAdsSlideAsync(storeId, tokenKey, type, numberOfRecord, null);
+        }
+        
+        /// <remarks/>
+        public void GetRandomAdsSlideAsync(int storeId, string tokenKey, string type, int numberOfRecord, object userState) {
+            if ((this.GetRandomAdsSlideOperationCompleted == null)) {
+                this.GetRandomAdsSlideOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetRandomAdsSlideOperationCompleted);
+            }
+            this.InvokeAsync("GetRandomAdsSlide", new object[] {
+                        storeId,
+                        tokenKey,
+                        type,
+                        numberOfRecord}, this.GetRandomAdsSlideOperationCompleted, userState);
+        }
+        
+        private void OnGetRandomAdsSlideOperationCompleted(object arg) {
+            if ((this.GetRandomAdsSlideCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetRandomAdsSlideCompleted(this, new GetRandomAdsSlideCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1573,6 +1613,32 @@ namespace AnperoFrontend.WebService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void GetRandomAdsSlideCompletedEventHandler(object sender, GetRandomAdsSlideCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetRandomAdsSlideCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetRandomAdsSlideCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Ads[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Ads[])(this.results[0]));
             }
         }
     }

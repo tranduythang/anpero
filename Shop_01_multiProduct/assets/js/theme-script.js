@@ -341,7 +341,7 @@
                 $('#shopping-cart-box-ontop').fadeOut();
                 $('#user-info-opntop #user-info-top').appendTo('.top-header .container');
                 $('#form-search-opntop form').appendTo('#header .header-search-box');
-                $(".link-buytheme").show();
+                
                
             }
         }

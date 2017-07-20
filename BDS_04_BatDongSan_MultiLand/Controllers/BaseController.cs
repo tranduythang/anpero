@@ -11,7 +11,7 @@ namespace AnperoFrontend.Controllers
 
         public static int StoreID = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["storeID"]);
         public static string TokenKey = System.Configuration.ConfigurationManager.AppSettings["storeTokenKey"];
-        public static int shortCacheTime= Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
+        public static int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
         public void GetTopArticle()
         {
             WebService.SearchArticleResults rs = new WebService.SearchArticleResults();
@@ -27,7 +27,7 @@ namespace AnperoFrontend.Controllers
                 {
                     HttpRuntime.Cache.Insert("TopArticle", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
-               
+
             }
             ViewData["FeatureArticle"] = rs;
         }
@@ -47,7 +47,7 @@ namespace AnperoFrontend.Controllers
                 {
                     HttpRuntime.Cache.Insert("saleProduct", saleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
-               
+
             }
             ViewData["saleProduct"] = saleProduct;
 
@@ -63,34 +63,52 @@ namespace AnperoFrontend.Controllers
                 {
                     HttpRuntime.Cache.Insert("BestsaleProduct", BestsaleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
-               
+
             }
             ViewData["BestsaleProduct"] = BestsaleProduct;
         }
-       
+
     }
     public class BuildCommonHtml : ActionFilterAttribute
     {
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
+            WebService.AnperoService service = new WebService.AnperoService();
             int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
             if (HttpRuntime.Cache["commonInfo"] != null)
-            {                
+            {
                 filterContext.Controller.ViewData["commonInfo"] = HttpRuntime.Cache["commonInfo"];
             }
             else
             {
-                WebService.AnperoService service = new WebService.AnperoService();
+
                 var rs = service.GetCommonConfig(CommonConfig.StoreID, CommonConfig.TokenKey);
                 filterContext.Controller.ViewData["commonInfo"] = rs;
                 if (rs != null)
                 {
                     HttpRuntime.Cache.Insert("commonInfo", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
-                              
+
 
             }
-          
+
+            WebService.Ads[] Slide = null;
+            if (HttpRuntime.Cache["Slide"] != null)
+            {
+                filterContext.Controller.ViewData["slide"] = (WebService.Ads[])HttpRuntime.Cache["Slide"];
+            }
+            else
+            {
+                Slide = service.GetRandomAdsSlide(CommonConfig.StoreID, CommonConfig.TokenKey, PageContent.Slide, 1);
+
+                filterContext.Controller.ViewData["slide"] = Slide;
+                if (Slide != null)
+                {
+                    HttpRuntime.Cache.Insert("Slide", Slide, null, DateTime.Now.AddMinutes(shortCacheTime + 3), TimeSpan.Zero);
+                }
+            }
+
+
 
         }
     }
@@ -115,7 +133,7 @@ namespace AnperoFrontend.Controllers
         public static string Ads1 = "ads1";
         public static string Ads2 = "ads2";
         public static string Ads3 = "ads3";
-        
+
     }
 
 }

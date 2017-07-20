@@ -27,20 +27,7 @@ namespace AnperoFrontend.Controllers
             int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
             WebService.AnperoService service = new WebService.AnperoService();
 
-            WebService.Ads[] Slide = null;
-            if (HttpRuntime.Cache["Slide"] != null)
-            {
-                ViewData["slide"] = (WebService.Ads[])HttpRuntime.Cache["Slide"];
-            }
-            else
-            {
-                Slide= service.GetAdsSlide(StoreID, TokenKey, PageContent.Slide);
-                ViewData["slide"] = Slide;
-                if (Slide != null)
-                {
-                    HttpRuntime.Cache.Insert("Slide", Slide, null, DateTime.Now.AddMinutes(shortCacheTime+3), TimeSpan.Zero);
-                }
-            }
+          
             WebService.Ads[] Ads1 = null;
             if (HttpRuntime.Cache["AdsSlide"] != null)
             {
