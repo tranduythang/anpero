@@ -2,6 +2,32 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetLocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ParentId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLocationResult" type="tns:ArrayOfLocation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLocation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Location" nillable="true" type="tns:Location" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Location">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ParentId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="addContact">
         <s:complexType>
           <s:sequence>
@@ -379,6 +405,12 @@
       </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="GetLocationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLocation" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLocationResponse" />
+  </wsdl:message>
   <wsdl:message name="addContactSoapIn">
     <wsdl:part name="parameters" element="tns:addContact" />
   </wsdl:message>
@@ -458,6 +490,10 @@
     <wsdl:part name="parameters" element="tns:GetProductDetailResponse" />
   </wsdl:message>
   <wsdl:portType name="AnperoServiceSoap">
+    <wsdl:operation name="GetLocation">
+      <wsdl:input message="tns:GetLocationSoapIn" />
+      <wsdl:output message="tns:GetLocationSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="addContact">
       <wsdl:input message="tns:addContactSoapIn" />
       <wsdl:output message="tns:addContactSoapOut" />
@@ -513,6 +549,15 @@
   </wsdl:portType>
   <wsdl:binding name="AnperoServiceSoap" type="tns:AnperoServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLocation">
+      <soap:operation soapAction="http://tempuri.org/GetLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="addContact">
       <soap:operation soapAction="http://tempuri.org/addContact" style="document" />
       <wsdl:input>
@@ -633,6 +678,15 @@
   </wsdl:binding>
   <wsdl:binding name="AnperoServiceSoap12" type="tns:AnperoServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLocation">
+      <soap12:operation soapAction="http://tempuri.org/GetLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="addContact">
       <soap12:operation soapAction="http://tempuri.org/addContact" style="document" />
       <wsdl:input>

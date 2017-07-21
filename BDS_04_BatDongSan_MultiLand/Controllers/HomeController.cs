@@ -9,12 +9,6 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult Index()
         {
-            WebService.AnperoService service = new WebService.AnperoService();
-
-            //ViewData["slide"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Slide);
-            //ViewData["AdsSlide"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads1);
-            //ViewData["AdsSlide2"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads2);
-
             GetNewestProduct();
             SetupCommonProduct();
             GetTopArticle();
@@ -70,16 +64,13 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                searchResult = service.SearchProduct(StoreID, TokenKey, "", "", "", 1, 999999999, 1, 4, "", SearchOrder.TimeDesc, 0);
+                searchResult = service.SearchProduct(StoreID, TokenKey, "", "", "", 0, 999999999, 1, 16, "", SearchOrder.TimeDesc, 0);
                 if (searchResult != null)
                 {
                     HttpRuntime.Cache.Insert("newestProduct", searchResult, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
-               
             }
-           
             ViewData["newestProduct"] = searchResult;
-
         }
     
         public ActionResult About()

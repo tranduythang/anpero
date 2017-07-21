@@ -257,8 +257,31 @@ namespace Anpero
             }
 
             return inPut;
-
-
+        }
+        public static string ConvertToVndMoney(decimal input)
+        {
+            decimal outPut = 0;
+            string donvi = "";
+            if (input > 1000000000)
+            {
+                outPut = input / 1000000000;
+                donvi = "tỷ";
+            }else if (input > 1000000)
+            {
+                outPut = input / 1000000;
+                donvi = "triệu";
+            }else if (input > 1000)
+            {
+                outPut = input / 1000000;
+                donvi = "nghìn";
+            }
+            if (outPut > 0)
+            {
+                return String.Format("{0:0.0}", outPut) + " " + donvi;
+            }else
+            {
+                return "liên hệ";
+            }            
         }
         public static String ConVertToMoneyFormatInt(String s)
         {

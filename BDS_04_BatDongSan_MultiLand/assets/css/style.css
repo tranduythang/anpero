@@ -1818,8 +1818,7 @@ span.notify-right{
    padding-top: 30px;
 }
 
-.popular-tabs .product-list li .left-block{
-    min-height:317px;
+.popular-tabs .product-list li .left-block{    
     max-height:350px;
     overflow:hidden;
 }
@@ -2020,7 +2019,7 @@ span.notify-right{
     display: inline-block;
 }
 .product-list li .product-price{
-    font-size: 18px;
+    font-size: 14px;
     color: #ff3366;
 }
 .product-list li .old-price{
@@ -3357,10 +3356,7 @@ span.notify-right{
 }
 
 .product-list.list li:first-child .product-container{
-  margin-top: 20px;
-}
-.product-list.list li:hover .product-container{
-  border: 1px solid #eaeaea;
+  margin-top: 10px;
 }
 .product-list.list .left-block{
     width: 29%;
@@ -3433,7 +3429,7 @@ span.notify-right{
   display: block;
 }
 .product-list.list .right-block .product-name{
-  font-size: 18px;
+  font-size: 16px;
 }
 .product-list.list .right-block .availability span{
   color: #009966;
