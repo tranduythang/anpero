@@ -15,41 +15,8 @@
 <div class="page-top">
     <div class="container">
         <div class="row">
-            <div class="column col-xs-12 col-sm-3" id="left_column">
-                <div class="block left-module search">
-                    <p class="title_block">Tìm kiếm</p>
-                    <div class="block_content">
-                        <div class="col-md-12">
-                            <select class="input form-control" name="">
-                                <option value="Alabama">Loại nhà tin</option>
-                                <option value="Illinois">Illinois</option>
-                                <option value="Kansas">Kansas</option>
-                            </select>
-                            <select class="input form-control" name="">
-                                <option value="Alabama">Loại nhà đất</option>
-                                <option value="Illinois">Illinois</option>
-                                <option value="Kansas">Kansas</option>
-                            </select>
-                            <select class="input form-control" name="">
-                                <option value="Alabama">Tỉnh/ thành phố</option>
-                                <option value="Illinois">Illinois</option>
-                                <option value="Kansas">Kansas</option>
-                            </select>
-                            <select class="input form-control" name="">
-                                <option value="Alabama">Diện tích</option>
-                                <option value="Illinois">Illinois</option>
-                                <option value="Kansas">Kansas</option>
-                            </select>
-                            <select class="input form-control" name="">
-                                <option value="Alabama">Mức giá</option>
-                                <option value="Illinois">Illinois</option>
-                                <option value="Kansas">Kansas</option>
-                            </select>
-                            <button class="btn btn-default">Tìm kiếm</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @Html.Partial("_partial/_searchBox")
+          
             @Html.Partial("_partial/_HomeSlide_2")
         </div>
     </div>
@@ -435,4 +402,11 @@ else
             <!-- ./blog list -->
         </div>
     </div>
+}
+@section scripts{
+    <script>
+        Location.Init();
+        Category.Init();
+    </script>
+      
 }

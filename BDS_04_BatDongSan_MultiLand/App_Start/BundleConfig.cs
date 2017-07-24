@@ -19,9 +19,10 @@ namespace AnperoFrontend
                       "~/assets/lib/select2/js/select2.min.js",                       
                        "~/assets/lib/owl-carousel/owl-carousel.min.js",
                        "~/assets/js/jquery.actual.min.js",
-                       "~/assets/js/theme-script.js",                       
+                       "~/assets/js/theme-script.js",
                        "~/Scripts/jquery.cokie.min.js",
                        "~/Scripts/ShoppingCart.js",
+                       "~/Scripts/Bootrap-notify.js",
                          "~/Scripts/Anpero.Common.js"
                       ));
 
