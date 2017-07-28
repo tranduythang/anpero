@@ -2,6 +2,7 @@
     <div class="container">
      
         <div class="row">
+           
             <!-- Left colunm -->
             @Html.Partial("product/_MenuAndAdsPartial")
             <!-- ./left colunm -->
@@ -139,7 +140,13 @@
 @section  scripts{    
     <script type="text/javascript" src="/assets/lib/countdown/jquery.plugin.js"></script>
     <script type="text/javascript" src="/assets/lib/countdown/jquery.countdown.js"></script>
+<script>
+        Location.Init();
+        Category.Init();
+</script>
     <script>
+        Location.Init();
+        Category.Init();
             /** COUNT DOWN **/
             $('[data-countdown]').each(function () {
                 var $this = $(this), finalDate = $(this).data('countdown');
@@ -161,5 +168,7 @@
                 });
             }
     </script>
+   
+      
 
 }

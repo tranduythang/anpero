@@ -39,6 +39,8 @@ namespace AnperoFrontend.WebService {
         
         private System.Threading.SendOrPostCallback AddOrderOperationCompleted;
         
+        private System.Threading.SendOrPostCallback AddOrder2OperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetRandomAdsSlideOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetAdsSlideOperationCompleted;
@@ -48,6 +50,8 @@ namespace AnperoFrontend.WebService {
         private System.Threading.SendOrPostCallback GetBlogCategoryOperationCompleted;
         
         private System.Threading.SendOrPostCallback SearchProductOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SearchProductByLocationOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetProductByParentCategoryOperationCompleted;
         
@@ -111,6 +115,9 @@ namespace AnperoFrontend.WebService {
         public event AddOrderCompletedEventHandler AddOrderCompleted;
         
         /// <remarks/>
+        public event AddOrder2CompletedEventHandler AddOrder2Completed;
+        
+        /// <remarks/>
         public event GetRandomAdsSlideCompletedEventHandler GetRandomAdsSlideCompleted;
         
         /// <remarks/>
@@ -124,6 +131,9 @@ namespace AnperoFrontend.WebService {
         
         /// <remarks/>
         public event SearchProductCompletedEventHandler SearchProductCompleted;
+        
+        /// <remarks/>
+        public event SearchProductByLocationCompletedEventHandler SearchProductByLocationCompleted;
         
         /// <remarks/>
         public event GetProductByParentCategoryCompletedEventHandler GetProductByParentCategoryCompleted;
@@ -333,6 +343,57 @@ namespace AnperoFrontend.WebService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddOrder2", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int AddOrder2(int st, string tokenKey, string captcha, string name, string email, string phone, string address, string ProductList, int price, int shippingMethod, string modeDetail, int orderType) {
+            object[] results = this.Invoke("AddOrder2", new object[] {
+                        st,
+                        tokenKey,
+                        captcha,
+                        name,
+                        email,
+                        phone,
+                        address,
+                        ProductList,
+                        price,
+                        shippingMethod,
+                        modeDetail,
+                        orderType});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AddOrder2Async(int st, string tokenKey, string captcha, string name, string email, string phone, string address, string ProductList, int price, int shippingMethod, string modeDetail, int orderType) {
+            this.AddOrder2Async(st, tokenKey, captcha, name, email, phone, address, ProductList, price, shippingMethod, modeDetail, orderType, null);
+        }
+        
+        /// <remarks/>
+        public void AddOrder2Async(int st, string tokenKey, string captcha, string name, string email, string phone, string address, string ProductList, int price, int shippingMethod, string modeDetail, int orderType, object userState) {
+            if ((this.AddOrder2OperationCompleted == null)) {
+                this.AddOrder2OperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddOrder2OperationCompleted);
+            }
+            this.InvokeAsync("AddOrder2", new object[] {
+                        st,
+                        tokenKey,
+                        captcha,
+                        name,
+                        email,
+                        phone,
+                        address,
+                        ProductList,
+                        price,
+                        shippingMethod,
+                        modeDetail,
+                        orderType}, this.AddOrder2OperationCompleted, userState);
+        }
+        
+        private void OnAddOrder2OperationCompleted(object arg) {
+            if ((this.AddOrder2Completed != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AddOrder2Completed(this, new AddOrder2CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetRandomAdsSlide", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public Ads[] GetRandomAdsSlide(int storeId, string tokenKey, string type, int numberOfRecord) {
             object[] results = this.Invoke("GetRandomAdsSlide", new object[] {
@@ -510,6 +571,59 @@ namespace AnperoFrontend.WebService {
             if ((this.SearchProductCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.SearchProductCompleted(this, new SearchProductCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SearchProductByLocation", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public SearchResult SearchProductByLocation(int storeId, string tokenKey, string CategoryId, string parentCategoryId, double priceFrom, double priceTo, int curentPage, int pageSite, int province, int district, string origin, int acreageFrom, int acreageTo) {
+            object[] results = this.Invoke("SearchProductByLocation", new object[] {
+                        storeId,
+                        tokenKey,
+                        CategoryId,
+                        parentCategoryId,
+                        priceFrom,
+                        priceTo,
+                        curentPage,
+                        pageSite,
+                        province,
+                        district,
+                        origin,
+                        acreageFrom,
+                        acreageTo});
+            return ((SearchResult)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SearchProductByLocationAsync(int storeId, string tokenKey, string CategoryId, string parentCategoryId, double priceFrom, double priceTo, int curentPage, int pageSite, int province, int district, string origin, int acreageFrom, int acreageTo) {
+            this.SearchProductByLocationAsync(storeId, tokenKey, CategoryId, parentCategoryId, priceFrom, priceTo, curentPage, pageSite, province, district, origin, acreageFrom, acreageTo, null);
+        }
+        
+        /// <remarks/>
+        public void SearchProductByLocationAsync(int storeId, string tokenKey, string CategoryId, string parentCategoryId, double priceFrom, double priceTo, int curentPage, int pageSite, int province, int district, string origin, int acreageFrom, int acreageTo, object userState) {
+            if ((this.SearchProductByLocationOperationCompleted == null)) {
+                this.SearchProductByLocationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSearchProductByLocationOperationCompleted);
+            }
+            this.InvokeAsync("SearchProductByLocation", new object[] {
+                        storeId,
+                        tokenKey,
+                        CategoryId,
+                        parentCategoryId,
+                        priceFrom,
+                        priceTo,
+                        curentPage,
+                        pageSite,
+                        province,
+                        district,
+                        origin,
+                        acreageFrom,
+                        acreageTo}, this.SearchProductByLocationOperationCompleted, userState);
+        }
+        
+        private void OnSearchProductByLocationOperationCompleted(object arg) {
+            if ((this.SearchProductByLocationCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SearchProductByLocationCompleted(this, new SearchProductByLocationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1724,6 +1838,32 @@ namespace AnperoFrontend.WebService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void AddOrder2CompletedEventHandler(object sender, AddOrder2CompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AddOrder2CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AddOrder2CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
     public delegate void GetRandomAdsSlideCompletedEventHandler(object sender, GetRandomAdsSlideCompletedEventArgs e);
     
     /// <remarks/>
@@ -1839,6 +1979,32 @@ namespace AnperoFrontend.WebService {
         private object[] results;
         
         internal SearchProductCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public SearchResult Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((SearchResult)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void SearchProductByLocationCompletedEventHandler(object sender, SearchProductByLocationCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SearchProductByLocationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SearchProductByLocationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

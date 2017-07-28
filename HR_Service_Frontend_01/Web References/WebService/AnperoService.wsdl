@@ -2,6 +2,32 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetLocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ParentId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLocationResult" type="tns:ArrayOfLocation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLocation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Location" nillable="true" type="tns:Location" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Location">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ParentId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="addContact">
         <s:complexType>
           <s:sequence>
@@ -109,6 +135,35 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetRandomAdsSlide">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numberOfRecord" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRandomAdsSlideResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRandomAdsSlideResult" type="tns:ArrayOfAds" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAds">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Ads" nillable="true" type="tns:Ads" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Ads">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ClickUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImagesUrl" type="s:string" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetAdsSlide">
         <s:complexType>
           <s:sequence>
@@ -125,18 +180,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfAds">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Ads" nillable="true" type="tns:Ads" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="Ads">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="ClickUrl" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="ImagesUrl" type="s:string" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="GetCommonConfig">
         <s:complexType>
           <s:sequence>
@@ -291,6 +334,32 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:element name="SearchProductByLocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CategoryId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parentCategoryId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="priceFrom" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="priceTo" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="curentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSite" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="province" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="district" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="origin" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="acreageFrom" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="acreageTo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchProductByLocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchProductByLocationResult" type="tns:SearchResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetProductByParentCategory">
         <s:complexType>
           <s:sequence>
@@ -362,6 +431,12 @@
       </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="GetLocationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLocation" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLocationResponse" />
+  </wsdl:message>
   <wsdl:message name="addContactSoapIn">
     <wsdl:part name="parameters" element="tns:addContact" />
   </wsdl:message>
@@ -386,6 +461,12 @@
   <wsdl:message name="AddOrderSoapOut">
     <wsdl:part name="parameters" element="tns:AddOrderResponse" />
   </wsdl:message>
+  <wsdl:message name="GetRandomAdsSlideSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRandomAdsSlide" />
+  </wsdl:message>
+  <wsdl:message name="GetRandomAdsSlideSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRandomAdsSlideResponse" />
+  </wsdl:message>
   <wsdl:message name="GetAdsSlideSoapIn">
     <wsdl:part name="parameters" element="tns:GetAdsSlide" />
   </wsdl:message>
@@ -409,6 +490,12 @@
   </wsdl:message>
   <wsdl:message name="SearchProductSoapOut">
     <wsdl:part name="parameters" element="tns:SearchProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchProductByLocationSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchProductByLocation" />
+  </wsdl:message>
+  <wsdl:message name="SearchProductByLocationSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchProductByLocationResponse" />
   </wsdl:message>
   <wsdl:message name="GetProductByParentCategorySoapIn">
     <wsdl:part name="parameters" element="tns:GetProductByParentCategory" />
@@ -435,6 +522,10 @@
     <wsdl:part name="parameters" element="tns:GetProductDetailResponse" />
   </wsdl:message>
   <wsdl:portType name="AnperoServiceSoap">
+    <wsdl:operation name="GetLocation">
+      <wsdl:input message="tns:GetLocationSoapIn" />
+      <wsdl:output message="tns:GetLocationSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="addContact">
       <wsdl:input message="tns:addContactSoapIn" />
       <wsdl:output message="tns:addContactSoapOut" />
@@ -451,6 +542,10 @@
       <wsdl:input message="tns:AddOrderSoapIn" />
       <wsdl:output message="tns:AddOrderSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetRandomAdsSlide">
+      <wsdl:input message="tns:GetRandomAdsSlideSoapIn" />
+      <wsdl:output message="tns:GetRandomAdsSlideSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetAdsSlide">
       <wsdl:input message="tns:GetAdsSlideSoapIn" />
       <wsdl:output message="tns:GetAdsSlideSoapOut" />
@@ -466,6 +561,10 @@
     <wsdl:operation name="SearchProduct">
       <wsdl:input message="tns:SearchProductSoapIn" />
       <wsdl:output message="tns:SearchProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchProductByLocation">
+      <wsdl:input message="tns:SearchProductByLocationSoapIn" />
+      <wsdl:output message="tns:SearchProductByLocationSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetProductByParentCategory">
       <wsdl:input message="tns:GetProductByParentCategorySoapIn" />
@@ -486,6 +585,15 @@
   </wsdl:portType>
   <wsdl:binding name="AnperoServiceSoap" type="tns:AnperoServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLocation">
+      <soap:operation soapAction="http://tempuri.org/GetLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="addContact">
       <soap:operation soapAction="http://tempuri.org/addContact" style="document" />
       <wsdl:input>
@@ -522,6 +630,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetRandomAdsSlide">
+      <soap:operation soapAction="http://tempuri.org/GetRandomAdsSlide" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAdsSlide">
       <soap:operation soapAction="http://tempuri.org/GetAdsSlide" style="document" />
       <wsdl:input>
@@ -551,6 +668,15 @@
     </wsdl:operation>
     <wsdl:operation name="SearchProduct">
       <soap:operation soapAction="http://tempuri.org/SearchProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchProductByLocation">
+      <soap:operation soapAction="http://tempuri.org/SearchProductByLocation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -597,6 +723,15 @@
   </wsdl:binding>
   <wsdl:binding name="AnperoServiceSoap12" type="tns:AnperoServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLocation">
+      <soap12:operation soapAction="http://tempuri.org/GetLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="addContact">
       <soap12:operation soapAction="http://tempuri.org/addContact" style="document" />
       <wsdl:input>
@@ -633,6 +768,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetRandomAdsSlide">
+      <soap12:operation soapAction="http://tempuri.org/GetRandomAdsSlide" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAdsSlide">
       <soap12:operation soapAction="http://tempuri.org/GetAdsSlide" style="document" />
       <wsdl:input>
@@ -662,6 +806,15 @@
     </wsdl:operation>
     <wsdl:operation name="SearchProduct">
       <soap12:operation soapAction="http://tempuri.org/SearchProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchProductByLocation">
+      <soap12:operation soapAction="http://tempuri.org/SearchProductByLocation" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

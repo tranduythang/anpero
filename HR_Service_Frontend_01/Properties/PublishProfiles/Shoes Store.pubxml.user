@@ -1658,6 +1658,60 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="assets/fonts/fontello.woff">
       <publishTime>06/19/2017 09:00:02</publishTime>
     </File>
+    <File Include="assets/html/about.html">
+      <publishTime>07/17/2017 08:53:42</publishTime>
+    </File>
+    <File Include="assets/html/blog-detail.html">
+      <publishTime>07/17/2017 08:53:42</publishTime>
+    </File>
+    <File Include="assets/html/blog.html">
+      <publishTime>07/17/2017 08:53:42</publishTime>
+    </File>
+    <File Include="assets/html/category.html">
+      <publishTime>07/17/2017 08:53:42</publishTime>
+    </File>
+    <File Include="assets/html/category2.html">
+      <publishTime>07/17/2017 08:53:42</publishTime>
+    </File>
+    <File Include="assets/html/checkout.html">
+      <publishTime>07/17/2017 08:53:42</publishTime>
+    </File>
+    <File Include="assets/html/compare.html">
+      <publishTime>07/17/2017 08:53:42</publishTime>
+    </File>
+    <File Include="assets/html/detail.html">
+      <publishTime>07/17/2017 08:53:42</publishTime>
+    </File>
+    <File Include="assets/html/detail2.html">
+      <publishTime>07/17/2017 08:53:42</publishTime>
+    </File>
+    <File Include="assets/html/detail3.html">
+      <publishTime>07/17/2017 08:53:42</publishTime>
+    </File>
+    <File Include="assets/html/index.html">
+      <publishTime>07/17/2017 08:53:43</publishTime>
+    </File>
+    <File Include="assets/html/index2.html">
+      <publishTime>07/17/2017 08:53:43</publishTime>
+    </File>
+    <File Include="assets/html/index3.html">
+      <publishTime>07/17/2017 08:53:43</publishTime>
+    </File>
+    <File Include="assets/html/index4.html">
+      <publishTime>07/17/2017 08:53:43</publishTime>
+    </File>
+    <File Include="assets/html/index5.html">
+      <publishTime>07/17/2017 08:53:43</publishTime>
+    </File>
+    <File Include="assets/html/index6.html">
+      <publishTime>07/17/2017 08:53:43</publishTime>
+    </File>
+    <File Include="assets/html/login.html">
+      <publishTime>07/17/2017 08:53:43</publishTime>
+    </File>
+    <File Include="assets/html/order.html">
+      <publishTime>07/17/2017 08:53:43</publishTime>
+    </File>
     <File Include="assets/images/384x135.jpg">
       <publishTime>06/19/2017 09:00:02</publishTime>
     </File>
@@ -1811,6 +1865,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="assets/images/list-view-bg.png">
       <publishTime>06/19/2017 09:00:02</publishTime>
     </File>
+    <File Include="assets/images/loading.gif">
+      <publishTime>07/03/2017 14:33:03</publishTime>
+    </File>
     <File Include="assets/images/logo.png">
       <publishTime>06/19/2017 09:00:02</publishTime>
     </File>
@@ -1869,7 +1926,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/19/2017 09:00:02</publishTime>
     </File>
     <File Include="assets/js/theme-script.js">
-      <publishTime>06/23/2017 16:52:41</publishTime>
+      <publishTime>07/03/2017 15:09:38</publishTime>
     </File>
     <File Include="assets/lib/bootstrap/css/bootstrap-theme.css">
       <publishTime>06/19/2017 09:00:02</publishTime>
@@ -2520,22 +2577,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/19/2017 09:00:02</publishTime>
     </File>
     <File Include="bin/Anpero.dll">
-      <publishTime>06/26/2017 16:48:16</publishTime>
+      <publishTime>07/20/2017 12:05:05</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.dll">
-      <publishTime>07/03/2017 11:45:53</publishTime>
+      <publishTime>07/26/2017 15:46:07</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.XmlSerializers.dll">
-      <publishTime>07/03/2017 11:45:54</publishTime>
+      <publishTime>07/26/2017 15:46:08</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>06/09/2017 15:20:19</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>07/03/2017 11:46:09</publishTime>
+      <publishTime>07/26/2017 15:46:12</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>07/03/2017 11:46:09</publishTime>
+      <publishTime>07/26/2017 15:46:12</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>06/09/2017 15:20:20</publishTime>
@@ -2637,7 +2694,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/19/2017 09:00:06</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/03/2017 11:46:06</publishTime>
+      <publishTime>07/26/2017 15:46:10</publishTime>
     </File>
     <File Include="Scripts/Anpero.Common.js">
       <publishTime>07/03/2017 09:55:10</publishTime>
@@ -2691,7 +2748,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/03/2017 09:55:10</publishTime>
     </File>
     <File Include="Scripts/ShoppingCart.js">
-      <publishTime>07/03/2017 09:55:10</publishTime>
+      <publishTime>07/03/2017 14:54:41</publishTime>
     </File>
     <File Include="Views/Account/ConfirmEmail.cshtml">
       <publishTime>06/19/2017 09:00:01</publishTime>
@@ -2739,10 +2796,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/19/2017 09:00:01</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>06/19/2017 09:00:01</publishTime>
+      <publishTime>07/03/2017 17:26:50</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>07/03/2017 10:38:08</publishTime>
+      <publishTime>07/04/2017 17:19:20</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>06/19/2017 09:00:01</publishTime>
@@ -2763,19 +2820,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/19/2017 09:00:01</publishTime>
     </File>
     <File Include="Views/Product/Category.cshtml">
-      <publishTime>06/28/2017 17:51:10</publishTime>
+      <publishTime>07/03/2017 14:01:29</publishTime>
     </File>
     <File Include="Views/Product/Checkout.cshtml">
-      <publishTime>06/28/2017 18:28:11</publishTime>
+      <publishTime>07/04/2017 10:31:48</publishTime>
     </File>
     <File Include="Views/Product/Index.cshtml">
-      <publishTime>07/03/2017 11:29:10</publishTime>
+      <publishTime>07/10/2017 09:22:52</publishTime>
     </File>
     <File Include="Views/Shared/article/_MenuAndAdsPartial.cshtml">
-      <publishTime>06/19/2017 09:00:01</publishTime>
+      <publishTime>07/26/2017 15:45:18</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
-      <publishTime>06/19/2017 09:00:01</publishTime>
+      <publishTime>07/03/2017 11:59:03</publishTime>
     </File>
     <File Include="Views/Shared/Lockout.cshtml">
       <publishTime>06/19/2017 09:00:01</publishTime>
@@ -2783,8 +2840,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Shared/product/_MenuAndAdsPartial.cshtml">
       <publishTime>06/19/2017 09:00:01</publishTime>
     </File>
+    <File Include="Views/Shared/product/_productDetail.cshtml">
+      <publishTime>07/10/2017 09:22:41</publishTime>
+    </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>06/28/2017 18:27:58</publishTime>
+      <publishTime>07/03/2017 17:35:48</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>06/19/2017 09:00:01</publishTime>
@@ -2796,28 +2856,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/19/2017 09:00:01</publishTime>
     </File>
     <File Include="Web References/WebService/Ads.datasource">
-      <publishTime>07/03/2017 09:54:22</publishTime>
+      <publishTime>07/26/2017 15:39:22</publishTime>
     </File>
     <File Include="Web References/WebService/BlogCategory.datasource">
-      <publishTime>07/03/2017 09:54:22</publishTime>
+      <publishTime>07/26/2017 15:39:22</publishTime>
     </File>
     <File Include="Web References/WebService/BlogItem.datasource">
-      <publishTime>07/03/2017 09:54:22</publishTime>
+      <publishTime>07/26/2017 15:39:22</publishTime>
+    </File>
+    <File Include="Web References/WebService/Location.datasource">
+      <publishTime>07/26/2017 15:39:22</publishTime>
     </File>
     <File Include="Web References/WebService/ProductItem.datasource">
-      <publishTime>07/03/2017 09:54:22</publishTime>
+      <publishTime>07/26/2017 15:39:22</publishTime>
     </File>
     <File Include="Web References/WebService/SearchArticleResults.datasource">
-      <publishTime>07/03/2017 09:54:22</publishTime>
+      <publishTime>07/26/2017 15:39:22</publishTime>
     </File>
     <File Include="Web References/WebService/SearchResult1.datasource">
-      <publishTime>07/03/2017 09:54:22</publishTime>
+      <publishTime>07/26/2017 15:39:22</publishTime>
     </File>
     <File Include="Web References/WebService/Webconfig1.datasource">
-      <publishTime>07/03/2017 09:54:22</publishTime>
+      <publishTime>07/26/2017 15:39:22</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/28/2017 18:57:39</publishTime>
+      <publishTime>07/26/2017 15:46:09</publishTime>
     </File>
   </ItemGroup>
 </Project>

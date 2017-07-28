@@ -86,12 +86,13 @@
 
                 htmlCat += '</td>';
                 htmlCat += '<td class="cart_avail"><span class="label label-success">Sẵn sàng</span></td>';
-                htmlCat += '<td class="price"><span>' + Util.toMoneyFormat(Cart.list[i].price) + '</span></td>';
-                htmlCat += '<td class="qty">';
-                htmlCat += '<input class="form-control input-sm" type="text" value="' + Cart.list[i].quantity + '" id="prQuantity_' + Cart.list[i].id + '">';
-                htmlCat += '<a href="javascript:Cart.addProduct2(' + Cart.list[i].id + ',' + Cart.list[i].price + ');"><i class="fa fa-caret-up"></i></a>';
-                htmlCat += '<a href="javascript:Cart.remove3(' + Cart.list[i].id + ',' + Cart.list[i].price + ');"><i class="fa fa-caret-down"></i></a>';
-                htmlCat += '</td>';
+                if (Cart.list[i].price > 0) {
+                    htmlCat += '<td class="price"><span>' + Util.toMoneyFormat(Cart.list[i].price) + '</span></td>';
+                } else {
+                    htmlCat += '<td class="price"><span>Liên hệ</span></td>';
+                }
+                
+                
                 htmlCat += '<td class="price">';
                 htmlCat += '<span>' + Util.toMoneyFormat(parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity)) + ' đ</span>';
                 htmlCat += '</td>';
@@ -104,7 +105,6 @@
             var shipingFee = $('input[name=radio_3]:checked').attr("data-ship");
 
             $("#ttPrCt").html(Util.toMoneyFormat(ttSC) + " đ");
-            $("#ttOdCt").html(Util.toMoneyFormat(parseInt(ttSC) + parseInt(shipingFee) + parseInt(_paymentFee)) + " đ");
             $("#prCatCtTable").html(htmlCat);
         }
     },
@@ -224,10 +224,7 @@
             default:
                 _payMentType = 0;
         }        
-        //    case 3:
-        //        return "Thanh toán online và chuyển phát thường";
-        //    case 4:
-        //      return "Thanh toán online và chuyển phát nhanh";
+       
         if (valid) {
             $("#cartContent1").hide();
             $("#cartContent2").show();
@@ -242,7 +239,7 @@
                     $("#ajax_loader").hide();
                     if (!isNaN(rs)) {
                         $.removeCookie('CartList', { path: '/' });
-                        $("#cartContent2").html("<h4>Đơn hàng số #" + rs + " đã được gửi thành công tới bộ phận bán hàng. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</h4>");
+                        $("#cartContent2").html("<h4>Yêu cầu tư vấn số #" + rs + " đã được gửi thành công tới bộ phận chăm sóc khách hàng. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</h4>");
                         Util.notify("", "Đơn hàng đã được gửi tới bộ phận bán hàng. ");
                      
                     } else {

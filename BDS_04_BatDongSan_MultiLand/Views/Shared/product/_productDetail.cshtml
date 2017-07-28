@@ -43,26 +43,18 @@
 
                 </div>
                 <div class="product-price-group">
-
-                    @if (item.IsSale)
-                    {
-                        <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice.ToString()) đ </span>
-
-                                        <span class="old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString()) đ</span>
-                                        <span class="discount">@Anpero.StringHelpper.ConVertToMoneyFormatInt((item.SalePrice - item.Price).ToString()) đ</span>
-                    }
-                    else
+                    @if (item.Price>0)
                     {
                         <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString()) đ</span>
                     }
                 </div>
                 <div class="info-orther">
-                    <p>Mã sản phẩm: #@item.Id</p>
+                 
                     <p>
                         Trạng thái:
                         @if (item.IsInstock)
                         {
-                            <span class="in-stock">Sẵn sàn</span>
+                            <span class="in-stock">Vẫn còn</span>
                         }
                         else
                         {
@@ -85,12 +77,12 @@
                     <div class="button-group">
                         @if (item.IsInstock)
                         {
-                            <a class="btn-add-cart" href="javascript:Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName')">Đặt mua</a>
+                            <a  href="javascript:Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName')"><img src="~/assets/images/dangky.gif" title="tư vấn bất động sản"/> </a>
 
                         }
                         else
                         {
-                            <a class="btn-add-cart" href="javascript:void(0);">Tạm hết hàng</a>
+                            <a class="btn-add-cart" href="javascript:void(0);">Tạm đóng</a>
                         }
                     </div>
 
@@ -128,7 +120,7 @@
         <!-- ./tab product -->
         <!-- box product -->
         <div class="page-product-box">
-            <h3 class="heading">Sản phẩm liên quan</h3>
+            <h3 class="heading">Bất động sản liên quan</h3>
             <ul class="product-list">
                 @if (ViewData["relateProduct"] != null)
                 {
