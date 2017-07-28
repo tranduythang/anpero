@@ -108,18 +108,11 @@
                                                     <li>
                                                         <div class="product-container">
                                                             <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></h5>
-
                                                             @if (item.SalePrice > 0 && item.Warranty > 0)
                                                             { <div class="content_price">
                                                                 <span class="price product-price"><strong>Giá:</strong> @Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice.ToString()) đ</span>
                                                                 <span>|</span> <span class="price product-price"><strong>Diện tích:</strong> @item.Warranty m²</span>
                                                             </div>
-                                                            }
-                                                            else
-                                                            {
-                                                                <div class="content_price">
-                                                                    <span class="price product-price"><strong>Diện tích:</strong> @item.Warranty m²</span>
-                                                                </div>
                                                             }
                                                         </div>
                                                     </li>

@@ -21,8 +21,9 @@
     @RenderSection("health", required: false)
     @Styles.Render("~/Content/css")
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css" />    
-    <link rel="stylesheet" type="text/css" href="/assets/css/option5.css"/></head>
+    <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/option5.css" />
+</head>
 <body class="option5">
     <div id="header" class="header">
         <div class="container main-header">
@@ -123,25 +124,26 @@
                             }
 
                         </div>
-                        @if (!string.IsNullOrEmpty(commonInfo.Skype) || !string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                        {
-                            string thisUrl = HttpContext.Current.Request.Url.AbsoluteUri;
-                            <div class="introduce-title" style="margin-top:10px;">Chia sẻ với bạn bè</div>
-                            <div class="social-link">
-                                @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+
+
+                        <div class="introduce-title" style="margin-top:15px;">Chia sẻ với bạn bè</div>
+                        <div class="social-link">
+                            @{
+                                string thisUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+                                if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
                                 {
                                     <a href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" target="_blank"><i class="fa fa-facebook"></i></a>
                                 }
-                                @if (!string.IsNullOrEmpty(commonInfo.Skype))
+                                if (!string.IsNullOrEmpty(commonInfo.Skype))
                                 {
                                     <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
                                 }
-
                                 <a href="https://plus.google.com/share?url=@thisUrl" target="_blank"><i class="fa fa-google-plus"></i></a>
                                 <a href="http://pinterest.com/pinthis?url=@thisUrl" target="_blank"><i class="fa fa-pinterest-p"></i></a>
                                 <a href="http://www.twitter.com/share?url=@thisUrl" target="_blank"><i class="fa fa-twitter"></i></a>
-                            </div>
-                        }
+                            }
+                        </div>
+
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -156,20 +158,18 @@
                                         <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
                                     }
                                     <li><a href="/blog">Blogs</a></li>
+                                    <li><a href="/home/contact">Liên hệ</a></li>
                                 </ul>
                             }
-                            
+
                         </div>
 
                     </div>
                 </div>
                 <div class="col-md-4">
-                </div>
-                <div class="col-md-4">
                     <div id="contact-box" style="text-align: right;">
                         @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
                         {
-
                             <div class="fb-page"
                                  data-tabs="messages"
                                  data-href="@Html.Raw(commonInfo.FaceBookLink)"
@@ -177,29 +177,16 @@
                                  data-height="300"
                                  data-hide-cover="false"></div>
                         }
-
                     </div>
-
                 </div>
             </div>
             <div id="footer-menu-box">
                 <div class="col-sm-12">
                     <ul class="footer-menu-list">
-                        <li><a href="/gioi-thieu-b76">Giới thiệu về chúng tôi</a></li>
-                        @*<li><a href="/home/about">Giới thiệu về chúng tôi</a></li>*@
+                        <li><a href="/">Giới thiệu về chúng tôi</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-12">
-                    <ul class="footer-menu-list">
-                        <li><a href="/chinh-sach-van-chuyen-a66">Chính sách vận chuyển</a></li>
-                        <li><a href="/chinh-sach-doi-tra-a67">Chính sách đổi trả</a></li>
-                        <li><a href="/huong-dan-thanh-toan-a68">Hướng dẫn thanh toán</a></li>                  
-                        <li><a href="/home/contact">Liên hệ</a></li>
-
-                    </ul>
-                </div>
-
-                <p class="text-center">Copyrights © 2017 <a href="http://camcanhbuoidien.com">@commonInfo.Name</a>. All Rights Reserved. Designed by <a href="http://anpero.com" title="thiết kế web bán hàng anpro">Anpero.com</a></p>
+                <p class="text-center">Copyrights © 2017 <a href="/">@commonInfo.Name</a>. All Rights Reserved. Designed by <a href="http://anpero.com" title="thiết kế web bán hàng anpro">Anpero.com</a></p>
             </div>
         </div>
     </footer>
@@ -211,7 +198,10 @@
             js = d.createElement(s); js.id = id;
             js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9";
             fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));        
+        }(document, 'script', 'facebook-jssdk'));
+        $(window).load(function () {
+            Cart.bindCart();
+        });
     </script>
 </body>
 </html>
