@@ -55,21 +55,6 @@ namespace AnperoFrontend.Controllers
                     HttpRuntime.Cache.Insert("AdsSlide", Ads1, null, DateTime.Now.AddMinutes(shortCacheTime + 2), TimeSpan.Zero);
                 }
             }
-            WebService.Ads[] Ads2 = null;
-            if (HttpRuntime.Cache["Ads2"] != null)
-            {
-                ViewData["AdsSlide2"] = (WebService.Ads[])HttpRuntime.Cache["Ads2"];
-            }
-            else
-            {
-                Ads2 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads2);
-                ViewData["AdsSlide2"] = Ads2;
-                if (Ads2 != null)
-                {
-                    HttpRuntime.Cache.Insert("Ads2", Ads2, null, DateTime.Now.AddMinutes(shortCacheTime + 1), TimeSpan.Zero);
-                }
-            }
-            //Response.Cache.SetExpires(DateTime.Now.AddMinutes(60));
             Response.Cache.SetCacheability(HttpCacheability.Public);
         }
         private void GetNewestProduct()

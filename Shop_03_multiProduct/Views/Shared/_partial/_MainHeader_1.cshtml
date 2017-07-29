@@ -43,22 +43,22 @@
                                                 <div class="nav-block nav-block-center">
                                                     <!--mega menu-->
                                                     <ul class="level0">
-                                                        @if (commonInfo.MenuList != null && commonInfo.MenuList.Length > 0)
+                                                        @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                                                         {
-                                                            foreach (var item in commonInfo.MenuList)
+                                                            foreach (var item in commonInfo.ProductCategoryList)
                                                             {
-                                                                if (item.ChidMenu != null && item.ChidMenu.Length == 0)
+                                                                if (item.ChildCategory != null && item.ChildCategory.Length == 0)
                                                                 {
-                                                                    <li class="level3 nav-6-1 parent item"> <a href="@item.Link"><span>@item.Tittle‎</span></a> </li>
+                                                                    <li class="level3 nav-6-1 parent item"> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)"><span>@item.Name‎</span></a> </li>
                                                                 }
                                                                 else
                                                                 {
                                                                     <li class="level3 nav-6-1 parent item">
-                                                                        <a href="@item.Link"><span>@item.Tittle</span> </a>
+                                                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)"><span>@item.Name</span> </a>
                                                                         <ul class="level1">
-                                                                            @foreach (var chidItem in item.ChidMenu)
+                                                                            @foreach (var chidItem in item.ChildCategory)
                                                                             {
-                                                                                <li class="level2 nav-6-1-1"><a href="@chidItem.Link"><span>@chidItem.Tittle</span></a></li>
+                                                                                <li class="level2 nav-6-1-1"><a href="@Anpero.StringHelpper.GetParentCategoryLink(chidItem.Name, chidItem.Id)"><span>@chidItem.Name</span></a></li>
                                                                             }
                                                                         </ul>
                                                                     </li>
