@@ -283,6 +283,28 @@ namespace Anpero
                 return "liên hệ";
             }            
         }
+        public static String ToPhoneNumberFormat(String s)
+        {
+            int dotIndex = s.LastIndexOf(".");
+            if (s != null && !DBNull.Value.Equals(s))
+            {
+                if (s == "0" || s == "0.00")
+                {
+                    return "0";
+                }
+                if (s.Length > (dotIndex + 3) && dotIndex != -1)
+                {
+                    s = s.Substring(0, dotIndex + 2);
+
+                }
+                return string.Format("{0:###-###-####}",s);
+
+            }
+            else
+            {
+                return "0";
+            }
+        }
         public static String ConVertToMoneyFormatInt(String s)
         {
             int dotIndex = s.LastIndexOf(".");
