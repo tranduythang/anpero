@@ -41,6 +41,7 @@ namespace AnperoFrontend.Controllers
                     HttpRuntime.Cache.Insert("Slide", Slide, null, DateTime.Now.AddMinutes(shortCacheTime+3), TimeSpan.Zero);
                 }
             }
+            //Khuyen mai 1
             WebService.Ads[] Ads1 = null;
             if (HttpRuntime.Cache["AdsSlide"] != null)
             {
@@ -53,6 +54,22 @@ namespace AnperoFrontend.Controllers
                 if (Ads1 != null)
                 {
                     HttpRuntime.Cache.Insert("AdsSlide", Ads1, null, DateTime.Now.AddMinutes(shortCacheTime + 2), TimeSpan.Zero);
+                }
+            }
+            //Khuyen mai 2
+            WebService.Ads[] Ads2 = null;
+            if (HttpRuntime.Cache["AdsSlide2"] != null)
+            {
+                ViewData["AdsSlide2"] = (WebService.Ads[])HttpRuntime.Cache["Ads2"];
+            }
+            else
+            {
+                Ads2 = service.GetRandomAdsSlide(StoreID, TokenKey, PageContent.Ads2, 1);
+                    //service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads2);
+                ViewData["AdsSlide2"] = Ads2;
+                if (Ads2 != null)
+                {
+                    HttpRuntime.Cache.Insert("Ads2", Ads2, null, DateTime.Now.AddMinutes(shortCacheTime + 1), TimeSpan.Zero);
                 }
             }
             Response.Cache.SetCacheability(HttpCacheability.Public);
