@@ -48,95 +48,32 @@
             <div class="row">
                 <div class="slider-items-products">
                     <div class="new_title">
-                        <h2>Top Categories</h2>
-
+                        <h2>Loại Sản phẩn</h2>
                     </div>
                     <div id="top-categories" class="product-flexslider hidden-buttons">
                         <div class="slider-items slider-width-col4 products-grid">
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Soups</div>
-                                </div>
-                            </div>
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Sandwiches</div>
-                                </div>
-                            </div>
-                            <!-- End Item -->
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Fast Food</div>
-                                </div>
-                            </div>
-                            <!-- End Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Vegetables</div>
-                                </div>
-                            </div>
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Fruits</div>
-                                </div>
-                            </div>
-                            <!-- End Item -->
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Beans</div>
-                                </div>
-                            </div>
-                            <!-- End Item -->
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Salads‎</div>
-                                </div>
-                            </div>
-                            <!-- End Item -->
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Chinese</div>
-                                </div>
-                            </div>
-                            <!-- End Item -->
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">South Indian</div>
-                                </div>
-                            </div>
-                            <!-- End Item -->
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Parath's</div>
-                                </div>
-                            </div>
-                            <!-- End Item -->
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Leafy Veg</div>
-                                </div>
-                            </div>
-                            <!-- End Item -->
+                            @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                            {
+                                foreach (var item in commonInfo.ProductCategoryList)
+                                {
+                                    if (item.ChildCategory != null && item.ChildCategory.Length > 0)
+                                    {
+                                        foreach (var childItem in item.ChildCategory)
+                                        {
+                                            <!-- Item -->
+                                            <div class="item">
+                                                <div class="pro-img">
+                                                    <a href="#">
+                                                        <img src="/assets/images/p1.jpg" alt="Retis lapen casen">
+                                                        <div class="pro-info">@childItem.Name</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- End Item -->
+                                        }
+                                    }
+                                }
+                            }
                         </div>
                     </div>
                 </div>
