@@ -64,7 +64,7 @@
                                             <div class="item">
                                                 <div class="pro-img">
                                                     <a href="@Anpero.StringHelpper.GetParentCategoryLink(childItem.Name, childItem.Id)">
-                                                        <img src="/assets/images/p1.jpg" alt="@childItem.Name">
+                                                        <img src="@childItem.Images" alt="@childItem.Name">
                                                         <div class="pro-info">@childItem.Name</div>
                                                     </a>
                                                 </div>
@@ -119,16 +119,16 @@
                                                     <div class="box-inner">
                                                         <div class="product-detail-bnt">
                                                             <a class="button detail-bnt">
-                                                                <span>Quick View</span>
+                                                                <span>Chi tiết</span>
                                                             </a>
                                                         </div>
                                                         <div class="actions">
                                                             <span class="add-to-links">
-                                                                <a href="#" class="link-wishlist" title="Add to Wishlist">
-                                                                    <span>Add to Wishlist</span>
+                                                                <a href="/product/checkout" class="link-wishlist" title="Mua ngay">
+                                                                    <span>Yêu thích</span>
                                                                 </a> 
-                                                                <a href="#" class="link-compare add_to_compare" title="Add to Compare">
-                                                                    <span>Add to Compare</span>
+                                                                <a href="/product/checkout" class="link-compare add_to_compare" title="Mua ngay">
+                                                                    <span>Mua ngay</span>
                                                                 </a>
                                                             </span>
                                                         </div>
@@ -139,8 +139,8 @@
                                         <div class="item-info">
                                             <div class="info-inner">
                                                 <div class="item-title">
-                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="Retis lapen casen">
-                                                        Retis lapen casen
+                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
+                                                        @item.PrName
                                                     </a> 
                                                 </div>
                                                 <div class="item-content">
@@ -153,10 +153,10 @@
                                                         </div>
                                                     </div>
                                                     <div class="item-price">
-                                                        <div class="price-box"><span class="regular-price"><span class="price">$125.00</span> </span> </div>
+                                                        <div class="price-box"><span class="regular-price"><span class="price">@item.Price</span> </span> </div>
                                                     </div>
                                                     <div class="add_cart">
-                                                        <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
+                                                        <button class="button btn-cart" type="button"><span>Mua ngay</span></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -328,25 +328,25 @@
             <li>
                 <div class="feature-box free-shipping">
                     <div class="icon-truck"></div>
-                    <div class="content">FREE SHIPPING on order over $99</div>
+                    <div class="content">Miễn phí VC đơn hàng trên 500K</div>
                 </div>
             </li>
             <li>
                 <div class="feature-box need-help">
                     <div class="icon-support"></div>
-                    <div class="content">Need Help +1 800 123 1234</div>
+                    <div class="content">Điện thoại Tư vấn 0964 484 833</div>
                 </div>
             </li>
             <li>
                 <div class="feature-box money-back">
                     <div class="icon-money"></div>
-                    <div class="content">Money Back Guarantee</div>
+                    <div class="content">Hoàn trả lại tiền cho khách</div>
                 </div>
             </li>
             <li class="last">
                 <div class="feature-box return-policy">
                     <div class="icon-return"></div>
-                    <div class="content">30 days return Service</div>
+                    <div class="content">Vận chuyển ngay trong ngày</div>
                 </div>
             </li>
         </ul>
