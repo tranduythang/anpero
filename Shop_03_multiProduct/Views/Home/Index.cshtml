@@ -1,4 +1,5 @@
 ﻿@using AnperoFrontend.WebService;
+
 @{
     AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
     if (ViewData["commonInfo"] != null)
@@ -13,84 +14,29 @@
     <meta name="keywords" content="@commonInfo.Desc" />
 }
 <div class="content">
-    <div id="thm-mart-slideshow" class="thm-mart-slideshow">
-        <div class="container">
-            <div id='thm_slider_wrapper' class='thm_slider_wrapper fullwidthbanner-container'>
-                <div id='thm-rev-slider' class='rev_slider fullwidthabanner'>
-                    <ul>
-                        <li data-transition='random' data-slotamount='7' data-masterspeed='1000' data-thumb='/assets/images/slider-image.png'>
-                            <img src='/assets/images/slider-image.png' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="slider-image1" />
-                            <div class="info">
-                                <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='0' data-y='210' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2;max-width:auto;max-height:auto;white-space:nowrap;'><span>Get 50% off</span></div>
-                                <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='0' data-y='300' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3;max-width:auto;max-height:auto;white-space:nowrap;'><span>Simply delicious</span></div>
-                                <div class='tp-caption sfb  tp-resizeme ' data-x='0' data-y='550' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;max-width:auto;max-height:auto;white-space:nowrap;'><a href='#' class="buy-btn">Shop Now</a></div>
-                                <div class='tp-caption Title sft  tp-resizeme ' data-x='0' data-y='420' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;max-width:auto;max-height:auto;white-space:nowrap;'>Little things make a big difference</div>
-                            </div>
-                        </li>
-                        <li data-transition='random' data-slotamount='7' data-masterspeed='1000' data-thumb='/assets/images/slider-image.png'>
-                            <img src='/assets/images/slider-image.png' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="slider-image2" />
-                            <div class="info">
-                                <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='0' data-y='210' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2;max-width:auto;max-height:auto;white-space:nowrap;'><span>Fresh Look</span></div>
-                                <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='0' data-y='300' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3;max-width:auto;max-height:auto;white-space:nowrap;'><span>100% Refreshing</span></div>
-                                <div class='tp-caption sfb  tp-resizeme ' data-x='0' data-y='550' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;max-width:auto;max-height:auto;white-space:nowrap;'><a href='#' class="buy-btn">Shop Now</a></div>
-                                <div class='tp-caption Title sft  tp-resizeme ' data-x='0' data-y='420' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;max-width:auto;max-height:auto;white-space:nowrap;'>Farm Fresh Produce Right to Your Door</div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
+    <!-- Slider-->
+    @Html.Partial("_partial/_HomeSlide_1");
     <div id="top">
         <div class="container">
             <div class="row">
                 <ul>
-                    <li>
-                        <div>
-                            <a href="#" data-scroll-goto="1">
-                                <img src="/assets/images/gray-banner.png" alt="promotion-banner1">
-                            </a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <a href="#" data-scroll-goto="2">
-                                <img src="/assets/images/gray-banner.png" alt="promotion-banner2">
-                            </a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <a href="#" data-scroll-goto="3">
-                                <img src="/assets/images/gray-banner.png" alt="promotion-banner3">
-                            </a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <a href="#" data-scroll-goto="4">
-                                <img src="/assets/images/gray-banner.png" alt="promotion-banner4">
-                            </a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <a href="#" data-scroll-goto="5">
-                                <img src="/assets/images/gray-banner.png" alt="promotion-banner5">
-                            </a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <a href="/register">
-                                <img src="/assets/images/gray-banner.png" alt="promotion-banner6">
-                            </a>
-                        </div>
-                    </li>
+                    @if (ViewData["AdsSlide"] != null)
+                    {
+                        Ads[] slide = (Ads[])ViewData["AdsSlide"];
+                        if (slide.Length > 0)
+                        {
+                            for (int i = 0; i < slide.Length; i ++)
+                            {
+                                <li>
+                                    <div>
+                                        <a href="@slide[i].ClickUrl" data-scroll-goto="@(i+1)">
+                                            <img src="@slide[i].ImagesUrl" alt="@slide[i].Description" />
+                                        </a>
+                                    </div>
+                                </li>
+                            }
+                        }
+                    }
                 </ul>
             </div>
         </div>
@@ -102,95 +48,32 @@
             <div class="row">
                 <div class="slider-items-products">
                     <div class="new_title">
-                        <h2>Top Categories</h2>
-
+                        <h2>Loại Sản phẩn</h2>
                     </div>
                     <div id="top-categories" class="product-flexslider hidden-buttons">
                         <div class="slider-items slider-width-col4 products-grid">
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Soups</div>
-                                </div>
-                            </div>
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Sandwiches</div>
-                                </div>
-                            </div>
-                            <!-- End Item -->
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Fast Food</div>
-                                </div>
-                            </div>
-                            <!-- End Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Vegetables</div>
-                                </div>
-                            </div>
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Fruits</div>
-                                </div>
-                            </div>
-                            <!-- End Item -->
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Beans</div>
-                                </div>
-                            </div>
-                            <!-- End Item -->
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Salads‎</div>
-                                </div>
-                            </div>
-                            <!-- End Item -->
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Chinese</div>
-                                </div>
-                            </div>
-                            <!-- End Item -->
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">South Indian</div>
-                                </div>
-                            </div>
-                            <!-- End Item -->
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Parath's</div>
-                                </div>
-                            </div>
-                            <!-- End Item -->
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="pro-img">
-                                    <img src="/assets/images/product-img.jpg" alt="Retis lapen casen">
-                                    <div class="pro-info">Leafy Veg</div>
-                                </div>
-                            </div>
-                            <!-- End Item -->
+                            @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                            {
+                                foreach (var item in commonInfo.ProductCategoryList)
+                                {
+                                    if (item.ChildCategory != null && item.ChildCategory.Length > 0)
+                                    {
+                                        foreach (var childItem in item.ChildCategory)
+                                        {
+                                            <!-- Item -->
+                                            <div class="item">
+                                                <div class="pro-img">
+                                                    <a href="@Anpero.StringHelpper.GetParentCategoryLink(childItem.Name, childItem.Id)">
+                                                        <img src="@childItem.Images" alt="@childItem.Name">
+                                                        <div class="pro-info">@childItem.Name</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- End Item -->
+                                        }
+                                    }
+                                }
+                            }
                         </div>
                     </div>
                 </div>
@@ -202,257 +85,92 @@
     <section class=" wow bounceInUp animated">
         <div class="best-pro slider-items-products container">
             <div class="new_title">
-                <h2>Best Seller</h2>
+                <h2>Sản phẩm bán chạy</h2>
             </div>
-            <div class="cate-banner-img"><img src="/assets/images/bestseller-banner.png" alt="Retis lapen casen"></div>
+            <div class="cate-banner-img">
+                @if (ViewData["AdsSlide2"] != null)
+                {
+                    Ads[] slide = (Ads[])ViewData["AdsSlide2"];
+                    if (slide.Length > 0)
+                    {
+                        <img src="@slide[0].ImagesUrl" alt="@slide[0].Description" />
+                    }
+                }
+            </div>
             <div id="best-seller" class="product-flexslider hidden-buttons">
                 <div class="slider-items slider-width-col4 products-grid">
-                    <div class="item">
-                        <div class="item-inner">
-                            <div class="item-img">
-                                <div class="item-img-info">
-                                    <a href="product-detail.html" title="Retis lapen casen" class="product-image"><img src="/assets/images/product-img.jpg" alt="Retis lapen casen"></a>
-                                    <div class="new-label new-top-left">New</div>
-                                    <div class="item-box-hover">
-                                        <div class="box-inner">
-                                            <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick View</span></a></div>
-                                            <div class="actions"><span class="add-to-links"><a href="#" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="#" class="link-compare add_to_compare" title="Add to Compare"><span>Add to Compare</span></a></span> </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a href="product-detail.html" title="Retis lapen casen">Retis lapen casen</a> </div>
-                                    <div class="item-content">
-                                        <div class="rating">
-                                            <div class="ratings">
-                                                <div class="rating-box">
-                                                    <div class="rating" style="width:80%"></div>
+                    @if (ViewData["BestsaleProduct"] != null)
+                    {
+                        AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["BestsaleProduct"];
+                        if (bestSaleList != null && bestSaleList.Item.Length > 0)
+                        {
+                            foreach (ProductItem item in bestSaleList.Item)
+                            {
+                                <!-- Item -->
+                                <div class="item">
+                                    <div class="item-inner">
+                                        <div class="item-img">
+                                            <div class="item-img-info">
+                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">
+                                                    <img src="@item.Images" alt="@item.PrName">
+                                                </a>
+                                                <div class="new-label new-top-left">New</div>
+                                                <div class="item-box-hover">
+                                                    <div class="box-inner">
+                                                        <div class="product-detail-bnt">
+                                                            <a class="button detail-bnt">
+                                                                <span>Chi tiết</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="actions">
+                                                            <span class="add-to-links">
+                                                                <a href="/product/checkout" class="link-wishlist" title="Mua ngay">
+                                                                    <span>Yêu thích</span>
+                                                                </a> 
+                                                                <a href="/product/checkout" class="link-compare add_to_compare" title="Mua ngay">
+                                                                    <span>Mua ngay</span>
+                                                                </a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
                                             </div>
                                         </div>
-                                        <div class="item-price">
-                                            <div class="price-box"><span class="regular-price"><span class="price">$125.00</span> </span> </div>
-                                        </div>
-                                        <div class="add_cart">
-                                            <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="item-inner">
-                            <div class="item-img">
-                                <div class="item-img-info">
-                                    <a href="product-detail.html" title="Retis lapen casen" class="product-image"><img src="/assets/images/product-img.jpg" alt="Retis lapen casen"></a>
-                                    <div class="new-label new-top-left">New</div>
-                                    <div class="item-box-hover">
-                                        <div class="box-inner">
-                                            <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick View</span></a></div>
-                                            <div class="actions"><span class="add-to-links"><a href="#" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="#" class="link-compare add_to_compare" title="Add to Compare"><span>Add to Compare</span></a></span> </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a href="product-detail.html" title="Retis lapen casen">Retis lapen casen</a> </div>
-                                    <div class="item-content">
-                                        <div class="rating">
-                                            <div class="ratings">
-                                                <div class="rating-box">
-                                                    <div class="rating" style="width:80%"></div>
+                                        <div class="item-info">
+                                            <div class="info-inner">
+                                                <div class="item-title">
+                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
+                                                        @item.PrName
+                                                    </a> 
                                                 </div>
-                                                <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
+                                                <div class="item-content">
+                                                    <div class="rating">
+                                                        <div class="ratings">
+                                                            <div class="rating-box">
+                                                                <div class="rating" style="width:80%"></div>
+                                                            </div>
+                                                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-price">
+                                                        <div class="price-box"><span class="regular-price"><span class="price">@item.Price</span> </span> </div>
+                                                    </div>
+                                                    <div class="add_cart">
+                                                        <button class="button btn-cart" type="button"><span>Mua ngay</span></button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="item-price">
-                                            <div class="price-box"><span class="regular-price"><span class="price">$125.00</span> </span> </div>
-                                        </div>
-                                        <div class="add_cart">
-                                            <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
-                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Item -->
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="item-inner">
-                            <div class="item-img">
-                                <div class="item-img-info">
-                                    <a href="product-detail.html" title="Retis lapen casen" class="product-image"><img src="/assets/images/product-img.jpg" alt="Retis lapen casen"></a>
-                                    <div class="sale-label sale-top-left">Sale</div>
-                                    <div class="item-box-hover">
-                                        <div class="box-inner">
-                                            <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick View</span></a></div>
-                                            <div class="actions"><span class="add-to-links"><a href="#" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="#" class="link-compare add_to_compare" title="Add to Compare"><span>Add to Compare</span></a></span> </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a href="product-detail.html" title="Retis lapen casen">Retis lapen casen</a> </div>
-                                    <div class="item-content">
-                                        <div class="rating">
-                                            <div class="ratings">
-                                                <div class="rating-box">
-                                                    <div class="rating" style="width:80%"></div>
-                                                </div>
-                                                <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                            </div>
-                                        </div>
-                                        <div class="item-price">
-                                            <div class="price-box"><span class="regular-price"><span class="price">$125.00</span> </span> </div>
-                                        </div>
-                                        <div class="add_cart">
-                                            <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Item -->
-
-                    <div class="item">
-                        <div class="item-inner">
-                            <div class="item-img">
-                                <div class="item-img-info">
-                                    <a href="product-detail.html" title="Retis lapen casen" class="product-image"><img src="/assets/images/product-img.jpg" alt="Retis lapen casen"></a>
-                                    <div class="new-label new-top-left">New</div>
-                                    <div class="item-box-hover">
-                                        <div class="box-inner">
-                                            <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick View</span></a></div>
-                                            <div class="actions"><span class="add-to-links"><a href="#" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="#" class="link-compare add_to_compare" title="Add to Compare"><span>Add to Compare</span></a></span> </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a href="product-detail.html" title="Retis lapen casen">Retis lapen casen</a> </div>
-                                    <div class="item-content">
-                                        <div class="rating">
-                                            <div class="ratings">
-                                                <div class="rating-box">
-                                                    <div class="rating" style="width:80%"></div>
-                                                </div>
-                                                <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                            </div>
-                                        </div>
-                                        <div class="item-price">
-                                            <div class="price-box"><span class="regular-price"><span class="price">$125.00</span> </span> </div>
-                                        </div>
-                                        <div class="add_cart">
-                                            <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="item-inner">
-                            <div class="item-img">
-                                <div class="item-img-info">
-                                    <a href="product-detail.html" title="Retis lapen casen" class="product-image"><img src="/assets/images/product-img.jpg" alt="Retis lapen casen"></a>
-                                    <div class="new-label new-top-left">New</div>
-                                    <div class="item-box-hover">
-                                        <div class="box-inner">
-                                            <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick View</span></a></div>
-                                            <div class="actions"><span class="add-to-links"><a href="#" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="#" class="link-compare add_to_compare" title="Add to Compare"><span>Add to Compare</span></a></span> </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a href="product-detail.html" title="Retis lapen casen">Retis lapen casen</a> </div>
-                                    <div class="item-content">
-                                        <div class="rating">
-                                            <div class="ratings">
-                                                <div class="rating-box">
-                                                    <div class="rating" style="width:80%"></div>
-                                                </div>
-                                                <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                            </div>
-                                        </div>
-                                        <div class="item-price">
-                                            <div class="price-box"><span class="regular-price"><span class="price">$125.00</span> </span> </div>
-                                        </div>
-                                        <div class="add_cart">
-                                            <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Item -->
-                    <!-- Item -->
-                    <div class="item">
-                        <div class="item-inner">
-                            <div class="item-img">
-                                <div class="item-img-info">
-                                    <a href="product-detail.html" title="Retis lapen casen" class="product-image"><img src="/assets/images/product-img.jpg" alt="Retis lapen casen"></a>
-                                    <div class="new-label new-top-left">New</div>
-                                    <div class="item-box-hover">
-                                        <div class="box-inner">
-                                            <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick View</span></a></div>
-                                            <div class="actions"><span class="add-to-links"><a href="#" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="#" class="link-compare add_to_compare" title="Add to Compare"><span>Add to Compare</span></a></span> </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-info">
-                                <div class="info-inner">
-                                    <div class="item-title"><a href="product-detail.html" title="Retis lapen casen">Retis lapen casen</a> </div>
-                                    <div class="item-content">
-                                        <div class="rating">
-                                            <div class="ratings">
-                                                <div class="rating-box">
-                                                    <div class="rating" style="width:80%"></div>
-                                                </div>
-                                                <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                            </div>
-                                        </div>
-                                        <div class="item-price">
-                                            <div class="price-box"><span class="regular-price"><span class="price">$125.00</span> </span> </div>
-                                        </div>
-                                        <div class="add_cart">
-                                            <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Item -->
+                                <!-- End Item -->
+                            }
+                        }
+                    }
                 </div>
             </div>
         </div>
     </section>
-
-
-
     <!-- Home Lastest Blog Block -->
     <div class="latest-blog wow bounceInUp animated animated container">
         <!--exclude For version 6 -->
@@ -610,25 +328,25 @@
             <li>
                 <div class="feature-box free-shipping">
                     <div class="icon-truck"></div>
-                    <div class="content">FREE SHIPPING on order over $99</div>
+                    <div class="content">Miễn phí VC đơn hàng trên 500K</div>
                 </div>
             </li>
             <li>
                 <div class="feature-box need-help">
                     <div class="icon-support"></div>
-                    <div class="content">Need Help +1 800 123 1234</div>
+                    <div class="content">Điện thoại Tư vấn 0964 484 833</div>
                 </div>
             </li>
             <li>
                 <div class="feature-box money-back">
                     <div class="icon-money"></div>
-                    <div class="content">Money Back Guarantee</div>
+                    <div class="content">Hoàn trả lại tiền cho khách</div>
                 </div>
             </li>
             <li class="last">
                 <div class="feature-box return-policy">
                     <div class="icon-return"></div>
-                    <div class="content">30 days return Service</div>
+                    <div class="content">Vận chuyển ngay trong ngày</div>
                 </div>
             </li>
         </ul>

@@ -11,10 +11,6 @@ namespace AnperoFrontend.Controllers
         {
             WebService.AnperoService service = new WebService.AnperoService();
 
-            //ViewData["slide"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Slide);
-            //ViewData["AdsSlide"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads1);
-            //ViewData["AdsSlide2"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads2);
-
             GetNewestProduct();
             SetupCommonProduct();
             GetTopArticle();
@@ -41,6 +37,7 @@ namespace AnperoFrontend.Controllers
                     HttpRuntime.Cache.Insert("Slide", Slide, null, DateTime.Now.AddMinutes(shortCacheTime+3), TimeSpan.Zero);
                 }
             }
+            //Khuyen mai 1
             WebService.Ads[] Ads1 = null;
             if (HttpRuntime.Cache["AdsSlide"] != null)
             {
@@ -55,21 +52,22 @@ namespace AnperoFrontend.Controllers
                     HttpRuntime.Cache.Insert("AdsSlide", Ads1, null, DateTime.Now.AddMinutes(shortCacheTime + 2), TimeSpan.Zero);
                 }
             }
+            //Khuyen mai 2
             WebService.Ads[] Ads2 = null;
-            if (HttpRuntime.Cache["Ads2"] != null)
+            if (HttpRuntime.Cache["AdsSlide2"] != null)
             {
                 ViewData["AdsSlide2"] = (WebService.Ads[])HttpRuntime.Cache["Ads2"];
             }
             else
             {
-                Ads2 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads2);
+                Ads2 = service.GetRandomAdsSlide(StoreID, TokenKey, PageContent.Ads2, 1);
+                    //service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads2);
                 ViewData["AdsSlide2"] = Ads2;
                 if (Ads2 != null)
                 {
                     HttpRuntime.Cache.Insert("Ads2", Ads2, null, DateTime.Now.AddMinutes(shortCacheTime + 1), TimeSpan.Zero);
                 }
             }
-            //Response.Cache.SetExpires(DateTime.Now.AddMinutes(60));
             Response.Cache.SetCacheability(HttpCacheability.Public);
         }
         private void GetNewestProduct()
