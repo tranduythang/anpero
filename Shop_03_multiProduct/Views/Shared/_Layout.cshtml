@@ -39,7 +39,7 @@
     @Html.Partial("_partial/_MainHeader_1")
     <!-- End Header-->
     @RenderBody()
-    @*@Scripts.Render("~/bundles/jquery")*@
+    @Scripts.Render("~/bundles/scripts")
     @*@Scripts.Render("~/bundles/bootstrap")*@
     @Html.Raw(commonInfo.AnperoPlugin)
     @RenderSection("scripts", required: false)
@@ -48,14 +48,15 @@
     @Html.Partial("_partial/_MainFooter_1")
     <!-- End Footer-->
     <!-- JavaScript -->
-    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+    
+    
     <script type="text/javascript" src="/assets/js/parallax.js"></script>
     <script type="text/javascript" src="/assets/js/revslider.js"></script>
     <script type="text/javascript" src="/assets/js/common.js"></script>
     <script type="text/javascript" src="/assets/js/jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="/assets/js/owl.carousel.min.js"></script>
     <script type="text/javascript" src="/assets/js/jquery.mobile-menu.min.js"></script>
+    
     <script type="text/javascript">
         jQuery(document).ready(function(){
             jQuery('#thm-rev-slider').show().revolution({
@@ -134,6 +135,9 @@
         jQuery('.popup1').hide();
         jQuery('#fade').hide();
     }
+    jQuery(window).load(function () {
+        Cart.bindCart();
+    });
     </script>
 </body>
 </html>
