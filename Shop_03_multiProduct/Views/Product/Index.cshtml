@@ -1,14 +1,17 @@
-﻿<div id="page">
+﻿@if (ViewData["prDetail"] != null)
+{
+    AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewData["prDetail"];
+    <div id="page">
     <div class="page-heading">
         <div class="breadcrumbs">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
                         <ul>
-                            <li class="home"> <a href="index.html" title="Go to Home Page">Home</a> <span>—› </span> </li>
-                            <li class="category1599"> <a href="grid.html" title="">Salad</a> <span>—› </span> </li>
-                            <li class="category1600"> <a href="grid.html" title="">Bread Salad</a> <span>—› </span> </li>
-                            <li class="category1601"> <strong>Dakos</strong> </li>
+                            <li class="home"> <a href="/" title="Trang chủ">Trang chủ</a> <span>—› </span> </li>
+                            <li class="category1599"> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName, item.ParentId)" title="">@item.ParentCatName</a> <span>—› </span> </li>
+                            <li class="category1600"> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.CatName, item.CatID)" title="">@item.CatName</a> <span>—› </span> </li>
+                            <li class="category1601"> <strong>@item.PrName</strong> </li>
                         </ul>
                     </div>
                     <!--col-xs-12-->
@@ -38,7 +41,7 @@
                                     <div class="product-img-box col-sm-6 col-xs-12">
                                         <div class="new-label new-top-left"> New </div>
                                         <div class="product-image">
-                                            <div class="large-image"> <a href="images/product-img.jpg" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img src="images/product-img.jpg"> </a> </div>
+                                            <div class="large-image"> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.CatName, item.CatID)" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img src="@item.Images"> </a> </div>
                                             <div class="flexslider flexslider-thumb">
                                                 <ul class="previews-list slides">
                                                     <li><a href='images/product-img.jpg' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: 'images/product-img.jpg' "><img src="images/product-img.jpg" alt="Thumbnail 1" /></a></li>
@@ -58,7 +61,7 @@
                                     <div class="product-shop col-sm-6 col-xs-12">
 
                                         <div class="product-name">
-                                            <h1 itemprop="name">RETIS LAPEN CASEN</h1>
+                                            <h1 itemprop="name">@item.PrName</h1>
                                         </div>
                                         <!--product-name-->
                                         <span itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
@@ -67,14 +70,14 @@
                                                     <div class="rating-box">
                                                         <div class="rating" style="width:50%"></div>
                                                     </div>
-                                                    <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
+                                                    <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Mua ngay</a> </p>
                                                 </div>
                                             </div>
                                         </span>
                                         <div class="price-block">
-                                            <div class="price-box"> <span class="regular-price" id="product-price-123"> <span class="price">$129.00</span> </span> </div>
+                                            <div class="price-box"> <span class="regular-price" id="product-price-123"> <span class="price">@item.Price</span> </span> </div>
                                             <p class="availability in-stock">
-                                                <link itemprop="availability" href="http://schema.org/InStock">
+                                                <link itemprop="availability" href="http://schema.org/InStock" />
                                                 <span>In stock</span>
                                             </p>
                                         </div>
@@ -94,7 +97,7 @@
                                                     <!--custom pull-left-->
                                                 </div>
                                                 <!--pull-left-->
-                                                <button type="button" title="Add to Cart" class="button btn-cart" onclick="productAddToCartForm.submit(this)"><span><i class="icon-basket"></i>Add to Cart</span></button>
+                                                <button type="button" title="Add to Cart" class="button btn-cart" onclick="productAddToCartForm.submit(this)"><span><i class="icon-basket"></i>Mua ngay</span></button>
                                             </div>
                                             <!--add-to-cart-->
                                             <div class="email-addto-box">
@@ -389,8 +392,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                         <!--product-collateral-->
                         <div class="box-additional">
                             <!-- BEGIN RELATED PRODUCTS -->
@@ -688,4 +689,10 @@
             </ul>
         </div>
     </div>
-<!-- For version 1,2,3,4,6 -->
+    <!-- For version 1,2,3,4,6 -->
+    @section health{
+        <meta name="description" content="@Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc)" />
+        <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(item.KeyWord)" />
+    }
+}
+    
