@@ -277,7 +277,7 @@ namespace Anpero
             }
             if (outPut > 0)
             {
-                return String.Format("{0:0.0}", outPut) + " " + donvi;
+                return String.Format("{0:0}", outPut) + " " + donvi;
             }else
             {
                 return "liên hệ";
