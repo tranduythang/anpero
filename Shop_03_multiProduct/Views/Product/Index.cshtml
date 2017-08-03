@@ -1,5 +1,10 @@
 ﻿@if (ViewData["prDetail"] != null)
 {
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
     AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewData["prDetail"];
     <div id="page">
     <div class="page-heading">
@@ -43,15 +48,19 @@
                                         <div class="product-image">
                                             <div class="large-image"> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.CatName, item.CatID)" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img src="@item.Images"> </a> </div>
                                             <div class="flexslider flexslider-thumb">
-                                                <ul class="previews-list slides">
-                                                    <li><a href='images/product-img.jpg' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: 'images/product-img.jpg' "><img src="images/product-img.jpg" alt="Thumbnail 1" /></a></li>
-                                                    <li><a href='images/product-img.jpg' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: 'images/product-img.jpg' "><img src="images/product-img.jpg" alt="Thumbnail 2" /></a></li>
-                                                    <li><a href='images/product-img.jpg' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: 'images/product-img.jpg' "><img src="images/product-img.jpg" alt="Thumbnail 1" /></a></li>
-                                                    <li><a href='images/product-img.jpg' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: 'images/product-img.jpg' "><img src="images/product-img.jpg" alt="Thumbnail 2" /></a></li>
-                                                    <li><a href='images/product-img.jpg' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: 'images/product-img.jpg' "><img src="images/product-img.jpg" alt="Thumbnail 2" /></a></li>
-                                                    <li><a href='images/product-img.jpg' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: 'images/product-img.jpg' "><img src="images/product-img.jpg" alt="Thumbnail 2" /></a></li>
-                                                    <li><a href='images/product-img.jpg' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: 'images/product-img.jpg' "><img src="images/product-img.jpg" alt="Thumbnail 2" /></a></li>
-                                                </ul>
+                                                @if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
+                                                {
+                                                    <ul class="previews-list slides">
+                                                        @foreach (var images in item.ImagesSlide)
+                                                        {
+                                                            <li>
+                                                                <a href='#' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '@images' ">
+                                                                    <img src="@images" alt="@item.PrName" />
+                                                                </a>
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                }
                                             </div>
                                         </div>
                                         <!-- end: more-images -->
@@ -70,7 +79,7 @@
                                                     <div class="rating-box">
                                                         <div class="rating" style="width:50%"></div>
                                                     </div>
-                                                    <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Mua ngay</a> </p>
+                                                    <p class="rating-links"><a href="#">1 Đánh giá</a> <span class="separator">|</span> <a href="#">Mua ngay</a> </p>
                                                 </div>
                                             </div>
                                         </span>
@@ -83,8 +92,8 @@
                                         </div>
                                         <!--price-block-->
                                         <div class="short-description">
-                                            <h2>Quick Overview</h2>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate. </p>
+                                            <h2>Mô tả ngắn</h2>
+                                            <p>@Html.Raw(item.ShortDesc)</p>
                                         </div>
                                         <div class="add-to-box">
                                             <div class="add-to-cart">
@@ -114,11 +123,24 @@
                                         <!-- thm-mart Social Share-->
                                         <div class="social">
                                             <ul class="link">
-                                                <li class="fb"> <a href="http://www.facebook.com/" rel="nofollow" target="_blank" style="text-decoration:none;"> </a> </li>
-                                                <li class="linkedin"> <a href="http://www.linkedin.com/" rel="nofollow" target="_blank" style="text-decoration:none;"> </a> </li>
-                                                <li class="tw"> <a href="http://twitter.com/" rel="nofollow" target="_blank" style="text-decoration:none;"> </a> </li>
-                                                <li class="pintrest"> <a href="http://pinterest.com/" rel="nofollow" target="_blank" style="text-decoration:none;"> </a> </li>
-                                                <li class="googleplus"> <a href="https://plus.google.com/" rel="nofollow" target="_blank" style="text-decoration:none;"> </a> </li>
+                                                @if (!string.IsNullOrEmpty(commonInfo.Skype) || !string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                                                {
+                                                    string thisUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+
+                                                    if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                                                    {
+                                                        <li class="fb pull-left"><a target="_blank" rel="nofollow" href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" title="Facebook"></a></li>
+
+                                                    }
+                                                    if (!string.IsNullOrEmpty(commonInfo.Skype))
+                                                    {
+                                                        <li class="skype pull-left"><a target="_blank" rel="nofollow" href="skype:@commonInfo.Skype?call" title="skype"></a></li>
+
+                                                    }
+                                                    <li class="tw pull-left"><a target="_blank" rel="nofollow" href="http://www.twitter.com/share?url=@thisUrl" title="Twitter"></a></li>
+                                                    <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="https://plus.google.com/share?url=@thisUrl" title="GooglePlus"></a></li>
+                                                    <li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="http://pinterest.com/pinthis?url=@thisUrl" title="PInterest"></a></li>
+                                                }
                                             </ul>
                                         </div>
                                         <!-- thm-mart Social Share Close-->
@@ -131,35 +153,13 @@
                         <!--product-essential-->
                         <div class="product-collateral container">
                             <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
-                                <li class="active"> <a href="#product_tabs_description" data-toggle="tab"> Product Description </a> </li>
-                                <li><a href="#product_tabs_tags" data-toggle="tab">Tags</a></li>
-                                <li> <a href="#reviews_tabs" data-toggle="tab">Reviews</a> </li>
-                                <li> <a href="#product_tabs_custom" data-toggle="tab">Custom Tab</a> </li>
-                                <li> <a href="#product_tabs_custom1" data-toggle="tab">Custom Tab1</a> </li>
+                                <li class="active"> <a href="#product_tabs_description" data-toggle="tab"> Mô tả sản phẩm </a> </li>
+                                <li> <a href="#reviews_tabs" data-toggle="tab">Đánh giá</a> </li>
                             </ul>
                             <div id="productTabContent" class="tab-content">
                                 <div class="tab-pane fade in active" id="product_tabs_description">
                                     <div class="std">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio quis mi. Cras neque metus, consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam erat mi, rutrum at sollicitudin rhoncus, ultricies posuere erat. Duis convallis, arcu nec aliquam consequat, purus felis vehicula felis, a dapibus enim lorem nec augue.</p>
-                                        <p> Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet urna pretium eros convallis interdum. Quisque in arcu id dui vulputate mollis eget non arcu. Aenean et nulla purus. Mauris vel tellus non nunc mattis lobortis.</p>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="product_tabs_tags">
-                                    <div class="box-collateral box-tags">
-                                        <div class="tags">
-                                            <form id="addTagForm" action="#" method="get">
-                                                <div class="form-add-tags">
-                                                    <label for="productTagName">Add Tags:</label>
-                                                    <div class="input-box">
-                                                        <input class="input-text" name="productTagName" id="productTagName" type="text">
-                                                        <button type="button" title="Add Tags" class=" button btn-add" onclick="submitTagForm()"> <span>Add Tags</span> </button>
-                                                    </div>
-                                                    <!--input-box-->
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <!--tags-->
-                                        <p class="note">Use spaces to separate tags. Use single quotes (') for phrases.</p>
+                                        @Html.Raw(item.ShortDesc)
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="reviews_tabs">
@@ -379,17 +379,6 @@
                                         <div class="clear"></div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="product_tabs_custom">
-                                    <div class="product-tabs-content-inner clearfix">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio quis mi.</p>
-                                        <p> Cras neque metus, consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam erat mi, rutrum at sollicitudin rhoncus, ultricies posuere erat. Duis convallis, arcu nec aliquam consequat, purus felis vehicula felis, a dapibus enim lorem nec augue.</p>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="product_tabs_custom1">
-                                    <div class="product-tabs-content-inner clearfix">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio quis mi. Cras neque metus, consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam erat mi, rutrum at sollicitudin rhoncus, ultricies posuere erat. Duis convallis, arcu nec aliquam consequat, purus felis vehicula felis, a dapibus enim lorem nec augue.</p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <!--product-collateral-->
@@ -398,249 +387,68 @@
                             <div class="related-pro container">
                                 <div class="slider-items-products">
                                     <div class="new_title center">
-                                        <h2>Related Products</h2>
+                                        <h2>Sản phẩm liên quan</h2>
                                     </div>
                                     <div id="related-slider" class="product-flexslider hidden-buttons">
                                         <div class="slider-items slider-width-col4 products-grid">
-                                            <div class="item">
-                                                <div class="item-inner">
-                                                    <div class="item-img">
-                                                        <div class="item-img-info">
-                                                            <a href="product-detail.html" title="Retis lapen casen" class="product-image"><img src="images/product-img.jpg" alt="Retis lapen casen"></a>
-                                                            <div class="new-label new-top-left">New</div>
-                                                            <div class="item-box-hover">
-                                                                <div class="box-inner">
-                                                                    <div class="product-detail-bnt"><a class="button detail-bnt" type="button"><span>Quick View</span></a></div>
-                                                                    <div class="actions"><span class="add-to-links"><a href="#" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="#" class="link-compare add_to_compare" title="Add to Compare"><span>Add to Compare</span></a></span> </div>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-info">
-                                                        <div class="info-inner">
-                                                            <div class="item-title"><a href="product-detail.html" title="Retis lapen casen">Retis lapen casen</a> </div>
-                                                            <div class="item-content">
-                                                                <div class="rating">
-                                                                    <div class="ratings">
-                                                                        <div class="rating-box">
-                                                                            <div class="rating" style="width:80%"></div>
+                                            @if (ViewData["relateProduct"] != null)
+                                            {
+                                                AnperoFrontend.WebService.SearchResult relateProduct = (AnperoFrontend.WebService.SearchResult)ViewData["relateProduct"];
+                                                if (relateProduct.Item != null && relateProduct.Item.Length > 0)
+                                                {
+                                                    foreach (var items in relateProduct.Item)
+                                                    {
+                                                        <!-- Item -->
+                                                        <div class="item">
+                                                            <div class="item-inner">
+                                                                <div class="item-img">
+                                                                    <div class="item-img-info">
+                                                                        <a href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName" class="product-image">
+                                                                            <img src="@items.Images" alt="@items.PrName">
+                                                                        </a>
+                                                                        <div class="new-label new-top-left">New</div>
+                                                                        <div class="item-box-hover">
+                                                                            <div class="box-inner">
+                                                                                <div class="product-detail-bnt"><a class="button detail-bnt" type="button"><span>Quick View</span></a></div>
+                                                                                <div class="actions"><span class="add-to-links">
+                                                                                    <a href="#" class="link-wishlist" title="Add to Wishlist">
+                                                                                        <span>Add to Wishlist</span>
+                                                                                    </a>
+                                                                                    <a href="#" class="link-compare add_to_compare" title="Add to Compare">
+                                                                                        <span>Add to Compare</span>
+                                                                                    </a></span> 
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
-                                                                        <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
                                                                     </div>
                                                                 </div>
-                                                                <div class="item-price">
-                                                                    <div class="price-box"><span class="regular-price" id="product-price-1"><span class="price">$125.00</span> </span> </div>
-                                                                </div>
-                                                                <div class="add_cart">
-                                                                    <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Item -->
-                                            <div class="item">
-                                                <div class="item-inner">
-                                                    <div class="item-img">
-                                                        <div class="item-img-info">
-                                                            <a href="product-detail.html" title="Retis lapen casen" class="product-image"><img src="images/product-img.jpg" alt="Retis lapen casen"></a>
-                                                            <div class="new-label new-top-left">New</div>
-                                                            <div class="item-box-hover">
-                                                                <div class="box-inner">
-                                                                    <div class="product-detail-bnt"><a class="button detail-bnt" type="button"><span>Quick View</span></a></div>
-                                                                    <div class="actions"><span class="add-to-links"><a href="#" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="#" class="link-compare add_to_compare" title="Add to Compare"><span>Add to Compare</span></a></span> </div>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-info">
-                                                        <div class="info-inner">
-                                                            <div class="item-title"><a href="product-detail.html" title="Retis lapen casen">Retis lapen casen</a> </div>
-                                                            <div class="item-content">
-                                                                <div class="rating">
-                                                                    <div class="ratings">
-                                                                        <div class="rating-box">
-                                                                            <div class="rating" style="width:80%"></div>
+                                                                <div class="item-info">
+                                                                    <div class="info-inner">
+                                                                        <div class="item-title"><a href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName">@items.PrName</a> </div>
+                                                                        <div class="item-content">
+                                                                            <div class="rating">
+                                                                                <div class="ratings">
+                                                                                    <div class="rating-box">
+                                                                                        <div class="rating" style="width:80%"></div>
+                                                                                    </div>
+                                                                                    <p class="rating-links"><a href="#">1 Đánh giá</a> <span class="separator">|</span> <a href="#">Đánh giá</a> </p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="item-price">
+                                                                                <div class="price-box"><span class="regular-price" id="product-price-1"><span class="price">@items.Price</span> </span> </div>
+                                                                            </div>
+                                                                            <div class="add_cart">
+                                                                                <button class="button btn-cart" type="button"><span>Mua ngay</span></button>
+                                                                            </div>
                                                                         </div>
-                                                                        <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
                                                                     </div>
                                                                 </div>
-                                                                <div class="item-price">
-                                                                    <div class="price-box"><span class="regular-price" id="product-price-1"><span class="price">$125.00</span> </span> </div>
-                                                                </div>
-                                                                <div class="add_cart">
-                                                                    <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
-                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- End Item -->
-                                            <!-- Item -->
-                                            <div class="item">
-                                                <div class="item-inner">
-                                                    <div class="item-img">
-                                                        <div class="item-img-info">
-                                                            <a href="product-detail.html" title="Retis lapen casen" class="product-image"><img src="images/product-img.jpg" alt="Retis lapen casen"></a>
-                                                            <div class="sale-label sale-top-left">Sale</div>
-                                                            <div class="item-box-hover">
-                                                                <div class="box-inner">
-                                                                    <div class="product-detail-bnt"><a class="button detail-bnt" type="button"><span>Quick View</span></a></div>
-                                                                    <div class="actions"><span class="add-to-links"><a href="#" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="#" class="link-compare add_to_compare" title="Add to Compare"><span>Add to Compare</span></a></span> </div>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-info">
-                                                        <div class="info-inner">
-                                                            <div class="item-title"><a href="product-detail.html" title="Retis lapen casen">Retis lapen casen</a> </div>
-                                                            <div class="item-content">
-                                                                <div class="rating">
-                                                                    <div class="ratings">
-                                                                        <div class="rating-box">
-                                                                            <div class="rating" style="width:80%"></div>
-                                                                        </div>
-                                                                        <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="item-price">
-                                                                    <div class="price-box"><span class="regular-price" id="product-price-1"><span class="price">$125.00</span> </span> </div>
-                                                                </div>
-                                                                <div class="add_cart">
-                                                                    <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- End Item -->
-
-                                            <div class="item">
-                                                <div class="item-inner">
-                                                    <div class="item-img">
-                                                        <div class="item-img-info">
-                                                            <a href="product-detail.html" title="Retis lapen casen" class="product-image"><img src="images/product-img.jpg" alt="Retis lapen casen"></a>
-                                                            <div class="new-label new-top-left">New</div>
-                                                            <div class="item-box-hover">
-                                                                <div class="box-inner">
-                                                                    <div class="product-detail-bnt"><a class="button detail-bnt" type="button"><span>Quick View</span></a></div>
-                                                                    <div class="actions"><span class="add-to-links"><a href="#" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="#" class="link-compare add_to_compare" title="Add to Compare"><span>Add to Compare</span></a></span> </div>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-info">
-                                                        <div class="info-inner">
-                                                            <div class="item-title"><a href="product-detail.html" title="Retis lapen casen">Retis lapen casen</a> </div>
-                                                            <div class="item-content">
-                                                                <div class="rating">
-                                                                    <div class="ratings">
-                                                                        <div class="rating-box">
-                                                                            <div class="rating" style="width:80%"></div>
-                                                                        </div>
-                                                                        <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="item-price">
-                                                                    <div class="price-box"><span class="regular-price" id="product-price-1"><span class="price">$125.00</span> </span> </div>
-                                                                </div>
-                                                                <div class="add_cart">
-                                                                    <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Item -->
-                                            <div class="item">
-                                                <div class="item-inner">
-                                                    <div class="item-img">
-                                                        <div class="item-img-info">
-                                                            <a href="product-detail.html" title="Retis lapen casen" class="product-image"><img src="images/product-img.jpg" alt="Retis lapen casen"></a>
-                                                            <div class="new-label new-top-left">New</div>
-                                                            <div class="item-box-hover">
-                                                                <div class="box-inner">
-                                                                    <div class="product-detail-bnt"><a class="button detail-bnt" type="button"><span>Quick View</span></a></div>
-                                                                    <div class="actions"><span class="add-to-links"><a href="#" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="#" class="link-compare add_to_compare" title="Add to Compare"><span>Add to Compare</span></a></span> </div>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-info">
-                                                        <div class="info-inner">
-                                                            <div class="item-title"><a href="product-detail.html" title="Retis lapen casen">Retis lapen casen</a> </div>
-                                                            <div class="item-content">
-                                                                <div class="rating">
-                                                                    <div class="ratings">
-                                                                        <div class="rating-box">
-                                                                            <div class="rating" style="width:80%"></div>
-                                                                        </div>
-                                                                        <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="item-price">
-                                                                    <div class="price-box"><span class="regular-price" id="product-price-1"><span class="price">$125.00</span> </span> </div>
-                                                                </div>
-                                                                <div class="add_cart">
-                                                                    <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- End Item -->
-                                            <!-- Item -->
-                                            <div class="item">
-                                                <div class="item-inner">
-                                                    <div class="item-img">
-                                                        <div class="item-img-info">
-                                                            <a href="product-detail.html" title="Retis lapen casen" class="product-image"><img src="images/product-img.jpg" alt="Retis lapen casen"></a>
-                                                            <div class="new-label new-top-left">New</div>
-                                                            <div class="item-box-hover">
-                                                                <div class="box-inner">
-                                                                    <div class="product-detail-bnt"><a class="button detail-bnt" type="button"><span>Quick View</span></a></div>
-                                                                    <div class="actions"><span class="add-to-links"><a href="#" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="#" class="link-compare add_to_compare" title="Add to Compare"><span>Add to Compare</span></a></span> </div>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-info">
-                                                        <div class="info-inner">
-                                                            <div class="item-title"><a href="product-detail.html" title="Retis lapen casen">Retis lapen casen</a> </div>
-                                                            <div class="item-content">
-                                                                <div class="rating">
-                                                                    <div class="ratings">
-                                                                        <div class="rating-box">
-                                                                            <div class="rating" style="width:80%"></div>
-                                                                        </div>
-                                                                        <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="item-price">
-                                                                    <div class="price-box"><span class="regular-price" id="product-price-1"><span class="price">$125.00</span> </span> </div>
-                                                                </div>
-                                                                <div class="add_cart">
-                                                                    <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- End Item -->
+                                                        <!-- End Item -->
+                                                    }
+                                                }
+                                            }
                                         </div>
                                     </div>
                                 </div>
