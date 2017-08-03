@@ -36,30 +36,13 @@ namespace AnperoFrontend.Controllers
           
             WebService.SearchResult BestsaleProduct;
             WebService.AnperoService sv = new WebService.AnperoService();
-             
-            //if (HttpRuntime.Cache["saleProduct"] != null)
-            //{
-            //    saleProduct = (WebService.ProductItem[])HttpRuntime.Cache["saleProduct"];
-            //}
-            //else
-            //{
-            //    saleProduct = sv.GetSaleProduct(StoreID, TokenKey);
-            //    if (saleProduct != null)
-            //    {
-            //        HttpRuntime.Cache.Insert("saleProduct", saleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
-            //    }
-
-            //}
-            //ViewData["saleProduct"] = saleProduct;
-
-
             if (HttpRuntime.Cache["BestsaleProduct"] != null)
             {
                 BestsaleProduct = (WebService.SearchResult)HttpRuntime.Cache["BestsaleProduct"];
             }
             else
             {
-                BestsaleProduct = sv.SearchProduct(StoreID, TokenKey, "", "", "", 0, 99999999, 1, 5, "", SearchOrder.TimeDesc, 1);
+                BestsaleProduct = sv.SearchProduct(StoreID, TokenKey, "", "", "", 0, 999999990, 1, 8, "", SearchOrder.TimeDesc, 1);
                 if (BestsaleProduct != null)
                 {
                     HttpRuntime.Cache.Insert("BestsaleProduct", BestsaleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
