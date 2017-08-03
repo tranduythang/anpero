@@ -42,7 +42,7 @@ namespace AnperoFrontend.Controllers
             
             SetupCommonProduct();
 
-            return View();
+            return View("List");
         }
        
         [BuildCommonHtml]
@@ -64,7 +64,7 @@ namespace AnperoFrontend.Controllers
                 ViewBag.Title = rs.Item[0].ParentCatName;
             }
             SetupCommonProduct();
-            return View("Category");
+            return View("List");
         }
         [BuildCommonHtml]
         public ActionResult Search(string category, string keyword)
@@ -86,7 +86,7 @@ namespace AnperoFrontend.Controllers
 
             SetupCommonProduct();
 
-            return View("Category");
+            return View("List");
         }
         [BuildCommonHtml]
         public ActionResult Checkout()
