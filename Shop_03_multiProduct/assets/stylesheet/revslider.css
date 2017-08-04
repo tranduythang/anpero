@@ -422,7 +422,7 @@ a.tp-button {
 	z-index: 100;
 	cursor: pointer;
 	position: relative;
-	background: url(../images/left-a.png) no-repeat top left;
+	background: url(/assets/images/left-a.png) no-repeat top left;
 	width: 40px;
 	height: 40px;
 }
@@ -430,7 +430,7 @@ a.tp-button {
 	z-index: 100;
 	cursor: pointer;
 	position: relative;
-	background: url(../images/right-a.png) no-repeat top left;
+	background: url(/assets/images/right-a.png) no-repeat top left;
 	width: 40px;
 	height: 40px;
 }
@@ -444,7 +444,7 @@ a.tp-button {
 	z-index: 100;
 	cursor: pointer;
 	position: relative;
-	background: #000 url(../images/left-a.png) no-repeat 10px 0;
+	background: #000 url(/assets/images/left-a.png) no-repeat 10px 0;
 	width: 40px;
 	height: 45px;
 	left: 0px !important;
@@ -454,7 +454,7 @@ a.tp-button {
 	z-index: 100;
 	cursor: pointer;
 	position: relative;
-	background: #000 url(../images/right-a.png) no-repeat 10px 0;
+	background: #000 url(/assets/images/right-a.png) no-repeat 10px 0;
 	width: 40px;
 	height: 45px;
 	right: 0 !important;

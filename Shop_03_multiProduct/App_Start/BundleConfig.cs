@@ -9,11 +9,11 @@ namespace AnperoFrontend
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
-                       "~/Scripts/jquery-1-10.js",
+                       
                        "~/Scripts/jquery.cokie.min.js",
                        "~/Scripts/ShoppingCart.js",
                        "~/Scripts/Anpero.Common.js",
-                       "~/assets/js/bootstrap.min.js"                       
+                       "~/assets/js/bootstrap.min.js"
                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
@@ -23,7 +23,12 @@ namespace AnperoFrontend
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-            
+                  "~/assets/stylesheet/bootstrap.min.css",                  
+                  "~/assets/stylesheet/revslider.css",
+                  "~/assets/stylesheet/owl.carousel.css",
+                  "~/assets/stylesheet/owl.theme.css",
+                  "~/assets/stylesheet/jquery.mobile-menu.css"
+
            ));
             BundleTable.EnableOptimizations = true;
         }

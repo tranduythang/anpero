@@ -7,27 +7,27 @@
     }
     AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewData["prDetail"];
     <div id="page">
-    <div class="page-heading">
-        <div class="breadcrumbs">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <ul>
-                            <li class="home"> <a href="/" title="Trang chủ">Trang chủ</a> <span>—› </span> </li>
-                            <li class="category1599"> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName, item.ParentId)" title="">@item.ParentCatName</a> <span>—› </span> </li>
-                            <li class="category1600"> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.CatName, item.CatID)" title="">@item.CatName</a> <span>—› </span> </li>
-                            <li class="category1601"> <strong>@item.PrName</strong> </li>
-                        </ul>
+        <div class="page-heading">
+            <div class="breadcrumbs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <ul>
+                                <li class="home"> <a href="/" title="Trang chủ">Trang chủ</a> <span>—› </span> </li>
+                                <li> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName, item.ParentId)" title="">@item.ParentCatName</a> <span>—› </span> </li>
+                                <li> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.CatName, item.CatID)" title="">@item.CatName</a> <span>—› </span> </li>
+                                <li> <strong>@item.PrName</strong> </li>
+                            </ul>
+                        </div>
+                        <!--col-xs-12-->
                     </div>
-                    <!--col-xs-12-->
+                    <!--row-->
                 </div>
-                <!--row-->
+                <!--container-->
             </div>
-            <!--container-->
-        </div>
-        <div class="page-title">
-            <h2>Cappon Magro</h2>
-        </div>
+            <div class="page-title">
+                <h2>Cappon Magro</h2>
+            </div>
         </div>
         <!-- BEGIN Main Container -->
         <div class="main-container col1-layout wow bounceInUp animated">
@@ -41,8 +41,6 @@
                             <div class="row">
                                 <div class="product-next-prev"> <a class="product-next" title="Next" href="#"><span></span></a> <a class="product-prev" title="Previous" href="#"><span></span></a> </div>
                                 <form action="" method="post" id="product_addtocart_form">
-                                    <!--End For version 1, 2, 6 -->
-                                    <!-- For version 3 -->
                                     <div class="product-img-box col-sm-6 col-xs-12">
                                         <div class="new-label new-top-left"> New </div>
                                         <div class="product-image">
@@ -54,7 +52,7 @@
                                                         @foreach (var images in item.ImagesSlide)
                                                         {
                                                             <li>
-                                                                <a href='#' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '@images' ">
+                                                                <a href='@images' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '@images' ">
                                                                     <img src="@images" alt="@item.PrName" />
                                                                 </a>
                                                             </li>
@@ -64,15 +62,11 @@
                                             </div>
                                         </div>
                                         <!-- end: more-images -->
-                                    </div>
-                                    <!--End For version 1,2,6-->
-                                    <!-- For version 3 -->
+                                    </div>                                    
                                     <div class="product-shop col-sm-6 col-xs-12">
-
                                         <div class="product-name">
                                             <h1 itemprop="name">@item.PrName</h1>
-                                        </div>
-                                        <!--product-name-->
+                                        </div>                            
                                         <span itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
                                             <div class="rating">
                                                 <div class="ratings">
@@ -381,9 +375,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!--product-collateral-->
                         <div class="box-additional">
-                            <!-- BEGIN RELATED PRODUCTS -->
                             <div class="related-pro container">
                                 <div class="slider-items-products">
                                     <div class="new_title center">
@@ -399,52 +391,54 @@
                                                     foreach (var items in relateProduct.Item)
                                                     {
                                                         <!-- Item -->
-                                                        <div class="item">
-                                                            <div class="item-inner">
-                                                                <div class="item-img">
-                                                                    <div class="item-img-info">
-                                                                        <a href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName" class="product-image">
-                                                                            <img src="@items.Images" alt="@items.PrName">
-                                                                        </a>
-                                                                        <div class="new-label new-top-left">New</div>
-                                                                        <div class="item-box-hover">
-                                                                            <div class="box-inner">
-                                                                                <div class="product-detail-bnt"><a class="button detail-bnt" type="button"><span>Quick View</span></a></div>
-                                                                                <div class="actions"><span class="add-to-links">
-                                                                                    <a href="#" class="link-wishlist" title="Add to Wishlist">
-                                                                                        <span>Add to Wishlist</span>
-                                                                                    </a>
-                                                                                    <a href="#" class="link-compare add_to_compare" title="Add to Compare">
-                                                                                        <span>Add to Compare</span>
-                                                                                    </a></span> 
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="item-info">
-                                                                    <div class="info-inner">
-                                                                        <div class="item-title"><a href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName">@items.PrName</a> </div>
-                                                                        <div class="item-content">
-                                                                            <div class="rating">
-                                                                                <div class="ratings">
-                                                                                    <div class="rating-box">
-                                                                                        <div class="rating" style="width:80%"></div>
-                                                                                    </div>
-                                                                                    <p class="rating-links"><a href="#">1 Đánh giá</a> <span class="separator">|</span> <a href="#">Đánh giá</a> </p>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="item-price">
-                                                                                <div class="price-box"><span class="regular-price" id="product-price-1"><span class="price">@items.Price</span> </span> </div>
-                                                                            </div>
-                                                                            <div class="add_cart">
-                                                                                <button class="button btn-cart" type="button"><span>Mua ngay</span></button>
-                                                                            </div>
-                                                                        </div>
+                                            <div class="item">
+                                                <div class="item-inner">
+                                                    <div class="item-img">
+                                                        <div class="item-img-info">
+                                                            <a href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName" class="product-image">
+                                                                <img src="@items.Images" alt="@items.PrName">
+                                                            </a>
+                                                            <div class="new-label new-top-left">New</div>
+                                                            <div class="item-box-hover">
+                                                                <div class="box-inner">
+                                                                    <div class="product-detail-bnt"><a class="button detail-bnt" type="button"><span>Quick View</span></a></div>
+                                                                    <div class="actions">
+                                                                        <span class="add-to-links">
+                                                                            <a href="#" class="link-wishlist" title="Add to Wishlist">
+                                                                                <span>Add to Wishlist</span>
+                                                                            </a>
+                                                                            <a href="#" class="link-compare add_to_compare" title="Add to Compare">
+                                                                                <span>Add to Compare</span>
+                                                                            </a>
+                                                                        </span>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                    <div class="item-info">
+                                                        <div class="info-inner">
+                                                            <div class="item-title"><a href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName">@items.PrName</a> </div>
+                                                            <div class="item-content">
+                                                                <div class="rating">
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating" style="width:80%"></div>
+                                                                        </div>
+                                                                        <p class="rating-links"><a href="#">1 Đánh giá</a> <span class="separator">|</span> <a href="#">Đánh giá</a> </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="item-price">
+                                                                    <div class="price-box"><span class="regular-price" id="product-price-1"><span class="price">@items.Price</span> </span> </div>
+                                                                </div>
+                                                                <div class="add_cart">
+                                                                    <button class="button btn-cart" type="button"><span>Mua ngay</span></button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                                         <!-- End Item -->
                                                     }
                                                 }
@@ -453,20 +447,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- end related product -->
-
                         </div>
-                        <!-- end related product -->
                     </div>
-                    <!--box-additional-->
-                    <!--product-view-->
                 </div>
             </div>
-            <!--col-main-->
         </div>
-        <!--main-container-->
     </div>
-    <!--col1-layout-->
+
     <div class="our-features-box wow bounceInUp animated animated">
         <div class="container">
             <ul>
@@ -497,10 +484,17 @@
             </ul>
         </div>
     </div>
-    <!-- For version 1,2,3,4,6 -->
     @section health{
         <meta name="description" content="@Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc)" />
         <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(item.KeyWord)" />
+        <link rel="stylesheet" type="text/css" href="~/assets/stylesheet/flexslider.css">
+    }
+    @section scripts{
+<script type="text/javascript" src="~/assets/js/jquery.flexslider.js"></script>
+<script type="text/javascript" src="~/assets/js/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="~/assets/js/cloud-zoom.js"></script>
+        
+
     }
 }
-    
+

@@ -29,29 +29,32 @@
                             <div id="content" role="main">
                                 @foreach (var item in articleList.ItemList)
                                 {
-                                <article lass="blog_entry clearfix wow bounceInUp animated animated">
-                                    <header class="blog_entry-header clearfix">
-                                        <div class="blog_entry-header-inner">
-                                            <h2 class="blog_entry-title"> <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" rel="bookmark">@item.Title</a> </h2>
-                                            <div class="entry-meta">
-                                                <time class="entry-date">@Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</time>
-                                                .
-                                            </div>
-                                        </div>
+                                    <div class="col-md-12 blog_entry">
+                                        <article lass="wow bounceInUp animated animated ">
+                                            <header class="blog_entry-header clearfix">
+                                                <div class="blog_entry-header-inner">
+                                                    <h2 class="blog_entry-title"> <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" rel="bookmark">@item.Title</a> </h2>
+                                                    <div class="entry-meta">
+                                                        <time class="entry-date">@Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</time>
+                                                        .
+                                                    </div>
+                                                </div>
 
-                                    </header>
-                                    <div class="entry-content">
-                                        <div class="featured-thumb">
-                                            <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
-                                                <img src="@item.Thumb" alt="@item.Title">
-                                            </a>
-                                        </div>
-                                        <div class="entry-content">
-                                            @item.ShotDesc
-                                        </div>
-                                        <p> <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Chi tiết</a> </p>
+                                            </header>
+                                            <div class="entry-content">
+                                                <div class="featured-thumb col-md-5">
+                                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
+                                                        <img src="@item.Thumb" alt="@item.Title">
+                                                    </a>
+                                                </div>
+                                                <div class="entry-content col-md-7">
+                                                    @item.ShotDesc
+                                                    <div class="top15"> <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="btn">Chi tiết</a> </div>
+                                                </div>
+                                               
+                                            </div>
+                                        </article>
                                     </div>
-                                </article>
                                 }
                             </div>
                         </div>

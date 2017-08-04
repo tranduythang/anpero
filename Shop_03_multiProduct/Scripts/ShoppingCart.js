@@ -43,19 +43,21 @@
     bindCart: function () {
         var ttSC = 0;
         var htmlCat = "";
-        if ($.cookie("CartList") != 'null' && $.cookie("CartList") != "undefined" && $.cookie("CartList") != undefined) {
+        if (false && $.cookie("CartList") != 'null' && $.cookie("CartList") != "undefined" && $.cookie("CartList") != undefined) {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
             $(".spN").html(Cart.list.length);
             for (var i = 0; i < Cart.list.length; i++) {
-                ttSC += parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity);
-                htmlCat += '<li class="product-info"><div class="p-left">';
-                htmlCat += '<a href="javascript:Cart.remove(' + Cart.list[i].id + ')" class="remove_link"></a>';
-                htmlCat += '<img class="img-responsive" src="' + Cart.list[i].thumb + '" alt="' + Cart.list[i].title + '">';
+                
+                htmlCat += '<li class="item last"><div class="item-inner">';
+                
+                
+                htmlCat += '<div class="product-details">';
+                //+ Cart.list[i].title + '</p>';
+                htmlCat += '<div class="access"><a class="btn-remove1" title="Remove This Item"  href="javascript:Cart.remove(' + Cart.list[i].id + ')">Remove</a> </div>';'
+                htmlCat += '<strong>' + Cart.list[i].quantity + '</strong> x <span class="price">' + Util.toMoneyFormat(Cart.list[i].price) + '</span>';
+                htmlCat += '<p class="product-name"><a href="product-detail.html">' + Cart.list[i].title + '</a></p>';
+                
                 htmlCat += '</div>';
-                htmlCat += '<div class="p-right">';
-                htmlCat += '<p class="p-name">' + Cart.list[i].title + '</p>';
-                htmlCat += '<p class="p-rice">' + Util.toMoneyFormat(Cart.list[i].price) + ' đ</p>';
-                htmlCat += '<p>SL: ' + Cart.list[i].quantity + '</p>';
                 htmlCat += '</div>';
                 htmlCat += '</li>';
             }
