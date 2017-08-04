@@ -41,8 +41,6 @@
             </div>
         </div>
     </div>
-
-    <!--Category slider Start-->
     <div class="top-cate">
         <div class="featured-pro container">
             <div class="row">
@@ -79,9 +77,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!--Category silder End-->
-    <!-- best Pro Slider -->
+    </div>    
+    
     <section class=" wow bounceInUp animated">
         <div class="best-pro slider-items-products container">
             <div class="new_title">
@@ -171,79 +168,36 @@
             </div>
         </div>
     </section>
-    <!-- Home Lastest Blog Block -->
-    <div class="latest-blog wow bounceInUp animated animated container">
-        <!--exclude For version 6 -->
+    @if (ViewData["FeatureArticle"] != null)
+    {
+        SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
+    <div class="latest-blog wow bounceInUp animated animated container">        
         <div class="new_title">
-            <h2>Latest Blog</h2>
-        </div>
-        <!--blog-title-->
-        <!--For version 1,2,3,4,5,6,8 -->
+            <h2>Bài viết mới nhất</h2>
+        </div>   
+        @foreach (BlogItem item in FeatureArticle.ItemList)
+        {
         <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
             <div class="blog_inner">
                 <div class="blog-img">
-                    <a href="blog-detail.html"> <img src="/assets/images/blog-img.jpg" alt="blog image"> </a>
+                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
                     <div class="mask"> <a class="info" href="blog-detail.html">Read More</a> </div>
                 </div>
                 <!--blog-img-->
                 <div class="blog-info">
                     <div class="post-date">
-                        <time class="entry-date" datetime="2015-05-11T11:07:27+00:00">14 <br> April</time>
+                        <time class="entry-date" datetime="@item.CreateDate">mới đăng</time>
                     </div>
-                    <h3><a href="blog-detail.html">Lorem ipsum dolor sit amet, consectetur adipiscing</a></h3>
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada ...</p>
-                    <a class="readmore" href="blog-detail.html">Read More</a>
+                    <h3><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h3>
+                    <p>@Anpero.StringHelpper.SubString(150,item.ShotDesc)</p>
+                    <a class="readmore" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Xem thêm</a>
                 </div>
             </div>
             <!--blog_inner-->
         </div>
-        <!--col-lg-4 col-md-4 col-xs-12 col-sm-4-->
-        <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
-            <div class="blog_inner">
-                <div class="blog-img">
-                    <a href="blog-detail.html"> <img src="/assets/images/blog-img.jpg" alt="blog image"> </a>
-                    <div class="mask"> <a class="info" href="blog-detail.html">Read More</a> </div>
-                </div>
-                <!--blog-img-->
-                <div class="blog-info">
-                    <div class="post-date">
-                        <time class="entry-date" datetime="2015-05-11T11:07:27+00:00">14 <br> April</time>
-                    </div>
-                    <h3><a href="blog-detail.html">Lorem ipsum dolor sit amet, consectetur adipiscing</a></h3>
-
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada ...</p>
-                    <a class="readmore" href="blog-detail.html">Read More</a>
-                </div>
-            </div>
-            <!--blog_inner-->
-        </div>
-
-        <!--col-lg-4 col-md-4 col-xs-12 col-sm-4-->
-        <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
-            <div class="blog_inner">
-                <div class="blog-img">
-                    <a href="blog-detail.html"> <img src="/assets/images/blog-img.jpg" alt="blog image"> </a>
-                    <div class="mask"> <a class="info" href="blog-detail.html">Read More</a> </div>
-                </div>
-                <!--blog-img-->
-                <div class="blog-info">
-                    <div class="post-date">
-                        <time class="entry-date" datetime="2015-05-11T11:07:27+00:00">14 <br> April</time>
-                    </div>
-                    <h3><a href="blog-detail.html">Lorem ipsum dolor sit amet, consectetur adipiscing</a></h3>
-
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada ...</p>
-                    <a class="readmore" href="blog-detail.html">Read More</a>
-                </div>
-            </div>
-            <!--blog_inner-->
-        </div>
-        <!--col-lg-4 col-md-4 col-xs-12 col-sm-4-->
-        <!--END For version 1,2,3,4,5,6,8 -->
-        <!--exclude For version 6 -->
-        <!--container-->
+        }
     </div>
-
+    }
     <!-- Logo Brand Block -->
     <div class="brand-logo wow bounceInUp animated">
         <div class="container">
