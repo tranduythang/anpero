@@ -123,18 +123,18 @@
                                                         </a> 
                                                     </div>
                                                     <div class="product-shop">
-                                                        <h2 class="product-name"><a href="product-detail.html" title="HTC Rhyme Sense">HTC Rhyme Sense</a></h2>
+                                                        <h2 class="product-name">
+                                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">@item.PrName</a>
+                                                        </h2>
                                                         <div class="ratings">
                                                             <div class="rating-box">
                                                                 <div style="width:50%" class="rating"></div>
                                                             </div>
-                                                            <p class="rating-links"> <a href="#/review/product/list/id/167/category/35/">1 Review(s)</a> <span class="separator">|</span> <a href="#review-form">Add Your Review</a> </p>
+                                                            <p class="rating-links"> <a href="#/review/product/list/id/167/category/35/">1 Nhận xét</a> <span class="separator">|</span> <a href="#review-form">Thêm nhận xét</a> </p>
                                                         </div>
                                                         <div class="desc std">
                                                             <p>
-                                                                Sed volutpat ac massa eget
-                                                                lacinia.
-                                                                Aenean volutpat lacus at dolor blandit
+                                                                @item.ShortDesc
                                                             </p>
                                                             <p>
                                                                 Sed sed interdum diam. Donec sit ametenim tempor, dapibus nunc eu,
@@ -142,11 +142,11 @@
                                                             </p>
                                                         </div>
                                                         <div class="price-box">
-                                                            <p class="old-price"> <span class="price-label"></span> <span id="old-price-212" class="price"> $442.99 </span> </p>
-                                                            <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price"> $222.99 </span> </p>
+                                                            <p class="old-price"> <span class="price-label"></span> <span id="old-price-212" class="price">@item.Price</span> </p>
+                                                            <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price">@item.SalePrice</span> </p>
                                                         </div>
                                                         <div class="actions">
-                                                            <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
+                                                            <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Mua ngay</span></button>
                                                             <span class="add-to-links"> <a title="Add to Wishlist" class="button link-wishlist" href="#"><span>Add to Wishlist</span></a> <a title="Add to Compare" class="button link-compare" href="#"><span>Add to Compare</span></a> </span>
                                                         </div>
                                                     </div>
