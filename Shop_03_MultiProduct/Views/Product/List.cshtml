@@ -5,9 +5,7 @@
     if (ViewData["commonInfo"] != null)
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
-        ViewBag.Title = commonInfo.Desc;
     }
-
 }
 @section health{
     <meta name="description" content="@commonInfo.Desc" />
@@ -53,7 +51,7 @@
                     <!--container-->
                 </div>
                 <div class="page-title">
-                    <h2>Cappon Magro</h2>
+                    <h2>Sản phẩm</h2>
                 </div>
             </div>
             <!-- BEGIN Main Container col2-left -->
@@ -146,8 +144,11 @@
                                                             <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price">@item.SalePrice</span> </p>
                                                         </div>
                                                         <div class="actions">
-                                                            <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Mua ngay</span></button>
-                                                            <span class="add-to-links"> <a title="Add to Wishlist" class="button link-wishlist" href="#"><span>Add to Wishlist</span></a> <a title="Add to Compare" class="button link-compare" href="#"><span>Add to Compare</span></a> </span>
+                                                            <button class="button btn-cart ajx-cart" title="Mua ngay" type="button"><span>Mua ngay</span></button>
+                                                            <span class="add-to-links"> 
+                                                                <a title="Thêm vào giỏ hàng" class="button link-wishlist" href="#"><span>Thêm vào giỏ hàng</span></a> 
+                                                                <a title="Add to Compare" class="button link-compare" href="#"><span>Add to Compare</span></a> 
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -161,207 +162,56 @@
                         <aside class="col-left sidebar col-sm-3 col-xs-12 col-sm-pull-9 wow bounceInUp animated">
                             <!-- BEGIN SIDE-NAV-CATEGORY -->
                             <div class="side-nav-categories">
-                                <div class="block-title"> Categories </div>
+                                <div class="block-title"> Danh mục sản phẩm </div>
                                 <!--block-title-->
                                 <!-- BEGIN BOX-CATEGORY -->
                                 <div class="box-content box-category">
                                     <ul>
-                                        <li>
-                                            <a class="active" href="grid.html">Salads</a> <span class="subDropdown minus"></span>
-                                            <ul class="level0_415" style="display:block">
-                                                <li>
-                                                    <a href="grid.html"> Bread Salads </a> <span class="subDropdown plus"></span>
-                                                    <ul class="level1" style="display:none">
-                                                        <li> <a href="grid.html"><span>Cappon Magro</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Dakos</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Fattoush</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Panzanella</span></a> </li>
-                                                    </ul>
-                                                    <!--level1-->
-                                                </li>
-                                                <!--level1-->
-                                                <li>
-                                                    <a href="grid.html"> Fruit Salads‎ </a> <span class="subDropdown plus"></span>
-                                                    <ul class="level1" style="display:none">
-                                                        <li> <a href="grid.html"><span>Candle Salad</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Frogeye Salad</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Green Papaya Salad</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Waldorf salad</span></a> </li>
-                                                    </ul>
-                                                    <!--level1-->
-                                                </li>
-                                                <!--level1-->
-                                                <li>
-                                                    <a href="grid.html"> Salad Dressings </a> <span class="subDropdown plus"></span>
-                                                    <ul class="level1" style="display:none">
-                                                        <li> <a href="grid.html"><span>Louis Dressings</span></a> </li>
-                                                        <li> <a href="grid.html"><span>French Dressings</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Gingner Dressings</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Italian Dressings</span></a> </li>
-                                                    </ul>
-                                                    <!--level1-->
-                                                </li>
-                                                <!--level1-->
-                                                <li>
-                                                    <a href="grid.html"> Leaf Vegetable </a> <span class="subDropdown plus"></span>
-                                                    <ul class="level1" style="display:none">
-                                                        <li> <a href="grid.html"><span>Fenugreek</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Spinach</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Malva</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Cabbage</span></a> </li>
-                                                    </ul>
-                                                    <!--level1-->
-                                                </li>
-                                            </ul>
-                                            <!--level0-->
-                                        </li>
-                                        <!--level 0-->
-                                        <li>
-                                            <a href="grid.html">Soups</a> <span class="subDropdown plus"></span>
-                                            <ul class="level0_455" style="display:none">
-                                                <li>
-                                                    <a href="grid.html"> Cold Soups </a> <span class="subDropdown minus"></span>
-                                                    <ul class="level1" style="display:none">
-                                                        <li> <a href="grid.html"><span>Red Bean Soup</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Fruit Soup</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Naengguk</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Borscht</span></a> </li>
-                                                    </ul>
-                                                    <!--level1-->
-                                                </li>
-                                                <!--level1-->
-                                                <li>
-                                                    <a href="grid.html"> Cream Soups  </a> <span class="subDropdown minus"></span>
-                                                    <ul class="level1" style="display:none">
-                                                        <li> <a href="grid.html"><span>Chowder</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Asparagus Soup</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Broccoli Soup</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Mushroom Soup</span></a> </li>
-                                                    </ul>
-                                                    <!--level1-->
-                                                </li>
-                                                <!--level1-->
-                                                <li>
-                                                    <a href="grid.html"> Vegitable Soups </a> <span class="subDropdown minus"></span>
-                                                    <ul class="level1" style="display:none">
-                                                        <li> <a href="grid.html"><span>French Onion Soup</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Leek Soup</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Minestrone</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Spring Soup</span></a> </li>
-                                                    </ul>
-                                                    <!--level1-->
-                                                </li>
-                                                <!--level1-->
-                                                <li>
-                                                    <a href="grid.html"> Bean Soups </a> <span class="subDropdown minus"></span>
-                                                    <ul class="level1" style="display:none">
-                                                        <li> <a href="grid.html"><span>Bouneschlupp</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Jókai Bean Soup</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Kwati Soup</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Senate bean</span></a> </li>
-                                                    </ul>
-                                                    <!--level1-->
-                                                </li>
-                                                <!--level1-->
-                                                <li>
-                                                    <a href="grid.html"> Bread Soups </a> <span class="subDropdown minus"></span>
-                                                    <ul class="level1" style="display:none">
-                                                        <li> <a href="grid.html"><span>Tomato Soup</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Manchow Soup</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Sweet Corn Soup</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Shorba Soup</span></a> </li>
-                                                    </ul>
-                                                    <!--level1-->
-                                                </li>
-                                                <!--level1-->
-                                                <li>
-                                                    <a href="grid.html"> Chinese Soups </a> <span class="subDropdown minus"></span>
-                                                    <ul class="level1" style="display:none">
-                                                        <li> <a href="grid.html"><span>Hot & Sour</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Noodle Soup</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Corn Crab Soup</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Sago Soup</span></a> </li>
-                                                    </ul>
-                                                    <!--level1-->
-                                                </li>
-                                            </ul>
-                                            <!--level0-->
-                                        </li>
-                                        <!--level 0-->
-                                        <li>
-                                            <a href="#.html">Fast Food</a> <span class="subDropdown plus"></span>
-                                            <ul class="level0_482" style="display:none">
-                                                <li>
-                                                    <a href="grid.html"> Indian </a> <span class="subDropdown minus"></span>
-                                                    <ul class="level1" style="display:none">
-                                                        <li> <a href="grid.html"><span>Aloo Chaat</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Batata Vada</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Kachori</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Panipuri</span></a> </li>
-                                                    </ul>
-                                                    <!--level1-->
-                                                </li>
-                                                <!--level1-->
-                                                <li>
-                                                    <a href="grid.html"> Pizza </a> <span class="subDropdown minus"></span>
-                                                    <ul class="level1" style="display:none">
-                                                        <li> <a href="grid.html"><span>Greek Pizza</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Pizza Rolls</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Grilled Pizza</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Pizza Strips</span></a> </li>
-                                                    </ul>
-                                                    <!--level1-->
-                                                </li>
-                                                <!--level1-->
-                                                <li>
-                                                    <a href="grid.html"> McDonald's </a> <span class="subDropdown minus"></span>
-                                                    <ul class="level1" style="display:none">
-                                                        <li> <a href="grid.html"><span>Kiwiburger</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Happy Meal</span></a> </li>
-                                                        <li> <a href="grid.html"><span>McMuffin</span></a> </li>
-                                                        <li> <a href="grid.html"><span>McGriddles</span></a> </li>
-                                                    </ul>
-                                                    <!--level1-->
-                                                </li>
-                                                <!--level1-->
-                                                <li>
-                                                    <a href="grid.html"> Wendy's Foods </a> <span class="subDropdown minus"></span>
-                                                    <ul class="level1" style="display:none">
-                                                        <li> <a href="grid.html"><span>Bacon Deluxe</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Baconator</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Frescata</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Frosty</span></a> </li>
-                                                    </ul>
-                                                    <!--level1-->
-                                                </li>
-                                                <!--level1-->
-                                                <li>
-                                                    <a href="grid.html"> Burger King</a> <span class="subDropdown minus"></span>
-                                                    <ul class="level1" style="display:none">
-                                                        <li> <a href="grid.html"><span>Big King</span></a> </li>
-                                                        <li> <a href="grid.html"><span>TenderCrisp</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Whopper</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Kuro Burger</span></a> </li>
-                                                    </ul>
-                                                    <!--level1-->
-                                                </li>
-                                                <!--level1-->
-                                                <li>
-                                                    <a href="grid.html"> Sandwiches </a> <span class="subDropdown minus"></span>
-                                                    <ul class="level1" style="display:none">
-                                                        <li> <a href="grid.html"><span>Hamburgers</span></a> </li>
-                                                        <li> <a href="grid.html"><span> Hot Dogs‎</span></a> </li>
-                                                        <li> <a href="grid.html"><span>American Sandwiches</span></a> </li>
-                                                        <li> <a href="grid.html"><span>Chilean Sandwiches</span></a> </li>
-                                                    </ul>
-                                                    <!--level1-->
-                                                </li>
-                                                <!--level1-->
-                                            </ul>
-                                            <!--level0-->
-                                        </li>
-                                        <!--level 0-->
-                                        <li> <a href="grid.html">Sandwiches‎</a> </li>
+                                        @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                                        {
+                                            <!--level0 current-->
+                                            <li>
+                                                <a class="active" href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)">
+                                                    @productList.Item[0].ParentCatName
+                                                </a> 
+                                                <span class="subDropdown minus"></span>
+                                                <ul class="level0_415" style="display:block">
+                                                    @foreach (var p in commonInfo.ProductCategoryList.Where(p => p.Id == productList.Item[0].ParentId))
+                                                    {
+                                                        foreach(var child in p.ChildCategory)
+                                                        {
+                                                            <li>
+                                                                <a href="@Anpero.StringHelpper.GetCategoryLink(child.Name, child.Id)">@child.Name</a>
+                                                            </li>
+                                                        }
+                                                    }
+                                                </ul>
+                                            </li>
+                                            <!--level0 other-->
+                                            foreach (var item in commonInfo.ProductCategoryList.Where(item => item.Id != productList.Item[0].ParentId))
+                                            {
+                                                if (item.ChildCategory != null && item.ChildCategory.Length == 0)
+                                                {
+                                                    <li> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">@item.Name‎</a> </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)">@item.Name</a> <span class="subDropdown plus"></span>
+                                                        <ul class="level0_482" style="display:none">
+                                                            @foreach (var chidItem in item.ChildCategory)
+                                                            {
+                                                                <li>
+                                                                    <a href="@Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)">
+                                                                        @chidItem.Name
+                                                                    </a>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </li>
+                                                }
+                                            }
+                                        }
                                         <!--level 0-->
                                     </ul>
                                 </div>
@@ -392,42 +242,60 @@
                                     </dl>
                                 </div>
                             </div>
-                            <div class="custom-slider">
-                                <div>
-                                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                                        <ol class="carousel-indicators">
-                                            <li class="active" data-target="#carousel-example-generic" data-slide-to="0"></li>
-                                            <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-                                            <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-                                        </ol>
-                                        <div class="carousel-inner">
-                                            <div class="item active">
-                                                <img src="images/blog-banner.png" alt="slide3">
-                                                <div class="carousel-caption">
-                                                    <h3><a title=" Sample Product" href="product-detail.html">50% OFF</a></h3>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                    <a class="link" href="#">Buy Now</a>
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <img src="images/blog-banner.png" alt="slide1">
-                                                <div class="carousel-caption">
-                                                    <h3><a title=" Sample Product" href="product-detail.html">Hot collection</a></h3>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <img src="images/blog-banner.png" alt="slide2">
-                                                <div class="carousel-caption">
-                                                    <h3><a title=" Sample Product" href="product-detail.html">Summer collection</a></h3>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                </div>
+                            <!--Custom ads 3-->
+                            @if (ViewData["slide3"] != null)
+                            {
+                                Ads[] slide = (Ads[])ViewData["slide3"];
+                                if (slide.Length > 0)
+                                {
+                                    <div class="custom-slider">
+                                        <div>
+                                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                                <ol class="carousel-indicators">
+                                                    @for (int i = 0; i < slide.Length; i++)
+                                                    {
+                                                        if (i == 0)
+                                                        {
+                                                            <li class="active" data-target="#carousel-example-generic" data-slide-to="0"></li>
+                                                        }
+                                                        else
+                                                        {
+                                                            <li data-target="#carousel-example-generic" data-slide-to="@i" class=""></li>
+                                                        }
+                                                    }
+                                                </ol>
+                                                @for (int i = 0; i < slide.Length; i++)
+                                                {
+                                                    <div class="carousel-inner">
+                                                        @if (i == 0)
+                                                        {
+                                                            <div class="item active">
+                                                                <img src="@slide[i].ImagesUrl" alt="slide1" />
+                                                                @Html.Raw(slide[i].Description)
+                                                            </div>
+                                                        }
+                                                        else if (i == 1)
+                                                        {
+                                                            <div class="item">
+                                                                <img src="@slide[i].ImagesUrl" alt="slide2" />
+                                                                @Html.Raw(slide[i].Description)
+                                                            </div>
+                                                        }
+                                                        else if (i == 2)
+                                                        {
+                                                            <div class="item">
+                                                                <img src="@slide[i].ImagesUrl" alt="slide3" />
+                                                                @Html.Raw(slide[i].Description)
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                }
+                                                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"> <span class="sr-only">Next</span> </a>
                                             </div>
                                         </div>
-                                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"> <span class="sr-only">Next</span> </a>
                                     </div>
-                                </div>
-                            </div>
+                                }
+                            }
                             <div class="block block-list block-cart">
                                 <div class="block-title"> My Cart </div>
                                 <div class="block-content">
