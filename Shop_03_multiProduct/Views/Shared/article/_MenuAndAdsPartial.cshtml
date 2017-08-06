@@ -11,9 +11,103 @@
         TopArticle = (SearchArticleResults)ViewData["FeatureArticle"];
     }
 }
+<div class="col-left sidebar col-sm-3 blog-side">
+    <div id="secondary" class="widget_wrapper13" role="complementary">
+        <div id="recent-posts-4" class="popular-posts widget widget__sidebar wow bounceInUp animated animated" style="visibility: visible;">
+            <h2 class="widget-title">Tin nổi bật</h2>
+            <div class="widget-content">
+                <ul class="posts-list unstyled clearfix">
+                    @if (TopArticle != null && TopArticle.ItemList.Length > 0)
+                    {
+                        for (int i = 0; i < TopArticle.ItemList.Length - 1; i++)
+                        {
+                            <li>
+                                <figure class="featured-thumb"><a href="@Anpero.StringHelpper.GetArticleLink(TopArticle.ItemList[i].Title,TopArticle.ItemList[i].Id)"><img src="@TopArticle.ItemList[i].Thumb" alt="@TopArticle.ItemList[i].Title"></a> </figure>
+                                <!--featured-thumb-->
+                                <div class="content-info">
+                                    <h4><a href="@Anpero.StringHelpper.GetArticleLink(TopArticle.ItemList[i].Title,TopArticle.ItemList[i].Id)">@TopArticle.ItemList[i].Title</a></h4>
+                                    <p class="post-meta">
+                                        <i class="icon-calendar"></i>
+                                        <time class="entry-date" datetime="@Anpero.StringHelpper.ConvertTimeVN(TopArticle.ItemList[i].CreateDate)">@Anpero.StringHelpper.ConvertTimeVN(TopArticle.ItemList[i].CreateDate)</time>
+                                        .
+                                    </p>
+                                </div>
+                            </li>
+
+                        }
+
+                    }
+
+
+                </ul>
+            </div>
+            <!--widget-content-->
+        </div>
+        <div id="categories-2" class="widget widget_categories wow bounceInUp animated animated" style="visibility: visible;">
+            <h2 class="widget-title">Danh mục bài viết</h2>
+            <div class="content">
+                @if (categoryList != null && categoryList.Count > 0)
+                {
+                    foreach (BlogCategory item in categoryList)
+                    {
+                        <ul>
+                            <li class="cat-item"><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Name,item.Id)">@item.Name</a></li>
+                        </ul>
+                    }
+                }
+            </div>
+        </div>
+        <!-- Banner Ad Block -->
+        <div class="custom-slider">
+            <div>
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li class="active" data-target="#carousel-example-generic" data-slide-to="0"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="images/blog-banner.png" alt="slide3">
+                            <div class="carousel-caption">
+                                <h3><a title=" Sample Product" href="product-detail.html">50% OFF</a></h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <a class="link" href="#">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="images/blog-banner.png" alt="slide1">
+                            <div class="carousel-caption">
+                                <h3><a title=" Sample Product" href="product-detail.html">Hot collection</a></h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="images/blog-banner.png" alt="slide2">
+                            <div class="carousel-caption">
+                                <h3><a title=" Sample Product" href="product-detail.html">Summer collection</a></h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"> <span class="sr-only">Next</span> </a>
+                </div>
+            </div>
+        </div>
+        <!-- Banner Text Block -->
+        <div class="text-widget widget widget__sidebar">
+            <h2 class="widget-title">Custom Widget</h2>
+            <div class="widget-content">
+                Mauris at blandit erat. Nam vel tortor non quam scelerisque cursus. Praesent nunc vitae magna pellentesque auctor. Quisque id lectus.<br>
+                <br>
+                Massa, eget eleifend tellus. Proin nec ante leo ssim nunc sit amet velit malesuada pharetra. Nulla neque sapien, sollicitudin non ornare quis, malesuada.
+            </div>
+        </div>
+    </div>
+</div>
 <div class="column col-xs-12 col-sm-3" id="left_column">
     <!-- Blog category -->
-    @if (categoryList!=null && categoryList.Count > 0)
+    @if (categoryList != null && categoryList.Count > 0)
     {
         <div class="block left-module">
             <p class="title_block">Các chuyên mục</p>
@@ -21,11 +115,11 @@
                 <!-- layered -->
                 <div class="layered layered-category">
                     <div class="layered-content">
-                        <ul class="tree-menu">                         
+                        <ul class="tree-menu">
                             @foreach (BlogCategory item in categoryList)
-                               {
+                            {
                                 <li><span></span><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Name,item.Id)">@item.Name</a></li>
-                               }
+                            }
                         </ul>
                     </div>
                 </div>
@@ -53,7 +147,7 @@
 
     <!-- ./blog category  -->
     <!-- Popular Posts -->
-    @if (TopArticle!=null && TopArticle.ItemList.Length > 0)
+    @if (TopArticle != null && TopArticle.ItemList.Length > 0)
     {
 
         <div class="block left-module">
@@ -89,77 +183,77 @@
 
         <!-- ./Popular Posts -->
         <!-- Banner -->
-            <div class="block left-module">
-                <div class="banner-opacity">
-                    <a href="@Anpero.StringHelpper.GetArticleLink(TopArticle.ItemList[TopArticle.ItemList.Length-1].Title,TopArticle.ItemList[TopArticle.ItemList.Length-1].Id)"><img src="@TopArticle.ItemList[TopArticle.ItemList.Length-1].Thumb" alt="@TopArticle.ItemList[TopArticle.ItemList.Length-1].Title"></a>
-                </div>
+        <div class="block left-module">
+            <div class="banner-opacity">
+                <a href="@Anpero.StringHelpper.GetArticleLink(TopArticle.ItemList[TopArticle.ItemList.Length-1].Title,TopArticle.ItemList[TopArticle.ItemList.Length-1].Id)"><img src="@TopArticle.ItemList[TopArticle.ItemList.Length-1].Thumb" alt="@TopArticle.ItemList[TopArticle.ItemList.Length-1].Title"></a>
             </div>
+        </div>
     }
     <!-- ./Banner -->
     @*<!-- Recent Comments -->
-    <div class="block left-module">
-        <p class="title_block">Recent Comments</p>
-        <div class="block_content">
-            <!-- layered -->
-            <div class="layered">
-                <div class="layered-content">
-                    <ul class="recent-comment-list">
-                        <li>
-                            <h5><a href="#">Lorem ipsum dolor sit amet</a></h5>
-                            <div class="comment">
-                                "Consectetuer adipis. Mauris accumsan nulla vel diam. Sed in..."
-                            </div>
-                            <div class="author">Posted by <a href="#">Admin</a></div>
-                        </li>
-                        <li>
-                            <h5><a href="#">Lorem ipsum dolor sit amet</a></h5>
-                            <div class="comment">
-                                "Consectetuer adipis. Mauris accumsan nulla vel diam. Sed in..."
-                            </div>
-                            <div class="author">Posted by <a href="#">Admin</a></div>
-                        </li>
-                        <li>
-                            <h5><a href="#">Lorem ipsum dolor sit amet</a></h5>
-                            <div class="comment">
-                                "Consectetuer adipis. Mauris accumsan nulla vel diam. Sed in..."
-                            </div>
-                            <div class="author">Posted by <a href="#">Admin</a></div>
-                        </li>
-                    </ul>
+        <div class="block left-module">
+            <p class="title_block">Recent Comments</p>
+            <div class="block_content">
+                <!-- layered -->
+                <div class="layered">
+                    <div class="layered-content">
+                        <ul class="recent-comment-list">
+                            <li>
+                                <h5><a href="#">Lorem ipsum dolor sit amet</a></h5>
+                                <div class="comment">
+                                    "Consectetuer adipis. Mauris accumsan nulla vel diam. Sed in..."
+                                </div>
+                                <div class="author">Posted by <a href="#">Admin</a></div>
+                            </li>
+                            <li>
+                                <h5><a href="#">Lorem ipsum dolor sit amet</a></h5>
+                                <div class="comment">
+                                    "Consectetuer adipis. Mauris accumsan nulla vel diam. Sed in..."
+                                </div>
+                                <div class="author">Posted by <a href="#">Admin</a></div>
+                            </li>
+                            <li>
+                                <h5><a href="#">Lorem ipsum dolor sit amet</a></h5>
+                                <div class="comment">
+                                    "Consectetuer adipis. Mauris accumsan nulla vel diam. Sed in..."
+                                </div>
+                                <div class="author">Posted by <a href="#">Admin</a></div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+                <!-- ./layered -->
             </div>
-            <!-- ./layered -->
         </div>
-    </div>
-    <!-- ./Recent Comments -->*@
+        <!-- ./Recent Comments -->*@
     <!-- tags -->
     @*<div class="block left-module">
-        <p class="title_block">TAGS</p>
-        <div class="block_content">
-            <div class="tags">
-                <a href="#"><span class="level1">actual</span></a>
-                <a href="#"><span class="level2">adorable</span></a>
-                <a href="#"><span class="level3">change</span></a>
-                <a href="#"><span class="level4">consider</span></a>
-                <a href="#"><span class="level3">phenomenon</span></a>
-                <a href="#"><span class="level4">span</span></a>
-                <a href="#"><span class="level1">spanegs</span></a>
-                <a href="#"><span class="level5">spanegs</span></a>
-                <a href="#"><span class="level1">actual</span></a>
-                <a href="#"><span class="level2">adorable</span></a>
-                <a href="#"><span class="level3">change</span></a>
-                <a href="#"><span class="level4">consider</span></a>
-                <a href="#"><span class="level2">gives</span></a>
-                <a href="#"><span class="level3">change</span></a>
-                <a href="#"><span class="level2">gives</span></a>
-                <a href="#"><span class="level1">good</span></a>
-                <a href="#"><span class="level3">phenomenon</span></a>
-                <a href="#"><span class="level4">span</span></a>
-                <a href="#"><span class="level1">spanegs</span></a>
-                <a href="#"><span class="level5">spanegs</span></a>
+            <p class="title_block">TAGS</p>
+            <div class="block_content">
+                <div class="tags">
+                    <a href="#"><span class="level1">actual</span></a>
+                    <a href="#"><span class="level2">adorable</span></a>
+                    <a href="#"><span class="level3">change</span></a>
+                    <a href="#"><span class="level4">consider</span></a>
+                    <a href="#"><span class="level3">phenomenon</span></a>
+                    <a href="#"><span class="level4">span</span></a>
+                    <a href="#"><span class="level1">spanegs</span></a>
+                    <a href="#"><span class="level5">spanegs</span></a>
+                    <a href="#"><span class="level1">actual</span></a>
+                    <a href="#"><span class="level2">adorable</span></a>
+                    <a href="#"><span class="level3">change</span></a>
+                    <a href="#"><span class="level4">consider</span></a>
+                    <a href="#"><span class="level2">gives</span></a>
+                    <a href="#"><span class="level3">change</span></a>
+                    <a href="#"><span class="level2">gives</span></a>
+                    <a href="#"><span class="level1">good</span></a>
+                    <a href="#"><span class="level3">phenomenon</span></a>
+                    <a href="#"><span class="level4">span</span></a>
+                    <a href="#"><span class="level1">spanegs</span></a>
+                    <a href="#"><span class="level5">spanegs</span></a>
+                </div>
             </div>
-        </div>
-    </div>*@
+        </div>*@
     <!-- ./tags -->
- 
+
 </div>
