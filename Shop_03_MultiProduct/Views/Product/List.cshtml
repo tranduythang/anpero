@@ -63,20 +63,15 @@
                         <div class="col-main col-sm-9 col-sm-push-3">
                             <div class="pro-coloumn">
                                 <article class="col-main">
-
                                     <div class="toolbar">
-                                        <div class="sorter">
-                                            <div class="view-mode"> <a href="grid.html" title="Grid" class="button button-grid">&nbsp;</a>&nbsp; <span title="List" class="button button-active button-list">&nbsp;</span>&nbsp; </div>
-                                        </div>
                                         <div id="sort-by">
-                                            <label class="left">Sort By: </label>
+                                            <label class="left">Sắp xếp: </label>
                                             <ul>
                                                 <li>
-                                                    <a href="#">Position<span class="right-arrow"></span></a>
+                                                    <a href="#">Tên<span class="right-arrow"></span></a>
                                                     <ul>
-                                                        <li><a href="#">Name</a></li>
-                                                        <li><a href="#">Price</a></li>
-                                                        <li><a href="#">Position</a></li>
+                                                        <li><a href="#">Tên</a></li>
+                                                        <li><a href="#">Giá</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -135,19 +130,17 @@
                                                                 @item.ShortDesc
                                                             </p>
                                                             <p>
-                                                                Sed sed interdum diam. Donec sit ametenim tempor, dapibus nunc eu,
-                                                                tincidunt mi. Vivamus dictum nec... <a class="link-learn" title="" href="#">Learn More</a>
+                                                                <a class="link-learn" title="" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">Chi tiết</a>
                                                             </p>
                                                         </div>
                                                         <div class="price-box">
-                                                            <p class="old-price"> <span class="price-label"></span> <span id="old-price-212" class="price">@item.Price</span> </p>
-                                                            <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price">@item.SalePrice</span> </p>
+                                                            <p class="old-price"> <span class="price-label"></span> <span id="old-price-212" class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)0</span> </p>
+                                                            <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(@item.SalePrice)0</span> </p>
                                                         </div>
                                                         <div class="actions">
                                                             <button class="button btn-cart ajx-cart" title="Mua ngay" type="button"><span>Mua ngay</span></button>
                                                             <span class="add-to-links"> 
                                                                 <a title="Thêm vào giỏ hàng" class="button link-wishlist" href="#"><span>Thêm vào giỏ hàng</span></a> 
-                                                                <a title="Add to Compare" class="button link-compare" href="#"><span>Add to Compare</span></a> 
                                                             </span>
                                                         </div>
                                                     </div>
@@ -219,7 +212,7 @@
                             </div>
                             <!--side-nav-categories-->
                             <div class="block block-layered-nav">
-                                <div class="block-title"> Shop By </div>
+                                <div class="block-title"> Sắp xếp </div>
                                 <div class="block-content">
                                     <p class="block-subtitle">Shopping Options</p>
                                     <dl id="narrow-by-list">
@@ -271,21 +264,27 @@
                                                         {
                                                             <div class="item active">
                                                                 <img src="@slide[i].ImagesUrl" alt="slide1" />
-                                                                @Html.Raw(slide[i].Description)
+                                                                <div class="carousel-caption">
+                                                                    @Html.Raw(slide[i].Description)
+                                                                </div>
                                                             </div>
                                                         }
                                                         else if (i == 1)
                                                         {
                                                             <div class="item">
                                                                 <img src="@slide[i].ImagesUrl" alt="slide2" />
-                                                                @Html.Raw(slide[i].Description)
+                                                                <div class="carousel-caption">
+                                                                    @Html.Raw(slide[i].Description)
+                                                                </div>
                                                             </div>
                                                         }
                                                         else if (i == 2)
                                                         {
                                                             <div class="item">
                                                                 <img src="@slide[i].ImagesUrl" alt="slide3" />
-                                                                @Html.Raw(slide[i].Description)
+                                                                <div class="carousel-caption">
+                                                                    @Html.Raw(slide[i].Description)
+                                                                </div>
                                                             </div>
                                                         }
                                                     </div>
@@ -296,8 +295,9 @@
                                     </div>
                                 }
                             }
+                            <!--My Card-->
                             <div class="block block-list block-cart">
-                                <div class="block-title"> My Cart </div>
+                                <div class="block-title"> Giỏ hàng </div>
                                 <div class="block-content">
                                     <div class="summary">
                                         <p class="amount">There is <a href="#">1 item</a> in your cart.</p>
@@ -346,74 +346,17 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="block block-compare">
-                                <div class="block-title"> Compare Products </div>
-                                <div class="block-content">
-                                    <ol id="compare-items">
-                                        <li class="item odd">
-                                            <a href="#" class="btn-remove1" onclick="#"></a>
-                                            <a class="product-name" href="#">RETIS LAPEN CASEN</a>
-                                        </li>
-                                        <li class="item odd">
-                                            <a href="#" class="btn-remove1" onclick="#"></a>
-                                            <a class="product-name" href="#">RETIS LAPEN CASEN</a>
-                                        </li>
-                                        <li class="item odd">
-                                            <a href="#" class="btn-remove1" onclick="#"></a>
-                                            <a class="product-name" href="#">RETIS LAPEN CASEN</a>
-                                        </li>
-                                        <li class="item odd">
-                                            <a href="#" class="btn-remove1" onclick="#"></a>
-                                            <a class="product-name" href="#">RETIS LAPEN CASEN</a>
-                                        </li>
-                                    </ol>
-
-                                    <div class="ajax-checkout">
-                                        <button type="button" title="Compare" class="button button-compare" onclick="#"><span>Compare</span></button>
-                                        <button class="button button-clear" href="#"><span>Clear</span></button>
-                                    </div><!--ajax-checkout-->
-                                </div>
-                                <!--block-content-->
+                            <!--End My Card-->
+                            <div class="hot-banner">
+                                @if (ViewData["slide3"] != null)
+                                {
+                                    Ads[] slide = (Ads[])ViewData["slide3"];
+                                    if (slide.Length > 0)
+                                    {
+                                        <img src="@slide.LastOrDefault().ImagesUrl" alt="banner">
+                                    }
+                                }
                             </div>
-                            <!--block block-list block-compare-->
-                            <div class="block block-poll">
-                                <div class="block-title"> Community Poll </div>
-                                <form id="pollForm" action="#" method="post" onsubmit="return validatePollAnswerIsSelected();">
-                                    <div class="block-content">
-                                        <p class="block-subtitle">What is your favorite color</p>
-                                        <ul id="poll-answers">
-                                            <li class="odd">
-                                                <input type="radio" name="vote" class="radio poll_vote" id="vote_1" value="1">
-                                                <span class="label">
-                                                    <label for="vote_1">Green</label>
-                                                </span>
-                                            </li>
-                                            <li class="even">
-                                                <input type="radio" name="vote" class="radio poll_vote" id="vote_2" value="2">
-                                                <span class="label">
-                                                    <label for="vote_2">Red</label>
-                                                </span>
-                                            </li>
-                                            <li class="odd">
-                                                <input type="radio" name="vote" class="radio poll_vote" id="vote_3" value="3">
-                                                <span class="label">
-                                                    <label for="vote_3">Black</label>
-                                                </span>
-                                            </li>
-                                            <li class="last even">
-                                                <input type="radio" name="vote" class="radio poll_vote" id="vote_4" value="4">
-                                                <span class="label">
-                                                    <label for="vote_4">Magenta</label>
-                                                </span>
-                                            </li>
-                                        </ul>
-                                        <div class="actions">
-                                            <button type="submit" title="Vote" class="button button-vote"><span>Vote</span></button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="hot-banner"><img src="images/hot-trends-banner.png" alt="banner"></div>
                         </aside>
                         <!--col-right sidebar-->
                     </div> <!--row-->

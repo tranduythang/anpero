@@ -98,28 +98,21 @@
                                     <div class="level0-wrapper fl-custom-tabmenu" style="left: 0px; display: none;">
                                         <div class="container">
                                             <div class="header-nav-dropdown-wrapper clearer">
-                                                <div class="grid12-3">
-
-                                                    <div><img src="/assets/images/custom-block.png" alt="custom-image"></div>
-                                                    <h4 class="heading">SALE UP TO 30% OFF</h4>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                </div>
-                                                <div class="grid12-3">
-
-                                                    <div><img src="/assets/images/custom-block.png" alt="custom-image"></div>
-                                                    <h4 class="heading">SALE UP TO 30% OFF</h4>
-                                                    <p>Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
-                                                </div>
-                                                <div class="grid12-3">
-                                                    <div><img src="/assets/images/custom-block.png" alt="custom-image"></div>
-                                                    <h4 class="heading">SALE UP TO 30% OFF</h4>
-                                                    <p>Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
-                                                </div>
-                                                <div class="grid12-3">
-                                                    <div><img src="/assets/images/custom-block.png" alt="custom-image"></div>
-                                                    <h4 class="heading">SALE UP TO 30% OFF</h4>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                </div>
+                                                @if (ViewData["saleProduct"] != null)
+                                                {
+                                                    AnperoFrontend.WebService.ProductItem[] saleProduct = (AnperoFrontend.WebService.ProductItem[])ViewData["saleProduct"];
+                                                    if (saleProduct != null && saleProduct.Length > 0)
+                                                    {
+                                                        foreach (ProductItem item in saleProduct)
+                                                        {
+                                                            <div class="grid12-3">
+                                                                <div><img src="@item.Images" alt="@item.PrName"></div>
+                                                                <h4 class="heading">Giảm giá 20%</h4>
+                                                                <p>@item.ShortDesc.Substring(0, 61)...</p>
+                                                            </div>
+                                                        }
+                                                    }
+                                                }
                                             </div>
                                         </div>
                                     </div>
