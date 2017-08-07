@@ -79,8 +79,7 @@
                                         </span>
                                         <div class="price-block">
                                             <div class="price-box"> <span class="regular-price" id="product-price-123"> <span class="price">@item.Price</span> </span> </div>
-                                            <p class="availability in-stock">
-                                                <link itemprop="availability" href="http://schema.org/InStock" />
+                                            <p class="availability in-stock">                                                
                                                 <span>In stock</span>
                                             </p>
                                         </div>
@@ -100,14 +99,14 @@
                                                     <!--custom pull-left-->
                                                 </div>
                                                 <!--pull-left-->
-                                                <button type="button" title="Add to Cart" class="button btn-cart" onclick="productAddToCartForm.submit(this)"><span><i class="icon-basket"></i>Mua ngay</span></button>
+                                                <button type="button" title="Add to Cart" class="button btn-cart" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span><i class="icon-basket"></i>Mua ngay</span></button>
                                             </div>
                                             <!--add-to-cart-->
                                             <div class="email-addto-box">
                                                 <p class="email-friend"><a href="#" title="Email to a Friend"><span>Email to a Friend</span></a></p>
                                                 <ul class="add-to-links">
                                                     <li> <a class="link-wishlist" href="wishlist.html" onclick="" title="Add To Wishlist"><span>Add To Wishlist</span></a> </li>
-                                                    <li> <span class="separator">|</span> <a class="link-compare" href="Compare.html" title="Add To Compare"><span>Add To Compare</span></a> </li>
+                                                  
                                                 </ul>
                                                 <!--add-to-links-->
                                             </div>
