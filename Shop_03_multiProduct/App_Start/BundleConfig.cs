@@ -12,7 +12,7 @@ namespace AnperoFrontend
                        
                        "~/Scripts/jquery.cokie.min.js",
                         "~/assets/js/bootstrap.min.js",
-                       "~/Scripts/ShoppingCart.js",
+                      
                        "~/Scripts/Anpero.Common.js"
                        ));
 

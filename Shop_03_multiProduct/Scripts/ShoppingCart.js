@@ -40,30 +40,33 @@
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
         Cart.bindCartTable();
     },
-    bindCart: function () {
-        
+    bindCart: function () {        
         var ttSC = 0;
         var htmlCat = "";
         if ($.cookie("CartList") != 'null' && $.cookie("CartList") != "undefined" && $.cookie("CartList") != undefined) {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
             $(".spN").html(Cart.list.length);
             for (var i = 0; i < Cart.list.length; i++) {
-                ttSC += parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity);
-                
+                ttSC += parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity);                
                 htmlCat += '<li class="item last"><div class="item-inner">'; 
                 htmlCat += '<a class="product-image" href="' + Cart.list[i].thumb + '"><img src="' + Cart.list[i].thumb + '"></a>';
                 htmlCat += '<div class="product-details">';
                 htmlCat += '<div class="access"><a class="btn-remove1" href="javascript:Cart.remove(' + Cart.list[i].id + ')">Xóa</a> </div>';
-                htmlCat += '<strong>' + Cart.list[i].quantity + '</strong> x <span class="price">' + Util.toMoneyFormat(Cart.list[i].price) + '</span>';
+                htmlCat += '<strong>' + Cart.list[i].quantity + '</strong> x <span class="price">' + Util.toMoneyFormat(Cart.list[i].price) + '</span>';                
                 htmlCat += '<p class="product-name">' + Cart.list[i].title + '</p>';
                 htmlCat += '</div>';
                 htmlCat += '</div>';
                 htmlCat += '</li>';
             }
-            $("#ttSC").html(Util.toMoneyFormat(ttSC));
-            $("#cart-sidebar").html(htmlCat);
+          
+            $("#cart-sidebar").html(htmlCat);           
             $(".toal-cart").show();
+            $(".mini-products-list").show();
+            $(".cart-buttons").show();
             $(".fl-mini-cart-content").show();
+            $("#cart-sidebar2").html(htmlCat);
+            $("#lpr").html(Util.toMoneyFormat(ttSC) + " đ");
+            
         }
     },
     bindCartTable: function () {
