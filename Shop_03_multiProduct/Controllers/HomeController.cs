@@ -92,7 +92,7 @@ namespace AnperoFrontend.Controllers
             ViewData["newestProduct"] = searchResult;
 
         }
-    
+        [BuildCommonHtml]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

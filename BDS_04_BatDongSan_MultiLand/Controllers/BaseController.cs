@@ -58,6 +58,8 @@ namespace AnperoFrontend.Controllers
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             WebService.AnperoService service = new WebService.AnperoService();
+
+            var rs = service.GetCommonConfig(CommonConfig.StoreID, CommonConfig.TokenKey);
             int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
             if (HttpRuntime.Cache["commonInfo"] != null)
             {
@@ -65,17 +67,12 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-
-                var rs = service.GetCommonConfig(CommonConfig.StoreID, CommonConfig.TokenKey);
                 filterContext.Controller.ViewData["commonInfo"] = rs;
                 if (rs != null)
                 {
                     HttpRuntime.Cache.Insert("commonInfo", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
-
-
             }
-
             WebService.Ads[] Slide = null;
             if (HttpRuntime.Cache["Slide"] != null)
             {

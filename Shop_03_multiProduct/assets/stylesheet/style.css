@@ -12092,10 +12092,6 @@ select#shipping-address-select {
   width: 100%;
   z-index: 9;
 }
-
-
-/*	Testimonials */
-
 .testimonials-section {background:#88be4c; padding:20px 45px; text-align:center; min-height:343px; border-color: #88be4c #88be4c #88be4c #88be4c;
   box-shadow: 0 5px 0 rgba(122,177,61,.2); text-align:center}
 .avatar  {margin-bottom:10px; text-align:center; overflow:hidden}
@@ -12104,3 +12100,5 @@ select#shipping-address-select {
 .clients_author {font-size:12px;   font-family: 'Montserrat', sans-serif; font-weight:700; color:#fff}
 .clients_author span{font-size:11px;   font-family: 'Montserrat', sans-serif; font-weight:normal; color:#c0e19b; display:inline-block; margin-left:7px}
 .bl-title h1 a{color:white;font-size:22px;}
+.hide{display:none;}
+#prCatCtTable img{width:160px;}

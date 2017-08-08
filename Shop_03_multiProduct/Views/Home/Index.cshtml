@@ -115,7 +115,7 @@
                                                 <div class="item-box-hover">
                                                     <div class="box-inner">
                                                         <div class="product-detail-bnt">
-                                                            <a class="button detail-bnt">
+                                                            <a class="button detail-bnt" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
                                                                 <span>Chi tiết</span>
                                                             </a>
                                                         </div>
@@ -124,9 +124,7 @@
                                                                 <a href="/product/checkout" class="link-wishlist" title="Mua ngay">
                                                                     <span>Yêu thích</span>
                                                                 </a> 
-                                                                <a href="/product/checkout" class="link-compare add_to_compare" title="Mua ngay">
-                                                                    <span>Mua ngay</span>
-                                                                </a>
+                                                             
                                                             </span>
                                                         </div>
                                                     </div>
@@ -150,10 +148,10 @@
                                                         </div>
                                                     </div>
                                                     <div class="item-price">
-                                                        <div class="price-box"><span class="regular-price"><span class="price">@item.Price</span> </span> </div>
+                                                        <div class="price-box"><span class="regular-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)0</span> </span> </div>
                                                     </div>
-                                                    <div class="add_cart">
-                                                        <button class="button btn-cart" type="button"><span>Mua ngay</span></button>
+                                                    <div class="add_cart">                                                        
+                                                        <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Mua ngay</span></button>
                                                     </div>
                                                 </div>
                                             </div>
