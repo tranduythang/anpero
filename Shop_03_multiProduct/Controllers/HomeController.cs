@@ -29,8 +29,8 @@ namespace AnperoFrontend.Controllers
                 ViewData["slide"] = (WebService.Ads[])HttpRuntime.Cache["Slide"];
             }
             else
-            {
-                Slide= service.GetAdsSlide(StoreID, TokenKey, PageContent.Slide);
+            {             
+                Slide = service.GetAdsSlide(StoreID, TokenKey, PageContent.Slide);
                 ViewData["slide"] = Slide;
                 if (Slide != null)
                 {
