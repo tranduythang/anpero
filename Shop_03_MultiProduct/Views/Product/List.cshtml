@@ -1,0 +1,455 @@
+﻿@using AnperoFrontend.WebService;
+
+@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+}
+@section health{
+    <meta name="description" content="@commonInfo.Desc" />
+    <meta name="keywords" content="@commonInfo.Desc" />
+}
+<div id="page">
+    @if (ViewData["productList"] != null)
+    {
+        AnperoFrontend.WebService.SearchResult productList = (AnperoFrontend.WebService.SearchResult)ViewData["productList"];
+        if (productList.Item.Length > 0)
+        {
+            <div class="page-heading">
+                <div class="breadcrumbs">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <ul>
+                                    <li class="home"> <a href="/" title="Trang chủ">Trang chủ</a> <span>—› </span> </li>
+                                    @if (ViewBag.isParent != null)
+                                    {
+                                        <li class="category1599"> 
+                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
+                                                @productList.Item[0].ParentCatName
+                                            </a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="category1599">
+                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
+                                                @productList.Item[0].ParentCatName
+                                            </a>
+                                            <span>—› </span>
+                                        </li>
+                                        <li class="category1601"> <strong>@productList.Item[0].CatName</strong> </li>
+                                    }
+                                </ul>
+                            </div>
+                            <!--col-xs-12-->
+                        </div>
+                        <!--row-->
+                    </div>
+                    <!--container-->
+                </div>
+                <div class="page-title">
+                    <h2>Sản phẩm</h2>
+                </div>
+            </div>
+            <!-- BEGIN Main Container col2-left -->
+            <section class="main-container col2-left-layout bounceInUp animated">
+                <!-- For version 1, 2, 3, 8 -->
+                <!-- For version 1, 2, 3 -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-main col-sm-9 col-sm-push-3">
+                            <div class="pro-coloumn">
+                                <article class="col-main">
+
+                                    <div class="toolbar">
+                                        <div class="sorter">
+                                            <div class="view-mode"> <a href="grid.html" title="Grid" class="button button-grid">&nbsp;</a>&nbsp; <span title="List" class="button button-active button-list">&nbsp;</span>&nbsp; </div>
+                                        </div>
+                                        <div id="sort-by">
+                                            <label class="left">Sort By: </label>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">Position<span class="right-arrow"></span></a>
+                                                    <ul>
+                                                        <li><a href="#">Name</a></li>
+                                                        <li><a href="#">Price</a></li>
+                                                        <li><a href="#">Position</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                            <a class="button-asc left" href="#" title="Set Descending Direction"><span class="top_arrow"></span></a>
+                                        </div>
+                                        <div class="pager">
+                                            <div id="limiter">
+                                                <label>View: </label>
+                                                <ul>
+                                                    <li>
+                                                        <a href="#">15<span class="right-arrow"></span></a>
+                                                        <ul>
+                                                            <li><a href="#">20</a></li>
+                                                            <li><a href="#">30</a></li>
+                                                            <li><a href="#">35</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="pages">
+                                                <label>Trang:</label>
+                                                <ul class="pagination">
+                                                    <li><a href="#">&laquo;</a></li>
+                                                    <li class="active"><a href="#">1</a></li>
+                                                    <li><a href="#">2</a></li>
+                                                    <li><a href="#">3</a></li>
+                                                    <li><a href="#">4</a></li>
+                                                    <li><a href="#">5</a></li>
+                                                    <li><a href="#">&raquo;</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="category-products">
+                                        <ol class="products-list" id="products-list">
+                                            @foreach (AnperoFrontend.WebService.ProductItem item in productList.Item)
+                                            {
+                                                <li class="item first">
+                                                    <div class="product-image"> 
+                                                        <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
+                                                            <img class="small-image" src="@item.Images" alt="@item.PrName"> 
+                                                        </a> 
+                                                    </div>
+                                                    <div class="product-shop">
+                                                        <h2 class="product-name">
+                                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">@item.PrName</a>
+                                                        </h2>
+                                                        <div class="ratings">
+                                                            <div class="rating-box">
+                                                                <div style="width:50%" class="rating"></div>
+                                                            </div>
+                                                            <p class="rating-links"> <a href="#/review/product/list/id/167/category/35/">1 Nhận xét</a> <span class="separator">|</span> <a href="#review-form">Thêm nhận xét</a> </p>
+                                                        </div>
+                                                        <div class="desc std">
+                                                            <p>
+                                                                @item.ShortDesc
+                                                            </p>
+                                                            <p>
+                                                                Sed sed interdum diam. Donec sit ametenim tempor, dapibus nunc eu,
+                                                                tincidunt mi. Vivamus dictum nec... <a class="link-learn" title="" href="#">Learn More</a>
+                                                            </p>
+                                                        </div>
+                                                        <div class="price-box">
+                                                            <p class="old-price"> <span class="price-label"></span> <span id="old-price-212" class="price">@item.Price</span> </p>
+                                                            <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price">@item.SalePrice</span> </p>
+                                                        </div>
+                                                        <div class="actions">
+                                                            <button class="button btn-cart ajx-cart" title="Mua ngay" type="button"><span>Mua ngay</span></button>
+                                                            <span class="add-to-links"> 
+                                                                <a title="Thêm vào giỏ hàng" class="button link-wishlist" href="#"><span>Thêm vào giỏ hàng</span></a> 
+                                                                <a title="Add to Compare" class="button link-compare" href="#"><span>Add to Compare</span></a> 
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        </ol>
+                                    </div>
+                                </article>
+                                <!--	///*///======    End article  ========= //*/// -->
+                            </div>
+                        </div>
+                        <aside class="col-left sidebar col-sm-3 col-xs-12 col-sm-pull-9 wow bounceInUp animated">
+                            <!-- BEGIN SIDE-NAV-CATEGORY -->
+                            <div class="side-nav-categories">
+                                <div class="block-title"> Danh mục sản phẩm </div>
+                                <!--block-title-->
+                                <!-- BEGIN BOX-CATEGORY -->
+                                <div class="box-content box-category">
+                                    <ul>
+                                        @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                                        {
+                                            <!--level0 current-->
+                                            <li>
+                                                <a class="active" href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)">
+                                                    @productList.Item[0].ParentCatName
+                                                </a> 
+                                                <span class="subDropdown minus"></span>
+                                                <ul class="level0_415" style="display:block">
+                                                    @foreach (var p in commonInfo.ProductCategoryList.Where(p => p.Id == productList.Item[0].ParentId))
+                                                    {
+                                                        foreach(var child in p.ChildCategory)
+                                                        {
+                                                            <li>
+                                                                <a href="@Anpero.StringHelpper.GetCategoryLink(child.Name, child.Id)">@child.Name</a>
+                                                            </li>
+                                                        }
+                                                    }
+                                                </ul>
+                                            </li>
+                                            <!--level0 other-->
+                                            foreach (var item in commonInfo.ProductCategoryList.Where(item => item.Id != productList.Item[0].ParentId))
+                                            {
+                                                if (item.ChildCategory != null && item.ChildCategory.Length == 0)
+                                                {
+                                                    <li> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">@item.Name‎</a> </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)">@item.Name</a> <span class="subDropdown plus"></span>
+                                                        <ul class="level0_482" style="display:none">
+                                                            @foreach (var chidItem in item.ChildCategory)
+                                                            {
+                                                                <li>
+                                                                    <a href="@Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)">
+                                                                        @chidItem.Name
+                                                                    </a>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </li>
+                                                }
+                                            }
+                                        }
+                                        <!--level 0-->
+                                    </ul>
+                                </div>
+                                <!--box-content box-category-->
+                            </div>
+                            <!--side-nav-categories-->
+                            <div class="block block-layered-nav">
+                                <div class="block-title"> Shop By </div>
+                                <div class="block-content">
+                                    <p class="block-subtitle">Shopping Options</p>
+                                    <dl id="narrow-by-list">
+                                        <dt class="odd">Category</dt>
+                                        <dd class="odd">
+                                            <ol>
+                                                <li> <a href="#"> Salad <span class="count">(24)</span> </a> </li>
+                                                <li> <a href="#"> Soups <span class="count">(24)</span> </a> </li>
+                                                <li> <a href="#"> Fast Food <span class="count">(24)</span> </a> </li>
+                                                <li> <a href="#"> Sandwiches <span class="count">(24)</span> </a> </li>
+                                            </ol>
+                                        </dd>
+                                        <dt class="last odd">Price</dt>
+                                        <dd class="last odd">
+                                            <ol>
+                                                <li> <a href="#"> <span class="price">$0.00</span> - <span class="price">$99.99</span> <span class="count">(26)</span> </a> </li>
+                                                <li> <a href="#"> <span class="price">$100.00</span> and above <span class="count">(3)</span> </a> </li>
+                                            </ol>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <!--Custom ads 3-->
+                            @if (ViewData["slide3"] != null)
+                            {
+                                Ads[] slide = (Ads[])ViewData["slide3"];
+                                if (slide.Length > 0)
+                                {
+                                    <div class="custom-slider">
+                                        <div>
+                                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                                <ol class="carousel-indicators">
+                                                    @for (int i = 0; i < slide.Length; i++)
+                                                    {
+                                                        if (i == 0)
+                                                        {
+                                                            <li class="active" data-target="#carousel-example-generic" data-slide-to="0"></li>
+                                                        }
+                                                        else
+                                                        {
+                                                            <li data-target="#carousel-example-generic" data-slide-to="@i" class=""></li>
+                                                        }
+                                                    }
+                                                </ol>
+                                                @for (int i = 0; i < slide.Length; i++)
+                                                {
+                                                    <div class="carousel-inner">
+                                                        @if (i == 0)
+                                                        {
+                                                            <div class="item active">
+                                                                <img src="@slide[i].ImagesUrl" alt="slide1" />
+                                                                @Html.Raw(slide[i].Description)
+                                                            </div>
+                                                        }
+                                                        else if (i == 1)
+                                                        {
+                                                            <div class="item">
+                                                                <img src="@slide[i].ImagesUrl" alt="slide2" />
+                                                                @Html.Raw(slide[i].Description)
+                                                            </div>
+                                                        }
+                                                        else if (i == 2)
+                                                        {
+                                                            <div class="item">
+                                                                <img src="@slide[i].ImagesUrl" alt="slide3" />
+                                                                @Html.Raw(slide[i].Description)
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                }
+                                                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"> <span class="sr-only">Next</span> </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            <div class="block block-list block-cart">
+                                <div class="block-title"> My Cart </div>
+                                <div class="block-content">
+                                    <div class="summary">
+                                        <p class="amount">There is <a href="#">1 item</a> in your cart.</p>
+                                        <p class="subtotal"> <span class="label">Cart Subtotal:</span> <span class="price">$299.00</span> </p>
+                                    </div>
+                                    <div class="ajax-checkout">
+                                        <button type="button" title="Checkout" class="button button-checkout" onclick="#"> <span>Checkout</span> </button>
+                                    </div>
+                                    <p class="block-subtitle">Recently added item(s)</p>
+                                    <ul id="cart-sidebar" class="mini-products-list">
+                                        <li class="item">
+                                            <div class="item-inner">
+                                                <a href="#" class="product-image"><img src="images/product-img.jpg" width="80" alt="product"></a>
+                                                <div class="product-details">
+                                                    <div class="access">
+                                                        <a href="#" class="btn-remove1">Remove</a>
+                                                        <a href="" title="Edit item" class="btn-edit">
+                                                            <i class="icon-pencil"></i><span class="hidden">Edit item</span>
+                                                        </a>
+                                                    </div>
+                                                    <!--access-->
+                                                    <strong>1</strong> x <span class="price">$299.00</span>
+                                                    <p class="product-name"><a href="#">RETIS LAPEN CASEN</a></p>
+                                                </div>
+                                                <!--product-details-bottoms-->
+                                            </div>
+                                        </li>
+                                        <li class="item  last1">
+                                            <div class="item-inner">
+                                                <a href="#" class="product-image"><img src="images/product-img.jpg" width="80" alt="product"></a>
+                                                <div class="product-details">
+                                                    <div class="access">
+                                                        <a href="#" class="btn-remove1">Remove</a>
+                                                        <a href="" title="Edit item" class="btn-edit">
+                                                            <i class="icon-pencil"></i><span class="hidden">Edit item</span>
+                                                        </a>
+                                                    </div>
+                                                    <!--access-->
+
+                                                    <strong>1</strong> x <span class="price">$299.00</span>
+                                                    <p class="product-name"><a href="#">RETIS LAPEN CASEN</a></p>
+                                                </div>
+                                                <!--product-details-bottoms-->
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="block block-compare">
+                                <div class="block-title"> Compare Products </div>
+                                <div class="block-content">
+                                    <ol id="compare-items">
+                                        <li class="item odd">
+                                            <a href="#" class="btn-remove1" onclick="#"></a>
+                                            <a class="product-name" href="#">RETIS LAPEN CASEN</a>
+                                        </li>
+                                        <li class="item odd">
+                                            <a href="#" class="btn-remove1" onclick="#"></a>
+                                            <a class="product-name" href="#">RETIS LAPEN CASEN</a>
+                                        </li>
+                                        <li class="item odd">
+                                            <a href="#" class="btn-remove1" onclick="#"></a>
+                                            <a class="product-name" href="#">RETIS LAPEN CASEN</a>
+                                        </li>
+                                        <li class="item odd">
+                                            <a href="#" class="btn-remove1" onclick="#"></a>
+                                            <a class="product-name" href="#">RETIS LAPEN CASEN</a>
+                                        </li>
+                                    </ol>
+
+                                    <div class="ajax-checkout">
+                                        <button type="button" title="Compare" class="button button-compare" onclick="#"><span>Compare</span></button>
+                                        <button class="button button-clear" href="#"><span>Clear</span></button>
+                                    </div><!--ajax-checkout-->
+                                </div>
+                                <!--block-content-->
+                            </div>
+                            <!--block block-list block-compare-->
+                            <div class="block block-poll">
+                                <div class="block-title"> Community Poll </div>
+                                <form id="pollForm" action="#" method="post" onsubmit="return validatePollAnswerIsSelected();">
+                                    <div class="block-content">
+                                        <p class="block-subtitle">What is your favorite color</p>
+                                        <ul id="poll-answers">
+                                            <li class="odd">
+                                                <input type="radio" name="vote" class="radio poll_vote" id="vote_1" value="1">
+                                                <span class="label">
+                                                    <label for="vote_1">Green</label>
+                                                </span>
+                                            </li>
+                                            <li class="even">
+                                                <input type="radio" name="vote" class="radio poll_vote" id="vote_2" value="2">
+                                                <span class="label">
+                                                    <label for="vote_2">Red</label>
+                                                </span>
+                                            </li>
+                                            <li class="odd">
+                                                <input type="radio" name="vote" class="radio poll_vote" id="vote_3" value="3">
+                                                <span class="label">
+                                                    <label for="vote_3">Black</label>
+                                                </span>
+                                            </li>
+                                            <li class="last even">
+                                                <input type="radio" name="vote" class="radio poll_vote" id="vote_4" value="4">
+                                                <span class="label">
+                                                    <label for="vote_4">Magenta</label>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                        <div class="actions">
+                                            <button type="submit" title="Vote" class="button button-vote"><span>Vote</span></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="hot-banner"><img src="images/hot-trends-banner.png" alt="banner"></div>
+                        </aside>
+                        <!--col-right sidebar-->
+                    </div> <!--row-->
+                </div><!--container-->
+            </section> <!--main-container col2-left-layout-->
+            <div class="our-features-box wow bounceInUp animated animated">
+                <div class="container">
+                    <ul>
+                        <li>
+                            <div class="feature-box free-shipping">
+                                <div class="icon-truck"></div>
+                                <div class="content">Miễn phí VC đơn hàng trên 500K</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-box need-help">
+                                <div class="icon-support"></div>
+                                <div class="content">Điện thoại Tư vấn 0964 484 833</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-box money-back">
+                                <div class="icon-money"></div>
+                                <div class="content">Hoàn trả lại tiền cho khách</div>
+                            </div>
+                        </li>
+                        <li class="last">
+                            <div class="feature-box return-policy">
+                                <div class="icon-return"></div>
+                                <div class="content">Vận chuyển ngay trong ngày</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        <!-- For version 1,2,3,4,6 -->
+        }
+    }
+</div>

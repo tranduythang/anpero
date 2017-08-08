@@ -46,31 +46,7 @@
 </head>
 <body class="@themeOptionText">
     <div id="header" class="header">
-        @*<div class="top-header">
-                <div class="container">
-                    @if (!string.IsNullOrEmpty(commonInfo.HotLine))
-                    {
-                        <div class="currency"><a href="tel:@commonInfo.HotLine"><strong>Hotline: @commonInfo.HotLine - 0961614240 </strong></a></div>
-                    }
-                    @if (!string.IsNullOrEmpty(commonInfo.Skype) || !string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                    {
-                        <div class="top-bar-social">
-                            @if (!string.IsNullOrEmpty(commonInfo.Skype))
-                            {
-                                <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
-                            }
-                            @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                            {
-                                <a href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" target="_blank"><i class="fa fa-facebook"></i></a>
-                            }
-                        </div>
-                    }
-                    <div class="support-link">
-                        <a href="/thong-tin-cua-hang-a60">Thông tin cửa hàng</a>
-                        <a href="/home/contact">Liên hệ</a>
-                    </div>
-                </div>
-            </div>*@
+      
 
         @switch (commonInfo.ThemeOption)
         {
@@ -126,7 +102,7 @@
                                                 }
                                             }
                                         }
-                                        <li><a href="/blog">Blogs</a></li>
+                                      
                                     </ul>
                                     <ul class="nav navbar-nav navbar-right">
                                         <li><a class="link-buytheme" href="tel:@commonInfo.HotLine"> <strong>ĐT: @commonInfo.HotLine - 0961614240</strong> </a></li>
@@ -239,8 +215,7 @@
                 <div id="footer-menu-box">
                     <div class="col-sm-12">
                         <ul class="footer-menu-list">
-                            <li><a href="/gioi-thieu-b76">Giới thiệu về chúng tôi</a></li>
-                            @*<li><a href="/home/about">Giới thiệu về chúng tôi</a></li>*@
+                            <li><a href="/gioi-thieu-b76">Giới thiệu về chúng tôi</a></li>                            
                         </ul>
                     </div>
                     <div class="col-sm-12">
@@ -248,10 +223,6 @@
                             <li><a href="/chinh-sach-van-chuyen-a66">Chính sách vận chuyển</a></li>
                             <li><a href="/chinh-sach-doi-tra-a67">Chính sách đổi trả</a></li>
                             <li><a href="/huong-dan-thanh-toan-a68">Hướng dẫn thanh toán</a></li>
-                            @*<li><a href="/policy/ship">Chính sách vận chuyển</a></li>
-                                <li><a href="/policy/rollback">Chính sách đổi trả</a></li>
-                                <li><a href="/policy/payment">Hướng dẫn thanh toán</a></li>*@
-
                             <li><a href="/home/contact">Liên hệ</a></li>
 
                         </ul>

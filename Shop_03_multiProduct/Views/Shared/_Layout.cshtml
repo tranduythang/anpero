@@ -12,21 +12,16 @@
     @RenderSection("health", required: false)
     @Styles.Render("~/Content/css")
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Flavours Home Page</title>
+    <title>@ViewBag.Title</title>
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no">
     <meta name="description" content="Default Description">
     <meta name="keywords" content="fashion, store, E-commerce">
     <meta name="robots" content="*">
     <link rel="icon" href="#" type="image/x-icon">
     <link rel="shortcut icon" href="#" type="image/x-icon">
-    <!-- CSS Style -->
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheet/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheet/font-awesome.css" media="all">
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheet/revslider.css">
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheet/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheet/owl.theme.css">
+        
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet/jquery.bxslider.css">
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheet/jquery.mobile-menu.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheet/font-awesome.css">    
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet/style.css" media="all">
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet/responsive.css" media="all">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700,800' rel='stylesheet' type='text/css'>
@@ -35,27 +30,29 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
 </head>
 <body>
-    <!-- Header -->
+    
     @Html.Partial("_partial/_MainHeader_1")
-    <!-- End Header-->
+    
     @RenderBody()
-    @*@Scripts.Render("~/bundles/jquery")*@
-    @*@Scripts.Render("~/bundles/bootstrap")*@
+    <script type="text/javascript" src="/Scripts/jquery-1-10.js"></script>    
+    @Scripts.Render("~/bundles/scripts")
+    
     @Html.Raw(commonInfo.AnperoPlugin)
     @RenderSection("scripts", required: false)
     @Html.Raw(commonInfo.PageScript)
-    <!-- Footer -->
+    
+
     @Html.Partial("_partial/_MainFooter_1")
-    <!-- End Footer-->
-    <!-- JavaScript -->
-    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+    
+    
+    
     <script type="text/javascript" src="/assets/js/parallax.js"></script>
     <script type="text/javascript" src="/assets/js/revslider.js"></script>
     <script type="text/javascript" src="/assets/js/common.js"></script>
     <script type="text/javascript" src="/assets/js/jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="/assets/js/owl.carousel.min.js"></script>
     <script type="text/javascript" src="/assets/js/jquery.mobile-menu.min.js"></script>
+    
     <script type="text/javascript">
         jQuery(document).ready(function(){
             jQuery('#thm-rev-slider').show().revolution({
@@ -134,6 +131,9 @@
         jQuery('.popup1').hide();
         jQuery('#fade').hide();
     }
+    jQuery(window).load(function () {
+        Cart.bindCart();
+    });
     </script>
 </body>
 </html>

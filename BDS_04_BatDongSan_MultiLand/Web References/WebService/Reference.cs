@@ -1198,6 +1198,8 @@ namespace AnperoFrontend.WebService {
         
         private ProductCategory[] childCategoryField;
         
+        private string imagesField;
+        
         /// <remarks/>
         public string Name {
             get {
@@ -1225,6 +1227,16 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.childCategoryField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Images {
+            get {
+                return this.imagesField;
+            }
+            set {
+                this.imagesField = value;
             }
         }
     }

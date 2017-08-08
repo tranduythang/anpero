@@ -141,10 +141,7 @@
                                     <div class="products-block-right">
                                         <p class="product-name">
                                             <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[i].PrName,bestSaleList.Item[i].Id)">@bestSaleList.Item[i].PrName</a>
-                                        </p>
-                                        <div class="show-count-down">
-                                            <span class="countdown-lastest" data-y="2017" data-m="7" data-d="1" data-h="00" data-i="00" data-s="00"></span>
-                                        </div>
+                                        </p>                                        
                                         @if (bestSaleList.Item[i].Price>0)
                                         {
                                             <p class="product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(bestSaleList.Item[i].Price.ToString())</p>
@@ -227,7 +224,5 @@
             </div>
         }
     }
-    <!-- block best sellers -->
-
 </div>
 

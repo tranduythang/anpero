@@ -16,15 +16,11 @@
     </div>
     <!--container-->
 </div>
-<div class="columns-container">
-    <div class="container" id="columns">       
-        <!-- row -->
-        <div class="row">
 
-            <!-- Left colunm -->
+<div class="main-container col2-right-layout">
+    <div class="main container">
+        <div class="row">
             @Html.Partial("article/_MenuAndAdsPartial")
-            <!-- ./left colunm -->
-            <!-- Center colunm-->
             @if (articleList.ResultsCount > 0)
             {
                 <div class="col-main col-sm-9">
@@ -32,30 +28,33 @@
                         <div id="primary" class="site-content">
                             <div id="content" role="main">
                                 @foreach (var item in articleList.ItemList)
-                                {                                   
-                                    <article lass="blog_entry clearfix wow bounceInUp animated animated">
-                                        <header class="blog_entry-header clearfix">
-                                            <div class="blog_entry-header-inner">
-                                                <h2 class="blog_entry-title"> <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" rel="bookmark">@item.Title</a> </h2>
-                                                <div class="entry-meta">
-                                                    <time class="entry-date">@Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</time>
-                                                    .
+                                {
+                                    <div class="col-md-12 blog_entry">
+                                        <article lass="wow bounceInUp animated animated ">
+                                            <header class="blog_entry-header clearfix">
+                                                <div class="blog_entry-header-inner">
+                                                    <h2 class="blog_entry-title"> <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" rel="bookmark">@item.Title</a> </h2>
+                                                    <div class="entry-meta">
+                                                        <time class="entry-date">@Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</time>
+                                                        .
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        
-                                        </header>
-                                        <div class="entry-content">
-                                            <div class="featured-thumb">
-                                                <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
-                                                    <img src="@item.Thumb" alt="@item.Title">
-                                                </a>
-                                            </div>
+
+                                            </header>
                                             <div class="entry-content">
-                                                @item.ShotDesc
+                                                <div class="featured-thumb col-md-5">
+                                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
+                                                        <img src="@item.Thumb" alt="@item.Title">
+                                                    </a>
+                                                </div>
+                                                <div class="entry-content col-md-7">
+                                                    @item.ShotDesc
+                                                    <div class="top15"> <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="btn">Chi tiết</a> </div>
+                                                </div>
+                                               
                                             </div>
-                                            <p> <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Chi tiết</a> </p>
-                                        </div>
-                                    </article>
+                                        </article>
+                                    </div>
                                 }
                             </div>
                         </div>
@@ -67,55 +66,7 @@
                     </div>
                 </div>
             }
-            else
-            {
-                <div class="col-main col-sm-9">
-                    <div id="main" class="blog-wrapper">
-                        <div id="primary" class="site-content">
-                            <div id="content" role="main">
-                                <article id="post-29" class="blog_entry clearfix wow bounceInUp animated animated" style="visibility: visible;">
-                                    <header class="blog_entry-header clearfix">
-                                        <div class="blog_entry-header-inner">
-                                            <h2 class="blog_entry-title"> <a href="blog-detail.html" rel="bookmark">LOREM IPSUM DOLOR SIT AMET</a> </h2>
-                                            <div class="entry-meta">
-                                                <time class="entry-date">Jul 10, 2014</time>
-                                                .
-                                            </div>
-                                        </div>
-                                        <!--blog_entry-header-inner-->
-                                    </header>
-                                    <div class="entry-content">
-                                        <div class="featured-thumb"><a href="#"><img src="images/blog-img.jpg" alt="blog-img3"></a></div>
-                                        <div class="entry-content">
-                                            <p>Fusce ac pharetra urna. Duis non lacus sit amet lacus interdum facilisis sed non est. Ut mi metus, semper eu dictum nec, condimentum sed sapien. Nullam lobortis nunc semper ipsum luctus ut viverra ante eleifend. Nunc pretium velit sed augue luctus accumsan.</p>
-                                            <p>Aliquam laoreet consequat malesuada. Integer vitae diam sed dolor euismod laoreet eget ac felis. Donec non erat sed elit bibendum sodales. Donec eu cursus velit. Proin nunc lacus, gravida mollis dictum ut, vulputate eu turpis. Sed felis sapien, commodo in iaculis in, feugiat sed enim. Sed nunc ipsum, fermentum varius dignissim vitae, blandit et ante.Maecenas sagittis, lorem sed congue egestas, lectus purus congue nisl, ac molestie enim ligula nec eros. Sed leo tortor, tincidunt sit amet elementum vel, eleifend at orci. Maecenas ut turpis felis. Donec sit amet quam sem, et aliquet est.</p>
-                                            <p>Quisque nisl lectus, accumsan et euismod eu, sollicitudin ac augue. In sit amet urna magna. Curabitur imperdiet urna nec purus egestas eget aliquet purus iaculis. Nunc porttitor blandit imperdiet. Nulla facilisi. Cras odio ipsum, vehicula nec vehicula sed, convallis scelerisque quam. Phasellus ut odio dui, ut fermentum neque.</p>
-                                        </div>
-                                        <p> <a href="blog-detail.html" class="btn">Read More</a> </p>
-                                    </div>
-                                </article>
-
-                            </div>
-                        </div>
-                        <div class="pager">
-                            <div class="pages">
-                                <!--<strong></strong>-->
-                                <ol class="pagination">
-                                    <li class="active"><a href="">1</a></li>
-                                    <li><a class="button" href="blog.html?p=2">2</a></li>
-                                    <li> <a class="button next i-next" href="blog.html?p=2" title="Next"> » </a> </li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                    <!--#main wrapper grid_8-->
-
-                </div>
-            }
-
-            <!-- ./ Center colunm -->
         </div>
-        <!-- ./row-->
     </div>
 </div>
 
