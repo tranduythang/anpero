@@ -41,7 +41,7 @@ namespace AnperoFrontend.Controllers
             WebService.Ads[] Ads1 = null;
             if (HttpRuntime.Cache["AdsSlide"] != null)
             {
-                ViewData["AdsSlide"] = (WebService.Ads[])HttpRuntime.Cache["Ads1"];
+                ViewData["AdsSlide"] = (WebService.Ads[])HttpRuntime.Cache["AdsSlide"];
             }
             else
             {

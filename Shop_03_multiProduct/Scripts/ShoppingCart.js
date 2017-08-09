@@ -59,7 +59,7 @@
                 htmlCat += '</li>';
             }
           
-            $("#cart-sidebar").html(htmlCat);           
+            $("#cart-sidebar").html(htmlCat);
             $(".toal-cart").show();
             $(".mini-products-list").show();
             $(".cart-buttons").show();
