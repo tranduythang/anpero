@@ -57,7 +57,7 @@
 .count-down-time2 .icon-clock{
   width: 23px;
   height: 26px;
-  background: url("../images/icon-clock.png") no-repeat center center;
+  background: url("/images/icon-clock.png") no-repeat center center;
   display: inline-block;
   margin-top: 5px;
 }
@@ -327,7 +327,7 @@
 	right: 5px;
 	color: #fff;
 	font-weight: normal;
-	background: url("../images/icon-angle-right.png") no-repeat right center;
+	background: url("/images/icon-angle-right.png") no-repeat right center;
 	top: 50%;
 	-ms-transform: translateY(-50%);
 	-webkit-transform: translateY(-50%);
@@ -457,10 +457,10 @@
   font-size: 48px;
 }
 .option2 .product-featured .owl-next{
-	background: url("../images/next.png") no-repeat center center;
+	background: url("/images/next.png") no-repeat center center;
 }
 .option2 .product-featured .owl-prev{
-	background: url("../images/prev.png") no-repeat center center;
+	background: url("/images/prev.png") no-repeat center center;
 }
 .option2 .product-featured .owl-prev .fa, 
 .option2 .product-featured .owl-next .fa{
@@ -469,7 +469,7 @@
 	display: none;
 }
 .option2 .product-featured .owl-prev:hover{
-	background: url("../images/prev.png") no-repeat center center;
+	background: url("/images/prev.png") no-repeat center center;
 }
 
 .option2 .product-featured .owl-next:hover{

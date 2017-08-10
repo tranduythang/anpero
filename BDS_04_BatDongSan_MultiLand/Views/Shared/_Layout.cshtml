@@ -93,7 +93,8 @@
         </div>
     </div>
     @RenderBody()
-    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/jquery")*@
+    <script src="/assets/lib/jquery/jquery-1-11-2.js"></script>
     @Scripts.Render("~/bundles/bootstrap")
     @Html.Raw(commonInfo.AnperoPlugin)
     @RenderSection("scripts", required: false)

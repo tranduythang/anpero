@@ -60,8 +60,7 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                Ads2 = service.GetRandomAdsSlide(StoreID, TokenKey, PageContent.Ads2, 1);
-                    //service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads2);
+                Ads2 = service.GetRandomAdsSlide(StoreID, TokenKey, PageContent.Ads2, 1);                    
                 ViewData["AdsSlide2"] = Ads2;
                 if (Ads2 != null)
                 {
