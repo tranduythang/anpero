@@ -129,7 +129,6 @@
                                                                 <a href="/product/checkout" class="link-wishlist" title="Mua ngay">
                                                                     <span>Yêu thích</span>
                                                                 </a> 
-                                                             
                                                             </span>
                                                         </div>
                                                     </div>
@@ -180,24 +179,24 @@
         </div>   
         @foreach (BlogItem item in FeatureArticle.ItemList)
         {
-        <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
-            <div class="blog_inner">
-                <div class="blog-img">
-                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
-                    <div class="mask"> <a class="info" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Chi tiết</a> </div>
-                </div>
-                <!--blog-img-->
-                <div class="blog-info">
-                    <div class="post-date">
-                        <time class="entry-date" datetime="@item.CreateDate">mới đăng</time>
+            <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
+                <div class="blog_inner">
+                    <div class="blog-img">
+                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
+                        <div class="mask"> <a class="info" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Chi tiết</a> </div>
                     </div>
-                    <h3><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h3>
-                    <p>@Anpero.StringHelpper.SubString(150,item.ShotDesc)</p>
-                    <a class="readmore" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Xem thêm</a>
+                    <!--blog-img-->
+                    <div class="blog-info">
+                        <div class="post-date">
+                            <time class="entry-date" datetime="@item.CreateDate">mới đăng</time>
+                        </div>
+                        <h3><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h3>
+                        <p>@Anpero.StringHelpper.SubString(150,item.ShotDesc)</p>
+                        <a class="readmore" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Xem thêm</a>
+                    </div>
                 </div>
+                <!--blog_inner-->
             </div>
-            <!--blog_inner-->
-        </div>
         }
     </div>
     }
@@ -207,48 +206,28 @@
             <div class="row">
                 <div class="logo-brand col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="new_title">
-                        <h2>Brand Logo</h2>
+                        <h2>Đối tác và Sản phẩm</h2>
                     </div>
                     <div class="slider-items-products">
                         <div id="brand-slider" class="product-flexslider hidden-buttons">
                             <div class="slider-items slider-width-col6">
-                                <!-- Item -->
-                                <div class="item">
-                                    <div class="logo-item"><a href="#"><img src="/assets/images/brand-logo.jpg" alt="Image"></a></div>
-                                    <div class="logo-item"><a href="#"><img src="/assets/images/brand-logo.jpg" alt="Image"></a></div>
-                                </div>
-                                <!-- End Item -->
-                                <!-- Item -->
-                                <div class="item">
-                                    <div class="logo-item"><a href="#"><img src="/assets/images/brand-logo.jpg" alt="Image"></a></div>
-                                    <div class="logo-item"><a href="#"><img src="/assets/images/brand-logo.jpg" alt="Image"></a></div>
-                                </div>
-                                <!-- End Item -->
-                                <!-- Item -->
-                                <div class="item">
-                                    <div class="logo-item"><a href="#"><img src="/assets/images/brand-logo.jpg" alt="Image"></a></div>
-                                    <div class="logo-item"><a href="#"><img src="/assets/images/brand-logo.jpg" alt="Image"></a></div>
-                                </div>
-                                <!-- End Item -->
-                                <!-- Item -->
-                                <div class="item">
-                                    <div class="logo-item"><a href="#"><img src="/assets/images/brand-logo.jpg" alt="Image"></a></div>
-                                    <div class="logo-item"><a href="#"><img src="/assets/images/brand-logo.jpg" alt="Image"></a></div>
-                                </div>
-                                <!-- End Item -->
-                                <!-- Item -->
-                                <div class="item">
-                                    <div class="logo-item"><a href="#"><img src="/assets/images/brand-logo.jpg" alt="Image"></a></div>
-                                    <div class="logo-item"><a href="#"><img src="/assets/images/brand-logo.jpg" alt="Image"></a></div>
-                                </div>
-                                <!-- End Item -->
-                                <!-- Item -->
-                                <div class="item">
-                                    <div class="logo-item"><a href="#"><img src="/assets/images/brand-logo.jpg" alt="Image"></a></div>
-                                    <div class="logo-item"><a href="#"><img src="/assets/images/brand-logo.jpg" alt="Image"></a></div>
-                                </div>
-                                <!-- End Item -->
-
+                                @if (ViewData["slide5"] != null)
+                                {
+                                    Ads[] slide = (Ads[])ViewData["slide5"];
+                                    if (slide.Length > 0)
+                                    {
+                                        for (int i = 0; i < slide.Length / 2; i++ )
+                                        { 
+                                            int j = i * 2;
+                                            <!-- Item -->
+                                            <div class="item">
+                                                <div class="logo-item"><a href="@slide[j].ClickUrl"><img src="@slide[j].ImagesUrl" alt="@slide[j].Description"></a></div>
+                                                <div class="logo-item"><a href="@slide[j+1].ClickUrl"><img src="@slide[j+1].ImagesUrl" alt="@slide[j+1].Description"></a></div>
+                                            </div>
+                                            <!-- End Item -->
+                                        }
+                                    }
+                                }
                             </div>
                         </div>
                     </div>
