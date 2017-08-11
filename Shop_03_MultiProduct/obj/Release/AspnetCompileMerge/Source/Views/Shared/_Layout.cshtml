@@ -5,18 +5,20 @@
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
 }
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    
+    <title>@ViewBag.Title</title>
     @RenderSection("health", required: false)
     @Styles.Render("~/Content/css")
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>@ViewBag.Title</title>
+    <meta http-equiv="Refresh" content="3600" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no">
-    <meta name="description" content="Default Description">
-    <meta name="keywords" content="fashion, store, E-commerce">
     <meta name="robots" content="*">
+    <!-- Apple iOS and Android stuff -->
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- Apple iOS and Android stuff - don't remove! -->
     <link rel="icon" href="#" type="image/x-icon">
     <link rel="shortcut icon" href="#" type="image/x-icon">
         
@@ -27,7 +29,6 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
-    <meta name="viewport" content="initial-scale=1.0, width=device-width">
 </head>
 <body>
     
@@ -40,11 +41,8 @@
     @Html.Raw(commonInfo.AnperoPlugin)
     @RenderSection("scripts", required: false)
     @Html.Raw(commonInfo.PageScript)
-    
 
     @Html.Partial("_partial/_MainFooter_1")
-    
-    
     
     <script type="text/javascript" src="/assets/js/parallax.js"></script>
     <script type="text/javascript" src="/assets/js/revslider.js"></script>
@@ -52,7 +50,6 @@
     <script type="text/javascript" src="/assets/js/jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="/assets/js/owl.carousel.min.js"></script>
     <script type="text/javascript" src="/assets/js/jquery.mobile-menu.min.js"></script>
-    <script type="text/javascript" src="/Scripts/ShoppingCart.js"></script>    
     
     <script type="text/javascript">
         jQuery(document).ready(function(){

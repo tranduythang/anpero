@@ -5,7 +5,6 @@
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
-
 }
 <header>
     <div class="header-banner">
@@ -68,24 +67,38 @@
                                                     <!--level0-->
                                                 </div>
                                                 <!--nav-block nav-block-center-->
-                                                <div class="nav-add">
-                                                    <div class="push_item">
-                                                        <div class="push_img"><a href="#"><img src="assets/images/menu-img1.jpg" alt="menu item 1"></a></div>
-
+                                                @if (ViewData["slide4"] != null)
+                                                {
+                                                    Ads[] slide = (Ads[])ViewData["slide4"];
+                                                    <div class="nav-add">
+                                                        @if (slide.Length > 0)
+                                                        {
+                                                            for (int i = 0; i < slide.Length; i ++)
+                                                            {
+                                                                if (i == slide.Length - 1)
+                                                                {
+                                                                    <div class="push_item push_item_last">
+                                                                        <div class="push_img">
+                                                                            <a href="@slide[i].ClickUrl">
+                                                                                <img src="@slide[i].ImagesUrl" alt="@slide[i].Description" />
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <div class="push_item">
+                                                                        <div class="push_img">
+                                                                            <a href="@slide[i].ClickUrl">
+                                                                                <img src="@slide[i].ImagesUrl" alt="@slide[i].Description" />
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                }
+                                                            }
+                                                        }
                                                     </div>
-                                                    <div class="push_item">
-                                                        <div class="push_img"><a href="#"><img src="assets/images/menu-img2.jpg" alt="menu item 2"></a></div>
-
-                                                    </div>
-                                                    <div class="push_item">
-                                                        <div class="push_img"><a href="#"><img src="assets/images/menu-img3.jpg" alt="menu item 3"></a></div>
-
-                                                    </div>
-                                                    <div class="push_item push_item_last">
-                                                        <div class="push_img"><a href="#"><img src="assets/images/menu-img4.jpg" alt="menu item 4"></a></div>
-
-                                                    </div>
-                                                </div>
+                                                }
                                             </div>
                                             <!--level0-wrapper2-->
                                         </div>
@@ -122,7 +135,7 @@
                                     <a href="/blog"><span>Tin tức</span> </a>
                                     <!--sub sub category-->
                                     <ul class="level1">
-                                        <li class="level1"><a title="blog" href="/blog"><span>Blogs</span></a></li>
+                                        <li class="level1"><a title="blog" href="/blog"><span>Blogs Tin tức</span></a></li>
                                         <li class="level1">
                                             <a title="shipper" href="/chinh-sach-van-chuyen-a86">
                                                 <span>Vận chuyển</span>

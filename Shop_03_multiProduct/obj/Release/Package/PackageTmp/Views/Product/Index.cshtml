@@ -6,6 +6,13 @@
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
     AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewData["prDetail"];
+    @section health{
+        <meta property="og:description" content="@item.ShortDesc" />
+        <meta property="og:title" content="@item.PrName" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="ngonlanh.vn" />
+        <meta property="og:image" content="@item.Images" />
+    }
     <div id="page">
         <div class="page-heading">
             <div class="breadcrumbs">
