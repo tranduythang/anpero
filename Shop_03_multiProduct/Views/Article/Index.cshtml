@@ -6,6 +6,15 @@
         item = (BlogItem)ViewData["blogdeltail"];
     }
 }
+@section health{
+    <meta name="description" content="@item.ShotDesc" />
+    <meta name="keywords" content="@item.Tag" />
+    <meta property="og:description" content="@item.ShotDesc" />
+    <meta property="og:title" content="@item.Title" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="ngonlanh.vn" />
+    <meta property="og:image" content="@item.Thumb" />
+}
 <div class="page-heading">
     <div class="container">
         <div class="row">

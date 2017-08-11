@@ -173,32 +173,32 @@
     @if (ViewData["FeatureArticle"] != null)
     {
         SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
-    <div class="latest-blog wow bounceInUp animated animated container">        
-        <div class="new_title">
-            <h2>Bài viết mới nhất</h2>
-        </div>   
-        @foreach (BlogItem item in FeatureArticle.ItemList)
-        {
-            <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
-                <div class="blog_inner">
-                    <div class="blog-img">
-                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
-                        <div class="mask"> <a class="info" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Chi tiết</a> </div>
-                    </div>
-                    <!--blog-img-->
-                    <div class="blog-info">
-                        <div class="post-date">
-                            <time class="entry-date" datetime="@item.CreateDate">mới đăng</time>
+        <div class="latest-blog wow bounceInUp animated animated container">        
+            <div class="new_title">
+                <h2>Bài viết mới nhất</h2>
+            </div>   
+            @foreach (BlogItem item in FeatureArticle.ItemList)
+            {
+                <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
+                    <div class="blog_inner">
+                        <div class="blog-img">
+                            <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
+                            <div class="mask"> <a class="info" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Chi tiết</a> </div>
                         </div>
-                        <h3><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h3>
-                        <p>@Anpero.StringHelpper.SubString(150,item.ShotDesc)</p>
-                        <a class="readmore" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Xem thêm</a>
+                        <!--blog-img-->
+                        <div class="blog-info">
+                            <div class="post-date">
+                                <time class="entry-date" datetime="@item.CreateDate">mới đăng</time>
+                            </div>
+                            <h3><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h3>
+                            <p>@Anpero.StringHelpper.SubString(150,item.ShotDesc)</p>
+                            <a class="readmore" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Xem thêm</a>
+                        </div>
                     </div>
+                    <!--blog_inner-->
                 </div>
-                <!--blog_inner-->
-            </div>
-        }
-    </div>
+            }
+        </div>
     }
     <!-- Logo Brand Block -->
     <div class="brand-logo wow bounceInUp animated">
@@ -235,22 +235,22 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 testimonials-section">
                     <div class="offer-slider parallax parallax-2">
                         <ul class="bxslider">
-                            <li>
-                                <div class="avatar"><img src="/assets/images/testimonial-photo.png" alt="Image"></div>
-                                <div class="testimonials">"Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer."</div>
-                                <div class="clients_author">	Smith John	<span>Happy Customer</span>	</div>
-                            </li>
-                            <li>
-                                <div class="avatar"><img src="/assets/images/testimonial-photo.png" alt="Image"></div>
-                                <div class="testimonials">"Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer."</div>
-                                <div class="clients_author">	Karla Anderson	<span>Happy Customer</span>	</div>
-                            </li>
-                            <li>
-                                <div class="avatar"><img src="/assets/images/testimonial-photo.png" alt="Image"></div>
-                                <div class="testimonials">"Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer."</div>
-                                <div class="clients_author">	Smith John	<span>Happy Customer</span>	</div>
-                            </li>
-
+                            @if (ViewData["slide6"] != null)
+                            {
+                                Ads[] slide = (Ads[])ViewData["slide6"];
+                                if (slide.Length > 0)
+                                {
+                                    for (int i = 0; i < slide.Length; i++)
+                                    {
+                                        <li>
+                                            <div class="avatar">
+                                                <img src="@slide[i].ImagesUrl" alt="Image">
+                                            </div>
+                                            @Html.Raw(slide[i].Description) 
+                                        </li>
+                                    }
+                                }
+                            }
                         </ul>
                     </div>
                 </div>

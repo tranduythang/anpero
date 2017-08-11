@@ -83,6 +83,21 @@ namespace AnperoFrontend.Controllers
                     HttpRuntime.Cache.Insert("slide5", Ads5, null, DateTime.Now.AddMinutes(shortCacheTime + 1), TimeSpan.Zero);
                 }
             }
+            //customer comment home
+            WebService.Ads[] Ads6 = null;
+            if (HttpRuntime.Cache["slide6"] != null)
+            {
+                ViewData["slide6"] = (WebService.Ads[])HttpRuntime.Cache["slide6"];
+            }
+            else
+            {
+                Ads6 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads6);
+                ViewData["slide6"] = Ads6;
+                if (Ads6 != null)
+                {
+                    HttpRuntime.Cache.Insert("slide6", Ads6, null, DateTime.Now.AddMinutes(shortCacheTime + 1), TimeSpan.Zero);
+                }
+            }
             Response.Cache.SetCacheability(HttpCacheability.Public);
         }
         private void GetNewestProduct()
