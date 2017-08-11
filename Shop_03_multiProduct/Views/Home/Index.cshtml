@@ -57,7 +57,7 @@
                         <div class="slider-items slider-width-col4 products-grid">
                             @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                             {
-                                foreach (var item in commonInfo.ProductCategoryList)
+                                foreach (var item in commonInfo.ProductCategoryList.Where(p => p.Id == 73))
                                 {
                                     if (item.ChildCategory != null && item.ChildCategory.Length > 0)
                                     {
