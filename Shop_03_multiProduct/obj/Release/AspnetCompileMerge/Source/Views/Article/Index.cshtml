@@ -29,8 +29,10 @@
 <div class="main-container col2-right-layout">
     <div class="main container">
         <div class="row">
-            @Html.Partial("article/_MenuAndAdsPartial")
-
+            @if (!Request.Browser.IsMobileDevice) 
+            { 
+                @Html.Partial("article/_MenuAndAdsPartial")
+            }
             <div class="center_column col-xs-12 col-sm-9" id="center_column">
                 <div id="main" class="blog-wrapper">
 

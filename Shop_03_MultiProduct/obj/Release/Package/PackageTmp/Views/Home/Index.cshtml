@@ -19,33 +19,36 @@
     <meta property="og:image" content="@commonInfo.Logo" />
 }
 <div class="content">
-    <!-- Slider-->
-    @Html.Partial("_partial/_HomeSlide_1");
-    <div id="top">
-        <div class="container">
-            <div class="row">
-                <ul>
-                    @if (ViewData["AdsSlide"] != null)
-                    {
-                        Ads[] slide = (Ads[])ViewData["AdsSlide"];
-                        if (slide.Length > 0)
+    @if (!Request.Browser.IsMobileDevice)
+    {
+        <!-- Slider-->
+        @Html.Partial("_partial/_HomeSlide_1");
+       <div id="top">
+            <div class="container">
+                <div class="row">
+                    <ul>
+                        @if (ViewData["AdsSlide"] != null)
                         {
-                            for (int i = 0; i < slide.Length; i ++)
+                            Ads[] slide = (Ads[])ViewData["AdsSlide"];
+                            if (slide.Length > 0)
                             {
-                                <li>
-                                    <div>
-                                        <a href="@slide[i].ClickUrl" data-scroll-goto="@(i+1)">
-                                            <img src="@slide[i].ImagesUrl" alt="@slide[i].Description" />
-                                        </a>
-                                    </div>
-                                </li>
+                                for (int i = 0; i < slide.Length; i ++)
+                                {
+                                    <li>
+                                        <div>
+                                            <a href="@slide[i].ClickUrl" data-scroll-goto="@(i+1)">
+                                                <img src="@slide[i].ImagesUrl" alt="@slide[i].Description" />
+                                            </a>
+                                        </div>
+                                    </li>
+                                }
                             }
                         }
-                    }
-                </ul>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </div>
+        </div> 
+    }
     <div class="top-cate">
         <div class="featured-pro container">
             <div class="row">
@@ -221,8 +224,8 @@
                                             int j = i * 2;
                                             <!-- Item -->
                                             <div class="item">
-                                                <div class="logo-item"><a href="@slide[j].ClickUrl"><img src="@slide[j].ImagesUrl" alt="@slide[j].Description"></a></div>
-                                                <div class="logo-item"><a href="@slide[j+1].ClickUrl"><img src="@slide[j+1].ImagesUrl" alt="@slide[j+1].Description"></a></div>
+                                                <div class="logo-item"><a href="@slide[j].ClickUrl" target="_blank"><img src="@slide[j].ImagesUrl" alt="@slide[j].Description"></a></div>
+                                                <div class="logo-item"><a href="@slide[j+1].ClickUrl" target="_blank"><img src="@slide[j+1].ImagesUrl" alt="@slide[j+1].Description"></a></div>
                                             </div>
                                             <!-- End Item -->
                                         }
@@ -256,36 +259,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="our-features-box wow bounceInUp animated animated">
-    <div class="container">
-        <ul>
-            <li>
-                <div class="feature-box free-shipping">
-                    <div class="icon-truck"></div>
-                    <div class="content">Miễn phí VC đơn hàng trên 500K</div>
-                </div>
-            </li>
-            <li>
-                <div class="feature-box need-help">
-                    <div class="icon-support"></div>
-                    <div class="content">Điện thoại Tư vấn 0964 484 833</div>
-                </div>
-            </li>
-            <li>
-                <div class="feature-box money-back">
-                    <div class="icon-money"></div>
-                    <div class="content">Hoàn trả lại tiền cho khách</div>
-                </div>
-            </li>
-            <li class="last">
-                <div class="feature-box return-policy">
-                    <div class="icon-return"></div>
-                    <div class="content">Vận chuyển ngay trong ngày</div>
-                </div>
-            </li>
-        </ul>
     </div>
 </div>
 <!-- For version 1,2,3,4,6 -->
