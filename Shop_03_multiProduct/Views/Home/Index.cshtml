@@ -11,11 +11,10 @@
 }
 @section health{
     <meta name="description" content="@commonInfo.Desc" />
-    <meta name="keywords" content="Thực phẩm sạch, Hoa quả sạch, Ngon Lành, Ngon Sạch, Uy tín, Bơ sạch, Bơ Sáp, Bơ Booth" />
+    <meta name="keywords" content="@commonInfo.Desc" />
     <meta property="og:description" content="@commonInfo.Desc" />
     <meta property="og:title" content="@commonInfo.Desc" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="ngonlanh.vn" />
+    <meta property="og:type" content="website" />    
     <meta property="og:image" content="@commonInfo.Logo" />
 }
 <div class="content">
@@ -66,7 +65,6 @@
                                     {
                                         foreach (var childItem in item.ChildCategory)
                                         {
-                                            <!-- Item -->
                                             <div class="item">
                                                 <div class="pro-img">
                                                     <a href="@Anpero.StringHelpper.GetCategoryLink(childItem.Name, childItem.Id)">
@@ -75,7 +73,6 @@
                                                     </a>
                                                 </div>
                                             </div>
-                                            <!-- End Item -->
                                         }
                                     }
                                 }
@@ -87,7 +84,7 @@
         </div>
     </div>    
     
-    <section class=" wow bounceInUp animated">
+    <section class="wow bounceInUp animated">
         <div class="best-pro slider-items-products container">
             <div class="new_title">
                 <h2>Sản phẩm bán chạy</h2>

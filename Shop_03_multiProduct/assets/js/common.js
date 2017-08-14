@@ -324,18 +324,13 @@ jQuery(window).on("load", function() {
                     var t = e('.navbar-collapse form[role="search"].active');
                     t.find("input").val(""), t.removeClass("active")
                 }
-                e('header, .navbar-collapse form[role="search"] button[type="reset"]').on("click keyup", function(n) {
-                    console.log(n.currentTarget), (27 == n.which && e('.navbar-collapse form[role="search"]').hasClass("active") || "reset" == e(n.currentTarget).attr("type")) && t()
-                }), e(document).on("click", '.navbar-collapse form[role="search"]:not(.active) button[type="submit"]', function(t) {
+                e(document).on("click", '.navbar-collapse form[role="search"]:not(.active) button[type="submit"]', function(t) {
                     t.preventDefault();
                     var n = e(this).closest("form"),
                         i = n.find("input");
                     n.addClass("active"), i.focus()
                 }), e(document).on("click", '.navbar-collapse form[role="search"].active button[type="submit"]', function(n) {
-                    n.preventDefault();
-                    var i = e(this).closest("form"),
-                        s = i.find("input");
-                    e("#showSearchTerm").text(s.val()), t()
+                 
                 })
             })
           

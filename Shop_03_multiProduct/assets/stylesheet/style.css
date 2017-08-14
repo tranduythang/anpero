@@ -7047,13 +7047,13 @@ ol#compare-items li:last-child {
 	outline: medium none;
 	padding: 5px 15px;
 	position: relative;
-	width: 100px;
+	width: 150px;
 	float: left;
 	color: #333;
 	border: 1px solid #ddd;
 }
 #sort-by li li {
-	width: 100px;
+	width: 150px;
 	margin-top: 0px;
 	border-top: none;
 	border-right: none;
@@ -8090,7 +8090,7 @@ padding:30px;
 	padding: 18px 0;
 	font-size: 13px;
 }
-.availability.in-stock {
+.availability.in-stock,.availability.out-stock {
 	padding: 3px 10px;
 	position: absolute;
 	top: 20px;
@@ -8098,6 +8098,11 @@ padding:30px;
 }
 .availability.in-stock span {
 	color: #6dbe14;
+	font-size: 12px;
+	line-height: 16px;
+	display: block;
+}
+.availability.out-stock span {	
 	font-size: 12px;
 	line-height: 16px;
 	display: block;
@@ -12101,4 +12106,4 @@ select#shipping-address-select {
 .clients_author span{font-size:11px;   font-family: 'Montserrat', sans-serif; font-weight:normal; color:#c0e19b; display:inline-block; margin-left:7px}
 .bl-title h1 a{color:white;font-size:22px;}
 .hide{display:none;}
-#prCatCtTable img{width:160px;}
+#prCatCtTable img{width:100px;}

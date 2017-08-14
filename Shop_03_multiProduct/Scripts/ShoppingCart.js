@@ -40,33 +40,57 @@
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
         Cart.bindCartTable();
     },
-    bindCart: function () {        
+    addProduct3: function (_id, _price, _thumb, _title) {
+        debugger
+        var checkExited = false;
+        if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
+            Cart.list = jQuery.parseJSON($.cookie("CartList"));
+        }
+
+        if (Cart.list.length == 0) {
+            Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });
+        } else {
+            for (var i = 0; i < Cart.list.length; i++) {
+                if (Cart.list[i].id == _id) {
+                    Cart.list[i].price = parseInt(_price) + parseInt(Cart.list[i].price)
+                    Cart.list[i].quantity = parseInt(Cart.list[i].quantity) + 1;
+                    checkExited = true;
+                }
+            }        
+            if (!checkExited) {
+                Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });
+            }
+        }
+        $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
+        Cart.bindCart();
+
+    },
+    bindCart: function () {
         var ttSC = 0;
         var htmlCat = "";
         if ($.cookie("CartList") != 'null' && $.cookie("CartList") != "undefined" && $.cookie("CartList") != undefined) {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
             $(".spN").html(Cart.list.length);
             for (var i = 0; i < Cart.list.length; i++) {
-                ttSC += parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity);                
-                htmlCat += '<li class="item last"><div class="item-inner">'; 
+                ttSC += parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity);
+                htmlCat += '<li class="item last"><div class="item-inner">';
                 htmlCat += '<a class="product-image" href="' + Cart.list[i].thumb + '"><img src="' + Cart.list[i].thumb + '"></a>';
                 htmlCat += '<div class="product-details">';
                 htmlCat += '<div class="access"><a class="btn-remove1" href="javascript:Cart.remove(' + Cart.list[i].id + ')">Xóa</a> </div>';
-                htmlCat += '<strong>' + Cart.list[i].quantity + '</strong> x <span class="price">' + Util.toMoneyFormat(Cart.list[i].price) + '</span>';                
+                htmlCat += '<strong>' + Cart.list[i].quantity + '</strong> x <span class="price">' + Util.toMoneyFormat(Cart.list[i].price) + '</span>';
                 htmlCat += '<p class="product-name">' + Cart.list[i].title + '</p>';
                 htmlCat += '</div>';
                 htmlCat += '</div>';
                 htmlCat += '</li>';
             }
-          
-            $("#cart-sidebar").html(htmlCat);
-            $(".toal-cart").show();
-            $(".mini-products-list").show();
-            $(".cart-buttons").show();
-            $(".fl-mini-cart-content").show();
-            $("#cart-sidebar2").html(htmlCat);
-            $("#lpr").html(Util.toMoneyFormat(ttSC) + " đ");
-            
+            if (Cart.list.length > 0) {
+                $("#cart-sidebar").html(htmlCat);
+                $(".toal-cart").show();
+                $(".mini-products-list").show();
+                $(".cart-buttons").show();
+                $("#cart-sidebar2").html(htmlCat);
+                $("#lpr").html(Util.toMoneyFormat(ttSC) + " đ");
+            }
         }
     },
     bindCartTable: function () {
@@ -262,4 +286,22 @@
             });
         }
     }
-}
+};
+var Search = {
+    Products: function () {
+        $.ajax({
+            method: "post",
+            url: "/handler/ProductHandler.ashx",
+            datatype: "text/plain",
+            data: { op: "searchProduct", cat: categoryId, ParentCat: ParentCatId, order: _order, captcha: "off" },
+            success: function (rs) {
+                $("#products-list").html(rs);
+            }
+        });
+    },
+    setOrder: function (order) {
+        _order = order;
+        Search.Products();
+    }
+};
+var _order = "pricedesc";

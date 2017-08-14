@@ -23,13 +23,11 @@
                     </a>
                 </div>
                 <div class="fl-nav-menu">
-
                     <nav>
                         <div class="mm-toggle-wrap">
                             <div class="mm-toggle"><i class="icon-align-justify"></i><span class="mm-label">Menu</span> </div>
                         </div>
                         <div class="nav-inner">
-                            <!-- BEGIN NAV -->
                             <ul id="nav" class="hidden-xs">
                                 <li id="nav-home" class="level0 parent drop-menu"><a class="level-top active" href="/"><span>Trang Chủ</span></a></li>
                                 <li class="level0 parent drop-menu"><a class="level-top" href="/home/about"><span>Giới thiệu</span></a></li>
@@ -39,7 +37,6 @@
                                         <div class="container">
                                             <div class="level0-wrapper2">
                                                 <div class="nav-block nav-block-center">
-                                                    <!--mega menu-->
                                                     <ul class="level0">
                                                         @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                                                         {
@@ -64,9 +61,7 @@
                                                             }
                                                         }
                                                     </ul>
-                                                    <!--level0-->
                                                 </div>
-                                                <!--nav-block nav-block-center-->
                                                 @if (ViewData["slide4"] != null)
                                                 {
                                                     Ads[] slide = (Ads[])ViewData["slide4"];
@@ -100,12 +95,8 @@
                                                     </div>
                                                 }
                                             </div>
-                                            <!--level0-wrapper2-->
                                         </div>
-                                        <!--container-->
                                     </div>
-                                    <!--level0-wrapper dropdown-6col-->
-                                    <!--mega menu-->
                                 </li>
                                 <li class="fl-custom-tabmenulink mega-menu">
                                     <a href="#" class="level-top"> <span>Sản phẩm khuyến mại</span> </a>
@@ -122,7 +113,7 @@
                                                             <div class="grid12-3">
                                                                 <div><img src="@item.Images" alt="@item.PrName"></div>
                                                                 <h4 class="heading">Giảm giá 20%</h4>
-                                                                <p>@item.ShortDesc.Substring(0, 61)...</p>
+                                                                <p>@item.ShortDesc.Substring(0, 61)</p>
                                                             </div>
                                                         }
                                                     }
@@ -133,7 +124,6 @@
                                 </li>
                                 <li class="level0 parent drop-menu">
                                     <a href="/blog"><span>Tin tức</span> </a>
-                                    <!--sub sub category-->
                                     <ul class="level1">
                                         <li class="level1"><a title="blog" href="/blog"><span>Blogs Tin tức</span></a></li>
                                         <li class="level1">
@@ -155,11 +145,9 @@
                                 </li>
                                 <li class="level0 parent drop-menu"><a class="level-top" href="/home/contact"><span>Liên hệ</span></a></li>
                             </ul>
-                            <!--nav-->
                         </div>
                     </nav>
-                </div>
-                <!--row-->
+                </div>                
             </div>
             <div class="fl-header-right">
                 <div class="fl-links">
@@ -176,7 +164,7 @@
                 <div class="fl-cart-contain">
                     <div class="mini-cart">
                         <div class="basket"> <a href="/product/checkout" ><span class="spN">0</span></a> </div>
-                        <div class="fl-mini-cart-content" style="display: none;">
+                        <div class="fl-mini-cart-content" style="display:none;">
                             <div class="block-subtitle hide">
                                 <div class="top-subtotal"><span class="spN">0</span> Sp, <span id="ttSC"></span> </div>                            
                             </div>                    
@@ -188,16 +176,15 @@
                     </div>
                 </div>                
                 <div class="collapse navbar-collapse">
-                    <form class="navbar-form" role="search" action="/search" method="post">
+                    <form class="navbar-form" role="search" action="/search" method="get">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search">
+                            <input type="text" class="form-control" placeholder="Search" name="keyword" id="keyword">
                             <span class="input-group-btn">
                                 <button type="submit" class="search-btn"> <span class="glyphicon glyphicon-search"> <span class="sr-only">Search</span> </span> </button>
                             </span>
                         </div>
                     </form>
                 </div>
-                <!--links-->
             </div>
         </div>
     </div>

@@ -11,9 +11,10 @@ namespace AnperoFrontend
             bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
                        
                        "~/Scripts/jquery.cokie.min.js",
-                        "~/assets/js/bootstrap.min.js",
-                      
-                       "~/Scripts/Anpero.Common.js"
+                        "~/assets/js/bootstrap.min.js",                      
+                       "~/Scripts/Anpero.Common.js",
+                       "~/Scripts/ShoppingCart.js"
+
                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
