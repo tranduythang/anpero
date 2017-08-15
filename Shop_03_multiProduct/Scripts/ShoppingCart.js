@@ -19,7 +19,13 @@
             }
             // if this product no in cart list
             if (!checkExited) {
-                Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });
+                var qty = $("#qty").val();
+                if (isNaN(qty)) {
+                    Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });
+                } else {
+                    Cart.list.push({ id: _id, quantity: qty, price: _price, thumb: _thumb, title: _title });
+                }
+                
             }
         }
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
@@ -113,18 +119,20 @@
                     htmlCat += '<p class="product-name"><a href="#">' + Cart.list[i].title + ' </a></p>';
 
                     htmlCat += '</td>';
-                    htmlCat += '<td class="cart_avail"><span class="label label-success">Sẵn sàng</span></td>';
+                    htmlCat += '<td class="cart_avail"><span class="label label-success">Còn hàng</span></td>';
                     htmlCat += '<td class="price"><span>' + Util.toMoneyFormat(Cart.list[i].price) + '</span></td>';
-                    htmlCat += '<td class="qty">';
-                    htmlCat += '<input class="form-control input-sm" type="text" value="' + Cart.list[i].quantity + '" id="prQuantity_' + Cart.list[i].id + '">';
-                    htmlCat += '<a href="javascript:Cart.addProduct2(' + Cart.list[i].id + ',' + Cart.list[i].price + ');"><i class="fa fa-caret-up"></i></a>';
-                    htmlCat += '<a href="javascript:Cart.remove3(' + Cart.list[i].id + ',' + Cart.list[i].price + ');"><i class="fa fa-caret-down"></i></a>';
+                    htmlCat += '<td>';
+                    htmlCat += '<a href="javascript:Cart.remove3(' + Cart.list[i].id + ',' + Cart.list[i].price + ');" class="btn">-</a>';
+                    htmlCat += '<input class="input-text qty2" type="text" value="' + Cart.list[i].quantity + '" id="prQuantity_' + Cart.list[i].id + '">';
+                    
+                    htmlCat += '<a href="javascript:Cart.addProduct2(' + Cart.list[i].id + ',' + Cart.list[i].price + ');" class="btn">+</a>';
+                    
                     htmlCat += '</td>';
                     htmlCat += '<td class="price">';
                     htmlCat += '<span>' + Util.toMoneyFormat(parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity)) + ' đ</span>';
                     htmlCat += '</td>';
-                    htmlCat += '<td class="action">';
-                    htmlCat += '<a href="javascript:Cart.remove2(' + Cart.list[i].id + ')" class="remove_link"></a>';
+                    htmlCat += '<td class="a-center last">';
+                    htmlCat += '<a href="javascript:Cart.remove2(' + Cart.list[i].id + ')" class="button remove-item"></a>';
                     htmlCat += '</td>';
                     htmlCat += '</tr>';
 

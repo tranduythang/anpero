@@ -9058,6 +9058,17 @@ button.button#empty_cart_button:before {
     width: 40px;
     text-align: center;
 }
+.add-to-cart .qty2 {
+    padding: 0 5px 1px;
+    height: 34px;
+    border: 1px #ddd solid;
+    text-align: center;
+    width: 45px;
+    color: #aaa;
+    vertical-align: top;
+    background: #f8f8f8;
+    border-radius: 0px;
+}
 #shopping-cart-table .edit-bnt {
 	float: left;
 	margin-top: 0px;
