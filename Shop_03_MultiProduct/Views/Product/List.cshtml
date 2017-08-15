@@ -19,6 +19,10 @@
             <meta property="og:description" content="@commonInfo.Desc" />
             <meta property="og:title" content="@productList.Item[0].ParentCatName" />
             <meta property="og:type" content="website" />
+            <meta property="og:image" content="@commonInfo.Logo" />
+        }
+        @section canonical{
+            <link rel="canonical" href="@Request.Url.AbsoluteUri" />
         }
         <div id="page">
             <div class="page-heading">

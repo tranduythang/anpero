@@ -14,10 +14,13 @@
         <meta property="og:description" content="@item.ShortDesc" />
         <meta property="og:title" content="@item.PrName" />
         <meta property="og:type" content="website" />        
-        <meta property="og:image" content="@item.Images" />
+        <meta property="og:image" content="@commonInfo.Logo" />
         <meta name="description" content="@Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc)" />
         <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(item.KeyWord)" />
         <link rel="stylesheet" type="text/css" href="~/assets/stylesheet/flexslider.css">
+    }
+    @section canonical{
+        <link rel="canonical" href="@Request.Url.AbsoluteUri" />
     }
     <div id="page">
         <div class="page-heading">

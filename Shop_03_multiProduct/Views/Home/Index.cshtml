@@ -16,6 +16,10 @@
     <meta property="og:title" content="@commonInfo.Desc" />
     <meta property="og:type" content="website" />    
     <meta property="og:image" content="@commonInfo.Logo" />
+
+}
+@section canonical{
+    <link rel="canonical" href="@HttpContext.Current.Request.Url.AbsoluteUri" />
 }
 <div class="content">
     @if (!Request.Browser.IsMobileDevice)
