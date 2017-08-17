@@ -1,0 +1,67 @@
+﻿@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@ViewBag.Title</title>
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:type" content="website" />
+    <meta name="distribution" content="Global" />
+    <meta name="revisit-after" content="1 days" />
+    <meta http-equiv="REFRESH" content="1800" />
+    <meta name="robots" content="index,follow,all" />
+    <meta property="og:title" content="@ViewBag.Title" />
+    @Styles.Render("~/Content/css")
+    <script src="/assets/js/vendor/modernizr-2.js"></script>
+    @RenderSection("health", required: false)
+
+</head>
+<body>
+    @if (ViewBag.pageName != null && !Request.Browser.IsMobileDevice && ViewBag.pageName == "home")
+    {
+        <header class="top-area section-relative" id="home">
+            @Html.Partial("_partial/_MainMenu")
+            @Html.Partial("_partial/_HomeSlide_1");
+        </header>
+    }
+    else
+    {
+     <header class="section-relative" id="home">
+        @Html.Partial("_partial/_MainMenu")
+    </header>
+
+    }
+    @RenderBody()
+
+    <!--=== JQUERY LIBRARY ====-->
+    <script src="/assets/js/vendor/jquery-224.js"></script>
+    <script src="/assets/js/bootstrap-min.js"></script>
+    <script src="/assets/js/owl-carousel-min.js"></script>
+    <script src="/assets/js/mixitup-min.js"></script>
+    <script src="/assets/js/pogo-slider.js"></script>
+    <script src="/assets/js/ajaxchimp.js"></script>
+    <script src="/assets/js/lightbox.js"></script>
+    <script src="/assets/js/scrollUp-min.js"></script>
+    <script src="/assets/js/wow-min.js"></script>
+    <script src="/assets/js/arallax-113.js"></script>
+    <script src="/assets/js/plugins.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @Html.Raw(commonInfo.AnperoPlugin)
+
+    @RenderSection("scripts", required: false)
+    @Html.Raw(commonInfo.PageScript)
+    @*<script src="https://maps.googleapis.com/maps/api/js"></script>
+        <script src="/assets/js/maps.js"></script>*@
+
+</body>
+</html>

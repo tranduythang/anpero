@@ -1,0 +1,121 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+}
+
+<!-- Start-mainmenu-area -->
+<div class="header-top">
+    <div class="header-top-bar hidden-xs">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-7">
+                    <div class="contact-number">
+                        @if (!string.IsNullOrEmpty(commonInfo.HotLine))
+                        {
+                            <a href="tel:@commonInfo.HotLine"><span><i class="fa fa-phone"></i></span>@commonInfo.HotLine</a>
+                        }
+                        @if (!string.IsNullOrEmpty(commonInfo.Email))
+                        {
+                            <a href="mailto:@commonInfo.Email"><span><i class="fa fa-envelope-o"></i></span>@commonInfo.Email</a>
+                        }
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-5">
+                    <div class="social-menu">
+                        @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                        {
+                            <a href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" target="_blank"><i class="fa fa-facebook"></i></a>
+                        }
+                        @if (!string.IsNullOrEmpty(commonInfo.Skype))
+                        {
+                            <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
+                        }
+                        <a title="Chia sẻ trên google+" target="_blank" href="https://plus.google.com/share?url=@HttpContext.Current.Request.Url.AbsoluteUri"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                </div>
+                @*<div class="col-xs-2 col-sm-1">
+                        <div class="add-cart">
+                            <a href="#"><i class="fa fa-shopping-cart"><span class="cartpoint">8</span></i></a>
+                        </div>
+                    </div>*@
+
+            </div>
+        </div>
+    </div>
+    <!-- Mainmenu-Area-Start -->
+    <div class="mainmenu-area">
+        <div class="container">
+            <div class="row">
+                <nav class="mainmenu" id="mainmenu">
+                    <div class="navbar-header">
+                        <button class="collapsed navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-example-js-navbar-scrollspy">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="logo">
+                            <a href="/"><img alt="@commonInfo.Desc" src="@commonInfo.Logo" /></a>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse bs-example-js-navbar-scrollspy">
+                        <ul class="nav navbar-nav">
+                            @if (commonInfo.MenuList != null)
+                            {
+                                for (int i = 0; i < commonInfo.MenuList.Length; i++)
+                                {
+                                    <li>
+                                        @if (ViewBag.pageName != null && !Request.Browser.IsMobileDevice && ViewBag.pageName == "home")
+                                        {
+                                            <a href="@commonInfo.MenuList[i].Link">@commonInfo.MenuList[i].Tittle</a>
+                                        }
+                                        else
+                                        {
+                                            if (commonInfo.MenuList[i].Link.Contains("/"))
+                                            {
+                                                <a href="@commonInfo.MenuList[i].Link">@commonInfo.MenuList[i].Tittle</a>
+                                            }
+                                            else
+                                            {
+                                                <a href="/@commonInfo.MenuList[i].Link">@commonInfo.MenuList[i].Tittle</a>
+                                            }
+
+                                        }
+                                    </li>
+                                }
+                            }
+                            else
+                            {
+                                <li class="active"><a href="#home">home</a></li>
+                                    <li><a href="#about">about us</a></li>
+                                    <li><a href="#portfolio">Portfolio</a></li>
+                                    <li><a href="#facts">Facts</a></li>
+                                    <li><a href="#blog">Blog</a></li>
+                                    <li><a href="#price">Price </a></li>
+                                    <li><a href="#contact">contact</a></li>
+                            }
+
+
+                        </ul>
+                    </div>
+                    <div class="menu-right-button hidden-xs hidden-sm">
+                        <button id="search_toogle"><i class="fa fa-search"></i></button>
+                    </div>
+                    <div class="search-box">
+                        <form action="#" method="post">
+                            <input type="search" name="search" placeholder="Search">
+                            <button id="search"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Mainmenu-Area-End -->
+    <div id="sticky-helper"></div>
+</div>
+<!-- End-mainmenu-area -->

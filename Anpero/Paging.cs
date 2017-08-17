@@ -8,19 +8,19 @@ namespace Anpero
 {
    public static class Paging
     {
-        public static String setupAjaxPage(int curentPage, int pageSite, int newsCount, int MaxPage, string funcName)
+        public static String setupAjaxPage(int curentPage, int pageSite, int itemCount, int MaxPage, string funcName)
         {
             String pagedString = "";
 
-            int totallPaed = newsCount / pageSite;
-            if (newsCount % pageSite > 0)
+            int totallPaed = itemCount / pageSite;
+            if (itemCount % pageSite > 0)
             {
                 totallPaed += 1;
             }
             // string path = HttpContext.Current.Request.Url.AbsolutePath;
             //TESTERS/Default6.aspx
             //nếu số tin lới hơn số tin trên trang mới hiển thị phân trang
-            if (newsCount > pageSite)
+            if (itemCount > pageSite)
             {
                 pagedString = "<ul class='pagination'>";
                 if (curentPage == 1)
@@ -88,12 +88,12 @@ namespace Anpero
             }
             return pagedString;
         }
-        public static String setUpPagedV2(int curentPage, int pageSite, int newsCount, int MaxPage, String query)
+        public static String setUpPagedV2(int curentPage, int pageSite, int itemCount, int MaxPage, String query)
         {
             String pagedString = "";
-
-            int totallPaed = newsCount / pageSite;
-            if (newsCount % pageSite > 0)
+         
+            int totallPaed = itemCount / pageSite;
+            if (itemCount % pageSite > 0)
             {
                 totallPaed += 1;
             }
@@ -118,7 +118,7 @@ namespace Anpero
             // string path = HttpContext.Current.Request.Url.AbsolutePath;
             // // /TESTERS/Default6.aspx
             //nếu số tin lới hơn số tin trên trang mới hiển thị phân trang
-            if (newsCount > pageSite)
+            if (itemCount > pageSite)
             {
                 pagedString = "<ul class='pagination'>";
                 if (curentPage == 1)
@@ -196,16 +196,16 @@ namespace Anpero
         /// <param name="pageSite">Số tin trên trang</param>
         /// <param name="newsCount">Tổng số tin</param>
         /// <param name="MaxPage">Số phân trang tối đa, số trang tối đa trong menu phân trang</param>
-        ///<param name="query">query có dạng  hoặc ?some=xxxx& page=21</param>
+        ///<param name="query">query có dạng  hoặc ?some=xxxx&page= hoặc ?page=</param>
         /// <returns>String</returns> 
-        public static String setUpPagedV1(int curentPage, int pageSite, int newsCount, int MaxPage, String query)
+        public static String setUpPagedV1(int curentPage, int pageSite, int itemCount, int MaxPage, String query)
         {
             String pagedString = "";
-            if (newsCount >= 1000)
+            if (itemCount >= 1000)
             {
-                newsCount = 1000;
+                itemCount = 1000;
             }
-            int totallPaed = newsCount / pageSite;
+            int totallPaed = itemCount / pageSite;
             string CurentUrl = HttpContext.Current.Request.RawUrl.ToString();
 
             int legth = CurentUrl.LastIndexOf(query);
@@ -219,7 +219,7 @@ namespace Anpero
             // string path = HttpContext.Current.Request.Url.AbsolutePath;
             // // /TESTERS/Default6.aspx
             //nếu số tin lới hơn số tin trên trang mới hiển thị phân trang
-            if (newsCount > pageSite)
+            if (itemCount > pageSite)
             {
                 pagedString = "<ul class='pagination'>";
                 if (curentPage == 1)
@@ -253,41 +253,30 @@ namespace Anpero
                     {
                         currenttag = curentPage - 2;
                     }
-
                     for (int i = currenttag; i < j; i++)
                     {
                         if (i == curentPage)
                         {
-                            pagedString += @"<li><a href='javascript:void(0);' tittle='đang ở trang này'>" + (i) + "</a><li>";
-
+                            pagedString += @"<li class='active'><a href='javascript:void(0);' tittle='đang ở trang này'>" + (i) + "</a><li>";
                         }
                         else
                         {
                             pagedString += @"<li><a href='" + pageaspx + query + i + "'>" + i + "</a></li>";
                         }
-
                     }
-
-
-
                 }
 
                 if (curentPage == totallPaed)
                 {
-                    pagedString += @"<li><a href='#' tittle='bạn đang ở trang cuôi'>&raquo;</a><li>";
-
+                    pagedString += @"<li class='active'><a href='#' tittle='bạn đang ở trang cuôi'>&raquo;</a><li>";
                 }
                 else
                 {
                     pagedString += @"<li><a href='" + pageaspx + query + totallPaed + @"'> . " + totallPaed + @"</a></li>";
                     pagedString += @"<li><a href='" + pageaspx + query + (curentPage + 1) + "'>&raquo;</a></li>";
-
                 }
                 pagedString += @"</ul>";
             }
-
-
-
             return pagedString;
         }
 

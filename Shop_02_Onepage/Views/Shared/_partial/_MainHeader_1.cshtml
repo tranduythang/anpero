@@ -1,0 +1,39 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];    
+    }
+
+}
+<div class="container main-header">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-3 logo"></div>        
+        <div class="col-xs-5 col-sm-3 col-md-2 group-button-header">
+            
+            <div class="btn-cart" id="cart-block">
+                <a title="My cart" href="/product/checkout">Cart</a>
+                <span class="notify notify-right spN"></span>
+                <div class="cart-block">
+                    <div class="cart-block-content">
+                        <h5 class="cart-title"><span class="spN"></span> Sản phẩm</h5>
+                        <div class="cart-block-list">
+                            <ul id="prCatCt"></ul>
+                        </div>
+                        <div class="toal-cart">
+                            <span>Total</span>
+                            <span class="toal-price pull-right" id="ttSC"></span>
+                        </div>
+                        <div class="cart-buttons">
+                            <a href="/product/checkout" class="btn-check-out">Thanh toán</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    

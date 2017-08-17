@@ -1,0 +1,235 @@
+/* Medium Layout: 1280px. */
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .mainmenu ul.nav.navbar-nav li a {
+        padding: 30px 10px;
+    }
+    .about-area::after {
+        background-size: 100%;
+    }
+}
+
+
+/* Tablet Layout: 768px. */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .news-list {
+        margin-bottom: 70px;
+    }
+    .mainmenu ul.nav.navbar-nav li a {
+        text-transform: uppercase;
+        color: #ffffff;
+        background: none;
+        padding: 30px 10px;
+        font-weight: 600;
+        position: relative;
+    }
+    .about-area::after {
+        background-size: 100%;
+    }
+    .mainmenu ul.nav.navbar-nav li a {
+        font-size: 14px;
+        padding-right: 5px;
+    }
+    .logo {
+        margin-top: 20px;
+    }
+    .logo img {
+        width: 150px;
+    }
+}
+
+@media only screen and (min-width: 767px) {}
+
+
+/* Mobile Layout: 320px. */
+
+@media only screen and (max-width: 767px) {
+    .mainmenu .navbar-toggle {
+        border: 2px solid #fafafa;
+        border-radius: 2px;
+        margin-top: 20px;
+    }
+    .mainmenu .navbar-toggle .icon-bar {
+        background-color: #fafafa;
+    }
+    .mainmenu ul.nav.navbar-nav {
+        text-align: left;
+        height: 250px;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+    .mainmenu ul.nav.navbar-nav li {
+        display: block;
+    }
+    .mainmenu ul.nav.navbar-nav li a {
+        padding: 10px 0;
+        text-align: center;
+    }
+    .mainmenu ul.nav.navbar-nav li a:after,
+    .mainmenu ul.nav.navbar-nav li a:before {
+        display: none;
+    }
+    .single-portfolio {
+        width: 100%;
+    }
+    .about-area::after {
+        display: none;
+    }
+    .xs-bottom-40 {
+        margin-bottom: 40px;
+    }
+    .about-area .text-right {
+        text-align: center;
+    }
+    #photographyCarousel img {
+        width: 100%;
+    }
+    #offerCarousel .text-right,
+    .footer-bottom,
+    .offer-text,
+    .footer-bottom .text-right,
+    .offer-image {
+        text-align: center;
+    }
+    .client-area .carousel-indicators {
+        margin: auto;
+        width: 100%;
+    }
+    .client-area .carousel-indicators li {
+        display: inline-block;
+    }
+    .mainmenu {
+        padding-right: 0;
+    }
+    .header-text-area h1 {
+        font-size: 35px;
+    }
+    .battn {
+        margin: 10px 0;
+    }
+    .page-title h2:after,
+    .page-title h2:before,
+    .client-slide-control {
+        display: none;
+    }
+    .page-title h2 {
+        font-size: 22px;
+    }
+    .section-padding {
+        padding: 60px 0;
+    }
+    .padding-top {
+        padding-top: 60px;
+    }
+    .pogoSlider--dirCenterHorizontal .pogoSlider-dir-btn {
+        display: none;
+    }
+    .page-title {
+        margin-bottom: 10px;
+    }
+    .logo {
+        margin-top: 10px;
+    }
+    .logo img {
+        width: 150px;
+    }
+    .contact-area input#form-name,
+    .contact-area input#form-email {
+        float: none;
+        width: 100%;
+    }
+    .contact-area input#form-name {
+        margin-right: 0;
+    }
+    .service-photo {
+        margin-bottom: 10px;
+    }
+    .page-title {
+        margin-bottom: 40px;
+    }
+    .single-skill {
+        margin-bottom: 60px;
+    }
+    .single-photography {
+        padding-left: 0;
+    }
+    .single-photography .photography-icon {
+        margin-bottom: 30px;
+        position: static;
+    }
+    .client-text {
+        width: 100%;
+    }
+}
+
+
+/* Wide Mobile Layout: 480px. */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .single-portfolio {
+        width: 50%;
+    }
+}
+
+@media print {
+    *,
+    *:before,
+    *:after,
+    *:first-letter,
+    *:first-line {
+        background: transparent !important;
+        color: #000 !important;
+        /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+    thead {
+        display: table-header-group;
+    }
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+    img {
+        max-width: 100% !important;
+    }
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

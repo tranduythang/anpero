@@ -257,8 +257,53 @@ namespace Anpero
             }
 
             return inPut;
+        }
+        public static string ConvertToVndMoney(decimal input)
+        {
+            decimal outPut = 0;
+            string donvi = "";
+            if (input > 1000000000)
+            {
+                outPut = input / 1000000000;
+                donvi = "tỷ";
+            }else if (input > 1000000)
+            {
+                outPut = input / 1000000;
+                donvi = "triệu";
+            }else if (input > 1000)
+            {
+                outPut = input / 1000000;
+                donvi = "nghìn";
+            }
+            if (outPut > 0)
+            {
+                return String.Format("{0:0}", outPut) + " " + donvi;
+            }else
+            {
+                return "liên hệ";
+            }            
+        }
+        public static String ToPhoneNumberFormat(String s)
+        {
+            int dotIndex = s.LastIndexOf(".");
+            if (s != null && !DBNull.Value.Equals(s))
+            {
+                if (s == "0" || s == "0.00")
+                {
+                    return "0";
+                }
+                if (s.Length > (dotIndex + 3) && dotIndex != -1)
+                {
+                    s = s.Substring(0, dotIndex + 2);
 
+                }
+                return string.Format("{0:###-###-####}",s);
 
+            }
+            else
+            {
+                return "0";
+            }
         }
         public static String ConVertToMoneyFormatInt(String s)
         {
@@ -281,6 +326,14 @@ namespace Anpero
             {
                 return "0";
             }
+        }
+        public static String ConVertToMoneyFormatInt(int input)
+        {
+            return ConVertToMoneyFormatInt(input.ToString());
+        }
+        public static String ConVertToMoneyFormatInt(decimal input)
+        {
+            return ConVertToMoneyFormatInt(input.ToString());
         }
         public static String ConVertToMoneyFormat(String s)
         {
@@ -518,6 +571,30 @@ namespace Anpero
             }
 
         }
+        public static string GetBlogCategoryLink(string categoryName, int CategoryId)
+        {
+            if (!string.IsNullOrEmpty(categoryName) && !string.IsNullOrEmpty(categoryName) && CategoryId > 0)
+            {
+                return "/" + toURLgach(categoryName) + "-b" + CategoryId;
+            }
+            else
+            {
+                return "/";
+            }
+
+        }
+        public static string GetArticleLink(string ArticleTitle, int ArticleId)
+        {
+            if (!string.IsNullOrEmpty(ArticleTitle) && !string.IsNullOrEmpty(ArticleTitle) && ArticleId > 0)
+            {
+                return "/" + toURLgach(ArticleTitle) + "-a" + ArticleId;
+            }
+            else
+            {
+                return "/";
+            }
+
+        }
         public static string GetParentCategoryLink(string parentCategoryName, int parentCategoryId)
         {
             if (!string.IsNullOrEmpty(parentCategoryName) && !string.IsNullOrEmpty(parentCategoryName) && parentCategoryId > 0)
@@ -530,5 +607,30 @@ namespace Anpero
             }
 
         }
+        public static String ConvertTimeVN(String YYYYMMddhhmmss)
+        {
+            try
+            {
+                if (YYYYMMddhhmmss.Length >= 8)
+                {
+                    String year = YYYYMMddhhmmss.Substring(0, 4);
+                    String month = YYYYMMddhhmmss.Substring(4, 2);
+                    String day = YYYYMMddhhmmss.Substring(6, 2);
+                    return day + " tháng " + month + " năm " + year;
+                }
+                else
+                {
+                    return "";
+                }
+            }
+            catch (Exception)
+            {
+
+                return "";
+            }
+
+
+        }
+        /// <summary>
     }
 }
