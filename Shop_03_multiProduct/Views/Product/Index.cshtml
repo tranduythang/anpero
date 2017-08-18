@@ -5,7 +5,7 @@
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
-    string thisUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+    string thisUrl = HttpContext.Current.Request.Url.AbsolutePath;
     AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewData["prDetail"];
     @section health{
         <meta name="description" content="@Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc)" />
@@ -76,11 +76,8 @@
                                         </div>
                                         <span itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
                                             <div class="rating">
-                                                <div class="ratings">
-                                                    <div class="rating-box">
-                                                        <div class="rating" style="width:50%"></div>
-                                                    </div>
-                                                    <p class="rating-links"><a href="#">1 Đánh giá</a> <span class="separator">|</span> <a href="#">Mua ngay</a> </p>
+                                                <div class="ratings">                                                   
+                                                    <p class="rating-links"><a href="tel:@commonInfo.HotLine">Gọi: @commonInfo.HotLine hoặc click mua ngay để đặt hàng</a> </p>
                                                 </div>
                                             </div>
                                         </span>
@@ -115,11 +112,8 @@
                                                 </div>
                                                 <button type="button" title="Add to Cart" class="button btn-cart" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span><i class="icon-basket"></i>Mua ngay</span></button>
                                             </div>
-                                            <div class="email-addto-box">
-                                                <p class="email-friend"><a href="#" title="Email to a Friend"><span>Email to a Friend</span></a></p>
-                                                <ul class="add-to-links">
-                                                    <li> <a class="link-wishlist" href="http://www.facebook.com/share.php?u=@thisUrl&title=@commonInfo.Desc" onclick="" title="Add To Wishlist"><span>Add To Wishlist</span></a> </li>
-                                                </ul>
+                                            <div class="email-addto-box">                                                
+                                                <p class="add-to-links"><a class="link-wishlist" href="http://www.facebook.com/share.php?u=@thisUrl&title=@commonInfo.Desc" onclick="" title="Add To Wishlist"><span>Add To Wishlist</span></a></p>                                               
                                             </div>
                                         </div>
                                         <div class="social">
