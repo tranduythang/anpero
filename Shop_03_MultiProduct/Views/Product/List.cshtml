@@ -16,9 +16,9 @@
     if (productList.Item.Length > 0)
     {
         @section health{
-            <meta name="description" content="@commonInfo.Desc" />
-            <meta name="keywords" content="Thực phẩm sạch, Hoa quả sạch, Ngon Lành, Ngon Sạch, Uy tín, Bơ sạch, Bơ Sáp, Bơ Booth" />
-            <meta property="og:description" content="@commonInfo.Desc" />
+            <meta name="description" content="@ViewBag.Description" />
+            <meta name="keywords" content="@ViewBag.Keywords" />
+            <meta property="og:description" content="@ViewBag.Description" />
             <meta property="og:title" content="@productList.Item[0].ParentCatName" />
             <meta property="og:type" content="website" />
 

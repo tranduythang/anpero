@@ -33,7 +33,9 @@
     @RenderSection("canonical", required: false)
 </head>
 <body>
-
+    <h1 id="heading1" style="display:none;">
+        @commonInfo.Desc
+    </h1>
     @Html.Partial("_partial/_MainHeader_1")
 
     @RenderBody()
