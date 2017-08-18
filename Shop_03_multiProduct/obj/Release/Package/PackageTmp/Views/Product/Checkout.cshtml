@@ -99,7 +99,7 @@
                         </div>
                         <h3 class="checkout-sep">4. Kiểm tra lại thông tin sản phẩm</h3>
                         <div class="box-border">
-                            <table class="table table-bordered table-responsive cart_summary">
+                            <table class="table table-bordered table-responsive add-to-cart" id="shopping-cart-table">
                                 <thead>
                                     <tr>
                                         <th class="cart_product">Ảnh</th>
@@ -128,8 +128,9 @@
                                 <div id="g-recaptcha" class="pull-right"></div>
                             </div>
                             <div class="col-md-12">
-                                <a class="button pull-right" id="orderBtn">Xác nhận đặt hàng</a>
-                                <a class="button pull-right" href="/">Mua thêm</a>
+                                <a href="/" title="Continue Shopping" class="btn button btn-continue" onclick=""><span><span>Mua thêm</span></span></a>                                
+                                <button type="submit" name="update_cart_action" value="update_qty" title="Update Cart" class="button btn-update pull-right" id="orderBtn"><span><span>Gửi đơn hàng</span></span></button>                                
+                               
                             </div>
                             <div class="clearfix"></div>
                         </div>
