@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anpero", "Anpero\Anpero.csproj", "{B88546AC-D123-448F-BD9B-7287E7CE1B38}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_Shop_MultiProduct", "Shop_03_multiProduct\03_Shop_MultiProduct.csproj", "{974A627F-FDDD-4349-95B3-B0CE2BF33426}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_BatDongSan_MultiLand", "BDS_04_BatDongSan_MultiLand\01_BatDongSan_MultiLand.csproj", "{FA1C4563-DFE3-4C02-896F-17DE0F335EB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_BatDongSan_MultiLand", "BDS_05_BatDongSan_MultiLand\02_BatDongSan_MultiLand.csproj", "{38AE6E33-8A76-4721-9D33-35F9399B1797}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{FA1C4563-DFE3-4C02-896F-17DE0F335EB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA1C4563-DFE3-4C02-896F-17DE0F335EB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA1C4563-DFE3-4C02-896F-17DE0F335EB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38AE6E33-8A76-4721-9D33-35F9399B1797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38AE6E33-8A76-4721-9D33-35F9399B1797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38AE6E33-8A76-4721-9D33-35F9399B1797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38AE6E33-8A76-4721-9D33-35F9399B1797}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
