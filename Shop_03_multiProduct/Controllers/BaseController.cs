@@ -11,7 +11,7 @@ namespace AnperoFrontend.Controllers
 
         public static int StoreID = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["storeID"]);
         public static string TokenKey = System.Configuration.ConfigurationManager.AppSettings["storeTokenKey"];
-        public static int shortCacheTime= Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
+        public static int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
         public void GetTopArticle()
         {
             WebService.SearchArticleResults rs = new WebService.SearchArticleResults();
@@ -27,7 +27,7 @@ namespace AnperoFrontend.Controllers
                 {
                     HttpRuntime.Cache.Insert("TopArticle", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
-               
+
             }
             ViewData["FeatureArticle"] = rs;
         }
@@ -36,6 +36,7 @@ namespace AnperoFrontend.Controllers
             WebService.ProductItem[] saleProduct;
             WebService.SearchResult BestsaleProduct;
             WebService.AnperoService sv = new WebService.AnperoService();
+            WebService.Ads[] Slide = null;
             if (HttpRuntime.Cache["saleProduct"] != null)
             {
                 saleProduct = (WebService.ProductItem[])HttpRuntime.Cache["saleProduct"];
@@ -47,7 +48,7 @@ namespace AnperoFrontend.Controllers
                 {
                     HttpRuntime.Cache.Insert("saleProduct", saleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
-               
+
             }
             ViewData["saleProduct"] = saleProduct;
 
@@ -63,11 +64,39 @@ namespace AnperoFrontend.Controllers
                 {
                     HttpRuntime.Cache.Insert("BestsaleProduct", BestsaleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
-               
+
             }
             ViewData["BestsaleProduct"] = BestsaleProduct;
+            //slide of list product page
+            if (HttpRuntime.Cache["slide3"] != null)
+            {
+                ViewData["slide3"] = (WebService.Ads[])HttpRuntime.Cache["slide3"];
+            }
+            else
+            {
+                Slide = sv.GetAdsSlide(StoreID, TokenKey, PageContent.Ads3);
+                ViewData["slide3"] = Slide;
+                if (Slide != null)
+                {
+                    HttpRuntime.Cache.Insert("slide3", Slide, null, DateTime.Now.AddMinutes(shortCacheTime + 6), TimeSpan.Zero);
+                }
+            }
+            //slide of prodution menu
+            if (HttpRuntime.Cache["slide4"] != null)
+            {
+                ViewData["slide4"] = (WebService.Ads[])HttpRuntime.Cache["slide4"];
+            }
+            else
+            {
+                Slide = sv.GetAdsSlide(StoreID, TokenKey, PageContent.Ads4);
+                ViewData["slide4"] = Slide;
+                if (Slide != null)
+                {
+                    HttpRuntime.Cache.Insert("slide4", Slide, null, DateTime.Now.AddMinutes(shortCacheTime + 6), TimeSpan.Zero);
+                }
+            }
         }
-       
+
     }
     public class BuildCommonHtml : ActionFilterAttribute
     {
@@ -75,7 +104,7 @@ namespace AnperoFrontend.Controllers
         {
             int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
             if (HttpRuntime.Cache["commonInfo"] != null)
-            {                
+            {
                 filterContext.Controller.ViewData["commonInfo"] = HttpRuntime.Cache["commonInfo"];
             }
             else
@@ -87,11 +116,7 @@ namespace AnperoFrontend.Controllers
                 {
                     HttpRuntime.Cache.Insert("commonInfo", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
-                              
-
             }
-          
-
         }
     }
 
@@ -115,7 +140,9 @@ namespace AnperoFrontend.Controllers
         public static string Ads1 = "ads1";
         public static string Ads2 = "ads2";
         public static string Ads3 = "ads3";
-        
-    }
+        public static string Ads4 = "ads4";
+        public static string Ads5 = "ads5";
+        public static string Ads6 = "ads6";
 
+    }
 }

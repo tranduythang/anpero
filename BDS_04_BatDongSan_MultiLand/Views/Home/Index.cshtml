@@ -15,28 +15,26 @@
 <div class="page-top">
     <div class="container">
         <div class="row">
-            <div class="column col-xs-12 col-sm-3" id="left_column">
+            <div class="col-md-3 col-sm-3">
                 @Html.Partial("_partial/_searchBox")
-            </div>
-            @Html.Partial("_partial/_HomeSlide_2")
+            </div>          
+            @Html.Partial("_partial/_HomeSlide_2")            
         </div>
     </div>
 </div>
-<!-- end services -->
 <div class="page-top">
     <div class="container">
         <div class="page-top">
             <div class="container">
-                <div class="row">
-                    <div class="col-xs-8 col-sm-8 page-top-left">
+                <div class="row  page-top-left">
+                    <div class="col-md-8 col-sm-8">
                         <div class="popular-tabs">
                             <ul class="nav-tab">
                                 <li class="active"><a data-toggle="tab" href="#tab-3">Dự án nổi bật</a></li>
-
                             </ul>
                             <div class="tab-container">
                                 <div id="tab-3" class="tab-panel active">
-                                    <ul class="product-list list" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}'>
+                                    <ul class="product-list list">
                                         @if (ViewData["BestsaleProduct"] != null)
                                         {
                                             AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["BestsaleProduct"];
@@ -89,13 +87,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-4 col-sm-4 page-top-left">
+                    <div class="col-md-4 col-sm-4">
                         <div class="popular-tabs">
                             <ul class="nav-tab">
-                                <li>Bất động sản mới</li>
+                                <li>Bất động sản mới <img src="/assets/images/new-marker.gif"></li>
                             </ul>
                             <div class="tab-container">
-
                                 <div id="tab-1" class="tab-panel active">
                                     <ul class="row product-list list" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}'>
                                         @if (ViewData["newestProduct"] != null)
@@ -203,9 +200,6 @@ else
     </div>
 }
 
-<!-- Baner bottom -->
-<!-- end banner bottom -->
-
 @if (ViewData["FeatureArticle"] != null)
 {
     SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
@@ -247,8 +241,7 @@ else
 else
 {
     <div class="row-blog">
-        <div class="container">
-            <!-- blog list -->
+        <div class="container">   
             <div class="blog-list">
                 <h2 class="page-heading">
                     <span class="page-heading-title">From the blog</span>
@@ -325,8 +318,7 @@ else
                         </li>
                     </ul>
                 </div>
-            </div>
-            <!-- ./blog list -->
+            </div>            
         </div>
     </div>
 }

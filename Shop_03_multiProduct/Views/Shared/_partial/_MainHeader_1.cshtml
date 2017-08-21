@@ -5,13 +5,12 @@
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
-
 }
 <header>
     <div class="header-banner">
         <div class="assetBlock">
             <div style="height: 20px; overflow: hidden;" id="slideshow">
-                <p style="display: block;">HOT DAYS! - <span>20%</span> KHÁCH ĐẶT HÀNG ONLINE! &gt;</p><p style="display: none;">GIẢM GIÁ LÊN ĐẾN <span>40%</span> CHO ĐƠN ĐẶT HÀNG LỚN! &gt;</p>
+                <p style="display: block;">HOT DAYS! - <span>10%</span> KHÁCH ĐẶT HÀNG ONLINE! &gt;</p><p style="display: none;">GIẢM GIÁ LÊN ĐẾN <span>20%</span> CHO ĐƠN ĐẶT HÀNG LỚN! &gt;</p>
             </div>
         </div>
     </div>
@@ -19,27 +18,25 @@
         <div class="header-container container">
             <div class="row">
                 <div class="logo">
-                    <a href="/" title="Flavours HTML">
+                    <a href="/" title="@commonInfo.Desc">
                         <div><img src="@commonInfo.Logo" alt="@commonInfo.Name"></div>
                     </a>
                 </div>
                 <div class="fl-nav-menu">
-
                     <nav>
                         <div class="mm-toggle-wrap">
                             <div class="mm-toggle"><i class="icon-align-justify"></i><span class="mm-label">Menu</span> </div>
                         </div>
                         <div class="nav-inner">
-                            <!-- BEGIN NAV -->
                             <ul id="nav" class="hidden-xs">
                                 <li id="nav-home" class="level0 parent drop-menu"><a class="level-top active" href="/"><span>Trang Chủ</span></a></li>
+                                <li class="level0 parent drop-menu"><a class="level-top" href="/home/about"><span>Giới thiệu</span></a></li>
                                 <li class="mega-menu">
-                                    <a class="level-top" href="/list"><span>Sản phẩm‎</span></a>
+                                    <a class="level-top" href="/"><span>Sản phẩm‎</span></a>
                                     <div class="level0-wrapper dropdown-6col" style="left: 0px; display: none;">
                                         <div class="container">
                                             <div class="level0-wrapper2">
                                                 <div class="nav-block nav-block-center">
-                                                    <!--mega menu-->
                                                     <ul class="level0">
                                                         @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                                                         {
@@ -56,7 +53,7 @@
                                                                         <ul class="level1">
                                                                             @foreach (var chidItem in item.ChildCategory)
                                                                             {
-                                                                                <li class="level2 nav-6-1-1"><a href="@Anpero.StringHelpper.GetParentCategoryLink(chidItem.Name, chidItem.Id)"><span>@chidItem.Name</span></a></li>
+                                                                                <li class="level2 nav-6-1-1"><a href="@Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)"><span>@chidItem.Name</span></a></li>
                                                                             }
                                                                         </ul>
                                                                     </li>
@@ -64,81 +61,93 @@
                                                             }
                                                         }
                                                     </ul>
-                                                    <!--level0-->
                                                 </div>
-                                                <!--nav-block nav-block-center-->
-                                                <div class="nav-add">
-                                                    <div class="push_item">
-                                                        <div class="push_img"><a href="#"><img src="assets/images/menu-img1.jpg" alt="menu item 1"></a></div>
-
+                                                @if (ViewData["slide4"] != null)
+                                                {
+                                                    Ads[] slide = (Ads[])ViewData["slide4"];
+                                                    <div class="nav-add">
+                                                        @if (slide.Length > 0)
+                                                        {
+                                                            for (int i = 0; i < slide.Length; i ++)
+                                                            {
+                                                                if (i == slide.Length - 1)
+                                                                {
+                                                                    <div class="push_item push_item_last">
+                                                                        <div class="push_img">
+                                                                            <a href="@slide[i].ClickUrl">
+                                                                                <img src="@slide[i].ImagesUrl" alt="@slide[i].Description" />
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <div class="push_item">
+                                                                        <div class="push_img">
+                                                                            <a href="@slide[i].ClickUrl">
+                                                                                <img src="@slide[i].ImagesUrl" alt="@slide[i].Description" />
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                }
+                                                            }
+                                                        }
                                                     </div>
-                                                    <div class="push_item">
-                                                        <div class="push_img"><a href="#"><img src="assets/images/menu-img2.jpg" alt="menu item 2"></a></div>
-
-                                                    </div>
-                                                    <div class="push_item">
-                                                        <div class="push_img"><a href="#"><img src="assets/images/menu-img3.jpg" alt="menu item 3"></a></div>
-
-                                                    </div>
-                                                    <div class="push_item push_item_last">
-                                                        <div class="push_img"><a href="#"><img src="assets/images/menu-img4.jpg" alt="menu item 4"></a></div>
-
-                                                    </div>
-                                                </div>
+                                                }
                                             </div>
-                                            <!--level0-wrapper2-->
                                         </div>
-                                        <!--container-->
                                     </div>
-                                    <!--level0-wrapper dropdown-6col-->
-                                    <!--mega menu-->
                                 </li>
                                 <li class="fl-custom-tabmenulink mega-menu">
                                     <a href="#" class="level-top"> <span>Sản phẩm khuyến mại</span> </a>
                                     <div class="level0-wrapper fl-custom-tabmenu" style="left: 0px; display: none;">
                                         <div class="container">
                                             <div class="header-nav-dropdown-wrapper clearer">
-                                                <div class="grid12-3">
-
-                                                    <div><img src="/assets/images/custom-block.png" alt="custom-image"></div>
-                                                    <h4 class="heading">SALE UP TO 30% OFF</h4>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                </div>
-                                                <div class="grid12-3">
-
-                                                    <div><img src="/assets/images/custom-block.png" alt="custom-image"></div>
-                                                    <h4 class="heading">SALE UP TO 30% OFF</h4>
-                                                    <p>Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
-                                                </div>
-                                                <div class="grid12-3">
-                                                    <div><img src="/assets/images/custom-block.png" alt="custom-image"></div>
-                                                    <h4 class="heading">SALE UP TO 30% OFF</h4>
-                                                    <p>Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
-                                                </div>
-                                                <div class="grid12-3">
-                                                    <div><img src="/assets/images/custom-block.png" alt="custom-image"></div>
-                                                    <h4 class="heading">SALE UP TO 30% OFF</h4>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                </div>
+                                                @if (ViewData["saleProduct"] != null)
+                                                {
+                                                    AnperoFrontend.WebService.ProductItem[] saleProduct = (AnperoFrontend.WebService.ProductItem[])ViewData["saleProduct"];
+                                                    if (saleProduct != null && saleProduct.Length > 0)
+                                                    {
+                                                        foreach (ProductItem item in saleProduct)
+                                                        {
+                                                            <div class="grid12-3">
+                                                                <div><img src="@item.Images" alt="@item.PrName"></div>
+                                                                <h4 class="heading">Giảm giá 20%</h4>
+                                                                <p>@item.ShortDesc.Substring(0, 61)</p>
+                                                            </div>
+                                                        }
+                                                    }
+                                                }
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-                                <li><a href="/home/contact">Liên hệ</a></li>
                                 <li class="level0 parent drop-menu">
                                     <a href="/blog"><span>Tin tức</span> </a>
-                                    <!--sub sub category-->
                                     <ul class="level1">
-                                        <li class="level1"><a href="/home/contact"><span>Liên hệ</span></a> </li>
-                                        <li class="level1"><a href="/blog"><span>Blog</span></a> </li>
+                                        <li class="level1"><a title="blog" href="/blog"><span>Blogs Tin tức</span></a></li>
+                                        <li class="level1">
+                                            <a title="shipper" href="/chinh-sach-van-chuyen-a86">
+                                                <span>Vận chuyển</span>
+                                            </a>
+                                        </li>
+                                        <li class="level1">
+                                            <a title="rollback" href="/chinh-sach-doi-tra-hang-tai-ngonlan-a84">
+                                                <span>Chính sách đổi trả</span>
+                                            </a>
+                                        </li>
+                                        <li class="level1">
+                                            <a title="pay" href="/huong-dan-thanh-toan-khi-mua-hang-t-a85">
+                                                <span>Hướng dẫn thanh toán</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
+                                <li class="level0 parent drop-menu"><a class="level-top" href="/home/contact"><span>Liên hệ</span></a></li>
                             </ul>
-                            <!--nav-->
                         </div>
                     </nav>
-                </div>
-                <!--row-->
+                </div>                
             </div>
             <div class="fl-header-right">
                 <div class="fl-links">
@@ -146,66 +155,36 @@
                         <a title="Company" class="clicker"></a>
                         <div class="fl-nav-links">
                             <ul class="links">
-                                <li><a href="/product/checkout" title="Checkout">Checkout</a></li>
-                                <li><a href="/blog" title="Blog"><span>Blog</span></a></li>
+                                <li><a href="/product/checkout" title="Checkout">Đặt Hàng</a></li>
+                                <li><a href="/blog" title="Blog"><span>Blogs Tin Tức</span></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="fl-cart-contain">
                     <div class="mini-cart">
-                        <div class="basket"> <a href="shopping-cart.html"><span> 2 </span></a> </div>
-                        <div class="fl-mini-cart-content" style="display: none;">
-                            <div class="block-subtitle">
-                                <div class="top-subtotal">2 items, <span class="price">$259.99</span> </div>
-                                <!--top-subtotal-->
-                                <!--pull-right-->
+                        <div class="basket"> <a href="/product/checkout" ><span class="spN">0</span></a> </div>
+                        <div class="fl-mini-cart-content" style="display:none;">
+                            <div class="block-subtitle hide">
+                                <div class="top-subtotal"><span class="spN">0</span> Sp, <span id="ttSC"></span> </div>                            
+                            </div>                    
+                            <ul class="mini-products-list" id="cart-sidebar"  style="display: none;"></ul>
+                            <div class="actions cart-buttons"  style="display: none;">
+                                <a class="btn-checkout" href="/product/checkout"><span>Đặt hàng</span></a>
                             </div>
-                            <!--block-subtitle-->
-                            <ul class="mini-products-list" id="cart-sidebar">
-                                <li class="item first">
-                                    <div class="item-inner">
-                                        <a class="product-image" title="timi &amp; leslie Sophia Diaper Bag, Lemon Yellow/Shadow White" href="#l"><img alt="timi &amp; leslie Sophia Diaper Bag, Lemon Yellow/Shadow White" src="/assets/images/product-img.jpg"></a>
-                                        <div class="product-details">
-                                            <div class="access"><a class="btn-remove1" title="Remove This Item" href="#">Remove</a> <a class="btn-edit" title="Edit item" href="#"><i class="icon-pencil"></i><span class="hidden">Edit item</span></a> </div>
-                                            <!--access-->
-                                            <strong>1</strong> x <span class="price">$179.99</span>
-                                            <p class="product-name"><a href="product-detail.html">timi &amp; leslie Sophia Diaper Bag...</a></p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="item last">
-                                    <div class="item-inner">
-                                        <a class="product-image" title="JP Lizzy Satchel Designer Diaper Bag - Slate Citron" href="#"><img alt="JP Lizzy Satchel Designer Diaper Bag - Slate Citron" src="/assets/images/product-img.jpg"></a>
-                                        <div class="product-details">
-                                            <div class="access"><a class="btn-remove1" title="Remove This Item" href="#">Remove</a> <a class="btn-edit" title="Edit item" href="#"><i class="icon-pencil"></i><span class="hidden">Edit item</span></a> </div>
-                                            <!--access-->
-                                            <strong>1</strong> x <span class="price">$80.00</span>
-                                            <p class="product-name"><a href="product-detail.html">JP Lizzy Satchel Designer Diaper Ba...</a></p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="actions">
-                                <button class="btn-checkout" title="Checkout" type="button" onclick="window.location=checkout.html"><span>Checkout</span></button>
-                            </div>
-                            <!--actions-->
                         </div>
-                        <!--fl-mini-cart-content-->
-                    </div>
-                </div>
-                <!--mini-cart-->
+                     </div>
+                </div>                
                 <div class="collapse navbar-collapse">
-                    <form class="navbar-form" role="search" action="/search" method="post">
+                    <form class="navbar-form" role="search" action="/search" method="get">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search">
+                            <input type="text" class="form-control" placeholder="Search" name="keyword" id="keyword">
                             <span class="input-group-btn">
                                 <button type="submit" class="search-btn"> <span class="glyphicon glyphicon-search"> <span class="sr-only">Search</span> </span> </button>
                             </span>
                         </div>
                     </form>
                 </div>
-                <!--links-->
             </div>
         </div>
     </div>

@@ -28,6 +28,41 @@ namespace AnperoFrontend.handler
                 string TokenKey = System.Configuration.ConfigurationManager.AppSettings["storeTokenKey"];
                 switch (op)
                 {
+                    case "searchProduct":
+                        {
+                            WebService.AnperoService sv = new WebService.AnperoService();
+                            string order = context.Request["order"];
+                            string category = context.Request["cat"];
+                            string parentCategory = context.Request["ParentCat"];
+                            WebService.SearchResult relateProduct = sv.SearchProduct(st, TokenKey, "", parentCategory, "", 0, 9999999, 1, 15, "", order, 0);
+                            if (relateProduct.Item.Length > 0)
+                            {
+                                foreach (var item in relateProduct.Item)
+                                {
+                                    rs += "<li class=\"item first\">";
+                                    rs += "<div class=\"product-image\">";
+                                    rs += "<a href=\"" + Anpero.StringHelpper.GetProductLink(item.PrName, item.Id) + "\">";
+                                    rs += "<img class=\"small-image\" src=\"" + item.Images + "\">";
+                                    rs += "</a>";
+                                    rs += "</div>";
+                                    rs += "<div class=\"product-shop\">";
+                                    rs += "<h2 class=\"product-name\">";
+                                    rs += "<a href=\"" + Anpero.StringHelpper.GetProductLink(item.PrName, item.Id) + "\">" + item.PrName + "</a>";
+                                    rs += "</h2>";
+                                    rs += "<div class=\"desc std\">";
+                                    rs += "<p>" + item.ShortDesc + "</p>";
+                                    rs += " <p><a class=\"link-learn\"  href=\"" + Anpero.StringHelpper.GetProductLink(item.PrName, item.Id) + "\">Chi tiết</a></p>";
+                                    rs += "</div>";
+                                    rs += "<div class=\"price-box\"><p class=\"old-price\"> <span class=\"price-label\"></span><span class=\"price\">" + Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + "</span></p></div>";
+                                    rs += "<div class=\"actions\">";
+                                    rs += "<button class=\"button btn-cart ajx-cart\" type=\"button\"><span>Mua ngay</span></button>";
+                                    rs += "<span class=\"add-to-links\"><a class=\"button link-wishlist\" href=\"#\"><span>Thêm vào giỏ hàng</span></a></span>";
+                                    rs += "</div></div>";
+                                    rs += "</li>";
+                                }
+                            }
+                            break;
+                        }
                     case "CreateOrder":
                         {
 

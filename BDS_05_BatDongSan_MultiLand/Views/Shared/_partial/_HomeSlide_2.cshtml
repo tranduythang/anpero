@@ -1,0 +1,70 @@
+﻿@using AnperoFrontend.WebService;
+@using AnperoFrontend.WebService;
+<div class="col-md-6">
+
+    @if (ViewData["FeatureArticle"] != null)
+    {
+        SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
+        <div class="col-md-12 faticle" style="padding:0px;">
+            <div class="col-md-4 image-hover2">
+                <a href="@Anpero.StringHelpper.GetArticleLink(FeatureArticle.ItemList[0].Title,FeatureArticle.ItemList[0].Id)"><img src="@FeatureArticle.ItemList[0].Thumb" alt="@FeatureArticle.ItemList[0].Title"></a>
+            </div>
+            <div class="post-desc">
+                <h5 class="post-title">
+                    <a href="@Anpero.StringHelpper.GetArticleLink(FeatureArticle.ItemList[0].Title,FeatureArticle.ItemList[0].Id)">@Anpero.StringHelpper.SubString(80, FeatureArticle.ItemList[0].Title)</a>
+                </h5>
+                @FeatureArticle.ItemList[0].ShotDesc
+            </div>
+        </div>
+        <div class="col-md-12 home-article border-b" style="padding:0px;height:234px;margin-top:10px">
+            <div class="scl">
+                @if (FeatureArticle.ItemList.Length >= 2)
+                {
+                    for (int i = 1; i < FeatureArticle.ItemList.Length; i++)
+                    {
+                        <div class="post-desc">
+                            <h5 class="post-title">
+                                <a href="@Anpero.StringHelpper.GetArticleLink(FeatureArticle.ItemList[i].Title,FeatureArticle.ItemList[i].Id)">@Anpero.StringHelpper.SubString(80, FeatureArticle.ItemList[i].Title)</a>
+                            </h5>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+
+
+    }
+</div>
+<div class="col-md-3 ">
+    <h1 class="border-b tittle-b">DỰ ÁN NỔI BẬT</h1>
+    <div class="border-b">
+        <div class="featureLand">
+            <div class="scl2">
+                @if (ViewData["BestsaleProduct"] != null)
+            {
+                AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["BestsaleProduct"];
+                if (bestSaleList != null && bestSaleList.Item.Length > 0)
+                {
+                    foreach (ProductItem item in bestSaleList.Item)
+                    {
+
+                            <div class="product-container">
+                                <div class="left-block">
+                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
+                                        <img class="img-responsive" alt="@item.ShortDesc" src="@item.Images" />
+                                    </a>
+                                </div>
+                                <div class="right-block">
+                                    <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></h5>
+                                </div>
+                            </div>
+
+                        }
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+</div>
+

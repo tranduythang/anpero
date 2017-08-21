@@ -1,36 +1,40 @@
 ﻿@using AnperoFrontend.WebService;
 @{
-    ViewBag.Title = "Liên hệ với chúng tôi";
-}
-
-@{
+    ViewBag.Title = "Liên hệ với chúng tôi | Ngon Lành";
     AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
     if (ViewData["commonInfo"] != null)
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
-        ViewBag.Title = commonInfo.Desc;
     }
-
 }
+@section health{
+    <meta name="description" content="@commonInfo.Desc" />
+    <meta name="keywords" content="Thực phẩm sạch, Hoa quả sạch, Ngon Lành, Ngon Sạch, Uy tín, Bơ sạch, Bơ Sáp, Bơ Booth" />
+    <meta property="og:description" content="@commonInfo.Desc" />
+    <meta property="og:title" content="@commonInfo.Desc" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="ngonlanh.vn" />
+    <meta property="og:image" content="@commonInfo.Logo" />
+}
+<div class="page-heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="page-title">
+                    <h2>Liên hệ với chúng tôi</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="columns-container">
     <div class="container" id="columns">
-        <!-- breadcrumb -->
-        <div class="breadcrumb clearfix">
-            <a class="home" href="#/" title="Return to Home">Trang chủ</a>
-            <span class="navigation-pipe">&nbsp;</span>
-            <span class="navigation_page">Liên hệ</span>
-        </div>
-        <!-- ./breadcrumb -->
-        <!-- page heading-->
-        <h2 class="page-heading">
-            <span class="page-heading-title2">Contact Us</span>
-        </h2>
-        <!-- ../page heading-->
+        <!-- /assets/page heading-->
         <div id="contact" class="page-content page-contact">
             <div id="message-box-conact"></div>
             <div class="row">
                 <div class="col-sm-6">
-                    <h3 class="page-subheading">Gửi tin nhắn cho @commonInfo.Name</h3>
+                    <h3 class="page-subheading">Gửi tin nhắn cho Ngon&Lành</h3>
                     <div class="contact-form-box">                       
                         <div class="form-selector">
                             <label>Tên liên hệ </label>

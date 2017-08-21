@@ -255,3 +255,17 @@
         }
     }
 }
+var Search = {
+    Products: function () {
+        $.ajax({
+            method: "post",
+            url: "/handler/ProductHandler.ashx",
+            datatype: "text/plain",
+            data: { op: "searchProduct", cat: categoryId, ParentCat: ParentCatId, order: "timeDesc", captcha:"off" },
+            success: function (rs) {
+                $("#products-list").html(rs);
+                
+            }
+        });
+    }
+}
