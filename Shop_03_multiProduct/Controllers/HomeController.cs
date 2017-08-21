@@ -126,12 +126,13 @@ namespace AnperoFrontend.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
+            SetupCommonProduct();
             return View();
         }
         [BuildCommonHtml]
         public ActionResult Contact()
         {
+            SetupCommonProduct();
             return View();
         }
     }
