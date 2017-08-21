@@ -5,15 +5,16 @@
     if (ViewData["commonInfo"] != null)
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
-        ViewBag.Title = commonInfo.Desc;
+        ViewBag.Title = "Ngon Lành | Thực phẩm sạch Ngon lành An toàn và Uy tín";
+        ViewBag.Keywords = "thực phẩm sạch, hoa qua sạch, rau sạch, ngon lành, ngon sạch, trái cây sạch, an toàn thực phẩm, bơ sáp, bơ booth, bưởi diễn, bưởi danh xanh, mật ong";
     }
 
 }
 @section health{
     <meta name="description" content="@commonInfo.Desc" />
-    <meta name="keywords" content="@commonInfo.Desc" />
+    <meta name="keywords" content="@ViewBag.Keywords" />
     <meta property="og:description" content="@commonInfo.Desc" />
-    <meta property="og:title" content="@commonInfo.Desc" />
+    <meta property="og:title" content="@ViewBag.Title" />
     <meta property="og:type" content="website" />    
     <meta property="og:image" content="@commonInfo.Logo" />
 

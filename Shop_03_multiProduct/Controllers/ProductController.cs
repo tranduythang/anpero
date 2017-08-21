@@ -35,6 +35,7 @@ namespace AnperoFrontend.Controllers
             WebService.SearchResult rs   = sv.SearchProduct(StoreID, TokenKey, id.ToString(), "", "", 0, 999999, page, 14, "", SearchOrder.TimeDesc, 0);
             ViewData["productList"] = rs;
             ViewBag.page =Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+            
             if (rs!=null && rs.Item.Length > 0)
             {
                 ViewBag.Title = rs.Item[0].CatName;
@@ -94,6 +95,21 @@ namespace AnperoFrontend.Controllers
         {
 
             return View();
+        }
+         private void SetUpSeo(int type,int categoryId)
+        {
+            AnperoFrontend.WebService.Webconfig commonInfo = (AnperoFrontend.WebService.Webconfig)HttpRuntime.Cache["commonInfo"];
+
+            switch (type)
+            {
+                case 1:
+                    break;
+                default:
+                    break;
+            }
+            //Get Description and Keywords of Category production
+            ViewBag.Description = string.Empty;
+            ViewBag.Keywords = string.Empty;
         }
     }
 }
