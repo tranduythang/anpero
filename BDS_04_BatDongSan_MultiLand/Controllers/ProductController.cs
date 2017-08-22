@@ -41,7 +41,7 @@ namespace AnperoFrontend.Controllers
             }
             
             SetupCommonProduct();
-
+            SetUpSeo(2, id);
             return View();
         }
        
@@ -63,6 +63,7 @@ namespace AnperoFrontend.Controllers
             {
                 ViewBag.Title = rs.Item[0].ParentCatName;
             }
+            SetUpSeo(1, id);
             SetupCommonProduct();
             return View("Category");
         }
@@ -177,7 +178,7 @@ namespace AnperoFrontend.Controllers
             }
 
             SetupCommonProduct();
-
+            SetUpSeo(0, 0);
             return View("Category");
         }
         [BuildCommonHtml]
@@ -185,6 +186,47 @@ namespace AnperoFrontend.Controllers
         {
 
             return View();
+        }
+        private void SetUpSeo(int type, int categoryId)
+        {
+            AnperoFrontend.WebService.Webconfig commonInfo = (AnperoFrontend.WebService.Webconfig)HttpRuntime.Cache["commonInfo"];
+
+            switch (type)
+            {
+                case 1:
+                    foreach (var item in commonInfo.ProductCategoryList)
+                    {
+                        if (item.Id == categoryId)
+                        {
+                            ViewBag.Keywords = item.Name;
+                            ViewBag.Description = item.Name;
+                            break;
+                        }
+                    }
+                    break;
+                case 2:
+                    foreach (var item in commonInfo.ProductCategoryList)
+                    {
+                        foreach (var chidItem in item.ChildCategory)
+                        {
+                            if (chidItem.Id == categoryId)
+                            {
+                                ViewBag.Keywords = item.Name;
+                                ViewBag.Description = item.Name;
+                                break;
+                            }
+                        }
+
+                    }
+                    break;
+                default:
+                    ViewBag.Keywords = "Tìm kiếm " + commonInfo.Name + "| " + commonInfo.Desc;
+                    ViewBag.Description = "Tìm kiếm trên " + commonInfo.Name + "| " + commonInfo.Desc;
+                    break;
+            }
+            //Get Description and Keywords of Category production
+            ViewBag.Description = string.Empty;
+            ViewBag.Keywords = string.Empty;
         }
     }
 }
