@@ -42,7 +42,7 @@ namespace AnperoFrontend.Controllers
             }
             
             SetupCommonProduct();
-
+            SetUpSeo(2, id);
             return View("List");
         }
        
@@ -66,6 +66,7 @@ namespace AnperoFrontend.Controllers
                 ViewBag.Title = rs.Item[0].ParentCatName;
             }
             SetupCommonProduct();
+            SetUpSeo(1,id);
             return View("List");
         }
         [BuildCommonHtml]
@@ -87,7 +88,7 @@ namespace AnperoFrontend.Controllers
             }
 
             SetupCommonProduct();
-
+            SetUpSeo(0,0);
             return View("List");
         }
         [BuildCommonHtml]
@@ -103,8 +104,34 @@ namespace AnperoFrontend.Controllers
             switch (type)
             {
                 case 1:
+                    foreach (var item in commonInfo.ProductCategoryList)
+                    {
+                        if(item.Id== categoryId)
+                        {
+                            ViewBag.Keywords = item.Name;
+                            ViewBag.Description = item.Name;
+                            break;
+                        }
+                    }
+                    break;
+                case 2:
+                    foreach (var item in commonInfo.ProductCategoryList)
+                    {
+                        foreach (var chidItem in item.ChildCategory)
+                        {
+                            if (chidItem.Id == categoryId)
+                            {
+                                ViewBag.Keywords = item.Name;
+                                ViewBag.Description = item.Name;
+                                break;
+                            }
+                        }
+                      
+                    }
                     break;
                 default:
+                    ViewBag.Keywords ="Tìm kiếm "+ commonInfo.Name +"| " +commonInfo.Desc;
+                    ViewBag.Description = "Tìm kiếm trên " + commonInfo.Name + "| " + commonInfo.Desc;
                     break;
             }
             //Get Description and Keywords of Category production

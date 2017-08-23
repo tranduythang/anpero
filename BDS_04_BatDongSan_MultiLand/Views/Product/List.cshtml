@@ -1,21 +1,24 @@
-﻿<div class="page-top">
+﻿@section health{
+    <meta name="description" content="@ViewBag.Description" />
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    <meta property="og:description" content="@ViewBag.Description" />
+    <meta property="og:title" content="@ViewBag.Description" />
+    <meta property="og:type" content="website" />
+
+
+}
+<div class="page-top">
     <div class="container">
      
         <div class="row">
-           
-            <!-- Left colunm -->
-            @Html.Partial("product/_MenuAndAdsPartial")
-            <!-- ./left colunm -->
-            <!-- Center colunm-->
+            @Html.Partial("product/_MenuAndAdsPartial")            
             <div class="center_column col-xs-12 col-sm-9" id="center_column">
-                <!-- view-product-list-->
                 @if (ViewData["productList"] != null)
                 {
                     AnperoFrontend.WebService.SearchResult productList = (AnperoFrontend.WebService.SearchResult)ViewData["productList"];
                     if (productList.Item.Length > 0)
                     {
                         <div id="view-product-list" class="view-product-list">
-
                             <h2 class="page-heading">
                                 @if (ViewBag.isParent != null)
                                 {
