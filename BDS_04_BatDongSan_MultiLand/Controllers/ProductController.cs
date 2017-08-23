@@ -20,7 +20,7 @@ namespace AnperoFrontend.Controllers
             ViewData["prDetail"] = item;
             ViewBag.Title = item.PrName;
             SetupCommonProduct();
-            return View();
+            return View("List");
         }
         [BuildCommonHtml]
         public ActionResult Category(int id)
@@ -42,7 +42,7 @@ namespace AnperoFrontend.Controllers
             
             SetupCommonProduct();
             SetUpSeo(2, id);
-            return View();
+            return View("List");
         }
        
         [BuildCommonHtml]
@@ -65,7 +65,7 @@ namespace AnperoFrontend.Controllers
             }
             SetUpSeo(1, id);
             SetupCommonProduct();
-            return View("Category");
+            return View("List");
         }
         [BuildCommonHtml]
         public ActionResult Search(string parentCat,string scat, int province,int district,int acr,int priceRank)
