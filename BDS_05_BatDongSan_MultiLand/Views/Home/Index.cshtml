@@ -32,85 +32,73 @@
                         <div class="border-b">
                             <ul class="product-list list">
                                 @if (ViewData["newestProduct"] != null)
+                                {
+                                    AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["newestProduct"];
+                                    if (bestSaleList != null && bestSaleList.Item.Length > 0)
+                                    {
+                                        foreach (ProductItem item in bestSaleList.Item)
                                         {
-                                            AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["newestProduct"];
-                                            if (bestSaleList != null && bestSaleList.Item.Length > 0)
-                                            {
-                                                foreach (ProductItem item in bestSaleList.Item)
-                                                {
-                                        <li>
-                                            <div class="product-container pct">
-                                                <div class="left-block">
-                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
-                                                        <img class="img-responsive" alt="@item.PrName" src="@item.Images" />
-                                                        @if (item.Rank >= 1)
-                                                                    {
-                                                                    <div class="featured-text"><span>Bán chạy</span></div>
-                                                                    }
-                                                    </a>
-                                                    <div class="group-price">
-                                                        <span class="product-new">Mới</span>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></h5>
-                                                    @if (item.Price > 0)
-                                                                {
-                                                                <div class="content_price">
-                                                                    <span class="price product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString()) đ </span>
-                                                                </div>
-                                                                }
-                                                    <div class="info-orther">
-                                                        @if (item.Warranty > 0)
-                                                                    {
-                                                                    <p><strong>Diện tích:</strong> @item.Warranty m²</p>
-                                                                    }
-                                                        <div class="product-desc">
-                                                            @item.ShortDesc
+                                            <li>
+                                                <div class="product-container pct">
+                                                    <div class="left-block">
+                                                        <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
+                                                            <img class="img-responsive" alt="@item.PrName" src="@item.Images" />
+                                                            @if (item.Rank >= 1)
+                                                            {
+                                                                <div class="featured-text"><span>Bán chạy</span></div>
+                                                            }
+                                                        </a>
+                                                        <div class="group-price">
+                                                            <span class="product-new">Mới</span>
                                                         </div>
                                                     </div>
-
+                                                    <div class="right-block">
+                                                        <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></h5>
+                                                        @if (item.Price > 0)
+                                                        {
+                                                            <div class="content_price">
+                                                                <span class="price product-price">@Anpero.StringHelpper.ConvertToVndMoney(item.Price) đ </span>
+                                                            </div>
+                                                        }
+                                                        <div class="info-orther">
+                                                            @if (item.Warranty > 0)
+                                                            {
+                                                                <p><strong>Diện tích:</strong> @item.Warranty m²</p>
+                                                            }
+                                                            <div class="product-desc">
+                                                                @item.ShortDesc
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </li>
-
-                                                }
-                                            }
-                                        }
-
-                            </ul>
-                        </div>
-
-                    </div>
-                    <div class="col-md-3 col-sm-3 home-article">
-
-                        <div class="tittle-b">Tin mới đăng <img src="/assets/images/new-marker.gif"></div>
-                        <div class="border-b">
-                          
-                                @if (ViewData["TopNewArticle"] != null)
-                                {
-                                    SearchArticleResults TopNewArticle = (SearchArticleResults)ViewData["TopNewArticle"];
-                                    if (TopNewArticle.ItemList != null && TopNewArticle.ItemList.Length > 0)
-                                    {
-                                        foreach (var item in TopNewArticle.ItemList)
-                                        {
-                                            
-                                                <div class="post-desc">
-                                                    <h5 class="post-title"><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h5>
-                                            </div>
-                                        
-
+                                            </li>
                                         }
                                     }
                                 }
-                            
+                            </ul>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3 home-article">
-
+                        <div class="tittle-b">Tin mới đăng <img src="/assets/images/new-marker.gif"></div>
+                        <div class="border-b">
+                            @if (ViewData["TopNewArticle"] != null)
+                            {
+                                SearchArticleResults TopNewArticle = (SearchArticleResults)ViewData["TopNewArticle"];
+                                if (TopNewArticle.ItemList != null && TopNewArticle.ItemList.Length > 0)
+                                {
+                                    foreach (var item in TopNewArticle.ItemList)
+                                    {
+                                        <div class="post-desc">
+                                            <h5 class="post-title"><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h5>
+                                        </div>
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 home-article">
                         <div class="tittle-b">Nhà môi giới tiêu biểu</div>
                         <div class="border-b artCt2">
-
                             @if (ViewData["TopNewArticle"] != null)
                             {
                                 SearchArticleResults customArticle = (SearchArticleResults)ViewData["customArticle"];
@@ -129,17 +117,12 @@
                                                 <h4 class="product-name"><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h4>
                                                 <div>@item.ShotDesc</div>
                                             </div>
-                                           
                                         </div>
-
-
                                     }
                                 }
                             }
-
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -157,19 +140,19 @@
                     {
                         if (i == 0)
                         {
-                    <div class="col-sm-6 item-left">
-                        <div class="banner-boder-zoom">
-                            <a href="@slide[0].ClickUrl"><img alt="@slide[0].Description" class="img-responsive" src="@slide[0].ImagesUrl" /></a>
-                        </div>
-                    </div>
+                            <div class="col-sm-6 item-left">
+                                <div class="banner-boder-zoom">
+                                    <a href="@slide[0].ClickUrl"><img alt="@slide[0].Description" class="img-responsive" src="@slide[0].ImagesUrl" /></a>
+                                </div>
+                            </div>
                         }
                         if (i == 1)
                         {
-                    <div class="col-sm-6 item-right">
-                        <div class="banner-boder-zoom">
-                            <a href="@slide[1].ClickUrl"><img alt="@slide[1].Description" class="img-responsive" src="@slide[1].ImagesUrl" /></a>
-                        </div>
-                    </div>
+                            <div class="col-sm-6 item-right">
+                                <div class="banner-boder-zoom">
+                                    <a href="@slide[1].ClickUrl"><img alt="@slide[1].Description" class="img-responsive" src="@slide[1].ImagesUrl" /></a>
+                                </div>
+                            </div>
                         }
 
                     }
@@ -265,6 +248,15 @@ else
             });
             $('.scl2').slimscroll({
                 height: 'auto'
+            });
+            var owl = $('.owl-carousel2');
+            owl.owlCarousel({
+                items: 1,
+                loop: true,
+                margin: 10,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                autoplayHoverPause: true
             });
         });
         Location.Init();

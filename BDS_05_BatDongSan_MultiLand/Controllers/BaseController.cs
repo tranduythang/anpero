@@ -108,6 +108,8 @@ namespace AnperoFrontend.Controllers
                 }
             }
             WebService.Ads[] Slide = null;
+            WebService.Ads[] AdsSlide = null;
+            
             if (HttpRuntime.Cache["Slide"] != null)
             {
                 filterContext.Controller.ViewData["slide"] = (WebService.Ads[])HttpRuntime.Cache["Slide"];
@@ -122,7 +124,19 @@ namespace AnperoFrontend.Controllers
                     HttpRuntime.Cache.Insert("Slide", Slide, null, DateTime.Now.AddMinutes(shortCacheTime + 3), TimeSpan.Zero);
                 }
             }
-
+            if (HttpRuntime.Cache["AdsSlide"] != null)
+            {
+                filterContext.Controller.ViewData["AdsSlide"] = (WebService.Ads[])HttpRuntime.Cache["AdsSlide"];
+            }
+            else
+            {
+                AdsSlide = service.GetAdsSlide(CommonConfig.StoreID, CommonConfig.TokenKey, PageContent.Ads1);
+                filterContext.Controller.ViewData["AdsSlide"] = AdsSlide;
+                if (AdsSlide != null)
+                {
+                    HttpRuntime.Cache.Insert("AdsSlide", AdsSlide, null, DateTime.Now.AddMinutes(shortCacheTime + 1), TimeSpan.Zero);
+                }
+            }
 
 
         }

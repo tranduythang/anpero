@@ -1,4 +1,5 @@
-﻿@{
+﻿@using AnperoFrontend.WebService;
+@{
     AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
     if (ViewData["commonInfo"] != null)
     {
@@ -204,5 +205,32 @@
             Cart.bindCart();
         });
     </script>
+    @if (ViewData["AdsSlide"] != null)
+    {
+        Ads[] slide = (Ads[])ViewData["AdsSlide"];
+        if (slide.Length > 0)
+        {
+
+            for (int i = 0; i < slide.Length; i++)
+            {
+                if (i == 0)
+                {
+                    <div class="asl-l">
+                     
+                            <a href="@slide[0].ClickUrl"><img alt="@slide[0].Description" class="img-responsive" src="@slide[0].ImagesUrl" /></a>
+                      
+                    </div>
+                }
+                if (i == 1)
+                {
+                    <div class="asl-r">                     
+                            <a href="@slide[1].ClickUrl"><img alt="@slide[1].Description" class="img-responsive" src="@slide[1].ImagesUrl" /></a>                      
+                    </div>
+                }
+            }
+
+        }
+
+    }
 </body>
 </html>

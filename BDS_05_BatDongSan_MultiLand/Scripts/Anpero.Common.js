@@ -55,6 +55,7 @@ var Category = {
     Init: function () {
         $(document).ready(function () {
             $("#cat_s").change(function () {
+                $("#scat option").hide();
                 $(".cct_" + $("#cat_s option:selected").val()).show();
             });
 

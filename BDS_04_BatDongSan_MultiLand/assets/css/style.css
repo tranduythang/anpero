@@ -1203,7 +1203,7 @@ span.notify-right{
   margin: 15px 0;
   padding: 0;
   border-right: 1px solid #cacaca;
-  padding: 0 25px;
+  padding: 0 10px;
   background: transparent;
 }
 #main-menu .navbar .navbar-nav>li:last-child>a{
@@ -5178,3 +5178,20 @@ span.notify-right{
 .search .btn{
     margin:5px 0 15px 0;
 }
+.asl-l{
+    top: 170px;
+    position: fixed;
+    left: 5px;
+}
+.asl-r{
+    top: 170px;
+    position: fixed;
+    right: 5px;
+}
+
+@media (min-width:1024px) {
+  .asl-r,.asl-l{
+      display:none;
+  }
+}
+#navbar a{font-size:12px;font-weight:bold;}
