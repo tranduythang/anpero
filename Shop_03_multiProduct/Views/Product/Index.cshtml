@@ -7,20 +7,21 @@
     }
     string thisUrl = HttpContext.Current.Request.Url.AbsolutePath;
     AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewData["prDetail"];
+    ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
+        Anpero.StringHelpper.GetProductLink(item.PrName, item.Id);
     @section health{
         <meta name="description" content="@Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc)" />
         <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(item.KeyWord)" />
         <link rel="stylesheet" type="text/css" href="~/assets/stylesheet/flexslider.css">
         <meta property="og:description" content="@item.ShortDesc" />
         <meta property="og:title" content="@item.PrName" />
-        <meta property="og:type" content="website" />        
-        <meta property="og:image" content="@commonInfo.Logo" />
-        <meta name="description" content="@Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc)" />
-        <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(item.KeyWord)" />
+        <meta property="og:type" content="website" />      
+        <meta property="og:url" content="@ViewBag.WebsiteUrl" />  
+        <meta property="og:image" content="@item.Images" />
         <link rel="stylesheet" type="text/css" href="~/assets/stylesheet/flexslider.css">
     }
     @section canonical{
-        <link rel="canonical" href="@Request.Url.AbsoluteUri" />
+        <link rel="canonical" href="@ViewBag.WebsiteUrl" />
     }
     <div id="page">
         <div class="page-heading">
