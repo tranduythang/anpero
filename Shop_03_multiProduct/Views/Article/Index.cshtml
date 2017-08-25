@@ -8,11 +8,11 @@
 }
 @section health{
     <meta name="description" content="@item.ShotDesc" />
-    <meta name="keywords" content="@item.Tag" />
+    <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(item.Tag)" />
     <meta property="og:description" content="@item.ShotDesc" />
     <meta property="og:title" content="@item.Title" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="ngonlanh.vn" />
+    <meta property="og:url" content="@ViewBag.WebsiteUrl" />
     <meta property="og:image" content="@item.Thumb" />
 }
 <div class="page-heading">
@@ -90,8 +90,6 @@
                                         </article>
                                     </li>
                                 }
-
-
                             </ul>
                         </div>
                     }

@@ -6,7 +6,8 @@
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
         ViewBag.Title = "Ngon Lành | Thực phẩm sạch Ngon lành An toàn và Uy tín";
-        ViewBag.Keywords = "thực phẩm sạch, hoa qua sạch, rau sạch, ngon lành, ngon sạch, trái cây sạch, an toàn thực phẩm, bơ sáp, bơ booth, bưởi diễn, bưởi danh xanh, mật ong";
+        ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau("thực phẩm sạch, hoa qua sạch, rau sạch, ngon lành, ngon sạch, trái cây sạch, bơ sáp, bơ booth, bưởi diễn, bưởi danh xanh, bưởi quế dương,mật ong");
+        ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
     }
 
 }
@@ -15,12 +16,12 @@
     <meta name="keywords" content="@ViewBag.Keywords" />
     <meta property="og:description" content="@commonInfo.Desc" />
     <meta property="og:title" content="@ViewBag.Title" />
-    <meta property="og:type" content="website" />    
+    <meta property="og:type" content="website" />   
+    <meta property="og:url" content="@ViewBag.WebsiteUrl" />  
     <meta property="og:image" content="@commonInfo.Logo" />
-
 }
 @section canonical{
-    <link rel="canonical" href="@HttpContext.Current.Request.Url.AbsoluteUri" />
+    <link rel="canonical" href="@ViewBag.WebsiteUrl" />
 }
 <div class="content">
     @if (!Request.Browser.IsMobileDevice)
