@@ -1,4 +1,6 @@
-﻿@{
+﻿@using AnperoFrontend.WebService;
+@{
+    
     AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
     if (ViewData["commonInfo"] != null)
     {
@@ -114,14 +116,14 @@
 
                             @if (!string.IsNullOrEmpty(commonInfo.Email))
                             {
-                                <div class="tit-name">Email:</div>
-                                <div class="tit-contain">@commonInfo.Email</div>
+                            <div class="tit-name">Email:</div>
+                            <div class="tit-contain">@commonInfo.Email</div>
                             }
 
                             @if (!string.IsNullOrEmpty(commonInfo.Skype))
                             {
-                                <div class="tit-name">Skype:</div>
-                                <div class="tit-contain"><a href="skype:@commonInfo.Skype?call"></a> @commonInfo.Skype</div>
+                            <div class="tit-name">Skype:</div>
+                            <div class="tit-contain"><a href="skype:@commonInfo.Skype?call"></a> @commonInfo.Skype</div>
                             }
 
                         </div>
@@ -133,15 +135,15 @@
                                 string thisUrl = HttpContext.Current.Request.Url.AbsoluteUri;
                                 if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
                                 {
-                                    <a href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" target="_blank"><i class="fa fa-facebook"></i></a>
                                 }
                                 if (!string.IsNullOrEmpty(commonInfo.Skype))
                                 {
-                                    <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
+                            <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
                                 }
-                                <a href="https://plus.google.com/share?url=@thisUrl" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                <a href="http://pinterest.com/pinthis?url=@thisUrl" target="_blank"><i class="fa fa-pinterest-p"></i></a>
-                                <a href="http://www.twitter.com/share?url=@thisUrl" target="_blank"><i class="fa fa-twitter"></i></a>
+                            <a href="https://plus.google.com/share?url=@thisUrl" target="_blank"><i class="fa fa-google-plus"></i></a>
+                            <a href="http://pinterest.com/pinthis?url=@thisUrl" target="_blank"><i class="fa fa-pinterest-p"></i></a>
+                            <a href="http://www.twitter.com/share?url=@thisUrl" target="_blank"><i class="fa fa-twitter"></i></a>
                             }
                         </div>
 
@@ -153,14 +155,14 @@
                             <div class="introduce-title">Danh mục chính</div>
                             @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                             {
-                                <ul id="introduce-company" class="introduce-list">
-                                    @foreach (var item in commonInfo.ProductCategoryList)
+                            <ul id="introduce-company" class="introduce-list">
+                                @foreach (var item in commonInfo.ProductCategoryList)
                                     {
-                                        <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
+                                    <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
                                     }
-                                    <li><a href="/blog">Blogs</a></li>
-                                    <li><a href="/home/contact">Liên hệ</a></li>
-                                </ul>
+                                <li><a href="/blog">Blogs</a></li>
+                                <li><a href="/home/contact">Liên hệ</a></li>
+                            </ul>
                             }
 
                         </div>
@@ -171,12 +173,12 @@
                     <div id="contact-box" style="text-align: right;">
                         @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
                         {
-                            <div class="fb-page"
-                                 data-tabs="messages"
-                                 data-href="@Html.Raw(commonInfo.FaceBookLink)"
-                                 data-width="500"
-                                 data-height="300"
-                                 data-hide-cover="false"></div>
+                        <div class="fb-page"
+                             data-tabs="messages"
+                             data-href="@Html.Raw(commonInfo.FaceBookLink)"
+                             data-width="500"
+                             data-height="300"
+                             data-hide-cover="false"></div>
                         }
                     </div>
                 </div>
@@ -204,5 +206,6 @@
             Cart.bindCart();
         });
     </script>
+  
 </body>
 </html>
