@@ -5,7 +5,6 @@
     if (ViewData["commonInfo"] != null)
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
-        
     }
 }
 
@@ -17,12 +16,15 @@
     {
         @section health{
             <meta name="description" content="@ViewBag.Description" />
-            <meta name="keywords" content="@ViewBag.Keywords" />
+            <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(ViewBag.Keywords)" />
             <meta property="og:description" content="@ViewBag.Description" />
-            <meta property="og:title" content="@productList.Item[0].ParentCatName" />
+            <meta property="og:title" content="@ViewBag.Title" />
             <meta property="og:type" content="website" />
-
-
+            <meta property="og:url" content="@ViewBag.WebsiteUrl" />  
+            <meta property="og:image" content="@ViewBag.ImageUrl" />
+        }
+        @section canonical{
+            <link rel="canonical" href="@ViewBag.WebsiteUrl" />
         }
         <div id="page">
             <div class="page-heading">

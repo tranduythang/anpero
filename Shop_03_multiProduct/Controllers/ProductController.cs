@@ -100,7 +100,11 @@ namespace AnperoFrontend.Controllers
          private void SetUpSeo(int type,int categoryId)
         {
             AnperoFrontend.WebService.Webconfig commonInfo = (AnperoFrontend.WebService.Webconfig)HttpRuntime.Cache["commonInfo"];
-
+            //Get Description and Keywords of Category production
+            ViewBag.Description = string.Empty;
+            ViewBag.Keywords = string.Empty;
+            ViewBag.WebsiteUrl = string.Empty;
+            ViewBag.ImageUrl = string.Empty;
             switch (type)
             {
                 case 1:
@@ -108,8 +112,11 @@ namespace AnperoFrontend.Controllers
                     {
                         if(item.Id== categoryId)
                         {
-                            ViewBag.Keywords = item.Name;
-                            ViewBag.Description = item.Name;
+                            ViewBag.Keywords = item.Keywords;
+                            ViewBag.Description = item.Description;
+                            ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
+                             Anpero.StringHelpper.GetProductLink(item.Name, item.Id);
+                            ViewBag.ImageUrl = item.Images;
                             break;
                         }
                     }
@@ -121,8 +128,11 @@ namespace AnperoFrontend.Controllers
                         {
                             if (chidItem.Id == categoryId)
                             {
-                                ViewBag.Keywords = item.Name;
-                                ViewBag.Description = item.Name;
+                                ViewBag.Keywords = item.Keywords;
+                                ViewBag.Description = item.Description;
+                                ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
+                                 Anpero.StringHelpper.GetProductLink(item.Name, item.Id);
+                                ViewBag.ImageUrl = item.Images;
                                 break;
                             }
                         }
@@ -132,11 +142,10 @@ namespace AnperoFrontend.Controllers
                 default:
                     ViewBag.Keywords ="Tìm kiếm "+ commonInfo.Name +"| " +commonInfo.Desc;
                     ViewBag.Description = "Tìm kiếm trên " + commonInfo.Name + "| " + commonInfo.Desc;
+                    ViewBag.WebsiteUrl = Request.Url.AbsoluteUri;
+                    ViewBag.ImageUrl = commonInfo.Logo;
                     break;
             }
-            //Get Description and Keywords of Category production
-            ViewBag.Description = string.Empty;
-            ViewBag.Keywords = string.Empty;
         }
     }
 }

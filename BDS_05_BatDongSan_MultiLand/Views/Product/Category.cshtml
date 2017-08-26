@@ -48,9 +48,9 @@
                                                         <div class="featured-text"><span>Bán chạy</span></div>
                                                     }
                                                 </a>
-                                                @if (item.IsSale)
+                                                @if (item.Price>0)
                                                 {
-                                                    <div class="price-percent-reduction2">giảm @Anpero.StringHelpper.ConVertToMoneyFormatInt((item.Price - item.SalePrice).ToString())</div>
+                                                    <div class="price-percent-reduction2">giảm @Anpero.StringHelpper.ConvertToVndMoney((item.Price))</div>
                                                 }
                                                 <div class="quick-view">
                                                     <a title="Quick view" class="search" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)"></a>

@@ -6,16 +6,19 @@
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
-    ViewBag.Title = "Tin tức | Ngon Lành";
+
 }
 @section health{
-    <meta name="description" content="Tin tức Ngon Lành - Blog tin chia sẽ các bài viết liên quan đến sản phẩm của Ngon Lành. Các kinh nghiệm, mẹo vắt lựa chọn thực phẩm sạch, Hoa quả sạch. Công thức chế biến các món ăn ngon." />
-    <meta name="keywords" content="Kinh nghiệm lựa chọn thực phẩm sạch, Kinh nghiệm lựa chọn hoa quả sạch, Công thức nấu ăn, Phân biệt thực phẩm, hoa quả xuất xứ Trung quốc." />
-    <meta property="og:description" content="Tin tức Ngon Lành - Blog tin chia sẽ các bài viết liên quan đến sản phẩm của Ngon Lành. Các kinh nghiệm, mẹo vắt lựa chọn thực phẩm sạch, Hoa quả sạch. Công thức chế biến các món ăn ngon." />
-    <meta property="og:title" content="Tin tức Ngon Lành" />
+    <meta name="description" content="@ViewBag.Description" />
+    <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(ViewBag.Keywords)" />
+    <meta property="og:description" content="@ViewBag.Description" />
+    <meta property="og:title" content="@ViewBag.Title" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="ngonlanh.vn" />
+    <meta property="og:url" content="@ViewBag.WebsiteUrl" />
     <meta property="og:image" content="@commonInfo.Logo" />
+}
+@section canonical{
+    <link rel="canonical" href="@ViewBag.WebsiteUrl" />
 }
 <div class="page-heading">
     <div class="container">
