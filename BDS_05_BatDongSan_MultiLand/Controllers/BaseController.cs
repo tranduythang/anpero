@@ -75,8 +75,8 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                BestsaleProduct = sv.SearchProduct(StoreID, TokenKey, "", "", "", 0, 1999999990, 1, 6, "", SearchOrder.TimeDesc, 2);9p ư\pp\\\\\\\\\\\\\\\\\\\\\\\'''p'
-                    \\\
+                BestsaleProduct = sv.SearchProduct(StoreID, TokenKey, "", "", "", 0, 1999999990, 1, 6, "", SearchOrder.TimeDesc, 2);
+               
                 if (BestsaleProduct != null)
                 {
                     HttpRuntime.Cache.Insert("BestsaleProduct", BestsaleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
