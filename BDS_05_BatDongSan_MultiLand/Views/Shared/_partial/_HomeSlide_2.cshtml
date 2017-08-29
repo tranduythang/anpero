@@ -12,13 +12,13 @@
                     <a href="@Anpero.StringHelpper.GetArticleLink(bestSaleList.Item[0].PrName,bestSaleList.Item[0].Id)"><img src="@bestSaleList.Item[0].Images" alt="@bestSaleList.Item[0].PrName"></a>
                 </div>
                 <div class="post-desc">
-                    <h5 class="post-title">
+                    <h2 class="post-title">
                         <a href="@Anpero.StringHelpper.GetArticleLink(bestSaleList.Item[0].PrName,bestSaleList.Item[0].Id)">@Anpero.StringHelpper.SubString(80, bestSaleList.Item[0].PrName)</a>
-                    </h5>
+                    </h2>
                     @bestSaleList.Item[0].ShortDesc
                 </div>
             </div>
-            <div class="col-md-12 home-article border-b" style="padding:0px;height:220px;margin-top:10px">
+            <div class="col-md-12 home-article border-b" style="padding:0px;height:238px;margin-top:10px">
                 <div class="scl">
                     @if (bestSaleList.Item.Length >= 2)
                     {

@@ -52,17 +52,15 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                customArticle = service.SearchArticle(StoreID, TokenKey, 89, 1, 5, 0);
+                customArticle = service.SearchArticle(StoreID, TokenKey, 95, 1, 5, 0);
                 if (TopNewArticle != null)
                 {
                     HttpRuntime.Cache.Insert("customArticle", customArticle, null, DateTime.Now.AddMinutes(shortCacheTime + 10), TimeSpan.Zero);
                 }
-
             }
             ViewData["FeatureArticle"] = rs;
             ViewData["TopNewArticle"] = TopNewArticle;
-            ViewData["customArticle"] = customArticle;
-            
+            ViewData["customArticle"] = customArticle;            
         }
         public void SetupCommonProduct()
         {

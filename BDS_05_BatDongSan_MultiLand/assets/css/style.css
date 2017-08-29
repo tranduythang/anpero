@@ -5945,7 +5945,10 @@ span.notify-right {
     color: white;
     font-weight: bold;
 }
-
+.faticle{
+    height:115px;
+    overflow:hidden;
+}
 .faticle .post-title a {
     color: #337ab7;
     font-weight: bold;
