@@ -3458,7 +3458,7 @@ margin: 0 0;
 	margin-bottom: 7px;
 	padding-top: 20px;
 	font-size: 12px;
-	white-space: nowrap;
+	
 	overflow: hidden;
 	letter-spacing: 0.5px
 }
@@ -4459,9 +4459,9 @@ margin: 0 0;
 	margin-bottom: 7px;
 	padding-top: 20px;
 	font-size: 12px;
-	white-space: nowrap;
 	overflow: hidden;
-	letter-spacing: 0.5px
+	letter-spacing: 0.5px;
+    height:65px;
 }
 #best-seller .owl-item .item .item-inner .item-info .info-inner .item-title a {
 	text-decoration: none;
