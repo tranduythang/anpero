@@ -457,6 +457,22 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetWebContent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="contentId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWebContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWebContentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetLocationSoapIn">
@@ -555,6 +571,12 @@
   <wsdl:message name="GetProductDetailSoapOut">
     <wsdl:part name="parameters" element="tns:GetProductDetailResponse" />
   </wsdl:message>
+  <wsdl:message name="GetWebContentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWebContent" />
+  </wsdl:message>
+  <wsdl:message name="GetWebContentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWebContentResponse" />
+  </wsdl:message>
   <wsdl:portType name="AnperoServiceSoap">
     <wsdl:operation name="GetLocation">
       <wsdl:input message="tns:GetLocationSoapIn" />
@@ -619,6 +641,10 @@
     <wsdl:operation name="GetProductDetail">
       <wsdl:input message="tns:GetProductDetailSoapIn" />
       <wsdl:output message="tns:GetProductDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWebContent">
+      <wsdl:input message="tns:GetWebContentSoapIn" />
+      <wsdl:output message="tns:GetWebContentSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="AnperoServiceSoap" type="tns:AnperoServiceSoap">
@@ -767,6 +793,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetWebContent">
+      <soap:operation soapAction="http://tempuri.org/GetWebContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="AnperoServiceSoap12" type="tns:AnperoServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -907,6 +942,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetProductDetail">
       <soap12:operation soapAction="http://tempuri.org/GetProductDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWebContent">
+      <soap12:operation soapAction="http://tempuri.org/GetWebContent" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

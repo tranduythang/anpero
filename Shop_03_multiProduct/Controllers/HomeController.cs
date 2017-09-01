@@ -123,10 +123,19 @@ namespace AnperoFrontend.Controllers
 
         }
         [BuildCommonHtml]
-        public ActionResult About()
+        public ActionResult Policy(int type)
         {
-            ViewBag.Message = "Your application description page.";
-            SetupCommonProduct();
+            try
+            {
+                WebService.AnperoService service = new WebService.AnperoService();
+                ViewBag.HtmlContent = service.GetWebContent(StoreID, TokenKey, type);
+                ViewBag.Title = Anpero.Constant.WebContentTitle.GetTitle(type);
+            }
+            catch (Exception)
+            {
+                ViewBag.HtmlContent ="Nội dung đang được cập nhật";                
+            }
+          
             return View();
         }
         [BuildCommonHtml]

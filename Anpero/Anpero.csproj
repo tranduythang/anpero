@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constant.cs" />
     <Compile Include="Paging.cs" />
     <Compile Include="SearchResult.cs" />
     <Compile Include="StringHelpper.cs" />

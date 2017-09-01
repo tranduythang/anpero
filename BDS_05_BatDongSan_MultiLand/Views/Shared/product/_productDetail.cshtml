@@ -49,7 +49,6 @@
                     }
                 </div>
                 <div class="info-orther">
-                 
                     <p>
                         Trạng thái:
                         @if (item.IsInstock)
@@ -58,13 +57,13 @@
                         }
                         else
                         {
-                            <span class="in-stock">Đang bận</span>
+                            <span class="in-stock">Đã bán</span>
                         }
                     </p>
-                    <p>Tình trạng: mới</p>
+                    
                     @if (item.Warranty > 0)
                     {
-                        <p>Bảo hành: @item.Warranty tháng</p>
+                        <p>Diện tích: @item.Warranty m2</p>
                     }
                 </div>
                 @if (item.ShortDesc != null && item.ShortDesc.Length > 0)
