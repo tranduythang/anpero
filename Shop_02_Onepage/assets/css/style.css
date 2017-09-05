@@ -544,15 +544,7 @@ textarea.form-control:focus {
     background-color: #ffffff;
 }
 
-.about-area:after {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 50%;
-    height: 100%;
-    content: "";
-    background: url(/assets/images/about-img.png) no-repeat scroll right 20% bottom / auto 100%;
-}
+
 
 .about-text h3 {
     color: #64be43;

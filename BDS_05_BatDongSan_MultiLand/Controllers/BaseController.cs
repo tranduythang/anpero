@@ -38,7 +38,7 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                TopNewArticle = service.SearchArticle(StoreID, TokenKey, 0, 1, 12, 0);
+                TopNewArticle = service.SearchArticle(StoreID, TokenKey, 0, 0, 12, 0);
                 if (TopNewArticle != null)
                 {
                     HttpRuntime.Cache.Insert("TopNewArticle", TopNewArticle, null, DateTime.Now.AddMinutes(shortCacheTime+10), TimeSpan.Zero);
@@ -52,7 +52,7 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                customArticle = service.SearchArticle(StoreID, TokenKey, 95, 1, 5, 0);
+                customArticle = service.SearchArticle(StoreID, TokenKey, 95, 0, 5, 0);
                 if (TopNewArticle != null)
                 {
                     HttpRuntime.Cache.Insert("customArticle", customArticle, null, DateTime.Now.AddMinutes(shortCacheTime + 10), TimeSpan.Zero);
