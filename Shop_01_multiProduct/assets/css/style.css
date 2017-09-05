@@ -1818,7 +1818,7 @@ span.notify-right{
 }
 
 .popular-tabs .product-list li .left-block{
-    min-height:317px;
+    min-height:285px;
     max-height:350px;
     overflow:hidden;
 }
@@ -1889,6 +1889,7 @@ span.notify-right{
 .product-list li .left-block a{
   display: block;
   overflow: hidden;
+      max-height: 262px;
 }
 .product-list li .left-block img{
     transition:all 0.5s;
@@ -5171,6 +5172,6 @@ span.notify-right{
     overflow: hidden;
 }
 .post-thumb{
-    max-height:300px;
+    max-height:190px;
     overflow:hidden;
 }

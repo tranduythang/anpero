@@ -64,7 +64,7 @@
                     </div>
                     <div class="collapse navbar-collapse bs-example-js-navbar-scrollspy">
                         <ul class="nav navbar-nav">
-                            @if (commonInfo.MenuList != null)
+                            @if (commonInfo.MenuList != null & commonInfo.MenuList.Length>0)
                             {
                                 for (int i = 0; i < commonInfo.MenuList.Length; i++)
                                 {
@@ -91,7 +91,7 @@
                             else
                             {
                                 <li class="active"><a href="#home">home</a></li>
-                                    <li><a href="#about">about us</a></li>
+                                    <li><a href="#about">Về chúng tôi</a></li>
                                     <li><a href="#portfolio">Portfolio</a></li>
                                     <li><a href="#facts">Facts</a></li>
                                     <li><a href="#blog">Blog</a></li>

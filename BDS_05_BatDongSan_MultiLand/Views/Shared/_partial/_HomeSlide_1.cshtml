@@ -1,0 +1,10 @@
+﻿@using AnperoFrontend.WebService;
+@if (ViewData["slide"] != null)
+{
+    Ads[] slide = (Ads[])ViewData["slide"];
+    if (slide.Length > 0)
+    {
+        <div class="top1-banner"><a href="@slide[0].ClickUrl"><img alt="@slide[0].Description" src="@slide[0].ImagesUrl" title="@slide[0].Description" /></a></div>
+    }
+}
+

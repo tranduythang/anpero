@@ -1,18 +1,20 @@
 ﻿@{
-    ViewBag.Title = "Checkout | Ngon Lành";
+    ViewBag.Title = "Tạo đơn Hàng | Ngon Lành";
     AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
     if (ViewData["commonInfo"] != null)
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+        ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+        ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau("thực phẩm sạch, hoa qua sạch, rau sạch, ngon lành, ngon sạch, trái cây sạch, bơ sáp, bơ booth, bưởi diễn, bưởi danh xanh, bưởi quế dương,mật ong");
     }
 }
 @section health{
     <meta name="description" content="@commonInfo.Desc" />
-    <meta name="keywords" content="Thực phẩm sạch, Hoa quả sạch, Ngon Lành, Ngon Sạch, Uy tín, Bơ sạch, Bơ Sáp, Bơ Booth" />
+    <meta name="keywords" content="@ViewBag.Keywords" />
     <meta property="og:description" content="@commonInfo.Desc" />
-    <meta property="og:title" content="@commonInfo.Desc" />
+    <meta property="og:title" content="@ViewBag.Title" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="ngonlanh.vn" />
+    <meta property="og:url" content="@ViewBag.WebsiteUrl" />
     <meta property="og:image" content="@commonInfo.Logo" />
 }
 <div class="page-heading">
@@ -124,10 +126,11 @@
                                     </tr>
                                 </tfoot>
                             </table>
-                            <div class="col-md-12">
+                            <div class="col-md-12 ctContent">
                                 <div id="g-recaptcha" class="pull-right"></div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="clearfix"></div>
+                            <div class="col-md-12 ">
                                 <a href="/" title="Continue Shopping" class="btn button btn-continue" onclick=""><span><span>Mua thêm</span></span></a>                                
                                 <button type="submit" name="update_cart_action" value="update_qty" title="Update Cart" class="button btn-update pull-right" id="orderBtn"><span><span>Gửi đơn hàng</span></span></button>                                
                                
@@ -137,7 +140,7 @@
                     </div>
                     <div class="page-content checkout-page" id="cartContent2" style="display:none;"></div>
                     <div id='ajax_loader' style="position: fixed; left: 45%; top: 50%; display: none;">
-                        <img src="~/assets/images/loading.gif" />
+                        <img src="/assets/images/loading.gif" />
                     </div>
                 </div>
             </div>
