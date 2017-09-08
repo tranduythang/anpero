@@ -4,7 +4,7 @@
     if (ViewData["commonInfo"] != null)
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
-        ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau("thực phẩm sạch, hoa qua sạch, rau sạch, ngon lành, ngon sạch, trái cây sạch, bơ sáp, bơ booth, bưởi diễn, bưởi danh xanh, bưởi quế dương,mật ong");
+        ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau(commonInfo.Desc);
         ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
     }
 }

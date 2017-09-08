@@ -170,8 +170,8 @@
 }
 
 .option5 .nav-top-menu.nav-ontop{
-	background: #60a5d8;
-	height: 51px;
+	background:#3b5998;
+	height: 44px;
 }
 .option5 #form-search-opntop .btn-search .fa{
 	display: none;
@@ -183,7 +183,7 @@
 
 .option5 #main-menu .navbar{
 	border-radius: 0;
-	background: #60a5d8;
+	background: #3b5998;
 }
 .option5 #main-menu .navbar-default .navbar-nav>li>a{
 	color: #fff;
@@ -195,7 +195,7 @@
 .option5 #main-menu .navbar .navbar-nav>li:hover, 
 .option5 #main-menu .navbar .navbar-nav>li.active{
 	background-image: none;
-	background: #5f93b9;
+	background: #2c4475;
 }
 .option5 #main-menu .navbar .navbar-nav>li:hover a, 
 .option5 #main-menu .navbar .navbar-nav>li.active a{
