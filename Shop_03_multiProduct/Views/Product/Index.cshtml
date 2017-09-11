@@ -180,16 +180,10 @@
                                                                         <div class="new-label new-top-left">New</div>
                                                                         <div class="item-box-hover">
                                                                             <div class="box-inner">
-                                                                                <div class="product-detail-bnt"><a class="button detail-bnt" type="button"><span>Quick View</span></a></div>
-                                                                                <div class="actions">
-                                                                                    <span class="add-to-links">
-                                                                                        <a href="#" class="link-wishlist" title="Add to Wishlist">
-                                                                                            <span>Add to Wishlist</span>
-                                                                                        </a>
-                                                                                        <a href="#" class="link-compare add_to_compare" title="Add to Compare">
-                                                                                            <span>Add to Compare</span>
-                                                                                        </a>
-                                                                                    </span>
+                                                                                <div class="product-detail-bnt">
+                                                                                    <a class="button detail-bnt" href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName">
+                                                                                        <span>Chi tiết</span>
+                                                                                    </a>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -197,21 +191,25 @@
                                                                 </div>
                                                                 <div class="item-info">
                                                                     <div class="info-inner">
-                                                                        <div class="item-title"><a href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName">@items.PrName</a> </div>
+                                                                        <div class="item-title">
+                                                                            <a href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName">
+                                                                                @items.PrName
+                                                                            </a>
+                                                                        </div>
                                                                         <div class="item-content">
                                                                             <div class="rating">
                                                                                 <div class="ratings">
                                                                                     <div class="rating-box">
                                                                                         <div class="rating" style="width:80%"></div>
                                                                                     </div>
-                                                                                    <p class="rating-links"><a href="#">1 Đánh giá</a> <span class="separator">|</span> <a href="#">Đánh giá</a> </p>
+                                                                                    <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="item-price">
-                                                                                <div class="price-box"><span class="regular-price" id="product-price-1"><span class="price">@items.Price</span> </span> </div>
+                                                                                <div class="price-box"><span class="regular-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(items.Price) đ</span> </span> </div>
                                                                             </div>
                                                                             <div class="add_cart">
-                                                                                <button class="button btn-cart" type="button"><span>Mua ngay</span></button>
+                                                                                <button class="button btn-cart" type="button" onclick="Cart.addProduct(@items.Id,@items.Price,'@items.Images','@items.PrName');"><span>Mua ngay</span></button>
                                                                             </div>
                                                                         </div>
                                                                     </div>

@@ -61,6 +61,8 @@ namespace AnperoFrontend.WebService {
         
         private System.Threading.SendOrPostCallback GetProductDetailOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetWebContentOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -146,6 +148,9 @@ namespace AnperoFrontend.WebService {
         
         /// <remarks/>
         public event GetProductDetailCompletedEventHandler GetProductDetailCompleted;
+        
+        /// <remarks/>
+        public event GetWebContentCompletedEventHandler GetWebContentCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetLocation", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -766,6 +771,39 @@ namespace AnperoFrontend.WebService {
             if ((this.GetProductDetailCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetProductDetailCompleted(this, new GetProductDetailCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetWebContent", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetWebContent(int storeId, string tokenKey, int contentId) {
+            object[] results = this.Invoke("GetWebContent", new object[] {
+                        storeId,
+                        tokenKey,
+                        contentId});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetWebContentAsync(int storeId, string tokenKey, int contentId) {
+            this.GetWebContentAsync(storeId, tokenKey, contentId, null);
+        }
+        
+        /// <remarks/>
+        public void GetWebContentAsync(int storeId, string tokenKey, int contentId, object userState) {
+            if ((this.GetWebContentOperationCompleted == null)) {
+                this.GetWebContentOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetWebContentOperationCompleted);
+            }
+            this.InvokeAsync("GetWebContent", new object[] {
+                        storeId,
+                        tokenKey,
+                        contentId}, this.GetWebContentOperationCompleted, userState);
+        }
+        
+        private void OnGetWebContentOperationCompleted(object arg) {
+            if ((this.GetWebContentCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetWebContentCompleted(this, new GetWebContentCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2154,6 +2192,32 @@ namespace AnperoFrontend.WebService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((ProductItem)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void GetWebContentCompletedEventHandler(object sender, GetWebContentCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetWebContentCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetWebContentCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }
