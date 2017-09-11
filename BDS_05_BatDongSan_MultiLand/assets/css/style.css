@@ -5904,7 +5904,7 @@ span.notify-right {
 }
 
 .post-thumb {
-    max-height: 200px;
+    max-height: 120px;
     overflow: hidden;
 }
 
@@ -5939,13 +5939,16 @@ span.notify-right {
     font-size: 14px;
     text-align: center;
     padding: 10px;
-    background-color: #5f93b9;
+    background-color: #3b5998;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     color: white;
     font-weight: bold;
 }
-
+.faticle{
+    height:115px;
+    overflow:hidden;
+}
 .faticle .post-title a {
     color: #337ab7;
     font-weight: bold;
