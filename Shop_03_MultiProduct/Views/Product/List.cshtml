@@ -20,8 +20,9 @@
             <meta property="og:description" content="@ViewBag.Description" />
             <meta property="og:title" content="@ViewBag.Title" />
             <meta property="og:type" content="website" />
-            <meta property="og:url" content="@ViewBag.WebsiteUrl" />  
+            <meta property="og:url" content="@ViewBag.WebsiteUrl" />
             <meta property="og:image" content="@ViewBag.ImageUrl" />
+       
         }
         @section canonical{
             <link rel="canonical" href="@ViewBag.WebsiteUrl" />
@@ -36,21 +37,21 @@
                                     <li class="home"> <a href="/" title="Trang chủ">Trang chủ</a> <span>—› </span> </li>
                                     @if (ViewBag.isParent != null)
                                     {
-                                        <li class="category1599">
-                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
-                                                @productList.Item[0].ParentCatName
-                                            </a>
-                                        </li>
+                                    <li class="category1599">
+                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
+                                            @productList.Item[0].ParentCatName
+                                        </a>
+                                    </li>
                                     }
                                     else
                                     {
-                                        <li class="category1599">
-                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
-                                                @productList.Item[0].ParentCatName
-                                            </a>
-                                            <span>—› </span>
-                                        </li>
-                                        <li class="category1601"> <strong>@productList.Item[0].CatName</strong> </li>
+                                    <li class="category1599">
+                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
+                                            @productList.Item[0].ParentCatName
+                                        </a>
+                                        <span>—› </span>
+                                    </li>
+                                    <li class="category1601"> <strong>@productList.Item[0].CatName</strong> </li>
                                     }
                                 </ul>
                             </div>
@@ -80,7 +81,7 @@
                                                         <li><a href="javascript:Search.setOrder('nameDesc');">Tên</a></li>
                                                         <li><a href="javascript:Search.setOrder('pricedesc');">Giá giảm dần</a></li>
                                                         <li><a href="javascript:Search.setOrder('pricedasc');">Giá tăng dần</a></li>
-                                                        <li><a href="javascript:Search.setOrder('timeDesc');">Mới nhất</a></li>                                                        
+                                                        <li><a href="javascript:Search.setOrder('timeDesc');">Mới nhất</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -129,12 +130,12 @@
                                                         <div class="price-box">
                                                             @if (item.IsSale)
                                                             {
-                                                                <p class="old-price"> <span class="price-label"></span> <span id="old-price-212" class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span> </p>
-                                                                <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)</span> </p>
+                                                                <p class="old-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                                                <p class="special-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span> </p>
                                                             }
                                                             else
                                                             {
-                                                                <p><span class="price-label"></span> <span id="old-price-212" class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span> </p>
+                                                                <p><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
 
                                                             }
 
@@ -143,7 +144,7 @@
                                                             <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Mua ngay</span></button>
                                                             <span class="add-to-links">
                                                                 <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct3(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Thêm vào giỏ hàng</span></button>
-                                                              
+
                                                             </span>
                                                         </div>
                                                     </div>
@@ -179,7 +180,55 @@
                                 </article>
                             </div>
                         </div>
-                        <aside class="col-left sidebar col-sm-3 col-xs-12 col-sm-pull-9 wow bounceInUp animated">                            
+                        <aside class="col-left sidebar col-sm-3 col-xs-12 col-sm-pull-9 wow bounceInUp animated">
+                            @if (ViewData["saleProduct"] != null)
+                            {
+                                AnperoFrontend.WebService.ProductItem[] saleProduct = (AnperoFrontend.WebService.ProductItem[])ViewData["saleProduct"];
+                                <div class="side-nav-categories">
+                                    <div class="block-title"> Đang khuyến mãi </div>
+                                    <div class="box-content box-category">
+                                        <ul>
+                                            @if (saleProduct != null && saleProduct.Length > 1)
+                                            {
+
+                                                foreach (var item in saleProduct)
+                                                {
+                                                    int itemPecentDow=Convert.ToInt32((item.Price - item.SalePrice) / item.Price*100);
+                                                    <li>
+                                                        <div class="product-container">
+                                                            <div class="left-block">
+                                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">
+                                                                    <img class="img-responsive" alt="product" src="@item.Images" />
+                                                                </a>
+                                                                <div class="price-percent-reduction2">giảm @itemPecentDow.ToString() %</div>
+                                                            </div>
+                                                            <div class="right-block">
+                                                                <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">@item.PrName</a></h5>
+                                                                <div class="show-count-down">
+                                                                    <span class="countdown-lastest" data-y="@item.SaleEndTime.Substring(0, 4)" data-m="@item.SaleEndTime.Substring(4, 2)" data-d="@item.SaleEndTime.Substring(6, 2)" data-h="0" data-i="00" data-s="10"></span>
+                                                                </div>
+                                                                <div class="price-box">
+                                                                    @if (item.IsSale)
+                                                                    {
+                                                                        <p class="old-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                                                        <p class="special-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span> </p>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <p><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                                                    }
+
+                                                                </div>
+                                                                
+                                                            </div>                                                            
+                                                        </div>
+                                                    </li>
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            }
                             <div class="side-nav-categories">
                                 <div class="block-title"> Danh mục sản phẩm </div>
                                 <div class="box-content box-category">
@@ -265,7 +314,7 @@
                                         </div>
                                     </div>
                                 }
-                            }                            
+                            }
                             <div class="block block-list block-cart">
                                 <div class="block-title"> Giỏ hàng </div>
                                 <div class="block-content">
@@ -277,7 +326,7 @@
                                     </div>
                                     <ul id="cart-sidebar2" class="mini-products-list"></ul>
                                 </div>
-                            </div>                            
+                            </div>
                             <div class="hot-banner">
                                 @if (ViewData["slide3"] != null)
                                 {
@@ -289,12 +338,12 @@
                                 }
                             </div>
                         </aside>
-                   
+
                     </div>
 
                 </div>
             </section>
-  
+
         </div>
         <script>
             var categoryId = @productList.Item[0].CatID;
@@ -307,8 +356,32 @@
             var categoryId = "";
             var ParentCatId = "";
         </script>
-
-
     }
 }
+@section  scripts{
+<script src="/assets/js/countdown/jquery.plugin.js"></script>
+    <script type="text/javascript" src="/assets/js/countdown/jquery.countdown.js"></script>
 
+    <script>            
+            $('[data-countdown]').each(function () {
+                var $this = $(this), finalDate = $(this).data('countdown');
+                $this.countdown(finalDate, function (event) {
+                    var fomat = '<span>%H</span><b></b><span>%M</span><b></b><span>%S</span>';
+                    $this.html(event.strftime(fomat));
+                });
+            });
+            if ($('.countdown-lastest').length > 0) {
+                var labels = ['Years', 'Months', 'Weeks', 'Days', 'Hrs', 'Mins', 'Secs'];
+                var layout = '<span class="box-count"><span class="number">{dnn}</span> <span class="text">Ngày</span></span><span class="dot">:</span><span class="box-count"><span class="number">{hnn}</span> <span class="text">Giờ</span></span><span class="dot">:</span><span class="box-count"><span class="number">{mnn}</span> <span class="text">Phút</span></span><span class="dot">:</span><span class="box-count"><span class="number">{snn}</span> <span class="text">Giây</span></span>';
+                $('.countdown-lastest').each(function () {
+                    var austDay = new Date($(this).data('y'), $(this).data('m') - 1, $(this).data('d'), $(this).data('h'), $(this).data('i'), $(this).data('s'));
+                    $(this).countdown({
+                        until: austDay,
+                        labels: labels,
+                        layout: layout
+                    });
+                });
+            }
+    </script>
+
+}
