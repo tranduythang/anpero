@@ -128,6 +128,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="handler\PaymentHandler.ashx.cs">
+      <DependentUpon>PaymentHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="handler\ProductHandler.ashx.cs">
       <DependentUpon>ProductHandler.ashx</DependentUpon>
     </Compile>
@@ -145,6 +148,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\loading.gif" />
     <Content Include="assets\js\countdown\countdownBasic.html" />
     <Content Include="assets\js\countdown\countdownGlowing.gif" />
     <Content Include="assets\js\countdown\countdownLED.png" />
@@ -287,6 +291,7 @@
     <Content Include="assets\stylesheet\font-awesome.css" />
     <Content Include="assets\stylesheet\jquery.bxslider.css" />
     <Content Include="assets\stylesheet\jquery.mobile-menu.css" />
+    <Content Include="assets\stylesheet\NganLuongBankList.css" />
     <Content Include="assets\stylesheet\owl.carousel.css" />
     <Content Include="assets\stylesheet\owl.theme.css" />
     <Content Include="assets\stylesheet\responsive.css" />
@@ -308,6 +313,7 @@
     <Content Include="assets\fonts\site-icons.ttf" />
     <Content Include="assets\fonts\site-icons.woff" />
     <Content Include="assets\images\Thumbs.db" />
+    <Content Include="handler\PaymentHandler.ashx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

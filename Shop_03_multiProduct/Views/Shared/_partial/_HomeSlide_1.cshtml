@@ -9,21 +9,18 @@
                         Ads[] slide = (Ads[])ViewData["slide"];
                         if (slide.Length > 0)
                         {
-                   
-
                             foreach (var item in slide)
                             {
-
-<li data-transition='random' data-slotamount='7' data-masterspeed='200' data-thumb='@item.ImagesUrl'>
+                                <li data-transition='random' data-slotamount='7' data-masterspeed='200' data-thumb='@item.ImagesUrl'>
                                     <img src='@item.ImagesUrl' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="@item.ClickUrl" />
                                     <div class="info">
-                                        @Html.Raw(item.Description)                                        
+                                        @Html.Raw(item.Description)
                                     </div>
                                 </li>
                             }
                         }
                     }
-           
+
                 </ul>
             </div>
         </div>
