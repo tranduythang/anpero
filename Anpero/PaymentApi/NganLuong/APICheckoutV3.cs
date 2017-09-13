@@ -56,24 +56,14 @@ namespace Anpero.PaymentApi.NganLuong
                 objResult.errorCode = root.Item(0).InnerText;
                 objResult.token = root.Item(1).InnerText;
                 objResult.description = root.Item(2).InnerText;
-                objResult.transactionStatus = root.Item(3).InnerText;
-                //objResult.receiver_email = root.Item(4).InnerText; //receiver_email
+                objResult.transactionStatus = root.Item(3).InnerText;                
                 objResult.order_code = root.Item(5).InnerText;
-                objResult.paymentAmount = root.Item(6).InnerText; //total_amount
-                                                                  //objResult.payment_method = root.Item(7).InnerText; //payment_method
-                                                                  //objResult.bank_code = root.Item(8).InnerText; //bank_code
-                                                                  //objResult.payment_type = root.Item(9).InnerText; //payment_type
-                                                                  //objResult.description = root.Item(10).InnerText; //order_description
-                                                                  //objResult.tax_amount = root.Item(11).InnerText; //tax_amount
-                                                                  //objResult.discount_amount = root.Item(12).InnerText; //discount_amount
-                                                                  //objResult.fee_shipping = root.Item(13).InnerText; //fee_shipping
-                                                                  //objResult.return_url = root.Item(14).InnerText; //return_url
-                                                                  // objResult.cancel_url = root.Item(15).InnerText; //cancel_url
+                objResult.paymentAmount = root.Item(6).InnerText;
                 objResult.payerName = root.Item(16).InnerText; //buyer_fullname
                 objResult.payerEmail = root.Item(17).InnerText; //buyer_email
                 objResult.payerMobile = root.Item(18).InnerText; //buyer_mobile
-                                                                 //objResult.buyer_address = root.Item(19).InnerText; //buyer_address
-                                                                 //objResult.affiliate_code = root.Item(20).InnerText; //affiliate_code
+                                                                 
+                                                                 
                 objResult.transactionId = root.Item(21).InnerText;
 
 
@@ -84,31 +74,7 @@ namespace Anpero.PaymentApi.NganLuong
                 objResult.order_code = root.Item(5).InnerText;
                 objResult.paymentAmount = root.Item(6).InnerText;
                 objResult.transactionId = root.Item(21).InnerText;
-
-                /*
-                String error_code =root.Item(0).InnerText;
-                String token =root.Item(1).InnerText;
-                String description =root.Item(2).InnerText;
-                String transaction_status =root.Item(3).InnerText;
-                String receiver_email =root.Item(4).InnerText;
-                String order_code =root.Item(5).InnerText;
-                String total_amount =root.Item(6).InnerText;
-                String payment_method =root.Item(7).InnerText;
-                String bank_code =root.Item(8).InnerText;
-                String payment_type =root.Item(9).InnerText;
-                String order_description =root.Item(10).InnerText;
-                String tax_amount =root.Item(11).InnerText;
-                String discount_amount =root.Item(12).InnerText;
-                String fee_shipping =root.Item(13).InnerText;
-                String return_url =root.Item(14).InnerText;
-                String cancel_url =root.Item(15).InnerText;
-                String buyer_fullname =root.Item(16).InnerText;            
-                String buyer_email =root.Item(17).InnerText;
-                String buyer_mobile =root.Item(18).InnerText;
-                String buyer_address =root.Item(19).InnerText;
-                String affiliate_code =root.Item(20).InnerText;
-                String transaction_id =root.Item(21).InnerText;
-             */
+          
                 return objResult;
             }
 

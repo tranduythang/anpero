@@ -468,19 +468,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/12/2017 13:47:53</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.dll">
-      <publishTime>09/12/2017 20:35:12</publishTime>
+      <publishTime>09/13/2017 14:59:35</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.XmlSerializers.dll">
-      <publishTime>09/12/2017 20:35:13</publishTime>
+      <publishTime>09/13/2017 14:59:36</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>08/21/2017 17:28:22</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>09/12/2017 20:35:18</publishTime>
+      <publishTime>09/13/2017 15:37:42</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>09/12/2017 20:35:18</publishTime>
+      <publishTime>09/13/2017 15:37:42</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>08/21/2017 17:28:22</publishTime>
@@ -528,7 +528,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/15/2017 22:42:33</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>09/12/2017 20:35:17</publishTime>
+      <publishTime>09/13/2017 15:37:40</publishTime>
     </File>
     <File Include="Robots.txt">
       <publishTime>08/21/2017 17:28:22</publishTime>
@@ -579,7 +579,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/15/2017 22:42:31</publishTime>
     </File>
     <File Include="Scripts/ShoppingCart.js">
-      <publishTime>09/12/2017 20:32:25</publishTime>
+      <publishTime>09/13/2017 13:07:50</publishTime>
+    </File>
+    <File Include="Views/API/Index.cshtml">
+      <publishTime>09/13/2017 13:51:47</publishTime>
     </File>
     <File Include="Views/Article/Category.cshtml">
       <publishTime>09/11/2017 21:51:36</publishTime>
@@ -618,13 +621,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2017 21:44:52</publishTime>
     </File>
     <File Include="Views/Product/Checkout.cshtml">
-      <publishTime>09/12/2017 19:40:03</publishTime>
+      <publishTime>09/13/2017 13:46:18</publishTime>
     </File>
     <File Include="Views/Product/Index.cshtml">
       <publishTime>09/11/2017 21:44:52</publishTime>
     </File>
     <File Include="Views/Product/List.cshtml">
-      <publishTime>09/11/2017 21:44:52</publishTime>
+      <publishTime>09/13/2017 13:49:35</publishTime>
     </File>
     <File Include="Views/Shared/article/_MenuAndAdsPartial.cshtml">
       <publishTime>09/11/2017 21:44:52</publishTime>
@@ -690,7 +693,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2017 21:45:37</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/12/2017 18:50:42</publishTime>
+      <publishTime>09/13/2017 12:59:34</publishTime>
     </File>
   </ItemGroup>
 </Project>

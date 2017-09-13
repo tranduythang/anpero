@@ -45,8 +45,7 @@
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
         Cart.bindCartTable();
     },
-    addProduct3: function (_id, _price, _thumb, _title) {
-        debugger
+    addProduct3: function (_id, _price, _thumb, _title) {        
         var checkExited = false;
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
@@ -225,8 +224,7 @@
         if ($.cookie("CartList") == "[]") {
             Util.notify("Lỗi", "Giỏ hàng đang trống không thể tạo đơn hàng");
             valid = false;
-        }
-        debugger
+        }        
         var isPaymentOnline = false;
         
         if (_paymentType == "NL" || _paymentType == "ATM_ONLINE" || _paymentType == "VISA") {
@@ -290,8 +288,7 @@
                 datatype: "text/plain",
                 data: { op: "CreateOrder", detail: _detail, PayMentType: _payMentType, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, ProductList: $.cookie("CartList"), shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee) },
                 success: function (rs) {
-                    debugger
-                    alert(rs);
+                    
                     $("#ajax_loader").hide();
                     if (!isNaN(rs)) {
                         $.removeCookie('CartList', { path: '/' });
@@ -299,17 +296,15 @@
                             $("#cartContent2").html("<h4>Đơn hàng số #" + rs + " đang được chuyển tới cổng thanh toán</h4>");
                             Util.notify("", "Đơn hàng đang được chuyển sang cổng thanh toán. ");
                             var _totalPrice = $("#ttOdCt").html().replace("đ", "").replace(/\,/g, '');
-                            var bankcode = $('input[name=bankcode]:checked').val();
+                            var _bankcode = $('input[name=bankcode]:checked').val();
                             
                             $.ajax({
                                 method: "post",
                                 url: "/handler/PaymentHandler.ashx",
                                 datatype: "text/plain",
-                                data: { op: "nlCheckout", detail: "Thanh toán cho đơn hàng số #" + rs, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, price: _totalPrice, shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee), orderId: rs, payment_method: _paymentType },
+                                data: { op: "nlCheckout", detail: "Thanh toán cho đơn hàng số #" + rs, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, price: _totalPrice, shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee), orderId: rs, payment_method: _paymentType, bankcode: _bankcode },
                             
-                                success: function (checkOutUrl) {
-                                    debugger
-                                    alert(checkOutUrl);
+                                success: function (checkOutUrl) {                                    
                                     if (Util.isUrl(checkOutUrl))
                                     window.location.href = checkOutUrl;
                                 }

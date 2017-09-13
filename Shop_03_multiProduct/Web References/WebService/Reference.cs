@@ -29,6 +29,8 @@ namespace AnperoFrontend.WebService {
     [System.Web.Services.WebServiceBindingAttribute(Name="AnperoServiceSoap", Namespace="http://tempuri.org/")]
     public partial class AnperoService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
+        private System.Threading.SendOrPostCallback UpdateOrderStatusOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetLocationOperationCompleted;
         
         private System.Threading.SendOrPostCallback addContactOperationCompleted;
@@ -102,6 +104,9 @@ namespace AnperoFrontend.WebService {
         }
         
         /// <remarks/>
+        public event UpdateOrderStatusCompletedEventHandler UpdateOrderStatusCompleted;
+        
+        /// <remarks/>
         public event GetLocationCompletedEventHandler GetLocationCompleted;
         
         /// <remarks/>
@@ -151,6 +156,43 @@ namespace AnperoFrontend.WebService {
         
         /// <remarks/>
         public event GetWebContentCompletedEventHandler GetWebContentCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateOrderStatus", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int UpdateOrderStatus(int storeId, string tokenKey, int orderId, int amount, string paymentVendor) {
+            object[] results = this.Invoke("UpdateOrderStatus", new object[] {
+                        storeId,
+                        tokenKey,
+                        orderId,
+                        amount,
+                        paymentVendor});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateOrderStatusAsync(int storeId, string tokenKey, int orderId, int amount, string paymentVendor) {
+            this.UpdateOrderStatusAsync(storeId, tokenKey, orderId, amount, paymentVendor, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateOrderStatusAsync(int storeId, string tokenKey, int orderId, int amount, string paymentVendor, object userState) {
+            if ((this.UpdateOrderStatusOperationCompleted == null)) {
+                this.UpdateOrderStatusOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateOrderStatusOperationCompleted);
+            }
+            this.InvokeAsync("UpdateOrderStatus", new object[] {
+                        storeId,
+                        tokenKey,
+                        orderId,
+                        amount,
+                        paymentVendor}, this.UpdateOrderStatusOperationCompleted, userState);
+        }
+        
+        private void OnUpdateOrderStatusOperationCompleted(object arg) {
+            if ((this.UpdateOrderStatusCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateOrderStatusCompleted(this, new UpdateOrderStatusCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetLocation", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -1776,6 +1818,32 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.resultsCountField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void UpdateOrderStatusCompletedEventHandler(object sender, UpdateOrderStatusCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateOrderStatusCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateOrderStatusCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
             }
         }
     }

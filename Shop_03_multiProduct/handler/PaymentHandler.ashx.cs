@@ -45,16 +45,16 @@ namespace AnperoFrontend.handler
                             string payment_method = context.Request["payment_method"];
                             string str_bankcode = context.Request["bankcode"];
                             string order_description = context.Request["detail"];
-                            string DomainName = HttpContext.Current.Request.Url.Host;
-
+                            string DomainName = HttpContext.Current.Request.Url.Scheme+@"://"+HttpContext.Current.Request.Url.Host;
+                            
                             Anpero.PaymentApi.NganLuong.RequestInfo info = new Anpero.PaymentApi.NganLuong.RequestInfo();
-                            //info.Merchant_id = "52084";
-                            //info.Merchant_password = "3c0ba9b81b28cbfa3d675d59fc5ccc41";
-                            //info.Receiver_email = "hotro@anpero.com";
+                            info.Merchant_id = "52084";
+                            info.Merchant_password = "3c0ba9b81b28cbfa3d675d59fc5ccc41";
+                            info.Receiver_email = "thangtd.hn@gmail.com";//must be register email
                             // for test
-                            info.Merchant_id = "36680";
-                            info.Merchant_password = "matkhauketnoi";
-                            info.Receiver_email = "demo@nganluong.vn";
+                            //info.Merchant_id = "36680";
+                            //info.Merchant_password = "matkhauketnoi";
+                            //info.Receiver_email = "demo@nganluong.vn";
                             info.cur_code = "vnd";
                             info.bank_code = str_bankcode;
 
@@ -63,8 +63,8 @@ namespace AnperoFrontend.handler
                             info.fee_shipping = "0";
                             info.Discount_amount = "0";
                             info.order_description = order_description;
-                            info.return_url = DomainName + "/payment/nl";
-                            info.cancel_url = DomainName + "/payment/cancelnl";
+                            info.return_url = DomainName + "/API/NLCallback";
+                            info.cancel_url = DomainName + "/API/NLCancel";
 
                             info.Buyer_fullname = name;
                             info.Buyer_email = email;
@@ -78,7 +78,7 @@ namespace AnperoFrontend.handler
                                 rs = result.Checkout_url;
                             }
                             else
-                                rs = result.Description;
+                                rs = result.Description+" ("+ result.Error_code + ")";
                             break;
                         default:
                             break;
