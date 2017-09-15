@@ -44,7 +44,7 @@
                             <div class="tab-container">
                                 <div id="tab-1" class="tab-panel active">
                                     @*<ul class="row product-list grid">*@
-                                    <ul class="row product-list owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}'>
+                                    <ul class="row product-list owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3},"1000":{"items":4},"1000":{"items":5}}'>
                                         @if (ViewData["newestProduct"] != null)
                                         {
                                             SearchResult productSearchResult = (SearchResult)ViewData["newestProduct"];
@@ -52,7 +52,7 @@
                                             {
                                                 foreach (var item in productSearchResult.Item)
                                                 {
-                                                    @*<li class="col-sx-12 col-sm-4">*@
+                                                    
                                                     <li>
                                                         <div class="product-container">
                                                             <div class="left-block">

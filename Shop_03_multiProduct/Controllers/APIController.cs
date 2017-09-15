@@ -15,7 +15,7 @@ namespace AnperoFrontend.Controllers
         public ActionResult Index()
         {
             AnperoService ws = new AnperoService();
-            ws.UpdateOrderStatus(StoreID, TokenKey, 12290, 100000, "Ngân Lượng (Mã giao dịch" +11111+ ")");
+            
             ViewBag.Msg = "s";
             return View();
         }
@@ -42,6 +42,7 @@ namespace AnperoFrontend.Controllers
             rs += "<br>";
             rs += "Tên người thanh toán: " + result.payerName;            
             AnperoService ws = new AnperoService();
+            //update and add cash book
             ws.UpdateOrderStatus(StoreID, TokenKey, Convert.ToInt32(result.order_code), Convert.ToInt32(result.paymentAmount), "Ngân Lượng (Mã giao dịch" + result.transactionId + ")");            
             ViewBag.Msg = rs;
             return View("Index");
