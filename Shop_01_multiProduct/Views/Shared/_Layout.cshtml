@@ -41,12 +41,13 @@
         <link href="/assets/lib/jquery-bxslider/jquery-bxslider.css" rel="stylesheet" />
     }
     <link rel="stylesheet" type="text/css" href="/assets/css/@(themeOptionText+".css")" />
+    
 
 
 </head>
 <body class="@themeOptionText">
     <div id="header" class="header">
-      
+
 
         @switch (commonInfo.ThemeOption)
         {
@@ -71,7 +72,7 @@
                                 </div>
                                 <div id="navbar" class="navbar-collapse collapse">
                                     <ul class="nav navbar-nav">
-                                        <li class="active"><a href="/">Home</a></li>
+                                        <li><a href="/">Home</a></li>
                                         @if (commonInfo.MenuList != null)
                                         {
                                             for (int i = 0; i < commonInfo.MenuList.Length; i++)
@@ -79,30 +80,30 @@
                                                 if (commonInfo.MenuList[i].ChidMenu != null && commonInfo.MenuList[i].ChidMenu.Length > 0)
                                                 {
 
-                                        <li class="dropdown">
-                                            <a href="@commonInfo.MenuList[i].Link" data-toggle="dropdown">@commonInfo.MenuList[i].Tittle</a>
-                                            <ul class="dropdown-menu container-fluid">
-                                                <li class="block-container">
-                                                    <ul class="block">
-                                                        @for (int j = 0; j < commonInfo.MenuList[i].ChidMenu.Length; j++)
+                                                    <li class="dropdown">
+                                                        <a href="@commonInfo.MenuList[i].Link" data-toggle="dropdown">@commonInfo.MenuList[i].Tittle</a>
+                                                        <ul class="dropdown-menu container-fluid">
+                                                            <li class="block-container">
+                                                                <ul class="block">
+                                                                    @for (int j = 0; j < commonInfo.MenuList[i].ChidMenu.Length; j++)
 
                                                                     {
-                                                                    <li class="link_container"><a href="@commonInfo.MenuList[i].ChidMenu[j].Link">@commonInfo.MenuList[i].ChidMenu[j].Tittle</a></li>
+                                                                        <li class="link_container"><a href="@commonInfo.MenuList[i].ChidMenu[j].Link">@commonInfo.MenuList[i].ChidMenu[j].Tittle</a></li>
                                                                     }
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
                                                 }
                                                 else
                                                 {
-                                        <li>
-                                            <a href="@commonInfo.MenuList[i].Link">@commonInfo.MenuList[i].Tittle</a>
-                                        </li>
+                                                    <li>
+                                                        <a href="@commonInfo.MenuList[i].Link">@commonInfo.MenuList[i].Tittle</a>
+                                                    </li>
                                                 }
                                             }
                                         }
-                                      
+
                                     </ul>
                                     <ul class="nav navbar-nav navbar-right">
                                         <li><a class="link-buytheme" href="tel:@commonInfo.HotLine"> <strong>ĐT: @commonInfo.HotLine - 0961614240</strong> </a></li>
@@ -129,9 +130,145 @@
     @Html.Raw(commonInfo.AnperoPlugin)
     @RenderSection("scripts", required: false)
     @Html.Raw(commonInfo.PageScript)
+    <div class="container">
+        <div class="services2">
+            <ul>
+                <li class="col-xs-12 col-sm-6 col-md-4 services2-item">
+                    <div class="service-wapper">
+                        <div class="row">
+                            <div class="col-sm-6 image">
+                                <div class="icon">
+                                    <img src="/assets/data/icon-s1.png" alt="service">
+                                </div>
+                                <h3 class="title"><a href="#">Giá rẻ nhất</a></h3>
+                            </div>
+                            <div class="col-sm-6 text">
+                                Sản phẩm trực tiếp từ nhà cung ứng. đảm bảo chất lượng và giá tốt nhất
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-xs-12 col-sm-6 col-md-4 services2-item">
+                    <div class="service-wapper">
+                        <div class="row">
+                            <div class="col-sm-6 image">
+                                <div class="icon">
+                                    <img src="/assets/data/icon-s2.png" alt="service">
+                                </div>
+                                <h3 class="title"><a href="#">Ship toàn quốc</a></h3>
+                            </div>
+                            <div class="col-sm-6 text">
+                                Đơn hàng được xử lý nhanh chóng. Sản phẩm được vận chuyển sau 30 phút bạn đặt hàng online
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-xs-12 col-sm-6 col-md-4 services2-item">
+                    <div class="service-wapper">
+                        <div class="row">
+                            <div class="col-sm-6 image">
+                                <div class="icon">
+                                    <img src="assets/data/icon-s3.png" alt="service">
+                                </div>
+                                <h3 class="title"><a href="#">An toàn</a></h3>
+                            </div>
+                            <div class="col-sm-6 text">
+                                Hỗ trợ thanh toán Online tạm giữ do đối tác Ngân Lượng đảm bảo
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-xs-12 col-sm-6 col-md-4 services2-item">
+                    <div class="service-wapper">
+                        <div class="row">
+                            <div class="col-sm-6 image">
+                                <div class="icon">
+                                    <img src="/assets/data/icon-s4.png" alt="service">
+                                </div>
+                                <h3 class="title"><a href="#">Hỗ trợ onlne</a></h3>
+                            </div>
+                            <div class="col-sm-6 text">
+                                Vui lòng gọi @commonInfo.HotLine chúng tôi rất hân hạnh được hỗ trợ quý khách
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-xs-12 col-sm-6 col-md-4 services2-item">
+                    <div class="service-wapper">
+                        <div class="row">
+                            <div class="col-sm-6 image">
+                                <div class="icon">
+                                    <img src="/assets/data/icon-s5.png" alt="service">
+                                </div>
+                                <h3 class="title"><a href="#">Hỗ trợ 24/7 </a></h3>
+                            </div>
+                            <div class="col-sm-6 text">
+                                Bất cứ khi nào bạn cũng có thể gọi cho chúng tôi
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-xs-12 col-sm-6 col-md-4 services2-item">
+                    <div class="service-wapper">
+                        <div class="row">
+                            <div class="col-sm-6 image">
+                                <div class="icon">
+                                    <img src="/assets/data/icon-s6.png" alt="service">
+                                </div>
+                                <h3 class="title"><a href="#">Thanh toán đa dạnh</a></h3>
+                            </div>
+                            <div class="col-sm-6 text">
+                                Hỗ trợ thanh toán khi nhận hàng, thanh toán qua thẻ Visa, ngân hàng nội địa
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <div id="trademark-box" class="row">
+            <div class="col-sm-12">
+                <ul id="trademark-list">
+                    <li id="payment-methods">Hỗ trợ thanh toán</li>
+                    <li>
+                        <a href="#"><img src="/assets/data/nganluong.png" alt="Ngân lượng"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="/assets/data/Techcombank_logo.jpg" alt="Techcombank"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="/assets/data/trademark-wu.jpg" alt="ups"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="/assets/data/trademark-cn.jpg" alt="ups"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="/assets/data/trademark-visa.jpg" alt="ups"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="/assets/data/trademark-mc.jpg" alt="ups"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="/assets/data/trademark-ems.jpg" alt="ups"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="/assets/data/trademark-dhl.jpg" alt="ups"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="/assets/data/trademark-fe.jpg" alt="ups"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="/assets/data/trademark-wm.jpg" alt="ups"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  
     <footer id="footer">
         <div class="container">
             @Html.Raw(commonInfo.Footer)
+
             <div id="introduce-box" class="row">
                 <div class="col-md-4">
                     <div id="address-box">
@@ -168,82 +305,89 @@
                                 {
                                     <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
                                 }
-                                
+
                                 <a href="https://plus.google.com/share?url=@thisUrl" target="_blank"><i class="fa fa-google-plus"></i></a>
                                 <a href="http://pinterest.com/pinthis?url=@thisUrl" target="_blank"><i class="fa fa-pinterest-p"></i></a>
                                 <a href="http://www.twitter.com/share?url=@thisUrl" target="_blank"><i class="fa fa-twitter"></i></a>
                             </div>
                         }
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="introduce-title">Danh mục chính</div>
-                                @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
-                                {
-                                    <ul id="introduce-company" class="introduce-list">
-                                        @foreach (var item in commonInfo.ProductCategoryList)
-                                        {
-                                            <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
-                                        }
-                                    </ul>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                    </div>
-                    <div class="col-md-4">
-                        <div id="contact-box" style="text-align: right;">
-                            @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                            {
-
-                                <div class="fb-page"
-                                     data-tabs="messages"
-                                     data-href="@Html.Raw(commonInfo.FaceBookLink)"
-                                     data-width="500"
-                                     data-height="300"
-                                     data-hide-cover="false"></div>
-                            }
-
-                        </div>
-
                     </div>
                 </div>
-
-                <div id="footer-menu-box">
-                    <div class="col-sm-12">
-                        <ul class="footer-menu-list">
-                            <li><a href="/gioi-thieu-b76">Giới thiệu về chúng tôi</a></li>                            
-                        </ul>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="introduce-title">Danh mục chính</div>
+                            @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                            {
+                                <ul id="introduce-company" class="introduce-list">
+                                    @foreach (var item in commonInfo.ProductCategoryList)
+                                    {
+                                        <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
+                                    }
+                                    <li><a title="blog" href="/blog">Blogs</a></li>
+                                </ul>
+                            }
+                        </div>
                     </div>
-                    <div class="col-sm-12">
-                        <ul class="footer-menu-list">
-                            <li><a href="/chinh-sach-van-chuyen-a66">Chính sách vận chuyển</a></li>
-                            <li><a href="/chinh-sach-doi-tra-a67">Chính sách đổi trả</a></li>
-                            <li><a href="/huong-dan-thanh-toan-a68">Hướng dẫn thanh toán</a></li>
-                            <li><a href="/home/contact">Liên hệ</a></li>
+                </div>
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <div id="contact-box" style="text-align: right;">
+                        @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                        {
 
-                        </ul>
+                            <div class="fb-page"
+                                 data-tabs="messages"
+                                 data-href="@Html.Raw(commonInfo.FaceBookLink)"
+                                 data-width="500"
+                                 data-height="300"
+                                 data-hide-cover="false"></div>
+                        }
+
                     </div>
 
-                    <p class="text-center">Copyrights © 2017 <a href="http://camcanhbuoidien.com">Cam Canh Buoi Dien</a>. All Rights Reserved. Designed by <a href="http://anpero.com" title="thiết kế web bán hàng anpro">Anpero.com</a></p>
                 </div>
             </div>
-        </footer>
-        <div id="fb-root"></div>
-        <script>
-            (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-            $(window).load(function () {
-                Cart.bindCart();
-            });
-        </script>
-    </body>
+
+            <div id="footer-menu-box">
+                <div class="col-sm-12">
+                    <ul class="footer-menu-list">
+                        <li><a href="/gioi-thieu-b76">Giới thiệu về chúng tôi</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-12">
+                    <ul class="footer-menu-list">
+                        <li><a href="/huong-dan-thanh-toan-a68">Hướng dẫn thanh toán</a></li>
+                            <li><a href="/home/contact">Liên hệ</a></li>
+                        
+                            <li><a title="about" href="/about">Về chúng tôi</a></li>                            
+                            <li><a title="Chính sách vận chuyển" href="/shippolicy">Chính sách vận chuyển</a></li>
+                            <li><a title="Chính sách bảo hành" href="/WarrantyPolicy">Chính sách bảo hành</a></li>
+                            <li><a title="Chính sách đổi trả" href="/ProductReturnPolicy">Chính sách đổi trả</a></li>
+                            <li><a title="Chính sách bảo mật" href="/PrivacyPolicy">Chính sách bảo mật</a></li>
+                            <li><a title="Hướng dẫn thanh toán" href="/PaymentInfo">Hướng dẫn thanh toán</a></li>
+                        
+
+                    </ul>
+                </div>
+
+                <p class="text-center">Copyrights © 2017 @commonInfo.Name. All Rights Reserved. Designed by <a href="http://anpero.com" title="thiết kế web bán hàng anpro">Anpero.com</a></p>
+            </div>
+        </div>
+    </footer>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        $(window).load(function () {
+            Cart.bindCart();
+        });
+    </script>
+</body>
 </html>
