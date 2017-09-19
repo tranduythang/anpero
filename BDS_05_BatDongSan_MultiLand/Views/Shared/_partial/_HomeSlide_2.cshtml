@@ -133,6 +133,34 @@
                                     </li>
                                 }
                             }
+                            else
+                            {
+                                <li>
+                                    <div class="product-container">
+                                        <div class="left-block">
+                                            <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[0].PrName, bestSaleList.Item[0].Id)">
+                                                <img class="img-responsive" alt="@bestSaleList.Item[0].ShortDesc" src="@bestSaleList.Item[0].Images" />
+                                            </a>
+                                        </div>
+                                        <div class="right-block">
+                                            <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[0].PrName,bestSaleList.Item[0].Id)">@bestSaleList.Item[0].PrName</a></h5>
+                                        </div>
+                                    </div>
+                                    @if (itemCount > 1)
+                                    {
+                                        <div class="product-container">
+                                            <div class="left-block">
+                                                <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[1].PrName, bestSaleList.Item[1].Id)">
+                                                    <img class="img-responsive" alt="@bestSaleList.Item[1].ShortDesc" src="@bestSaleList.Item[1].Images" />
+                                                </a>
+                                            </div>
+                                            <div class="right-block">
+                                                <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[1].PrName,bestSaleList.Item[1].Id)">@bestSaleList.Item[1].PrName</a></h5>
+                                            </div>
+                                        </div>
+                                    }
+                                </li>
+                            }
                         </ul>
                     }
                 }
