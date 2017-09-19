@@ -115,7 +115,7 @@ namespace AnperoFrontend.Controllers
                             ViewBag.Keywords = item.Keywords;
                             ViewBag.Description = item.Description;
                             ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
-                             Anpero.StringHelpper.GetProductLink(item.Name, item.Id);
+                             Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id);
                             ViewBag.ImageUrl = item.Images;
                             break;
                         }
@@ -131,7 +131,7 @@ namespace AnperoFrontend.Controllers
                                 ViewBag.Keywords = item.Keywords;
                                 ViewBag.Description = item.Description;
                                 ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
-                                 Anpero.StringHelpper.GetProductLink(item.Name, item.Id);
+                                 Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id);
                                 ViewBag.ImageUrl = item.Images;
                                 break;
                             }
