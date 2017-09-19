@@ -67,9 +67,9 @@
 
         <!-- end services -->
         <div class="page-top">
-            <div class="container">
+            <div class="row">
                 <div class="page-top">
-                    <div class="container">
+       
                             <div class="col-xs-12 col-sm-12 page-top-left">
                                 <div class="popular-tabs">
                                     <ul class="nav-tab">
@@ -81,7 +81,7 @@
                                     <div class="tab-container">
                                         <div id="tab-1" class="tab-panel active">
                                             @*<ul class="row product-list grid">*@
-                                            <ul class="row product-list owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3},"1000":{"items":4},"1000":{"items":5}}'>
+                                            <ul class="row product-list owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3},"1000":{"items":4}}'>
                                                 @if (ViewData["newestProduct"] != null)
                                                 {
                                                     SearchResult productSearchResult = (SearchResult)ViewData["newestProduct"];
@@ -137,7 +137,7 @@
                                             </ul>
                                         </div>
                                         <div id="tab-2" class="tab-panel">
-                                            <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3},"1100":{"items":4},"1200":{"items":5}}'>
+                                            <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3},"1100":{"items":4}}'>
                                                 @if (ViewData["SaleProduct"] != null)
                                                 {
                                                     AnperoFrontend.WebService.ProductItem[] saleProduct = (AnperoFrontend.WebService.ProductItem[])ViewData["saleProduct"];
@@ -163,7 +163,7 @@
                                                                         <span class="product-new">Mới</span>
                                                                         @if (item.IsSale)
                                                                         {
-                                                                            <span class="product-sale">@Anpero.StringHelpper.ConVertToMoneyFormatInt((item.SalePrice - item.Price).ToString())</span>
+                                                                            <span class="product-sale">- @Anpero.StringHelpper.ConVertToMoneyFormatInt(((item.Price - item.SalePrice)/ item.Price*100).ToString()) %</span>
                                                                         }
                                                                     </div>
                                                                 </div>
@@ -190,7 +190,7 @@
                                             </ul>
                                         </div>
                                         <div id="tab-3" class="tab-panel">
-                                            <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3},"1000":{"items":4},"1000":{"items":5}}'>
+                                            <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3},"1000":{"items":4}}'>
                                                 @if (ViewData["BestsaleProduct"] != null)
                                                 {
                                                     AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["BestsaleProduct"];
@@ -248,7 +248,7 @@
                                     </div>
                                 </div>
                             </div>
-                    </div>
+       
                 </div>
             </div>
         </div>
@@ -291,12 +291,12 @@
                     <div class="row banner-bottom">
                         <div class="col-sm-6 item-left">
                             <div class="banner-boder-zoom">
-                                <a href="#"><img alt="ads" class="img-responsive" src="/assets/data/option5/banner1.jpg" /></a>
+                                <a href="#"><img alt="ads slide 2" class="img-responsive" src="/assets/data/option5/banner1.jpg" title="ads slide 2"/></a>
                             </div>
                         </div>
                         <div class="col-sm-6 item-right">
                             <div class="banner-boder-zoom">
-                                <a href="#"><img alt="ads" class="img-responsive" src="/assets/data/option5/banner2.jpg" /></a>
+                                <a href="#"><img alt="ads" class="img-responsive" src="/assets/data/option5/banner2.jpg" title="ads slide 2"/></a>
                             </div>
                         </div>
                     </div>
@@ -454,3 +454,31 @@
 
     </div>
 </div>
+@section  scripts{
+    <script type="text/javascript" src="/assets/lib/countdown/jquery.plugin.js"></script>
+    <script type="text/javascript" src="/assets/lib/countdown/jquery.countdown.js"></script>
+    
+    <script>
+            /** COUNT DOWN **/
+            $('[data-countdown]').each(function () {
+                var $this = $(this), finalDate = $(this).data('countdown');
+                $this.countdown(finalDate, function (event) {
+                    var fomat = '<span>%H</span><b></b><span>%M</span><b></b><span>%S</span>';
+                    $this.html(event.strftime(fomat));
+                });
+            });
+            if ($('.countdown-lastest').length > 0) {
+                var labels = ['Years', 'Months', 'Weeks', 'Days', 'Hrs', 'Mins', 'Secs'];
+                var layout = '<span class="box-count"><span class="number">{dnn}</span> <span class="text">Ngày</span></span><span class="dot">:</span><span class="box-count"><span class="number">{hnn}</span> <span class="text">Giờ</span></span><span class="dot">:</span><span class="box-count"><span class="number">{mnn}</span> <span class="text">Phút</span></span><span class="dot">:</span><span class="box-count"><span class="number">{snn}</span> <span class="text">Giây</span></span>';
+                $('.countdown-lastest').each(function () {
+                    var austDay = new Date($(this).data('y'), $(this).data('m') - 1, $(this).data('d'), $(this).data('h'), $(this).data('i'), $(this).data('s'));
+                    $(this).countdown({
+                        until: austDay,
+                        labels: labels,
+                        layout: layout
+                    });
+                });
+            }
+    </script>
+
+}

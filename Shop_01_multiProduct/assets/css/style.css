@@ -2057,7 +2057,7 @@ span.notify-right{
 .product-list li .price-percent-reduction2{
   width: 52px;
   height: 44px;
-  background: url("../images/price-percent-br.png") no-repeat center center;
+  background: url("/assets/images/price-percent-br.png") no-repeat center center;
   color: #fff;
   line-height: normal;
   text-align: center;
@@ -2068,6 +2068,7 @@ span.notify-right{
   font-family: 'Arial Narrow', Arial, sans-serif;
   padding-left: 5px;
   padding-top: 2px;
+  line-height:30px;
 }
 
 .product-list li .group-price .product-new{

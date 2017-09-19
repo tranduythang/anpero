@@ -55,7 +55,7 @@
                                         <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">
                                             <img class="img-responsive" alt="product" src="@item.Images" />
                                         </a>
-                                        <div class="price-percent-reduction2">giảm @Anpero.StringHelpper.ConVertToMoneyFormatInt((item.Price - item.SalePrice).ToString())</div>
+                                        <div class="price-percent-reduction2">- @Anpero.StringHelpper.ConVertToMoneyFormatInt(((item.Price-item.SalePrice)/item.Price*100).ToString()) %</div>
                                     </div>
                                     <div class="right-block">
                                         <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">@item.PrName</a></h5>
@@ -242,14 +242,12 @@
             else
             {
                 <div class="banner-opacity sm-banner">
-                    <a href="#"><img src="~/assets/images/384x157.jpg" alt=""></a>
+                    <a href="#"><img src="/assets/images/275px.jpg" alt="ads1"></a>
                 </div>
                     <div class="banner-opacity sm-banner">
-                        <a href="#"><img src="~/assets/images/384x157.jpg" alt=""></a>
+                        <a href="#"><img src="/assets/images/275px.jpg" alt="ads1"></a>
                     </div>
-                    <div class="banner-opacity sm-banner">
-                        <a href="#"><img src="~/assets/images/384x157.jpg" alt=""></a>
-                    </div>
+                  
             }
             
         </div>
