@@ -110,7 +110,10 @@
 [4. Header ]
 */
 .option6 .header{
-	background: #008a90;
+	background:rgba(43, 23, 13, 0.8);
+    background-image: url(/assets/images/headerBg.jpg);
+    background-size: cover;
+    background-position: left top;
 }
 .option6 .nav-top-menu{
 	background: transparent;
@@ -122,8 +125,8 @@
 	font-size: 13px;
 }
 .option6 .top-header{
-	background: #007176;
-	font-size: 13px;
+	background: rgba(43, 23, 13, 0.8);
+	font-size: 12px;
 	color: #fff;
 }
 .option6 .top-header a{
@@ -155,12 +158,12 @@
 	padding-left: 40px;
 }
 .option6 .main-header .header-search-box .form-inline .form-category{
-	float: right;
-	margin-right: 40px;
-	border-left: 1px solid #008a90;
-	height: 41px;
-	background: #00abb3;
-	color: #fff;
+    float: right;
+    margin-right: 40px;
+    border-left: 1px solid #21940c;
+    height: 41px;
+    background: rgba(43, 23, 13, 0.8);
+    color: #fff;
 }
 .option6 .main-header .header-search-box .form-inline .btn-search{
 	top: 0;
@@ -178,7 +181,7 @@
 .option6 .main-header .header-search-box .form-inline .btn-search{
 	color: #fff;
 	font-size: 16px;
-	background-color: #007176;
+	background-color:rgba(43, 23, 13, 0.8);
 }
 .option6 .select2-container--default .select2-selection--single .select2-selection__rendered{
 	color: #fff;
@@ -188,7 +191,7 @@
 }
 .option6 .main-header .header-search-box .form-inline{
 	border: none;
-	background: #00abb3;
+	background: rgba(43, 23, 13, 0.8);
 	color: #fff;
 	display: inline-block;
 	min-width: 470px;
@@ -230,7 +233,7 @@
 }
 
 .option6 .nav-top-menu.nav-ontop{
-	background: #007176;
+	background: rgba(43, 23, 13, 0.8);
 	height: 51px;
 }
 .option6 .nav-top-menu.nav-ontop .navbar-right{
@@ -246,7 +249,7 @@
 
 .option6 #main-menu .navbar{
 	border-radius: 0;
-	background: #007176;
+	background: rgba(43, 23, 13, 0.8);
 }
 .option6 #main-menu .navbar-default .navbar-nav>li>a{
 	color: #fff;
@@ -1285,6 +1288,9 @@
 	.option6 .main-header .header-search-box{
 		width: 40%;
 	}
+    #home-slider{
+        margin-top:5px !important;
+    }
 	.option6 #home-slider .header-top-right .homeslider, 
 	.option6 #home-slider .header-top-right .header-banner{
 		border: none;
@@ -1627,5 +1633,19 @@
 
 }
 #footer {
-    background: #eee!important;
+    background: rgba(43, 23, 13, 0.8)!important;
+    color:white;
+
+}
+#footer a {
+    color:white;
+}
+.rct{    
+    padding-right: 0px;
+    padding-left: 15px;
+}
+.lct #left_column{
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-top:5px;
 }

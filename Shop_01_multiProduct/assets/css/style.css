@@ -1818,7 +1818,7 @@ span.notify-right{
 }
 
 .popular-tabs .product-list li .left-block{
-    min-height:285px;
+    min-height:193px;
     max-height:350px;
     overflow:hidden;
 }
@@ -2057,7 +2057,7 @@ span.notify-right{
 .product-list li .price-percent-reduction2{
   width: 52px;
   height: 44px;
-  background: url("../images/price-percent-br.png") no-repeat center center;
+  background: url("/assets/images/price-percent-br.png") no-repeat center center;
   color: #fff;
   line-height: normal;
   text-align: center;
@@ -2068,6 +2068,7 @@ span.notify-right{
   font-family: 'Arial Narrow', Arial, sans-serif;
   padding-left: 5px;
   padding-top: 2px;
+  line-height:30px;
 }
 
 .product-list li .group-price .product-new{
@@ -2808,16 +2809,18 @@ span.notify-right{
   margin: 0 auto;
 }
 #left_column .block{
-  border: 1px solid #eaeaea;
+  border: 1px solid #ececd5;
 }
 #left_column .block .title_block{
-  font-size: 16px;
+  font-size: 12px;
   font-weight: bold;
   border-bottom: 1px solid #eaeaea;
   padding-left: 28px;
   text-transform: uppercase;
   padding-top: 11px;
   padding-bottom: 12px;
+  background-color: rgba(43, 23, 13, 0.8);
+  color: white;
 }
 #left_column .block .block_content{
   padding:  15px 20px;
@@ -3333,7 +3336,7 @@ span.notify-right{
   border: 1px solid #eaeaea;
   overflow: hidden;
   padding-bottom: 10px;
-  min-height:400px;
+  min-height:315px;
 }
 .product-list .info-orther{
   display: none;

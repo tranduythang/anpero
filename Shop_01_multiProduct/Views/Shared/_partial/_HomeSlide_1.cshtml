@@ -1,7 +1,7 @@
 ﻿@using AnperoFrontend.WebService;
-<div class="container">
+
     <div class="row">
-        <div class="col-sm-8" style="padding-right: 0px;">
+        <div class="col-sm-12" style="padding-right: 0px;">
             <div class="homeslider">
                 @if (ViewData["slide"] != null)
                 {
@@ -19,7 +19,7 @@
                                 <span id="bx-prev"></span>
                             </div>
                             <div id="bx-pager" class="slide-pager">
-                                @for (int i = 0; i < slide.Length; i++)
+                                http://localhost:5677/#                                @for (int i = 0; i < slide.Length; i++)
                                 {
                                     <a data-slide-index="@i" href="">@i</a>
                                 }
@@ -32,9 +32,10 @@
                     else
                     {
                         <ul id="contenhomeslider-customPage">
-                            <li><a href="#"><img alt="Funky roots" src="assets/data/option6/slide1.jpg" title="Funky roots" /></a></li>
-                            <li><img src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
-                            <li><img src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
+                            <li><a href="#"><img alt="Funky roots" src="/assets/images/862.jpg" title="Funky roots" /></a></li>
+                            <li><a href="#"><img alt="Funky roots" src="/assets/images/862.jpg" title="Funky roots" /></a></li>
+                            <li><a href="#"><img alt="Funky roots" src="/assets/images/862.jpg" title="Funky roots" /></a></li>
+                            
                         </ul>
                         <div class="bx-control">
                             <div class="slide-prev">
@@ -54,9 +55,9 @@
                 else
                 {
                     <ul id="contenhomeslider-customPage">
-                        <li><a href="#"><img alt="Funky roots" src="assets/data/option6/slide1.jpg" title="Funky roots" /></a></li>
-                        <li><img  src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
-                        <li><img   src="assets/data/option6/slide1.jpg" title="Funky roots" /></li>
+                        <li><a href="#"><img alt="Funky roots" src="/assets/images/862.jpg" title="Funky roots" /></a></li>
+                        <li><a href="#"><img alt="Funky roots" src="/assets/images/862.jpg" title="Funky roots" /></a></li>
+                        <li><a href="#"><img alt="Funky roots" src="/assets/images/862.jpg" title="Funky roots" /></a></li>
                     </ul>
                     <div class="bx-control">
                         <div class="slide-prev">
@@ -77,44 +78,6 @@
                
             </div>
         </div>
-        <div class="col-sm-4 group-banner-slider" style="padding-left: 2px; padding-right: 14px;">
-            @if (ViewData["AdsSlide"] != null)
-            {
-                Ads[] slide = (Ads[])ViewData["AdsSlide"];
-                if (slide.Length > 0)
-                {
-                    foreach (var item in slide)
-                    {
-                        <div class="banner-opacity sm-banner">
-                            <a href="@item.ClickUrl"><img src="@item.ImagesUrl" alt="@item.Description"></a>
-                        </div>
-                    }
-                }
-                else
-                {
-                    <div class="banner-opacity sm-banner">
-                        <a href="#"><img src="~/assets/images/384x157.jpg" alt=""></a>
-                    </div>
-                    <div class="banner-opacity sm-banner">
-                        <a href="#"><img src="~/assets/images/384x157.jpg" alt=""></a>
-                    </div>
-                    <div class="banner-opacity sm-banner">
-                        <a href="#"><img src="~/assets/images/384x157.jpg" alt=""></a>
-                    </div>
-                }
-            }
-            else
-            {
-                <div class="banner-opacity sm-banner">
-                    <a href="#"><img src="~/assets/images/384x157.jpg" alt=""></a>
-                </div>
-                <div class="banner-opacity sm-banner">
-                    <a href="#"><img src="~/assets/images/384x157.jpg" alt=""></a>
-                </div>
-                <div class="banner-opacity sm-banner">
-                    <a href="#"><img src="~/assets/images/384x157.jpg" alt=""></a>
-                </div>
-            }
-        </div>
+      
     </div>
-</div>
+
