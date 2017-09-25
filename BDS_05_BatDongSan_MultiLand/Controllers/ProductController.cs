@@ -38,10 +38,8 @@ namespace AnperoFrontend.Controllers
             if(rs!=null && rs.Item.Length > 0)
             {
                 ViewBag.Title = rs.Item[0].CatName;
-            }
-            
+            }            
             SetupCommonProduct();
-
             return View();
         }
        
