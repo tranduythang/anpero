@@ -1,0 +1,82 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];    
+    }
+
+}
+<div class="top-header">
+    <div class="container">
+        <div class="currency"><a href="tel:@commonInfo.HotLine">Click để gọi: @commonInfo.HotLine</a></div>
+        <div class="top-bar-social">
+            <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
+            <a href="@commonInfo.FaceBookLink" target="_blank"><i class="fa fa-facebook"></i></a>
+        </div>
+        <div class="support-link">
+            <a href="/about">Thông tin cửa hàng</a>
+            <a href="/home/contact">Hỗ trợ</a>
+        </div>
+    </div>
+</div>
+<div class="container main-header">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-3 logo">
+            <a href="/"><img alt="@commonInfo.Desc" src="@commonInfo.Logo" /></a>
+        </div>
+        <div class="col-xs-7 col-sm-8 col-md-7 header-search-box">
+            <form class="form-inline" action="/search" name="search" id="search" method="get">
+                <div class="form-group form-category">
+                    <select class="select-category"  name="category">
+                        <option value="0">Danh mục sản phẩm</option>
+                        @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                        {
+                            for (int i = 0; i < commonInfo.ProductCategoryList.Length; i++)
+                            {
+                                if (commonInfo.ProductCategoryList[i].ChildCategory != null && commonInfo.ProductCategoryList[i].ChildCategory.Length > 0)
+                                {
+                                    for (int j = 0; j < commonInfo.ProductCategoryList[i].ChildCategory.Length; j++)
+                                    {
+                                        <option value="@commonInfo.ProductCategoryList[i].ChildCategory[j].Id">@commonInfo.ProductCategoryList[i].ChildCategory[j].Name</option>
+                                    }
+
+                                }
+                            }
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group input-serach">
+                    <input type="text" placeholder="Tìm kiếm mọi thứ..." name="keyword">
+                </div>
+                <button type="submit" class="pull-right btn-search" id="btnSearch"></button>
+            </form>
+        </div>
+        <div class="col-xs-5 col-sm-3 col-md-2 group-button-header">
+            <a target="_blank" title="Chia sẻ trên google+" href="https://plus.google.com/share?url=@HttpContext.Current.Request.Url.AbsoluteUri" class="btn-heart">wishlist</a>
+            <div class="btn-cart" id="cart-block">
+                <a title="My cart" href="/product/checkout">Cart</a>
+                <span class="notify notify-right spN"></span>
+                <div class="cart-block">
+                    <div class="cart-block-content">
+                        <h5 class="cart-title"><span class="spN"></span> Sản phẩm</h5>
+                        <div class="cart-block-list">
+                            <ul id="prCatCt"></ul>
+                        </div>
+                        <div class="toal-cart">
+                            <span>Total</span>
+                            <span class="toal-price pull-right" id="ttSC"></span>
+                        </div>
+                        <div class="cart-buttons">
+                            <a href="/product/checkout" class="btn-check-out">Thanh toán</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
