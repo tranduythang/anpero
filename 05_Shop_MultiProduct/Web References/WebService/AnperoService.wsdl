@@ -2,24 +2,6 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="UpdateOrderStatus">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="tokenKey" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="orderId" type="s:int" />
-            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="paymentVendor" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="UpdateOrderStatusResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="UpdateOrderStatusResult" type="s:int" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="GetLocation">
         <s:complexType>
           <s:sequence>
@@ -493,12 +475,6 @@
       </s:element>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="UpdateOrderStatusSoapIn">
-    <wsdl:part name="parameters" element="tns:UpdateOrderStatus" />
-  </wsdl:message>
-  <wsdl:message name="UpdateOrderStatusSoapOut">
-    <wsdl:part name="parameters" element="tns:UpdateOrderStatusResponse" />
-  </wsdl:message>
   <wsdl:message name="GetLocationSoapIn">
     <wsdl:part name="parameters" element="tns:GetLocation" />
   </wsdl:message>
@@ -602,10 +578,6 @@
     <wsdl:part name="parameters" element="tns:GetWebContentResponse" />
   </wsdl:message>
   <wsdl:portType name="AnperoServiceSoap">
-    <wsdl:operation name="UpdateOrderStatus">
-      <wsdl:input message="tns:UpdateOrderStatusSoapIn" />
-      <wsdl:output message="tns:UpdateOrderStatusSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="GetLocation">
       <wsdl:input message="tns:GetLocationSoapIn" />
       <wsdl:output message="tns:GetLocationSoapOut" />
@@ -677,15 +649,6 @@
   </wsdl:portType>
   <wsdl:binding name="AnperoServiceSoap" type="tns:AnperoServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="UpdateOrderStatus">
-      <soap:operation soapAction="http://tempuri.org/UpdateOrderStatus" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetLocation">
       <soap:operation soapAction="http://tempuri.org/GetLocation" style="document" />
       <wsdl:input>
@@ -842,15 +805,6 @@
   </wsdl:binding>
   <wsdl:binding name="AnperoServiceSoap12" type="tns:AnperoServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="UpdateOrderStatus">
-      <soap12:operation soapAction="http://tempuri.org/UpdateOrderStatus" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetLocation">
       <soap12:operation soapAction="http://tempuri.org/GetLocation" style="document" />
       <wsdl:input>

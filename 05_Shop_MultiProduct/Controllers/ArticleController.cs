@@ -36,11 +36,14 @@ namespace AnperoFrontend.Controllers
             s=sv.SearchArticle(StoreID, TokenKey, id, page, 12, 0);
             ViewData["ArticleList"] = s;
             ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, s.ResultsCount, 11, "?page=");
+            //seo
+            ViewBag.Description = "Tin tức Ngon Lành - Blog tin chia sẽ các bài viết liên quan đến sản phẩm của Ngon Lành. Các kinh nghiệm, mẹo vắt lựa chọn thực phẩm sạch, Hoa quả sạch. Công thức chế biến các món ăn ngon.";
+            ViewBag.Keywords = "Kinh nghiệm lựa chọn thực phẩm sạch, Kinh nghiệm lựa chọn hoa quả sạch, Công thức nấu ăn, Phân biệt thực phẩm, hoa quả xuất xứ Trung quốc";
             ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + "/blog";
             if (id == 0)
             {
                 ViewBag.CategoryName = "Blog";
-                ViewBag.Title = "Tin tức";
+                ViewBag.Title = "Tin tức | Ngon Lành";
             }
             else
             {
