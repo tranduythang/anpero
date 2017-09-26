@@ -10,33 +10,7 @@ namespace Anpero
     {
         public StringHelpper()
         {
-            //
-            // TODO: Add constructor logic here
-            //
-            //conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-            //conn.Open();
-        }
-
-        public static string MultiTextReplace(string input, string mapping)
-        {
-            if (!string.IsNullOrEmpty(mapping))
-            {
-                string[] mapingList = mapping.Split(',');
-                if (mapingList.Length > 0)
-                {
-                    for (int i = 0; i < mapingList.Length; i++)
-                    {
-                        if (!string.IsNullOrEmpty(mapingList[i]))
-                        {
-                            string[] rule = mapingList[i].Split('>');
-                            input = Regex.Replace(input, rule[0].Trim(), rule[1].Trim(), RegexOptions.IgnoreCase);
-                            if (input.Equals(rule[1].Trim()))
-                                return input;
-                        }
-                    }
-                }
-            }
-            return input;
+          
         }
         public static Boolean isUrl(String url)
         {

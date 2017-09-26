@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Constant.cs" />
     <Compile Include="Paging.cs" />
+    <Compile Include="PaymentApi\NganLuong\APICheckoutV3.cs" />
     <Compile Include="SearchResult.cs" />
     <Compile Include="StringHelpper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

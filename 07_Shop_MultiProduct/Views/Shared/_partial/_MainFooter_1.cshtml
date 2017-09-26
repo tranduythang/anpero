@@ -1,0 +1,305 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+}
+<div id="page">
+    <div class="our-features-box wow bounceInUp animated animated">
+        <div class="container">
+            <ul>
+                <li>
+                    <div class="feature-box free-shipping">
+                        <div class="icon-truck"></div>
+                        <div class="content">Miễn phí VC đơn hàng trên 1 Triệu</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="feature-box need-help">
+                        <div class="icon-support"></div>
+                        <div class="content">Điện thoại Tư vấn 0906.006.580</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="feature-box money-back">
+                        <div class="icon-money"></div>
+                        <div class="content">Đổi trả trong 30 ngày</div>
+                    </div>
+                </li>
+                <li class="last">
+                    <div class="feature-box return-policy">
+                        <div class="icon-return"></div>
+                        <div class="content">Vận chuyển ngay trong ngày</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <!-- BEGIN INFORMATIVE FOOTER -->
+        <div class="footer-inner">
+            <div class="newsletter-row">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col">
+                            <!-- Footer Payment Link -->
+                            <div class="payment-accept">
+                                <div>
+                                    <a href="/huong-dan-thanh-toan-khi-mua-hang-t-a85">
+                                        <img src="/assets/images/payment-1.png" alt="payment1"> 
+                                    </a>
+                                    <a href="/huong-dan-thanh-toan-khi-mua-hang-t-a85">
+                                        <img src="/assets/images/payment-2.png" alt="payment2">
+                                    </a>
+                                    <a href="/huong-dan-thanh-toan-khi-mua-hang-t-a85">
+                                        <img src="/assets/images/payment-3.png" alt="payment3"> 
+                                    </a>
+                                    <a href="/huong-dan-thanh-toan-khi-mua-hang-t-a85">
+                                        <img src="/assets/images/payment-4.png" alt="payment4">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Footer Newsletter -->
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 col1">
+                            <div class="newsletter-wrap">
+                                <h4>Đăng ký</h4>
+                                <div id="newsletter-validate-detail1">
+                                    <div id="container_form_news">
+                                        <div id="container_form_news2">
+                                            <input type="text" name="email" id="newsletter1" title="Nhận thông tin khuyến mại." class="input-text required-entry validate-email" placeholder="Nhập địa chỉ email của bạn...">
+                                            <button type="submit" title="Đăng ký" class="button subscribe"><span>Đăng ký</span></button>
+                                        </div>
+                                        <!--container_form_news2-->
+                                    </div>
+                                    <!--container_form_news-->
+                                </div>
+
+                            </div>
+                            <!--newsletter-wrap-->
+                        </div>
+
+                    </div>
+                </div>
+                <!--footer-column-last-->
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 col-xs-12 col-lg-4">
+                        <div class="co-info">
+                            <div><a href="/"><img src="@commonInfo.Logo" alt="footer logo"></a></div>
+                            <address>
+                                <div><em class="icon-location-arrow"></em> <span>@commonInfo.Address</span></div>
+                                <div> <em class="icon-mobile-phone"></em><span> @Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.HotLine)</span></div>
+                                <div> <em class="icon-envelope"></em><span>@commonInfo.Email</span></div>
+                            </address>
+                            <div class="social">
+                                <ul class="link">
+                                    @if (!string.IsNullOrEmpty(commonInfo.Skype) || !string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                                    {
+                                        string thisUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+
+                                        if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                                        {
+                                            <li class="fb pull-left"><a target="_blank" rel="nofollow" href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" title="Facebook"></a></li>
+
+                                        }
+                                        if (!string.IsNullOrEmpty(commonInfo.Skype))
+                                        {
+                                            <li class="skype pull-left"><a target="_blank" rel="nofollow" href="skype:@commonInfo.Skype?call" title="skype"></a></li>
+
+                                        }
+                                        <li class="tw pull-left"><a target="_blank" rel="nofollow" href="http://www.twitter.com/share?url=@thisUrl" title="Twitter"></a></li>
+                                        <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="https://plus.google.com/share?url=@thisUrl" title="GooglePlus"></a></li>
+                                        @*<li class="rss pull-left"><a target="_blank" rel="nofollow" href="#" title="RSS"></a></li>*@
+                                        <li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="http://pinterest.com/pinthis?url=@thisUrl" title="PInterest"></a></li>
+                                        @*<li class="linkedin pull-left"><a target="_blank" rel="nofollow" href="#" title="Linkedin"></a></li>*@
+                                        @*<li class="youtube pull-left"><a target="_blank" rel="nofollow" href="#" title="Youtube"></a></li>*@
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-8 col-xs-12 col-lg-8">
+                        <div class="footer-column">
+                            <h4>Sản phẩm</h4>
+                            <ul class="links">
+                                @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                                {
+                                    foreach (var item in commonInfo.ProductCategoryList)
+                                    {
+
+                                        <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
+                                    }
+                                }
+
+                            </ul>
+                        </div>
+                        <div class="footer-column">
+                            <h4>Thông tin</h4>
+                            <ul class="links">
+
+                                <li><a title="contact" href="/home/contact">Liên hệ</a></li>
+                                <li><a title="about" href="/about">Về chúng tôi</a></li>
+                                <li><a title="blog" href="/blog">Blogs</a></li>
+                                <li><a title="Chính sách vận chuyển" href="/shippolicy">Chính sách vận chuyển</a></li>
+                                <li><a title="Chính sách bảo hành" href="/WarrantyPolicy">Chính sách bảo hành</a></li>
+                                <li><a title="Chính sách đổi trả" href="/ProductReturnPolicy">Chính sách đổi trả</a></li>
+                                <li><a title="Chính sách bảo mật" href="/PrivacyPolicy">Chính sách bảo mật</a></li>
+                                <li><a title="Hướng dẫn thanh toán" href="/PaymentInfo">Hướng dẫn thanh toán</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-column">
+                            @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                            {
+
+                                <div class="fb-page"
+                                     data-tabs="messages"
+                                     data-href="@Html.Raw(commonInfo.FaceBookLink)"
+                                     data-height="220"
+                                     data-hide-cover="false">
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!--col-sm-12 col-xs-12 col-lg-8-->
+                    <!--col-xs-12 col-lg-4-->
+                </div>
+                <!--row-->
+            </div>
+
+            <!--container-->
+        </div>
+        <!--footer-inner-->
+
+        <div class="footer-middle">
+            <div class="container">
+                <div class="row">
+                    <div class="row"> </div>
+                </div>
+                <!--row-->
+            </div>
+            <!--container-->
+        </div>
+        <!--footer-middle-->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12 coppyright">© 2016 Ngonlanh. All Rights Reserved. Power by Anpero</div>
+
+                </div>
+                <!--row-->
+            </div>
+            <!--container-->
+        </div>
+        <!--footer-bottom-->
+        <!-- BEGIN SIMPLE FOOTER -->
+    </footer>
+</div>
+
+<div id="mobile-menu">
+    <ul>
+        <li>
+            <div class="home"><a href="/"><i class="icon-home"></i>Trang chủ</a> </div>
+        </li>
+        <li>
+            <a href="/about">Giới thiệu</a>
+        </li>
+        <li>
+            <a href="#">Sản phẩm</a>
+            <ul>
+                @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                {
+                    foreach (var item in commonInfo.ProductCategoryList)
+                    {
+                        if (item.ChildCategory != null && item.ChildCategory.Length == 0)
+                        {
+                            <li>
+                                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)"><span>@item.Name‎</span></a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)"><span>@item.Name</span> </a>
+                                <ul>
+                                    @foreach (var chidItem in item.ChildCategory)
+                                    {
+                                        <li><a href="@Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)"><span>@chidItem.Name</span></a></li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+                    }
+                }
+            </ul>
+        </li>
+        @if (ViewData["saleProduct"] != null)
+        {
+            AnperoFrontend.WebService.ProductItem[] saleProduct = (AnperoFrontend.WebService.ProductItem[])ViewData["saleProduct"];
+            <li>
+                <a href="#">Sản phẩm khuyến mại</a>
+                @if (saleProduct != null && saleProduct.Length > 0)
+                {
+                    <ul>
+                        @foreach (ProductItem item in saleProduct)
+                        {
+                            <li><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></li>
+                        }
+                    </ul>
+                }
+            </li>
+        }
+        <li>
+            <a href="/blog">Tin tức</a>
+            <ul>
+                <li><a href="/blog">Blogs</a></li>
+                <li><a href="/shippolicy">Chính sách vận chuyển</a></li>
+                <li><a href="/ProductReturnPolicy">Chính sách đổi trả</a></li>
+                <li><a href="/PaymentInfo">Hướng dẫn thanh toán</a></li>
+            </ul>
+        </li>
+        <li><a href="/home/contact">Liên hệ</a></li>
+    </ul>
+</div>
+@*<div class="popup1" style="display: block;">
+
+    <div class="newsletter-sign-box">
+        <div class="newsletter">
+            <img src="/assets/images/close-icon.png" alt="close" class="x" onClick="HideMe();">
+            <div class="newsletter_img">
+                <img alt="newsletter" src="/assets/images/newsletter_img.png">
+            </div>
+            <form method="post" id="popup-newsletter" name="popup-newsletter" class="email-form">
+                <h3>Nhận thông tin khuyến mại</h3>
+
+                <h4>Nhập địa chỉ email của bạn để nhận thông tin khuyến mại của chúng tôi.</h4>
+                <div class="newsletter-form">
+                    <div class="input-box">
+                        <input type="text" name="email" id="newsletter2" title="Nhận thông tin khuyến mại" placeholder="Nhập địa chỉ email của bạn..." class="input-text required-entry validate-email">
+                        <button type="submit" title="Đăng ký" class="button subscribe"><span>Đăng ký</span></button>
+
+                    </div> <!--input-box-->
+                </div> <!--newsletter-form-->
+                <label class="subscribe-bottom"><input type="checkbox" name="notshowpopup" id="notshowpopup">Don’t show this popup again</label>
+            </form>
+
+        </div> <!--newsletter-->
+    </div> <!--newsletter-sign-box-->
+</div>*@
+@*<div id="fade" style="display: block;"></div>*@
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+   
+</script>
