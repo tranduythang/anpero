@@ -1,24 +1,8 @@
-/*
-* Flavours Templates Style
-version:   	1.4.5
-date:      	13/08/15
-author:		ThemesMart
-email:      support@themesmart.net
-website:   	http://www.themesmart.net/
-*/
 
-/* Table of Content
-#Custom Fonts
-#Site Styles
-#Media Queries
-*/
-
-/* body RobotoSlab,Arial,sans-serif /*/
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family:  Arial, Helvetica, sans-serif;
     font-size: 13px;
-    background: #f5f5f5;
     line-height: 1.6em;
 }
 
@@ -148,7 +132,7 @@ header {
     padding-right: 25px;
     padding-left: 20px;
     margin-top: -41px;
-    background: #88be4c;
+    background: rgba(37, 41, 50, 0.37);
     height: 116px;
     margin-right: 15px;
 }
@@ -232,7 +216,7 @@ header {
 
 .navbar-form .search-btn {
     color: #fff;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.5);
     z-index: 90;
     speak: none;
     font-style: normal;
@@ -589,7 +573,7 @@ ul.currencies_list {
     cursor: pointer;
     margin: 0px;
     display: block !important;
-    background: #ed6663;
+    background: rgba(237, 102, 99, 0.54);
 }
 
     .mini-cart .basket a {
@@ -10167,6 +10151,7 @@ button.button.submit:before {
     margin-right: -1px;
 }
 
+
 .product-view .box-tags .form-add input.input-text {
     width: 350px;
     background-color: #FFFFFF;
@@ -13803,7 +13788,7 @@ select#shipping-address-select {
 
 .fl-links {
     float: right;
-    background: #88be4c;
+ background: rgba(136, 190, 76, 0.58);
 }
 
     .fl-links .clicker {
@@ -14255,4 +14240,45 @@ select#shipping-address-select {
   float: left;
   padding: 5px 0; 
   color: #666;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+.divider{position:relative;}
+h1.divider:before, h2.divider:before, h3.divider:before, h4.divider:before, h5.divider:before, h6.divider:before {
+    background: rgba(0, 0, 0, 0.1);
+    content: "";
+    height: 2px;
+    left: 50px;
+    right: 0;
+    position: absolute;
+    bottom: -12px;
+}
+h1.divider:after, h2.divider:after, h3.divider:after, h4.divider:after, h5.divider:after, h6.divider:after {
+    content: "";
+    height: 2px;
+    left: 0;
+    width: 40px;
+    position: absolute;
+    bottom: -12px;
+     background-color: #00bac9;
+}
+.wp1{
+    padding: 20px;    
+    text-align: justify;
+    border:1px solid #fff8f8;
+    
+    }
+.wp1 img{max-width:100%!important;}
+.wp1 p{margin-top:10px;}
+.imgct{position:relative;}
+.imgct h2{
+    position: absolute;
+    bottom: 1px;
+    left: 10px;
+    color: white;
+    text-shadow: 2px 2px #2d1a0c;
+    font-size: 18px;
 }
