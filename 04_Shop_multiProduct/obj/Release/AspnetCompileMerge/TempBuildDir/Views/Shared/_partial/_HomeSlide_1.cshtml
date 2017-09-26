@@ -1,6 +1,5 @@
 ﻿@using AnperoFrontend.WebService;
-
-    <div class="row">
+<div class="row">
         <div class="col-sm-12" style="padding-right: 0px;">
             <div class="homeslider">
                 @if (ViewData["slide"] != null)
@@ -19,7 +18,7 @@
                                 <span id="bx-prev"></span>
                             </div>
                             <div id="bx-pager" class="slide-pager">
-                                http://localhost:5677/#                                @for (int i = 0; i < slide.Length; i++)
+                                @for (int i = 0; i < slide.Length; i++)
                                 {
                                     <a data-slide-index="@i" href="">@i</a>
                                 }
