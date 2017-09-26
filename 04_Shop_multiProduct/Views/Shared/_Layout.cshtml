@@ -163,21 +163,7 @@
                         </div>
                     </div>
                 </li>
-                <li class="col-xs-12 col-sm-6 col-md-4 services2-item">
-                    <div class="service-wapper">
-                        <div class="row">
-                            <div class="col-sm-6 image">
-                                <div class="icon">
-                                    <img src="assets/data/icon-s3.png" alt="service">
-                                </div>
-                                <h3 class="title"><a href="#">An toàn</a></h3>
-                            </div>
-                            <div class="col-sm-6 text">
-                                Hỗ trợ thanh toán Online tạm giữ do đối tác Ngân Lượng đảm bảo
-                            </div>
-                        </div>
-                    </div>
-                </li>
+             
                 <li class="col-xs-12 col-sm-6 col-md-4 services2-item">
                     <div class="service-wapper">
                         <div class="row">
@@ -193,36 +179,8 @@
                         </div>
                     </div>
                 </li>
-                <li class="col-xs-12 col-sm-6 col-md-4 services2-item">
-                    <div class="service-wapper">
-                        <div class="row">
-                            <div class="col-sm-6 image">
-                                <div class="icon">
-                                    <img src="/assets/data/icon-s5.png" alt="service">
-                                </div>
-                                <h3 class="title"><a href="#">Hỗ trợ 24/7 </a></h3>
-                            </div>
-                            <div class="col-sm-6 text">
-                                Bất cứ khi nào bạn cũng có thể gọi cho chúng tôi
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="col-xs-12 col-sm-6 col-md-4 services2-item">
-                    <div class="service-wapper">
-                        <div class="row">
-                            <div class="col-sm-6 image">
-                                <div class="icon">
-                                    <img src="/assets/data/icon-s6.png" alt="service">
-                                </div>
-                                <h3 class="title"><a href="#">Thanh toán đa dạnh</a></h3>
-                            </div>
-                            <div class="col-sm-6 text">
-                                Hỗ trợ thanh toán khi nhận hàng, thanh toán qua thẻ Visa, ngân hàng nội địa
-                            </div>
-                        </div>
-                    </div>
-                </li>
+          
+            
 
             </ul>
         </div>
@@ -294,7 +252,7 @@
                         </div>
                         @if (!string.IsNullOrEmpty(commonInfo.Skype) || !string.IsNullOrEmpty(commonInfo.FaceBookLink))
                         {
-                            string thisUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+                            string thisUrl = HttpContext.Current.Request.RawUrl;
                             <div class="introduce-title" style="margin-top:10px;">Chia sẻ với bạn bè</div>
                             <div class="social-link">
                                 @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))

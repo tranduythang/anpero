@@ -99,7 +99,7 @@
                                 <ul class="link">
                                     @if (!string.IsNullOrEmpty(commonInfo.Skype) || !string.IsNullOrEmpty(commonInfo.FaceBookLink))
                                     {
-                                        string thisUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+                                        string thisUrl = HttpContext.Current.Request.RawUrl;
 
                                         if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
                                         {

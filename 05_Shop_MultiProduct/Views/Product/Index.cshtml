@@ -5,7 +5,7 @@
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
-    string thisUrl = HttpContext.Current.Request.Url.AbsolutePath;
+    string thisUrl = HttpContext.Current.Request.RawUrl;
     AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewData["prDetail"];
     ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
         Anpero.StringHelpper.GetProductLink(item.PrName, item.Id);

@@ -4,7 +4,7 @@
     if (ViewData["commonInfo"] != null)
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
-        ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+        ViewBag.WebsiteUrl = HttpContext.Current.Request.RawUrl;
         ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau(commonInfo.Desc);
     }
     <link href = "/assets/stylesheet/NganLuongBankList.css" rel = "stylesheet" />

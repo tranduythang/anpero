@@ -13,7 +13,7 @@
     <meta property="og:description" content="@commonInfo.Desc" />
     <meta property="og:title" content="@commonInfo.Name" />
     <meta property="og:type" content="website" />   
-    <meta property="og:url" content="@HttpContext.Current.Request.Url.AbsoluteUri" />  
+    <meta property="og:url" content="@HttpContext.Current.Request.RawUrl" />  
     <meta property="og:image" content="@commonInfo.Logo" />
 }
 @section canonical{
