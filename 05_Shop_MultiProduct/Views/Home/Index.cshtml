@@ -5,15 +5,19 @@
     if (ViewData["commonInfo"] != null)
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+        ViewBag.Title = "Ngon Lành | Thực phẩm sạch Ngon lành An toàn và Uy tín";
+        ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau("thực phẩm sạch, hoa qua sạch, rau sạch, ngon lành, ngon sạch, trái cây sạch, bơ sáp, bơ booth, bưởi diễn, bưởi danh xanh, bưởi quế dương,mật ong");
+        ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
     }
+
 }
 @section health{
     <meta name="description" content="@commonInfo.Desc" />
     <meta name="keywords" content="@ViewBag.Keywords" />
     <meta property="og:description" content="@commonInfo.Desc" />
-    <meta property="og:title" content="@commonInfo.Name" />
+    <meta property="og:title" content="@ViewBag.Title" />
     <meta property="og:type" content="website" />   
-    <meta property="og:url" content="@HttpContext.Current.Request.RawUrl" />  
+    <meta property="og:url" content="@ViewBag.WebsiteUrl" />  
     <meta property="og:image" content="@commonInfo.Logo" />
 }
 @section canonical{
@@ -22,6 +26,7 @@
 <div class="content">
     @if (!Request.Browser.IsMobileDevice)
     {
+        <!-- Slider-->
         @Html.Partial("_partial/_HomeSlide_1");
        <div id="top">
             <div class="container">
@@ -54,13 +59,13 @@
             <div class="row">
                 <div class="slider-items-products">
                     <div class="new_title">
-                        <h2>Loại Sản phẩm</h2>
+                        <h2>Loại Sản phẩn</h2>
                     </div>
                     <div id="top-categories" class="product-flexslider hidden-buttons">
                         <div class="slider-items slider-width-col4 products-grid">
                             @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                             {
-                                foreach (var item in commonInfo.ProductCategoryList)
+                                foreach (var item in commonInfo.ProductCategoryList.Where(p => p.Id == 73))
                                 {
                                     if (item.ChildCategory != null && item.ChildCategory.Length > 0)
                                     {
@@ -224,7 +229,6 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 testimonials-section">
                     <div class="offer-slider parallax parallax-2">
                         <ul class="bxslider">
-                            
                             @if (ViewData["slide6"] != null)
                             {
                                 Ads[] slide = (Ads[])ViewData["slide6"];

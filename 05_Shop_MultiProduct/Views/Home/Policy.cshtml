@@ -4,7 +4,7 @@
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
         ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau(commonInfo.Desc);
-        ViewBag.WebsiteUrl = HttpContext.Current.Request.RawUrl;
+        ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
     }
 }
 @section health{

@@ -95,12 +95,12 @@
                         </div>
 
                         <div class="button-group">
-                            <a target="_blank" class="wishlist" href="//www.facebook.com/sharer.php?u=@HttpContext.Current.Request.RawUrl">
+                            <a target="_blank" class="wishlist" href="//www.facebook.com/sharer.php?u=@HttpContext.Current.Request.Url.AbsoluteUri">
                                 <i class="fa fa-facebook-official"></i>
                                 <br>Share
                             </a>
 
-                            <a class="compare" href="//plus.google.com/share?url=@HttpContext.Current.Request.RawUrl">
+                            <a class="compare" href="//plus.google.com/share?url=@HttpContext.Current.Request.Url.AbsoluteUri">
                                 <i class="fa fa-google-plus"></i>
                                 <br>
                             </a>
