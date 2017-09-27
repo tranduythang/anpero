@@ -32,7 +32,7 @@
                             <ul>
                                 <li class="home"> <a href="/" title="Trang chủ">Trang chủ</a> <span>—› </span> </li>
                                 <li> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName, item.ParentId)" title="">@item.ParentCatName</a> <span>—› </span> </li>
-                                <li> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.CatName, item.CatID)" title="">@item.CatName</a> </li>
+                                <li> <a href="@Anpero.StringHelpper.GetCategoryLink(item.CatName, item.CatID)" title="">@item.CatName</a> </li>
                             </ul>
                         </div>
                     </div>
@@ -114,7 +114,7 @@
                                                 <button type="button" title="Add to Cart" class="button btn-cart" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span><i class="icon-basket"></i>Mua ngay</span></button>
                                             </div>
                                             <div class="email-addto-box">                                                
-                                                <p class="add-to-links"><a class="link-wishlist" href="http://www.facebook.com/share.php?u=@thisUrl&title=@commonInfo.Desc" onclick="" title="Add To Wishlist"><span>Add To Wishlist</span></a></p>                                               
+                                                <p class="add-to-links"><a class="link-wishlist" href="http://www.facebook.com/share.php?u=@ViewBag.WebsiteUrl" onclick="" title="Add To Wishlist"><span>Add To Wishlist</span></a></p>                                               
                                             </div>
                                         </div>
                                         <div class="social">
@@ -125,7 +125,7 @@
 
                                                     if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
                                                     {
-                                                        <li class="fb pull-left"><a target="_blank" rel="nofollow" href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" title="Facebook"></a></li>
+                                                        <li class="fb pull-left"><a target="_blank" rel="nofollow" href="http://www.facebook.com/share.php?u=@ViewBag.WebsiteUrl" title="Facebook"></a></li>
 
                                                     }
                                                     if (!string.IsNullOrEmpty(commonInfo.Skype))
@@ -133,9 +133,9 @@
                                                         <li class="skype pull-left"><a target="_blank" rel="nofollow" href="skype:@commonInfo.Skype?call" title="skype"></a></li>
 
                                                     }
-                                                    <li class="tw pull-left"><a target="_blank" rel="nofollow" href="http://www.twitter.com/share?url=@thisUrl" title="Twitter"></a></li>
-                                                    <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="https://plus.google.com/share?url=@thisUrl" title="GooglePlus"></a></li>
-                                                    <li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="http://pinterest.com/pinthis?url=@thisUrl" title="PInterest"></a></li>
+                                                    <li class="tw pull-left"><a target="_blank" rel="nofollow" href="http://www.twitter.com/share?url=@ViewBag.WebsiteUrl" title="Twitter"></a></li>
+                                                    <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="https://plus.google.com/share?url=@ViewBag.WebsiteUrl" title="GooglePlus"></a></li>
+                                                    @*<li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="http://pinterest.com/pinthis?url=@thisUrl" title="PInterest"></a></li>*@
                                                 }
                                             </ul>
                                         </div>
