@@ -5180,3 +5180,6 @@ span.notify-right{
     max-height:190px;
     overflow:hidden;
 }
+.old-price{
+    text-decoration: line-through;
+}
