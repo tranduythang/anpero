@@ -110,13 +110,14 @@
                                                     {
                                                         foreach (ProductItem item in saleProduct)
                                                         {
+                                                            int itemPecentDow = Convert.ToInt32((item.Price - item.SalePrice) / item.Price * 100);
                                                             <div class="grid12-3">
                                                                 <div>
                                                                     <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
                                                                         <img src="@item.Images" alt="@item.PrName">
                                                                     </a>
                                                                 </div>
-                                                                <h4 class="heading">Giảm giá 20%</h4>
+                                                                <h4 class="heading">Giảm giá @itemPecentDow.ToString()%</h4>
                                                                 <p>@item.ShortDesc.Substring(0, 61)</p>
                                                             </div>
                                                         }
