@@ -2566,20 +2566,6 @@ span.notify-right{
     background:#39b54a;
 }
 
-/** add-box **/
-#address-list .tit-name{
-    float: left;
-    font-weight: bold;
-    width: 70px;
-    padding-right: 5px;
-}
-#address-list {
-    margin-top: 18px;
-}
-#address-list .tit-contain {
-      display: flex;
-}
-/** #introduce-box **/
 #introduce-box {
     margin-top: 40px;
 }
@@ -2622,9 +2608,6 @@ span.notify-right{
     opacity: 0.8;
     transition: 0.3s;
 }
-
-/** /#introduce-box **/
-/** #trademark-box **/
 #trademark-text-box {
     font-size: 13px;
 }
@@ -2702,9 +2685,6 @@ span.notify-right{
 .social-link .fa-google-plus{
     background: #da4735;
 }
-
-/** #footer-menu-box **/
-
 #footer-menu-box {
     border-top: 1px solid #E1E1E1;
     margin-top: 10px;
@@ -5179,4 +5159,24 @@ span.notify-right{
 .post-thumb{
     max-height:190px;
     overflow:hidden;
+}
+.old-price{
+    text-decoration: line-through;
+}
+
+.adrct{
+    margin-bottom: 10px;
+    border-bottom: 1px solid #675751;
+    padding-bottom: 10px;
+    line-height: 25px;
+}
+.adrct i{line-height:25px!important;}
+.tabs-list li{
+    margin: 0;
+    position: relative;
+}
+.tabs-list .tab{
+        display: inline-block;
+    padding: 0;
+    margin: 0;
 }
