@@ -152,6 +152,11 @@
     <Content Include="assets\font-awesome\css\font-awesome.css" />
     <Content Include="assets\font-awesome\css\font-awesome.min.css" />
     <Content Include="assets\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\fonts\icofont.svg" />
+    <Content Include="assets\fonts\site-icons.svg" />
+    <Content Include="assets\fonts\Stroke-Gap-Icons.svg" />
     <Content Include="assets\images\loading.gif" />
     <Content Include="assets\js\countdown\countdownBasic.html" />
     <Content Include="assets\js\countdown\countdownGlowing.gif" />
@@ -337,6 +342,23 @@
     <Content Include="assets\font-awesome\scss\_screen-reader.scss" />
     <Content Include="assets\font-awesome\scss\_stacked.scss" />
     <Content Include="assets\font-awesome\scss\_variables.scss" />
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\FontAwesome.otf" />
+    <Content Include="assets\fonts\icofont.eot" />
+    <Content Include="assets\fonts\icofont.ttf" />
+    <Content Include="assets\fonts\icofont.woff" />
+    <Content Include="assets\fonts\Stroke-Gap-Icons.eot" />
+    <Content Include="assets\fonts\Stroke-Gap-Icons.ttf" />
+    <Content Include="assets\fonts\Stroke-Gap-Icons.woff" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\fonts\site-icons.eot" />
+    <Content Include="assets\fonts\site-icons.ttf" />
+    <Content Include="assets\fonts\site-icons.woff" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

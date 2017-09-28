@@ -10,7 +10,7 @@
     <div class="header-banner">
         <div class="assetBlock">
             <div style="height: 20px; overflow: hidden;" id="slideshow">
-                <p style="display: block;">HOT DAYS! - <span>10%</span> KHÁCH ĐẶT HÀNG ONLINE! &gt;</p><p style="display: none;">GIẢM GIÁ LÊN ĐẾN <span>20%</span> CHO ĐƠN ĐẶT HÀNG LỚN! &gt;</p>
+                <p style="display: block;">MIỄN PHÍ THIẾT KẾ! - <span>100%</span> KHI THI CÔNG TRỌN GÓI! &gt;</p><p style="display: none;">GIẢM GIÁ LÊN ĐẾN <span>10%</span> CHO ĐƠN ĐẶT HÀNG LỚN! &gt;</p>
             </div>
         </div>
     </div>
@@ -61,39 +61,7 @@
                                                             }
                                                         }
                                                     </ul>
-                                                </div>
-                                                @if (ViewData["slide4"] != null)
-                                                {
-                                                    Ads[] slide = (Ads[])ViewData["slide4"];
-                                                    <div class="nav-add">
-                                                        @if (slide.Length > 0)
-                                                        {
-                                                            for (int i = 0; i < slide.Length; i ++)
-                                                            {
-                                                                if (i == slide.Length - 1)
-                                                                {
-                                                                    <div class="push_item push_item_last">
-                                                                        <div class="push_img">
-                                                                            <a href="@slide[i].ClickUrl">
-                                                                                <img src="@slide[i].ImagesUrl" alt="@slide[i].Description" />
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                }
-                                                                else
-                                                                {
-                                                                    <div class="push_item">
-                                                                        <div class="push_img">
-                                                                            <a href="@slide[i].ClickUrl">
-                                                                                <img src="@slide[i].ImagesUrl" alt="@slide[i].Description" />
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                }
-                                                            }
-                                                        }
-                                                    </div>
-                                                }
+                                                </div>                                 
                                             </div>
                                         </div>
                                     </div>
@@ -127,21 +95,21 @@
                                     </div>
                                 </li>
                                 <li class="level0 parent drop-menu">
-                                    <a href="/blog"><span>Tin tức</span> </a>
+                                    <a href="/blog"><span>Thông tin dự án</span> </a>
                                     <ul class="level1">
-                                        <li class="level1"><a title="blog" href="/blog"><span>Blogs Tin tức</span></a></li>
+                                        <li class="level1"><a title="blog" href="/blog"><span>Thông tin dự án</span></a></li>
                                         <li class="level1">
                                             <a title="shipper" href="/chinh-sach-van-chuyen-a86">
                                                 <span>Vận chuyển</span>
                                             </a>
                                         </li>
                                         <li class="level1">
-                                            <a title="rollback" href="/chinh-sach-doi-tra-hang-tai-ngonlan-a84">
+                                            <a title="rollback" href="/ProductReturnPolicy">
                                                 <span>Chính sách đổi trả</span>
                                             </a>
                                         </li>
                                         <li class="level1">
-                                            <a title="pay" href="/huong-dan-thanh-toan-khi-mua-hang-t-a85">
+                                            <a title="pay" href="/PaymentInfo">
                                                 <span>Hướng dẫn thanh toán</span>
                                             </a>
                                         </li>
