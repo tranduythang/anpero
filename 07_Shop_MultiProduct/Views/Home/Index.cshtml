@@ -10,7 +10,7 @@
 @section health{
     <meta name="description" content="@commonInfo.Desc" />
     <meta name="keywords" content="@ViewBag.Keywords" />
-    <meta property="og:description" content="@commonInfo.Desc" />
+    <meta property="og:description" content="@HttpUtility.HtmlDecode(commonInfo.Desc)" />
     <meta property="og:title" content="@commonInfo.Name" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="@HttpContext.Current.Request.Url.AbsoluteUri" />
@@ -68,152 +68,297 @@
 
             </section>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="tct2">
-                    <ul class="tabs-list">
-                        <li class="tab vc_active"><a href="#"><i class="fa fa-shopping-cart"></i><span class="title-text">Bảng giá</span></a></li>
-                        <li class="tta-tab"><a href="#"><i class="tta-icon fa fa-shopping-cart"></i><span class="title-text">Shop</span></a></li>
-                        <li class="tta-tab"><a href="#"><i class="tta-icon fa fa-newspaper-o"></i><span class="title-text">Blog</span></a></li>
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-            </div>
-          
-                <div class="container">
-                    <div class="row">
-                        <ul>
-                            @if (ViewData["AdsSlide"] != null)
-                            {
-                                Ads[] slide = (Ads[])ViewData["AdsSlide"];
-                                if (slide.Length > 0)
-                                {
-                                    for (int i = 0; i < slide.Length; i++)
-                                    {
-                                        <li>
-                                            <div>
-                                                <a href="@slide[i].ClickUrl" data-scroll-goto="@(i+1)">
-                                                    <img src="@slide[i].ImagesUrl" alt="@slide[i].Description" />
-                                                </a>
-                                            </div>
-                                        </li>
-                                    }
-                                }
-                            }
-                        </ul>
-                    </div>
-                </div>
-           
-
-
-
-            <section class="wow bounceInUp animated">
-                <div class="best-pro slider-items-products container">
-                    <div class="new_title">
-                        <h2>Sản phẩm bán chạy</h2>
-                    </div>
-                    <div class="cate-banner-img">
-                        @if (ViewData["AdsSlide2"] != null)
-                        {
-                            Ads[] slide = (Ads[])ViewData["AdsSlide2"];
-                            if (slide.Length > 0)
-                            {
-                                <img src="@slide[0].ImagesUrl" alt="@slide[0].Description" />
-                            }
-                        }
-                    </div>
-                    <div id="best-seller" class="product-flexslider hidden-buttons">
-                        <div class="slider-items slider-width-col4 products-grid">
-                            @if (ViewData["BestsaleProduct"] != null)
-                            {
-                                AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["BestsaleProduct"];
-                                if (bestSaleList != null && bestSaleList.Item.Length > 0)
-                                {
-                                    foreach (ProductItem item in bestSaleList.Item)
-                                    {
-                                        <div class="item">
-                                            <div class="item-inner">
-                                                <div class="item-img">
-                                                    <div class="item-img-info">
-                                                        <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">
-                                                            <img src="@item.Images" alt="@item.PrName">
-                                                        </a>
-                                                        <div class="new-label new-top-left">New</div>
-                                                        <div class="item-box-hover">
-                                                            <div class="box-inner">
-                                                                <div class="product-detail-bnt">
-                                                                    <a class="button detail-bnt" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
-                                                                        <span>Chi tiết</span>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item-info">
-                                                    <div class="info-inner">
-                                                        <div class="item-title">
-                                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
-                                                                @item.PrName
-                                                            </a>
-                                                        </div>
-                                                        <div class="item-content">
-                                                            <div class="rating">
-                                                                <div class="ratings">
-                                                                    <div class="rating-box">
-                                                                        <div class="rating" style="width:80%"></div>
-                                                                    </div>
-                                                                    <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="item-price">
-                                                                <div class="price-box"><span class="regular-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </span> </div>
-                                                            </div>
-                                                            <div class="add_cart">
-                                                                <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Mua ngay</span></button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+    </div>
+    <div class="container brGrey">
+        <div class="row">
+            <div class="tct2">
+                <ul class="tabs-list">
+                    <li class="tab vc_active" table-data="table1"><i class="fa fa-bar-chart"></i><span class="title-text">Bảng giá</span></li>
+                    <li class="tta-tab" table-data="table2"><i class="tta-icon fa fa-shopping-basket"></i><span class="title-text">Shop</span></li>
+                    <li class="tta-tab" table-data="table3"><i class="tta-icon fa fa-newspaper-o"></i><span class="title-text">Blog</span></li>
+                </ul>
+                <div>
+                    <div class="row tableCt" id="table1">
+                        <div class="col-xs-12 col-sm-3 xs-bottom-40 wow fadeIn" style="">
+                            <div class="single-price">
+                                <div class="price-header">
+                                    <img src="http://wonder.vn/wp-content/uploads/2015/12/w-12-300x212.jpg" alt="price">
+                                    <div class="price-plan">
+                                        <div class="price-title">
+                                            <h3>Trọn gói</h3>
                                         </div>
-                                    }
-                                }
-                            }
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            @if (ViewData["FeatureArticle"] != null)
-            {
-                SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
-                <div class="latest-blog wow bounceInUp animated animated container">
-                    <div class="new_title">
-                        <h2>Bài viết mới nhất</h2>
-                    </div>
-                    @foreach (BlogItem item in FeatureArticle.ItemList)
-                    {
-                        <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
-                            <div class="blog_inner">
-                                <div class="blog-img">
-                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
-                                    <div class="mask"> <a class="info" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Chi tiết</a> </div>
-                                </div>
-                                <div class="blog-info">
-                                    <div class="post-date">
-                                        <time class="entry-date" datetime="@item.CreateDate">mới đăng</time>
+                                        <div class="price-rate">
+                                            <h3>từ 449,000</h3>
+                                            <h5>đ/m²</h5>
+                                        </div>
                                     </div>
-                                    <h3><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h3>
-                                    <p>@Anpero.StringHelpper.SubString(150, item.ShotDesc)</p>
-                                    <a class="readmore" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Xem thêm</a>
+                                </div>
+                                <div class="price-body">
+                                    <div class="prc ">449,000 đ</div>
+                                    <div>
+                                        Công trình dân dụng
+                                        Khách sạn, Resort
+                                    </div>
+                                    <div class="prc prc2">499,000 đ</div>
+                                    <div>
+                                        Bar, cafe, nhà hàng
+                                        Công trình dưới 120m²
+                                        Phong cách cổ điển
+                                    </div>
+                                    <div class="prc prc2">299,000 đ</div>
+                                    <div>
+                                        Sân vườn, Cảnh quan
+                                        Tư vấn thiết kế nhanh
+                                    </div>
+                                </div>
+                                <div class="price-footer">
+                                    Bảng vẽ Kiến trúc, Nội thất
+                                    Kết cấu, M&E
+                                    Hồ sơ xin phép xây dựng
+                                    Giám sát tác giả
                                 </div>
                             </div>
                         </div>
-                    }
-                </div>
-            }
+                        <div class="col-xs-12 col-sm-3 xs-bottom-40 wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <div class="single-price">
+                                <div class="price-header">
+                                    <img src="http://wonder.vn/wp-content/uploads/2015/12/w-12-300x212.jpg" alt="price">
+                                    <div class="price-plan">
+                                        <div class="price-title">
+                                            <h3>Kiến trúc</h3>
+                                        </div>
+                                        <div class="price-rate">
+                                            <h3>từ 389,000</h3>
+                                            <h5>đ/m²</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="price-body">
+                                    <div class="prc ">389,000</div>
+                                    <div>
+                                        Công trình dân dụng
+                                        Khách sạn, Resort
+                                    </div>
+                                    <div class="prc prc2">499,000</div>
+                                    <div>
+                                        Bar, cafe, nhà hàng
+                                        Công trình dưới 120m²
+                                        Phong cách cổ điển
+                                    </div>
+                                    <div class="prc prc2">299,000</div>
+                                    <div>
+                                        Sân vườn, Cảnh quan
+                                        Tư vấn thiết kế nhanh
+                                    </div>
 
+                                </div>
+                                <div class="price-footer">
+                                    Bảng vẽ Kiến trúc
+                                    Kết cấu (none: cải tạo)
+                                    Hồ sơ xin phép xây dựng
+                                    Giám sát tác giả
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <div class="single-price">
+                                <div class="price-header">
+                                    <img src="http://wonder.vn/wp-content/uploads/2015/12/w-12-300x212.jpg" alt="price">
+                                    <div class="price-plan">
+                                        <div class="price-title">
+                                            <h3>Nội thất</h3>
+                                        </div>
+                                        <div class="price-rate">
+                                            <h3>từ 389,000</h3>
+                                            <h5>đ/m²</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="price-body">
+
+                                    <div class="prc ">389,000</div>
+                                    <div>
+                                        Công trình dân dụng
+                                        Khách sạn, Resort
+                                    </div>
+                                    <div class="prc prc2">499,000</div>
+                                    <div>
+                                        Bar, cafe, nhà hàng
+                                        Công trình dưới 120m²
+                                        Phong cách cổ điển
+                                    </div>
+                                    <div class="prc prc2">299,000</div>
+                                    <div>
+                                        Sân vườn, Cảnh quan
+                                        Tư vấn thiết kế nhanh
+                                    </div>
+
+                                </div>
+                                <div class="price-footer">
+                                    Bảng vẽ 3D nội thất
+                                    M&E
+                                    Giám sát tác giả
+                                    .
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <div class="single-price">
+                                <div class="price-header">
+                                    <img src="http://wonder.vn/wp-content/uploads/2015/12/w-12-300x212.jpg" alt="price">
+                                    <div class="price-plan">
+                                        <div class="price-title">
+                                            <h3>MIẼN PHÍ</h3>
+                                        </div>
+                                        <div class="price-rate">
+                                            <h5>Khi thi công trọng gói</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="price-body price-body2" style="background-color:red;">
+                                    <div class="prc ">Miễn phí</div>
+                                    <div>
+                                        KHI THI CÔNG TRỌN GÓI:
+                                        Phần thô, Hoàn thiện, Nội thất
+                                    </div>
+                                    <div class="prc prc2">2,999,000 - 3,199,000</div>
+                                    <div>
+                                        Công trình dân dụng
+                                        Cửa hàng
+                                        Phong cách cổ điển
+                                    </div>
+                                    <div class="prc prc2">3,199,000 - 3,499,000</div>
+                                    <div>
+                                        Bar, Cafe, Nhà hàng, Karaoke
+                                        Khách sạn, Resort, Cao ốc
+                                    </div>
+                                </div>
+                                <div class="price-footer">
+                                    Hầm nhân hệ số 1.7 đến 2.0
+                                    Bán hầm nhân 1.5 đến 1.7
+                                    Sân thượng, mái hệ số 0.5
+                                    *Giá chưa tính cọc, cừ tràm
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row tableCt" id="table2" style="display:none;">
+                        <div id="best-seller" class="product-flexslider hidden-buttons">
+                            <div class="slider-items slider-width-col4 products-grid">
+                                @if (ViewData["BestsaleProduct"] != null)
+                                {
+                                    AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["BestsaleProduct"];
+                                    if (bestSaleList != null && bestSaleList.Item.Length > 0)
+                                    {
+                                        foreach (ProductItem item in bestSaleList.Item)
+                                        {
+                                            <div class="item">
+                                                <div class="item-inner">
+                                                    <div class="item-img">
+                                                        <div class="item-img-info">
+                                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">
+                                                                <img src="@item.Images" alt="@item.PrName">
+                                                            </a>
+                                                            <div class="new-label new-top-left">New</div>
+                                                            <div class="item-box-hover">
+                                                                <div class="box-inner">
+                                                                    <div class="product-detail-bnt">
+                                                                        <a class="button detail-bnt" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
+                                                                            <span>Chi tiết</span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-info">
+                                                        <div class="info-inner">
+                                                            <div class="item-title">
+                                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
+                                                                    @item.PrName
+                                                                </a>
+                                                            </div>
+                                                            <div class="item-content">
+                                                                <div class="rating">
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating" style="width:80%"></div>
+                                                                        </div>
+                                                                        <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="item-price">
+                                                                    <div class="price-box"><span class="regular-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </span> </div>
+                                                                </div>
+                                                                <div class="add_cart">
+                                                                    <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Mua ngay</span></button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row tableCt" id="table3" style="display:none;">
+    @if (ViewData["FeatureArticle"] != null)
+            {
+                SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
+                            <div class="latest-blog container">
+
+                                @foreach (BlogItem item in FeatureArticle.ItemList)
+                {
+                                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
+                                        <div class="blog_inner">
+                                            <div class="blog-img">
+                                                <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
+                                                <div class="mask"> <a class="info" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Chi tiết</a> </div>
+                                            </div>
+                                            <div class="blog-info">
+                                                <div class="post-date">
+                                                    <time class="entry-date" datetime="@item.CreateDate">mới đăng</time>
+                                                </div>
+                                                <h3><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h3>
+                                                <p>@Anpero.StringHelpper.SubString(150, item.ShotDesc)</p>
+                                                <a class="readmore" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Xem thêm</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
+@section scripts{
+
+    <script>
+        $(window).load(function () {
+            $(".tct2 ul li").click(function () {
+                $(".tct2 ul li").removeClass("vc_active");
+                $(this).addClass("vc_active");
+                $(".tableCt").hide();
+                $('#' + $(this).attr("table-data")).show();
+            });
+
+        });
+    </script>
+}
