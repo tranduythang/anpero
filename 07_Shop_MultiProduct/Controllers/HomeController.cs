@@ -13,9 +13,28 @@ namespace AnperoFrontend.Controllers
 
             GetNewestProduct();
             SetupCommonProduct();
-            GetTopArticle();
+            GetFeatureArticle();
             SetUpSlideAds();
             return View();
+        }
+        public void GetFeatureArticle()
+        {
+            WebService.SearchArticleResults rs = new WebService.SearchArticleResults();
+            WebService.AnperoService service = new WebService.AnperoService();
+            if (HttpRuntime.Cache["TopArticle2"] != null)
+            {
+                rs = (WebService.SearchArticleResults)HttpRuntime.Cache["TopArticle2"];
+            }
+            else
+            {
+                rs = service.SearchArticle(StoreID, TokenKey, 0, 1,16, 2);
+                if (rs != null)
+                {
+                    HttpRuntime.Cache.Insert("TopArticle2", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                }
+
+            }
+            ViewData["FeatureArticle2"] = rs;
         }
         private void SetUpSlideAds()
         {
@@ -89,7 +108,7 @@ namespace AnperoFrontend.Controllers
             }
             catch (Exception)
             {
-                ViewBag.HtmlContent ="Nội dung đang được cập nhật";                
+                ViewBag.HtmlContent ="Nội dung đang được cập nhật";
             }
           
             return View();

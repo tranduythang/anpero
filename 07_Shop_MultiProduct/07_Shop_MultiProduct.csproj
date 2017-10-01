@@ -157,7 +157,9 @@
     <Content Include="assets\fonts\icofont.svg" />
     <Content Include="assets\fonts\site-icons.svg" />
     <Content Include="assets\fonts\Stroke-Gap-Icons.svg" />
+    <Content Include="assets\images\bgimg.jpg" />
     <Content Include="assets\images\loading.gif" />
+    <Content Include="assets\images\white_texture.jpg" />
     <Content Include="assets\js\countdown\countdownBasic.html" />
     <Content Include="assets\js\countdown\countdownGlowing.gif" />
     <Content Include="assets\js\countdown\countdownLED.png" />
@@ -293,6 +295,7 @@
     <Content Include="assets\js\revslider.js" />
     <Content Include="assets\js\slider.js" />
     <Content Include="assets\stylesheet\bootstrap.min.css" />
+    <Content Include="assets\stylesheet\HoverEffects-demo.css" />
     <Content Include="assets\stylesheet\flexslider.css" />
     <Content Include="assets\stylesheet\font-awesome.css" />
     <Content Include="assets\stylesheet\jquery.bxslider.css" />
@@ -300,10 +303,14 @@
     <Content Include="assets\stylesheet\NganLuongBankList.css" />
     <Content Include="assets\stylesheet\owl.carousel.css" />
     <Content Include="assets\stylesheet\owl.theme.css" />
+    <Content Include="assets\stylesheet\HoverEffects-reset.css" />
     <Content Include="assets\stylesheet\responsive.css" />
     <Content Include="assets\stylesheet\revslider-v2.css" />
     <Content Include="assets\stylesheet\revslider.css" />
     <Content Include="assets\stylesheet\style.css" />
+    <Content Include="assets\stylesheet\HoverEffects-style9.css" />
+    <Content Include="assets\stylesheet\HoverEffects-style_common.css" />
+    <Content Include="assets\stylesheet\HoverEffects-style1.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="handler\ProductHandler.ashx" />

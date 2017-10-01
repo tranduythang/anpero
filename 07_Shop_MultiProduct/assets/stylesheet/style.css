@@ -1368,7 +1368,7 @@ ul.level1 {
     padding-bottom: 20px;
     padding-top: 0;
     vertical-align: top;
-    width: 14.4%;
+    width: 17.4%;
 }
 
     #nav ul.level0 > li.last {
@@ -4157,6 +4157,7 @@ ul.pdt-list li.item a img.image-hover {
 .old-price {
     display: inline;
     margin-right: 5px;
+        text-decoration: line-through;
 }
     /* Old price */
     .old-price .price-label {
@@ -14482,3 +14483,16 @@ h1.divider:after, h2.divider:after, h3.divider:after, h4.divider:after, h5.divid
     color:white!important;
 }
 .price-body2 .prc{color:white!important;}
+.imgct2{
+    height: 199px;
+    width:100%;
+    overflow: hidden;
+    display: inline-block;
+    margin-bottom:25px!important;
+}
+.latest-blog2{
+    margin:10px;
+}
+.latest-blog2 img{
+    height:100%;
+}

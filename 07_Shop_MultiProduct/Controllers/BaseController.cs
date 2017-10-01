@@ -36,7 +36,7 @@ namespace AnperoFrontend.Controllers
             WebService.ProductItem[] saleProduct;
             WebService.SearchResult BestsaleProduct;
             WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.Ads[] Slide = null;
+            //WebService.Ads[] Slide = null;
             if (HttpRuntime.Cache["saleProduct"] != null)
             {
                 saleProduct = (WebService.ProductItem[])HttpRuntime.Cache["saleProduct"];
@@ -68,33 +68,33 @@ namespace AnperoFrontend.Controllers
             }
             ViewData["BestsaleProduct"] = BestsaleProduct;
             //slide of list product page
-            if (HttpRuntime.Cache["slide3"] != null)
-            {
-                ViewData["slide3"] = (WebService.Ads[])HttpRuntime.Cache["slide3"];
-            }
-            else
-            {
-                Slide = sv.GetAdsSlide(StoreID, TokenKey, PageContent.Ads3);
-                ViewData["slide3"] = Slide;
-                if (Slide != null)
-                {
-                    HttpRuntime.Cache.Insert("slide3", Slide, null, DateTime.Now.AddMinutes(shortCacheTime + 6), TimeSpan.Zero);
-                }
-            }
-            //slide of prodution menu
-            if (HttpRuntime.Cache["slide4"] != null)
-            {
-                ViewData["slide4"] = (WebService.Ads[])HttpRuntime.Cache["slide4"];
-            }
-            else
-            {
-                Slide = sv.GetAdsSlide(StoreID, TokenKey, PageContent.Ads4);
-                ViewData["slide4"] = Slide;
-                if (Slide != null)
-                {
-                    HttpRuntime.Cache.Insert("slide4", Slide, null, DateTime.Now.AddMinutes(shortCacheTime + 6), TimeSpan.Zero);
-                }
-            }
+            //if (HttpRuntime.Cache["slide3"] != null)
+            //{
+            //    ViewData["slide3"] = (WebService.Ads[])HttpRuntime.Cache["slide3"];
+            //}
+            //else
+            //{
+            //    Slide = sv.GetAdsSlide(StoreID, TokenKey, PageContent.Ads3);
+            //    ViewData["slide3"] = Slide;
+            //    if (Slide != null)
+            //    {
+            //        HttpRuntime.Cache.Insert("slide3", Slide, null, DateTime.Now.AddMinutes(shortCacheTime + 6), TimeSpan.Zero);
+            //    }
+            //}
+            ////slide of prodution menu
+            //if (HttpRuntime.Cache["slide4"] != null)
+            //{
+            //    ViewData["slide4"] = (WebService.Ads[])HttpRuntime.Cache["slide4"];
+            //}
+            //else
+            //{
+            //    Slide = sv.GetAdsSlide(StoreID, TokenKey, PageContent.Ads4);
+            //    ViewData["slide4"] = Slide;
+            //    if (Slide != null)
+            //    {
+            //        HttpRuntime.Cache.Insert("slide4", Slide, null, DateTime.Now.AddMinutes(shortCacheTime + 6), TimeSpan.Zero);
+            //    }
+            //}
         }
 
     }

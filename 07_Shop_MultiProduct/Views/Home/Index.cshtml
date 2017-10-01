@@ -15,10 +15,11 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="@HttpContext.Current.Request.Url.AbsoluteUri" />
     <meta property="og:image" content="@commonInfo.Logo" />
+<link href="~/assets/stylesheet/HoverEffects-reset.css" rel="stylesheet" />
+<link href="/assets/stylesheet/HoverEffects-style_common.css" rel="stylesheet" />
+<link href="/assets/stylesheet/HoverEffects-style1.css" rel="stylesheet" />
 }
-@section canonical{
-    <link rel="canonical" href="@ViewBag.WebsiteUrl" />
-}
+
 <div class="content">
     @if (!Request.Browser.IsMobileDevice)
     {
@@ -68,6 +69,76 @@
 
             </section>
         </div>
+    </div>
+    <div class="row">
+
+        @if (ViewData["FeatureArticle2"] != null)
+            {
+                SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle2"];
+            <div class="latest-blog2 ">
+                @foreach (BlogItem item in FeatureArticle.ItemList)
+                {
+                    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
+                        <div class="view view-first">
+                            <img src="@item.Thumb" />
+                            <div class="mask">
+                                <h2>Hover Style #1</h2>
+                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                                <a href="#" class="info">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3 view view-ninth">
+                        <img src="@item.Thumb" />
+                        <div class="mask mask-1"></div>
+                        <div class="mask mask-2"></div>
+                        <div class="content">
+                            <h2>@item.Title</h2>
+                            <p>@item.ShotDesc</p>
+                            <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="imgct2">Chi tiết</a>
+                        </div>
+                        
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
+                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="imgct2"><img src="@item.Thumb" alt="@item.ShotDesc"> </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
+                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="imgct2"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
+                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="imgct2"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
+                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="imgct2"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
+                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="imgct2"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
+                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="imgct2"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
+                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="imgct2"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
+                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="imgct2"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
+                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="imgct2"><img src="@item.Thumb" alt="@item.ShotDesc"> </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
+                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="imgct2"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
+                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="imgct2"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
+                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="imgct2"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
+                    </div>
+
+                }
+            </div>
+        }
     </div>
     <div class="container brGrey">
         <div class="row">
@@ -288,7 +359,15 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="item-price">
-                                                                    <div class="price-box"><span class="regular-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </span> </div>
+                                                                    @if (item.IsSale)
+                                                                    {
+                                                                        <div class="price-box"><span class="regular-price"><span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </span><span class="regular-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span> </span> </div>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <div class="price-box"><span class="regular-price"><span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </span> </div>
+                                                                    }
+
                                                                 </div>
                                                                 <div class="add_cart">
                                                                     <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Mua ngay</span></button>
@@ -305,9 +384,9 @@
                         </div>
                     </div>
                     <div class="row tableCt" id="table3" style="display:none;">
-    @if (ViewData["FeatureArticle"] != null)
+                        @if (ViewData["FeatureArticle2"] != null)
             {
-                SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
+                SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle2"];
                             <div class="latest-blog container">
 
                                 @foreach (BlogItem item in FeatureArticle.ItemList)
@@ -347,18 +426,18 @@
 
 
     </div>
-</div>
-@section scripts{
+</div>>
+    @section scripts{
 
-    <script>
-        $(window).load(function () {
-            $(".tct2 ul li").click(function () {
-                $(".tct2 ul li").removeClass("vc_active");
-                $(this).addClass("vc_active");
-                $(".tableCt").hide();
-                $('#' + $(this).attr("table-data")).show();
+        <script>
+            $(window).load(function () {
+                $(".tct2 ul li").click(function () {
+                    $(".tct2 ul li").removeClass("vc_active");
+                    $(this).addClass("vc_active");
+                    $(".tableCt").hide();
+                    $('#' + $(this).attr("table-data")).show();
+                });
+
             });
-
-        });
-    </script>
-}
+        </script>
+    }
