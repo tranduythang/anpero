@@ -79,7 +79,7 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                Slide = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads3);
+                Slide = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads1);
                 ViewData["slide3"] = Slide;
                 if (Slide != null)
                 {
