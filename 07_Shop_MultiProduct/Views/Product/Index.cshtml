@@ -15,14 +15,13 @@
         <link rel="stylesheet" type="text/css" href="~/assets/stylesheet/flexslider.css">
         <meta property="og:description" content="@item.ShortDesc" />
         <meta property="og:title" content="@item.PrName" />
-        <meta property="og:type" content="website" />      
-        <meta property="og:url" content="@ViewBag.WebsiteUrl" />  
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="@ViewBag.WebsiteUrl" />
         <meta property="og:image" content="@item.Images" />
         <link rel="stylesheet" type="text/css" href="~/assets/stylesheet/flexslider.css">
-    }
-    @section canonical{
-        <link rel="canonical" href="@ViewBag.WebsiteUrl" />
-    }
+        <link href="/assets/plugins/fancybox-3/src/css/core.css" rel="stylesheet" />
+        <link href="/assets/plugins/fancybox-3/src/css/fullscreen.css" rel="stylesheet" />
+    }    
     <div id="page">
         <div class="page-heading">
             <div class="breadcrumbs">
@@ -48,7 +47,7 @@
                     <div class="product-view wow bounceInUp animated" itemscope="" itemtype="http://schema.org/Product" itemid="#product_base">
                         <div id="messages_product_view"></div>
                         <div class="product-essential container">
-                            <div class="row">                                
+                            <div class="row">
                                 <form action="" method="post" id="product_addtocart_form">
                                     <div class="product-img-box col-sm-6 col-xs-12">
                                         <div class="new-label new-top-left"> New </div>
@@ -77,7 +76,7 @@
                                         </div>
                                         <span itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
                                             <div class="rating">
-                                                <div class="ratings">                                                   
+                                                <div class="ratings">
                                                     <p class="rating-links"><a href="tel:@commonInfo.HotLine">Gọi: @commonInfo.HotLine hoặc click mua ngay để đặt hàng</a> </p>
                                                 </div>
                                             </div>
@@ -108,20 +107,20 @@
                                                     <div class="custom pull-left">
                                                         <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="icon-minus">&nbsp;</i></button>
                                                         <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-                                                        <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button"><i class="icon-plus">&nbsp;</i></button>                                                        
+                                                        <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button"><i class="icon-plus">&nbsp;</i></button>
                                                     </div>
                                                 </div>
                                                 <button type="button" title="Add to Cart" class="button btn-cart" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span><i class="icon-basket"></i>Mua ngay</span></button>
                                             </div>
-                                            <div class="email-addto-box">                                                
-                                                <p class="add-to-links"><a class="link-wishlist" href="http://www.facebook.com/share.php?u=@thisUrl&title=@commonInfo.Desc" onclick="" title="Add To Wishlist"><span>Add To Wishlist</span></a></p>                                               
+                                            <div class="email-addto-box">
+                                                <p class="add-to-links"><a class="link-wishlist" href="http://www.facebook.com/share.php?u=@thisUrl&title=@commonInfo.Desc" onclick="" title="Add To Wishlist"><span>Add To Wishlist</span></a></p>
                                             </div>
                                         </div>
                                         <div class="social">
                                             <ul class="link">
                                                 @if (!string.IsNullOrEmpty(commonInfo.Skype) || !string.IsNullOrEmpty(commonInfo.FaceBookLink))
                                                 {
-                                                 
+
 
                                                     if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
                                                     {
@@ -233,7 +232,26 @@
     @section scripts{
         <script type="text/javascript" src="~/assets/js/jquery.flexslider.js"></script>
         <script type="text/javascript" src="~/assets/js/jquery.bxslider.min.js"></script>
-        <script type="text/javascript" src="~/assets/js/cloud-zoom.js"></script>
+        <script type="text/javascript" src="~/assets/js/cloud-zoom.js"></script>        
+       <script src="~/assets/plugín/jquery.lazyload.min.js"></script>
+        <script src="/assets/plugins/jquery.lazyload.min.js"></script>
+       <script src="/assets/plugins/fancybox-3/dist/jquery.fancybox.min.js"></script>
+
+        <script>
+            $(window).load(function(){
+                $(function () {
+                    $(".lazy img").lazyload({
+                        effect: "fadeIn"
+                    });
+                    $(".fancybox").fancybox({
+                        openEffect: 'none',
+                        closeEffect: 'none'
+                    });
+
+                });
+            });
+
+        </script>
 
     }
 }

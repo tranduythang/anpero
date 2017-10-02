@@ -8,12 +8,14 @@
 }
 @section health{
     <meta name="description" content="@item.ShotDesc" />
-    <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(item.Tag)" />
+    <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(item.Title+","+item.ShotDesc)" />
     <meta property="og:description" content="@item.ShotDesc" />
     <meta property="og:title" content="@item.Title" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="@ViewBag.WebsiteUrl" />
     <meta property="og:image" content="@item.Thumb" />
+    <link href="/assets/plugins/fancybox-3/src/css/core.css" rel="stylesheet" />
+    <link href="/assets/plugins/fancybox-3/src/css/fullscreen.css" rel="stylesheet" />
 }
 <div class="page-heading">
     <div class="container">
@@ -107,7 +109,17 @@
 </div>
 
 @section scripts{
+
+<script src="/assets/plugins/fancybox-3/dist/jquery.fancybox.min.js"></script>
     <script>
+        $(function () {
+            
+            $(".lazy img").lazyload({
+                effect: "fadeIn"
+            });
+
+        });
+
         $(document).ready(function () {
             var owl = $('.related-posts');
             owl.owlCarousel({
@@ -117,6 +129,16 @@
                 autoplay: true,
                 autoplayTimeout: 2000,
                 autoplayHoverPause: true
+            });
+        });
+        $(window).load(function () {
+            $(function () {
+                
+                $(".lazy").fancybox({
+                    openEffect: 'none',
+                    closeEffect: 'none'
+                });
+
             });
         });
     </script>

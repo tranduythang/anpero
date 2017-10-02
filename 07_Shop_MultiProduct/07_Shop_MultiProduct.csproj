@@ -294,6 +294,7 @@
     <Content Include="assets\js\parallax.js" />
     <Content Include="assets\js\revslider.js" />
     <Content Include="assets\js\slider.js" />
+    <Content Include="assets\plugins\jquery.lazyload.min.js" />
     <Content Include="assets\stylesheet\bootstrap.min.css" />
     <Content Include="assets\stylesheet\HoverEffects-demo.css" />
     <Content Include="assets\stylesheet\flexslider.css" />
@@ -458,6 +459,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="assets\plugins\fancybox-3\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>

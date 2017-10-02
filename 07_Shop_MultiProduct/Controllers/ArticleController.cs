@@ -57,8 +57,7 @@ namespace AnperoFrontend.Controllers
         private void SetUpCommonArticle()
         {
 
-            WebService.AnperoService service = new WebService.AnperoService();
-            WebService.Ads[] Slide = null;
+            WebService.AnperoService service = new WebService.AnperoService();    
             if (HttpRuntime.Cache["categoryMenuList"] != null)
             {
                 ViewData["categoryMenuList"] = (List<WebService.BlogCategory>)HttpRuntime.Cache["categoryMenuList"];
@@ -73,19 +72,7 @@ namespace AnperoFrontend.Controllers
                 }
                
             }
-            if (HttpRuntime.Cache["slide3"] != null)
-            {
-                ViewData["slide3"] = (WebService.Ads[])HttpRuntime.Cache["slide3"];
-            }
-            else
-            {
-                Slide = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads1);
-                ViewData["slide3"] = Slide;
-                if (Slide != null)
-                {
-                    HttpRuntime.Cache.Insert("slide3", Slide, null, DateTime.Now.AddMinutes(shortCacheTime + 6), TimeSpan.Zero);
-                }
-            }
+           
             GetTopArticle();
         }
     }

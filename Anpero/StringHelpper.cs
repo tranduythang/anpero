@@ -180,14 +180,18 @@ namespace Anpero
         {
             string retVal = String.Empty;
             int pos;
-            for (int i = 0; i < s.Length; i++)
+            if (!string.IsNullOrEmpty(s))
             {
-                pos = uniChars.IndexOf(s[i].ToString());
-                if (pos >= 0)
-                    retVal += KoDauChars[pos];
-                else
-                    retVal += s[i];
+                for (int i = 0; i < s.Length; i++)
+                {
+                    pos = uniChars.IndexOf(s[i].ToString());
+                    if (pos >= 0)
+                        retVal += KoDauChars[pos];
+                    else
+                        retVal += s[i];
+                }
             }
+            
             return retVal;
         }
         public static string toURLgach(String inputtring)
