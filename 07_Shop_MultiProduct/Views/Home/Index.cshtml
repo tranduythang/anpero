@@ -25,11 +25,7 @@
     <link rel="canonical" href="@ViewBag.WebsiteUrl" />
 }
 <div class="content">
-    @if (!Request.Browser.IsMobileDevice)
-    {
-        @Html.Partial("_partial/_HomeSlide_1");
-
-    }
+    @Html.Partial("_partial/_HomeSlide_1");
     <div class="container">
         <div class="row">
             <section class="top-cate col-md-12">
