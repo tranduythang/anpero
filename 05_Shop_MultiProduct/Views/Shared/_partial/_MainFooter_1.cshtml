@@ -210,7 +210,7 @@
             <div class="home"><a href="/"><i class="icon-home"></i>Trang chủ</a> </div>
         </li>
         <li>
-            <a href="/home/about">Giới thiệu</a>
+            <a href="/about">Giới thiệu</a>
         </li>
         <li>
             <a href="#">Sản phẩm</a>
@@ -249,9 +249,12 @@
                 @if (saleProduct != null && saleProduct.Length > 0)
                 {
                     <ul>
-                        @foreach (ProductItem item in saleProduct)
+                        @for (int i = 0; i < saleProduct.Length; i++)
                         {
-                            <li><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></li>
+                            if ( i < 4)
+                            {
+                                <li><a href="@Anpero.StringHelpper.GetProductLink(saleProduct[i].PrName, saleProduct[i].Id)">@saleProduct[i].PrName</a></li>
+                            }
                         }
                     </ul>
                 }

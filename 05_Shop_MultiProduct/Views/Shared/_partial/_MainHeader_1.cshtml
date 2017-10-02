@@ -30,7 +30,7 @@
                         <div class="nav-inner">
                             <ul id="nav" class="hidden-xs">
                                 <li id="nav-home" class="level0 parent drop-menu"><a class="level-top active" href="/"><span>Trang Chủ</span></a></li>
-                                <li class="level0 parent drop-menu"><a class="level-top" href="/home/about"><span>Giới thiệu</span></a></li>
+                                <li class="level0 parent drop-menu"><a class="level-top" href="/about"><span>Giới thiệu</span></a></li>
                                 <li class="mega-menu">
                                     <a class="level-top" href="/"><span>Sản phẩm‎</span></a>
                                     <div class="level0-wrapper dropdown-6col" style="left: 0px; display: none;">
@@ -108,18 +108,21 @@
                                                     AnperoFrontend.WebService.ProductItem[] saleProduct = (AnperoFrontend.WebService.ProductItem[])ViewData["saleProduct"];
                                                     if (saleProduct != null && saleProduct.Length > 0)
                                                     {
-                                                        foreach (ProductItem item in saleProduct)
+                                                        for (int i = 0; i < saleProduct.Length; i++)
                                                         {
-                                                            int itemPecentDow = Convert.ToInt32((item.Price - item.SalePrice) / item.Price * 100);
-                                                            <div class="grid12-3">
-                                                                <div>
-                                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
-                                                                        <img src="@item.Images" alt="@item.PrName">
-                                                                    </a>
+                                                            if (i < 4)
+                                                            {
+                                                                int itemPecentDow = Convert.ToInt32((saleProduct[i].Price - saleProduct[i].SalePrice) / saleProduct[i].Price * 100);
+                                                                <div class="grid12-3">
+                                                                    <div>
+                                                                        <a href="@Anpero.StringHelpper.GetProductLink(saleProduct[i].PrName, saleProduct[i].Id)" title="@saleProduct[i].PrName">
+                                                                            <img src="@saleProduct[i].Images" alt="@saleProduct[i].PrName">
+                                                                        </a>
+                                                                    </div>
+                                                                    <h4 class="heading">Giảm giá @itemPecentDow.ToString()%</h4>
+                                                                    <p>@saleProduct[i].ShortDesc.Substring(0, 61)</p>
                                                                 </div>
-                                                                <h4 class="heading">Giảm giá @itemPecentDow.ToString()%</h4>
-                                                                <p>@item.ShortDesc.Substring(0, 61)</p>
-                                                            </div>
+                                                            }
                                                         }
                                                     }
                                                 }
