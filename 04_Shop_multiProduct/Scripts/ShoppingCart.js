@@ -25,8 +25,33 @@
         $.cookie("CartList", JSON.stringify(Cart.list), {path: '/' });
         window.location.href = "/product/checkout";
     },
-    addProduct2: function (_id, _price) {
+    addProduct3: function (_id, _price, _thumb, _title) {
         debugger
+        var checkExited = false;
+        if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
+            Cart.list = jQuery.parseJSON($.cookie("CartList"));
+        }
+
+        if (Cart.list.length == 0) {
+            Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });
+        } else {
+            for (var i = 0; i < Cart.list.length; i++) {
+                if (Cart.list[i].id == _id) {
+                    Cart.list[i].price = parseInt(_price) + parseInt(Cart.list[i].price)
+                    Cart.list[i].quantity = parseInt(Cart.list[i].quantity) + 1;
+                    checkExited = true;
+                }
+            }
+            // if this product no in cart list
+            if (!checkExited) {
+                Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });
+            }
+        }
+        $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
+        Cart.bindCart();
+    },
+    addProduct2: function (_id, _price) {
+       
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
         }
