@@ -195,7 +195,7 @@
             </div>
             <!--Xoa row-->
             <div class="category-products">
-                <ul class="products-grid">
+                <ul class="products-grid small-grid">
                     @if (ViewData["BestsaleProduct"] != null)
                     {
                         AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["BestsaleProduct"];
@@ -203,7 +203,7 @@
                         {
                             foreach (ProductItem item in bestSaleList.Item)
                             {
-                                <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
+                                <li class="item col-lg-2 col-md-2 col-sm-2 col-xs-6">
                                     <div class="item-inner">
                                         <div class="item-img">
                                             <div class="item-img-info">
@@ -248,12 +248,12 @@
                                                             <span class="regular-price" id="product-price-1">
                                                                 @if (item.IsSale)
                                                                 {
-                                                                    <p class="old-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
-                                                                    <p class="special-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span> </p>
+                                                                    <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> 
+                                                                    <span class="special-price price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span> 
                                                                 }
                                                                 else
                                                                 {
-                                                                    <p><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                                                    <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> 
                                                                 }
                                                             </span> 
                                                         </div>

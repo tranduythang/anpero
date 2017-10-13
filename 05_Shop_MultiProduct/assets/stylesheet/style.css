@@ -4008,8 +4008,12 @@ ul.pdt-list li.item a img.image-hover {
             font-size: 12px;
             overflow: hidden;
             letter-spacing: 0.5px;
+            
         }
-
+        .small-grid .item .item-inner .item-info .info-inner .item-title {
+            min-height:64px;
+        }
+        
             .products-grid .item .item-inner .item-info .info-inner .item-title a {
                 text-decoration: none;
                 text-transform: uppercase;
@@ -4176,6 +4180,8 @@ ul.pdt-list li.item a img.image-hover {
 .old-price {
     display: inline;
     margin-right: 5px;
+    text-decoration: line-through;
+    font-weight:normal;
 }
     /* Old price */
     .old-price .price-label {
