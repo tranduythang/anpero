@@ -83,7 +83,20 @@
                                             </div>
                                         </span>
                                         <div class="price-block">
-                                            <div class="price-box"> <span class="regular-price" id="product-price-123"> <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </span> </div>
+                                            <div class="price-box"> 
+                                                <span class="regular-price" id="product-price-123"> 
+                                                    @*<span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>*@ 
+                                                    @if (item.IsSale)
+                                                    {
+                                                        <p class="old-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                                        <p class="special-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span> </p>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                                    }
+                                                </span> 
+                                            </div>
                                             @if (@item.IsInstock)
                                             {
                                                 <p class="availability in-stock">
