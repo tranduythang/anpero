@@ -4175,6 +4175,7 @@ ul.pdt-list li.item a img.image-hover {
     white-space: nowrap;
     color: #999;
     display: none;
+
 }
 
 .old-price {
@@ -4182,6 +4183,7 @@ ul.pdt-list li.item a img.image-hover {
     margin-right: 5px;
     text-decoration: line-through;
     font-weight:normal;
+    color: #cdcdcd!important;
 }
     /* Old price */
     .old-price .price-label {

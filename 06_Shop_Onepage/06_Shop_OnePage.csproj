@@ -210,6 +210,8 @@
     <Content Include="assets\images\slide-2.jpg" />
     <Content Include="assets\images\slide-3.jpg" />
     <Content Include="assets\images\slide-4.jpg" />
+    <Content Include="assets\images\slide2.jpg" />
+    <Content Include="assets\images\slide3.png" />
     <Content Include="assets\js\ajaxchimp.js" />
     <Content Include="assets\js\bootstrap-min.js" />
     <Content Include="assets\js\contact-form.js" />
@@ -266,6 +268,7 @@
     <Content Include="Views\Shared\_partial\_MainMenu.cshtml" />
     <Content Include="Views\Shared\product\_productDetail.cshtml" />
     <Content Include="Views\Shared\_partial\_contact.cshtml" />
+    <Content Include="Views\Home\Policy.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -288,7 +291,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
