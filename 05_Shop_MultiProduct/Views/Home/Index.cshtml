@@ -163,12 +163,12 @@
                                                                 @*<span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(saleList[i].Price) đ</span>*@ 
                                                                 @if (saleList[i].IsSale)
                                                                 {
-                                                                    <p class="old-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(saleList[i].Price) đ</span> </p>
-                                                                    <p class="special-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(saleList[i].SalePrice) đ</span> </p>
+                                                                    <span class="old-price price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(saleList[i].Price) đ</span>
+                                                                    <span class="special-price price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(saleList[i].SalePrice) đ</span>
                                                                 }
                                                                 else
                                                                 {
-                                                                    <p><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(saleList[i].Price) đ</span> </p>
+                                                                    <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(saleList[i].Price) đ</span>
                                                                 }
                                                             </span> 
                                                         </div>
