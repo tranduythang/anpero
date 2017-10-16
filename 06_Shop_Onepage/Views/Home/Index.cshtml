@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-6 text-right wow fadeIn">
                 <div class="page-title">
-                    <h2>Gia đình Anpero</h2>
+                    <h2>Về chúng tôi</h2>
                 </div>
                 <div class="about-text">
                     <h3>Những nhà quản lý và lập trình viên dày dạn kinh nghiệm</h3>
@@ -71,7 +71,7 @@
                                     <i class="fa fa-cogs"></i>
                                 </div>
                                 <h2>Công nghệ lập trình</h2>
-                                <p>Nền tảng để xây dựng Anpero là .NET Core, Sql Server đây là các công nghệ mà hầu hết các ngân hàng trên thế giới sử dụng. Thêm vào đó với sự hỗ trợ của trí thông minh nhân tạo của Microsoft’s giúp Anpero cập nhật và duy trì sự ổn định ở mức cao nhất có thể</p>
+                                <p>Nền tảng để xây dựng Anpero là .NET Core, Sql Server đây là các công nghệ mà hầu hết các ngân hàng trên thế giới sử dụng. Thêm vào đó với sự hỗ trợ của trí thông minh nhân tạo của Microsoft’s giúp Anpero cập nhật và duy trì sự ổn định của hệ thống ở mức cao nhất</p>
                             </div>
                         </li>
                         <li data-target="#photographyCarousel" data-slide-to="1">
@@ -137,6 +137,48 @@
         </div>
     </section>
 }
+<section class="portfolio-area padding-top gray-bg" id="images">
+    <div class="container">
+        <div class="row">
+            <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
+                <div class="page-title">
+                    <h2>Giao diện</h2>
+                    <p>Giao diện quản trị dễ dùng, quản trị tất cả các web chỉ trong một trang duy nhất. Các giao diện có sẵn của web bán hàng đều thích nghi với điện thoại di động và các trình duyệt. </p>
+                    <div class="filter-menu filter-options">
+                        <ul>
+                            <li class="filter active" data-filter="all">All</li>
+                            <li class="filter" data-filter=".admin">Admin</li>
+                            <li class="filter" data-filter=".fe">Giao diện web bán hàng</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-items fix">
+        @if (ViewData["slide1"] != null)
+        {
+            Ads[] slide = (Ads[])ViewData["slide1"];
+            if (slide.Length > 0)
+            {
+                for (int i = 0; i < slide.Length; i++)
+                {
+                    <div class="single-portfolio mix @slide[i].Description wow fadeIn">
+                        <img src="@slide[i].ImagesUrl" alt="pet">
+                        <div class="portfolio-zoom-icon">
+                            <a href="@slide[i].ClickUrl" data-lightbox="roadtrip">
+                                <i class="fa fa-search-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+        }
+    
+       
+    </div>
+</section>
+
 @Html.Partial("_partial/_contact")
 @section scripts{
 <script type="text/javascript">

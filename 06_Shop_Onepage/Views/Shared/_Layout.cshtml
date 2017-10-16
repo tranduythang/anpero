@@ -36,7 +36,9 @@
 
 </head>
 <body>
-    @if (ViewBag.pageName != null && !Request.Browser.IsMobileDevice && ViewBag.pageName == "home")
+    
+    
+    @if(ViewBag.pageName != null && !Request.Browser.IsMobileDevice && ViewBag.pageName == "home")
     {
         <header class="top-area section-relative" id="home">
             @Html.Partial("_partial/_MainMenu")
@@ -49,7 +51,8 @@
         @Html.Partial("_partial/_MainMenu")
     </header>
 
-    }
+     }
+    
     @RenderBody()
 
     <!--=== JQUERY LIBRARY ====-->

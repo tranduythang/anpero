@@ -649,6 +649,7 @@ textarea.form-control:focus {
     float: left;
     overflow: hidden;
     position: relative;
+    padding:5px;
 }
 
 .portfolio-zoom-icon {

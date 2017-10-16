@@ -6,8 +6,6 @@
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
 }
-
-<!-- Start-mainmenu-area -->
 <div class="header-top">
     <div class="header-top-bar hidden-xs">
         <div class="container">
@@ -37,16 +35,9 @@
                         <a title="Chia sẻ trên google+" target="_blank" href="https://plus.google.com/share?url=@HttpContext.Current.Request.RawUrl"><i class="fa fa-google-plus"></i></a>
                     </div>
                 </div>
-                @*<div class="col-xs-2 col-sm-1">
-                        <div class="add-cart">
-                            <a href="#"><i class="fa fa-shopping-cart"><span class="cartpoint">8</span></i></a>
-                        </div>
-                    </div>*@
-
             </div>
         </div>
-    </div>
-    <!-- Mainmenu-Area-Start -->
+    </div>    
     <div class="mainmenu-area">
         <div class="container">
             <div class="row">
@@ -64,7 +55,7 @@
                     </div>
                     <div class="collapse navbar-collapse bs-example-js-navbar-scrollspy">
                         <ul class="nav navbar-nav">
-                            @if (commonInfo.MenuList != null && commonInfo.MenuList.Length>0)
+                            @*@if (commonInfo.MenuList != null && commonInfo.MenuList.Length>0)
                             {
                                 for (int i = 0; i < commonInfo.MenuList.Length; i++)
                                 {
@@ -89,17 +80,29 @@
                                 }
                             }
                             else
-                            {
-                                <li class="active"><a href="#home">home</a></li>
+                            {*@
+                                @if (ViewBag.pageName != null && !Request.Browser.IsMobileDevice && ViewBag.pageName == "home")
+                                {
+                                    <li class="active"><a href="#home">home</a></li>
                                     <li><a href="#about">Về chúng tôi</a></li>
-                                    <li><a href="#philosophy">Công nghệ</a></li>
-                                    <li><a href="#facts">Facts</a></li>
+                                    <li><a href="#philosophy">Công nghệ</a></li>                                    
                                     <li><a href="#blog">Các cập nhật</a></li>
-                                    <li><a href="#price">Price </a></li>
+                                    <li><a href="#images">Hình Ảnh</a></li>
+                                    <li><a href="#price">Báo giá </a></li>
                                     <li><a href="#contact">Liên hệ</a></li>
-                            }
 
-
+                                }
+                                else
+                                {
+                                    <li class="active"><a href="/">home</a></li>
+                                    <li><a href="/#about">Về chúng tôi</a></li>
+                                    <li><a href="/#philosophy">Công nghệ</a></li>
+                                    <li><a href="/blog">Các cập nhật</a></li>
+                                    <li><a href="/#images">Hình Ảnh</a></li>
+                                    <li><a href="#price">Báo giá</a></li>
+                                    <li><a href="/#contact">Liên hệ</a></li>
+                                }
+                            @*}*@
                         </ul>
                     </div>
                     <div class="menu-right-button hidden-xs hidden-sm">
@@ -114,8 +117,6 @@
                 </nav>
             </div>
         </div>
-    </div>
-    <!-- Mainmenu-Area-End -->
+    </div>    
     <div id="sticky-helper"></div>
 </div>
-<!-- End-mainmenu-area -->
