@@ -1,36 +1,4 @@
-/*-----------------------------------------------------------------------------------
-
-    Template Name: Petshop HTML5 Template,
-    Template URI: http://themectg.com
-    Description: This is html5 template
-    Author: BootExperts
-    Author URI: http://themectg.com
-    Version: 1.0
-
------------------------------------------------------------------------------------
-    
-    CSS INDEX
-    ===================
-	0. Theme Default CSS (body, link color, section etc),
-    1. Helper Class
-    2. Top Area 
-    3. About Area
-    4. Service-area
-    5. Portfolo-area
-    6. Skill-area
-    7. Discover Area
-    8. Blog Area
-    9. Offer Area
-    10. Price-area  
-    11. Client-area
-    12. Footer-area
------------------------------------------------------------------------------------*/
-
-
-/* 0. Theme Default CSS (body, link color, section etc) 
-========================================================*/
-
-
+ 
 /* Google Fonts
 =================*/
 
@@ -1491,7 +1459,7 @@ li{ list-style:none;}
     margin-top: -1px;
 }
 .blog-posts a{color:#333;}
-.adm {
+.mainmenu ul.nav.navbar-nav .adm {
     display:none;
 }
 @media (max-width: 767px){

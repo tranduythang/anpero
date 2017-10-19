@@ -25,27 +25,7 @@ jQuery(document).on('ready', function ($) {
         $(".mainmenu .navbar-collapse").removeClass("in");
     });
 
-    $(".blog-slide").owlCarousel({
-        items: 3,
-        loop: true,
-        autoplay: true,
-        autoplayTimeout: 7000,
-        smartSpeed: 1000,
-        responsive: {
-            // breakpoint from 0 up
-            0: {
-                items: 1,
-            },
-            // breakpoint from 480 up
-            480: {
-                items: 2,
-            },
-            // breakpoint from 768 up 
-            768: {
-                items: 3,
-            }
-        }
-    });
+   
     
     $('.portfolio-items').mixItUp();
 

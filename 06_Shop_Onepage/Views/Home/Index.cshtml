@@ -9,8 +9,11 @@
 
 }
 @section health{
+<link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+
     <meta name="description" content="@commonInfo.Desc" />
     <meta name="keywords" content="@commonInfo.Desc" />
+    
 }
 
 <section class="about-area section-padding section-relative" id="about">
@@ -181,9 +184,30 @@
 
 @Html.Partial("_partial/_contact")
 @section scripts{
+<script src="/assets/js/owl-carousel-min.js"></script>
 <script type="text/javascript">
         jQuery(document).ready(function () {
-   
+            $(".blog-slide").owlCarousel({
+                items: 3,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 7000,
+                smartSpeed: 1000,
+                responsive: {
+                    // breakpoint from 0 up
+                    0: {
+                        items: 1,
+                    },
+                    // breakpoint from 480 up
+                    480: {
+                        items: 2,
+                    },
+                    // breakpoint from 768 up 
+                    768: {
+                        items: 3,
+                    }
+                }
+            });
         });
 </script>
 }
