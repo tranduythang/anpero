@@ -1491,3 +1491,12 @@ li{ list-style:none;}
     margin-top: -1px;
 }
 .blog-posts a{color:#333;}
+.adm {
+    display:none;
+}
+@media (max-width: 767px){
+    .adm{
+        display:block!important;
+    }
+
+}
