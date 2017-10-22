@@ -1260,19 +1260,14 @@ Contact Area
 }
 
 .news-list li {
-    padding-left: 60px;
+ 
     position: relative;
-    min-height: 50px;
-    margin-bottom: 15px;
+    min-height: 30px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed;
 }
 
-.news-list li .news-list-photo {
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
-.footer-area .open-hour li {
+.footer-area .open-hour li{
     margin-bottom: 10px;
     border-bottom: 1px dashed;
     padding-bottom: 10px;
@@ -1468,3 +1463,4 @@ li{ list-style:none;}
     }
 
 }
+.mbt15{margin-bottom:15px;}

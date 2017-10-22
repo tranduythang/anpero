@@ -37,8 +37,6 @@
             </div>
     </div>
 </section>
-
-<!-- Start-Photography-Area-->
 <section class="photography-area  section-relative" id="philosophy">
     <div class="container">
         <div class="row">
@@ -184,6 +182,7 @@
 
 @Html.Partial("_partial/_contact")
 @section scripts{
+
 <script src="/assets/js/owl-carousel-min.js"></script>
 <script type="text/javascript">
         jQuery(document).ready(function () {
@@ -210,4 +209,25 @@
             });
         });
 </script>
+
+    <script src="~/Scripts/Bootrap.notify.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+        var width = $(window).width();
+        $("#ajax_loader").css("left", ((width / 2) - 100) + "px");
+        var googleCatcha;
+        $(window).load(function () {
+            googleCatcha = grecaptcha.render('g-recaptcha', {
+                'sitekey': googleCapchaSitekey,
+                'theme': 'light',
+                'hl': 'vi'
+            });
+
+           
+        });
+    
+    </script>
+
+
+
 }

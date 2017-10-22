@@ -19,18 +19,7 @@
     <meta http-equiv="REFRESH" content="1800" />
     <meta name="robots" content="index,follow,all" />
     <meta property="og:title" content="@ViewBag.Title" />
-    @Styles.Render("~/Content/css")
-       <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/assets/css/normalize.css">
-    <link rel="stylesheet" href="/assets/css/pogo-slide.css">
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/lightbox.css">
-    <link rel="stylesheet" href="/assets/css/animate.css">
-   
-
-    <!--=== MAIN STYLYLESHEETS ===-->
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/responsive.css">
+    @Styles.Render("~/Content/css")      
     <script src="/assets/js/vendor/modernizr-2.js"></script>
     @RenderSection("health", required: false)
 
@@ -54,27 +43,98 @@
      }
     
     @RenderBody()
+    <footer class="footer-area">
+        <div class="footer-top section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
+                        <div class="page-title">
+                            <h2>Thông tin</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-3 xs-bottom-40">
+                        <div class="single-footer xs-bottom-40">
+                            <div class="footer-logo">
+                                <img src="@commonInfo.Logo" alt="@commonInfo.Desc">
+                            </div>
+                            <p>@commonInfo.Address</p>
+                            <div class="contact-details">
+                                <p><i class="fa fa-phone"></i><a href="callto:@commonInfo.HotLine">@commonInfo.HotLine</a></p>
+                                <p><i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:@commonInfo.Email">@commonInfo.Email</a></p>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 xs-bottom-40">
+                        <div class="single-footer xs-bottom-40">
+                            <h2>Tin tức</h2>
+                            <div class="news-list">
+                                <ul>
+                                    <li><a href="/thong-tin-cap-nhat-he-thong-b114">Thông tin cập nhật</a></li>
+                                    <li><a href="/huong-dan-su-dung-b115">Hướng dẫn sử dụng</a></li>
+                                    <li><a href="/gioi-thieu-b113">Giới thiệu</a></li>
+                                    <li><a href="/blog">Blog</a></li>
+                                    <li><a href="/blogs">Hướng dẫn thanh toán</a></li>
+                                    <li><a href="/WarrantyPolicy">Chính sách bảo hành</a></li>
+                                    <li><a href="/PrivacyPolicy">Chính sách bảo mật</a></li>
+                                    
+                                </ul>
 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 xs-bottom-40">
+                        <div class="single-footer xs-bottom-40">
+                            <h2>Giờ làm việc</h2>
+                            <div class="open-hour">
+                                <ul>
+                                    <li>Thứ 2 đén thứ 6<span>: 6.00 am - 10.00 pm</span></li>
+                                    <li>Thứ 7 - ngày lễ<span>: 8.00 am - 6.00 pm</span></li>
+                                    
+                                    <li>Chủ nhật<span>: Chỉ trực kỹ thuật</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="copyright">
+                            <p>Copyright <a href="/">@commonInfo.Name</a> 2017 All Right Reserved Design by <a href="https://anpero.com">Anpero</a></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 ">
+                        <div class="social-menu circle text-right">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     <!--=== JQUERY LIBRARY ====-->
-    <script src="/assets/js/vendor/jquery-224.js"></script>
-    <script src="/assets/js/bootstrap-min.js"></script>   
-    <script src="/assets/js/mixitup-min.js"></script>
-    <script src="/assets/js/pogo-slider.js"></script>
-    <script src="/assets/js/ajaxchimp.js"></script>
-    <script src="/assets/js/lightbox.js"></script>
-    <script src="/assets/js/scrollUp-min.js"></script>
-    <script src="/assets/js/wow-min.js"></script>
-    <script src="/assets/js/arallax-113.js"></script>
-    <script src="/assets/js/plugins.js"></script>
+    @Scripts.Render("~/bundles/script")
+   
     
-    @*@Scripts.Render("~/bundles/bootstrap")*@
+  
     @Html.Raw(commonInfo.AnperoPlugin)
 
     @RenderSection("scripts", required: false)
     <script src="/assets/js/main.js"></script>
     @Html.Raw(commonInfo.PageScript)
-    @*<script src="https://maps.googleapis.com/maps/api/js"></script>
-        <script src="/assets/js/maps.js"></script>*@
-
+    
 </body>
 </html>

@@ -1,26 +1,37 @@
-﻿ <section class="contact-area section-padding section-relative" id="contact">
+﻿@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];      
+    }
+
+} 
+<section class="contact-area section-padding section-relative" id="contact">
     <div class="section-bg"></div>
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                 <div class="page-title">
-                    <h2>Đăng ký và liên hệ</h2>
-                    <p>Cảm ơn bạn đã tin tưởng và sử dụng dịch vụ của chúng tôi. </p>
-                    <p>Hotline : 0906006580 </p>
+                    <h2>Đăng ký và liên hệ</h2>                 
+                    <p>Hotline : @commonInfo.HotLine </p>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-                <form action="process.php" id="contact-form" class="form-horizontal" role="form" method="post">
-                    <input type="text" class="form-control" id="form-name" name="form-name" placeholder="Name" required>
-                    <input type="email" class="form-control" id="form-email" name="form-email" placeholder="Email" required>
-                    <input type="text" class="form-control" id="form-subject" name="form-subject" placeholder="Subject" required>
-                    <textarea class="form-control" rows="6" id="form-message" name="form-message" placeholder="Message" required></textarea>
-                    <div class="text-center">
-                        <button type="submit" class="battn">Gửi thông tin</button>
+          
+                    <input type="text" class="form-control" id="name"  placeholder="Tên *" required>
+                    <input  class="form-control" id="email" placeholder="Email">
+                    <input type="text" class="form-control" id="phone" placeholder="Số điện thoại *" required>
+                    <input type="text" class="form-control" id="address" placeholder="Địa chỉ *" required>                
+                    <textarea class="form-control" rows="6" id="message" placeholder="Để lại lời nhắn" required></textarea>
+                    <div class="form-selector mbt15">
+                        <div id="g-recaptcha"></div>
                     </div>
-                </form>
+                    <div class="text-center">
+                        <button   class="battn" id="btn-send-contact" >Gửi thông tin</button>
+                    </div>
+              
             </div>
         </div>
     </div>
