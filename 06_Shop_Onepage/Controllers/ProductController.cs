@@ -21,7 +21,7 @@ namespace AnperoFrontend.Controllers
             ViewData["prDetail"] = item;
             ViewBag.Title = item.PrName;
             SetupCommonProduct();
-            return View("List");
+            return View();
         }
         [BuildCommonHtml]
         public ActionResult Category(int id)

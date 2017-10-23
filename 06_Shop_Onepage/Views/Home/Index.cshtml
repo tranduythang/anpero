@@ -9,8 +9,11 @@
 
 }
 @section health{
+<link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+
     <meta name="description" content="@commonInfo.Desc" />
     <meta name="keywords" content="@commonInfo.Desc" />
+    
 }
 
 <section class="about-area section-padding section-relative" id="about">
@@ -34,8 +37,6 @@
             </div>
     </div>
 </section>
-
-<!-- Start-Photography-Area-->
 <section class="photography-area  section-relative" id="philosophy">
     <div class="container">
         <div class="row">
@@ -109,7 +110,7 @@
             <div class="row">
                 <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
                     <div class="page-title">
-                        <h2>Các cập nhật</h2>
+                        <h2>Cập nhật và hướng dẫn</h2>
                         <p>Xem thêm các cập nhật về hệ thống quản lý web bán hàng tại đây <a href="/blog" title="Thiết kế web bán hàng tốt nhất">Xem thêm tại đây</a></p>
                     </div>
                 </div>
@@ -181,9 +182,52 @@
 
 @Html.Partial("_partial/_contact")
 @section scripts{
+
+<script src="/assets/js/owl-carousel-min.js"></script>
 <script type="text/javascript">
         jQuery(document).ready(function () {
-   
+            $(".blog-slide").owlCarousel({
+                items: 3,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 7000,
+                smartSpeed: 1000,
+                responsive: {
+                    // breakpoint from 0 up
+                    0: {
+                        items: 1,
+                    },
+                    // breakpoint from 480 up
+                    480: {
+                        items: 2,
+                    },
+                    // breakpoint from 768 up 
+                    768: {
+                        items: 3,
+                    }
+                }
+            });
         });
 </script>
+
+    <script src="~/Scripts/Bootrap.notify.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+        var width = $(window).width();
+        $("#ajax_loader").css("left", ((width / 2) - 100) + "px");
+        var googleCatcha;
+        $(window).load(function () {
+            googleCatcha = grecaptcha.render('g-recaptcha', {
+                'sitekey': googleCapchaSitekey,
+                'theme': 'light',
+                'hl': 'vi'
+            });
+
+           
+        });
+    
+    </script>
+
+
+
 }
