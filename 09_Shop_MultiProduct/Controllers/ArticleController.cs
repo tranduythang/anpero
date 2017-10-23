@@ -37,13 +37,13 @@ namespace AnperoFrontend.Controllers
             ViewData["ArticleList"] = s;
             ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, s.ResultsCount, 11, "?page=");
             //seo
-            ViewBag.Description = "Tin tức Ngon Lành - Blog tin chia sẽ các bài viết liên quan đến sản phẩm của Ngon Lành. Các kinh nghiệm, mẹo vắt lựa chọn thực phẩm sạch, Hoa quả sạch. Công thức chế biến các món ăn ngon.";
-            ViewBag.Keywords = "Kinh nghiệm lựa chọn thực phẩm sạch, Kinh nghiệm lựa chọn hoa quả sạch, Công thức nấu ăn, Phân biệt thực phẩm, hoa quả xuất xứ Trung quốc";
+            ViewBag.Description = "Tin tức VinFish - Blog tin chia sẽ các bài viết liên quan đến sản phẩm của VinFish. Các kinh nghiệm, mẹo vắt lựa chọn thực phẩm sạch, cá sạch. Công thức chế biến các món ăn ngon, cá nướng ngon.";
+            ViewBag.Keywords = "Kinh nghiệm lựa chọn thực phẩm sạch, Kinh nghiệm lựa chọn cá sạch, Công thức nấu ăn.";
             ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + "/blog";
             if (id == 0)
             {
                 ViewBag.CategoryName = "Blog";
-                ViewBag.Title = "Tin tức | Ngon Lành";
+                ViewBag.Title = "Tin tức | VinFish";
             }
             else
             {

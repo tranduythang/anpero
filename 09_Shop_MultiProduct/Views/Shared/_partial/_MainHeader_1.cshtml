@@ -32,8 +32,8 @@
                                 <li id="nav-home" class="level0 parent drop-menu"><a class="level-top active" href="/"><span>Trang Chủ</span></a></li>
                                 <li class="level0 parent drop-menu"><a class="level-top" href="/about"><span>Giới thiệu</span></a></li>
                                 <li class="mega-menu">
-                                    <a class="level-top" href="/"><span>Sản phẩm‎</span></a>
-                                    <div class="level0-wrapper dropdown-6col" style="left: 0px; display: none;">
+                                    <a class="level-top" href="/ca-nuong-tay-bac-c166"><span>Các món cá nướng‎</span></a>
+                                    @*<div class="level0-wrapper dropdown-6col" style="left: 0px; display: none;">
                                         <div class="container">
                                             <div class="level0-wrapper2">
                                                 <div class="nav-block nav-block-center">
@@ -96,7 +96,7 @@
                                                 }
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>*@
                                 </li>
                                 <li class="fl-custom-tabmenulink mega-menu">
                                     <a href="#" class="level-top"> <span>Sản phẩm khuyến mại</span> </a>
@@ -120,7 +120,7 @@
                                                                         </a>
                                                                     </div>
                                                                     <h4 class="heading">Giảm giá @itemPecentDow.ToString()%</h4>
-                                                                    <p>@saleProduct[i].ShortDesc.Substring(0, 61)</p>
+                                                                    <p>@Anpero.StringHelpper.SubString(61,saleProduct[i].ShortDesc)</p>
                                                                 </div>
                                                             }
                                                         }
