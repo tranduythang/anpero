@@ -40,7 +40,7 @@ namespace AnperoFrontend.Controllers
             {
                 ViewBag.Title = rs.Item[0].CatName;
             }
-            
+            GetTopArticle();
             SetupCommonProduct();
             SetUpSeo(2, id);
             return View("List");
@@ -65,6 +65,7 @@ namespace AnperoFrontend.Controllers
                 ViewBag.Title = rs.Item[0].ParentCatName;
             }
             SetupCommonProduct();
+            GetTopArticle();
             SetUpSeo(1,id);
             return View("List");
         }
@@ -99,40 +100,43 @@ namespace AnperoFrontend.Controllers
         private void SetUpSeo(int type, int categoryId)
         {
             AnperoFrontend.WebService.Webconfig commonInfo = (AnperoFrontend.WebService.Webconfig)HttpRuntime.Cache["commonInfo"];
-
-            switch (type)
+            if (commonInfo != null)
             {
-                case 1:
-                    foreach (var item in commonInfo.ProductCategoryList)
-                    {
-                        if (item.Id == categoryId)
+                switch (type)
+                {
+                    case 1:
+                        foreach (var item in commonInfo.ProductCategoryList)
                         {
-                            ViewBag.Keywords = item.Name;
-                            ViewBag.Description = item.Name;
-                            break;
-                        }
-                    }
-                    break;
-                case 2:
-                    foreach (var item in commonInfo.ProductCategoryList)
-                    {
-                        foreach (var chidItem in item.ChildCategory)
-                        {
-                            if (chidItem.Id == categoryId)
+                            if (item.Id == categoryId)
                             {
                                 ViewBag.Keywords = item.Name;
                                 ViewBag.Description = item.Name;
                                 break;
                             }
                         }
+                        break;
+                    case 2:
+                        foreach (var item in commonInfo.ProductCategoryList)
+                        {
+                            foreach (var chidItem in item.ChildCategory)
+                            {
+                                if (chidItem.Id == categoryId)
+                                {
+                                    ViewBag.Keywords = item.Name;
+                                    ViewBag.Description = item.Name;
+                                    break;
+                                }
+                            }
 
-                    }
-                    break;
-                default:
-                    ViewBag.Keywords = "Tìm kiếm " + commonInfo.Name + "| " + commonInfo.Desc;
-                    ViewBag.Description = "Tìm kiếm trên " + commonInfo.Name + "| " + commonInfo.Desc;
-                    break;
+                        }
+                        break;
+                    default:
+                        ViewBag.Keywords = "Tìm kiếm " + commonInfo.Name + "| " + commonInfo.Desc;
+                        ViewBag.Description = "Tìm kiếm trên " + commonInfo.Name + "| " + commonInfo.Desc;
+                        break;
+                }
             }
+          
             //Get Description and Keywords of Category production
             ViewBag.Description = string.Empty;
             ViewBag.Keywords = string.Empty;
