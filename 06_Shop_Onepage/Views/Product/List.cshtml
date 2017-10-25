@@ -1,7 +1,149 @@
-﻿<div class="container">     
+﻿@using AnperoFrontend.WebService;
+@section health{
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+
+    <meta name="description" content="@ViewBag.Description" />
+    <meta name="keywords" content="@ViewBag.Keywords" />
+  }
+<section class="price-area section-padding" id="price">
+    <div class="container">
+        <div class="row">
+            <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
+                <div class="page-title">
+                    <h2>Dịch vụ thiết kế web</h2>
+                    <p>Với sợ hỗ trợ của hệ thống điệnt toán đám mây giúp trang web của quý khách luôn ổn định, hỗ trợ kỹ thuật 24/24</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 xs-bottom-40 wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                <div class="single-price">
+                    <div class="price-header">
+                        <img src="images/price-1.jpg" alt="price">
+                        <div class="price-plan">
+                            <div class="price-title">
+                                <h3>Basic</h3>
+                            </div>
+                            <div class="price-rate">
+                                <h3>$ 49.00</h3>
+                                <h5>Per Mounth</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price-body">
+                        <ul>
+                            <li>2 Dog walks</li>
+                            <li>1 Vet Visit</li>
+                            <li>1 Pet Spa</li>
+                            <li>10 Vet Calls</li>
+                            <li>Free Support</li>
+                        </ul>
+                    </div>
+                    <div class="price-footer">
+                        <a href="#" class="price-battn">Order Now <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 xs-bottom-40 wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                <div class="single-price">
+                    <div class="price-header">
+                        <img src="images/price-2.jpg" alt="price">
+                        <div class="price-plan">
+                            <div class="price-title">
+                                <h3>Basic</h3>
+                            </div>
+                            <div class="price-rate">
+                                <h3>$ 50.00</h3>
+                                <h5>Per Mounth</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price-body">
+                        <ul>
+                            <li>2 Dog walks</li>
+                            <li>1 Vet Visit</li>
+                            <li>1 Pet Spa</li>
+                            <li>10 Vet Calls</li>
+                            <li>Free Support</li>
+                        </ul>
+                    </div>
+                    <div class="price-footer">
+                        <a href="#" class="price-battn">Order Now <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                <div class="single-price">
+                    <div class="price-header">
+                        <img src="images/price-3.jpg" alt="price">
+                        <div class="price-plan">
+                            <div class="price-title">
+                                <h3>Basic</h3>
+                            </div>
+                            <div class="price-rate">
+                                <h3>$ 64.00</h3>
+                                <h5>Per Mounth</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price-body">
+                        <ul>
+                            <li>2 Dog walks</li>
+                            <li>1 Vet Visit</li>
+                            <li>1 Pet Spa</li>
+                            <li>10 Vet Calls</li>
+                            <li>Free Support</li>
+                        </ul>
+                    </div>
+                    <div class="price-footer">
+                        <a href="#" class="price-battn">Order Now <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container section-padding section-relative">     
         <div class="row">
             @Html.Partial("product/_MenuAndAdsPartial")
+           @if (ViewData["FeatureArticle"] != null)
+           {
+               SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
+            <section class="blog-area section-padding" id="blog">
+                <div class="container">
+                    <div class="row">
+                        <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
+                            <div class="page-title">
+                                <h2>Cập nhật và hướng dẫn</h2>
+                                <p>Xem thêm các cập nhật về hệ thống quản lý web bán hàng tại đây <a href="/blog" title="Thiết kế web bán hàng tốt nhất">Xem thêm tại đây</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row blog-slide">
+               @foreach (BlogItem item in FeatureArticle.ItemList)
+                {
+                            <div class="col-xs-12 wow fadeIn">
+                                <div class="single-blog">
+                                    <div class="blog-photo">
+                                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title, item.Id)"><img src="@item.Thumb" alt="@item.Title"></a>
+                                        <div class="blog-date">
+                                            <h3><span>@Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</span></h3>
+                                        </div>
+                                    </div>
+                                    <h2>@Anpero.StringHelpper.SubString(30, item.Title)</h2>
+                                    <p>@Anpero.StringHelpper.SubString(50, item.ShotDesc)</p>
+                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title, item.Id)">@Anpero.StringHelpper.SubString(30, item.Title)</a>
+                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title, item.Id)">Chi tiết</a>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </section>
+           }
             <div class="center_column col-xs-12 col-sm-9" id="center_column">
+
                 @if (ViewData["productList"] != null)
                 {
                     AnperoFrontend.WebService.SearchResult productList = (AnperoFrontend.WebService.SearchResult)ViewData["productList"];
@@ -103,3 +245,35 @@
 
     </div>
 </div>
+
+@section scripts{
+
+    <script src="/assets/js/owl-carousel-min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            $(".blog-slide").owlCarousel({
+                items: 3,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 7000,
+                smartSpeed: 1000,
+                responsive: {
+                    // breakpoint from 0 up
+                    0: {
+                        items: 1,
+                    },
+                    // breakpoint from 480 up
+                    480: {
+                        items: 2,
+                    },
+                    // breakpoint from 768 up
+                    768: {
+                        items: 3,
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script src="/Scripts/Bootrap.notify.js"></script>
+}
