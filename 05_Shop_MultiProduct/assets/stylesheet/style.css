@@ -12343,7 +12343,10 @@ button.button {
             .product-shop .social ul li:last-child {
                 border: none;
             }
-
+.blog-shop .social a {
+    border: 1px #ddd solid;
+    color: #888;
+}
 .sendfriend-product-send .login_page h2 {
     font-size: 14px;
 }
