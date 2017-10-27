@@ -5745,6 +5745,7 @@ text-transform: uppercase
     margin-top: 0px;
     margin-bottom: 0px;
     line-height: 19px;
+    min-height: 47px;
 }
 
     .latest-blog h3 a {
@@ -11606,7 +11607,7 @@ footer a {
 footer .footer-inner {
     margin: auto;
     overflow: hidden;
-    background: url(/assets/images/footer-img.png) no-repeat bottom center;
+    /*background: url(/assets/images/footer-img.png) no-repeat bottom center;*/
 }
 
     footer .footer-inner h3 {
