@@ -29,6 +29,8 @@ namespace AnperoFrontend.WebService {
     [System.Web.Services.WebServiceBindingAttribute(Name="AnperoServiceSoap", Namespace="http://tempuri.org/")]
     public partial class AnperoService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
+        private System.Threading.SendOrPostCallback GetPaymentAPIConfigOperationCompleted;
+        
         private System.Threading.SendOrPostCallback UpdateOrderStatusOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetLocationOperationCompleted;
@@ -104,6 +106,9 @@ namespace AnperoFrontend.WebService {
         }
         
         /// <remarks/>
+        public event GetPaymentAPIConfigCompletedEventHandler GetPaymentAPIConfigCompleted;
+        
+        /// <remarks/>
         public event UpdateOrderStatusCompletedEventHandler UpdateOrderStatusCompleted;
         
         /// <remarks/>
@@ -156,6 +161,37 @@ namespace AnperoFrontend.WebService {
         
         /// <remarks/>
         public event GetWebContentCompletedEventHandler GetWebContentCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetPaymentAPIConfig", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public PaymentConfig[] GetPaymentAPIConfig(int storeId, string tokenKey) {
+            object[] results = this.Invoke("GetPaymentAPIConfig", new object[] {
+                        storeId,
+                        tokenKey});
+            return ((PaymentConfig[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetPaymentAPIConfigAsync(int storeId, string tokenKey) {
+            this.GetPaymentAPIConfigAsync(storeId, tokenKey, null);
+        }
+        
+        /// <remarks/>
+        public void GetPaymentAPIConfigAsync(int storeId, string tokenKey, object userState) {
+            if ((this.GetPaymentAPIConfigOperationCompleted == null)) {
+                this.GetPaymentAPIConfigOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetPaymentAPIConfigOperationCompleted);
+            }
+            this.InvokeAsync("GetPaymentAPIConfig", new object[] {
+                        storeId,
+                        tokenKey}, this.GetPaymentAPIConfigOperationCompleted, userState);
+        }
+        
+        private void OnGetPaymentAPIConfigOperationCompleted(object arg) {
+            if ((this.GetPaymentAPIConfigCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetPaymentAPIConfigCompleted(this, new GetPaymentAPIConfigCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateOrderStatus", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -874,13 +910,33 @@ namespace AnperoFrontend.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Location {
+    public partial class PaymentConfig {
         
         private int idField;
         
+        private int stField;
+        
         private string nameField;
         
-        private int parentIdField;
+        private string merchantIdField;
+        
+        private string merchantPasswordField;
+        
+        private string tokenField;
+        
+        private string emailField;
+        
+        private string paymentCodeField;
+        
+        private string updateTimeField;
+        
+        private bool isdefaultField;
+        
+        private int id1Field;
+        
+        private int st1Field;
+        
+        private int paymentFeeField;
         
         /// <remarks/>
         public int Id {
@@ -889,6 +945,16 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int St {
+            get {
+                return this.stField;
+            }
+            set {
+                this.stField = value;
             }
         }
         
@@ -903,12 +969,102 @@ namespace AnperoFrontend.WebService {
         }
         
         /// <remarks/>
-        public int ParentId {
+        public string MerchantId {
             get {
-                return this.parentIdField;
+                return this.merchantIdField;
             }
             set {
-                this.parentIdField = value;
+                this.merchantIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string MerchantPassword {
+            get {
+                return this.merchantPasswordField;
+            }
+            set {
+                this.merchantPasswordField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Email {
+            get {
+                return this.emailField;
+            }
+            set {
+                this.emailField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string PaymentCode {
+            get {
+                return this.paymentCodeField;
+            }
+            set {
+                this.paymentCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string UpdateTime {
+            get {
+                return this.updateTimeField;
+            }
+            set {
+                this.updateTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool Isdefault {
+            get {
+                return this.isdefaultField;
+            }
+            set {
+                this.isdefaultField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Id1 {
+            get {
+                return this.id1Field;
+            }
+            set {
+                this.id1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int St1 {
+            get {
+                return this.st1Field;
+            }
+            set {
+                this.st1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PaymentFee {
+            get {
+                return this.paymentFeeField;
+            }
+            set {
+                this.paymentFeeField = value;
             }
         }
     }
@@ -1818,6 +1974,77 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.resultsCountField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Location {
+        
+        private int idField;
+        
+        private string nameField;
+        
+        private int parentIdField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ParentId {
+            get {
+                return this.parentIdField;
+            }
+            set {
+                this.parentIdField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void GetPaymentAPIConfigCompletedEventHandler(object sender, GetPaymentAPIConfigCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetPaymentAPIConfigCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetPaymentAPIConfigCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public PaymentConfig[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((PaymentConfig[])(this.results[0]));
             }
         }
     }

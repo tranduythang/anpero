@@ -48,13 +48,9 @@ namespace AnperoFrontend.handler
                             string DomainName = HttpContext.Current.Request.Url.Scheme+@"://"+HttpContext.Current.Request.Url.Host;
                             
                             Anpero.PaymentApi.NganLuong.RequestInfo info = new Anpero.PaymentApi.NganLuong.RequestInfo();
-                            info.Merchant_id = "52084";
-                            info.Merchant_password = "3c0ba9b81b28cbfa3d675d59fc5ccc41";
-                            info.Receiver_email = "thangtd.hn@gmail.com";//must be register email
-                            // for test
-                            //info.Merchant_id = "36680";
-                            //info.Merchant_password = "matkhauketnoi";
-                            //info.Receiver_email = "demo@nganluong.vn";
+                            info.Merchant_id = "36680";
+                            info.Merchant_password = "matkhauketnoi";
+                            info.Receiver_email = "demo@nganluong.vn";//must be register email                         
                             info.cur_code = "vnd";
                             info.bank_code = str_bankcode;
 

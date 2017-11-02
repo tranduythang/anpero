@@ -305,8 +305,12 @@
                                 data: { op: "nlCheckout", detail: "Thanh toán cho đơn hàng số #" + rs, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, price: _totalPrice, shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee), orderId: rs, payment_method: _paymentType, bankcode: _bankcode },
                             
                                 success: function (checkOutUrl) {                                    
-                                    if (Util.isUrl(checkOutUrl))
-                                    window.location.href = checkOutUrl;
+                                    if (Util.isUrl(checkOutUrl)) {
+                                        window.location.href = checkOutUrl;
+                                    } else {
+                                        Util.notify("", checkOutUrl);
+                                    }
+                                    
                                 }
                             });
                         } else {
