@@ -20,8 +20,8 @@ namespace AnperoFrontend.handler
             {
                 string op = context.Request["op"].ToLower();
                 string captcha = context.Request["captcha"];
-                int price = Convert.ToInt32(context.Request["price"]);
-                int orderId = Convert.ToInt32(context.Request["orderId"]);
+                int price = Convert.ToInt32(context.Request["price"].Replace(@".",string.Empty).Replace(@".", string.Empty));
+                int orderId = Convert.ToInt32(context.Request["orderId"].Replace(@",", string.Empty));
 
                 string name = context.Request["name"];
                 string shipingFee = context.Request["shipingFee"];
@@ -60,7 +60,7 @@ namespace AnperoFrontend.handler
                                         string DomainName = HttpContext.Current.Request.Url.Scheme + @"://" + HttpContext.Current.Request.Url.Host;
 
                                         Anpero.PaymentApi.NganLuong.RequestInfo info = new Anpero.PaymentApi.NganLuong.RequestInfo();
-                                        info.Merchant_id = pa[i].Id.ToString();
+                                        info.Merchant_id = pa[i].MerchantId.ToString();
                                         info.Merchant_password = pa[i].MerchantPassword;
                                         info.Receiver_email = pa[i].Email;
 
@@ -99,7 +99,7 @@ namespace AnperoFrontend.handler
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
 
