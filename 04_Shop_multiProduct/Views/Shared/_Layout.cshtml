@@ -24,14 +24,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@ViewBag.Title</title>
+    <title>@Html.Raw(ViewBag.Title)</title>
     <meta property="og:locale" content="vi_VN" />
     <meta property="og:type" content="website" />
     <meta name="distribution" content="Global" />
     <meta name="revisit-after" content="1 days" />
     <meta http-equiv="REFRESH" content="1800" />
     <meta name="robots" content="index,follow,all" />
-    <meta property="og:title" content="@ViewBag.Title" />
+    <meta property="og:title" content="@Html.Raw(ViewBag.Title)" />
     @RenderSection("health", required: false)
     @Styles.Render("~/Content/css")
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />

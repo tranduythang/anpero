@@ -76,19 +76,20 @@ namespace AnperoFrontend.Controllers
             int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
             if (HttpRuntime.Cache["commonInfo"] != null)
             {                
-                filterContext.Controller.ViewData["commonInfo"] = HttpRuntime.Cache["commonInfo"];
+                Webconfig rs= (Webconfig)HttpRuntime.Cache["commonInfo"];
+              //  filterContext.Controller.ViewBag.Title = rs.Name;
+                filterContext.Controller.ViewData["commonInfo"] = rs;
             }
             else
             {
                 WebService.AnperoService service = new WebService.AnperoService();
-                var rs = service.GetCommonConfig(CommonConfig.StoreID, CommonConfig.TokenKey);
+                Webconfig rs = service.GetCommonConfig(CommonConfig.StoreID, CommonConfig.TokenKey);
+               // filterContext.Controller.ViewBag.Title = rs.Name;
                 filterContext.Controller.ViewData["commonInfo"] = rs;
                 if (rs != null)
                 {
                     HttpRuntime.Cache.Insert("commonInfo", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
-                              
-
             }
           
 

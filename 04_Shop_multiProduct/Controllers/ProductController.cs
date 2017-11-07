@@ -70,13 +70,20 @@ namespace AnperoFrontend.Controllers
         public ActionResult Search(string category, string keyword)
         {            
             string pageQuery = Request.QueryString["page"];
+            WebService.SearchResult rs;
             int page = 1;
             if (!string.IsNullOrEmpty(pageQuery))
             {
                 page = Convert.ToInt32(pageQuery);
             }
             WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, category, "", "", 0, 999999999, page, 14, keyword, SearchOrder.NameDesc, 0);
+            if (!string.IsNullOrEmpty(category)&& category.Contains(@"c-"))
+            {
+                category = category.Replace(@"c-", string.Empty);                
+                rs = sv.SearchProduct(StoreID, TokenKey,"" , category, "", 0, 999999999, page, 14, keyword, SearchOrder.NameDesc, 0);
+                
+            }
+           rs = sv.SearchProduct(StoreID, TokenKey, category, "", "", 0, 999999999, page, 14, keyword, SearchOrder.NameDesc, 0);
             ViewData["productList"] = rs;
             ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
             if (rs != null && rs.Item.Length > 0)
