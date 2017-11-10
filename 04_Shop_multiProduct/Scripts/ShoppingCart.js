@@ -216,23 +216,23 @@
 
         if (_paymentType == "NL" || _paymentType == "ATM_ONLINE" || _paymentType == "VISA") {
             if (_shipingType == "0" || _shipingType == "1") {
-                // chuyển phát chậm và thanh toán online
+                // chuyển phát chậm 
                 _payMentType = 3
             } else {
-                // chuyển phát nhanh và thanh toán online
+                // chuyển phát nhanh
                 _payMentType = 4;
             }
             isPaymentOnline = true;
         } else {
             switch (_shipingType) {
                 case "0":
-                    _payMentType = 0; //chuyển phát thường thanh toán chuyển khoản hoặc tại cửa hàng
+                    _payMentType = 0;
                     break;
                     //vận chuyển thường
                 case "1":
                     switch (_paymentType) {
                         case "0":
-                            _payMentType = 0;//chuyển phát thường thanh toán chuyển khoản hoặc tại cửa hàng
+                            _payMentType = 0;
                             break;
                         case "1":
                             _payMentType = 6;
@@ -275,6 +275,7 @@
                 datatype: "text/plain",
                 data: { op: "CreateOrder", detail: _detail, PayMentType: _payMentType, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, ProductList: $.cookie("CartList"), shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee) },
                 success: function (rs) {
+
                     $("#ajax_loader").hide();
                     if (!isNaN(rs)) {
                         $.removeCookie('CartList', { path: '/' });

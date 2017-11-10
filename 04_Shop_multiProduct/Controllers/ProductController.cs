@@ -80,12 +80,20 @@ namespace AnperoFrontend.Controllers
             if (!string.IsNullOrEmpty(category)&& category.Contains(@"c-"))
             {
                 category = category.Replace(@"c-", string.Empty);                
-                rs = sv.SearchProduct(StoreID, TokenKey,"" , category, "", 0, 999999999, page, 14, keyword, SearchOrder.NameDesc, 0);
-                
+                rs = sv.SearchProduct(StoreID, TokenKey,"%" , category, "", 0, 999999999, page, 14, keyword, SearchOrder.NameDesc, 0);
+
             }
-           rs = sv.SearchProduct(StoreID, TokenKey, category, "", "", 0, 999999999, page, 14, keyword, SearchOrder.NameDesc, 0);
+            else
+            {
+                rs = sv.SearchProduct(StoreID, TokenKey, category, "", "", 0, 999999999, page, 14, keyword, SearchOrder.NameDesc, 0);
+            }
+           
             ViewData["productList"] = rs;
-            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+            if(rs!=null)
+            {
+                ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+            }
+            
             if (rs != null && rs.Item.Length > 0)
             {
                 ViewBag.Title = rs.Item[0].CatName;
