@@ -10,7 +10,7 @@
     <div class="header-banner">
         <div class="assetBlock">
             <div style="height: 20px; overflow: hidden;" id="slideshow">
-                <p style="display: block;">HOT DAYS! - <span>10%</span> KHÁCH ĐẶT HÀNG ONLINE! &gt;</p><p style="display: none;">HOTLINE: <span>@commonInfo.HotLine</span> ĐẶT HÀNG NGAY! &gt;</p>
+                <p style="display: block;">GIẢM GIÁ - <span>5%</span> KHÁCH THANH TOÁN ONLINE! &gt;</p><p style="display: none;">HOTLINE: <a href="tel:@commonInfo.HotLine"><span>@commonInfo.HotLine</span> ĐẶT HÀNG NGAY! &gt;</a></p>
             </div>
         </div>
     </div>
@@ -19,7 +19,8 @@
             <div class="row">
                 <div class="logo">
                     <a href="/" title="@commonInfo.Desc">
-                        <div><img src="@commonInfo.Logo" alt="@commonInfo.Name"></div>
+                        <div><img src="@commonInfo.Logo" alt="@commonInfo.Name"></div>   
+                                          
                     </a>
                 </div>
                 <div class="fl-nav-menu">
@@ -32,74 +33,10 @@
                                 <li id="nav-home" class="level0 parent drop-menu"><a class="level-top active" href="/"><span>Trang Chủ</span></a></li>
                                 <li class="level0 parent drop-menu"><a class="level-top" href="/about"><span>Giới thiệu</span></a></li>
                                 <li class="mega-menu">
-                                    <a class="level-top" href="/ca-nuong-tay-bac-c166"><span>Các món cá nướng‎</span></a>
-                                    @*<div class="level0-wrapper dropdown-6col" style="left: 0px; display: none;">
-                                        <div class="container">
-                                            <div class="level0-wrapper2">
-                                                <div class="nav-block nav-block-center">
-                                                    <ul class="level0">
-                                                        @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
-                                                        {
-                                                            foreach (var item in commonInfo.ProductCategoryList)
-                                                            {
-                                                                if (item.ChildCategory != null && item.ChildCategory.Length == 0)
-                                                                {
-                                                                    <li class="level3 nav-6-1 parent item"> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)"><span>@item.Name‎</span></a> </li>
-                                                                }
-                                                                else
-                                                                {
-                                                                    <li class="level3 nav-6-1 parent item">
-                                                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)"><span>@item.Name</span> </a>
-                                                                        <ul class="level1">
-                                                                            @foreach (var chidItem in item.ChildCategory)
-                                                                            {
-                                                                                <li class="level2 nav-6-1-1"><a href="@Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)"><span>@chidItem.Name</span></a></li>
-                                                                            }
-                                                                        </ul>
-                                                                    </li>
-                                                                }
-                                                            }
-                                                        }
-                                                    </ul>
-                                                </div>
-                                                @if (ViewData["slide4"] != null)
-                                                {
-                                                    Ads[] slide = (Ads[])ViewData["slide4"];
-                                                    <div class="nav-add">
-                                                        @if (slide.Length > 0)
-                                                        {
-                                                            for (int i = 0; i < slide.Length; i ++)
-                                                            {
-                                                                if (i == slide.Length - 1)
-                                                                {
-                                                                    <div class="push_item push_item_last">
-                                                                        <div class="push_img">
-                                                                            <a href="@slide[i].ClickUrl">
-                                                                                <img src="@slide[i].ImagesUrl" alt="@slide[i].Description" />
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                }
-                                                                else
-                                                                {
-                                                                    <div class="push_item">
-                                                                        <div class="push_img">
-                                                                            <a href="@slide[i].ClickUrl">
-                                                                                <img src="@slide[i].ImagesUrl" alt="@slide[i].Description" />
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                }
-                                                            }
-                                                        }
-                                                    </div>
-                                                }
-                                            </div>
-                                        </div>
-                                    </div>*@
+                                    <a class="level-top" href="/search?category=0&keyword="><span>Sản phẩm</span></a>                        
                                 </li>
                                 <li class="fl-custom-tabmenulink mega-menu">
-                                    <a href="#" class="level-top"> <span>Sản phẩm khuyến mại</span> </a>
+                                    <a href="#" class="level-top"> <span>Khuyến mại</span> </a>
                                     <div class="level0-wrapper fl-custom-tabmenu" style="left: 0px; display: none;">
                                         <div class="container">
                                             <div class="header-nav-dropdown-wrapper clearer">
@@ -135,17 +72,17 @@
                                     <ul class="level1">
                                         <li class="level1"><a title="blog" href="/blog"><span>Blogs Tin tức</span></a></li>
                                         <li class="level1">
-                                            <a title="shipper" href="/chinh-sach-van-chuyen-a86">
+                                            <a title="shipper" href="/shippolicy">
                                                 <span>Vận chuyển</span>
                                             </a>
                                         </li>
                                         <li class="level1">
-                                            <a title="rollback" href="/chinh-sach-doi-tra-hang-tai-ngonlan-a84">
+                                            <a title="rollback" href="/ProductReturnPolicy">
                                                 <span>Chính sách đổi trả</span>
                                             </a>
                                         </li>
                                         <li class="level1">
-                                            <a title="pay" href="/huong-dan-thanh-toan-khi-mua-hang-t-a85">
+                                            <a title="pay" href="/PaymentInfo">
                                                 <span>Hướng dẫn thanh toán</span>
                                             </a>
                                         </li>

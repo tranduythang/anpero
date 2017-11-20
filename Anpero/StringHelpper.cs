@@ -525,6 +525,17 @@ namespace Anpero
                 return "/";
             }
         }
+        public static string GetProductgROUPLink(string productName, int productId)
+        {
+            if (!string.IsNullOrEmpty(productName) && productId > 0)
+            {
+                return "/" + toURLgach(productName) + "-g" + productId;
+            }
+            else
+            {
+                return "/";
+            }
+        }
         public static string GetProductLink(string parentCatName, string productName, int productId)
         {
             if (!string.IsNullOrEmpty(parentCatName) && !string.IsNullOrEmpty(productName) && productId > 0)

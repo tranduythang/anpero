@@ -45,7 +45,29 @@ namespace AnperoFrontend.Controllers
             SetUpSeo(2, id);
             return View("List");
         }
-       
+        [BuildCommonHtml]
+        public ActionResult Group(int id)
+        {
+            string pageQuery = Request.QueryString["page"];
+            int page = 1;
+            if (!string.IsNullOrEmpty(pageQuery))
+            {
+                page = Convert.ToInt32(pageQuery);
+            }
+            WebService.AnperoService sv = new WebService.AnperoService();
+            WebService.SearchResult rs = sv.GetProductByGroup(StoreID, TokenKey, id, page, 14, 0);
+            ViewData["productList"] = rs;
+            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+
+            ViewBag.isParent = "1";
+            if (rs != null && rs.Item.Length > 0)
+            {
+                ViewBag.Title = rs.Item[0].ParentCatName;
+            }
+            SetupCommonProduct();
+            SetUpSeo(1, id);
+            return View("List");
+        }
         [BuildCommonHtml]
         public ActionResult ParentCategory(int id)
         {
@@ -94,7 +116,6 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult Checkout()
         {
-
             return View();
         }
          private void SetUpSeo(int type,int categoryId)
