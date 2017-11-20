@@ -28,32 +28,7 @@
     {
         <!-- Slider-->
         @Html.Partial("_partial/_HomeSlide_1");
-       <div id="top">
-            <div class="container">
-                <div class="row">
-                    <ul>
-                        @if (ViewData["AdsSlide"] != null)
-                        {
-                            Ads[] slide = (Ads[])ViewData["AdsSlide"];
-                            if (slide.Length > 0)
-                            {
-                                for (int i = 0; i < slide.Length; i ++)
-                                {
-                                    <li>
-                                        <div>
-                                            <a href="@slide[i].ClickUrl" data-scroll-goto="@(i+1)">
-                                                <img src="@slide[i].ImagesUrl" alt="@slide[i].Description" />
-                                            </a>
-                                        </div>
-                                    </li>
-                                }
-                            }
-                        }
-                    </ul>
-                </div>
-            </div>
-        </div> 
-    }  
+        }  
     
     <section class="wow bounceInUp animated">
         <div class="best-pro slider-items-products container" style="margin-top: 50px;">
@@ -168,62 +143,7 @@
             }
         </div>
     }
-    <div class="brand-logo wow bounceInUp animated">
-        <div class="container">
-            <div class="row">
-                <div class="logo-brand col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="new_title">
-                        <h2>Đối tác và Sản phẩm</h2>
-                    </div>
-                    <div class="slider-items-products">
-                        <div id="brand-slider" class="product-flexslider hidden-buttons">
-                            <div class="slider-items slider-width-col6">
-                                @if (ViewData["slide5"] != null)
-                                {
-                                    Ads[] slide = (Ads[])ViewData["slide5"];
-                                    if (slide.Length > 0)
-                                    {
-                                        for (int i = 0; i < slide.Length / 2; i++ )
-                                        { 
-                                            int j = i * 2;
-                                            <!-- Item -->
-                                            <div class="item">
-                                                <div class="logo-item"><a href="@slide[j].ClickUrl" target="_blank"><img src="@slide[j].ImagesUrl" alt="@slide[j].Description"></a></div>
-                                                <div class="logo-item"><a href="@slide[j+1].ClickUrl" target="_blank"><img src="@slide[j+1].ImagesUrl" alt="@slide[j+1].Description"></a></div>
-                                            </div>
-                                            <!-- End Item -->
-                                        }
-                                    }
-                                }
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 testimonials-section" ads-data="slide6">
-                    <div class="offer-slider parallax parallax-2">
-                        <ul class="bxslider">
-                            @if (ViewData["slide6"] != null)
-                            {
-                                Ads[] slide = (Ads[])ViewData["slide6"];
-                                if (slide.Length > 0)
-                                {
-                                    for (int i = 0; i < slide.Length; i++)
-                                    {
-                                        <li>
-                                            <div class="avatar">
-                                                <img src="@slide[i].ImagesUrl" alt="Image">
-                                            </div>
-                                            @Html.Raw(slide[i].Description) 
-                                        </li>
-                                    }
-                                }
-                            }
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 </div>
 
 
