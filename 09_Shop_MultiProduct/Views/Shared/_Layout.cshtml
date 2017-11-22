@@ -30,40 +30,8 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
     @RenderSection("canonical", required: false)
-    <!-- Google Analytics-->
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-104932218-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
-    <!-- End Google Analytics-->
-    <!-- Google Tag Manager -->
-    <script>
-        (function (w, d, s, l, i) {
-        w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-        new Date().getTime(), event: 'gtm.js'
-        }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-W485FRW');
-    </script>
-    <!-- End Google Tag Manager -->
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W485FRW"
-                height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <h1 id="heading1" style="display:none;">
         @commonInfo.Desc
     </h1>
@@ -78,89 +46,16 @@
     @Html.Raw(commonInfo.PageScript)
 
     @Html.Partial("_partial/_MainFooter_1")
-
-    <script type="text/javascript" src="/assets/js/parallax.js"></script>
-    <script type="text/javascript" src="/assets/js/revslider.js"></script>
+    <script type="text/javascript" src="/assets/js/parallax.js"></script>    
     <script type="text/javascript" src="/assets/js/common.js"></script>
-    <script type="text/javascript" src="/assets/js/jquery.bxslider.min.js"></script>
+    
     <script type="text/javascript" src="/assets/js/owl.carousel.min.js"></script>
     <script type="text/javascript" src="/assets/js/jquery.mobile-menu.min.js"></script>
-    @RenderSection("scripts", required: false)
-    <script type="text/javascript">
-        jQuery(document).ready(function () {
-            jQuery('#thm-rev-slider').show().revolution({
-                dottedOverlay: 'none',
-                delay: 5000,
-                startwidth: 0,
-                startheight: 900,
-
-                hideThumbs: 200,
-                thumbWidth: 200,
-                thumbHeight: 50,
-                thumbAmount: 2,
-
-                navigationType: 'thumb',
-                navigationArrows: 'solo',
-                navigationStyle: 'round',
-
-                touchenabled: 'on',
-                onHoverStop: 'on',
-
-                swipe_velocity: 0.7,
-                swipe_min_touches: 1,
-                swipe_max_touches: 1,
-                drag_block_vertical: false,
-
-                spinner: 'spinner0',
-                keyboardNavigation: 'off',
-
-                navigationHAlign: 'center',
-                navigationVAlign: 'bottom',
-                navigationHOffset: 0,
-                navigationVOffset: 20,
-
-                soloArrowLeftHalign: 'left',
-                soloArrowLeftValign: 'center',
-                soloArrowLeftHOffset: 20,
-                soloArrowLeftVOffset: 0,
-
-                soloArrowRightHalign: 'right',
-                soloArrowRightValign: 'center',
-                soloArrowRightHOffset: 20,
-                soloArrowRightVOffset: 0,
-
-                shadow: 0,
-                fullWidth: 'on',
-                fullScreen: 'on',
-
-                stopLoop: 'off',
-                stopAfterLoops: -1,
-                stopAtSlide: -1,
-
-                shuffle: 'off',
-
-                autoHeight: 'on',
-                forceFullWidth: 'off',
-                fullScreenAlignForce: 'off',
-                minFullScreenHeight: 0,
-                hideNavDelayOnMobile: 1500,
-
-                hideThumbsOnMobile: 'off',
-                hideBulletsOnMobile: 'off',
-                hideArrowsOnMobile: 'off',
-                hideThumbsUnderResolution: 0,
-
-                hideSliderAtLimit: 0,
-                hideCaptionAtLimit: 0,
-                hideAllCaptionAtLilmit: 0,
-                startWithSlide: 0,
-                fullScreenOffsetContainer: ''
-            });
-        });
-    </script>
+    @RenderSection("scripts", required: false)   
     <script type="text/javascript">
         jQuery(window).load(function () {
             Cart.bindCart();
+           
         });
     </script>
 </body>

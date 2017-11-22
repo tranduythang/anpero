@@ -108,36 +108,43 @@ namespace AnperoFrontend.Controllers
             switch (type)
             {
                 case 1:
-                    foreach (var item in commonInfo.ProductCategoryList)
+                    if (commonInfo.ProductCategoryList != null)
                     {
-                        if(item.Id== categoryId)
+                        foreach (var item in commonInfo.ProductCategoryList)
                         {
-                            ViewBag.Keywords = item.Keywords;
-                            ViewBag.Description = item.Description;
-                            ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
-                             Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id);
-                            ViewBag.ImageUrl = item.Images;
-                            break;
-                        }
-                    }
-                    break;
-                case 2:
-                    foreach (var item in commonInfo.ProductCategoryList)
-                    {
-                        foreach (var chidItem in item.ChildCategory)
-                        {
-                            if (chidItem.Id == categoryId)
+                            if (item.Id == categoryId)
                             {
                                 ViewBag.Keywords = item.Keywords;
                                 ViewBag.Description = item.Description;
                                 ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
-                                 Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id);
+                                 Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id);
                                 ViewBag.ImageUrl = item.Images;
                                 break;
                             }
                         }
-                      
                     }
+                    break;
+                case 2:
+                    if (commonInfo.ProductCategoryList != null)
+                    {
+                        foreach (var item in commonInfo.ProductCategoryList)
+                        {
+                            foreach (var chidItem in item.ChildCategory)
+                            {
+                                if (chidItem.Id == categoryId)
+                                {
+                                    ViewBag.Keywords = item.Keywords;
+                                    ViewBag.Description = item.Description;
+                                    ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
+                                     Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id);
+                                    ViewBag.ImageUrl = item.Images;
+                                    break;
+                                }
+                            }
+
+                        }
+                    }
+                   
                     break;
                 default:
                     ViewBag.Keywords ="Tìm kiếm "+ commonInfo.Name +"| " +commonInfo.Desc;

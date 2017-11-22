@@ -61,6 +61,24 @@ namespace AnperoFrontend.Controllers
             }
            
             ViewData["newestProduct"] = searchResult;
+                        
+            WebService.SearchResult searchResult2 = new WebService.SearchResult();
+            
+            if (HttpRuntime.Cache["customProduct"] != null)
+            {
+                searchResult = (WebService.SearchResult)HttpRuntime.Cache["customProduct"];
+            }
+            else
+            {
+                searchResult = service.GetProductByParentCategory(StoreID, TokenKey, 178, 1, 8, 0);
+                if (searchResult != null)
+                {
+                    HttpRuntime.Cache.Insert("customProduct", searchResult, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                }
+
+            }
+
+            ViewData["customProduct"] = searchResult;
 
         }
         [BuildCommonHtml]

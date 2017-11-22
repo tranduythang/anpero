@@ -59,7 +59,7 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                BestsaleProduct = sv.SearchProduct(StoreID, TokenKey, "", "", "", 0, 99999999, 1, 10, "", SearchOrder.TimeDesc, 1);
+                BestsaleProduct = sv.SearchProduct(StoreID, TokenKey, "", "", "", 0, 99999999, 1, 7, "", SearchOrder.TimeDesc, 1);
                 if (BestsaleProduct != null)
                 {
                     HttpRuntime.Cache.Insert("BestsaleProduct", BestsaleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
@@ -81,20 +81,7 @@ namespace AnperoFrontend.Controllers
                     HttpRuntime.Cache.Insert("slide3", Slide, null, DateTime.Now.AddMinutes(shortCacheTime + 6), TimeSpan.Zero);
                 }
             }
-            //slide of prodution menu
-            if (HttpRuntime.Cache["slide4"] != null)
-            {
-                ViewData["slide4"] = (WebService.Ads[])HttpRuntime.Cache["slide4"];
-            }
-            else
-            {
-                Slide = sv.GetAdsSlide(StoreID, TokenKey, PageContent.Ads4);
-                ViewData["slide4"] = Slide;
-                if (Slide != null)
-                {
-                    HttpRuntime.Cache.Insert("slide4", Slide, null, DateTime.Now.AddMinutes(shortCacheTime + 6), TimeSpan.Zero);
-                }
-            }
+           
         }
 
     }
@@ -119,7 +106,7 @@ namespace AnperoFrontend.Controllers
             }
         }
     }
-
+   
     public partial class CommonConfig
     {
         public static int StoreID = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["storeID"]);

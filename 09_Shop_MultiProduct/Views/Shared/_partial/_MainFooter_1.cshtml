@@ -159,51 +159,31 @@
                                 <div class="fb-page"
                                      data-tabs="messages"
                                      data-href="@Html.Raw(commonInfo.FaceBookLink)"
-                                     data-height="220"
+                                     data-height="310"
                                      data-hide-cover="false">
                                 </div>
                             }
                         </div>
                     </div>
-
-                    <!--col-sm-12 col-xs-12 col-lg-8-->
-                    <!--col-xs-12 col-lg-4-->
                 </div>
-                <!--row-->
             </div>
-
-            <!--container-->
         </div>
-        <!--footer-inner-->
-
         <div class="footer-middle">
             <div class="container">
                 <div class="row">
                     <div class="row"> </div>
                 </div>
-                <!--row-->
             </div>
-            <!--container-->
         </div>
-        <!--footer-middle-->
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12 col-xs-12 coppyright">© 2016 Vinfish. All Rights Reserved. Power by Cao Phong 0986249625</div>
-
-                </div>
-                <!--row-->
-            </div>
-            <!--container-->
-        </div>
-        <!--footer-bottom-->
-        <!-- BEGIN SIMPLE FOOTER -->
+                    <div class="col-sm-12 col-xs-12 coppyright">© 2016 Vinfish. All Rights Reserved. Power by <a href="http://anpero.com" title="thiết kế web quản lý bán hàng, thiết kế web chuyên nghiệp">Anpero</a></div>
+                </div>                
+            </div>            
+        </div>        
     </footer>
 </div>
-
-<!-- End For version 1,2,3,4,6 -->
-<!--page-->
-<!-- Mobile Menu-->
 <div id="mobile-menu">
     <ul>
         <li>
@@ -241,6 +221,19 @@
                 }
             </ul>
         </li>
+        @if(commonInfo.ProductGroupList!=null && commonInfo.ProductGroupList.Length > 0)
+        {
+            <li>
+                <a href="/search?category=0&keyword=">Phòng</a>
+                <ul>
+                    @foreach (var item in commonInfo.ProductGroupList)
+                    {
+                        <li><a href="@Anpero.StringHelpper.GetProductGroupLink(item.Name, item.Id)"><span>@item.Name</span></a></li>
+                    }
+                </ul>
+
+            </li>
+        }
         @if (ViewData["saleProduct"] != null)
         {
             AnperoFrontend.WebService.ProductItem[] saleProduct = (AnperoFrontend.WebService.ProductItem[])ViewData["saleProduct"];

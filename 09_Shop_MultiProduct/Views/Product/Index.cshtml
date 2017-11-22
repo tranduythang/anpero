@@ -77,7 +77,7 @@
                                         </div>
                                         <span itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
                                             <div class="rating">
-                                                <div class="ratings">                                                   
+                                                <div class="ratings">
                                                     <p class="rating-links"><a href="tel:@commonInfo.HotLine">Gọi: @commonInfo.HotLine hoặc click mua ngay để đặt hàng</a> </p>
                                                 </div>
                                             </div>
@@ -92,8 +92,8 @@
                                                         <p class="special-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span> </p>
                                                     }
                                                     else
-                                                    {
-                                                        <p><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                                    {                                                        
+                                                        <p><span class="price">@(item.Price == 0 ? "Đang cập nhật giá" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span> </p>
                                                     }
                                                 </span> 
                                             </div>
@@ -147,8 +147,7 @@
 
                                                     }
                                                     <li class="tw pull-left"><a target="_blank" rel="nofollow" href="http://www.twitter.com/share?url=@ViewBag.WebsiteUrl" title="Twitter"></a></li>
-                                                    <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="https://plus.google.com/share?url=@ViewBag.WebsiteUrl" title="GooglePlus"></a></li>
-                                                    @*<li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="http://pinterest.com/pinthis?url=@thisUrl" title="PInterest"></a></li>*@
+                                                    <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="https://plus.google.com/share?url=@ViewBag.WebsiteUrl" title="GooglePlus"></a></li>                                                    
                                                 }
                                             </ul>
                                         </div>
@@ -175,7 +174,7 @@
                                         <h2>Sản phẩm liên quan</h2>
                                     </div>
                                     <div id="related-slider" class="product-flexslider hidden-buttons">
-                                        <div class="slider-items slider-width-col4 products-grid">
+                                        <div class="slider-items slider-width-col4 products-grid owl-carousel owl-theme">
                                             @if (ViewData["relateProduct"] != null)
                                             {
                                                 AnperoFrontend.WebService.SearchResult relateProduct = (AnperoFrontend.WebService.SearchResult)ViewData["relateProduct"];
@@ -185,7 +184,7 @@
                                                     {
                                                         <div class="item">
                                                             <div class="item-inner">
-                                                                <div class="item-img">
+                                                                <div class="item-img relatepr-img">
                                                                     <div class="item-img-info">
                                                                         <a href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName" class="product-image">
                                                                             <img src="@items.Images" alt="@items.PrName">
@@ -209,17 +208,10 @@
                                                                                 @items.PrName
                                                                             </a>
                                                                         </div>
-                                                                        <div class="item-content">
-                                                                            <div class="rating">
-                                                                                <div class="ratings">
-                                                                                    <div class="rating-box">
-                                                                                        <div class="rating" style="width:80%"></div>
-                                                                                    </div>
-                                                                                    <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                                                                </div>
-                                                                            </div>
+                                                                        <div class="item-content">                                                                        
                                                                             <div class="item-price">
-                                                                                <div class="price-box"><span class="regular-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(items.Price) đ</span> </span> </div>
+                                                                                <div class="price-box"><span class="regular-price"><span class="price">@(items.Price==0?"Liên hệ":Anpero.StringHelpper.ConVertToMoneyFormatInt(items.Price)+" đ") </span> </span> </div>
+                                                                                
                                                                             </div>
                                                                             <div class="add_cart">
                                                                                 <button class="button btn-cart" type="button" onclick="Cart.addProduct(@items.Id,@items.Price,'@items.Images','@items.PrName');"><span>Mua ngay</span></button>
@@ -247,7 +239,6 @@
         <script type="text/javascript" src="~/assets/js/jquery.flexslider.js"></script>
         <script type="text/javascript" src="~/assets/js/jquery.bxslider.min.js"></script>
         <script type="text/javascript" src="~/assets/js/cloud-zoom.js"></script>
-
     }
 }
 
