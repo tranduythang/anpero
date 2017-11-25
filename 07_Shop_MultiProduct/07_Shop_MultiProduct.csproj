@@ -22,6 +22,7 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -294,6 +295,23 @@
     <Content Include="assets\js\parallax.js" />
     <Content Include="assets\js\revslider.js" />
     <Content Include="assets\js\slider.js" />
+    <Content Include="assets\plugins\fancybox-3\dist\jquery.fancybox.css" />
+    <Content Include="assets\plugins\fancybox-3\dist\jquery.fancybox.js" />
+    <Content Include="assets\plugins\fancybox-3\dist\jquery.fancybox.min.css" />
+    <Content Include="assets\plugins\fancybox-3\dist\jquery.fancybox.min.js" />
+    <Content Include="assets\plugins\fancybox-3\docs\index.html" />
+    <Content Include="assets\plugins\fancybox-3\gulpfile.js" />
+    <Content Include="assets\plugins\fancybox-3\src\css\core.css" />
+    <Content Include="assets\plugins\fancybox-3\src\css\fullscreen.css" />
+    <Content Include="assets\plugins\fancybox-3\src\css\slideshow.css" />
+    <Content Include="assets\plugins\fancybox-3\src\css\thumbs.css" />
+    <Content Include="assets\plugins\fancybox-3\src\js\core.js" />
+    <Content Include="assets\plugins\fancybox-3\src\js\fullscreen.js" />
+    <Content Include="assets\plugins\fancybox-3\src\js\guestures.js" />
+    <Content Include="assets\plugins\fancybox-3\src\js\hash.js" />
+    <Content Include="assets\plugins\fancybox-3\src\js\media.js" />
+    <Content Include="assets\plugins\fancybox-3\src\js\slideshow.js" />
+    <Content Include="assets\plugins\fancybox-3\src\js\thumbs.js" />
     <Content Include="assets\plugins\jquery.lazyload.min.js" />
     <Content Include="assets\stylesheet\bootstrap.min.css" />
     <Content Include="assets\stylesheet\HoverEffects-demo.css" />
@@ -366,6 +384,8 @@
     <Content Include="assets\fonts\site-icons.eot" />
     <Content Include="assets\fonts\site-icons.ttf" />
     <Content Include="assets\fonts\site-icons.woff" />
+    <Content Include="assets\plugins\fancybox-3\package.json" />
+    <Content Include="assets\plugins\fancybox-3\README.md" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -458,7 +478,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="assets\plugins\fancybox-3\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
