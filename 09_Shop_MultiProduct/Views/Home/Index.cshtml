@@ -23,11 +23,12 @@
 }
 
 <div class="content">
+ 
+    
     @if (!Request.Browser.IsMobileDevice)
-    {
-        <!-- Slider-->
-        @Html.Partial("_partial/_HomeSlide_1");
-        }  
+    {      
+                @Html.Partial("_partial/_HomeSlide_1")        
+    }  
     <section class="wow bounceInUp animated">
         <div class="best-pro slider-items-products container" style="margin-top: 50px;">
             <div class="new_title">
