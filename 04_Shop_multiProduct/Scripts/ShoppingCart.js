@@ -264,6 +264,10 @@
                     _payMentType = 0;
             }
         }
+        if (isPaymentOnline && $('input[name=bankcode]:checked').val() == null) {
+            valid = false;
+            Util.notify("", "Vui lòng chọn ngân hàng thanh toán. ");
+        }
         if (valid) {
             $("#cartContent1").hide();
             $("#cartContent2").show();
