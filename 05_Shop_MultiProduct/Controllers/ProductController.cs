@@ -97,19 +97,37 @@ namespace AnperoFrontend.Controllers
 
             return View();
         }
-         private void SetUpSeo(int type,int categoryId)
+        private void SetUpSeo(int type, int categoryId)
         {
-            AnperoFrontend.WebService.Webconfig commonInfo = (AnperoFrontend.WebService.Webconfig)HttpRuntime.Cache["commonInfo"];
+
+            AnperoFrontend.WebService.Webconfig commonInfo = null;
+            if (HttpRuntime.Cache["commonInfo"] != null)
+            {
+                ViewData["commonInfo"] = HttpRuntime.Cache["commonInfo"];
+                commonInfo = (AnperoFrontend.WebService.Webconfig)HttpRuntime.Cache["commonInfo"];
+            }
+            else
+            {
+                WebService.AnperoService service = new WebService.AnperoService();
+                var rs = service.GetCommonConfig(CommonConfig.StoreID, CommonConfig.TokenKey);
+                ViewData["commonInfo"] = rs;
+                commonInfo = rs;
+                if (rs != null)
+                {
+                    HttpRuntime.Cache.Insert("commonInfo", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                }
+            }
+
             //Get Description and Keywords of Category production
             ViewBag.Description = string.Empty;
             ViewBag.Keywords = string.Empty;
             ViewBag.WebsiteUrl = string.Empty;
             ViewBag.ImageUrl = string.Empty;
-            switch (type)
+            if (commonInfo != null)
             {
-                case 1:
-                    if (commonInfo.ProductCategoryList != null)
-                    {
+                switch (type)
+                {
+                    case 1:
                         foreach (var item in commonInfo.ProductCategoryList)
                         {
                             if (item.Id == categoryId)
@@ -122,11 +140,8 @@ namespace AnperoFrontend.Controllers
                                 break;
                             }
                         }
-                    }
-                    break;
-                case 2:
-                    if (commonInfo.ProductCategoryList != null)
-                    {
+                        break;
+                    case 2:
                         foreach (var item in commonInfo.ProductCategoryList)
                         {
                             foreach (var chidItem in item.ChildCategory)
@@ -143,16 +158,17 @@ namespace AnperoFrontend.Controllers
                             }
 
                         }
-                    }
-                   
-                    break;
-                default:
-                    ViewBag.Keywords ="Tìm kiếm "+ commonInfo.Name +"| " +commonInfo.Desc;
-                    ViewBag.Description = "Tìm kiếm trên " + commonInfo.Name + "| " + commonInfo.Desc;
-                    ViewBag.WebsiteUrl = Request.Url.AbsoluteUri;
-                    ViewBag.ImageUrl = commonInfo.Logo;
-                    break;
+                        break;
+                    default:
+                        ViewBag.Keywords = "Tìm kiếm " + commonInfo.Name + "| " + commonInfo.Desc;
+                        ViewBag.Description = "Tìm kiếm trên " + commonInfo.Name + "| " + commonInfo.Desc;
+                        ViewBag.WebsiteUrl = Request.Url.AbsoluteUri;
+                        ViewBag.ImageUrl = commonInfo.Logo;
+                        break;
+                }
+
             }
+
         }
     }
 }

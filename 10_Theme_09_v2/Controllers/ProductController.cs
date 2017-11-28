@@ -118,19 +118,21 @@ namespace AnperoFrontend.Controllers
         {
             return View();
         }
-         private void SetUpSeo(int type,int categoryId)
+        private void SetUpSeo(int type, int categoryId)
         {
 
-            AnperoFrontend.WebService.Webconfig commonInfo=null;
+            AnperoFrontend.WebService.Webconfig commonInfo = null;
             if (HttpRuntime.Cache["commonInfo"] != null)
             {
                 ViewData["commonInfo"] = HttpRuntime.Cache["commonInfo"];
+                commonInfo = (AnperoFrontend.WebService.Webconfig)HttpRuntime.Cache["commonInfo"];
             }
             else
             {
                 WebService.AnperoService service = new WebService.AnperoService();
                 var rs = service.GetCommonConfig(CommonConfig.StoreID, CommonConfig.TokenKey);
                 ViewData["commonInfo"] = rs;
+                commonInfo = rs;
                 if (rs != null)
                 {
                     HttpRuntime.Cache.Insert("commonInfo", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
@@ -187,7 +189,7 @@ namespace AnperoFrontend.Controllers
                 }
 
             }
-          
+
         }
     }
 }
