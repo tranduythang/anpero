@@ -60,17 +60,8 @@
                                                 }
                                                 else
                                                 {
-                                                    <div class="new-label new-top-left">New</div>
+                                                    <div class="new-label new-top-left">Mới</div>
                                                 }
-                                                <div class="item-box-hover">
-                                                    <div class="box-inner">
-                                                        <div class="product-detail-bnt">
-                                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="button detail-bnt" type="button">
-                                                                <span>Chi tiết</span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                         <div class="item-info">
@@ -103,7 +94,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="add_cart">
-                                                        <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Mua ngay</span></button>
+                                                        <a class="button btn-cart" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">Xem thêm</a>
+                                                      
+                                                        <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Mua hàng</span></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -145,17 +138,8 @@
                                                 }
                                                 else
                                                 {
-                                                    <div class="new-label new-top-left">New</div>
-                                                }
-                                                <div class="item-box-hover">
-                                                    <div class="box-inner">
-                                                        <div class="product-detail-bnt">
-                                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="button detail-bnt" type="button">
-                                                                <span>Chi tiết</span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                    <div class="new-label new-top-left">Mới</div>
+                                                }                                               
                                             </div>
                                         </div>
                                         <div class="item-info">
@@ -188,7 +172,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="add_cart">
-                                                        <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Mua ngay</span></button>
+                                                        <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Mua hàng</span></button>
                                                     </div>
                                                 </div>
                                             </div>
