@@ -42,9 +42,12 @@ $(window).scroll(function () {
 
         if (h > (max_h + 50) - 50) {
             $('#fl-nav-menu').addClass('nav-ontop');
+            $('.fl-header-right').addClass('search-fixed');
+            
 
         } else {
             $('#fl-nav-menu').removeClass('nav-ontop');
+            $('.fl-header-right').removeClass('search-fixed');
         }
 
     }

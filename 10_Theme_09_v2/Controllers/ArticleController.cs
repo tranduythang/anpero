@@ -37,13 +37,11 @@ namespace AnperoFrontend.Controllers
             ViewData["ArticleList"] = s;
             ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, s.ResultsCount, 11, "?page=");
             //seo
-            ViewBag.Description = "Tin tức VinFish - Blog tin chia sẽ các bài viết liên quan đến sản phẩm của VinFish. Các kinh nghiệm, mẹo vắt lựa chọn thực phẩm sạch, cá sạch. Công thức chế biến các món ăn ngon, cá nướng ngon.";
-            ViewBag.Keywords = "Kinh nghiệm lựa chọn thực phẩm sạch, Kinh nghiệm lựa chọn cá sạch, Công thức nấu ăn.";
-            ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + "/blog";
+           
             if (id == 0)
             {
                 ViewBag.CategoryName = "Blog";
-                ViewBag.Title = "Tin tức | VinFish";
+                ViewBag.Title = "Tin tức";
             }
             else
             {
@@ -59,16 +57,16 @@ namespace AnperoFrontend.Controllers
         }
         private void SetUpCommonArticle()
         {
-
-            WebService.AnperoService service = new WebService.AnperoService();
-            WebService.Ads[] Slide = null;
+            List<WebService.BlogCategory> categoryList = null;
+            WebService.AnperoService service = new WebService.AnperoService();           
             if (HttpRuntime.Cache["categoryMenuList"] != null)
             {
-                ViewData["categoryMenuList"] = (List<WebService.BlogCategory>)HttpRuntime.Cache["categoryMenuList"];
+                categoryList=(List<WebService.BlogCategory>)HttpRuntime.Cache["categoryMenuList"];
+                ViewData["categoryMenuList"] = categoryList;
             }
             else
             {
-                List<WebService.BlogCategory> categoryList = service.GetBlogCategory(StoreID, TokenKey).ToList();
+                categoryList = service.GetBlogCategory(StoreID, TokenKey).ToList();
                 ViewData["categoryMenuList"] = categoryList;
                 if (categoryList != null)
                 {
@@ -76,19 +74,18 @@ namespace AnperoFrontend.Controllers
                 }
                
             }
-            if (HttpRuntime.Cache["slide3"] != null)
+            string categoryName="";
+            if (categoryList != null)
             {
-                ViewData["slide3"] = (WebService.Ads[])HttpRuntime.Cache["slide3"];
-            }
-            else
-            {
-                Slide = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads3);
-                ViewData["slide3"] = Slide;
-                if (Slide != null)
+                for (int i = 0; i < categoryList.Count; i++)
                 {
-                    HttpRuntime.Cache.Insert("slide3", Slide, null, DateTime.Now.AddMinutes(shortCacheTime + 6), TimeSpan.Zero);
+                    categoryName += ", " + categoryList[i].Name;
                 }
             }
+         
+            ViewBag.Description = "Tin tức |"+ categoryName;
+            ViewBag.Keywords = categoryName;
+            ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + "/blog";
             GetTopArticle();
         }
     }

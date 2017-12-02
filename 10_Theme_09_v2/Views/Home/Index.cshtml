@@ -172,6 +172,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="add_cart">
+                                                        <a class="button btn-cart" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">Xem thêm</a>
                                                         <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Mua hàng</span></button>
                                                     </div>
                                                 </div>
@@ -186,7 +187,7 @@
             </div>
         </div>
     </section>
-    @if (ViewData["FeatureArticle"] != null)
+    @*@if (ViewData["FeatureArticle"] != null)
     {
         SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
         <div class="latest-blog wow bounceInUp animated animated container">        
@@ -213,7 +214,7 @@
                 </div>
             }
         </div>
-    }
+    }*@
 </div>
 @section scripts{
 <script type="text/javascript" src="/assets/js/jquery.bxslider.min.js"></script>

@@ -17,14 +17,14 @@
                             <div class="mini-cart">
                                 <div class="basket"> <a href="/product/checkout"><span class="spN">0</span></a> </div>
                                 @*<div class="fl-mini-cart-content" style="display:none;">
-                                    <div class="block-subtitle hide">
-                                        <div class="top-subtotal"><span class="spN">0</span> Sp, <span id="ttSC"></span> </div>
-                                    </div>
-                                    <ul class="mini-products-list" id="cart-sidebar" style="display: none;"></ul>
-                                    <div class="actions cart-buttons" style="display: none;">
-                                        <a class="btn-checkout" href="/product/checkout"><span>Đặt hàng</span></a>
-                                    </div>
-                                </div>*@
+                                        <div class="block-subtitle hide">
+                                            <div class="top-subtotal"><span class="spN">0</span> Sp, <span id="ttSC"></span> </div>
+                                        </div>
+                                        <ul class="mini-products-list" id="cart-sidebar" style="display: none;"></ul>
+                                        <div class="actions cart-buttons" style="display: none;">
+                                            <a class="btn-checkout" href="/product/checkout"><span>Đặt hàng</span></a>
+                                        </div>
+                                    </div>*@
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
             </div>
-           
+
 
         </div>
         <div id="fl-nav-menu">
@@ -69,35 +69,35 @@
                                         <a class="level-top" href="/search?category=0&keyword="><span>Sản phẩm</span></a>
                                         <ul class="level1">
                                             @foreach (var item in commonInfo.ProductCategoryList)
-                                    {
+                                            {
                                                 <li class="level1">
                                                     <a title="rollback" href="@Anpero.StringHelpper.GetCategoryLink(item.Name,item.Id)">
                                                         <span>@item.Name</span>
                                                     </a>
                                                     @if (item.ChildCategory != null && item.ChildCategory.Length != 0)
-                                            {
+                                                    {
                                                         <ul class="level2">
                                                             @foreach (var chidItem in item.ChildCategory)
-                                                    {
+                                                            {
                                                                 <li class="level2"><a href="@Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)"><span>@chidItem.Name</span></a></li>
-                                                    }
+                                                            }
                                                         </ul>
-                                            }
+                                                    }
                                                 </li>
-                                    }
+                                            }
                                         </ul>
                                     </li>
                                     <li class="level0 parent drop-menu">
                                         <a class="level-top" href="/search?category=0&keyword="><span>Phòng</span></a>
                                         <ul class="level1">
                                             @foreach (var item in commonInfo.ProductGroupList)
-                                    {
+                                            {
                                                 <li class="level1">
                                                     <a title="rollback" href="@Anpero.StringHelpper.GetProductGroupLink(item.Name,item.Id)">
                                                         <span>@item.Name</span>
                                                     </a>
                                                 </li>
-                                    }
+                                            }
                                         </ul>
                                     </li>
                                     <li class="level0 parent drop-menu">
@@ -119,15 +119,15 @@
                                             <div class="container">
                                                 <div class="header-nav-dropdown-wrapper clearer">
                                                     @if (ViewData["saleProduct"] != null)
-                                            {
-                                                AnperoFrontend.WebService.ProductItem[] saleProduct = (AnperoFrontend.WebService.ProductItem[])ViewData["saleProduct"];
-                                                if (saleProduct != null && saleProduct.Length > 0)
-                                                {
-                                                    for (int i = 0; i < saleProduct.Length; i++)
                                                     {
-                                                        if (i < 4)
+                                                        AnperoFrontend.WebService.ProductItem[] saleProduct = (AnperoFrontend.WebService.ProductItem[])ViewData["saleProduct"];
+                                                        if (saleProduct != null && saleProduct.Length > 0)
                                                         {
-                                                            int itemPecentDow = Convert.ToInt32((saleProduct[i].Price - saleProduct[i].SalePrice) / saleProduct[i].Price * 100);
+                                                            for (int i = 0; i < saleProduct.Length; i++)
+                                                            {
+                                                                if (i < 4)
+                                                                {
+                                                                    int itemPecentDow = Convert.ToInt32((saleProduct[i].Price - saleProduct[i].SalePrice) / saleProduct[i].Price * 100);
                                                                     <div class="grid12-3">
                                                                         <div>
                                                                             <a href="@Anpero.StringHelpper.GetProductLink(saleProduct[i].PrName, saleProduct[i].Id)" title="@saleProduct[i].PrName">
@@ -137,14 +137,40 @@
                                                                         <h4 class="heading">Giảm giá @itemPecentDow.ToString()%</h4>
                                                                         <p>@Anpero.StringHelpper.SubString(61, saleProduct[i].ShortDesc)</p>
                                                                     </div>
+                                                                }
+                                                            }
                                                         }
                                                     }
-                                                }
-                                            }
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
+                                    <li class="level0 parent drop-menu">
+                                        <a class="level-top" href="javascript:void(0);"><span>Tư vấn</span></a>
+                                        <ul class="level1">                                            
+                                            <li class="level1">
+                                                <a title="shipper" href="/tu-van-thiet-ke-phong-khach-b120">
+                                                    <span>Tư vấn thiết kế phòng khách đẹp</span>
+                                                </a>
+                                            </li>
+                                            <li class="level1">
+                                                <a title="shipper" href="/tu-van-thiet-ke-phong-an-b121">
+                                                    <span>Tư vấn thiết kế phòng ăn đẹp</span>
+                                                </a>
+                                            </li>
+                                            <li class="level1">
+                                                <a title="shipper" href="/tu-van-thiet-ke-phong-ngu-b122">
+                                                    <span>Tư vấn thiết kế phòng ngủ đẹp</span>
+                                                </a>
+                                            </li>
+                                            <li class="level1">
+                                                <a title="shipper" href="/tu-van-thiet-ke-bep-dep-b123">
+                                                    <span>Tư vấn thiết kế phòng bếp đẹp</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="level0 parent drop-menu"><a class="level-top" href="/phong-thuy-b119"><span>Phong thủy</span></a></li>
                                     <li class="level0 parent drop-menu">
                                         <a href="/blog"><span>Tin tức</span> </a>
                                         <ul class="level1">
@@ -166,8 +192,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="level0 parent drop-menu"><a class="level-top" href="/about"><span>Giới thiệu</span></a></li>
-                                    <li class="level0 parent drop-menu"><a class="level-top" href="/home/contact"><span>Liên hệ</span></a></li>
+                                  
                                 </ul>
                             </div>
                         </nav>
@@ -175,5 +200,5 @@
                 </div>
             </div>
         </div>
-</div>
+    </div>
 </header>

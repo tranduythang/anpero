@@ -13,7 +13,7 @@ namespace AnperoFrontend.Controllers
 
             GetNewestProduct();
             SetupCommonProduct();
-            GetTopArticle();
+            //GetTopArticle();
             SetUpSlideAds();
             return View();
         }
