@@ -2,41 +2,24 @@
 @{
     ViewBag.Title = "Chuyển đổi tiếng Việt";
 }
-
-
-
 <div class="columns-container">
     <div class="container" id="columns">
-        <!-- breadcrumb -->
         <div class="breadcrumb clearfix">
             <a class="home" href="#" title="Return to Home">Home</a>
             <span class="navigation-pipe">&nbsp;</span>
             <a class="home" href="#" title="Blog">Blog</a>
             <span class="navigation-pipe">&nbsp;</span>
-
         </div>
-        <!-- ./breadcrumb -->
-        <!-- row -->
         <div class="row">
-            <!-- Left colunm -->
             @Html.Partial("article/_MenuAndAdsPartial")
-            <!-- ./left colunm -->
-            <!-- Center colunm-->
             <div class="center_column col-xs-12 col-sm-9" id="center_column">
                     <h1 style="width:100%;text-align:center;">CUYỂN DỔI TIẾQ VIỆT</h1>
                     <textarea rows="10" style="border:1px solid #372e0f;width:100%;" id="ip"></textarea>
-
-                    <div id="translateCt" style="border:1px solid #372e0f;width:100%;background-color:#e3dada;padding:10px;">Kết quả hiện thị ở đây</div>
-                
+                    <div id="translateCt" style="border:1px solid #372e0f;width:100%;background-color:#e3dada;padding:10px;">Kết quả hiện thị ở đây</div>                
             </div>
-            <!-- ./ Center colunm -->
         </div>
-        <!-- ./row-->
     </div>
 </div>
-
-
-
 @section  scripts{
     <script src="/Scripts/ChuyenDoiTiengViet.js"></script>
 }
