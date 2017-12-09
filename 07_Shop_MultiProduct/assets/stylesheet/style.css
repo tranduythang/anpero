@@ -5,7 +5,9 @@ body {
     font-size: 13px;
     line-height: 1.6em;
 }
-
+#header {
+    background-color: rgba(37, 41, 50, 0.32941176470588235)
+}
 h2, .h2 {
     font-size: 20px;
 }
@@ -115,11 +117,12 @@ header {
     width: 100%;
     position: relative;
     z-index: 1000;
+
 }
 
 .header-container {
     position: relative;
-    background: rgba(255,255,255, 0.2);
+   
 }
 
 .logo {
@@ -132,15 +135,16 @@ header {
     padding-right: 25px;
     padding-left: 20px;
     margin-top: -41px;
-    background: rgba(37, 41, 50, 0.37);
+    /*background: rgba(37, 41, 50, 0.37);*/
     height: 116px;
     margin-right: 15px;
 }
-
-.header-container .fl-nav-menu {
-    display: block;
-    border-radius: 3px;
-}
+    .logo img {
+        max-height:116px;
+    }.header-container .fl-nav-menu {
+        display: block;
+        border-radius: 3px;
+    }
 
 .header-container .fl-header-right {
     position: absolute;
@@ -11611,12 +11615,11 @@ footer .footer-inner {
 }
 
 footer .co-info {
-    margin-right: 0px !important;
-    background: #88be4c;
+    margin-right: 0px !important; 
     padding: 35px 30px;
     text-align: center;
     margin-top: 35px;
-    border-radius: 5px 5px 0px 0px;
+ 
 }
 
 footer .newsletter-row {
@@ -12602,22 +12605,7 @@ button.button {
     margin-top: 20px;
     padding: 10px;
 }
-/*.header-container .logout {
-	float: right;
-	margin-top: 20px;
-	font-family: DIN, Helvetica, Arial, sans-serif
-}
-.header-container .logout a {
-	color: #333;
-	background: #fff;
-	border: 1px #ddd solid;
-	padding: 0px 8px;
-	display: block;
-	border-radius: 0px;
-	font-weight: 500;
-	text-transform: uppercase;
-	line-height: 32px;
-}*/
+
 .toolbar .pager .pages {
     float: left;
 }
@@ -14314,10 +14302,10 @@ h1.divider:after, h2.divider:after, h3.divider:after, h4.divider:after, h5.divid
     .tct2 ul li {
         position: relative;
         display: inline-block;
-        height: 90px;
-        width: 90px;
+        height: 80px;
+        width: 80px;
         background-color: white;
-        margin: 10px;
+        margin: 5px;
         box-shadow: 1px 1px 1px #888888;
         cursor: pointer;
         color:rgb(87, 71, 65);

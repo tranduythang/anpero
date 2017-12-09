@@ -10,7 +10,7 @@
     <div class="header-banner">
         <div class="assetBlock">
             <div style="height: 20px; overflow: hidden;" id="slideshow">
-                <p style="display: block;">MIỄN PHÍ THIẾT KẾ! - <span>100%</span> KHI THI CÔNG TRỌN GÓI! &gt;</p><p style="display: none;">GIẢM GIÁ LÊN ĐẾN <span>10%</span> CHO ĐƠN ĐẶT HÀNG LỚN! &gt;</p>
+                <p style="display: block;">MIỄN PHÍ THIẾT KẾ! - <span>100%</span> KHI THI CÔNG TRỌN GÓI! &gt;</p><p style="display: none;">DỊCH VỤ <span>CHUYÊN NGHIỆP</span> KIẾN TRÚC - XÂY DỰNG - NỘI THẤT! &gt;</p>
             </div>
         </div>
     </div>
@@ -29,45 +29,29 @@
                         </div>
                         <div class="nav-inner">
                             <ul id="nav" class="hidden-xs">
-                                <li id="nav-home" class="level0 parent drop-menu"><a class="level-top active" href="/"><span>Trang Chủ</span></a></li>
-                                <li class="level0 parent drop-menu"><a class="level-top" href="/about"><span>Giới thiệu</span></a></li>
-                                <li class="mega-menu">
-                                    <a class="level-top" href="/"><span>Sản phẩm‎</span></a>
-                                    <div class="level0-wrapper dropdown-6col" style="left: 0px; display: none;">
-                                        <div class="container">
-                                            <div class="level0-wrapper2">
-                                                <div class="nav-block nav-block-center">
-                                                    <ul class="level0">
-                                                        @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
-                                                        {
-                                                            foreach (var item in commonInfo.ProductCategoryList)
-                                                            {
-                                                                if (item.ChildCategory != null && item.ChildCategory.Length == 0)
-                                                                {
-                                                                    <li class="level3 nav-6-1 parent item"> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)"><span>@item.Name‎</span></a> </li>
-                                                                }
-                                                                else
-                                                                {
-                                                                    <li class="level3 nav-6-1 parent item">
-                                                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)"><span>@item.Name</span> </a>
-                                                                        <ul class="level1">
-                                                                            @foreach (var chidItem in item.ChildCategory)
-                                                                            {
-                                                                                <li class="level2"><a href="@Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)"><span>@chidItem.Name</span></a></li>
-                                                                            }
-                                                                        </ul>
-                                                                    </li>
-                                                                }
-                                                            }
-                                                        }
-                                                    </ul>
-                                                </div>                                 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                                {
+                                    foreach (var item in commonInfo.ProductCategoryList)
+                                    {
+
+                                        <li class="level0 parent drop-menu">
+                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)"><span>@item.Name‎</span></a>
+                                            @if (item.ChildCategory != null && item.ChildCategory.Length > 0)
+                                            {
+                                                <ul class="level1">
+                                                    @foreach (var chidItem in item.ChildCategory)
+                                                    {
+                                                        <li class="level2"><a href="@Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)"><span>@chidItem.Name</span></a></li>
+                                                    }
+                                                </ul>
+
+                                            }
+                                        </li>
+                                    }
+                                }
+                                
                                 <li class="fl-custom-tabmenulink mega-menu">
-                                    <a href="#" class="level-top"> <span>Sản phẩm khuyến mại</span> </a>
+                                    <a href="#" class="level-top"> <span>Khuyến mại</span> </a>
                                     <div class="level0-wrapper fl-custom-tabmenu" style="left: 0px; display: none;">
                                         <div class="container">
                                             <div class="header-nav-dropdown-wrapper clearer">
@@ -84,8 +68,8 @@
                                                                         <img src="@item.Images" alt="@item.PrName">
                                                                     </a>
                                                                 </div>
-                                                                <h4 class="heading">@Convert.ToInt32( ((item.SalePrice-item.Price))/item.Price*100) %</h4>
-                                                                <p>@Anpero.StringHelpper.SubString(61,item.ShortDesc)</p>
+                                                                <h4 class="heading">@Convert.ToInt32(((item.SalePrice - item.Price)) / item.Price * 100) %</h4>
+                                                                <p>@Anpero.StringHelpper.SubString(61, item.ShortDesc)</p>
                                                             </div>
                                                         }
                                                     }
@@ -97,7 +81,7 @@
                                 <li class="level0 parent drop-menu">
                                     <a href="/blog"><span>Thông tin dự án</span> </a>
                                     <ul class="level1">
-                                        <li class="level1"><a title="blog" href="/blog"><span>Thông tin dự án</span></a></li>
+                                        <li class="level1"><a title="blog" href="/blog"><span>Thông tin</span></a></li>
                                         <li class="level1">
                                             <a title="shipper" href="/chinh-sach-van-chuyen-a86">
                                                 <span>Vận chuyển</span>
@@ -113,54 +97,47 @@
                                                 <span>Hướng dẫn thanh toán</span>
                                             </a>
                                         </li>
+                                        <li class="level1">
+                                            <a title="pay" href="/home/contact">
+                                                <span>Liên hệ</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
-                                <li class="level0 parent drop-menu"><a class="level-top" href="/home/contact"><span>Liên hệ</span></a></li>
                             </ul>
                         </div>
                     </nav>
-                </div>                
-            </div>
-            <div class="fl-header-right">
-                <div class="fl-links">
-                    <div class="no-js">
-                        <a title="Company" class="clicker"></a>
-                        <div class="fl-nav-links">
-                            <ul class="links">
-                                <li><a href="/product/checkout" title="Checkout">Đặt Hàng</a></li>
-                                <li><a href="/blog" title="Blog"><span>Blogs Tin Tức</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
-                <div class="fl-cart-contain">
-                    <div class="mini-cart">
-                        <div class="basket"> <a href="/product/checkout" ><span class="spN">0</span></a> </div>
-                        <div class="fl-mini-cart-content" style="display:none;">
-                            <div class="block-subtitle hide">
-                                <div class="top-subtotal"><span class="spN">0</span> Sp, <span id="ttSC"></span> </div>                            
-                            </div>                    
-                            <ul class="mini-products-list" id="cart-sidebar"  style="display: none;"></ul>
-                            <div class="actions cart-buttons"  style="display: none;">
-                                <a class="btn-checkout" href="/product/checkout"><span>Đặt hàng</span></a>
+            </div>
+            <div class="fl-header-right">              
+                <div class="fl-links">
+
+                    <div class="fl-cart-contain">
+                        <div class="mini-cart">
+                            <div class="basket"> <a href="/product/checkout"><span class="spN">0</span></a> </div>
+                            <div class="fl-mini-cart-content" style="display:none;">
+                                <div class="block-subtitle hide">
+                                    <div class="top-subtotal"><span class="spN">0</span> Sp, <span id="ttSC"></span> </div>
+                                </div>
+                                <ul class="mini-products-list" id="cart-sidebar" style="display: none;"></ul>
+                                <div class="actions cart-buttons" style="display: none;">
+                                    <a class="btn-checkout" href="/product/checkout"><span>Đặt hàng</span></a>
+                                </div>
                             </div>
                         </div>
-                     </div>
-                </div>                
-                <div class="collapse navbar-collapse">
-                    <form class="navbar-form" role="search" action="/search" method="get">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search" name="keyword" id="keyword">
-                            <span class="input-group-btn">
-                                <button type="submit" class="search-btn"> <span class="glyphicon glyphicon-search"> <span class="sr-only">Search</span> </span> </button>
-                            </span>
-                        </div>
-                    </form>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <form class="navbar-form" role="search" action="/search" method="get">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search" name="keyword" id="keyword">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="search-btn"> <span class="glyphicon glyphicon-search"> <span class="sr-only">Search</span> </span> </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
         </div>
     </div>
+        </div>
 </header>
-
-
-
