@@ -104,6 +104,9 @@ namespace AnperoFrontend.Controllers
                     HttpRuntime.Cache.Insert("commonInfo", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
             }
+          
+            
+            
         }
     }
    

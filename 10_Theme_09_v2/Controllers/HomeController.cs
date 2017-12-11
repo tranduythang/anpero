@@ -9,11 +9,14 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult Index()
         {
-            WebService.AnperoService service = new WebService.AnperoService();
+            Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
+            Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
 
+            WebService.AnperoService service = new WebService.AnperoService();
             GetNewestProduct();
             SetupCommonProduct();
             //GetTopArticle();
+
             SetUpSlideAds();
             return View();
         }

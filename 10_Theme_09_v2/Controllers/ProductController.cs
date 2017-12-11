@@ -25,6 +25,8 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult Category(int id)
         {
+            Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
+            Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
             string pageQuery = Request.QueryString["page"];
             int page = 1;
             if (!string.IsNullOrEmpty(pageQuery))
@@ -48,6 +50,8 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult Group(int id)
         {
+            Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
+            Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
             string pageQuery = Request.QueryString["page"];
             int page = 1;
             if (!string.IsNullOrEmpty(pageQuery))
@@ -71,6 +75,8 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult ParentCategory(int id)
         {
+            Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
+            Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
             string pageQuery = Request.QueryString["page"];
             int page = 1;
             if (!string.IsNullOrEmpty(pageQuery))
