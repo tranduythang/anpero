@@ -25,6 +25,8 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult Category(int id)
         {
+            Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
+            Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
             string pageQuery = Request.QueryString["page"];
             int page = 1;
             if (!string.IsNullOrEmpty(pageQuery))
@@ -49,6 +51,8 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult ParentCategory(int id)
         {
+            Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
+            Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
             string pageQuery = Request.QueryString["page"];
             int page = 1;
             if (!string.IsNullOrEmpty(pageQuery))
@@ -105,28 +109,14 @@ namespace AnperoFrontend.Controllers
             ViewBag.Keywords = string.Empty;
             ViewBag.WebsiteUrl = string.Empty;
             ViewBag.ImageUrl = string.Empty;
-            switch (type)
+            try
             {
-                case 1:
-                    foreach (var item in commonInfo.ProductCategoryList)
-                    {
-                        if(item.Id== categoryId)
+                switch (type)
+                {
+                    case 1:
+                        foreach (var item in commonInfo.ProductCategoryList)
                         {
-                            ViewBag.Keywords = item.Keywords;
-                            ViewBag.Description = item.Description;
-                            ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
-                             Anpero.StringHelpper.GetProductLink(item.Name, item.Id);
-                            ViewBag.ImageUrl = item.Images;
-                            break;
-                        }
-                    }
-                    break;
-                case 2:
-                    foreach (var item in commonInfo.ProductCategoryList)
-                    {
-                        foreach (var chidItem in item.ChildCategory)
-                        {
-                            if (chidItem.Id == categoryId)
+                            if (item.Id == categoryId)
                             {
                                 ViewBag.Keywords = item.Keywords;
                                 ViewBag.Description = item.Description;
@@ -136,16 +126,37 @@ namespace AnperoFrontend.Controllers
                                 break;
                             }
                         }
-                      
-                    }
-                    break;
-                default:
-                    ViewBag.Keywords ="Tìm kiếm "+ commonInfo.Name +"| " +commonInfo.Desc;
-                    ViewBag.Description = "Tìm kiếm trên " + commonInfo.Name + "| " + commonInfo.Desc;
-                    ViewBag.WebsiteUrl = Request.Url.AbsoluteUri;
-                    ViewBag.ImageUrl = commonInfo.Logo;
-                    break;
+                        break;
+                    case 2:
+                        foreach (var item in commonInfo.ProductCategoryList)
+                        {
+                            foreach (var chidItem in item.ChildCategory)
+                            {
+                                if (chidItem.Id == categoryId)
+                                {
+                                    ViewBag.Keywords = item.Keywords;
+                                    ViewBag.Description = item.Description;
+                                    ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
+                                     Anpero.StringHelpper.GetProductLink(item.Name, item.Id);
+                                    ViewBag.ImageUrl = item.Images;
+                                    break;
+                                }
+                            }
+
+                        }
+                        break;
+                    default:
+                        ViewBag.Keywords = "Tìm kiếm " + commonInfo.Name + "| " + commonInfo.Desc;
+                        ViewBag.Description = "Tìm kiếm trên " + commonInfo.Name + "| " + commonInfo.Desc;
+                        ViewBag.WebsiteUrl = Request.Url.AbsoluteUri;
+                        ViewBag.ImageUrl = commonInfo.Logo;
+                        break;
+                }
             }
+            catch (Exception)
+            {
+            }
+         
         }
     }
 }
