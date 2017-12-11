@@ -56,7 +56,7 @@
                                                     <a title="Quick view" class="search" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)"></a>
                                                 </div>
                                                 <div class="add-to-cart">
-                                                    <a title="Add to Cart" href="javascript:Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName')"> Liên hệ tư vấn</a>
+                                                    <a title="Add to Cart" href="javascript:Cart.addProduct(@item.Id,'@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)','@item.Images','@item.PrName')"> Liên hệ tư vấn</a>
                                                 </div>
                                             </div>
                                             <div class="right-block">
