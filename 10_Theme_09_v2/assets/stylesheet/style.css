@@ -3988,9 +3988,7 @@ ul.pdt-list li.item a img.image-hover {
             letter-spacing: 0.5px;
             
         }
-        .small-grid .item .item-inner .item-info .info-inner .item-title {
-            min-height:64px;
-        }
+      
         
             .products-grid .item .item-inner .item-info .info-inner .item-title a {
                 text-decoration: none;
@@ -8455,7 +8453,12 @@ ol#compare-items li {
     border-bottom: 1px solid #ddd;
     margin: 0 0 10px;
 }
-
+@font-face {
+    font-family: 'SFUFUturaBook';
+    src: url('/assets/fonts/sfufuturabook_0-webfont.woff2') format('woff2'), url('/assets/fonts/sfufuturabook_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 .category-image {
     display: block;
     margin: 0 auto;
@@ -8466,6 +8469,7 @@ ol#compare-items li {
 .category-products {
     padding-bottom: 5px;
     overflow: hidden;   
+    padding:25px;
 }
 /* View Type: List */
 .products-list .product-name {
@@ -14213,6 +14217,7 @@ select#shipping-address-select {
 }
 .logo img, .co-info img{
     max-height:120px;
+    max-width:100%;
 }
 .relatepr-img{
     max-height: 240px;
@@ -14247,3 +14252,13 @@ select#shipping-address-select {
     right: 55px;
 }
 .feature-box a{color:white;}
+.hTag {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 5px 0;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: SFUFUturaBook, Arial;
+    height:15px;
+}

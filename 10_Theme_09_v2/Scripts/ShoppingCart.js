@@ -104,8 +104,9 @@
         var ttSC = 0;
 
         var _paymentFee = $('input[name=radio_4]:checked').attr("data-ship");
-        var htmlCat = "";
+        var htmlCat = ""; debugger
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined") {
+         
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
             try {
                 $(".spN").html(Cart.list.length);
