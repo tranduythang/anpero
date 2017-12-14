@@ -87,8 +87,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="add_cart">
-                                                        <a class="button btn-cart" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">Xem thêm</a>
-                                                      
+                                                        <a class="button btn-cart" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">Xem thêm</a>                                                      
                                                         <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,'@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)','@item.Images','@item.PrName');"><span>Mua hàng</span></button>
                                                     </div>
                                                 </div>
@@ -141,10 +140,8 @@
                                                     <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">@item.PrName</a> 
                                                 </div>
                                                 <div class="item-content">
-                                                                                                                                                 
                                                     <div class="hTag">@item.Tag</div>                                                        
-                                                    <div class="Specifications">@item.Specifications</div>                                                        
-                                                  
+                                                    <div class="Specifications"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">@item.Specifications</a></div>                                                                                                          
                                                     <div class="item-price">
                                                         <div class="price-box">
                                                             <span class="regular-price" id="product-price-1">

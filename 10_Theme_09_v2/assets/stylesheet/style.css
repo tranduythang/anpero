@@ -14258,7 +14258,9 @@ select#shipping-address-select {
     white-space: nowrap;
     margin: 5px 0;
     font-size: 15px;
+    line-height:20px;
     font-weight: bold;
     font-family: SFUFUturaBook, Arial;
-    height:15px;
+    height:20px;
 }
+.Specifications{height:20px;display:block;}
