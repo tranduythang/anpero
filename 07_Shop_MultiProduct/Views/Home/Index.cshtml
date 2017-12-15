@@ -29,7 +29,7 @@
     {
         Html.RenderPartial("_partial/_HomeSlide_1");
     }
-    
+
     <div class="container">
         <div class="row">
             <section class="top-cate col-md-12">
@@ -84,14 +84,14 @@
                 {
                     <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
                         <div class="view view-first">
-                            <img src="@item.Thumb" alt="@item.Title" class="lazy"/>
+                            <img src="@item.Thumb" alt="@item.Title" class="lazy" />
                             <div class="mask">
                                 <h2>@item.Title</h2>
                                 <p>@item.ShotDesc</p>
                                 <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="info">Chi tiết</a>
                             </div>
                         </div>
-                    </div>                 
+                    </div>
                 }
             </div>
         }
@@ -331,37 +331,37 @@
                             </div>
                         </div>
                     </div>
-<div class="row tableCt" id="table3" style="display:none;">
-       @if (ViewData["FeatureArticle2"] != null)
+                    <div class="row tableCt" id="table3" style="display:none;">
+        @if (ViewData["FeatureArticle2"] != null)
             {
                 SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle2"];
-    <div class="latest-blog container">
-    @foreach (BlogItem item in FeatureArticle.ItemList)
-    {
-    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
-    <div class="blog_inner">
-        <div class="blog-img">
-            <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
-               <div class="mask"> <a class="info" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Chi tiết</a> </div>
-    </div>
-     <div class="blog-info">
-                            <div class="post-date">
-                                <time class="entry-date" datetime="@item.CreateDate">mới đăng</time>
+                            <div class="latest-blog container">
+                                @foreach (BlogItem item in FeatureArticle.ItemList)
+                                {
+                                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
+                                        <div class="blog_inner">
+                                            <div class="blog-img">
+                                                <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
+                                                <div class="mask"> <a class="info" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Chi tiết</a> </div>
+                                            </div>
+                                            <div class="blog-info">
+                                                <div class="post-date">
+                                                    <time class="entry-date" datetime="@item.CreateDate">mới đăng</time>
+                                                </div>
+                                                <h3><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h3>
+                                                <p>@Anpero.StringHelpper.SubString(150, item.ShotDesc)</p>
+                                                <a class="readmore" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Xem thêm</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
                             </div>
-                            <h3><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h3>
-                            <p>@Anpero.StringHelpper.SubString(150, item.ShotDesc)</p>
-                            <a class="readmore" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Xem thêm</a>
-                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
-    }
-    </div>
-    }
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 @section scripts{
 
@@ -379,7 +379,7 @@
                 $(this).addClass("vc_active");
                 $(".tableCt").hide();
                 $('#' + $(this).attr("table-data")).show();
-            });         
+            });
         });
     </script>
 }

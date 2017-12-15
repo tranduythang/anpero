@@ -217,7 +217,7 @@ header {
 
 .navbar-form .search-btn {
     color: #fff;
-    background: #fb9009;
+    background: #f1c40d;
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -5997,7 +5997,7 @@ text-transform: uppercase
 }
 
 .need-help {
-    background: #fb9009;
+    background: #f1c40d;
     color: #fff;
 }
 
@@ -12182,7 +12182,7 @@ address {
 a.button,button.button {
     display: inline-block;
     border: 0;
-    background: #fb9009;
+    background: #f1c40d;
     padding: 8px 15px;
     font-size: 12px;
     text-align: center;
@@ -14264,3 +14264,34 @@ select#shipping-address-select {
     height:20px;
 }
 .Specifications{height:20px;display:block;}
+.overlay {
+    width: 45%;
+    height: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: #f1c40d;
+    color: #0e0000;
+}
+
+.wrapper .item-image{
+    height:250px;
+}
+.overlay .text {
+    color: #FFF;
+    width: 100%;
+    height: 100%;
+    display: table;
+    letter-spacing: 2.5px;
+}
+.overlay .text span {
+    font-size: 24px;
+    font-weight: bold;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    line-height:35px;
+}
+.wrapper{margin-bottom:30px;}

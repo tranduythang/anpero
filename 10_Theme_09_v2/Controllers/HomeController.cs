@@ -27,7 +27,6 @@ namespace AnperoFrontend.Controllers
             WebService.AnperoService service = new WebService.AnperoService();
 
             WebService.Ads[] Slide = null;
-            //slide home back-ground
             if (HttpRuntime.Cache["Slide"] != null)
             {
                 ViewData["slide"] = (WebService.Ads[])HttpRuntime.Cache["Slide"];
@@ -41,7 +40,21 @@ namespace AnperoFrontend.Controllers
                     HttpRuntime.Cache.Insert("Slide", Slide, null, DateTime.Now.AddMinutes(shortCacheTime+3), TimeSpan.Zero);
                 }
             }
-         
+
+            WebService.Ads[] ads1 = null;
+            if (HttpRuntime.Cache["ads1"] != null)
+            {
+                ViewData["ads1"] = (WebService.Ads[])HttpRuntime.Cache["ads1"];
+            }
+            else
+            {
+                ads1 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads1);
+                ViewData["ads1"] = ads1;
+                if (Slide != null)
+                {
+                    HttpRuntime.Cache.Insert("ads1", ads1, null, DateTime.Now.AddMinutes(shortCacheTime + 3), TimeSpan.Zero);
+                }
+            }
             Response.Cache.SetCacheability(HttpCacheability.Public);
         }
         private void GetNewestProduct()
@@ -95,9 +108,8 @@ namespace AnperoFrontend.Controllers
             }
             catch (Exception)
             {
-                ViewBag.HtmlContent ="Nội dung đang được cập nhật";                
+                ViewBag.HtmlContent ="Nội dung đang được cập nhật";
             }
-          
             return View();
         }
         [BuildCommonHtml]
