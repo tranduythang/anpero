@@ -22,6 +22,7 @@ namespace AnperoFrontend.Controllers
             SetupCommonProduct();
             return View();
         }
+          
         [BuildCommonHtml]
         public ActionResult Category(int id)
         {

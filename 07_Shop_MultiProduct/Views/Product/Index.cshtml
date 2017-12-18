@@ -1,10 +1,13 @@
-﻿@if (ViewData["prDetail"] != null)
-{
+﻿@{
     AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
     if (ViewData["commonInfo"] != null)
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
+}
+@if (ViewData["prDetail"] != null)
+{
+
     string thisUrl = HttpContext.Current.Request.Url.AbsolutePath;
     AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewData["prDetail"];
     ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
@@ -21,7 +24,7 @@
         <link rel="stylesheet" type="text/css" href="~/assets/stylesheet/flexslider.css">
         <link href="/assets/plugins/fancybox-3/src/css/core.css" rel="stylesheet" />
         <link href="/assets/plugins/fancybox-3/src/css/fullscreen.css" rel="stylesheet" />
-    }    
+    }
     <div id="page">
         <div class="page-heading">
             <div class="breadcrumbs">
@@ -43,34 +46,42 @@
         </div>
         <div class="main-container col1-layout wow bounceInUp animated">
             <div class="main">
-                <div class="col-main">
+
+                <div class="col-md-3" style="margin-top:25px;">
+                    @Html.Partial("_partial/RenderProducMenuLeft")
+                </div>
+                <div class="col-md-9">
+
                     <div class="product-view wow bounceInUp animated" itemscope="" itemtype="http://schema.org/Product" itemid="#product_base">
                         <div id="messages_product_view"></div>
-                        <div class="product-essential container">
+                        <div class="product-essential">
                             <div class="row">
                                 <form action="" method="post" id="product_addtocart_form">
-                                    <div class="product-img-box col-sm-6 col-xs-12">
+                                    <div class="product-img-box col-sm-12 col-xs-12">
                                         <div class="new-label new-top-left"> New </div>
                                         <div class="product-image">
-                                            <div class="large-image"> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.CatName, item.CatID)" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img src="@item.Images"> </a> </div>
-                                            <div class="flexslider flexslider-thumb">
-                                                @if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
-                                                {
-                                                    <ul class="previews-list slides">
-                                                        @foreach (var images in item.ImagesSlide)
-                                                        {
-                                                            <li>
-                                                                <a href='@images' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '@images' ">
-                                                                    <img src="@images" alt="@item.PrName" />
-                                                                </a>
-                                                            </li>
-                                                        }
-                                                    </ul>
-                                                }
-                                            </div>
+
+
+                                            @if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
+                                            {
+                                                <div class="large-image"> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.CatName, item.CatID)" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img src="@item.ImagesSlide[0]"> </a> </div>
+                                                <div class="flexslider flexslider-thumb">
+                                                                <ul class="previews-list slides">
+                                                                    @foreach (var images in item.ImagesSlide)
+                                                                    {
+                                                                        <li>
+                                                                            <a href='@images' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '@images' ">
+                                                                                <img src="@images" alt="@item.PrName" />
+                                                                            </a>
+                                                                        </li>
+                                                                    }
+                                                                </ul>
+                                                            </div>
+                                            }
+
                                         </div>
                                     </div>
-                                    <div class="product-shop col-sm-6 col-xs-12">
+                                    <div class="product-shop col-sm-12 col-xs-12">
                                         <div class="product-name">
                                             <h1 itemprop="name">@item.PrName</h1>
                                         </div>
@@ -133,8 +144,8 @@
 
                                                     }
                                                     <li class="tw pull-left"><a target="_blank" rel="nofollow" href="http://www.twitter.com/share?url=@thisUrl" title="Twitter"></a></li>
-                                                    <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="https://plus.google.com/share?url=@thisUrl" title="GooglePlus"></a></li>
-                                                    <li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="http://pinterest.com/pinthis?url=@thisUrl" title="PInterest"></a></li>
+                                                            <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="https://plus.google.com/share?url=@thisUrl" title="GooglePlus"></a></li>
+                                                            <li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="http://pinterest.com/pinthis?url=@thisUrl" title="PInterest"></a></li>
                                                 }
                                             </ul>
                                         </div>
@@ -224,6 +235,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -232,10 +244,10 @@
     @section scripts{
         <script type="text/javascript" src="~/assets/js/jquery.flexslider.js"></script>
         <script type="text/javascript" src="~/assets/js/jquery.bxslider.min.js"></script>
-        <script type="text/javascript" src="~/assets/js/cloud-zoom.js"></script>        
-       <script src="~/assets/plugín/jquery.lazyload.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/cloud-zoom.js"></script>
+        <script src="~/assets/plugín/jquery.lazyload.min.js"></script>
         <script src="/assets/plugins/jquery.lazyload.min.js"></script>
-       <script src="/assets/plugins/fancybox-3/dist/jquery.fancybox.min.js"></script>
+        <script src="/assets/plugins/fancybox-3/dist/jquery.fancybox.min.js"></script>
 
         <script>
             $(window).load(function(){
