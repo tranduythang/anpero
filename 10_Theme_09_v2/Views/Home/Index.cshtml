@@ -47,54 +47,54 @@
                         {
                             foreach (ProductItem item in bestSaleList.Item)
                             {
-                    <li class="item col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                        <div class="item-inner">
-                            <div class="item-img">
-                                <div class="item-img-info">
-                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">
-                                        <img src="@item.Images" alt="@item.PrName">
-                                    </a>
-                                    @if (item.IsSale)
+                                <li class="item col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="item-inner">
+                                        <div class="item-img">
+                                            <div class="item-img-info">
+                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">
+                                                    <img src="@item.Images" alt="@item.PrName">
+                                                </a>
+                                                @if (item.IsSale)
                                                 {
-                                                <div class="sale-label sale-top-right">Sale</div>
+                                                    <div class="sale-label sale-top-right">Sale</div>
                                                 }
                                                 else
                                                 {
-                                                <div class="new-label new-top-left">Mới</div>
+                                                    <div class="new-label new-top-left">Mới</div>
                                                 }
-                                </div>
-                            </div>
-                            <div class="item-info">
-                                <div class="info-inner">
-                                    <div class="item-title">
-                                        <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">@item.PrName</a>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="hTag">@item.Tag</div>
-                                        <div class="item-price">
-                                            <div class="price-box">
-                                                <span class="regular-price" id="product-price-1">
-                                                    @if (item.IsSale)
+                                            </div>
+                                        </div>
+                                        <div class="item-info">
+                                            <div class="info-inner">
+                                                <div class="item-title">
+                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">@item.PrName</a>
+                                                </div>
+                                                <div class="item-content">
+                                                    <div class="hTag">@item.Tag</div>
+                                                    <div class="item-price">
+                                                        <div class="price-box">
+                                                            <span class="regular-price" id="product-price-1">
+                                                                @if (item.IsSale)
                                                                 {
-                                                                <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
-                                                                <span class="special-price price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
+                                                                    <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
+                                                                    <span class="special-price price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
                                                                 }
                                                                 else
                                                                 {
-                                                                <span class="price">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
+                                                                    <span class="price">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
                                                                 }
-                                                </span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="add_cart">
+                                                        <a class="button btn-cart" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">Xem thêm</a>
+                                                        <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,'@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)','@item.Images','@item.PrName');"><span>Mua hàng</span></button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="add_cart">
-                                            <a class="button btn-cart" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">Xem thêm</a>
-                                            <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,'@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)','@item.Images','@item.PrName');"><span>Mua hàng</span></button>
-                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                                </li>
                             }
                         }
                     }
@@ -126,11 +126,11 @@
                                                 </a>
                                                 @if (item.IsSale)
                                                 {
-                                                <div class="sale-label sale-top-right">Sale</div>
+                                                    <div class="sale-label sale-top-right">Sale</div>
                                                 }
                                                 else
                                                 {
-                                                <div class="new-label new-top-left">Mới</div>
+                                                    <div class="new-label new-top-left">Mới</div>
                                                 }
                                             </div>
                                         </div>
@@ -147,12 +147,12 @@
                                                             <span class="regular-price" id="product-price-1">
                                                                 @if (item.IsSale)
                                                                 {
-                                                                <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
-                                                                <span class="special-price price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
+                                                                    <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
+                                                                    <span class="special-price price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
                                                                 }
                                                                 else
                                                                 {
-                                                                <span class="price">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) +" đ")</span>
+                                                                    <span class="price">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
                                                                 }
                                                             </span>
                                                         </div>
@@ -160,13 +160,13 @@
                                                     <div class="add_cart">
                                                         <a class="button btn-cart" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">Xem thêm</a>
                                                         @if (item.IsInstock)
-                                                       {
-                                                    <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,'@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)','@item.Images','@item.PrName');"><span>Mua hàng</span></button>
-                                                       }
-                                                       else
-                                                       {
-                                                    <button class="button btn-cart" type="button" onclick="javascript:void(0);"><span>Hết Hàng</span></button>
-                                                       }
+                                                        {
+                                                            <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,'@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)','@item.Images','@item.PrName');"><span>Mua hàng</span></button>
+                                                        }
+                                                        else
+                                                        {
+                                                            <button class="button btn-cart" type="button" onclick="javascript:void(0);"><span>Hết Hàng</span></button>
+                                                        }
                                                     </div>
                                                 </div>
                                             </div>
@@ -202,7 +202,7 @@
             </div>
         </div>
     </section>
- 
+
 
 </div>
 @section scripts{

@@ -27,7 +27,9 @@ namespace AnperoFrontend
                   "~/assets/stylesheet/revslider.css",
                   "~/assets/stylesheet/owl.carousel.css",
                   "~/assets/stylesheet/owl.theme.css",
-                  "~/assets/stylesheet/jquery.mobile-menu.css"
+                  "~/assets/stylesheet/jquery.mobile-menu.css",
+                  "~/assets/stylesheet/jquery.bxslider.css",
+                    "~/assets/stylesheet/font-awesome.css"
 
            ));
             BundleTable.EnableOptimizations = true;

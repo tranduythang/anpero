@@ -169,8 +169,7 @@
                                                             <div class="group-price">
                                                                 <span class="product-new">Mới</span>
                                                                 @if (item.IsSale)
-                                                                {
-                                                                    <span class="product-sale">- @Anpero.StringHelpper.ConVertToMoneyFormatInt(((item.Price - item.SalePrice) / item.Price * 100).ToString()) %</span>
+                                                                {<span class="product-sale">- @Anpero.StringHelpper.ConVertToMoneyFormatInt(((item.Price - item.SalePrice) / item.Price * 100).ToString()) %</span>
                                                                 }
                                                             </div>
                                                         </div>
