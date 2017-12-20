@@ -7,6 +7,7 @@
 }
 @if (ViewData["prDetail"] != null)
 {
+
     string thisUrl = HttpContext.Current.Request.Url.AbsolutePath;
     AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewData["prDetail"];
     ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
@@ -23,7 +24,6 @@
         <link rel="stylesheet" type="text/css" href="~/assets/stylesheet/flexslider.css">
         <link href="/assets/plugins/fancybox-3/src/css/core.css" rel="stylesheet" />
         <link href="/assets/plugins/fancybox-3/src/css/fullscreen.css" rel="stylesheet" />
-        <link href="/assets/plugins/ImagesSlide/style.css" rel="stylesheet" />
     }
     <div id="page">
         <div class="page-heading">
@@ -56,64 +56,8 @@
                         <div id="messages_product_view"></div>
                         <div class="product-essential">
                             <div class="row">
-                                @if (item.Price > 0)
-                                {
-
-                                    <div class="col-sm-12 col-xs-12">
-                                        <div id="content">
-                                            @if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
-                                            {
-                                                <div id="view">
-                                                    <img src="@item.ImagesSlide[0]" alt="@item.ShortDesc" />
-                                                </div>
-                                                <div id="thumbs">
-                                                    <div id="nav-left-thumbs"><</div>
-                                                    <div id="pics-thumbs">
-                                                        @foreach (var images in item.ImagesSlide)
-                                                        {
-                                                            <img src="@images" alt="@item.PrName" />
-                                                            <img src="https://picsum.photos/1024/768/?random" alt="Nature1" />
-                                                        }
-                                                    </div>
-                                                    <div id="nav-right-thumbs">></div>
-                                                </div>
-                                            }
-                                        </div>
-                                    </div>
-                                    <div class="product-shop col-sm-12 col-xs-12">
-                                        <div class="product-name">
-                                            <h1 itemprop="name">@item.PrName</h1>
-                                        </div>
-                                        <div class="add-to-box">
-                                            <div class="add-to-cart">
-                                                <button type="button" title="Add to Cart" class="button btn-cart" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span><i class="icon-basket"></i>Đăng ký</span></button>
-                                            </div>
-                                        </div>
-                                        <div class="social">
-                                            <ul class="link">
-                                                @if (!string.IsNullOrEmpty(commonInfo.Skype) || !string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                                                {
-                                                    if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                                                    {
-                                                        <li class="fb pull-left"><a target="_blank" rel="nofollow" href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" title="Facebook"></a></li>
-
-                                                    }
-                                                    if (!string.IsNullOrEmpty(commonInfo.Skype))
-                                                    {
-                                                        <li class="skype pull-left"><a target="_blank" rel="nofollow" href="skype:@commonInfo.Skype?call" title="skype"></a></li>
-
-                                                    }
-                                                    <li class="tw pull-left"><a target="_blank" rel="nofollow" href="http://www.twitter.com/share?url=@thisUrl" title="Twitter"></a></li>
-                                                    <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="https://plus.google.com/share?url=@thisUrl" title="GooglePlus"></a></li>
-                                                    <li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="http://pinterest.com/pinthis?url=@thisUrl" title="PInterest"></a></li>
-                                                }
-                                            </ul>
-                                        </div>
-                                    </div>
-                                }
-                                else
-                                {
-                                    <div class="product-img-box col-sm-6 col-xs-6">
+                                <form action="" method="post" id="product_addtocart_form">
+                                    <div class="product-img-box col-sm-12 col-xs-12">
                                         <div class="new-label new-top-left"> New </div>
                                         <div class="product-image">
 
@@ -201,20 +145,17 @@
                                                     }
                                                     <li class="tw pull-left"><a target="_blank" rel="nofollow" href="http://www.twitter.com/share?url=@thisUrl" title="Twitter"></a></li>
                                                     <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="https://plus.google.com/share?url=@thisUrl" title="GooglePlus"></a></li>
-                                                    <li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="http://pinterest.com/pinthis?url=@thisUrl" title="PInterest"></a></li>
+                                                            <li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="http://pinterest.com/pinthis?url=@thisUrl" title="PInterest"></a></li>
                                                 }
                                             </ul>
                                         </div>
                                     </div>
-
-                                }
-
-
+                                </form>
                             </div>
                         </div>
                         <div class="product-collateral container">
                             <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
-                                <li class="active"> <a href="#product_tabs_description" data-toggle="tab"> Chi tiết </a> </li>
+                                <li class="active"> <a href="#product_tabs_description" data-toggle="tab"> Mô tả sản phẩm </a> </li>
                             </ul>
                             <div id="productTabContent" class="tab-content">
                                 <div class="tab-pane fade in active" id="product_tabs_description">
@@ -243,14 +184,14 @@
                                                             <div class="item-inner">
                                                                 <div class="item-img">
                                                                     <div class="item-img-info">
-                                                                        <a href="@Anpero.StringHelpper.GetProductLink(items.PrName, items.Id)" title="@items.PrName" class="product-image">
+                                                                        <a href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName" class="product-image">
                                                                             <img src="@items.Images" alt="@items.PrName">
                                                                         </a>
                                                                         <div class="new-label new-top-left">New</div>
                                                                         <div class="item-box-hover">
                                                                             <div class="box-inner">
                                                                                 <div class="product-detail-bnt">
-                                                                                    <a class="button detail-bnt" href="@Anpero.StringHelpper.GetProductLink(items.PrName, items.Id)" title="@items.PrName">
+                                                                                    <a class="button detail-bnt" href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName">
                                                                                         <span>Chi tiết</span>
                                                                                     </a>
                                                                                 </div>
@@ -261,7 +202,7 @@
                                                                 <div class="item-info">
                                                                     <div class="info-inner">
                                                                         <div class="item-title">
-                                                                            <a href="@Anpero.StringHelpper.GetProductLink(items.PrName, items.Id)" title="@items.PrName">
+                                                                            <a href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName">
                                                                                 @items.PrName
                                                                             </a>
                                                                         </div>
@@ -301,47 +242,29 @@
     </div>
 
     @section scripts{
+        <script type="text/javascript" src="~/assets/js/jquery.flexslider.js"></script>
+        <script type="text/javascript" src="~/assets/js/jquery.bxslider.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/cloud-zoom.js"></script>
+        <script src="~/assets/plugín/jquery.lazyload.min.js"></script>
+        <script src="/assets/plugins/jquery.lazyload.min.js"></script>
+        <script src="/assets/plugins/fancybox-3/dist/jquery.fancybox.min.js"></script>
 
-        @if (item.Price > 0)
-        {
-            <script src="/assets/plugins/ImagesSlide/prefixfree.min.js"></script>
-            <script src="/assets/plugins/ImagesSlide/zoom-slideshow.js"></script>
-            <script>
-
-                $(window).load(function(){
-                    $('#view').setZoomPicture({
-                        thumbsContainer: '#pics-thumbs',
-                        prevContainer: '#nav-left-thumbs',
-                        nextContainer: '#nav-right-thumbs',
-                        zoomContainer: '#zoom',
-                        zoomLevel: 2,
+        <script>
+            $(window).load(function(){
+                $(function () {
+                    $(".lazy img").lazyload({
+                        effect: "fadeIn"
                     });
-                });
-
-            </script>
-        }
-        else
-        {
-            <script type="text/javascript" src="/assets/js/jquery.flexslider.js"></script>
-            <script type="text/javascript" src="/assets/js/jquery.bxslider.min.js"></script>
-            <script type="text/javascript" src="/assets/js/cloud-zoom.js"></script>
-            <script src="/assets/plugins/jquery.lazyload.min.js"></script>
-            <script src="/assets/plugins/fancybox-3/dist/jquery.fancybox.min.js"></script>
-            <script>
-                $(window).load(function(){
-                    $(function() {
-                        $(".lazy img").lazyload({
-                            effect: "fadeIn"
-                        });
-                        $(".fancybox").fancybox({
-                            openEffect: 'none',
-                            closeEffect: 'none'
-                        });
-
+                    $(".fancybox").fancybox({
+                        openEffect: 'none',
+                        closeEffect: 'none'
                     });
+
                 });
-            </script>
-        }
+            });
+
+        </script>
+
     }
-
 }
+

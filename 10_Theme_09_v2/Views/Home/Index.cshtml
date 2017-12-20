@@ -74,15 +74,15 @@
                                                     <div class="item-price">
                                                         <div class="price-box">
                                                             <span class="regular-price" id="product-price-1">
-                                                                @if (item.IsSale)
+                                                                @*@if (item.IsSale)
                                                                 {
                                                                     <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
                                                                     <span class="special-price price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
                                                                 }
                                                                 else
-                                                                {
+                                                                {*@
                                                                     <span class="price">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
-                                                                }
+                                                                @*}*@
                                                             </span>
                                                         </div>
                                                     </div>
@@ -145,15 +145,15 @@
                                                     <div class="item-price">
                                                         <div class="price-box">
                                                             <span class="regular-price" id="product-price-1">
-                                                                @if (item.IsSale)
+                                                                @*@if (item.IsSale)
                                                                 {
                                                                     <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
                                                                     <span class="special-price price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
                                                                 }
                                                                 else
-                                                                {
+                                                                {*@
                                                                     <span class="price">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
-                                                                }
+                                                                @*}*@
                                                             </span>
                                                         </div>
                                                     </div>
