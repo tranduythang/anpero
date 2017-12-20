@@ -22,7 +22,18 @@ namespace AnperoFrontend.Controllers
             SetupCommonProduct();
             return View();
         }
-          
+        public ActionResult ProductDetail2(int id)
+        {
+            WebService.AnperoService sv = new WebService.AnperoService();
+            WebService.ProductItem item = sv.GetProductDetail(StoreID, TokenKey, id);
+            WebService.SearchResult relateProduct = sv.SearchProduct(StoreID, TokenKey, item.CatID.ToString(), "", "", 0, 999999, 1, 5, "", SearchOrder.TimeDesc, 0);
+            ViewData["relateProduct"] = relateProduct;
+            ViewData["prDetail"] = item;
+            ViewBag.Title = item.PrName;
+            SetupCommonProduct();
+            return View();
+        }
+
         [BuildCommonHtml]
         public ActionResult Category(int id)
         {

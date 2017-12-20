@@ -312,6 +312,9 @@
     <Content Include="assets\plugins\fancybox-3\src\js\media.js" />
     <Content Include="assets\plugins\fancybox-3\src\js\slideshow.js" />
     <Content Include="assets\plugins\fancybox-3\src\js\thumbs.js" />
+    <Content Include="assets\plugins\ImagesSlide\prefixfree.min.js" />
+    <Content Include="assets\plugins\ImagesSlide\style.css" />
+    <Content Include="assets\plugins\ImagesSlide\zoom-slideshow.js" />
     <Content Include="assets\plugins\jquery.lazyload.min.js" />
     <Content Include="assets\stylesheet\bootstrap.min.css" />
     <Content Include="assets\stylesheet\HoverEffects-demo.css" />
@@ -415,6 +418,7 @@
     <Content Include="Views\Home\Policy.cshtml" />
     <Content Include="Views\API\Index.cshtml" />
     <Content Include="Views\Shared\_partial\RenderProducMenuLeft.cshtml" />
+    <Content Include="Views\Product\ProductDetail2.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
