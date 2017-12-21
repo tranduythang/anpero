@@ -312,9 +312,6 @@
     <Content Include="assets\plugins\fancybox-3\src\js\media.js" />
     <Content Include="assets\plugins\fancybox-3\src\js\slideshow.js" />
     <Content Include="assets\plugins\fancybox-3\src\js\thumbs.js" />
-    <Content Include="assets\plugins\ImagesSlide\prefixfree.min.js" />
-    <Content Include="assets\plugins\ImagesSlide\style.css" />
-    <Content Include="assets\plugins\ImagesSlide\zoom-slideshow.js" />
     <Content Include="assets\plugins\jquery.lazyload.min.js" />
     <Content Include="assets\stylesheet\bootstrap.min.css" />
     <Content Include="assets\stylesheet\HoverEffects-demo.css" />
@@ -397,6 +394,7 @@
     <Content Include="Scripts\Anpero.Common.js" />
     <Content Include="Scripts\Bootrap.notify.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\jquery-3-2-1.js" />
     <Content Include="Scripts\jquery.cokie.min.js" />
     <Content Include="Scripts\ShoppingCart.js" />
     <Content Include="Views\Product\Index.cshtml" />
@@ -483,6 +481,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="assets\plugins\ImagesSlide\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
