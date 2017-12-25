@@ -99,19 +99,22 @@
                                             </div>
                                         }
                                     </div>         
-                                    <div class="latest-blog">
+                                    <div class="latest-blog2 row">
                                             @foreach (AnperoFrontend.WebService.ProductItem item in productList.Item)
                                             {
                                                 <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
+
                                                     <div class="view view-first">
                                                         <img src="@item.Images" alt="@item.PrName" class="lazy">
                                                         <div class="mask">
                                                             <h2>@item.PrName</h2>                                                            
+                                                            <p>@item.ShortDesc</p>
                                                             <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="@item.PrName" class="info">Chi tiết</a>
                                                         </div>
                                                     </div>
                                                     <div class="s-title"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="@item.PrName" class="info">@item.PrName</a></div>
                                                 </div>
+                                         
                                             }
                                         </div>
                                     <div class="toolbar">
@@ -167,7 +170,7 @@
     <script type="text/javascript" src="/assets/js/countdown/jquery.countdown.js"></script>
 
     <script>
-
+        $(".latest-blog2 .col-sm-3").height($(".latest-blog2 .col-sm-3").width());
             $('[data-countdown]').each(function () {
                 var $this = $(this), finalDate = $(this).data('countdown');
                 $this.countdown(finalDate, function (event) {
