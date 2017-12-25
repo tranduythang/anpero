@@ -35,13 +35,30 @@
                                     {
 
                                         <li class="level0 parent drop-menu">
-                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)"><span>@item.Name‎</span></a>
+                                            @if (item.Id == 182 || item.Id == 183)
+                                            {
+                                                <a href="@(Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)+"?view=gallery")"><span>@item.Name‎</span></a>
+                                            }
+                                            else
+                                            {
+                                                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)"><span>@item.Name‎</span></a>
+                                            }
+
                                             @if (item.ChildCategory != null && item.ChildCategory.Length > 0)
                                             {
+                                                
                                                 <ul class="level1">
                                                     @foreach (var chidItem in item.ChildCategory)
                                                     {
-                                                        <li class="level2"><a href="@Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)"><span>@chidItem.Name</span></a></li>
+                                                        if (item.Id == 414 || item.Id == 415 || item.Id == 417)
+                                                        {
+                                                            <li class="level2"><a href="@(Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)+"?view=gallery")"><span>@chidItem.Name</span></a></li>
+                                                        }
+                                                        else
+                                                        {
+                                                            <li class="level2"><a href="@Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)"><span>@chidItem.Name</span></a></li>
+                                                        }
+
                                                     }
                                                 </ul>
 

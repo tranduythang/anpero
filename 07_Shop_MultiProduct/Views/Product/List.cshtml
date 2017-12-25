@@ -6,6 +6,7 @@
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
+    string view = Request.QueryString["view"]??"";
 }
 @section health{
     <meta name="description" content="@ViewBag.Description" />
@@ -28,7 +29,6 @@
     AnperoFrontend.WebService.SearchResult productList = (AnperoFrontend.WebService.SearchResult)ViewData["productList"];
     if (productList.Item.Length > 0)
     {
-       
         <div id="page">
             <div class="page-heading">
                 <div class="breadcrumbs">
@@ -57,11 +57,8 @@
                                     }
                                 </ul>
                             </div>
-                            <!--col-xs-12-->
                         </div>
-                        <!--row-->
                     </div>
-                    <!--container-->
                 </div>
                 <div class="page-title">
                     <h2>Sản phẩm</h2>
@@ -73,6 +70,7 @@
                         <div class="col-main col-sm-12">
                             <div class="pro-coloumn">
                                 <article class="col-main">
+                                    
                                     <div class="toolbar">
                                         <div id="sort-by">
                                             <label class="left">Sắp xếp: </label>
@@ -99,7 +97,9 @@
                                             </div>
                                         }
                                     </div>         
-                                    <div class="latest-blog2 row">
+                                    @if (view == "gallery")
+                                    {
+                                        <div class="latest-blog2 row">
                                             @foreach (AnperoFrontend.WebService.ProductItem item in productList.Item)
                                             {
                                                 <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
@@ -107,16 +107,67 @@
                                                     <div class="view view-first">
                                                         <img src="@item.Images" alt="@item.PrName" class="lazy">
                                                         <div class="mask">
-                                                            <h2>@item.PrName</h2>                                                            
+                                                            <h2>@item.PrName</h2>
                                                             <p>@item.ShortDesc</p>
                                                             <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="@item.PrName" class="info">Chi tiết</a>
                                                         </div>
                                                     </div>
                                                     <div class="s-title"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="@item.PrName" class="info">@item.PrName</a></div>
                                                 </div>
-                                         
+
                                             }
                                         </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="row tableCt">
+                                            <div id="best-seller" class="product-flexslider hidden-buttons">
+                                                <div class="slider-items slider-width-col4 products-grid">
+                                                    @foreach (AnperoFrontend.WebService.ProductItem item in productList.Item)
+                                                    {
+                                                        <div class="item">
+                                                            <div class="item-inner">
+                                                                <div class="item-img">
+                                                                    <div class="item-img-info">
+                                                                        <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">
+                                                                            <img src="@item.Images" alt="@item.PrName">
+                                                                        </a>
+                                                                        <div class="item-box-hover">
+                                                                            <div class="box-inner">
+                                                                                <div class="product-detail-bnt">
+                                                                                    <a class="button detail-bnt" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
+                                                                                        <span>Chi tiết</span>
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="item-info">
+                                                                    <div class="info-inner">
+                                                                        <div class="item-title">
+                                                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
+                                                                                @item.PrName
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="item-content">
+                                                                            <div class="item-price">
+                                                                                <div class="price-box"><span class="regular-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </span> </div>
+                                                                            </div>
+                                                                            <div class="add_cart">
+                                                                                <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Mua ngay</span></button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    }
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
                                     <div class="toolbar">
                                         <div id="sort-by">
                                             <label class="left">Sắp xếp: </label>
