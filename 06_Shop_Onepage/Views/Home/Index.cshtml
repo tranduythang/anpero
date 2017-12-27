@@ -10,12 +10,53 @@
 }
 @section health{
 <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
-
     <meta name="description" content="@commonInfo.Desc" />
-    <meta name="keywords" content="@commonInfo.Desc" />
-    
+    <meta name="keywords" content="@commonInfo.Desc" />    
 }
-
+<section class="service-area padding-top gray-bg" id="service">
+    <div class="container">
+        <div class="row">
+            <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
+                <div class="page-title">
+                    <h2>Anpero là gì?</h2>
+                    <p>Anpero là hệ thống web quản lý bán hàng tập trung, với Anpero khách sẽ có hệ thống web bán hàng vô cùng chuyên nghiệp, các chức năng được cập nhật miễn phí và đều đặn so với việc bạn thuê viết một trang đơn lẻ. Hơn thế nữa khách hàng có thể tự chủ về giao diện web , nơi lưu trữ web bán hàng (hosting) bla bla</p>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-xs-12 col-sm-4 xs-bottom-40 wow fadeIn">
+                <div class="single-service">
+                    <div class="service-photo">
+                        <img src="images/service_1.png" alt="pet">
+                    </div>
+                    <h2>Giải pháp</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
+                    <a href="#" class="read-more">Read more</a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 xs-bottom-40 xs-bottom-40 wow fadeIn">
+                <div class="single-service">
+                    <div class="service-photo">
+                        <img src="images/service_2.png" alt="pet">
+                    </div>
+                    <h2>Con người</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
+                    <a href="#" class="read-more">Read more</a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 xs-bottom-40  wow fadeIn">
+                <div class="single-service">
+                    <div class="service-photo">
+                        <img src="images/service_3.png" alt="pet">
+                    </div>
+                    <h2>Công nghệ</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
+                    <a href="#" class="read-more">Read more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="about-area section-padding section-relative" id="about">
     <div class="container">
         <div class="row">
@@ -206,6 +247,21 @@
                 }
             });
         });
+
+        /* Sticky Navbar jQuery
+        =========================*/
+        function sticky_relocate() {
+            var menu = $('.mainmenu-area'),
+                window_top = $(window).scrollTop(),
+                div_top = $('#sticky-helper').offset().top;
+            if (window_top > div_top) {
+                menu.addClass('sticky');
+            } else {
+                menu.removeClass('sticky');
+            }
+        }
+        $(window).scroll(sticky_relocate);
+        sticky_relocate();
 </script>
 
     <script src="~/Scripts/Bootrap.notify.js"></script>

@@ -49,20 +49,6 @@ jQuery(document).ready(function ($) {
     animateElements();
     $(window).scroll(animateElements);
 
-    /* Sticky Navbar jQuery
-    =========================*/
-    //function sticky_relocate() {
-    //    var menu = $('.mainmenu-area'),
-    //        window_top = $(window).scrollTop(),
-    //        div_top = $('#sticky-helper').offset().top;
-    //    if (window_top > div_top) {
-    //        menu.addClass('sticky');
-    //    } else {
-    //        menu.removeClass('sticky');
-    //    }
-    //}
-    //$(window).scroll(sticky_relocate);
-    //sticky_relocate();
 });
 $(function () {
     /* ============================
