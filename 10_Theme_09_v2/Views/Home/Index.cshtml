@@ -54,14 +54,7 @@
                                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">
                                                     <img src="@item.Images" alt="@item.PrName">
                                                 </a>
-                                                @if (item.IsSale)
-                                                {
-                                                    <div class="sale-label sale-top-right">Sale</div>
-                                                }
-                                                else
-                                                {
-                                                    <div class="new-label new-top-left">Mới</div>
-                                                }
+                                            
                                             </div>
                                         </div>
                                         <div class="item-info">
@@ -73,7 +66,7 @@
                                                     <div class="hTag">@item.Tag</div>
                                                     <div class="item-price">
                                                         <div class="price-box">
-                                                            <span class="regular-price" id="product-price-1">
+                                                            <span class="regular-price">
                                                                 @*@if (item.IsSale)
                                                                 {
                                                                     <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
@@ -103,7 +96,7 @@
         </div>
     </section>
     <section class="wow bounceInUp animated">
-        <div class="best-pro slider-items-products container" style="margin-top: 50px;">
+        <div class="best-pro slider-items-products container" style="margin-top: -50px;">
             <div class="new_title">
                 <h2>Sản phẩm bán chạy</h2>
             </div>
@@ -124,14 +117,7 @@
                                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">
                                                     <img src="@item.Images" alt="@item.PrName">
                                                 </a>
-                                                @if (item.IsSale)
-                                                {
-                                                    <div class="sale-label sale-top-right">Sale</div>
-                                                }
-                                                else
-                                                {
-                                                    <div class="new-label new-top-left">Mới</div>
-                                                }
+                                          
                                             </div>
                                         </div>
                                         <div class="item-info">
@@ -159,7 +145,7 @@
                                                     </div>
                                                     <div class="add_cart">
                                                         <a class="button btn-cart" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">Xem thêm</a>
-                                                        @if (item.IsInstock)
+                                                        @if(item.IsInstock)
                                                         {
                                                             <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,'@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)','@item.Images','@item.PrName');"><span>Mua hàng</span></button>
                                                         }
@@ -181,7 +167,7 @@
         </div>
     </section>
     <section class="wow bounceInUp animated">
-        <div class="best-pro slider-items-products container" style="margin-top: 50px;">
+        <div class="best-pro slider-items-products container">
             <div class="new_title">
                 <h2>TRANG TRÍ NỘI THẤT</h2>
             </div>
