@@ -45,10 +45,13 @@
         </div>
         <div class="container col1-layout wow bounceInUp animated">
             <div class="main">
-
-                <div class="col-md-3" style="margin-top:25px;">
-                    @Html.Partial("_partial/RenderProducMenuLeft")
-                </div>
+                @if (!Request.Browser.IsMobileDevice)
+                {
+                    <div class="col-md-3" style="margin-top:25px;">
+                        @Html.Partial("_partial/RenderProducMenuLeft")
+                    </div>
+                }
+                
                 <div class="col-md-9">
                     <div class="product-view" itemscope="" itemtype="http://schema.org/Product" itemid="#product_base">
                         <div class="product-essential row">
@@ -177,9 +180,8 @@
                                 <div class="slider-items-products">
                                     <div class="new_title center">
                                         <h2>Sản phẩm liên quan</h2>
-                                    </div>
-                                    <div id="related-slider" class="product-flexslider hidden-buttons">
-                                        <div class="slider-items slider-width-col4 products-grid">
+                                    </div>                                    
+                                        <div class="products-grid">
                                             @if (ViewData["relateProduct"] != null)
                                             {
                                                 AnperoFrontend.WebService.SearchResult relateProduct = (AnperoFrontend.WebService.SearchResult)ViewData["relateProduct"];
@@ -187,7 +189,7 @@
                                                 {
                                                     foreach (var items in relateProduct.Item)
                                                     {
-                                                        <div class="item">
+                                                        <div class="item col-md-4" style="margin-bottom:15px;">
                                                             <div class="item-inner">
                                                                 <div class="item-img">
                                                                     <div class="item-img-info">
@@ -213,15 +215,7 @@
                                                                                 @items.PrName
                                                                             </a>
                                                                         </div>
-                                                                        <div class="item-content">
-                                                                            <div class="rating">
-                                                                                <div class="ratings">
-                                                                                    <div class="rating-box">
-                                                                                        <div class="rating" style="width:80%"></div>
-                                                                                    </div>
-                                                                                    <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                                                                </div>
-                                                                            </div>
+                                                                        <div class="item-content">                                                                           
                                                                             <div class="item-price">
                                                                                 <div class="price-box"><span class="regular-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(items.Price) đ</span> </span> </div>
                                                                             </div>
@@ -237,7 +231,7 @@
                                                 }
                                             }
                                         </div>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
