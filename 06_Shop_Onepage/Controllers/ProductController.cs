@@ -32,16 +32,17 @@ namespace AnperoFrontend.Controllers
             {
                 page = Convert.ToInt32(pageQuery);
             }
-            WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.SearchResult rs   = sv.GetProductByCategory(StoreID, TokenKey, id, page, 14,0);
-            ViewData["productList"] = rs;
-            ViewBag.page =Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
-            if(rs!=null && rs.Item.Length > 0)
-            {
-                ViewBag.Title = rs.Item[0].CatName;
-            }
+            //WebService.AnperoService sv = new WebService.AnperoService();
+            //WebService.SearchResult rs   = sv.GetProductByCategory(StoreID, TokenKey, id, page, 14,0);
+            //ViewData["productList"] = rs;
+            //ViewBag.page =Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+            //if(rs!=null && rs.Item.Length > 0)
+            //{
+            //    ViewBag.Title = rs.Item[0].CatName;
+            //}
+            ViewBag.Title = "Thiết kế web site bán hàng chuyên nghiệp nhất | Anpero";
             GetTopArticle();
-            SetupCommonProduct();
+            //SetupCommonProduct();
             SetUpSeo(2, id);
             return View("List");
         }
@@ -55,16 +56,17 @@ namespace AnperoFrontend.Controllers
             {
                 page = Convert.ToInt32(pageQuery);
             }
-            WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.SearchResult rs = sv.GetProductByParentCategory(StoreID, TokenKey, id, page, 14, 0);
-            ViewData["productList"] = rs;
-            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
-            ViewBag.isParent = "1";
-            if (rs != null && rs.Item.Length > 0)
-            {
-                ViewBag.Title = rs.Item[0].ParentCatName;
-            }
-            SetupCommonProduct();
+            //WebService.AnperoService sv = new WebService.AnperoService();
+            //WebService.SearchResult rs = sv.GetProductByParentCategory(StoreID, TokenKey, id, page, 14, 0);
+            //ViewData["productList"] = rs;
+            //ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+            //ViewBag.isParent = "1";
+            //if (rs != null && rs.Item.Length > 0)
+            //{
+            //    ViewBag.Title = rs.Item[0].ParentCatName;
+            //}
+            //  SetupCommonProduct();
+            ViewBag.Title = "Thiết kế web site bán hàng chuyên nghiệp nhất | Anpero";
             GetTopArticle();
             SetUpSeo(1,id);
             return View("List");
