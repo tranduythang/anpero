@@ -188,16 +188,16 @@
             <div class="col-sm-12">
                 <ul id="trademark-list">
                     <li id="payment-methods">Hỗ trợ thanh toán</li>
-                    <li><a href="#"><img src="/assets/data/nganluong.png" alt="Ngân lượng"></a></li>
-                    <li><a href="#"><img src="/assets/data/Techcombank_logo.jpg" alt="Techcombank"></a></li>
-                    <li><a href="#"><img src="/assets/data/trademark-wu.jpg" alt="ups"></a></li>
-                    <li><a href="#"><img src="/assets/data/trademark-cn.jpg" alt="ups"></a></li>
-                    <li><a href="#"><img src="/assets/data/trademark-visa.jpg" alt="ups"></a></li>
-                    <li><a href="#"><img src="/assets/data/trademark-mc.jpg" alt="ups"></a></li>
-                    <li><a href="#"><img src="/assets/data/trademark-ems.jpg" alt="ups"></a></li>
-                    <li><a href="#"><img src="/assets/data/trademark-dhl.jpg" alt="ups"></a></li>
-                    <li><a href="#"><img src="/assets/data/trademark-fe.jpg" alt="ups"></a></li>
-                    <li><a href="#"><img src="/assets/data/trademark-wm.jpg" alt="ups"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/nganluong.png" alt="Ngân lượng"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/Techcombank_logo.jpg" alt="Techcombank"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/trademark-wu.jpg" alt="ups"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/trademark-cn.jpg" alt="ups"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/trademark-visa.jpg" alt="ups"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/trademark-mc.jpg" alt="ups"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/trademark-ems.jpg" alt="ups"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/trademark-dhl.jpg" alt="ups"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/trademark-fe.jpg" alt="ups"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/trademark-wm.jpg" alt="ups"></a></li>
                 </ul>
             </div>
         </div>
@@ -246,7 +246,8 @@
                             <div class="tit-contain"><i class="fa fa-envelope"></i> nhasanfood@gmail.com</div>
                         </div>
                          @{
-                            string thisUrl = HttpContext.Current.Request.RawUrl;
+                             
+                             string thisUrl = System.Web.HttpContext.Current.Request.Url.ToString();
                             <div class="introduce-title" style="margin-top:10px;">Chia sẻ với bạn bè</div>
                             <div class="social-link">
                                 @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
