@@ -310,6 +310,7 @@ namespace Anpero
                 return "0";
             }
         }
+       
         public static String ConVertToMoneyFormatInt(int input)
         {
             return ConVertToMoneyFormatInt(input.ToString());
