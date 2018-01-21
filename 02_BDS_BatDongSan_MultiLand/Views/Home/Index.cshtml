@@ -22,6 +22,80 @@
         </div>
     </div>
 </div>
+
+@if (ViewData["AdsSlide2"] != null)
+{
+    Ads[] slide = (Ads[])ViewData["AdsSlide2"];
+    if (slide.Length > 0)
+    {
+        <div class="container">
+            <div class="row">
+                <div class="row banner-bottom">
+                    @for (int i = 0; i < slide.Length; i++)
+                    {
+                        if (i == 0)
+                        {
+                            <div class="col-sm-6 item-left">
+                                <div class="banner-boder-zoom">
+                                    <a href="@slide[0].ClickUrl"><img alt="@slide[0].Description" class="img-responsive" src="@slide[0].ImagesUrl" /></a>
+                                </div>
+                            </div>
+                        }
+                        if (i == 1)
+                        {
+                            <div class="col-sm-6 item-right">
+                                <div class="banner-boder-zoom">
+                                    <a href="@slide[1].ClickUrl"><img alt="@slide[1].Description" class="img-responsive" src="@slide[1].ImagesUrl" /></a>
+                                </div>
+                            </div>
+                        }
+
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="container">
+            <div class="row">
+                <div class="row banner-bottom">
+                    <div class="col-sm-6 item-left">
+                        <div class="banner-boder-zoom">
+                            <a href="#" title="AdsSlide2"><img alt="AdsSlide2" class="img-responsive" src="/assets/data/option5/banner1.jpg" title="AdsSlide2" /></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 item-right">
+                        <div class="banner-boder-zoom">
+                            <a href="#" title="AdsSlide2"><img alt="AdsSlide2" class="img-responsive" src="/assets/data/option5/banner2.jpg" title="AdsSlide2" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="container">
+        <div class="row">
+            <div class="row banner-bottom">
+                <div class="col-sm-6 item-left">
+                    <div class="banner-boder-zoom">
+                        <a href="#"><img alt="AdsSlide2" class="img-responsive" src="assets/data/option5/banner1.jpg" title="AdsSlide2" /></a>
+                    </div>
+                </div>
+                <div class="col-sm-6 item-right">
+                    <div class="banner-boder-zoom">
+                        <a href="#"><img alt="AdsSlide2" class="img-responsive" src="assets/data/option5/banner2.jpg" title="AdsSlide2" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
 <div class="page-top">
     <div class="container">
         <div class="page-top">
@@ -97,7 +171,7 @@
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3 home-article">
-                        <div class="tittle-b">Thông tin dự án</div>
+                        <div class="tittle-b">Phong thủy</div>
                         <div class="border-b artCt2">
                             @if (ViewData["customArticle"] != null)
                             {
@@ -128,78 +202,6 @@
         </div>
     </div>
 </div>
-@if (ViewData["AdsSlide2"] != null)
-{
-    Ads[] slide = (Ads[])ViewData["AdsSlide2"];
-    if (slide.Length > 0)
-    {
-        <div class="container">
-            <div class="row">
-                <div class="row banner-bottom">
-                    @for (int i = 0; i < slide.Length; i++)
-                    {
-                        if (i == 0)
-                        {
-                            <div class="col-sm-6 item-left">
-                                <div class="banner-boder-zoom">
-                                    <a href="@slide[0].ClickUrl"><img alt="@slide[0].Description" class="img-responsive" src="@slide[0].ImagesUrl" /></a>
-                                </div>
-                            </div>
-                        }
-                        if (i == 1)
-                        {
-                            <div class="col-sm-6 item-right">
-                                <div class="banner-boder-zoom">
-                                    <a href="@slide[1].ClickUrl"><img alt="@slide[1].Description" class="img-responsive" src="@slide[1].ImagesUrl" /></a>
-                                </div>
-                            </div>
-                        }
-
-                    }
-                </div>
-            </div>
-        </div>
-    }
-    else
-    {
-        <div class="container">
-            <div class="row">
-                <div class="row banner-bottom">
-                    <div class="col-sm-6 item-left">
-                        <div class="banner-boder-zoom">
-                            <a href="#"><img alt="AdsSlide2" class="img-responsive" src="/assets/data/option5/banner1.jpg"  title="AdsSlide2"/></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 item-right">
-                        <div class="banner-boder-zoom">
-                            <a href="#"><img alt="AdsSlide2" class="img-responsive" src="/assets/data/option5/banner2.jpg"  title="AdsSlide2"/></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
-}
-else
-{
-    <div class="container">
-        <div class="row">
-            <div class="row banner-bottom">
-                <div class="col-sm-6 item-left">
-                    <div class="banner-boder-zoom">
-                        <a href="#"><img alt="AdsSlide2" class="img-responsive" src="assets/data/option5/banner1.jpg"  title="AdsSlide2"/></a>
-                    </div>
-                </div>
-                <div class="col-sm-6 item-right">
-                    <div class="banner-boder-zoom">
-                        <a href="#"><img alt="AdsSlide2" class="img-responsive" src="assets/data/option5/banner2.jpg" title="AdsSlide2"/></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-}
-
 @if (ViewData["FeatureArticle"] != null)
 {
     SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
@@ -238,7 +240,6 @@ else
         </div>
     </div>
 }
-
 @section scripts{
     <script src="/assets/js/jquery-slimscroll-min.js"></script>
     <script>
