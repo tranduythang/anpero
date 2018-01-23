@@ -6506,7 +6506,7 @@ margin-right: 3px;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    background: #ed6663;
+    background: #478ac1;
     margin-top: 0px;
     margin-left: -10px;
 }
@@ -6522,7 +6522,7 @@ margin-right: 3px;
         position: absolute;
         bottom: -10px;
         left: 0;
-        border-color: #d95451 #d95451 transparent transparent;
+        border-color: #478ac1 #478ac1 transparent transparent;
     }
 
 /* Left Navigation End */
@@ -14485,6 +14485,6 @@ h1.divider:after, h2.divider:after, h3.divider:after, h4.divider:after, h5.divid
 .latest-blog2 img{
     height:100%;
 }
-.s-title,.s-title{text-align:center;font-size:12px;}
+.s-title{text-align:center;font-size:12px;color:#23221f;font-weight:bold;float:left;width:100%;height:50px;}
 .large-image img{max-width:100%;}
 .product-view img{max-width:100%;}

@@ -39,7 +39,7 @@
                                     <li class="home"> <a href="/" title="Trang chủ">Trang chủ</a> <span>—› </span> </li>
                                     @if (ViewBag.isParent != null)
                                     {
-                                    <li class="category1599">
+                                    <li>
                                         <a href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
                                             @productList.Item[0].ParentCatName
                                         </a>
@@ -47,7 +47,7 @@
                                     }
                                     else
                                     {
-                                    <li class="category1599">
+                                    <li>
                                         <a href="@Anpero.StringHelpper.GetCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
                                             @productList.Item[0].ParentCatName
                                         </a>
@@ -99,7 +99,7 @@
                                     </div>         
                                     @if (view == "gallery")
                                     {
-                                        <div class="latest-blog2 row">
+                                        <div class="latest-blog2 row" style="margin-left:-15px;">
                                             @foreach (AnperoFrontend.WebService.ProductItem item in productList.Item)
                                             {
                                                 <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
@@ -168,32 +168,37 @@
                                             </div>
                                         </div>
                                     }
-                                    <div class="toolbar">
-                                        <div id="sort-by">
-                                            <label class="left">Sắp xếp: </label>
-                                            <ul>
-                                                <li>
-                                                    <a href="#">Tên<span class="right-arrow"></span></a>
-                                                    <ul>
-                                                        <li><a href="#">Tên</a></li>
-                                                        <li><a href="#">Giá</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <a class="button-asc left" href="#" title="Set Descending Direction"><span class="top_arrow"></span></a>
-                                        </div>
-                                        @if (!string.IsNullOrEmpty(ViewBag.page))
-                                        {
-                                        <div class="pager">
-                                            <div class="pages">
-                                                <label>Trang:</label>
-                                                @Html.Raw(ViewBag.page)
-                                            </div>
-                                        </div>
-                                        }
-
-                                    </div>
+                             
                                 </article>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-main col-sm-12">
+                            <div class="toolbar">
+                                <div id="sort-by">
+                                    <label class="left">Sắp xếp: </label>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Tên<span class="right-arrow"></span></a>
+                                            <ul>
+                                                <li><a href="#">Tên</a></li>
+                                                <li><a href="#">Giá</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <a class="button-asc left" href="#" title="Set Descending Direction"><span class="top_arrow"></span></a>
+                                </div>
+                                @if (!string.IsNullOrEmpty(ViewBag.page))
+                                {
+                                    <div class="pager">
+                                        <div class="pages">
+                                            <label>Trang:</label>
+                                            @Html.Raw(ViewBag.page)
+                                        </div>
+                                    </div>
+                                }
+
                             </div>
                         </div>
                     </div>
@@ -221,7 +226,7 @@
     <script type="text/javascript" src="/assets/js/countdown/jquery.countdown.js"></script>
 
     <script>
-        $(".latest-blog2 .col-sm-3").height($(".latest-blog2 .col-sm-3").width());
+        $(".latest-blog2 .col-md-3  .view-first").height($(".latest-blog2 .col-md-3").width());
             $('[data-countdown]').each(function () {
                 var $this = $(this), finalDate = $(this).data('countdown');
                 $this.countdown(finalDate, function (event) {

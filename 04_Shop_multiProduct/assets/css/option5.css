@@ -1277,9 +1277,11 @@
 */
 
 @media (max-width: 480px) {
+      
     .option5 #main-menu .navbar-default .navbar-nav>li>a {
     background: none;
     color: #999;
+  
 }
      .main-header .header-search-box{
         margin-top:0px !important;
@@ -1297,7 +1299,7 @@
 		display: none;
 	}
 	.option5 .main-header .header-search-box{
-		padding-right: 15px;
+	   	/*padding-right: 15px;*/
 	}
    
 	.option5 #main-menu .navbar{

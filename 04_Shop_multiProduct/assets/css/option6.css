@@ -1506,8 +1506,9 @@
 */
 @media (max-width: 480px) {
 	.group-button-header{
-		width: 100%;
-		margin-top: 30px;
+		/*width: 100%;
+		margin-top: 30px;*/
+        display:none;
 	}
 	.option6 .logo{
 		width: 100%;
@@ -1528,7 +1529,7 @@
 	}
 	.option6 #main-menu .navbar-default .navbar-nav>li>a{
 		background: none;
-		color: #999;
+		color: white;
 	}
 	.option6 #main-menu li.dropdown>a:after {
 	  position: absolute;

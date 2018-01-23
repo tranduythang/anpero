@@ -272,40 +272,45 @@
                         </div>
                         <h3 class="checkout-sep">4. Kiểm tra lại thông tin sản phẩm</h3>
                         <div class="box-border">
-                            <table class="table table-bordered table-responsive add-to-cart" id="shopping-cart-table">
-                                <thead>
-                                    <tr>
-                                        <th class="cart_product">Ảnh</th>
-                                        <th>Thông tin</th>
-                                        <th>Tình trạng.</th>
-                                        <th>Đơn giá</th>
-                                        <th>Số lượng</th>
-                                        <th>Tổng</th>
-                                        <th class="action"><i class="fa fa-trash-o"></i></th>
-                                    </tr>
-                                </thead>
-                                <tbody id="prCatCtTable"></tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan="2" rowspan="2"></td>
-                                        <td colspan="3">Tổng giá sản phẩm </td>
-                                        <td colspan="2" id="ttPrCt"></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3"><strong>Tổng đơn hàng (bao gồm ship)</strong></td>
-                                        <td colspan="2"><strong id="ttOdCt"></strong></td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                            <div class="col-md-12 ctContent">
+                            <div class="col-md-12">
+                                <table class="table table-bordered table-responsive add-to-cart table-striped" id="shopping-cart-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="cart_product">Ảnh</th>
+                                            <th>Thông tin</th>
+                                            <th>Tình trạng.</th>
+                                            <th>Đơn giá</th>
+                                            <th>Số lượng</th>
+                                            <th>Tổng</th>
+                                            <th class="action"><i class="fa fa-trash-o"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="prCatCtTable"></tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="2" rowspan="2"></td>
+                                            <td colspan="3">Tổng giá sản phẩm </td>
+                                            <td colspan="2" id="ttPrCt"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3"><strong>Tổng đơn hàng (bao gồm ship)</strong></td>
+                                            <td colspan="2"><strong id="ttOdCt"></strong></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                            <div class="col-xs -12 ctContent" >
                                 <div id="g-recaptcha" class="pull-right"></div>
                             </div>
                             <div class="clearfix"></div>
-                            <div class="col-md-12 ">
-                                <a href="/" title="Continue Shopping" class="btn button btn-continue" onclick=""><span><span>Mua thêm</span></span></a>                                
-                                <button type="submit" name="update_cart_action" value="update_qty" title="Update Cart" class="button btn-update pull-right" id="orderBtn"><span><span>Gửi đơn hàng</span></span></button>                                
-                               
+                            <div class="col-xs -12">
+                                <a href="/" title="Continue Shopping" class="btn button btn-continue" onclick=""><span><span>Mua thêm</span></span></a>
+                            
+                                <button type="submit" name="update_cart_action" value="update_qty" title="Update Cart" class="btn button pull-right" id="orderBtn"><span><span>Gửi đơn hàng</span></span></button>
                             </div>
+                            
                             <div class="clearfix"></div>
                         </div>
                     </div>

@@ -58,8 +58,15 @@
                                 {
                                     foreach (var item in commonInfo.ProductCategoryList)
                                     {
+                                        if (item.Id == 182 || item.Id == 183)
+                                        {
+                                            <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)?view=gallery" alter="@item.Name">@item.Name</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
+                                        }
 
-                                        <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
                                     }
                                 }
 
@@ -134,15 +141,15 @@
             <div class="home"><a href="/"><i class="icon-home"></i>Trang chủ</a> </div>
         </li>
         <li class="level0 parent drop-menu">
-            <a href="/biet-thu-c182"><span>Biệt thự</span></a>
+            <a href="/biet-thu-c182?view=gallery"><span>Biệt thự</span></a>
             <ul class="level1">
-                <li class="level2"><a href="/biet-thu-1-2-tang-cat414"><span>Biệt thự 1 - 2 tầng</span></a></li>
-                <li class="level2"><a href="/biet-thu-25-3-tang-cat415"><span>Biệt thự 2,5 - 3 tầng</span></a></li>
-                <li class="level2"><a href="/biet-thu-4-tang-tro-len-cat417"><span>Biệt thự 4 tầng trở lên</span></a></li>
+                <li class="level2"><a href="/biet-thu-1-2-tang-cat414?view=gallery"><span>Biệt thự 1 - 2 tầng</span></a></li>
+                <li class="level2"><a href="/biet-thu-25-3-tang-cat415?view=gallery"><span>Biệt thự 2,5 - 3 tầng</span></a></li>
+                <li class="level2"><a href="/biet-thu-4-tang-tro-len-cat417?view=gallery"><span>Biệt thự 4 tầng trở lên</span></a></li>
             </ul>
         </li>
         <li class="level0 parent drop-menu">
-            <a href="/lau-dai-dinh-thu-c183"><span>Lâu Đài-Dinh thự</span></a>
+            <a href="/lau-dai-dinh-thu-c183?view=gallery"><span>Lâu Đài-Dinh thự</span></a>
         </li>
         <li class="level0 parent drop-menu">
             <a href="/noi-that-c130"><span>Nội thất</span></a>
@@ -178,7 +185,10 @@
                     <ul>
                         @foreach (ProductItem item in saleProduct)
                         {
-                            <li><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></li>
+                           
+                                <li><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></li>
+                           
+
                         }
                     </ul>
                 }

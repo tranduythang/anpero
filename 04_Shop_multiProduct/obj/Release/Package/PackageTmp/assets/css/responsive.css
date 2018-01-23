@@ -682,8 +682,7 @@
 	.top-header .nav-top-links,
 	.top-header .user-info,
 	.top-header .support-link{
-		width: 100%;
-		float: left;
+		display:none;
 	}
 	.main-header .logo{
 		text-align: center;
