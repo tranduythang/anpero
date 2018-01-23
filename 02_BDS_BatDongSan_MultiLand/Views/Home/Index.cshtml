@@ -12,10 +12,10 @@
     <meta name="description" content="@commonInfo.Desc" />
     <meta name="keywords" content="@commonInfo.Desc" />
 }
-<div class="page-top">
+<div class="page-top ">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-3">
+            <div class="_l10 col-md-3 col-sm-3" >
                 @Html.Partial("_partial/_searchBox")
             </div>
             @Html.Partial("_partial/_HomeSlide_2")
@@ -28,8 +28,7 @@
     Ads[] slide = (Ads[])ViewData["AdsSlide2"];
     if (slide.Length > 0)
     {
-        <div class="container">
-            <div class="row">
+        <div class="container bw">
                 <div class="row banner-bottom">
                     @for (int i = 0; i < slide.Length; i++)
                     {
@@ -51,14 +50,12 @@
                         }
 
                     }
-                </div>
-            </div>
+                </div>       
         </div>
     }
     else
     {
         <div class="container">
-            <div class="row">
                 <div class="row banner-bottom">
                     <div class="col-sm-6 item-left">
                         <div class="banner-boder-zoom">
@@ -71,7 +68,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     }
 }
@@ -97,12 +93,15 @@ else
 
 
 <div class="page-top">
-    <div class="container">
+    <div class="container bw">
         <div class="page-top">
             <div class="container">
                 <div class="row  page-top-left">
                     <div class="col-md-6 col-sm-6">
-                        <div class="tittle-b sm-title">Bất động sản mới <img src="/assets/images/new-marker.gif"></div>
+                        
+                        <h2 class="page-heading">
+                            <span class="page-heading-title">Bất động sản mới <img src="/assets/images/new-marker.gif"></span>
+                        </h2>
                         <div class="border-b">
                             <ul class="product-list list">
                                 @if (ViewData["newestProduct"] != null)
@@ -122,9 +121,7 @@ else
                                                                 <div class="featured-text"><span>Bán chạy</span></div>
                                                             }
                                                         </a>
-                                                        <div class="group-price">
-                                                            <span class="product-new">Mới</span>
-                                                        </div>
+                                                    
                                                     </div>
                                                     <div class="right-block">
                                                         <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></h5>                                                        
@@ -153,7 +150,10 @@ else
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3 home-article">
-                        <div class="tittle-b">Tin mới đăng <img src="/assets/images/new-marker.gif"></div>
+                        
+                        <h2 class="page-heading">
+                            <span class="page-heading-title">Tin mới đăng <img src="/assets/images/new-marker.gif"></span>
+                        </h2>
                         <div class="border-b">
                             @if (ViewData["TopNewArticle"] != null)
                             {
@@ -171,7 +171,10 @@ else
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3 home-article">
-                        <div class="tittle-b">Phong thủy</div>
+                        
+                        <h2 class="page-heading">
+                            <span class="page-heading-title">Phong thủy <img src="/assets/images/new-marker.gif"></span>
+                        </h2>
                         <div class="border-b artCt2">
                             @if (ViewData["customArticle"] != null)
                             {
@@ -206,13 +209,13 @@ else
 {
     SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
     <div class="row-blog">
-        <div class="container">
+        <div class="container bw">
             <div class="blog-list">
                 <h2 class="page-heading">
                     <span class="page-heading-title">Tiêu điểm tuần qua</span>
                 </h2>
                 <div class="blog-list-wapper">
-                    <ul class="owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":5}}'>
+                    <ul class="owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="20" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":5}}'>
                         @foreach (BlogItem item in FeatureArticle.ItemList)
                         {
                             <li>

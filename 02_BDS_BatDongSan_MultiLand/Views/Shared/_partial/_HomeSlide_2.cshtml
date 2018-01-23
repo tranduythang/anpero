@@ -7,7 +7,7 @@
         AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["featureleProduct"];        
         if (bestSaleList.Item.Length > 0)
         {
-            <div class="col-md-12 faticle" style="padding:0px;">
+            <div class="col-md-12 faticle bw" style="padding:10px;">
                 <div class="col-md-4 image-hover2">
                     <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[0].PrName,bestSaleList.Item[0].Id)"><img src="@bestSaleList.Item[0].Images" alt="@bestSaleList.Item[0].PrName"></a>
                 </div>
@@ -18,7 +18,7 @@
                     @bestSaleList.Item[0].ShortDesc
                 </div>
             </div>
-            <div class="col-md-12 home-article border-b" style="padding:0px;height:238px;margin-top:10px">
+            <div class="col-md-12 home-article border-b bw" style="padding:0px;height:238px;margin-top:10px">
                 <div class="scl">
                     @if (bestSaleList.Item.Length >= 2)
                     {
@@ -37,8 +37,8 @@
     }
 </div>
 <div class="col-md-3 ">
-    <h1 class="border-b tittle-b">DỰ ÁN NỔI BẬT</h1>
-    <div class="border-b">
+    <h1 class="border-b tittle-b bw">DỰ ÁN NỔI BẬT</h1>
+    <div class="border-b bw">
         <div class="featureLand">
             <div class="scl2">
                 @if (ViewData["BestsaleProduct"] != null)

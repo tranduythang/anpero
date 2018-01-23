@@ -7,7 +7,10 @@ body {
     font-family: 'Arial', sans-serif;
     font-size: 14px;
     overflow-x: hidden;
-    background: url(http://media.anpero.com/images/27/12018/cloud-bg2018012314024680.jpg) center no-repeat;
+    /*background: url(http://media.anpero.com/images/27/12018/cloud-bg2018012314024680.jpg) center center no-repeat;
+        background-size: cover;
+    background-attachment: fixed;*/
+        background-color: #e9ebee;
 }
 
     body.is-ontop {
@@ -1071,13 +1074,13 @@ span.notify {
 }
 
 span.notify-left {
-    background: url('../images/notify.png') no-repeat;
+    background: url('/images/notify.png') no-repeat;
     right: 25px;
     top: -8px;
 }
 
 span.notify-right {
-    background: url('../images/notify-right.png') no-repeat;
+    background: url('/images/notify-right.png') no-repeat;
     right: 0px;
     top: -7px;
 }
@@ -2877,7 +2880,7 @@ span.notify-right {
 [14. footer]
 */
 #footer {
-    background: #3b5998!important;
+    background:#cfcfd0!important;
 }
 
 /** add-box **/
@@ -5255,7 +5258,7 @@ span.notify-right {
     }
 
     .blog-list .blog-list-wapper {
-        margin-top: 30px;
+        margin: 30px 5px 0 5px;
     }
 
         .blog-list .blog-list-wapper ul li {
@@ -5923,7 +5926,7 @@ span.notify-right {
 }
 
 .search .btn {
-    margin: 5px 0 15px 0;
+    margin: 15px 0 15px 0;
 }
 
 
@@ -5932,7 +5935,7 @@ span.notify-right {
 }
 
 .border-b {
-    border: solid 1px #fdfafa;
+    border: solid 1px #fafdfa52;
 }
 
 .tittle-b {
@@ -5947,7 +5950,7 @@ span.notify-right {
     font-weight: bold;
 }
 .faticle{
-    height:115px;
+    height:169px;
     overflow:hidden;
 }
 .faticle .post-title a {
@@ -5991,7 +5994,7 @@ span.notify-right {
 
 @media (min-width:1024px) {
     .featureLand {
-        height: 323px;
+        height: 374px;
         font-size: 14px;
         text-align: center;
         padding: 10px;
@@ -6058,3 +6061,5 @@ span.notify-right {
         margin-right: auto;
     }
 }
+.bw{background-color:white;}
+._l10{padding-left:-10px;}
