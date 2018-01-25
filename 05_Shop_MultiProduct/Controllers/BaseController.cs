@@ -43,7 +43,7 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                saleProduct = sv.GetSaleProduct(StoreID, TokenKey);
+                saleProduct = sv.GetRandomSaleProduct(StoreID, TokenKey, 4);
                 if (saleProduct != null)
                 {
                     HttpRuntime.Cache.Insert("saleProduct", saleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
@@ -51,7 +51,6 @@ namespace AnperoFrontend.Controllers
 
             }
             ViewData["saleProduct"] = saleProduct;
-
 
             if (HttpRuntime.Cache["BestsaleProduct"] != null)
             {
