@@ -1,0 +1,170 @@
+﻿@using AnperoFrontend.WebService;
+@using AnperoFrontend.WebService;
+<div class="col-md-6">
+
+    @if (ViewData["featureleProduct"] != null)
+    {
+        AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["featureleProduct"];        
+        if (bestSaleList.Item.Length > 0)
+        {
+            <div class="col-md-12 faticle bw" style="padding:10px;">
+                <div class="col-md-4 image-hover2">
+                    <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[0].PrName,bestSaleList.Item[0].Id)"><img src="@bestSaleList.Item[0].Images" alt="@bestSaleList.Item[0].PrName"></a>
+                </div>
+                <div class="post-desc">
+                    <h2 class="post-title">
+                        <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[0].PrName,bestSaleList.Item[0].Id)">@Anpero.StringHelpper.SubString(80, bestSaleList.Item[0].PrName)</a>
+                    </h2>
+                    @bestSaleList.Item[0].ShortDesc
+                </div>
+            </div>
+            <div class="col-md-12 home-article border-b bw" style="padding:0px;height:238px;margin-top:10px">
+                <div class="scl">
+                    @if (bestSaleList.Item.Length >= 2)
+                    {
+                        for (int i = 1; i < bestSaleList.Item.Length; i++)
+                        {
+                            <div class="post-desc">
+                                <h5 class="post-title">
+                                    <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[i].PrName,bestSaleList.Item[i].Id)">@Anpero.StringHelpper.SubString(80, bestSaleList.Item[i].PrName)</a>
+                                </h5>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        }
+    }
+</div>
+<div class="col-md-3 ">
+    <h1 class="border-b tittle-b bw">DỰ ÁN NỔI BẬT</h1>
+    <div class="border-b bw">
+        <div class="featureLand">
+            <div class="scl2">
+                @if (ViewData["BestsaleProduct"] != null)
+                {
+                    AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["BestsaleProduct"];
+                    int itemCount = bestSaleList.Item.Length;
+                    if (bestSaleList != null && itemCount > 0)
+                    {
+                        <ul class="owl-carousel2">
+                            <li>
+                                <div class="product-container">
+                                    <div class="left-block">
+                                        <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[0].PrName, bestSaleList.Item[0].Id)">
+                                            <img class="img-responsive" alt="@bestSaleList.Item[0].ShortDesc" src="@bestSaleList.Item[0].Images" />
+                                        </a>
+                                    </div>
+                                    <div class="right-block">
+                                        <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[0].PrName,bestSaleList.Item[0].Id)">@bestSaleList.Item[0].PrName</a></h5>
+                                    </div>
+                                </div>
+                                @if (itemCount > 1)
+                                {
+                                    <div class="product-container">
+                                        <div class="left-block">
+                                            <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[1].PrName, bestSaleList.Item[1].Id)">
+                                                <img class="img-responsive" alt="@bestSaleList.Item[1].ShortDesc" src="@bestSaleList.Item[1].Images" />
+                                            </a>
+                                        </div>
+                                        <div class="right-block">
+                                            <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[1].PrName,bestSaleList.Item[1].Id)">@bestSaleList.Item[1].PrName</a></h5>
+                                        </div>
+                                    </div>
+                                }
+                            </li>
+                            @if (itemCount > 2)
+                            {
+                                <li>
+
+                                    <div class="product-container">
+                                        <div class="left-block">
+                                            <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[2].PrName, bestSaleList.Item[2].Id)">
+                                                <img class="img-responsive" alt="@bestSaleList.Item[2].ShortDesc" src="@bestSaleList.Item[2].Images" />
+                                            </a>
+                                        </div>
+                                        <div class="right-block">
+                                            <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[2].PrName, bestSaleList.Item[2].Id)">@bestSaleList.Item[2].PrName</a></h5>
+                                        </div>
+                                    </div>
+
+                                    @if (itemCount > 3)
+                                    {
+                                        <div class="product-container">
+                                            <div class="left-block">
+                                                <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[3].PrName, bestSaleList.Item[3].Id)">
+                                                    <img class="img-responsive" alt="@bestSaleList.Item[3].ShortDesc" src="@bestSaleList.Item[3].Images" />
+                                                </a>
+                                            </div>
+                                            <div class="right-block">
+                                                <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[3].PrName, bestSaleList.Item[3].Id)">@bestSaleList.Item[3].PrName</a></h5>
+                                            </div>
+                                        </div>
+                                    }
+                                </li>
+                                if (itemCount > 4)
+                                {
+                                    <li>
+
+                                        <div class="product-container">
+                                            <div class="left-block">
+                                                <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[4].PrName, bestSaleList.Item[4].Id)">
+                                                    <img class="img-responsive" alt="@bestSaleList.Item[4].ShortDesc" src="@bestSaleList.Item[4].Images" />
+                                                </a>
+                                            </div>
+                                            <div class="right-block">
+                                                <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[4].PrName, bestSaleList.Item[4].Id)">@bestSaleList.Item[4].PrName</a></h5>
+                                            </div>
+                                        </div>
+
+                                        @if (itemCount > 5)
+                                        {
+                                        <div class="product-container">
+                                            <div class="left-block">
+                                                <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[5].PrName, bestSaleList.Item[5].Id)">
+                                                    <img class="img-responsive" alt="@bestSaleList.Item[5].ShortDesc" src="@bestSaleList.Item[5].Images" />
+                                                </a>
+                                            </div>
+                                            <div class="right-block">
+                                                <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[5].PrName, bestSaleList.Item[5].Id)">@bestSaleList.Item[5].PrName</a></h5>
+                                            </div>
+                                        </div>
+                                        }
+                                    </li>
+                                }
+                            }
+                            else
+                            {
+                                <li>
+                                    <div class="product-container">
+                                        <div class="left-block">
+                                            <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[0].PrName, bestSaleList.Item[0].Id)">
+                                                <img class="img-responsive" alt="@bestSaleList.Item[0].ShortDesc" src="@bestSaleList.Item[0].Images" />
+                                            </a>
+                                        </div>
+                                        <div class="right-block">
+                                            <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[0].PrName,bestSaleList.Item[0].Id)">@bestSaleList.Item[0].PrName</a></h5>
+                                        </div>
+                                    </div>
+                                    @if (itemCount > 1)
+                                    {
+                                        <div class="product-container">
+                                            <div class="left-block">
+                                                <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[1].PrName, bestSaleList.Item[1].Id)">
+                                                    <img class="img-responsive" alt="@bestSaleList.Item[1].ShortDesc" src="@bestSaleList.Item[1].Images" />
+                                                </a>
+                                            </div>
+                                            <div class="right-block">
+                                                <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[1].PrName,bestSaleList.Item[1].Id)">@bestSaleList.Item[1].PrName</a></h5>
+                                            </div>
+                                        </div>
+                                    }
+                                </li>
+                            }
+                        </ul>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
