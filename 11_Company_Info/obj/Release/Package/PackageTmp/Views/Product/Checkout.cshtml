@@ -1,0 +1,142 @@
+﻿
+@{
+    ViewBag.Title = "Checkout";
+}
+<div class="columns-container bw">
+    <div class="container" id="columns">
+        <!-- breadcrumb -->
+        <div class="breadcrumb clearfix">
+            <a class="home" href="#" title="Return to Home">Home</a>
+            <span class="navigation-pipe">&nbsp;</span>
+            <span class="navigation_page">Tạo đơn hàng</span>
+        </div>
+        <!-- ./breadcrumb -->
+        <!-- page heading-->
+        <h2 class="page-heading">
+            <span class="page-heading-title2">Tạo đơn hàng</span>
+        </h2>
+        <!-- ../page heading-->
+        <div class="page-content checkout-page" id="cartContent1">
+            <h3 class="checkout-sep">1. Vui lòng điền thông tin</h3>
+            <div class="box-border">
+                <ul>
+                    <li class="row">
+
+                        <div class="col-sm-12">
+                            <label for="first_name_1" class="required">Họ tên (*)</label>
+                            <input class="input form-control" type="text" name="" id="cName">
+                        </div>
+
+                    </li>
+                    <li class="row">
+                        <div class="col-sm-6">
+                            <label for="company_name_1">Số điện thoại (*)</label>
+                            <input class="input form-control" type="text" name="" id="cPhone">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="company_name_1">Email</label>
+                            <input class="input form-control" type="text" name="" id="cMail">
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="email_address_1" class="required">Địa chỉ (*)</label>
+                            <textarea class="input form-control" name="" id="cAddress"></textarea>
+
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="email_address_1" class="required">Bạn có muốn ghi chú gì cho lần tư vấn này không ?</label>
+                            <textarea class="input form-control" name="" id="detail"></textarea>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6" style="display:none;">
+                <h3 class="checkout-sep">2. Phương thức vận chuyển</h3>
+                <div class="box-border">
+                    <ul class="shipping_method">
+                        <li style="display:none;">
+                            <label for="radio_button_3"><input type="radio" checked name="radio_3" id="radio_button_3" value="0" data-ship="0">Miễn phí 0đ</label>
+                        </li>
+
+                        <li>
+                            <label for="radio_button_4"><input type="radio" name="radio_3" id="radio_button_4" value="1" data-ship="40000"> Vận chuyển thường 40.000đ</label>
+                        </li>
+                        <li>
+
+                            <label for="radio_button_5"><input type="radio" name="radio_3" id="radio_button_5" value="2" data-ship="80000"> Vận chuyển nhanh 80.000đ</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+                <div class="col-md-6" style="display:none;">
+                    <h3 class="checkout-sep">3. Phương thức thanh toán</h3>
+                    <div class="box-border">
+                        <ul class="shipping_method">
+                            <li style="display:none;">
+                                <p class="subcaption bold">Tại cửa hàng</p>
+                                <label for="radio_button_41"><input type="radio" checked name="radio_4" id="radio_button_41" value="0" data-ship="0">Miễn phí 0 đ</label>
+                            </li>
+                            <li>
+                                <label for="radio_button_51"><input type="radio" name="radio_4" id="radio_button_51" value="1" data-ship="0"> Chuyển khoản 0đ</label>
+                            </li>
+                            <li>
+                                <label for="radio_button_6"><input type="radio" name="radio_4" id="radio_button_6" value="2" data-ship="15000"> Thu tiền tại nhà 15.000 đ</label>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="checkout-sep">2. bất động sản muốn tư vấn</h3>
+                <div class="box-border">
+                    <table class="table table-bordered table-responsive cart_summary">
+                        <thead>
+                            <tr>
+                                <th class="cart_product">Ảnh</th>
+                                <th>Thông tin</th>
+                                <th>Tình trạng.</th>
+                                <th>Giá bất động sản</th>
+                                <th>Tổng</th>
+                                <th class="action"><i class="fa fa-trash-o"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody id="prCatCtTable"></tbody>
+                   
+                    </table>
+                    <div class="col-md-12">
+                        <div id="g-recaptcha" class="pull-right"></div>
+                    </div>
+                    <button class="button pull-right" id="orderBtn">Xác nhận </button>
+                    <a class="button pull-right" href="/">Xem thêm bất động sản khác</a>
+                </div>
+            </div>
+        <div class="page-content checkout-page" id="cartContent2" style="display:none;"></div>
+        <div id='ajax_loader' style="position: fixed; left: 45%; top: 50%; display: none;">
+            <img src="~/assets/images/loading.gif" />
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/Bootrap.notify.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+        var googleCatcha;
+        $(window).load(function () {
+            var width = $(window).width();
+            $("#ajax_loader").css("left", ((width / 2) - 100) + "px")
+            Cart.bindCartTable();
+            $("input[name=radio_3]").click(function () {
+                Cart.bindCartTable();
+            });
+            $("input[name=radio_4]").click(function () {
+                Cart.bindCartTable();
+            });
+            $("#orderBtn").click(function () {
+                Cart.sendOrder();
+            });
+            googleCatcha = grecaptcha.render('g-recaptcha', {
+                'sitekey': googleCapchaSitekey,
+                'theme': 'light',
+                'hl': 'vi'
+            });
+        });
+    </script>
+}

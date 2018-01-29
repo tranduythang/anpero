@@ -22,6 +22,7 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -731,6 +732,7 @@
     <Content Include="assets\images\grid-view-bg.png" />
     <Content Include="assets\images\heart-icon.png" />
     <Content Include="assets\images\heart.png" />
+    <Content Include="assets\images\home.png" />
     <Content Include="assets\images\icon-angle-right.png" />
     <Content Include="assets\images\icon-cart-option2.png" />
     <Content Include="assets\images\icon-cart-round.png" />
@@ -876,7 +878,6 @@
     <Content Include="assets\lib\select2\js\select2.js" />
     <Content Include="assets\lib\select2\js\select2.min.js" />
     <Content Include="favicon.ico" />
-    <Content Include="Global.asax" />
     <Content Include="assets\fonts\fontello.eot" />
     <Content Include="assets\fonts\fontello.ttf" />
     <Content Include="assets\fonts\fontello.woff" />
@@ -919,6 +920,7 @@
     <Content Include="assets\lib\font-awesome\scss\font-awesome.scss" />
     <Content Include="assets\lib\jquery-bxslider\bower.json" />
     <Content Include="assets\lib\jquery-bxslider\readme.md" />
+    <Content Include="Global.asax" />
     <Content Include="handler\ProductHandler.ashx" />
     <Content Include="handler\LocationHandler.ashx" />
     <None Include="Properties\Settings.settings">
@@ -1058,7 +1060,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>32561</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:32557</IISUrl>
+          <IISUrl>http://localhost:32500</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

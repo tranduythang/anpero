@@ -6063,3 +6063,11 @@ span.notify-right {
 }
 .bw{background-color:white;}
 ._l10{padding-left:-10px;}
+#home_link {
+    background-image: url(/assets/images/home.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    width: 50px;
+    padding: 0px;
+    height: 56px;
+}
