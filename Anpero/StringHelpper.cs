@@ -414,7 +414,7 @@ namespace Anpero
             return System.Web.HttpUtility.UrlEncode(title).Replace(@"%0", "").Replace(@"%1", "").Replace(@"%2c", ",").Replace(@"%3a", String.Empty).ToLower();
         }
         /// <summary>
-        /// Chuyển dạng số dang dạng chứ đọc tiếng vie
+        /// Chuyển dạng số dang dạng chứ đọc tiếng viet
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
