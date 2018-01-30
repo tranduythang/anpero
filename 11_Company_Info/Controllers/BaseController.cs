@@ -32,19 +32,7 @@ namespace AnperoFrontend.Controllers
                 }
 
             }
-            if (HttpRuntime.Cache["TopNewArticle"] != null)
-            {
-                TopNewArticle = (WebService.SearchArticleResults)HttpRuntime.Cache["TopNewArticle"];
-            }
-            else
-            {
-                TopNewArticle = service.SearchArticle(StoreID, TokenKey, 0, 0, 20, 0);
-                if (TopNewArticle != null)
-                {
-                    HttpRuntime.Cache.Insert("TopNewArticle", TopNewArticle, null, DateTime.Now.AddMinutes(shortCacheTime+10), TimeSpan.Zero);
-                }
-
-            }
+        
 
             if (HttpRuntime.Cache["customArticle"] != null)
             {

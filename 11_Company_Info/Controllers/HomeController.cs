@@ -12,7 +12,6 @@ namespace AnperoFrontend.Controllers
         {
             GetNewestProduct();
             SetupCommonProduct();
-            GetTopArticle();
             SetUpSlideAds();
             WebService.SearchResult featureleProduct;
             WebService.AnperoService sv = new WebService.AnperoService();
@@ -29,9 +28,11 @@ namespace AnperoFrontend.Controllers
                 }
             }
             ViewData["featureleProduct"] = featureleProduct;
+            ViewData["Customproduct01"] =   GetCustomproduct(Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["Customproduct01"]));
+            ViewData["Customproduct02"] = GetCustomproduct(Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["Customproduct02"]));
 
-        
-        
+
+
             return View();
         }
         private void SetUpSlideAds()
@@ -71,6 +72,25 @@ namespace AnperoFrontend.Controllers
             }
             Response.Cache.SetExpires(DateTime.Now.AddMinutes(60));
             Response.Cache.SetCacheability(HttpCacheability.Public);
+        }
+        private SearchResult GetCustomproduct(int id)
+        {
+            WebService.AnperoService service = new WebService.AnperoService();
+            WebService.SearchResult searchResult = new WebService.SearchResult();
+            int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
+            if (HttpRuntime.Cache["Customproduct" + id] != null)
+            {
+                searchResult = (WebService.SearchResult)HttpRuntime.Cache["Customproduct" + id];
+            }
+            else
+            {
+                searchResult = service.GetProductByCategory(StoreID, TokenKey, id, 1, 10, 0);
+                if (searchResult != null)
+                {
+                    HttpRuntime.Cache.Insert("Customproduct"+id, searchResult, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                }
+            }
+            return searchResult;
         }
         private void GetNewestProduct()
         {

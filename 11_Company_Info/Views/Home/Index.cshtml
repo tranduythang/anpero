@@ -105,13 +105,13 @@ else
                     <div class="col-md-6 col-sm-6">
                         
                         <h2 class="page-heading">
-                            <span class="page-heading-title">Bất động sản mới <img src="/assets/images/new-marker.gif"></span>
+                            <span class="page-heading-title">Về chúng tôi</span>
                         </h2>
                         <div class="border-b">
                             <ul class="product-list list">
-                                @if (ViewData["newestProduct"] != null)
+                                @if (ViewData["Customproduct01"] != null)
                                 {
-                                    AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["newestProduct"];
+                                    AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["Customproduct01"];
                                     if (bestSaleList != null && bestSaleList.Item.Length > 0)
                                     {
                                         foreach (ProductItem item in bestSaleList.Item)
@@ -160,15 +160,15 @@ else
                             <span class="page-heading-title">Tin mới đăng <img src="/assets/images/new-marker.gif"></span>
                         </h2>
                         <div class="border-b">
-                            @if (ViewData["TopNewArticle"] != null)
+                            @if (ViewData["newestProduct"] != null)
                             {
-                                SearchArticleResults TopNewArticle = (SearchArticleResults)ViewData["TopNewArticle"];
-                                if (TopNewArticle.ItemList != null && TopNewArticle.ItemList.Length > 0)
+                                AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["newestProduct"];
+                                if (bestSaleList != null && bestSaleList.Item.Length > 0)
                                 {
-                                    foreach (var item in TopNewArticle.ItemList)
+                                    foreach (var item in bestSaleList.Item)
                                     {
                                         <div class="post-desc">
-                                            <h5 class="post-title"><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h5>
+                                            <h5 class="post-title"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></h5>
                                         </div>
                                     }
                                 }
@@ -178,26 +178,26 @@ else
                     <div class="col-md-3 col-sm-3 home-article">
                         
                         <h2 class="page-heading">
-                            <span class="page-heading-title">Phong thủy <img src="/assets/images/new-marker.gif"></span>
+                            <span class="page-heading-title">Các sự kiện <img src="/assets/images/new-marker.gif"></span>
                         </h2>
                         <div class="border-b artCt2">
-                            @if (ViewData["customArticle"] != null)
+                            @if (ViewData["Customproduct02"] != null)
                             {
-                                SearchArticleResults customArticle = (SearchArticleResults)ViewData["customArticle"];
-                                if (customArticle.ItemList != null && customArticle.ItemList.Length > 0)
+                                AnperoFrontend.WebService.SearchResult Customproduct02 = (AnperoFrontend.WebService.SearchResult)ViewData["Customproduct02"];
+                                if (Customproduct02.Item != null && Customproduct02.Item.Length > 0)
                                 {
-                                    foreach (var item in customArticle.ItemList)
+                                    foreach (var item in Customproduct02.Item)
                                     {
 
                                         <div class="product-container">
                                             <div class="left-block">
-                                                <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
-                                                    <img class="img-responsive" alt="" src="@item.Thumb">
+                                                <a href="@Anpero.StringHelpper.GetArticleLink(item.PrName,item.Id)">
+                                                    <img class="img-responsive" alt="" src="@item.Images">
                                                 </a>
                                             </div>
                                             <div class="right-block">
-                                                <h4 class="product-name"><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h4>
-                                                <div>@item.ShotDesc</div>
+                                                <h4 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></h4>
+                                                <div>@item.ShortDesc</div>
                                             </div>
                                         </div>
                                     }
