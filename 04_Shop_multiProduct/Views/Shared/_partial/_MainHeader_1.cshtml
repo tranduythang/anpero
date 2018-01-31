@@ -44,15 +44,13 @@
                                 {
                                     for (int j = 0; j < commonInfo.ProductCategoryList[i].ChildCategory.Length; j++)
                                     {
-                                        <option value="@commonInfo.ProductCategoryList[i].ChildCategory[j].Id">@commonInfo.ProductCategoryList[i].ChildCategory[j].Name</option>
+                                        <option value="@commonInfo.ProductCategoryList[i].ChildCategory[j].Id">@Anpero.StringHelpper.SubString(20,commonInfo.ProductCategoryList[i].ChildCategory[j].Name)</option>
                                     }
-
                                 }
                             }
                         }
                     </select>
                 </div>
-
                 <div class="form-group input-serach">
                     <input type="text" placeholder="Tìm kiếm ..." name="keyword">
                 </div>

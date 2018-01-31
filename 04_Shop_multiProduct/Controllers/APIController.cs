@@ -14,9 +14,6 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult Index()
         {
-            AnperoService ws = new AnperoService();
-            
-            ViewBag.Msg = "";
             return View();
         }
         [BuildCommonHtml]
@@ -34,8 +31,8 @@ namespace AnperoFrontend.Controllers
                         //for test
                         //info.Merchant_id = "24338";
                         //info.Merchant_password = "12345612";
-                        info.Merchant_id = pc[i].MerchantId;// "52084";
-                        info.Merchant_password = pc[i].MerchantPassword;// "3c0ba9b81b28cbfa3d675d59fc5ccc41";
+                        info.Merchant_id = pc[i].MerchantId;
+                        info.Merchant_password = pc[i].MerchantPassword;
                         info.Token = Token;
                         APICheckoutV3 objNLChecout = new APICheckoutV3();
                         ResponseCheckOrder result = objNLChecout.GetTransactionDetail(info);
@@ -48,8 +45,7 @@ namespace AnperoFrontend.Controllers
                         rs += "<br>";
                         rs += "Mã đơn hàng: " + result.order_code;
                         rs += "<br>";
-                        rs += "Tên người thanh toán: " + result.payerName;
-                        
+                        rs += "Tên người thanh toán: " + result.payerName;                        
                         //update and add cash book
                         ws.UpdateOrderStatus(StoreID, TokenKey, Convert.ToInt32(result.order_code), Convert.ToInt32(result.paymentAmount), "Ngân Lượng (Mã giao dịch Ngân Lượng " + result.transactionId + ")");
                         ViewBag.Msg = rs;
