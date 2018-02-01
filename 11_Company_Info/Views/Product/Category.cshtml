@@ -54,10 +54,7 @@
                                                 }
                                                 <div class="quick-view">
                                                     <a title="Quick view" class="search" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)"></a>
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a title="Add to Cart" href="javascript:Cart.addProduct(@item.Id,'@Convert.ToInt32(item.Price)','@item.Images','@item.PrName')"> Liên hệ tư vấn</a>
-                                                </div>
+                                                </div>                                                
                                             </div>
                                             <div class="right-block">
                                                 <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">@item.PrName</a></h5>
@@ -70,29 +67,8 @@
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star-half-o"></i>
                                                     </div>
-                                                }
-                                                @if (item.IsSale)
-                                                {
-                                                    <div class="content_price">
-                                                        <span class="price product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)</span>
-                                                        <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span>
-                                                    </div>
-                                                }
-                                                else
-                                                {
-                                                    <div class="content_price">
-                                                        <span class="price product-price">@Anpero.StringHelpper.ConvertToVndMoney(item.Price)</span>
-                                                    </div>
-                                                }
-                                                <div class="info-orther">                                                  
-                                                    @if (item.IsInstock)
-                                                    {
-                                                        <p class="availability">Trạng thái: <span>Còn hàng</span></p>
-                                                    }
-                                                    else
-                                                    {
-                                                        <p class="availability">Trạng thái: <span>Hết hàng</span></p>
-                                                    }
+                                                }                                           
+                                                <div class="info-orther">                                                                                                   
                                                     <div class="product-desc">
                                                         @Html.Raw(item.ShortDesc)
                                                     </div>

@@ -11,11 +11,11 @@
         TopArticle = (SearchArticleResults)ViewData["FeatureArticle"];
     }
 }
-<div class="column col-xs-12 col-sm-3" id="left_column">
+<div class="column col-xs-12 col-sm-3 " id="left_column">
     <!-- Blog category -->
     @if (categoryList!=null && categoryList.Count > 0)
     {
-        <div class="block left-module">
+        <div class="block left-module bw">
             <p class="title_block">Các chuyên mục</p>
             <div class="block_content">
                 <!-- layered -->
@@ -35,7 +35,7 @@
     }
     else
     {
-        <div class="block left-module">
+        <div class="block left-module bw">
             <p class="title_block">Các chuyên đề</p>
             <div class="block_content">                
                 <div class="layered layered-category">
@@ -54,7 +54,7 @@
     @if (TopArticle!=null && TopArticle.ItemList.Length > 0)
     {
 
-        <div class="block left-module">
+        <div class="block left-module bw">
             <p class="title_block">Tin nổi bật</p>
             <div class="block_content">      
                 <div class="layered">

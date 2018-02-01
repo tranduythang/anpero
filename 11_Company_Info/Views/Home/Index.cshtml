@@ -21,13 +21,11 @@
 
 <div class="page-top ">
     <div class="container">
-        <div class="row">
-           
+        <div class="row">           
             @Html.Partial("_partial/_HomeSlide_2")
         </div>
     </div>
 </div>
-
 @if (ViewData["AdsSlide2"] != null)
 {
     Ads[] slide = (Ads[])ViewData["AdsSlide2"];
@@ -210,7 +208,7 @@ else
         </div>
     </div>
 </div>
-@if (ViewData["FeatureArticle"] != null)
+@*@if (ViewData["FeatureArticle"] != null)
 {
     SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
     <div class="row-blog">
@@ -247,7 +245,7 @@ else
             </div>
         </div>
     </div>
-}
+}*@
 @section scripts{
 <script type="text/javascript" src="/assets/lib/jquery-bxslider/jquery-bxslider.min.js"></script>
 
@@ -279,9 +277,8 @@ else
                 autoplayTimeout: 2000,
                 autoplayHoverPause: true
             });
-        });
-        Location.Init();
-        Category.Init();
+        });        
+        
     </script>
 
 }

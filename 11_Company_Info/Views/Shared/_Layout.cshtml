@@ -21,7 +21,7 @@
     <meta property="og:title" content="@ViewBag.Title" />
   
     @Styles.Render("~/Content/css")
-    <link rel="stylesheet" type="text/css" href="~/assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
  
     <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css" />
@@ -48,7 +48,7 @@
                 </div>
               
                 }
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 group-button-header">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 group-button-header  pull-right">
                     <a title="Compare" href="javascript:doGTranslate('vi|vi');" class="notranslate">Tiếng Việt | </a>
                     <a title="Compare" href="javascript:doGTranslate('vi|en');" class="notranslate">English | </a>
                     <a title="Compare" href="javascript:doGTranslate('vi|zh-CN');" class="notranslate">中国 | </a>
@@ -186,8 +186,7 @@
                                     @foreach (var item in commonInfo.ProductCategoryList)
                                     {
                                         <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
-                                    }
-                                    <li><a href="/blog">Blogs</a></li>
+                                    }                                    
                                     <li><a href="/home/contact">Liên hệ</a></li>
                                 </ul>
                             }
@@ -210,16 +209,17 @@
                     </div>
                 </div>
             </div>
-            <div id="footer-menu-box">
-                <div class="col-sm-12">
-                    <ul class="footer-menu-list">
-                        <li><a href="/">Giới thiệu về chúng tôi</a></li>
-                    </ul>
-                </div>
-                <p class="text-center">Copyrights © 2017 <a href="/">@commonInfo.Name</a>. All Rights Reserved. Designed by <a href="http://anpero.com" title="thiết kế web bán hàng anpro">Anpero.com</a></p>
-            </div>
+        
         </div>
     </footer>
+    <div id="footer-menu-box">
+        <div class="col-sm-12">
+            <ul class="footer-menu-list">
+                <li><a href="/home/contact">Liên hệ</a></li>
+            </ul>
+        </div>
+        <p class="text-center">Copyrights © 2017 <a href="/">@commonInfo.Name</a>. All Rights Reserved. Designed by <a href="http://anpero.com" title="thiết kế web bán hàng anpro">Anpero.com</a></p>
+    </div>
     <div id="fb-root"></div>
     <script>
         (function (d, s, id) {
