@@ -39,9 +39,9 @@
                 @if (!Request.Browser.IsMobileDevice)
                 { 
                     <div class="col-sm-8 col-md-3 header-search-box">
-                            <form class="form-inline">
+                            <form class="form-inline" action="/search" id="search" method="get">
                                 <div class="form-group input-serach">
-                                    <input type="text" placeholder="Gõ vài từ để tìm...">
+                                    <input type="text" placeholder="Gõ vài từ để tìm..." >
                                 </div>
                                 <button type="submit" class="pull-right btn-search"><i class="fa fa-search"></i></button>
                             </form>
