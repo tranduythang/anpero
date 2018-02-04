@@ -128,14 +128,15 @@ else
                                                         @if (item.Price > 0)
                                                         {
                                                             <div class="content_price">
-                                                                <span class="price product-price">@Anpero.StringHelpper.ConvertToVndMoney(item.Price) đ </span>
+                                                                <span class="price product-price">@Anpero.StringHelpper.ConvertToVndMoney(item.Price) </span>
+                                                                
                                                             </div>
                                                         }
-                                                        <div class="info-orther">
-                                                            @if (item.Warranty > 0)
-                                                            {
-                                                                <p><strong>Diện tích:</strong> @item.Warranty m²</p>
-                                                            }
+                                                        @if (item.Warranty > 0)
+                                                        {
+                                                            <span class="pull-right"> <strong>Diện tích:</strong> @item.Warranty m²</span>
+                                                        }
+                                                        <div class="info-orther ">
                                                             <div class="product-desc">
                                                                 @item.ShortDesc
                                                             </div>

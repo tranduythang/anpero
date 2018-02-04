@@ -47,7 +47,7 @@ namespace AnperoFrontend.Controllers
                         rs += "<br>";
                         rs += "Tên người thanh toán: " + result.payerName;                        
                         //update and add cash book
-                        ws.UpdateOrderStatus(StoreID, TokenKey, Convert.ToInt32(result.order_code), Convert.ToInt32(result.paymentAmount), "Ngân Lượng (Mã giao dịch Ngân Lượng " + result.transactionId + ")");
+                        ws.UpdateOrderStatus(StoreID, TokenKey, Convert.ToInt32(result.order_code), Convert.ToInt32(result.paymentAmount), "Ngân Lượng (Mã giao dịch Ngân Lượng " + result.transactionId + ")<br />" + rs);
                         ViewBag.Msg = rs;
                     }
                 }
@@ -77,7 +77,7 @@ namespace AnperoFrontend.Controllers
                 }
             }
                       
-            return View("Index");            
+            return View("Index");
         }
         
     }

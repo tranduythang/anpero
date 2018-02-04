@@ -64,10 +64,7 @@
                                         <p class="product-name">
                                             <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[i].PrName,bestSaleList.Item[i].Id)">@bestSaleList.Item[i].PrName</a>
                                         </p>                                        
-                                        @if (bestSaleList.Item[i].Price>0)
-                                        {
-                                            <p class="product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(bestSaleList.Item[i].Price.ToString())</p>
-                                        }
+                                    
 
                                      
                                     </div>
@@ -87,8 +84,6 @@
                                         <p class="product-name">
                                             <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[i].PrName,bestSaleList.Item[i].Id)">@bestSaleList.Item[i].PrName</a>
                                         </p>
-
-                                        <p class="product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(bestSaleList.Item[i].Price.ToString())</p>
                                         <p class="product-star">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>

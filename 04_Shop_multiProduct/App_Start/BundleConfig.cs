@@ -20,6 +20,8 @@ namespace AnperoFrontend
                        "~/assets/js/jquery.actual.min.js",
                        "~/assets/js/theme-script.js",                       
                        "~/Scripts/jquery.cokie.min.js",
+                       "~/Scripts/Bootrap-notify.js",
+                   
                        "~/Scripts/ShoppingCart.js",
                          "~/Scripts/Anpero.Common.js"
                       ));
@@ -31,7 +33,9 @@ namespace AnperoFrontend
               "~/assets/lib/owl-carousel/owl-carousel.css",
               "~/assets/lib/jquery-ui/jquery-ui.css",
               "~/assets/css/animate.css",
-              "~/assets/css/reset.css"
+              "~/assets/css/reset.css",
+              "~/assets/css/style.css",
+              "~/assets/css/responsive.css"
            ));
             BundleTable.EnableOptimizations = true;
         }
