@@ -43,7 +43,7 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                saleProduct = sv.GetRandomSaleProduct(StoreID, TokenKey, 4);
+                saleProduct = sv.GetRandomSaleProduct(StoreID, TokenKey, 6);
                 if (saleProduct != null)
                 {
                     HttpRuntime.Cache.Insert("saleProduct", saleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);

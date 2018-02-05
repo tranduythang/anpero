@@ -110,16 +110,23 @@
                                                     {
                                                         for (int i = 0; i < saleProduct.Length; i++)
                                                         {
-                                                            int itemPecentDow = Convert.ToInt32((saleProduct[i].Price - saleProduct[i].SalePrice) / saleProduct[i].Price * 100);
-                                                            <div class="grid12-3">
-                                                                <div>
-                                                                    <a href="@Anpero.StringHelpper.GetProductLink(saleProduct[i].PrName, saleProduct[i].Id)" title="@saleProduct[i].PrName">
-                                                                        <img src="@saleProduct[i].Images" alt="@saleProduct[i].PrName">
-                                                                    </a>
+                                                            if (i < 4)
+                                                            {
+                                                                int itemPecentDow = Convert.ToInt32((saleProduct[i].Price - saleProduct[i].SalePrice) / saleProduct[i].Price * 100);
+                                                                <div class="grid12-3">
+                                                                    <div>
+                                                                        <a href="@Anpero.StringHelpper.GetProductLink(saleProduct[i].PrName, saleProduct[i].Id)" title="@saleProduct[i].PrName">
+                                                                            <img src="@saleProduct[i].Images" alt="@saleProduct[i].PrName">
+                                                                        </a>
+                                                                    </div>
+                                                                    <h4 class="heading">Giảm giá @itemPecentDow.ToString()%</h4>
+                                                                    <p>@saleProduct[i].ShortDesc.Substring(0, 61)</p>
                                                                 </div>
-                                                                <h4 class="heading">Giảm giá @itemPecentDow.ToString()%</h4>
-                                                                <p>@saleProduct[i].ShortDesc.Substring(0, 61)</p>
-                                                            </div>
+                                                            }
+                                                            else
+                                                            {
+                                                                break;
+                                                            }
                                                         }
                                                     }
                                                 }
