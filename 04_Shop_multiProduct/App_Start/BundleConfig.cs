@@ -33,9 +33,7 @@ namespace AnperoFrontend
               "~/assets/lib/owl-carousel/owl-carousel.css",
               "~/assets/lib/jquery-ui/jquery-ui.css",
               "~/assets/css/animate.css",
-              "~/assets/css/reset.css",
-              "~/assets/css/style.css",
-              "~/assets/css/responsive.css"
+              "~/assets/css/reset.css"
            ));
             BundleTable.EnableOptimizations = true;
         }
