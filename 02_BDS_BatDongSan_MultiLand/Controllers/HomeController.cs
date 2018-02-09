@@ -6,7 +6,7 @@ using System.Web.Mvc;
 namespace AnperoFrontend.Controllers
 {
     public class HomeController : BaseController
-    {   [BunderHtml]
+    {  
         [BuildCommonHtml]
         public ActionResult Index()
         {

@@ -143,11 +143,7 @@ namespace AnperoFrontend.Controllers
 
 
         }
-        public override void OnActionExecuting(ActionExecutingContext filterContext)
-        {
-            var originalFilter =  filterContext.HttpContext.Response.Filter;
-            filterContext.HttpContext.Response.Filter = new KeywordStream(originalFilter);
-        }
+      
 
     }
     public class BunderHtml : ActionFilterAttribute
