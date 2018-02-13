@@ -22,7 +22,7 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                rs = service.SearchArticle(StoreID, TokenKey, 0, 1, 4, 2);
+                rs = service.SearchArticle(StoreID, TokenKey, 0, 1, 5, 2);
                 if (rs != null)
                 {
                     HttpRuntime.Cache.Insert("TopArticle", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
@@ -43,7 +43,7 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                saleProduct = sv.GetSaleProduct(StoreID, TokenKey);
+                saleProduct = sv.GetRandomSaleProduct(StoreID, TokenKey, 6);
                 if (saleProduct != null)
                 {
                     HttpRuntime.Cache.Insert("saleProduct", saleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
@@ -51,7 +51,6 @@ namespace AnperoFrontend.Controllers
 
             }
             ViewData["saleProduct"] = saleProduct;
-
 
             if (HttpRuntime.Cache["BestsaleProduct"] != null)
             {

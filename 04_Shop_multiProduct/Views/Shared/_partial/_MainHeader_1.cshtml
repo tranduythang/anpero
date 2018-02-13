@@ -12,7 +12,11 @@
         <div class="currency"><a href="tel:@commonInfo.HotLine">Click để gọi: @commonInfo.HotLine</a></div>
         <div class="top-bar-social">
             <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
-            <a href="@commonInfo.FaceBookLink" target="_blank"><i class="fa fa-facebook"></i></a>
+            @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+            {
+                <a href="@commonInfo.FaceBookLink" target="_blank"><i class="fa fa-facebook"></i></a>
+            }
+            
         </div>
         <div class="support-link">
             <a href="/about">Thông tin cửa hàng</a>
@@ -34,21 +38,21 @@
                         {
                             for (int i = 0; i < commonInfo.ProductCategoryList.Length; i++)
                             {
+                                
+                                <option value="c-@commonInfo.ProductCategoryList[i].Id">@commonInfo.ProductCategoryList[i].Name</option>
                                 if (commonInfo.ProductCategoryList[i].ChildCategory != null && commonInfo.ProductCategoryList[i].ChildCategory.Length > 0)
                                 {
                                     for (int j = 0; j < commonInfo.ProductCategoryList[i].ChildCategory.Length; j++)
                                     {
-                                        <option value="@commonInfo.ProductCategoryList[i].ChildCategory[j].Id">@commonInfo.ProductCategoryList[i].ChildCategory[j].Name</option>
+                                        <option value="@commonInfo.ProductCategoryList[i].ChildCategory[j].Id">@Anpero.StringHelpper.SubString(20,commonInfo.ProductCategoryList[i].ChildCategory[j].Name)</option>
                                     }
-
                                 }
                             }
                         }
                     </select>
                 </div>
-
                 <div class="form-group input-serach">
-                    <input type="text" placeholder="Tìm kiếm mọi thứ..." name="keyword">
+                    <input type="text" placeholder="Tìm kiếm ..." name="keyword">
                 </div>
                 <button type="submit" class="pull-right btn-search" id="btnSearch"></button>
             </form>

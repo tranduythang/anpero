@@ -21,7 +21,7 @@ namespace AnperoFrontend.Controllers
             ViewData["prDetail"] = item;
             ViewBag.Title = item.PrName;
             SetupCommonProduct();
-            return View("List");
+            return View();
         }
         [BuildCommonHtml]
         public ActionResult Category(int id)
@@ -32,16 +32,17 @@ namespace AnperoFrontend.Controllers
             {
                 page = Convert.ToInt32(pageQuery);
             }
-            WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.SearchResult rs   = sv.GetProductByCategory(StoreID, TokenKey, id, page, 14,0);
-            ViewData["productList"] = rs;
-            ViewBag.page =Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
-            if(rs!=null && rs.Item.Length > 0)
-            {
-                ViewBag.Title = rs.Item[0].CatName;
-            }
-            
-            SetupCommonProduct();
+            //WebService.AnperoService sv = new WebService.AnperoService();
+            //WebService.SearchResult rs   = sv.GetProductByCategory(StoreID, TokenKey, id, page, 14,0);
+            //ViewData["productList"] = rs;
+            //ViewBag.page =Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+            //if(rs!=null && rs.Item.Length > 0)
+            //{
+            //    ViewBag.Title = rs.Item[0].CatName;
+            //}
+            ViewBag.Title = "Thiết kế web site bán hàng chuyên nghiệp nhất | Anpero";
+            GetTopArticle();
+            //SetupCommonProduct();
             SetUpSeo(2, id);
             return View("List");
         }
@@ -55,16 +56,18 @@ namespace AnperoFrontend.Controllers
             {
                 page = Convert.ToInt32(pageQuery);
             }
-            WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.SearchResult rs = sv.GetProductByParentCategory(StoreID, TokenKey, id, page, 14, 0);
-            ViewData["productList"] = rs;
-            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
-            ViewBag.isParent = "1";
-            if (rs != null && rs.Item.Length > 0)
-            {
-                ViewBag.Title = rs.Item[0].ParentCatName;
-            }
-            SetupCommonProduct();
+            //WebService.AnperoService sv = new WebService.AnperoService();
+            //WebService.SearchResult rs = sv.GetProductByParentCategory(StoreID, TokenKey, id, page, 14, 0);
+            //ViewData["productList"] = rs;
+            //ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+            //ViewBag.isParent = "1";
+            //if (rs != null && rs.Item.Length > 0)
+            //{
+            //    ViewBag.Title = rs.Item[0].ParentCatName;
+            //}
+            //  SetupCommonProduct();
+            ViewBag.Title = "Thiết kế web site bán hàng chuyên nghiệp nhất | Anpero";
+            GetTopArticle();
             SetUpSeo(1,id);
             return View("List");
         }
@@ -99,40 +102,43 @@ namespace AnperoFrontend.Controllers
         private void SetUpSeo(int type, int categoryId)
         {
             AnperoFrontend.WebService.Webconfig commonInfo = (AnperoFrontend.WebService.Webconfig)HttpRuntime.Cache["commonInfo"];
-
-            switch (type)
+            if (commonInfo != null)
             {
-                case 1:
-                    foreach (var item in commonInfo.ProductCategoryList)
-                    {
-                        if (item.Id == categoryId)
+                switch (type)
+                {
+                    case 1:
+                        foreach (var item in commonInfo.ProductCategoryList)
                         {
-                            ViewBag.Keywords = item.Name;
-                            ViewBag.Description = item.Name;
-                            break;
-                        }
-                    }
-                    break;
-                case 2:
-                    foreach (var item in commonInfo.ProductCategoryList)
-                    {
-                        foreach (var chidItem in item.ChildCategory)
-                        {
-                            if (chidItem.Id == categoryId)
+                            if (item.Id == categoryId)
                             {
                                 ViewBag.Keywords = item.Name;
                                 ViewBag.Description = item.Name;
                                 break;
                             }
                         }
+                        break;
+                    case 2:
+                        foreach (var item in commonInfo.ProductCategoryList)
+                        {
+                            foreach (var chidItem in item.ChildCategory)
+                            {
+                                if (chidItem.Id == categoryId)
+                                {
+                                    ViewBag.Keywords = item.Name;
+                                    ViewBag.Description = item.Name;
+                                    break;
+                                }
+                            }
 
-                    }
-                    break;
-                default:
-                    ViewBag.Keywords = "Tìm kiếm " + commonInfo.Name + "| " + commonInfo.Desc;
-                    ViewBag.Description = "Tìm kiếm trên " + commonInfo.Name + "| " + commonInfo.Desc;
-                    break;
+                        }
+                        break;
+                    default:
+                        ViewBag.Keywords = "Tìm kiếm " + commonInfo.Name + "| " + commonInfo.Desc;
+                        ViewBag.Description = "Tìm kiếm trên " + commonInfo.Name + "| " + commonInfo.Desc;
+                        break;
+                }
             }
+          
             //Get Description and Keywords of Category production
             ViewBag.Description = string.Empty;
             ViewBag.Keywords = string.Empty;

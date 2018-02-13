@@ -4008,8 +4008,12 @@ ul.pdt-list li.item a img.image-hover {
             font-size: 12px;
             overflow: hidden;
             letter-spacing: 0.5px;
+            height: 65px;
         }
-
+        .small-grid .item .item-inner .item-info .info-inner .item-title {
+            min-height:64px;
+        }
+        
             .products-grid .item .item-inner .item-info .info-inner .item-title a {
                 text-decoration: none;
                 text-transform: uppercase;
@@ -4171,11 +4175,15 @@ ul.pdt-list li.item a img.image-hover {
     white-space: nowrap;
     color: #999;
     display: none;
+
 }
 
 .old-price {
     display: inline;
     margin-right: 5px;
+    text-decoration: line-through;
+    font-weight:normal;
+    color: #cdcdcd!important;
 }
     /* Old price */
     .old-price .price-label {
@@ -5737,6 +5745,7 @@ text-transform: uppercase
     margin-top: 0px;
     margin-bottom: 0px;
     line-height: 19px;
+    min-height: 50px;
 }
 
     .latest-blog h3 a {
@@ -11598,7 +11607,7 @@ footer a {
 footer .footer-inner {
     margin: auto;
     overflow: hidden;
-    background: url(/assets/images/footer-img.png) no-repeat bottom center;
+    /*background: url(/assets/images/footer-img.png) no-repeat bottom center;*/
 }
 
     footer .footer-inner h3 {
@@ -12335,7 +12344,10 @@ button.button {
             .product-shop .social ul li:last-child {
                 border: none;
             }
-
+.blog-shop .social a {
+    border: 1px #ddd solid;
+    color: #888;
+}
 .sendfriend-product-send .login_page h2 {
     font-size: 14px;
 }
@@ -14132,13 +14144,13 @@ select#shipping-address-select {
     padding: 25px;
     position: relative;
     margin-top: 0px;
-    padding-bottom: 45px;
+    /*padding-bottom: 45px;*/
     background-color: #fff;
-    border-width: 1px;
+    /*border-width: 1px;
     border-style: solid;
     border-color: #f5f5f5 #eee #d5d5d5 #eee;
     box-shadow: 0 5px 0 rgba(200,200,200,.2);
-    margin-top: 30px;
+    margin-top: 30px;*/
 }
 
 

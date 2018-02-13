@@ -121,7 +121,7 @@
                                     <div class="button-group">
                                         @if (item.IsInstock)
                                         {
-                                        <a class="btn-add-cart" href="javascript:Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName')">Chọn</a>
+                                        <a class="btn-add-cart" href="javascript:Cart.addProduct(@item.Id,'@Convert.ToInt32(item.Price)','@item.Images','@item.PrName')">Chọn</a>
                                         }
                                         else
                                         {

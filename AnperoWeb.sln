@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anpero", "Anpero\Anpero.csproj", "{B88546AC-D123-448F-BD9B-7287E7CE1B38}"
 EndProject
@@ -28,6 +28,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_Shop_MultiProduct", "07_Shop_MultiProduct\07_Shop_MultiProduct.csproj", "{D7D73B71-F57A-499C-9D87-B582342DBD6E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Anpero Lib", "Anpero Lib", "{46C83336-39DF-452C-9BDE-1412C359823E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09_Shop_MultiProduct", "09_Shop_MultiProduct\09_Shop_MultiProduct.csproj", "{C6D21F1E-555C-4213-B72A-E95E019C204D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10_Theme_09_v2", "10_Theme_09_v2\10_Theme_09_v2.csproj", "{E3E699CA-ADD6-470D-8FB1-076E134EEE46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Info_web", "Info_web", "{310BA208-71D5-4381-8A50-5F78017A2012}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11_company_Info", "11_Company_Info\11_company_Info.csproj", "{0F8911EA-0E81-4B8A-8F5B-380B4C2EA139}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +79,18 @@ Global
 		{D7D73B71-F57A-499C-9D87-B582342DBD6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7D73B71-F57A-499C-9D87-B582342DBD6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7D73B71-F57A-499C-9D87-B582342DBD6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6D21F1E-555C-4213-B72A-E95E019C204D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6D21F1E-555C-4213-B72A-E95E019C204D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6D21F1E-555C-4213-B72A-E95E019C204D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6D21F1E-555C-4213-B72A-E95E019C204D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3E699CA-ADD6-470D-8FB1-076E134EEE46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3E699CA-ADD6-470D-8FB1-076E134EEE46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3E699CA-ADD6-470D-8FB1-076E134EEE46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3E699CA-ADD6-470D-8FB1-076E134EEE46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F8911EA-0E81-4B8A-8F5B-380B4C2EA139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F8911EA-0E81-4B8A-8F5B-380B4C2EA139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F8911EA-0E81-4B8A-8F5B-380B4C2EA139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F8911EA-0E81-4B8A-8F5B-380B4C2EA139}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,5 +105,11 @@ Global
 		{974A627F-FDDD-4349-95B3-B0CE2BF33426} = {4A209C7A-D091-451E-A034-CF95432C6834}
 		{AED1F7A6-1DD4-4075-8C36-F6D765B0A89B} = {4A209C7A-D091-451E-A034-CF95432C6834}
 		{D7D73B71-F57A-499C-9D87-B582342DBD6E} = {4A209C7A-D091-451E-A034-CF95432C6834}
+		{C6D21F1E-555C-4213-B72A-E95E019C204D} = {4A209C7A-D091-451E-A034-CF95432C6834}
+		{E3E699CA-ADD6-470D-8FB1-076E134EEE46} = {4A209C7A-D091-451E-A034-CF95432C6834}
+		{0F8911EA-0E81-4B8A-8F5B-380B4C2EA139} = {310BA208-71D5-4381-8A50-5F78017A2012}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F458C0BB-F83B-4833-A3E1-EC94B22EC8A5}
 	EndGlobalSection
 EndGlobal

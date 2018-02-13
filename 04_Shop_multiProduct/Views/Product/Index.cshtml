@@ -1,18 +1,16 @@
-﻿
-
-
-@if (ViewData["prDetail"] != null)
-{
+﻿@{ 
     AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewData["prDetail"];
+}
+    
     <div class="page-top">
         <div class="container">
             <!-- breadcrumb -->
             <div class="breadcrumb clearfix">
                 <a class="home" href="/" title="Return to Home">Home</a>
                 <span class="navigation-pipe">&nbsp;</span>
-                <a href="/" title="Return to Home">@item.ParentCatName</a>
+                <a href="/">@item.ParentCatName</a>
                 <span class="navigation-pipe">&nbsp;</span>
-                <a href="/" title="Return to Home">@item.CatName</a>
+                <a href="/">@item.CatName</a>
             </div>
             <!-- ./breadcrumb -->            
             <div class="row">              
@@ -66,6 +64,7 @@
                     });
                 });
             }
+
         </script>
 
     }

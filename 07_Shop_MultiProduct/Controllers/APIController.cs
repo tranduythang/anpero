@@ -26,8 +26,10 @@ namespace AnperoFrontend.Controllers
             //for test
             //info.Merchant_id = "24338";
             //info.Merchant_password = "12345612";
+
             info.Merchant_id = "52084";
-            info.Merchant_password = "3c0ba9b81b28cbfa3d675d59fc5ccc41";            
+            info.Merchant_password = "3c0ba9b81b28cbfa3d675d59fc5ccc41";        
+                
             info.Token = Token;
             APICheckoutV3 objNLChecout = new APICheckoutV3();
             ResponseCheckOrder result = objNLChecout.GetTransactionDetail(info);

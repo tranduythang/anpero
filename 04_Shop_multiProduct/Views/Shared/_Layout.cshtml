@@ -24,18 +24,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@ViewBag.Title</title>
+    <title>@Html.Raw(ViewBag.Title)</title>
     <meta property="og:locale" content="vi_VN" />
     <meta property="og:type" content="website" />
     <meta name="distribution" content="Global" />
     <meta name="revisit-after" content="1 days" />
     <meta http-equiv="REFRESH" content="1800" />
     <meta name="robots" content="index,follow,all" />
-    <meta property="og:title" content="@ViewBag.Title" />
+    <meta property="og:title" content="@Html.Raw(ViewBag.Title)" />
     @RenderSection("health", required: false)
     @Styles.Render("~/Content/css")
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css" />
+
     @if (themeOption == 2)
     {
         <link href="/assets/lib/jquery-bxslider/jquery-bxslider.css" rel="stylesheet" />
@@ -72,7 +73,7 @@
                                 </div>
                                 <div id="navbar" class="navbar-collapse collapse">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="/">Home</a></li>
+                                        
                                         @if (commonInfo.MenuList != null)
                                         {
                                             for (int i = 0; i < commonInfo.MenuList.Length; i++)
@@ -105,9 +106,7 @@
                                         }
 
                                     </ul>
-                                    <ul class="nav navbar-nav navbar-right">
-                                        <li><a class="link-buytheme" href="tel:@commonInfo.HotLine"> <strong>ĐT: @commonInfo.HotLine - 0961614240</strong> </a></li>
-                                    </ul>
+                                   
                                 </div>
                             </div>
                         </nav>
@@ -188,16 +187,16 @@
             <div class="col-sm-12">
                 <ul id="trademark-list">
                     <li id="payment-methods">Hỗ trợ thanh toán</li>
-                    <li><a href="#"><img src="/assets/data/nganluong.png" alt="Ngân lượng"></a></li>
-                    <li><a href="#"><img src="/assets/data/Techcombank_logo.jpg" alt="Techcombank"></a></li>
-                    <li><a href="#"><img src="/assets/data/trademark-wu.jpg" alt="ups"></a></li>
-                    <li><a href="#"><img src="/assets/data/trademark-cn.jpg" alt="ups"></a></li>
-                    <li><a href="#"><img src="/assets/data/trademark-visa.jpg" alt="ups"></a></li>
-                    <li><a href="#"><img src="/assets/data/trademark-mc.jpg" alt="ups"></a></li>
-                    <li><a href="#"><img src="/assets/data/trademark-ems.jpg" alt="ups"></a></li>
-                    <li><a href="#"><img src="/assets/data/trademark-dhl.jpg" alt="ups"></a></li>
-                    <li><a href="#"><img src="/assets/data/trademark-fe.jpg" alt="ups"></a></li>
-                    <li><a href="#"><img src="/assets/data/trademark-wm.jpg" alt="ups"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/nganluong.png" alt="Ngân lượng"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/Techcombank_logo.jpg" alt="Techcombank"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/trademark-wu.jpg" alt="ups"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/trademark-cn.jpg" alt="ups"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/trademark-visa.jpg" alt="ups"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/trademark-mc.jpg" alt="ups"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/trademark-ems.jpg" alt="ups"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/trademark-dhl.jpg" alt="ups"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/trademark-fe.jpg" alt="ups"></a></li>
+                    <li><a href="javascript:void(0);"><img src="/assets/data/trademark-wm.jpg" alt="ups"></a></li>
                 </ul>
             </div>
         </div>
@@ -234,19 +233,20 @@
                             <div class="tit-contain"><i class=""></i> Thái Nguyên</div>
                             <div class="tit-contain"><i class="fa fa-home"></i> CSSX chè Hùng Nhung</div>
                             <div class="tit-contain"><i class="fa fa-location-arrow"></i> xóm Nam Đồng, xã Tân Cương, TP Thái Nguyên</div>
-                            <div class="tit-contain"><i class="fa fa-phone"></i> 0988123594</div>
+                            <div class="tit-contain"><i class="fa fa-phone"></i> 0916566233</div>
                             <div class="tit-contain"><i class="fa fa-envelope"></i> nhasanfood@gmail.com</div>
                         </div>
 
                         <div class="adrct">
                             <div class="tit-contain"><i class=""></i> Hà Nội</div>
                             <div class="tit-contain"><i class="fa fa-home"></i> Đại lý Phượng Chili</div>
-                            <div class="tit-contain"><i class="fa fa-location-arrow"></i> ngõ 25 Thái Thịnh, Hà Nội</div>
-                            <div class="tit-contain"><i class="fa fa-phone"></i> 01683336966</div>
+                            <div class="tit-contain"><i class="fa fa-location-arrow"></i> ngõ 35 Thái Thịnh, Hà Nội</div>
+                            <div class="tit-contain"><i class="fa fa-phone"></i> 0916566233</div>
                             <div class="tit-contain"><i class="fa fa-envelope"></i> nhasanfood@gmail.com</div>
                         </div>
                          @{
-                            string thisUrl = HttpContext.Current.Request.RawUrl;
+                             
+                             string thisUrl = System.Web.HttpContext.Current.Request.Url.ToString();
                             <div class="introduce-title" style="margin-top:10px;">Chia sẻ với bạn bè</div>
                             <div class="social-link">
                                 @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
@@ -274,7 +274,7 @@
                                     <div class="tit-contain"><i class=""></i> Bắc Kạn</div>
                                     <div class="tit-contain"><i class="fa fa-home"></i> Tạp hóa Tuyết Huân</div>
                                     <div class="tit-contain"><i class="fa fa-location-arrow"></i> số 33, tổ 11A, P Sông Cầu, Bắc Kạn</div>
-                                    <div class="tit-contain"><i class="fa fa-phone"></i> 0965562687</div>
+                                    <div class="tit-contain"><i class="fa fa-phone"></i> 0916566233</div>
                                     <div class="tit-contain"><i class="fa fa-envelope"></i> nhasanfood@gmail.com</div>
                                 </div>
 

@@ -8,36 +8,36 @@
             @if (ViewData["commonInfo"] != null)
             {
                 AnperoFrontend.WebService.Webconfig commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
-                <div class="layered layered-category">
-                    <div class="layered-content">
-                        <ul class="tree-menu">
-                            @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+            <div class="layered layered-category">
+                <div class="layered-content">
+                    <ul class="tree-menu">
+                        @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                             {
 
                                 for (int i = 0; i < commonInfo.ProductCategoryList.Length; i++)
                                 {
-                                    <li><span></span><a href="@Anpero.StringHelpper.GetParentCategoryLink(commonInfo.ProductCategoryList[i].Name,commonInfo.ProductCategoryList[i].Id)">@commonInfo.ProductCategoryList[i].Name</a></li>
-                                    if (commonInfo.ProductCategoryList[i].ChildCategory != null && commonInfo.ProductCategoryList[i].ChildCategory.Length > 0)
-                                    {
-                                        for (int j = 0; j < commonInfo.ProductCategoryList[i].ChildCategory.Length; j++)
-                                        {
-                                            <li><span></span><a href="@Anpero.StringHelpper.GetCategoryLink(commonInfo.ProductCategoryList[i].ChildCategory[j].Name,commonInfo.ProductCategoryList[i].ChildCategory[j].Id)">@commonInfo.ProductCategoryList[i].ChildCategory[j].Name</a></li>
-                                        }
-
+                            <li><span></span><a href="@Anpero.StringHelpper.GetParentCategoryLink(commonInfo.ProductCategoryList[i].Name,commonInfo.ProductCategoryList[i].Id)">@commonInfo.ProductCategoryList[i].Name</a></li>
+                            @*if (commonInfo.ProductCategoryList[i].ChildCategory != null && commonInfo.ProductCategoryList[i].ChildCategory.Length > 0)
+                                {
+                                    for (int j = 0; j < commonInfo.ProductCategoryList[i].ChildCategory.Length; j++)
+                                    { 
+                                        <li><span></span><a href="@Anpero.StringHelpper.GetCategoryLink(commonInfo.ProductCategoryList[i].ChildCategory[j].Name,commonInfo.ProductCategoryList[i].ChildCategory[j].Id)">@commonInfo.ProductCategoryList[i].ChildCategory[j].Name</a></li>
                                     }
+
+                                }*@
                                 }
                             }
 
 
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
+            </div>
             <!-- ./layered -->
             }
         </div>
     </div>
-    <!-- ./block category  -->
-    <!-- block best sellers -->
+
+
     @if (ViewData["saleProduct"] != null)
     {
         <div class="block left-module">
@@ -57,7 +57,7 @@
                                         <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">
                                             <img class="img-responsive" alt="product" src="@item.Images" />
                                         </a>
-                                        <div class="price-percent-reduction2">- @Anpero.StringHelpper.ConVertToMoneyFormatInt(((item.Price-item.SalePrice)/item.Price*100).ToString()) %</div>
+                                        <div class="price-percent-reduction2">- @Anpero.StringHelpper.ConVertToMoneyFormatInt(((item.Price - item.SalePrice) / item.Price * 100).ToString()) %</div>
                                     </div>
                                     <div class="right-block">
                                         <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">@item.PrName</a></h5>
@@ -115,6 +115,80 @@
             </div>
         </div>
                     }
+    <div class="block left-module">
+        <p class="title_block">KHÁCH HÀNG NÓI VỀ CHÚNG TÔI</p>
+        <div class="block_content">
+            <div>
+                <ul class="owl-carousel" data-loop="true" data-nav="false" data-margin="0" data-autoplayTimeout="1000" data-autoplay="true" data-autoplayHoverPause="true" data-items="1">
+                    <li>
+                        <div class="products-block-left">
+                            <a href="/">
+                                <img src="http://media.anpero.com/images/40/12018/22018013117424036.jpg" />
+                            </a>
+                            <div class="right-block">
+                                <h6>ĐÀO THỊ NGA </h6>
+                                <div class="jtp">Y TÁ </div>
+                                <h5 class="cm-ct">Rate 5 star cho niềm tin thực phẩm sạch! Mình nghĩ nếu có chứng nhận nguồn gốc, địa chỉ rõ ràng nơi cung cập, có các phản hồi của người tiêu dùng,... thì mọi người sẽ thấy rõ sự uy tín trách nhiệm của cửa hàng mình! Hãy vì hàng tiêu dùng Việt Nam chất lượng cao! </h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="products-block-left">
+                            <a href="/">
+                                <img src="http://media.anpero.com/images/40/12018/12018013117042547.jpg" />
+                            </a>
+                            <div class="right-block">
+                                <h6>PHẠM THỊ HƯỜNG </h6>
+                                <div class="jtp">NỘI TRỢ </div>
+                                <h5 class="cm-ct">Thực phẩm ở Nhasanfood luôn đảm bảo chất lượng, phương thức phân phối tiện ích và nhanh chóng, thái độ phục vụ thanh lịch, vui vẻ. Chúc các bạn tiếp tục phát triển gặt hái thành công. </h5>
+                            </div>
+                        </div>
+                      
+                    </li>
+                  
+                    <li>
+                        <div class="products-block-left">
+                            <a href="/">
+                                <img src="http://media.anpero.com/images/40/12018/32018013117481494.jpg" />
+                            </a>
+                            <div class="right-block">
+                                <h6>BÙI THANH CHƯƠNG </h6>
+                                <div class="jtp">CÔNG CHỨC</div>
+                                <h5 class="cm-ct">Mình thường mua sản phẩm ở đây. Sản phẩm và chất lượng rất tốt. </h5>
+                            </div>
+                        </div>
+                    </li>
+                 
+                    <li>
+                        <div class="products-block-left">
+                            <a href="/">
+                                <img src="http://media.anpero.com/images/40/12018/12018013117554113.jpg" />
+                            </a>
+                            <div class="right-block">
+                                <h6>ĐÀO THÙY LINH</h6>
+                                <div class="jtp">TƯ VẤN VIÊN</div>
+                                <h5 class="cm-ct">Hai từ hôi: Rất tốt từ cách nói truyện với khách hàng, đóng gói, giao hàng sau bán hàng nữa! Sẽ ủng hộ Nhasanfood mãi </h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="products-block-left">
+                            <a href="/">
+                                <img src="http://media.anpero.com/images/40/12018/22018013117581757.jpg" />
+                            </a>
+                            <div class="right-block">
+                                <h6>PHẠM NGỌC HƯNG</h6>
+                                <div class="jtp">KỸ SƯ TIN HỌC</div>
+                                <h5 class="cm-ct">Mình đã mua thực phẩm sạch ở Nhasanfood và rất hài lòng không chỉ về chất lượng sản phẩm mà thái độ phục vụ của nhân viên cũng rất tuyệt. Chúc Nhasanfood thành công hơn nữa trong tương lai. </h5>
+                            </div>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
     @if (ViewData["BestsaleProduct"] != null)
     {
         AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["BestsaleProduct"];
@@ -124,7 +198,6 @@
                 <p class="title_block">Bán chạy</p>
                 <div class="block_content">
                     <div class="owl-carousel owl-best-sell" data-loop="true" data-nav="false" data-margin="0" data-autoplayTimeout="1000" data-autoplay="true" data-autoplayHoverPause="true" data-items="1">
-
                         <ul class="products-block best-sell">
                             @for (int i = 0; i < 3; i++)
                             {
@@ -137,7 +210,7 @@
                                 <div class="products-block-right">
                                     <p class="product-name">
                                         <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[i].PrName,bestSaleList.Item[i].Id)">@bestSaleList.Item[i].PrName</a>
-                                    </p>                                
+                                    </p>
                                     @if (bestSaleList.Item[i].IsSale)
                                         {
 
@@ -236,24 +309,23 @@
             {
                 foreach (var item in slide)
                 {
-                    <div class="banner-opacity sm-banner">
-                        <a href="@item.ClickUrl"><img src="@item.ImagesUrl" alt="@item.Description"></a>
-                    </div>
+            <div class="banner-opacity sm-banner">
+                <a href="@item.ClickUrl"><img src="@item.ImagesUrl" alt="@item.Description"></a>
+            </div>
                 }
             }
             else
             {
-                <div class="banner-opacity sm-banner">
+            @*<div class="banner-opacity sm-banner">
                     <a href="#"><img src="/assets/images/275px.jpg" alt="ads1"></a>
                 </div>
-                    <div class="banner-opacity sm-banner">
-                        <a href="#"><img src="/assets/images/275px.jpg" alt="ads1"></a>
-                    </div>
-                  
+                <div class="banner-opacity sm-banner">
+                    <a href="#"><img src="/assets/images/275px.jpg" alt="ads1"></a>
+                </div>*@
+
             }
-            
+
         </div>
     }
 
 </div>
-

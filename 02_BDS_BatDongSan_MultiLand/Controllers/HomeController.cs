@@ -1,11 +1,12 @@
-﻿using System;
+﻿using AnperoFrontend.WebService;
+using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 namespace AnperoFrontend.Controllers
 {
     public class HomeController : BaseController
-    {
+    {  
         [BuildCommonHtml]
         public ActionResult Index()
         {
@@ -28,6 +29,9 @@ namespace AnperoFrontend.Controllers
                 }
             }
             ViewData["featureleProduct"] = featureleProduct;
+
+        
+        
             return View();
         }
         private void SetUpSlideAds()

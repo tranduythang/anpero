@@ -49,7 +49,7 @@
                                                                 else
                                                                 {
                                                                     <li class="level3 nav-6-1 parent item">
-                                                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)"><span>@item.Name</span> </a>
+                                                                        <a href="@(Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id))"><span>@item.Name</span> </a>
                                                                         <ul class="level1">
                                                                             @foreach (var chidItem in item.ChildCategory)
                                                                             {

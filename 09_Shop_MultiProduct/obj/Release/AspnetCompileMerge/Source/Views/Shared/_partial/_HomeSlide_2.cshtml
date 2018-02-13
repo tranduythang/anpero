@@ -1,0 +1,52 @@
+﻿@using AnperoFrontend.WebService;
+@if (ViewData["slide"] != null)
+{
+    Ads[] slide = (Ads[])ViewData["slide"];
+    if (slide.Length > 0)
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 header-top-right col-md-9">
+                    <div class="homeslider">
+                        <ul id="contenhomeslider">
+                            @foreach (var item in slide)
+                            {
+                                <li><a href="@item.ClickUrl"><img alt="@item.Description" src="@item.ImagesUrl" title="@item.Description" /></a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 header-top-right">
+                    <div class="homeslider">
+                        <ul id="contenhomeslider">                            
+                            <li><img alt="Funky roots" src="assets/data/option5/slide1.jpg" title="Funky roots" /></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 header-top-right">
+                <div class="homeslider">
+                    <ul id="contenhomeslider">
+                        <li><img alt="Funky roots" src="assets/data/option5/slide1.jpg" title="Funky roots" /></li>
+                        <li><img alt="Funky roots" src="assets/data/option5/slide1.jpg" title="Funky roots" /></li>
+                        <li><img alt="Funky roots" src="assets/data/option5/slide1.jpg" title="Funky roots" /></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -52,7 +52,4 @@ namespace Anpero.Constant
 
         }
     }
-
-
-
 }

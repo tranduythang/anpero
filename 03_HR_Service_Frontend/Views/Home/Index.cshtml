@@ -168,7 +168,7 @@
                                                                     <a title="Chi tiết sản phẩm" class="search" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)"></a>
                                                                 </div>
                                                                 <div class="add-to-cart">
-                                                                    <a title="Add to Cart" href="javascript:Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName')">Chọn</a>
+                                                                    <a title="Add to Cart" href="javascript:Cart.addProduct(@item.Id,'@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)','@item.Images','@item.PrName')">Chọn</a>
                                                                 </div>
                                                                 <div class="group-price">
                                                                     <span class="product-new">Mới</span>
@@ -221,7 +221,7 @@
                                                                 <a title="Chi tiết sản phẩm" class="search" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)"></a>
                                                             </div>
                                                             <div class="add-to-cart">
-                                                                <a title="Add to Cart" href="javascript:Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName')">Chọn vào giỏ hàng</a>
+                                                                <a title="Add to Cart" href="javascript:Cart.addProduct(@item.Id,'@Convert.ToInt32(item.Price)','@item.Images','@item.PrName')">Chọn vào giỏ hàng</a>
                                                             </div>
                                                             <div class="group-price">
                                                                 <span class="product-new">Mới</span>
@@ -276,7 +276,7 @@
                                                                     <a title="Chi tiết sản phẩm" class="search" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)"></a>
                                                                 </div>
                                                                 <div class="add-to-cart">
-                                                                    <a title="Add to Cart" href="javascript:Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName')">Thêm vào giỏ hàng</a>
+                                                                    <a title="Add to Cart" href="javascript:Cart.addProduct(@item.Id,'@Convert.ToInt32(item.Price)','@item.Images','@item.PrName')">Thêm vào giỏ hàng</a>
                                                                 </div>
                                                                 <div class="group-price">
                                                                     <span class="product-new">Mới</span>
