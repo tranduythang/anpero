@@ -5931,9 +5931,13 @@ span.notify-right {
     margin: 15px 0 15px 0;
 }
 
-
+.featureLand .product-name{
+    display:block;
+    margin:10px 0 10px 0;
+}
 .featureLand .product-name a {
     font-weight: bold;
+    font-size:12px;
 }
 
 .border-b {
@@ -6104,4 +6108,9 @@ span.notify-right {
 }
 .input-serach input{
     color:black;
+}
+.post-item .entry-more a{
+   font-size: 12px;
+    font-style: italic;
+    color:#cc9a8d;
 }
