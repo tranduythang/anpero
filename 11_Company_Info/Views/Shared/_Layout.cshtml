@@ -134,9 +134,8 @@
                 <div class="col-md-4">
                     <div id="address-box">
                         <a href="/"><img src="@commonInfo.Logo" alt="logo"></a>
-                        <div id="address-list">
-                            <div class="tit-name">Địa chỉ:</div>
-                            <div class="tit-contain">@Html.Raw(commonInfo.Address)</div>
+                        <div id="address-list">                            
+                            <div class="address">@Html.Raw(commonInfo.Address)</div>
                             <div class="tit-name">Phone:</div>
                             <div class="tit-contain">@commonInfo.HotLine</div>
 
@@ -156,7 +155,7 @@
 
 
                         <div class="introduce-title" style="margin-top:15px;">Chia sẻ với bạn bè</div>
-                        <div class="social-link">
+                        <div class="social-link col-md-12">
                             @{
                                 string thisUrl = HttpContext.Current.Request.RawUrl;
                                 if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))

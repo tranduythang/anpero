@@ -1,36 +1,22 @@
 ﻿@if (ViewData["prDetail"] != null)
 {
     AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewData["prDetail"];
+    string thisUrl = HttpContext.Current.Request.Url.AbsoluteUri;
 <div class="center_column col-xs-12 col-sm-9 bw" id="center_column">
     <!-- Product -->
     <div id="product">
         <div class="primary-box row ">
             <div class="pb-right-column col-xs-12 col-sm-12">
-                <h1 class="product-name">@item.PrName</h1>
-                <div class="product-comments">
-                    <div class="product-star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                </div>
-                @if (item.ShortDesc != null && item.ShortDesc.Length > 0)
-                {
-                    <div class="product-desc">
-                        @Html.Raw(item.ShortDesc)
-                    </div>
-                }
+                <h1 class="product-name page-heading">@item.PrName</h1>
                 <div class="form-action">                  
 
                     <div class="button-group">
-                        <a target="_blank" class="wishlist" href="//www.facebook.com/sharer.php?u=@HttpContext.Current.Request.RawUrl">
+                        <a target="_blank" class="wishlist" href="//www.facebook.com/sharer.php?u=@thisUrl">
                             <i class="fa fa-facebook-official"></i>
-                            <br>Share
+                            <br>Chia sẻ
                         </a>
 
-                        <a class="compare" href="//plus.google.com/share?url=@HttpContext.Current.Request.RawUrl">
+                        <a class="compare" href="//plus.google.com/share?url=@thisUrl">
                             <i class="fa fa-google-plus"></i>
                             <br>
                         </a>
@@ -61,7 +47,7 @@
                                         </a>
                                     </div>
                                     <div class="entry-ci">
-                                        <h3 class="entry-title"><a href="#">Sed ut perspiciatis unde omnis iste natus error</a></h3>
+                                        <h3 class="entry-title"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName, @item.Id)">@item.PrName</a></h3>
 
                                         <div class="entry-more">
                                             <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, @item.Id)">Xem thêm</a>

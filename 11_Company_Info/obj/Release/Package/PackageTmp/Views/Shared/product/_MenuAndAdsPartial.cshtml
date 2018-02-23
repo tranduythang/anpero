@@ -79,16 +79,7 @@
                                     </div>
                                     <div class="products-block-right">
                                         <p class="product-name">
-                                            <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[i].PrName,bestSaleList.Item[i].Id)">@bestSaleList.Item[i].PrName</a>
-                                        </p>
-
-                                        <p class="product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(bestSaleList.Item[i].Price.ToString())</p>
-                                        <p class="product-star">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
+                                            <a href="@Anpero.StringHelpper.GetProductLink(bestSaleList.Item[i].PrName,bestSaleList.Item[i].Id)" title="@bestSaleList.Item[i].PrName">@bestSaleList.Item[i].PrName</a>
                                         </p>
                                     </div>
                                 </li>
