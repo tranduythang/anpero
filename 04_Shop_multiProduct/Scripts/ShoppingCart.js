@@ -12,7 +12,7 @@
         } else {
             for (var i = 0; i < Cart.list.length; i++) {
                 if (Cart.list[i].id == _id) {
-                    Cart.list[i].price = parseInt(_price) + parseInt(Cart.list[i].price)
+                    Cart.list[i].price = parseInt(_price))
                     Cart.list[i].quantity = parseInt(Cart.list[i].quantity) + 1;
                     checkExited = true;
                 }
