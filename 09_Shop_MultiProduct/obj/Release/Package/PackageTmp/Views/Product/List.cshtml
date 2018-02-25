@@ -143,9 +143,9 @@
 
                                                             </div>
                                                             <div class="actions">
-                                                                <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Mua ngay</span></button>
+                                                                <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.Price),'@item.Images','@item.PrName');"><span>Mua ngay</span></button>
                                                                 <span class="add-to-links">
-                                                                    <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct3(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Thêm vào giỏ hàng</span></button>
+                                                                    <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct3(@item.Id,@Convert.ToInt32(item.Price),'@item.Images','@item.PrName');"><span>Thêm vào giỏ hàng</span></button>
 
                                                                 </span>
                                                             </div>
@@ -191,9 +191,9 @@
                                                                 }
                                                             </div>
                                                             <div class="actions">
-                                                                <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Mua ngay</span></button>
+                                                                <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.Price),'@item.Images','@item.PrName');"><span>Mua ngay</span></button>
                                                                 <span class="add-to-links">
-                                                                    <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct3(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Thêm vào giỏ hàng</span></button>
+                                                                    <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct3(@item.Id,@Convert.ToInt32(item.Price),'@item.Images','@item.PrName');"><span>Thêm vào giỏ hàng</span></button>
 
                                                                 </span>
                                                             </div>
@@ -239,7 +239,7 @@
                                     <div class="block-title"> Đang khuyến mãi </div>
                                     <div class="box-content box-category">
                                         <ul>
-                                            @if (saleProduct != null && saleProduct.Length > 1)
+                                            @if (saleProduct != null && saleProduct.Length > 0)
                                             {
 
                                                 foreach (var item in saleProduct)

@@ -23,11 +23,12 @@
 }
 
 <div class="content">
+ 
+    
     @if (!Request.Browser.IsMobileDevice)
-    {
-        <!-- Slider-->
-        @Html.Partial("_partial/_HomeSlide_1");
-        }  
+    {      
+                @Html.Partial("_partial/_HomeSlide_1")        
+    }  
     <section class="wow bounceInUp animated">
         <div class="best-pro slider-items-products container" style="margin-top: 50px;">
             <div class="new_title">
@@ -99,7 +100,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="add_cart">
-                                                        <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Mua ngay</span></button>
+                                                        <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,'@Convert.ToInt32(item.Price)','@item.Images','@item.PrName');"><span>Mua ngay</span></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -184,7 +185,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="add_cart">
-                                                        <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Mua ngay</span></button>
+                                                        <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,'@Convert.ToInt32(item.Price)','@item.Images','@item.PrName');"><span>Mua ngay</span></button>
                                                     </div>
                                                 </div>
                                             </div>
