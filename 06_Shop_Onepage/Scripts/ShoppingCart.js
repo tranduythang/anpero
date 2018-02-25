@@ -1,7 +1,7 @@
 ﻿var Cart = {
     list: [],
     addProduct: function (_id, _price, _thumb, _title) {
-        debugger
+        
         var checkExited = false;
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
@@ -79,7 +79,7 @@
                 ttSC += parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity);
                 htmlCat += '<tr>';
                 htmlCat += '<td class="cart_product">';
-                htmlCat += '<a href="#"><img src="' + Cart.list[i].thumb + '" alt="' + Cart.list[i].title + '"></a>';
+                htmlCat += '<a href="#"><img src="' + Cart.list[i].thumb + '" alt="' + Cart.list[i].title + '" style="width:120px;"></a>';
                 htmlCat += '</td>';
                 htmlCat += '<td class="cart_description">';
                 htmlCat += '<p class="product-name"><a href="#">' + Cart.list[i].title + ' </a></p>';
@@ -96,7 +96,7 @@
                 htmlCat += '<span>' + Util.toMoneyFormat(parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity)) + ' đ</span>';
                 htmlCat += '</td>';
                 htmlCat += '<td class="action">';
-                htmlCat += '<a href="javascript:Cart.remove2(' + Cart.list[i].id + ')" class="remove_link"></a>';
+                htmlCat += '<a href="javascript:Cart.remove2(' + Cart.list[i].id + ')" class="remove_link">Xóa</a>';
                 htmlCat += '</td>';
                 htmlCat += '</tr>';
 

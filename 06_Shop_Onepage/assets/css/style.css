@@ -37,7 +37,6 @@ h5,
 h6 {
     margin: 0 0 15px;
     font-family: 'Dosis', sans-serif;
-    text-transform: capitalize;
     -webkit-transition: 0.3s;
     transition: 0.3s;
     line-height: 1.4
@@ -987,7 +986,7 @@ textarea.form-control:focus {
 }
 .price-title h3 {
     font-weight: 600;
-    font-size: 45px;
+    font-size: 28px;
     text-transform: uppercase;
     color:white;
 }
@@ -1001,7 +1000,7 @@ textarea.form-control:focus {
 
 .price-rate h3 {
     font-weight: 700;
-    font-size: 30px;
+    font-size:26px;
      white-space: nowrap ;
 }
 
@@ -1015,7 +1014,6 @@ textarea.form-control:focus {
     margin: 0;
     padding: 0;
     list-style: none;
-    min-height:677px;
 }
 .price-body ul li{
     text-align:left;
@@ -1539,3 +1537,14 @@ li{ list-style:none;}
 }
 .tab-ct{display:none;}
 .active{display:block;}
+.cart_summary .qty a {
+    padding: 8px 10px 5px 10px;
+    border: 1px solid #eaeaea;
+    display: inline-block;
+    width: auto;
+    margin-top: 5px;
+}
+#prCatCtTable .form-control{width:60px;}.mg-top-15{margin-top:15px;}
+.breadcrumb a, .breadcrumb .fa {
+    color: #64be43;
+}
