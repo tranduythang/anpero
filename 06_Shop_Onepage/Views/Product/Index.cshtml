@@ -34,16 +34,11 @@
     @section health{
         <meta name="description" content="@Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc)" />
         <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(item.KeyWord)" />
-        <link rel="stylesheet" type="text/css" href="/assets/lib/fancyBox/jquery.fancybox.css">
-
-        
+        <link rel="stylesheet" type="text/css" href="/assets/lib/fancyBox/jquery.fancybox.css" />
     }
     @section  scripts{        
 <script src="/Scripts/jquery.cokie.min.js"></script>
-<script src="/Scripts/ShoppingCart.js"></script>
-        <script type="text/javascript" src="/assets/lib/fancyBox/jquery.fancybox.js"></script>                
-        @item.Script
-        
-
+<script src="/Scripts/ShoppingCart.js"></script><script type="text/javascript" src="/assets/lib/fancyBox/jquery.fancybox.js"></script>                
+@item.Script
     }
 }

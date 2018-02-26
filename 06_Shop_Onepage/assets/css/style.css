@@ -17,10 +17,10 @@ a {
     font-family: 'Open Sans', sans-serif;
 }
 
-a:focus {
-    outline: 0 solid;
-    color: #ffffff;
-}
+    a:focus {
+        outline: 0 solid;
+        color: #64BE43;
+    }
 
 img {
     max-width: 100%;
@@ -1545,6 +1545,7 @@ li{ list-style:none;}
     margin-top: 5px;
 }
 #prCatCtTable .form-control{width:60px;}.mg-top-15{margin-top:15px;}
+a{color:black;}
 .breadcrumb a, .breadcrumb .fa {
     color: #64be43;
 }
