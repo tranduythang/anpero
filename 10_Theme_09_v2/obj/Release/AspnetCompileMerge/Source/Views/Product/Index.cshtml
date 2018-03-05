@@ -38,9 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="page-title">
-                <h2>@item.PrName</h2>
-            </div>
+          
         </div>
         <div class="main-container col1-layout wow bounceInUp animated">
             <div class="main">
@@ -50,8 +48,7 @@
                         <div class="product-essential container">
                             <div class="row">                                
                                 <form action="" method="post" id="product_addtocart_form">
-                                    <div class="product-img-box col-sm-6 col-xs-12">
-                                        <div class="new-label new-top-left"> New </div>
+                                    <div class="product-img-box col-sm-6 col-xs-12">                                       
                                         <div class="product-image">
                                             <div class="large-image"> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.CatName, item.CatID)" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img src="@item.Images"> </a> </div>
                                             <div class="flexslider flexslider-thumb">
@@ -75,13 +72,20 @@
                                         <div class="product-name">
                                             <h1 itemprop="name">@item.PrName</h1>
                                         </div>
-                                        <span itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+                                        @if (!string.IsNullOrEmpty(item.Tag))
+                                        {
+                                            <div class="product-name">
+                                                <h2 itemprop="name">@item.Tag</h2>
+                                            </div>
+                                        }
+
+                                        @*<span itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
                                             
                                                 <div class="ratings">
                                                     <p class="rating-links"><a href="tel:@commonInfo.HotLine">Gọi: @commonInfo.HotLine hoặc click mua ngay để đặt hàng</a> </p>
                                                 </div>
                                        
-                                        </span>
+                                        </span>*@
                                         <div class="price-block">
                                             <div class="price-box"> 
                                                 <span class="regular-price" id="product-price-123"> 
@@ -111,10 +115,10 @@
                                             }
 
                                         </div>
-                                        <div class="short-description">
+                                        @*<div class="short-description">
                                             <h2>Mô tả ngắn</h2>
                                             <p>@Html.Raw(item.ShortDesc)</p>
-                                        </div>
+                                        </div>*@
                                         <div class="add-to-box">
                                             <div class="add-to-cart">
                                                 <div class="pull-left">
@@ -188,8 +192,7 @@
                                                                     <div class="item-img-info">
                                                                         <a href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName" class="product-image">
                                                                             <img src="@items.Images" alt="@items.PrName">
-                                                                        </a>
-                                                                        <div class="new-label new-top-left">New</div>
+                                                                        </a>                                                                        
                                                                         <div class="item-box-hover">
                                                                             <div class="box-inner">
                                                                                 <div class="product-detail-bnt">

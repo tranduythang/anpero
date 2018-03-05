@@ -39,6 +39,17 @@
     @section  scripts{
         <link rel="stylesheet" type="text/css" href="/assets/lib/fancyBox/jquery.fancybox.css">        
         <script type="text/javascript" src="/assets/lib/fancyBox/jquery.fancybox.js"></script>
+        <script>
+            $(window).load(function () {
+                $(function () {
+                    $(".lazy").fancybox({
+                        openEffect: 'none',
+                        closeEffect: 'none'
+                    });
+
+                });
+            });
+        </script>
         @item.Script
      
     }

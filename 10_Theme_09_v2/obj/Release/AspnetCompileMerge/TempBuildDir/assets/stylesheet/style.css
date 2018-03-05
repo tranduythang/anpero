@@ -1,4 +1,15 @@
-
+@font-face {
+    font-family: 'SFUFuturaRegular';
+    src: url("/assets/fonts/SFUFuturaRegular.TTF");
+}
+@font-face {
+    font-family: 'SFUFuturaBook';
+    src: url("/assets/fonts/SFUFuturaBook.TTF");
+}
+@font-face {
+    font-family: 'SFUFuturaBold';
+    src: url("/assets/fonts/SFUFuturaBold.TTF");
+}
 body {
     font-family: SFUFuturaRegular, 'Open Sans', Arial;
     font-size: 13px;
@@ -1007,14 +1018,17 @@ background-color: #fff;
             #nav > li > a > span {
                 display: inline-block;
                 padding: 0 12px;
-                font-size:14px;
+                font-size: 15px;
+                letter-spacing: 0.5px;
+                color: #171717;
+                font-weight: 800;
+                font-family: SFUFuturaBold;
             }
 
             #nav > li > a:hover > span {
+                color:white;
             }
-    /* Drop-down boxes:
-wide:    2nd-level category drop-down box + custom block drop-down box
-classic: custom block drop-down box */
+
     #nav .level0-wrapper {
         position: absolute;
         left: -10000px;
@@ -3988,11 +4002,12 @@ ul.pdt-list li.item a img.image-hover {
             letter-spacing: 0.5px;
             
         }
-      
-        
+
+
             .products-grid .item .item-inner .item-info .info-inner .item-title a {
                 text-decoration: none;
-                text-transform: uppercase;
+                font-family: SFUFUturaBook, Arial;
+                font-size:14px;
             }
 
                 .products-grid .item .item-inner .item-info .info-inner .item-title a:hover {
@@ -5474,7 +5489,7 @@ text-transform: uppercase
         font-family: 'Montserrat', sans-serif;
         letter-spacing: 0.5px;
         text-transform: uppercase;
-        background: #ed6663;
+        background: #004d51;
         margin-top: 0px;
         margin-left: -10px;
     }
@@ -5596,7 +5611,7 @@ text-transform: uppercase
     position: absolute;
     bottom: -10px;
     left: 0;
-    border-color: #d95451 #d95451 transparent transparent;
+    border-color: #004d51 #004d51 transparent transparent;
 }
 
 .popular-posts {
@@ -5769,7 +5784,7 @@ text-transform: uppercase
 }
 
 .latest-blog h2 {
-    color: #000;
+    color: white;
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 0px;
@@ -5783,7 +5798,7 @@ text-transform: uppercase
     text-align: center;
     border: #ddd double;
     text-transform: uppercase;
-    background: #fff;
+    background: #004d51;
     letter-spacing: 2px;
 }
 
@@ -6189,15 +6204,18 @@ text-transform: uppercase
 }
 /*	Breadcrumbs */
 .breadcrumbs {
-    padding: 3px 0px 10px 0px;
-    margin: auto;
-    font-size: 14px;
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
+    color: #7a7d81;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    background: #F5F5F5;
+    text-transform: uppercase;
+    font-family: SFUFuturaRegular, "Open Sans", Arial;
+    padding: 25px 25px 25px 0px;
 }
 
     .breadcrumbs a {
-        color: #fff;
+        color: black;
         font-size: 12px;
         font-weight: 400;
     }
@@ -6205,7 +6223,7 @@ text-transform: uppercase
     .breadcrumbs span {
         display: inline-block;
         margin: 0 5px 0 5px;
-        color: #fff;
+        color: black;
         font-size: 13px;
     }
 
@@ -8453,12 +8471,7 @@ ol#compare-items li {
     border-bottom: 1px solid #ddd;
     margin: 0 0 10px;
 }
-@font-face {
-    font-family: 'SFUFUturaBook';
-    src: url('/assets/fonts/sfufuturabook_0-webfont.woff2') format('woff2'), url('/assets/fonts/sfufuturabook_0-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+
 .category-image {
     display: block;
     margin: 0 auto;
@@ -9188,7 +9201,7 @@ a.button.detail-bnt span {
 }
 
     .product-view .product-name h1 {
-        font-size: 38px;
+        font-size: 28px;
         margin: 0 0 2px;
         text-align: left;
         line-height: 1.2em;
@@ -9196,6 +9209,17 @@ a.button.detail-bnt span {
         letter-spacing: normal;
         font-weight: 700;
         font-family: 'Montserrat', sans-serif;
+    }
+    .product-view .product-name h2 {
+        font-size: 28px;
+        text-align: left;
+        line-height: 1.2em;
+        padding-bottom: 12px;
+        letter-spacing: normal;
+        font-weight: bold;
+        font-size: 26px;
+        font-family: SFUFuturaBold, "Open Sans", Arial;
+        text-transform: uppercase;
     }
 
 .product-view .short-description {
@@ -11613,7 +11637,7 @@ footer .newsletter-row {
     }
 
 footer .footer-column a {
-    transition: color 300ms ease-in-out 0s, background-color 300ms ease-in-out 0s, background-position 300ms ease-in-out 0s;
+    color:white;
 }
 
     footer .footer-column a:before {
@@ -11665,7 +11689,9 @@ footer p {
 
 footer .footer-column a {
     display: block;
-    color: #b7bcc8;
+    color: white;
+    letter-spacing: 0.5px;
+    font-size:14px;
 }
 
 footer a {
@@ -11684,9 +11710,9 @@ footer h4 {
     padding: 0 0 18px;
     font-size: 16px;
     margin: 0;
-    color: #88be4c;
+    color: #f1c40f;
     font-weight: normal;
-    font-family: 'Montserrat', sans-serif;
+    font-family: SFUFuturaRegular, 'Open Sans', Arial;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -12202,7 +12228,7 @@ a.button {
     width: 50%;
 }
 button.button:hover {
-    background: red;
+    background: #004d51;
     color: #fff;
 }
 
@@ -14057,25 +14083,10 @@ select#shipping-address-select {
     -o-transform: scale(1.25);
     transform: scale(1.25);
 }
-/*#background {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  z-index: 1;
-  width: 50%;
-  height: 100%;
-  background-color: #e0e0e0;
-}*/
-
 
 
 .page-heading {
-    padding: 25px 0 40px 0;
-    background-size: cover;
-    border-bottom: none;
-    text-align: center;
-    background-repeat: no-repeat;
-    background-image: url(/assets/images/category-bg.jpg);  
+    border-bottom: none;    
 }
 
     .page-heading .page-title h2 {
@@ -14272,7 +14283,7 @@ select#shipping-address-select {
     top: 0;
     left: 0;
     position: absolute;
-    background: #f1c40d;
+    background: #004d51;
     color: #0e0000;
 }
 
@@ -14299,6 +14310,8 @@ select#shipping-address-select {
         color: white;
         font-size: 24px;
         font-weight: bold;
+        text-transform: uppercase;
+        font-family: SFUFuturaRegular, 'Open Sans', Arial;
     }
     .wrapper {
         margin-bottom: 15px;
@@ -14310,3 +14323,4 @@ select#shipping-address-select {
     white-space: nowrap;
     font-family: SFUFuturaBook, "Open Sans", Arial;
 }
+.mega-menu a{color:black;}
