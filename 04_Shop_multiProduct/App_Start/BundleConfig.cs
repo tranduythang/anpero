@@ -22,7 +22,6 @@ namespace AnperoFrontend
                        "~/Scripts/jquery.cokie.min.js",
                        "~/Scripts/Bootrap-notify.js",
                    
-                       "~/Scripts/ShoppingCart.js",
                          "~/Scripts/Anpero.Common.js"
                       ));
 

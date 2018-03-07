@@ -7,6 +7,7 @@ namespace AnperoFrontend.Controllers
     public class HomeController : BaseController
     {
         [BuildCommonHtml]
+        [BunderHtml]
         public ActionResult Index()
         {
             WebService.AnperoService service = new WebService.AnperoService();
@@ -36,6 +37,21 @@ namespace AnperoFrontend.Controllers
             }
 
             return View();
+        }
+        public string PolicyAjax(int type)
+        {
+            try
+            {
+                WebService.AnperoService service = new WebService.AnperoService();
+                return  service.GetWebContent(StoreID, TokenKey, type);
+               
+            }
+            catch (Exception)
+            {
+                return "Nội dung đang được cập nhật";
+            }
+
+            
         }
         private void SetUpSlideAds()
         {
