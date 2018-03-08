@@ -64,8 +64,19 @@
                     });
                 });
             }
-
+            $(document).ready(function () {
+                $("#paymentTab").click(function () {
+                    
+                    $.ajax({
+                        type: "post",
+                        url: "/home/PolicyAjax",
+                        data: { type: 6 },
+                        success: function (rs) {
+                            $("#paymentDetail").html(rs);
+                        }
+                    });
+                });
+            });
         </script>
-
     }
 }
