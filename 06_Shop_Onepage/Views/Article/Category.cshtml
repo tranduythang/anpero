@@ -2,22 +2,14 @@
 @{
     SearchArticleResults articleList = (SearchArticleResults)ViewData["ArticleList"];
 }
-
     <div class="container section-padding" id="columns">
-        <!-- breadcrumb -->
         <div class="breadcrumb clearfix">
             <a class="home" href="#" title="Return to Home">Home</a>
             <span class="fa fa-caret-right">&nbsp;</span>
             <span class="navigation_page">Blog</span>
         </div>
-        <!-- ./breadcrumb -->
-        <!-- row -->
         <div class="row">
-
-            <!-- Left colunm -->
             @Html.Partial("article/_MenuAndAdsPartial")
-            <!-- ./left colunm -->
-            <!-- Center colunm-->
             @if (articleList.ResultsCount > 0)
             {
                 <div class="center_column col-xs-12 col-sm-9" id="center_column">
@@ -57,7 +49,7 @@
                                                         
                                                     </span>
                                                     <span class="comment-count">
-                                                        <i class="fa fa-comment-o"></i> @item.ViewTime
+                                                        <i class="fa fa-eye"></i> @item.ViewTime
                                                     </span>
                                                     <span class="date"><i class="fa fa-calendar"></i> @Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</span>
                                                 </div>
@@ -183,10 +175,7 @@
                     </div>
                 </div>
             }
-      
-            <!-- ./ Center colunm -->
         </div>
-        <!-- ./row-->
     </div>
 
 
