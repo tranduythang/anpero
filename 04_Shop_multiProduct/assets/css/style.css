@@ -2788,9 +2788,7 @@ span.notify-right{
 #left_column .left-module img{
   margin: 0 auto;
 }
-#left_column .block{
-  border: 1px solid #ececd5;
-}
+
 #left_column .block .title_block{
   font-size: 12px;
   font-weight: bold;
@@ -2802,9 +2800,22 @@ span.notify-right{
   /*background-color: rgba(43, 23, 13, 0.8);*/
   color: white;
   background-image: url(http://media.anpero.com/images/27/12018/22018012313045580.jpg);
+  margin:0;
 }
-#left_column .block .block_content{
-  padding:  15px 20px;
+.tree-menu {
+    border: 1px solid #eaeaea;
+    border-top:none;
+}
+#left_column .block .block_content, .tree-menu>li>ul {
+ padding: 0;
+}
+.tree-menu>li>ul li {
+ padding-left: 20px;
+}
+.tree-menu>li>ul>li {
+    padding-left: 10px; padding-right: 10px;
+    line-height: 40px;
+    border-top: 1px solid #eaeaea;
 }
 .layered .layered_subtitle{
   color: #666;
@@ -2834,7 +2845,8 @@ span.notify-right{
 }
 
 .tree-menu li{
-  line-height: 24px;
+    line-height: 30px;
+    border-top: 1px solid #eaeaea;     
 }
 .tree-menu li:hover>a,
 .tree-menu li.active>a,
@@ -2867,17 +2879,6 @@ span.notify-right{
   color: #ccc;
   font-weight: bold;
   cursor: pointer;
-}
-
-.tree-menu > li > ul{
-  padding-left: 17px;
-  display: none;
-}
-.tree-menu > li > ul > li{
-  border-bottom: 1px dotted #eaeaea;
-}
-.tree-menu > li > ul > li:last-child{
-  border: none;
 }
 .tree-menu > li > ul > li >span:before{
     content: "\f0da";
@@ -5190,3 +5191,26 @@ span.notify-right{
 .right-block h6{font-weight:bold;color:#2f4d84;}
 .right-block .jtp{font-size:12px;color:#209c8b;border-bottom:1px solid #209c8b;}
 .cm-ct{color:#209c8b;font-style:italic;}
+.tree-menu>li span:before {
+    content: "\f105";
+    font-size: 14px;
+    display: inline-block;
+    text-align: right;
+    color: #666;
+    font-family: fontawesome;
+    padding-right: 12px;
+    color: #ccc;
+    font-weight: 700;
+    cursor: pointer;
+}
+.tree-menu>li ul li span:before {
+    content: "\f0da";
+    font-size: 14px;
+    display: inline-block;
+    text-align: right;
+    color: #666;
+    font-family: fontawesome;
+    padding-right: 12px;
+    color: #ccc;
+}
+.tree-menu>li .txt{padding:0 10px;}

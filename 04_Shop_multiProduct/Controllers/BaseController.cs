@@ -122,11 +122,9 @@ namespace AnperoFrontend.Controllers
         int offset, int count)
         {
             string html = Encoding.UTF8.GetString(buffer);
-
             html = Regex.Replace(html, @"\s*(<[^>]+>)\s*", "$1", RegexOptions.Singleline);
-
+            //html = Regex.Replace(html, @"\s+", "$1", RegexOptions.Singleline);
             buffer = Encoding.UTF8.GetBytes(html);
-
             responseStream.Write(buffer, offset, buffer.Length);
         }
 
