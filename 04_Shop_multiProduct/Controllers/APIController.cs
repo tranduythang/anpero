@@ -58,25 +58,7 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult NLCancel(string Token)
         {
-            RequestCheckOrder info = new RequestCheckOrder();            
-            AnperoService ws = new AnperoService();
-            PaymentConfig[] pc = ws.GetPaymentAPIConfig(StoreID, TokenKey);
-            if (pc != null && pc.Length > 0)
-            {
-                for (int i = 0; i < pc.Length; i++)
-                {
-                    if (pc[i].MerchantId.ToUpper() == "NL")
-                    {
-                        info.Merchant_id = pc[i].MerchantId;// "52084";
-                        info.Merchant_password = pc[i].MerchantPassword;// "52084";
-                        info.Token = Token;
-                        APICheckoutV3 objNLChecout = new APICheckoutV3();
-                        ResponseCheckOrder result = objNLChecout.GetTransactionDetail(info);
-                        ViewBag.Msg = "Giao dịch đã được hủy, cảm ơn quý khách đã sử dụng dịch vụ của chúng tôi";
-                    }
-                }
-            }
-                      
+            ViewBag.Msg = "Giao dịch đã được hủy, cảm ơn quý khách đã sử dụng dịch vụ của chúng tôi";
             return View("Index");
         }
         

@@ -37,7 +37,7 @@
         } else {
             for (var i = 0; i < Cart.list.length; i++) {
                 if (Cart.list[i].id == _id) {
-                    Cart.list[i].price = parseInt(_price) + parseInt(Cart.list[i].price)
+                    Cart.list[i].price = parseInt(_price);
                     Cart.list[i].quantity = parseInt(Cart.list[i].quantity) + 1;
                     checkExited = true;
                 }
@@ -176,6 +176,7 @@
         var _detail = $("#detail").val();
         var _shipingType = $('input[name=radio_3]:checked').val();
         var _paymentType = $('input[name=radio_4]:checked').val();
+        var _paymentCode = $('input[name=radio_4]:checked').attr("payment-code");
         //case 2:  "Thanh toán online";
         //case 3: "Thanh toán Ngân Lượng";
         var _shipingFee = $('input[name=radio_3]:checked').attr("data-ship");
@@ -215,7 +216,7 @@
             valid = false;
         }
         var isPaymentOnline = false; 
-        if (parseInt(_paymentType) === 2 || parseInt(_paymentType) ===3) {
+        if ((parseInt(_paymentType) === 2 || parseInt(_paymentType) === 3) && _paymentCode != "" && _paymentCode != null) {
             isPaymentOnline = true;
         }
         if (isPaymentOnline && $('input[name=bankcode]:checked').val() == null) {
@@ -247,7 +248,7 @@
                                 method: "post",
                                 url: "/handler/PaymentHandler.ashx",
                                 datatype: "text/plain",
-                                data: { op: "nlCheckout", detail: "Thanh toán cho đơn hàng số #" + rs, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, price: _totalPrice, shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee), orderId: rs, payment_method: _paymentType, bankcode: _bankcode },
+                                data: { op: "nlCheckout", detail: "Thanh toán cho đơn hàng số #" + rs, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, price: _totalPrice, shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee), orderId: rs, payment_method: _paymentCode, bankcode: _bankcode },
 
                                 success: function (checkOutUrl) {
                                     if (Util.isUrl(checkOutUrl))

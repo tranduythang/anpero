@@ -62,15 +62,15 @@
                 <div class="box-border">
                     <ul class="shipping_method">
                         <li style="display:none;">
-                            <label for="radio_button_3"><input type="radio" checked name="radio_3" id="radio_button_3" value="3" data-ship="0">Nhận sản phẩm tại cửa hàng</label>
+                            <label for="radio_button_3"><input type="radio" checked name="radio_3" id="radio_button_3" value="0" data-ship="0">Nhận sản phẩm tại cửa hàng</label>
                         </li>
 
                         <li>
-                            <label for="radio_button_4"><input type="radio" name="radio_3" id="radio_button_4" value="2" data-ship="20000"> Vận chuyển thường 20.000đ</label>
+                            <label for="radio_button_4"><input type="radio" name="radio_3" id="radio_button_4" value="2" data-ship="25000"> Vận chuyển thường 25.000đ</label>
                         </li>
                         <li>
 
-                            <label for="radio_button_5"><input type="radio" name="radio_3" id="radio_button_5" value="1" data-ship="30000"> Vận chuyển nhanh 30.000đ</label>
+                            <label for="radio_button_5"><input type="radio" name="radio_3" id="radio_button_5" value="1" data-ship="35000"> Vận chuyển nhanh 35.000đ</label>
                         </li>
                     </ul>
                 </div>
@@ -79,18 +79,20 @@
                     <h3 class="checkout-sep">3. Phương thức thanh toán</h3>
                     <div class="box-border">
                         <ul class="shipping_method">
-                            <li style="display:none;">
+                            <li style="display:none;" class="lb2">
                                 <p class="subcaption bold">Tại cửa hàng</p>
                                 <label for="radio_button_41"><input type="radio" checked name="radio_4" id="radio_button_41" value="0" data-ship="0">Miễn phí 0 đ</label>
                             </li>
-                            <li>
+                            <li class="lb2">
                                 <label for="radio_button_51"><input type="radio" name="radio_4" id="radio_button_51" value="4" data-ship="0"> Chuyển khoản 0đ</label>
                             </li>
-                            <li>
-                                <label for="radio_button_6"><input type="radio" name="radio_4" id="radio_button_6" value="1" data-ship="10000"> Thu tiền tại nhà 10.000 đ</label>
+                            <li class="lb2">
+                                <label for="radio_button_6"><input type="radio" name="radio_4" id="radio_button_6" value="1" data-ship="15000"> Thu tiền tại nhà 15.000 đ</label>
                             </li>
+                           @if (ViewBag.PaymentType == "NL")
+                           {
                             <li>
-                                <label for="radio_button_8" id="lb1"><input type="radio" name="radio_4" id="radio_button_8" value="2" data-ship="0"> Thanh toán online bằng thẻ ngân hàng nội địa <span class="red">(miễn phí)</span></label>
+                                <label for="radio_button_8" id="lb1"><input type="radio" name="radio_4" id="radio_button_8" value="2" payment-code="ATM_ONLINE" data-ship="0"> Thanh toán online bằng thẻ ngân hàng nội địa <span class="red">(miễn phí)</span></label>
                                 <ul class="cardList form-list clearfix" style="display:none;">
                                     <li class="bank-online-methods ">
                                         <label for="vcb_ck_on">
@@ -249,6 +251,8 @@
 
                                 </ul>
                             </li>
+                           }
+           
 
                         </ul>
                     </div>
@@ -314,6 +318,9 @@
             });
             $("#lb1").click(function(){
             $(".cardList").show();
+            });
+            $(".lb2").click(function () {
+                $(".cardList").hide();
             });
             googleCatcha = grecaptcha.render('g-recaptcha', {
                 'sitekey': googleCapchaSitekey,

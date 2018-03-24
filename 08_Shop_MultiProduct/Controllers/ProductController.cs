@@ -81,7 +81,7 @@ namespace AnperoFrontend.Controllers
             WebService.AnperoService sv = new WebService.AnperoService();
             WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, category, "", "", 0, 999999999, page, 14, keyword, SearchOrder.NameDesc, 0);
             ViewData["productList"] = rs;
-            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");            
+            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
             if (rs != null && rs.Item.Length > 0)
             {
                 ViewBag.Title = rs.Item[0].CatName;
@@ -94,6 +94,19 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult Checkout()
         {
+            WebService.AnperoService ws = new WebService.AnperoService();
+            WebService.PaymentConfig[] pa = ws.GetPaymentAPIConfig(StoreID, TokenKey);
+            if (pa != null && pa.Length > 0)
+            {
+                for (int i = 0; i < pa.Length; i++)
+                {
+                    if (pa[i].Isdefault && pa[i].PaymentCode.ToUpper() == "NL")
+                    {
+                        ViewBag.PaymentType = "NL";
+                    }
+                }
+
+            }
 
             return View();
         }

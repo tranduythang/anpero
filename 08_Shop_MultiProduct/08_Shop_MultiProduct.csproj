@@ -314,7 +314,6 @@
     <Content Include="assets\fonts\site-icons.eot" />
     <Content Include="assets\fonts\site-icons.ttf" />
     <Content Include="assets\fonts\site-icons.woff" />
-    <Content Include="assets\images\Thumbs.db" />
     <Content Include="handler\PaymentHandler.ashx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -322,6 +321,7 @@
     </None>
     <Content Include="Robots.txt" />
     <Content Include="Scripts\Anpero.Common.js" />
+    <Content Include="Scripts\Bootrap-notify.js" />
     <Content Include="Scripts\Bootrap.notify.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Scripts\jquery.cokie.min.js" />
