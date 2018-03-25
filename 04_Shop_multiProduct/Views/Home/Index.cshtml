@@ -6,7 +6,6 @@
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
         ViewBag.Title = commonInfo.Desc;
     }
-
 }
 @section health{
     <meta name="description" content="@commonInfo.Desc" />
@@ -17,7 +16,6 @@
         @Html.Partial("product/_MenuAndAdsPartial")
     </div>
     <div class="col-md-9 rct">
-
         @if (!Request.Browser.IsMobileDevice)
         {
             <div id="home-slider" style="margin-top:5px;">
@@ -64,8 +62,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- end services -->
         <div class="page-top">
             <div class="row">
                 <div class="page-top">       
