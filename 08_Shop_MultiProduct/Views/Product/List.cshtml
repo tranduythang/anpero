@@ -10,7 +10,7 @@
 
 @if (ViewData["productList"] != null)
 {
-
+    string categoryName = "Sản phẩm";
     AnperoFrontend.WebService.SearchResult productList = (AnperoFrontend.WebService.SearchResult)ViewData["productList"];
     if (productList.Item.Length > 0)
     {
@@ -37,7 +37,8 @@
                                     <li class="home"> <a href="/" title="Trang chủ">Trang chủ</a> <span>—› </span> </li>
                                     @if (ViewBag.isParent != null)
                                     {
-                                    <li class="category1599">
+                                        categoryName = productList.Item[0].ParentCatName;
+                                    <li>
                                         <a href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
                                             @productList.Item[0].ParentCatName
                                         </a>
@@ -45,24 +46,22 @@
                                     }
                                     else
                                     {
-                                    <li class="category1599">
+                                        categoryName = productList.Item[0].CatName;
+                                    <li>
                                         <a href="@Anpero.StringHelpper.GetCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
                                             @productList.Item[0].ParentCatName
                                         </a>
                                         <span>—› </span>
                                     </li>
-                                    <li class="category1601"> <strong>@productList.Item[0].CatName</strong> </li>
+                                    <li> <strong>@productList.Item[0].CatName</strong> </li>
                                     }
                                 </ul>
                             </div>
-                            <!--col-xs-12-->
                         </div>
-                        <!--row-->
                     </div>
-                    <!--container-->
                 </div>
                 <div class="page-title">
-                    <h2>Sản phẩm</h2>
+                    <h1>@categoryName</h1>
                 </div>
             </div>
             <section class="main-container col2-left-layout bounceInUp animated">

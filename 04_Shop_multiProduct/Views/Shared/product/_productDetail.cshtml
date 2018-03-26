@@ -84,7 +84,6 @@
                         @if (item.IsInstock)
                         {
                             <a class="btn-add-cart" href="javascript:Cart.addProduct(@item.Id,'@Convert.ToInt32(item.SalePrice)','@HttpUtility.UrlEncode(item.Images)','@item.PrName')">Đặt mua</a>
-
                         }
                         else
                         {

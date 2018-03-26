@@ -177,6 +177,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="ProductList" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="price" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="shippingMethod" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentMethod" type="s:int" />
             <s:element minOccurs="0" maxOccurs="1" name="modeDetail" type="s:string" />
           </s:sequence>
         </s:complexType>

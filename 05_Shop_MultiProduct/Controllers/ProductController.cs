@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnperoFrontend.WebService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -94,7 +95,19 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult Checkout()
         {
+            AnperoService ws = new AnperoService();
+            PaymentConfig[] pa = ws.GetPaymentAPIConfig(StoreID, TokenKey);
+            if (pa != null && pa.Length > 0)
+            {
+                for (int i = 0; i < pa.Length; i++)
+                {
+                    if (pa[i].Isdefault && pa[i].PaymentCode.ToUpper() == "NL")
+                    {
+                        ViewBag.PaymentType = "NL";
+                    }
+                }
 
+            }
             return View();
         }
         private void SetUpSeo(int type, int categoryId)

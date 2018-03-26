@@ -100,7 +100,7 @@
                                     @if (ViewBag.PaymentType == "NL")
                                     {
                                         <li>
-                                            <label for="radio_button_8" id="lb1"><input type="radio" name="radio_4" id="radio_button_8" value="2" data-ship="0"> Thanh toán online bằng thẻ ngân hàng nội địa <span class="red">(miễn phí)</span></label>
+                                            <label for="radio_button_8" id="lb1"><input type="radio" name="radio_4" id="radio_button_8" value="2" data-ship="0" payment-code="ATM_ONLINE"> Thanh toán online bằng thẻ ngân hàng nội địa <span class="red">(miễn phí)</span></label>
                                             <ul class="cardList form-list clearfix" style="display:none;">
 
                                                 <li class="bank-online-methods ">
@@ -269,7 +269,7 @@
                             </div>
                         </div>
                         <h3 class="checkout-sep">4. Kiểm tra lại thông tin sản phẩm</h3>
-                        <div class="box-border">
+                        <div class="b ox-border">
                             <table class="table table-bordered table-responsive add-to-cart" id="shopping-cart-table">
                                 <thead>
                                     <tr>

@@ -1,6 +1,7 @@
 ﻿var Cart = {
     list: [],
     addProduct: function (_id, _price, _thumb, _title) {        
+      
         var checkExited = false;
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
@@ -11,7 +12,7 @@
         } else {
             for (var i = 0; i < Cart.list.length; i++) {
                 if (Cart.list[i].id == _id) {
-                    Cart.list[i].price = parseInt(_price) + parseInt(Cart.list[i].price)
+                    Cart.list[i].price = parseInt(_price);
                     Cart.list[i].quantity = parseInt(Cart.list[i].quantity) + 1;
                     checkExited = true;
                 }
@@ -70,6 +71,7 @@
 
     },
     bindCart: function () {
+        debugger
         var ttSC = 0;
         var htmlCat = "";
         if ($.cookie("CartList") != 'null' && $.cookie("CartList") != "undefined" && $.cookie("CartList") != undefined) {

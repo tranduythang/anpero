@@ -20,6 +20,9 @@
 @section canonical{
     <link rel="canonical" href="@ViewBag.WebsiteUrl" />
 }
+<h1 id="heading1" style="display:none;">
+    @commonInfo.Desc
+</h1>
 <div class="content">
     @if (!Request.Browser.IsMobileDevice)
     {
@@ -191,7 +194,7 @@
             }
         </div>
     }
-    <div class="brand-logo wow bounceInUp animated">
+    @*<div class="brand-logo wow bounceInUp animated">
         <div class="container">
             <div class="row">
                 <div class="logo-brand col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -247,5 +250,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
 </div>

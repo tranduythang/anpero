@@ -4302,7 +4302,7 @@ ul.pdt-list li.item a img.image-hover {
     padding: 0px;
     width: 100%;
     position: relative;
-    margin-top: 45px;
+    margin-top: 80px;
 }
 
     .top-cate .new_title {
@@ -11629,7 +11629,6 @@ footer .footer-inner {
 
 footer .co-info {
     margin-right: 0px !important;
-    background: #88be4c;
     padding: 35px 30px;
     text-align: center;
     margin-top: 35px;
@@ -14097,17 +14096,6 @@ select#shipping-address-select {
     -o-transform: scale(1.25);
     transform: scale(1.25);
 }
-/*#background {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  z-index: 1;
-  width: 50%;
-  height: 100%;
-  background-color: #e0e0e0;
-}*/
-
-
 
 .page-heading {
     padding: 120px 0 60px 0;
@@ -14115,11 +14103,11 @@ select#shipping-address-select {
     border-bottom: none;
     text-align: center;
     background-repeat: no-repeat;
-    background-image: url(/assets/images/category-bg.jpg);
+    background-image: url(http://media.anpero.com/images/38/32018/bg2018032619202416.png);
     margin-top: -80px;
 }
 
-    .page-heading .page-title h2 {
+    .page-heading .page-title h2, .page-heading .page-title h1 {
         color: #fff;
     }
 
