@@ -223,6 +223,7 @@
             valid = false;
             Util.notify("", "Vui lòng chọn ngân hàng thanh toán. ");
         }
+        debugger
         if (valid) {
             $("#cartContent1").hide();
             $("#cartContent2").show();
@@ -234,7 +235,7 @@
                 datatype: "text/plain",
                 data: { op: "CreateOrder", detail: _detail, PayMentType: _paymentType, shippingMethod: _shipingType, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, ProductList: $.cookie("CartList"), shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee) },
                 success: function (rs) {
-
+                    debugger
                     $("#ajax_loader").hide();
                     if (!isNaN(rs)) {
                         $.removeCookie('CartList', { path: '/' });

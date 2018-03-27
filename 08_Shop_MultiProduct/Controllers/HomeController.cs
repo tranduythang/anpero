@@ -7,6 +7,7 @@ namespace AnperoFrontend.Controllers
     public class HomeController : BaseController
     {
         [BuildCommonHtml]
+        [BunderHtml]
         public ActionResult Index()
         {
             WebService.AnperoService service = new WebService.AnperoService();
