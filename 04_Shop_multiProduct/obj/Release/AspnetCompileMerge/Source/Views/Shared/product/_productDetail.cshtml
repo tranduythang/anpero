@@ -84,7 +84,6 @@
                         @if (item.IsInstock)
                         {
                             <a class="btn-add-cart" href="javascript:Cart.addProduct(@item.Id,'@Convert.ToInt32(item.SalePrice)','@HttpUtility.UrlEncode(item.Images)','@item.PrName')">Đặt mua</a>
-
                         }
                         else
                         {
@@ -122,7 +121,7 @@
                     <div id="product-detail" class="tab-panel active">
                         @Html.Raw(item.Detail)
                     </div>
-                    <div id="paymentDetail">
+                    <div id="paymentDetail" lass="active">
                         <div id='ajax_loader' style="left: 45%; top: 50%;">
                             <img src="http://media.anpero.com/images/38/102017/loading2017102517124312.gif" />
                         </div>        

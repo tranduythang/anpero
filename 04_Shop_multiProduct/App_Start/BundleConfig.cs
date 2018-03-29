@@ -9,8 +9,9 @@ namespace AnperoFrontend
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/assets/lib/jquery/jquery-1.11.2.min.js",
-                        "~/Scripts/Anpero.Common.js"
+                        "~/assets/lib/jquery/jquery-1.11.2.min.js"
+                        
+                        
                         ));
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/assets/lib/bootstrap/js/bootstrap.min.js",
@@ -20,9 +21,10 @@ namespace AnperoFrontend
                        "~/assets/js/jquery.actual.min.js",
                        "~/assets/js/theme-script.js",                       
                        "~/Scripts/jquery.cokie.min.js",
-                       "~/Scripts/Bootrap-notify.js",
-                   
-                         "~/Scripts/Anpero.Common.js"
+                       "~/Scripts/Bootrap-notify.js",                   
+                         "~/Scripts/Anpero.Common.js",
+                         "~/Scripts/ShoppingCart.js"
+
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

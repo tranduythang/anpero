@@ -222,8 +222,13 @@
         if (isPaymentOnline && $('input[name=bankcode]:checked').val() == null) {
             valid = false;
             Util.notify("", "Vui lòng chọn ngân hàng thanh toán. ");
+            
         }
-        debugger
+        
+        if (isPaymentOnline && (_email == "" || !Util.isEmail(_email))) {
+            valid = false;
+            Util.notify("Lỗi: ", "Email không đúng định dạng, Thanh toán Online yêu cầu nhập Email.");
+        }
         if (valid) {
             $("#cartContent1").hide();
             $("#cartContent2").show();
@@ -252,8 +257,12 @@
                                 data: { op: "nlCheckout", detail: "Thanh toán cho đơn hàng số #" + rs, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, price: _totalPrice, shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee), orderId: rs, payment_method: _paymentCode, bankcode: _bankcode },
 
                                 success: function (checkOutUrl) {
-                                    if (Util.isUrl(checkOutUrl))
+                                    if (Util.isUrl(checkOutUrl)) {
                                         window.location.href = checkOutUrl;
+                                    } else {
+                                        Util.notify("Lỗi: ", checkOutUrl);
+                                    }
+                                        
                                 }
                             });
                         } else {
