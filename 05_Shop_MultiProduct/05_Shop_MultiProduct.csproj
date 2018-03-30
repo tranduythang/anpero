@@ -122,6 +122,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\APIController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -325,6 +326,7 @@
     <Content Include="Views\Shared\product\_productDetail.cshtml" />
     <Content Include="Views\Shared\_partial\_MainFooter_1.cshtml" />
     <Content Include="Views\Home\Policy.cshtml" />
+    <Content Include="Views\API\Index.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

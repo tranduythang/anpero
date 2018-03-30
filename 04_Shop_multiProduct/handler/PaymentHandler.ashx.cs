@@ -60,8 +60,12 @@ namespace AnperoFrontend.handler
                                         string DomainName = HttpContext.Current.Request.Url.Scheme + @"://" + HttpContext.Current.Request.Url.Host;
 
                                         Anpero.PaymentApi.NganLuong.RequestInfo info = new Anpero.PaymentApi.NganLuong.RequestInfo();
-                                        info.Merchant_id = pa[i].MerchantId.ToString();
-                                        info.Merchant_password = pa[i].MerchantPassword;
+                                        //info.Merchant_id = pa[i].MerchantId.ToString();
+                                        //info.Merchant_password = pa[i].MerchantPassword;
+
+                                        info.Merchant_id = "24338";
+                                        info.Merchant_password = "12345612";
+
                                         info.Receiver_email = pa[i].Email;
 
                                         info.cur_code = "vnd";

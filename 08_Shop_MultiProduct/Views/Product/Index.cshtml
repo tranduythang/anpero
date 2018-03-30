@@ -111,7 +111,7 @@
                                                         <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button"><i class="icon-plus">&nbsp;</i></button>                                                        
                                                     </div>
                                                 </div>
-                                                <button type="button" title="Add to Cart" class="button btn-cart" onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.SalePrice),'@item.Images','@item.PrName');"><span><i class="icon-basket"></i>Mua ngay</span></button>
+                                                <button type="button" title="Add to Cart" class="button btn-cart" onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@item.PrName');"><span><i class="icon-basket"></i>Mua ngay</span></button>
                                             </div>
                                             <div class="email-addto-box">                                                
                                                 <p class="add-to-links"><a class="link-wishlist" href="http://www.facebook.com/share.php?u=@thisUrl&title=@commonInfo.Desc" onclick="" title="Add To Wishlist"><span>Add To Wishlist</span></a></p>                                               
@@ -209,7 +209,7 @@
                                                                                 <div class="price-box"><span class="regular-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(items.Price) đ</span> </span> </div>
                                                                             </div>
                                                                             <div class="add_cart">
-                                                                                <button class="button btn-cart" type="button" onclick="Cart.addProduct(@items.Id,@Convert.ToInt32(item.SalePrice),'@items.Images','@items.PrName');"><span>Mua ngay</span></button>
+                                                                                <button class="button btn-cart" type="button" onclick="Cart.addProduct(@items.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@items.Images','@items.PrName');"><span>Mua ngay</span></button>
                                                                             </div>
                                                                         </div>
                                                                     </div>

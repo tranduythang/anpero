@@ -25,7 +25,7 @@ namespace AnperoFrontend.Controllers
             {
                 for (int i = 0; i <pc.Length; i++)
                 {
-                    if (pc[i].MerchantId.ToUpper() == "NL")
+                    if (pc[i].Name.ToUpper() == "NL")
                     {
                         RequestCheckOrder info = new RequestCheckOrder();
                         //for test
