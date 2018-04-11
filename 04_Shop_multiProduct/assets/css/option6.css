@@ -128,7 +128,7 @@
 	/*background: rgba(43, 23, 13, 0.8);*/
 	font-size: 12px;
 	color: #fff;
-        background-image: url(http://media.anpero.com/images/27/12018/22018012313045580.jpg);
+    background: #fcb040d9;
 }
 .option6 .top-header a{
 	color: #fff;
@@ -163,9 +163,9 @@
     margin-right: 40px;
     border-left: 1px solid #21940c;
     height: 41px;
-    /*background: rgba(43, 23, 13, 0.8);*/
+    background-color:#008000cf;
     color: #fff;
-    background-image: url(http://media.anpero.com/images/27/12018/22018012313045580.jpg);
+    
 }
 .option6 .main-header .header-search-box .form-inline .btn-search{
 	top: 0;
@@ -198,7 +198,7 @@
 	color: #fff;
 	display: inline-block;
 	min-width: 520px;
-    background-image: url(http://media.anpero.com/images/27/12018/22018012313045580.jpg);
+    background-color:#008000cf;
 }
 .option6 .main-header .header-search-box .keyword{
 	display: inline-block;
@@ -237,7 +237,7 @@
 }
 
 .option6 .nav-top-menu.nav-ontop{
-	background: rgba(43, 23, 13, 0.8);
+	background:#008000bf;
 	height: 51px;
 }
 .option6 .nav-top-menu.nav-ontop .navbar-right{
@@ -253,7 +253,7 @@
 
 .option6 #main-menu .navbar{
 	border-radius: 0;
-	background: rgba(43, 23, 13, 0.8);
+	background: #008000bf;
 }
 .option6 #main-menu .navbar-default .navbar-nav>li>a{
 	color: #fff;

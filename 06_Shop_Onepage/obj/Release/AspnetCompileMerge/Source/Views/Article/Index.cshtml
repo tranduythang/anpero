@@ -6,7 +6,7 @@
         item = (BlogItem)ViewData["blogdeltail"];
     }
 }
-<section class="photography-area padding-top" id="philosophy">
+<section class="photography-area section-padding" id="philosophy">
     <div class="container">
         <div class="row">
             <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
@@ -16,15 +16,22 @@
             </div>
         </div>
         <div id="photographyCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-            <div class="row">                <div class="col-xs-12 col-sm-12">@Html.Raw(item.Content)</div>
-                
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">@Html.Raw(item.Content)</div>
+                <div class="entry-meta-data">
+                    <span class="comment-count">
+                        <i class="fa fa-eye"></i> @item.ViewTime
+                    </span>
+                    <span class="date"><i class="fa fa-calendar"></i> @Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</span>
+
+                </div>
             </div>
         </div>
     </div>
 </section>
 <div class="columns-container">
-    <div class="container" id="columns">
-        <!-- breadcrumb -->
+    <div class="container">
+        
         <div class="breadcrumb clearfix">
             <a class="home" href="#" title="Return to Home">Home</a>
             <span class="navigation-pipe">&nbsp;</span>
@@ -32,25 +39,16 @@
             <span class="navigation-pipe">&nbsp;</span>
             <span><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.CategoryName, item.CategoryId)" title="@item.CategoryName">@item.CategoryName</a> </span>
         </div>
-        <!-- ./breadcrumb -->
+        
         <!-- row -->
         <div class="row">
             <!-- Left colunm -->
             @Html.Partial("article/_MenuAndAdsPartial")
             <!-- ./left colunm -->
             <!-- Center colunm-->
-            <div class="center_column col-xs-12 col-sm-9" id="center_column">
-               
+            <div class="center_column col-xs-12 col-sm-9" id="center_column">               
                 <article class="entry-detail">
-                    <div class="entry-meta-data">
-                     
-                       
-                        <span class="comment-count">
-                            <i class="fa fa-comment-o"></i> @item.ViewTime
-                        </span>
-                        <span class="date"><i class="fa fa-calendar"></i> @Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</span>
-                      
-                    </div>
+                   
                    
                     <div class="content-text clearfix">
                      

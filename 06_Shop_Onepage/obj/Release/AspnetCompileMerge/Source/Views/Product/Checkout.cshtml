@@ -2,54 +2,52 @@
 @{
     ViewBag.Title = "Checkout";
 }
-<div class="columns-container">
+<div class="columns-container section-padding">
     <div class="container" id="columns">
         <!-- breadcrumb -->
         <div class="breadcrumb clearfix">
             <a class="home" href="#" title="Return to Home">Home</a>
-            <span class="navigation-pipe">&nbsp;</span>
+            <span class="fa fa-caret-right">&nbsp;</span>
             <span class="navigation_page">Tạo đơn hàng</span>
         </div>
-        <!-- ./breadcrumb -->
-        <!-- page heading-->
-        <h2 class="page-heading">
-            <span class="page-heading-title2">Tạo đơn hàng</span>
-        </h2>
+      
         <!-- ../page heading-->
         <div class="page-content checkout-page" id="cartContent1">
-            <h3 class="checkout-sep">1. Thông tin nhận hàng</h3>
-            <div class="box-border">
-                <ul>
-                    <li class="row">
+            <div class="col-md-12">
+                <h3 class="checkout-sep">1. Thông tin liên hệ</h3>
+                <div class="box-border">
+                    <ul>
+                        <li class="row">
 
-                        <div class="col-sm-12">
-                            <label for="first_name_1" class="required">Họ tên (*)</label>
-                            <input class="input form-control" type="text" name="" id="cName">
-                        </div>
+                            <div class="col-sm-12">
+                                <label for="first_name_1" class="required">Họ tên (*)</label>
+                                <input class="input form-control" type="text" name="" id="cName">
+                            </div>
 
-                    </li>
-                    <li class="row">
-                        <div class="col-sm-6">
-                            <label for="company_name_1">Số điện thoại (*)</label>
-                            <input class="input form-control" type="text" name="" id="cPhone">
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="company_name_1">Email</label>
-                            <input class="input form-control" type="text" name="" id="cMail">
-                        </div>
-                        <div class="col-sm-12">
-                            <label for="email_address_1" class="required">Địa chỉ (*)</label>
-                            <textarea class="input form-control" name="" id="cAddress"></textarea>
+                        </li>
+                        <li class="row">
+                            <div class="col-sm-6">
+                                <label for="company_name_1">Số điện thoại (*)</label>
+                                <input class="input form-control" type="text" name="" id="cPhone">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="company_name_1">Email</label>
+                                <input class="input form-control" type="text" name="" id="cMail">
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="email_address_1" class="required">Địa chỉ (*)</label>
+                                <textarea class="input form-control" name="" id="cAddress"></textarea>
 
-                        </div>
-                        <div class="col-sm-12">
-                            <label for="email_address_1" class="required">Bạn có muốn ghi chú gì cho đơn hàng này không ?</label>
-                            <textarea class="input form-control" name="" id="detail"></textarea>
-                        </div>
-                    </li>
-                </ul>
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="email_address_1" class="required">Bạn có muốn ghi chú gì cho đơn hàng này không ?</label>
+                                <textarea class="input form-control" name="" id="detail"></textarea>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 hide">
                 <h3 class="checkout-sep">2. Phương thức vận chuyển</h3>
                 <div class="box-border">
                     <ul class="shipping_method">
@@ -67,8 +65,8 @@
                     </ul>
                 </div>
             </div>
-                <div class="col-md-6">
-                    <h3 class="checkout-sep">3. Phương thức thanh toán</h3>
+            <div class="col-md-12">
+                    <h3 class="checkout-sep">2. Phương thức thanh toán</h3>
                     <div class="box-border">
                         <ul class="shipping_method">
                             <li style="display:none;">
@@ -85,7 +83,8 @@
                         </ul>
                     </div>
                 </div>
-                <h3 class="checkout-sep">4. Kiểm tra lại thông tin sản phẩm</h3>
+            <div class="col-md-12">
+                <h3 class="checkout-sep">3. Kiểm tra lại thông tin sản phẩm</h3>
                 <div class="box-border">
                     <table class="table table-bordered table-responsive cart_summary">
                         <thead>
@@ -115,15 +114,17 @@
                     <div class="col-md-12">
                         <div id="g-recaptcha" class="pull-right"></div>
                     </div>
-                    <button class="button pull-right" id="orderBtn">Xác nhận đặt hàng</button>
-                    <a class="button pull-right" href="/">Mua thêm</a>
+                        <div class="col-md-12">
+                            <button class="btn btn-success pull-right mg-top-15" id="orderBtn">Xác nhận đặt hàng</button>
+                        </div>
                 </div>
             </div>
         <div class="page-content checkout-page" id="cartContent2" style="display:none;"></div>
         <div id='ajax_loader' style="position: fixed; left: 45%; top: 50%; display: none;">
-            <img src="~/assets/images/loading.gif" />
+            <img src="http://media.anpero.com/images/38/102017/loading2017102517124312.gif" />
         </div>
     </div>
+</div>
 </div>
 @section scripts{
     <script src="~/Scripts/Bootrap.notify.js"></script>

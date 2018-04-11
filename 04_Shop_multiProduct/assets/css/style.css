@@ -2797,9 +2797,9 @@ span.notify-right{
   text-transform: uppercase;
   padding-top: 11px;
   padding-bottom: 12px;
-  /*background-color: rgba(43, 23, 13, 0.8);*/
+  background-color: green;
   color: white;
-  background-image: url(http://media.anpero.com/images/27/12018/22018012313045580.jpg);
+  
   margin:0;
 }
 .tree-menu {
@@ -5183,8 +5183,7 @@ span.notify-right{
     padding: 0;
     margin: 0;
 }
-#navbar .navbar-nav{
-        background-image: url(http://media.anpero.com/images/27/12018/22018012313045580.jpg);
+#navbar .navbar-nav{        
         width:100%;
 }
 .currency{font-weight:bold}
