@@ -134,7 +134,7 @@
                                                             }
                                                             else
                                                             {
-                                                                <p><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                                                <p><span class="price">@(item.Price>0?Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) +" đ": "Liên hệ") </span> </p>
 
                                                             }
 
@@ -214,7 +214,7 @@
                                                                     }
                                                                     else
                                                                     {
-                                                                        <p><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                                                        <p><span class="price">@(item.Price > 0 ? Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ" : "Liên hệ")</span> </p>
                                                                     }
 
                                                                 </div>

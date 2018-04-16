@@ -157,12 +157,16 @@
                                                             <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
                                                         </div>
                                                     </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box"><span class="regular-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </span> </div>
-                                                    </div>
-                                                    <div class="add_cart">                                                        
-                                                        <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@item.PrName');"><span>Mua ngay</span></button>
-                                                    </div>
+                                                    @if (item.Price > 0)
+                                                    {
+                                                        <div class="item-price">
+                                                            <div class="price-box"><span class="regular-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </span> </div>
+                                                        </div>
+                                                        <div class="add_cart">
+                                                            <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@item.PrName');"><span>Mua ngay</span></button>
+                                                        </div>
+                                                    }
+                                                 
                                                 </div>
                                             </div>
                                         </div>

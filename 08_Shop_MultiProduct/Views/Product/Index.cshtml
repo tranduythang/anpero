@@ -83,7 +83,13 @@
                                             </div>
                                         </span>
                                         <div class="price-block">
-                                            <div class="price-box"> <span class="regular-price" id="product-price-123"> <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </span> </div>
+                                            <div class="price-box"> 
+                                            @if (item.IsSale)
+                                            {                                                
+                                                <span class="old-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span> </span>
+                                             }
+                                                <span class="regular-price"><span class="price">@((item.IsSale ? item.SalePrice : item.Price) > 0 ? Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price) + " đ" : "Liên hệ")</span> </span> 
+                                            </div>
                                             @if (@item.IsInstock)
                                             {
                                                 <p class="availability in-stock">
@@ -98,10 +104,14 @@
                                             }
 
                                         </div>
-                                        <div class="short-description">
-                                            <h2>Mô tả ngắn</h2>
-                                            <p>@Html.Raw(item.ShortDesc)</p>
-                                        </div>
+                                        @if (!string.IsNullOrEmpty(item.ShortDesc))
+                                        {
+                                            <div class="short-description">
+                                                <h2>Mô tả ngắn</h2>
+                                                <p>@Html.Raw(item.ShortDesc)</p>
+                                            </div>
+                                        }
+                                       
                                         <div class="add-to-box">
                                             <div class="add-to-cart">
                                                 <div class="pull-left">
