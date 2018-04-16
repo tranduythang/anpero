@@ -115,9 +115,8 @@
                                                                     <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
                                                                         <img src="@item.Images" alt="@item.PrName">
                                                                     </a>
-                                                                </div>
-                                                                <h4 class="heading">Giảm giá 20%</h4>
-                                                                <p>@item.ShortDesc.Substring(0, 61)</p>
+                                                                </div>                                                                
+                                                                <p>@Anpero.StringHelpper.SubString(60,item.ShortDesc)</p>
                                                             </div>
                                                         }
                                                     }

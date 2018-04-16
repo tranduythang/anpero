@@ -64,8 +64,17 @@
                         <div class="slider-items slider-width-col4 products-grid">
                             @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                             {
+
                                 foreach (var item in commonInfo.ProductCategoryList)
                                 {
+                                    <div class="item">
+                                        <div class="pro-img">
+                                            <a href="@Anpero.StringHelpper.GetCategoryLink(item.Name, item.Id)">
+                                                <img src="@item.Images" alt="@item.Name">
+                                                <div class="pro-info">@item.Name</div>
+                                            </a>
+                                        </div>
+                                    </div>
                                     if (item.ChildCategory != null && item.ChildCategory.Length > 0)
                                     {
                                         foreach (var childItem in item.ChildCategory)

@@ -61,6 +61,7 @@ namespace AnperoFrontend.Controllers
             ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
             
             ViewBag.isParent = "1";
+
             if (rs != null && rs.Item.Length > 0)
             {
                 ViewBag.Title = rs.Item[0].ParentCatName;
