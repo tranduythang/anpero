@@ -71,7 +71,6 @@
 
     },
     bindCart: function () {
-        debugger
         var ttSC = 0;
         var htmlCat = "";
         if ($.cookie("CartList") != 'null' && $.cookie("CartList") != "undefined" && $.cookie("CartList") != undefined) {

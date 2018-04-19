@@ -35,26 +35,30 @@
                             <div class="col-xs-12">
                                 <ul>
                                     <li class="home"> <a href="/" title="Trang chủ">Trang chủ</a> <span>—› </span> </li>
-                                    @if (ViewBag.isParent != null)
+                                    @if (productList != null && productList.Item.Length > 0)
                                     {
-                                        categoryName = productList.Item[0].ParentCatName;
-                                    <li>
-                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
-                                            @productList.Item[0].ParentCatName
-                                        </a>
-                                    </li>
+                                        if (ViewBag.isParent != null)
+                                        {
+                                            categoryName = productList.Item[0].ParentCatName;
+                                            <li>
+                                                <a href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
+                                                    @productList.Item[0].ParentCatName
+                                                </a>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            categoryName = productList.Item[0].CatName;
+                                            <li>
+                                                <a href="@Anpero.StringHelpper.GetCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
+                                                    @productList.Item[0].ParentCatName
+                                                </a>
+                                                <span>—› </span>
+                                            </li>
+                                            <li> <strong>@productList.Item[0].CatName</strong> </li>
+                                        }
                                     }
-                                    else
-                                    {
-                                        categoryName = productList.Item[0].CatName;
-                                    <li>
-                                        <a href="@Anpero.StringHelpper.GetCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
-                                            @productList.Item[0].ParentCatName
-                                        </a>
-                                        <span>—› </span>
-                                    </li>
-                                    <li> <strong>@productList.Item[0].CatName</strong> </li>
-                                    }
+                                    
                                 </ul>
                             </div>
                         </div>

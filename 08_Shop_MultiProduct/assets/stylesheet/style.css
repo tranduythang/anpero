@@ -139,7 +139,7 @@ header {
 }
 
 .logo {
-    vertical-align: middle;
+   vertical-align: middle;
     cursor: pointer;
     text-align: left;
     display: block;
@@ -151,8 +151,12 @@ header {
     background: #26293259;
     height: 116px;
     margin-right: 15px;
+    width: 191px;
+    background-color: #252932;
 }
-
+.logo img {
+    max-width: 100%;
+}
 .header-container .fl-nav-menu {
     display: block;
     border-radius: 3px;
@@ -1399,8 +1403,8 @@ ul.level1 {
     }
 
     #nav ul.level0 > li > a {
-        color: #79ae3d;
-        font-size: 13px;
+        color: #262932;
+        font-size: 12px;
         font-weight: 700;
         line-height: 18px;
         padding: 10px 10px;
@@ -9222,7 +9226,7 @@ a.button.detail-bnt span {
 }
 
     .product-view .product-name h1 {
-        font-size: 38px;
+        font-size: 28px;
         margin: 0 0 2px;
         text-align: left;
         line-height: 1.2em;
@@ -11816,17 +11820,17 @@ footer address {
     padding: 0px;
 }
 
-.icon-location-arrow:before {
+/*.icon-location-arrow:before {
     color: #fff;
-}
+}*/
 
-.icon-mobile-phone:before {
+/*.icon-mobile-phone:before {
     color: #fff;
-}
+}*/
 
-.icon-envelope:before {
+/*.icon-envelope:before {
     color: #fff;
-}
+}*/
 
 footer address em {
     display: inline-block !important;
@@ -11842,14 +11846,23 @@ footer address span {
     display: inline-block !important;
 }
 
-footer address div {
+footer address div{
     display: block;
     text-align: left;
     overflow: hidden;
     padding: 15px 0px;
     border-bottom: 1px #fff dotted;
 }
-
+#contact_form_map address{
+    border:none;
+}
+#contact_form_map .co-info div {
+    display: block;
+    text-align: left;
+    overflow: hidden;
+    padding: 15px 0px;
+    border-bottom: 1px #959595 dotted;
+}
     footer address div:last-child {
         border: none;
     }
