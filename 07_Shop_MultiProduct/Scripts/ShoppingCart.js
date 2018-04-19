@@ -11,7 +11,7 @@
         } else {
             for (var i = 0; i < Cart.list.length; i++) {
                 if (Cart.list[i].id == _id) {
-                    Cart.list[i].price = parseInt(_price) + parseInt(Cart.list[i].price)
+                    Cart.list[i].price = parseInt(_price);
                     Cart.list[i].quantity = parseInt(Cart.list[i].quantity) + 1;
                     checkExited = true;
                 }
@@ -37,7 +37,7 @@
         }
         for (var i = 0; i < Cart.list.length; i++) {
             if (Cart.list[i].id == _id) {
-                Cart.list[i].price = parseInt(Cart.list[i].price)
+                Cart.list[i].price = _price;
                 Cart.list[i].quantity = parseInt(Cart.list[i].quantity) + 1;
                 $("#prQuantity_" + _id).val(Cart.list[i].quantity);
             }
@@ -56,7 +56,7 @@
         } else {
             for (var i = 0; i < Cart.list.length; i++) {
                 if (Cart.list[i].id == _id) {
-                    Cart.list[i].price = parseInt(_price) + parseInt(Cart.list[i].price)
+                    Cart.list[i].price = parseInt(_price);
                     Cart.list[i].quantity = parseInt(Cart.list[i].quantity) + 1;
                     checkExited = true;
                 }
@@ -189,6 +189,9 @@
         var _detail = $("#detail").val();
         var _shipingType = $('input[name=radio_3]:checked').val();
         var _paymentType = $('input[name=radio_4]:checked').val();
+        var _paymentCode = $('input[name=radio_4]:checked').attr("payment-code");
+        //case 2:  "Thanh toán online";
+        //case 3: "Thanh toán Ngân Lượng";
         var _shipingFee = $('input[name=radio_3]:checked').attr("data-ship");
         var _paymentFee = $('input[name=radio_4]:checked').attr("data-ship");
         var _email = $("#cMail").val();
@@ -221,61 +224,23 @@
             Util.notify("Lỗi", "Vui lòng nhập click vào ô kiểm tra");
             valid = false;
         }
-        if ($.cookie("CartList") == "[]") {
+        if ($.cookie("CartList") == "[]" || $.cookie("CartList")==null) {
             Util.notify("Lỗi", "Giỏ hàng đang trống không thể tạo đơn hàng");
             valid = false;
-        }        
-        var isPaymentOnline = false;
-        
-        if (_paymentType == "NL" || _paymentType == "ATM_ONLINE" || _paymentType == "VISA") {
-            if (_shipingType == "0" || _shipingType == "1") {
-                // chuyển phát chậm 
-                _payMentType = 3
-            } else {
-                // chuyển phát nhanh
-                _payMentType = 4;
-            }
+        }
+        var isPaymentOnline = false; 
+        if ((parseInt(_paymentType) === 2 || parseInt(_paymentType) === 3) && _paymentCode != "" && _paymentCode != null) {
             isPaymentOnline = true;
-        } else {
-            switch (_shipingType) {
-                case "0":
-                    _payMentType = 0;
-                    break;
-                    //vận chuyển thường
-                case "1":
-                    switch (_paymentType) {
-                        case "0":
-                            _payMentType = 0;
-                            break;
-                        case "1":
-                            _payMentType = 6;
-                            break;
-                        case "2":
-                            _payMentType = 1;
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-                    //vận chuyển nhanh
-                case "2":
-                    switch (_paymentType) {
-                        case "0":
-                            _payMentType = 0;
-                            break;
-                        case "1":
-                            _payMentType = 7;
-                            break;
-                        case "2":
-                            _payMentType = 2;
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-                default:
-                    _payMentType = 0;
-            }
+        }
+        if (isPaymentOnline && $('input[name=bankcode]:checked').val() == null) {
+            valid = false;
+            Util.notify("", "Vui lòng chọn ngân hàng thanh toán. ");
+            
+        }
+        
+        if (isPaymentOnline && (_email == "" || !Util.isEmail(_email))) {
+            valid = false;
+            Util.notify("Lỗi: ", "Email không đúng định dạng, Thanh toán Online yêu cầu nhập Email.");
         }
         if (valid) {
             $("#cartContent1").hide();
@@ -286,9 +251,9 @@
                 method: "post",
                 url: "/handler/ProductHandler.ashx",
                 datatype: "text/plain",
-                data: { op: "CreateOrder", detail: _detail, PayMentType: _payMentType, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, ProductList: $.cookie("CartList"), shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee) },
+                data: { op: "CreateOrder", detail: _detail, PayMentType: _paymentType, shippingMethod: _shipingType, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, ProductList: $.cookie("CartList"), shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee) },
                 success: function (rs) {
-                    
+                    debugger
                     $("#ajax_loader").hide();
                     if (!isNaN(rs)) {
                         $.removeCookie('CartList', { path: '/' });
@@ -297,27 +262,26 @@
                             Util.notify("", "Đơn hàng đang được chuyển sang cổng thanh toán. ");
                             var _totalPrice = $("#ttOdCt").html().replace("đ", "").replace(/\,/g, '');
                             var _bankcode = $('input[name=bankcode]:checked').val();
-                            
+
                             $.ajax({
                                 method: "post",
                                 url: "/handler/PaymentHandler.ashx",
                                 datatype: "text/plain",
-                                data: { op: "nlCheckout", detail: "Thanh toán cho đơn hàng số #" + rs, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, price: _totalPrice, shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee), orderId: rs, payment_method: _paymentType, bankcode: _bankcode },
-                            
-                                success: function (checkOutUrl) {                                    
+                                data: { op: "nlCheckout", detail: "Thanh toán cho đơn hàng số #" + rs, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, price: _totalPrice, shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee), orderId: rs, payment_method: _paymentCode, bankcode: _bankcode },
+                                success: function (checkOutUrl) {
                                     if (Util.isUrl(checkOutUrl)) {
                                         window.location.href = checkOutUrl;
                                     } else {
-                                        Util.notify("", checkOutUrl);
+                                        Util.notify("Lỗi: ", checkOutUrl);
                                     }
-                                    
+                                        
                                 }
                             });
                         } else {
                             $("#cartContent2").html("<h4>Đơn hàng số #" + rs + " đã được gửi thành công tới bộ phận bán hàng. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</h4>");
                             Util.notify("", "Đơn hàng đã được gửi tới bộ phận bán hàng. ");
                         }
-                        
+
 
                     } else {
                         Util.notify("", rs);
