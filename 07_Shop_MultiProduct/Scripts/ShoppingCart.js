@@ -67,7 +67,6 @@
         }
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
         Cart.bindCart();
-
     },
     bindCart: function () {
         var ttSC = 0;
