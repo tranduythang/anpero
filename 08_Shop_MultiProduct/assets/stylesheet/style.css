@@ -135,7 +135,8 @@ header {
 
 .header-container {
     position: relative;
-    background: rgba(255,255,255, 0.2);
+    /*background: rgba(255,255,255, 0.2);*/
+    background:rgba(135, 190, 76, 0.57);
 }
 
 .logo {
@@ -236,7 +237,7 @@ header {
 
 .navbar-form .search-btn {
     color: #fff;
-    background: #fff;
+    background: rgba(135, 190, 76, 0.91);
     z-index: 90;
     speak: none;
     font-style: normal;
@@ -932,11 +933,11 @@ background-color: #fff;
 }
 
 #nav > li > a.active:nth-child(1) {
-    color: #88be4c;
+    color: #fff;
 }
 
 #nav > li > a:hover.active:nth-child(1) {
-    color: #fff;
+    color: white;
 }
 
 #nav > li > a:first-child {
@@ -14256,4 +14257,7 @@ select#shipping-address-select {
   float: left;
   padding: 5px 0; 
   color: #666;
+}
+.container img{
+    max-width:100%;
 }

@@ -5,6 +5,7 @@
     if (ViewData["commonInfo"] != null)
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+        ViewBag.Title = commonInfo.Name;
     }
 }
 @section health{
@@ -20,9 +21,7 @@
 @section canonical{
     <link rel="canonical" href="@ViewBag.WebsiteUrl" />
 }
-<h1 id="heading1" style="display:none;">
-    @commonInfo.Desc
-</h1>
+
 <div class="content">
     @if (!Request.Browser.IsMobileDevice)
     {
