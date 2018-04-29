@@ -10,7 +10,8 @@
     <div class="header-banner">
         <div class="assetBlock">
             <div style="height: 20px; overflow: hidden;" id="slideshow">
-                <p style="display: block;">HOT DAYS! - <span>5%</span> KHÁCH ĐẶT HÀNG ONLINE! &gt;</p><p style="display: none;">GIẢM GIÁ LÊN ĐẾN <span>15%</span> CHO ĐƠN ĐẶT HÀNG từ 3 TRIỆU! &gt;</p>
+                <p style="display: block;">Gọi <a href="tel:@commonInfo.HotLine" style="margin:0 5px 0 5px;"><span>@commonInfo.HotLine</span></a> để đặt hàng online tại @commonInfo.Name</p>
+                <p style="display: none;">@commonInfo.Desc - @commonInfo.Name </p>
             </div>
         </div>
     </div>
@@ -115,9 +116,8 @@
                                                                     <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
                                                                         <img src="@item.Images" alt="@item.PrName">
                                                                     </a>
-                                                                </div>
-                                                                <h4 class="heading">Giảm giá 20%</h4>
-                                                                <p>@item.ShortDesc.Substring(0, 61)</p>
+                                                                </div>                                                                
+                                                                <p>@Anpero.StringHelpper.SubString(60,item.ShortDesc)</p>
                                                             </div>
                                                         }
                                                     }

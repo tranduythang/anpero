@@ -81,17 +81,28 @@ namespace AnperoFrontend.handler
                             {
                             }
                             string detail = context.Request["detail"];
-                            int PayMentType = 0;
+                            int paymentMethod = 0;
+                            int shippingMethod = 0;
                             try
                             {
-                                PayMentType = Convert.ToInt32(context.Request["PayMentType"]);
+                                paymentMethod = Convert.ToInt32(context.Request["PayMentType"]);
                             }
                             catch (Exception)
                             {
                             }
-
+                            try
+                            {
+                                shippingMethod = Convert.ToInt32(context.Request["shippingMethod"]);
+                            }
+                            catch (Exception)
+                            {
+                            }
                             WebService.AnperoService sv = new WebService.AnperoService();
+<<<<<<< HEAD
                             int rs2 = sv.AddOrder(st, TokenKey, captcha, name, email, phone, address, ProductList, shipingFee,1, PayMentType, detail);
+=======
+                            int rs2 = sv.AddOrder(st, TokenKey, captcha, name, email, phone, address, ProductList, shipingFee, shippingMethod, paymentMethod, detail);
+>>>>>>> adea29739ea7d166d01a1eb2de3ab204c2c42efb
                             if (rs2 > 0)
                             {
                                 rs = rs2.ToString();

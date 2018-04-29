@@ -10,6 +10,8 @@
 	
 }
 
+
+
 #thm-mart-slideshow .container { padding:0px; width:100%; }
 #thm-mart-slideshow .container img {
 	border-radius: 3px
@@ -23,7 +25,7 @@
 	float: left
 }
 
-.forcefullwidth_wrapper_tp_banner, .fullwidthbanner-container {height:650px!important}
+.forcefullwidth_wrapper_tp_banner, .fullwidthbanner-container {height:600px!important}
 
 #thm-mart-slideshow .RHS-banner {
 /*float: right;

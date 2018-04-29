@@ -135,11 +135,12 @@ header {
 
 .header-container {
     position: relative;
-    background: rgba(255,255,255, 0.2);
+    /*background: rgba(255,255,255, 0.2);*/
+    background:rgba(135, 190, 76, 0.57);
 }
 
 .logo {
-    vertical-align: middle;
+   vertical-align: middle;
     cursor: pointer;
     text-align: left;
     display: block;
@@ -153,6 +154,7 @@ header {
     margin-right: 15px;
     width: 191px;
     background-color: #252932;
+<<<<<<< HEAD
 }
     .logo  img{
         max-width:100%;
@@ -161,6 +163,16 @@ header {
         display: block;
         border-radius: 3px;
     }
+=======
+}
+.logo img {
+    max-width: 100%;
+}
+.header-container .fl-nav-menu {
+    display: block;
+    border-radius: 3px;
+}
+>>>>>>> adea29739ea7d166d01a1eb2de3ab204c2c42efb
 
 .header-container .fl-header-right {
     position: absolute;
@@ -236,7 +248,7 @@ header {
 
 .navbar-form .search-btn {
     color: #fff;
-    background: #fff;
+    background: rgba(135, 190, 76, 0.91);
     z-index: 90;
     speak: none;
     font-style: normal;
@@ -932,11 +944,11 @@ background-color: #fff;
 }
 
 #nav > li > a.active:nth-child(1) {
-    color: #88be4c;
+    color: #fff;
 }
 
 #nav > li > a:hover.active:nth-child(1) {
-    color: #fff;
+    color: white;
 }
 
 #nav > li > a:first-child {
@@ -1403,8 +1415,8 @@ ul.level1 {
     }
 
     #nav ul.level0 > li > a {
-        color: #79ae3d;
-        font-size: 13px;
+        color: #262932;
+        font-size: 12px;
         font-weight: 700;
         line-height: 18px;
         padding: 10px 10px;
@@ -9226,7 +9238,7 @@ a.button.detail-bnt span {
 }
 
     .product-view .product-name h1 {
-        font-size: 38px;
+        font-size: 28px;
         margin: 0 0 2px;
         text-align: left;
         line-height: 1.2em;
@@ -11820,17 +11832,17 @@ footer address {
     padding: 0px;
 }
 
-.icon-location-arrow:before {
+/*.icon-location-arrow:before {
     color: #fff;
-}
+}*/
 
-.icon-mobile-phone:before {
+/*.icon-mobile-phone:before {
     color: #fff;
-}
+}*/
 
-.icon-envelope:before {
+/*.icon-envelope:before {
     color: #fff;
-}
+}*/
 
 footer address em {
     display: inline-block !important;
@@ -11846,14 +11858,23 @@ footer address span {
     display: inline-block !important;
 }
 
-footer address div {
+footer address div{
     display: block;
     text-align: left;
     overflow: hidden;
     padding: 15px 0px;
     border-bottom: 1px #fff dotted;
 }
-
+#contact_form_map address{
+    border:none;
+}
+#contact_form_map .co-info div {
+    display: block;
+    text-align: left;
+    overflow: hidden;
+    padding: 15px 0px;
+    border-bottom: 1px #959595 dotted;
+}
     footer address div:last-child {
         border: none;
     }
@@ -14247,4 +14268,7 @@ select#shipping-address-select {
   float: left;
   padding: 5px 0; 
   color: #666;
+}
+.container img{
+    max-width:100%;
 }

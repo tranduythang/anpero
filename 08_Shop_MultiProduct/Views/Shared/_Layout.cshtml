@@ -10,11 +10,18 @@
       xmlns:fb="http://ogp.me/ns/fb#">
 <head>
     <title>@ViewBag.Title</title>
+<<<<<<< HEAD
     <meta property="og:title" content="@Html.Raw(ViewBag.Title)" />
     <meta property="og:locale" content="vi_VN" />
     @RenderSection("health", required: false)
     @Styles.Render("~/Content/css")
 
+=======
+
+    @RenderSection("health", required: false)
+    @Styles.Render("~/Content/css")
+    <link href='/static/css' rel='stylesheet' type='text/css'>
+>>>>>>> adea29739ea7d166d01a1eb2de3ab204c2c42efb
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="Refresh" content="3600" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no">
@@ -24,7 +31,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
    
     <!-- Apple iOS and Android stuff - don't remove! -->
-    <link rel="icon" href="#" type="image/x-icon">
+    <link rel="icon" href="@commonInfo.Logo" type="image/x-icon">
     <link rel="shortcut icon" href="@commonInfo.Logo" type="image/x-icon">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>

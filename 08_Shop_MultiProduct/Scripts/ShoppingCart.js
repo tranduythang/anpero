@@ -71,7 +71,6 @@
 
     },
     bindCart: function () {
-        debugger
         var ttSC = 0;
         var htmlCat = "";
         if ($.cookie("CartList") != 'null' && $.cookie("CartList") != "undefined" && $.cookie("CartList") != undefined) {
@@ -154,12 +153,10 @@
             if (Cart.list[i].id == prId) {
                 Cart.list.splice(i, 1);
             }
-        }
-        var date = new Date();
-        var minutes = 60 * 2;
-        date.setTime(date.getTime() + (minutes * 60 * 1000));
+        }        
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
         Cart.bindCart();
+        
     },
     remove2: function (prId) {
         Cart.list = jQuery.parseJSON($.cookie("CartList"));
