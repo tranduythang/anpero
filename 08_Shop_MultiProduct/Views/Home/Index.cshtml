@@ -6,6 +6,7 @@
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
+    ViewBag.Title = commonInfo.Name;
 }
 @section health{
     <meta name="description" content="@commonInfo.Desc" />
@@ -66,6 +67,14 @@
                             {
                                 foreach (var item in commonInfo.ProductCategoryList)
                                 {
+                                    <div class="item">
+                                        <div class="pro-img">
+                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)">
+                                                <img src="@item.Images" alt="@item.Name">
+                                                <div class="pro-info">@item.Name</div>
+                                            </a>
+                                        </div>
+                                    </div>
                                     if (item.ChildCategory != null && item.ChildCategory.Length > 0)
                                     {
                                         foreach (var childItem in item.ChildCategory)
@@ -94,16 +103,7 @@
             <div class="new_title">
                 <h2>Sản phẩm bán chạy</h2>
             </div>
-            <div class="cate-banner-img">
-                @if (ViewData["AdsSlide2"] != null)
-                {
-                    Ads[] slide = (Ads[])ViewData["AdsSlide2"];
-                    if (slide.Length > 0)
-                    {
-                        <img src="@slide[0].ImagesUrl" alt="@slide[0].Description" />
-                    }
-                }
-            </div>
+           
             <div id="best-seller" class="product-flexslider hidden-buttons">
                 <div class="slider-items slider-width-col4 products-grid">
                     @if (ViewData["BestsaleProduct"] != null)
@@ -165,6 +165,17 @@
                 </div>
             </div>
         </div>
+        <div class="cate-banner-img" data-content="AdsSlide2">
+            @if (ViewData["AdsSlide2"] != null)
+            {
+                Ads[] slide = (Ads[])ViewData["AdsSlide2"];
+                if (slide.Length > 0)
+                {
+                    <img src="@slide[0].ImagesUrl" alt="@slide[0].Description" />
+                }
+            }
+        </div>
+
     </section>
     @if (ViewData["FeatureArticle"] != null)
     {

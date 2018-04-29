@@ -151,12 +151,16 @@ header {
     background: #26293259;
     height: 116px;
     margin-right: 15px;
+    width: 191px;
+    background-color: #252932;
 }
-
-.header-container .fl-nav-menu {
-    display: block;
-    border-radius: 3px;
-}
+    .logo  img{
+        max-width:100%;
+    }
+    .header-container .fl-nav-menu {
+        display: block;
+        border-radius: 3px;
+    }
 
 .header-container .fl-header-right {
     position: absolute;
