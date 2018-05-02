@@ -154,25 +154,19 @@ header {
     margin-right: 15px;
     width: 191px;
     background-color: #252932;
-<<<<<<< HEAD
-}
-    .logo  img{
-        max-width:100%;
-    }
-    .header-container .fl-nav-menu {
-        display: block;
-        border-radius: 3px;
-    }
-=======
+
 }
 .logo img {
     max-width: 100%;
+}
+#fl-nav-menu {
+    background: url(/assets/images/bg-menu.png) repeat-x;
+    color:white;
 }
 .header-container .fl-nav-menu {
     display: block;
     border-radius: 3px;
 }
->>>>>>> adea29739ea7d166d01a1eb2de3ab204c2c42efb
 
 .header-container .fl-header-right {
     position: absolute;

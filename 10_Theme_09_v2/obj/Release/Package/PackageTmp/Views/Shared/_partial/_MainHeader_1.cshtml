@@ -70,36 +70,39 @@
                                         <ul class="level1">
                                             @foreach (var item in commonInfo.ProductCategoryList)
                                             {
-                                                <li class="level1">
-                                                    <a title="rollback" href="@Anpero.StringHelpper.GetCategoryLink(item.Name,item.Id)">
-                                                        <span>@item.Name</span>
-                                                    </a>
-                                                    @if (item.ChildCategory != null && item.ChildCategory.Length != 0)
+                                            <li class="level1">
+                                                <a title="rollback" href="@Anpero.StringHelpper.GetCategoryLink(item.Name,item.Id)">
+                                                    <span>@item.Name</span>
+                                                </a>
+                                                @if (item.ChildCategory != null && item.ChildCategory.Length != 0)
                                                     {
-                                                        <ul class="level2">
-                                                            @foreach (var chidItem in item.ChildCategory)
+                                                    <ul class="level2">
+                                                        @foreach (var chidItem in item.ChildCategory)
                                                             {
-                                                                <li class="level2"><a href="@Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)"><span>@chidItem.Name</span></a></li>
+                                                            <li class="level2"><a href="@Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)"><span>@chidItem.Name</span></a></li>
                                                             }
-                                                        </ul>
+                                                    </ul>
                                                     }
-                                                </li>
+                                            </li>
                                             }
                                         </ul>
                                     </li>
-                                    <li class="level0 parent drop-menu">
-                                        <a class="level-top" href="/search?category=0&keyword="><span>Phòng</span></a>
-                                        <ul class="level1">
-                                            @foreach (var item in commonInfo.ProductGroupList)
-                                            {
-                                                <li class="level1">
-                                                    <a title="rollback" href="@Anpero.StringHelpper.GetProductGroupLink(item.Name,item.Id)">
-                                                        <span>@item.Name</span>
-                                                    </a>
-                                                </li>
-                                            }
-                                        </ul>
-                                    </li>
+                                    @if (commonInfo.ProductGroupList != null && commonInfo.ProductGroupList.Length > 0)
+                                    {
+                                        <li class="level0 parent drop-menu">
+                                            <a class="level-top" href="/search?category=0&keyword="><span>Sản phẩm theo nhóm</span></a>
+                                            <ul class="level1">
+                                                @foreach (var item in commonInfo.ProductGroupList)
+                                                {
+                                                    <li class="level1">
+                                                        <a title="rollback" href="@Anpero.StringHelpper.GetProductGroupLink(item.Name, item.Id)">
+                                                            <span>@item.Name</span>
+                                                        </a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        </li>
+                                    }
                                     <li class="level0 parent drop-menu">
                                         <a class="level-top" href="/goi-noi-that-c178"><span>Gói nội thất</span></a>
                                         <ul class="level1">
@@ -147,7 +150,7 @@
                                     </li>
                                     <li class="level0 parent drop-menu">
                                         <a class="level-top" href="javascript:void(0);"><span>Tư vấn</span></a>
-                                        <ul class="level1">                                            
+                                        <ul class="level1">
                                             <li class="level1">
                                                 <a title="shipper" href="/tu-van-thiet-ke-phong-khach-b120">
                                                     <span>Tư vấn thiết kế phòng khách đẹp</span>
@@ -192,7 +195,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                  
+
                                 </ul>
                             </div>
                         </nav>

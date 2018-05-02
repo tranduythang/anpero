@@ -273,34 +273,23 @@
                     }
                 </div>
             </div>
-<<<<<<< HEAD
-        </div>
-        <div class="cate-banner-img" data-content="AdsSlide2">
-            @if (ViewData["AdsSlide2"] != null)
-=======
+
             </div>
             <div class="cate-banner-img slide2">
                 @if (ViewData["AdsSlide2"] != null)
->>>>>>> adea29739ea7d166d01a1eb2de3ab204c2c42efb
+
             {
                 Ads[] slide = (Ads[])ViewData["AdsSlide2"];
                 if (slide.Length > 0)
                 {
-<<<<<<< HEAD
-                    <img src="@slide[0].ImagesUrl" alt="@slide[0].Description" />
-                }
-            }
-        </div>
 
-    </section>
-=======
                         <img src="@slide[0].ImagesUrl" alt="@slide[0].Description" />
                     }
                 }
             </div>
 
 </section>
->>>>>>> adea29739ea7d166d01a1eb2de3ab204c2c42efb
+
     @if (ViewData["FeatureArticle"] != null)
     {
         SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];

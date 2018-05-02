@@ -98,11 +98,7 @@ namespace AnperoFrontend.handler
                             {
                             }
                             WebService.AnperoService sv = new WebService.AnperoService();
-<<<<<<< HEAD
-                            int rs2 = sv.AddOrder(st, TokenKey, captcha, name, email, phone, address, ProductList, shipingFee,1, PayMentType, detail);
-=======
                             int rs2 = sv.AddOrder(st, TokenKey, captcha, name, email, phone, address, ProductList, shipingFee, shippingMethod, paymentMethod, detail);
->>>>>>> adea29739ea7d166d01a1eb2de3ab204c2c42efb
                             if (rs2 > 0)
                             {
                                 rs = rs2.ToString();

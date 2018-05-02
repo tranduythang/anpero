@@ -115,6 +115,8 @@ namespace Anpero
             }
 
             #endregion
+            query = query.Replace(@"?", string.Empty).Replace(@"&", string.Empty);
+            query = pageaspx.Contains(@"?") ? "&" + query : "?" + query;
             // string path = HttpContext.Current.Request.Url.AbsolutePath;
             // // /TESTERS/Default6.aspx
             //nếu số tin lới hơn số tin trên trang mới hiển thị phân trang

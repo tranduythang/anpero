@@ -12,6 +12,8 @@ namespace AnperoFrontend.Controllers
         [OutputCache(Duration = 300, VaryByParam = "none")]
         public String Css()
         {
+            Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
+            Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
             Response.AppendHeader("Cache-Control", "public");            
             WebService.AnperoService service = new WebService.AnperoService();
             return service.GetWebContent(StoreID, TokenKey, 7);

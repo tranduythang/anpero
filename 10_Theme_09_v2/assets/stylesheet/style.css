@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: 'SFUFuturaRegular';
     src: url("/assets/fonts/SFUFuturaRegular.TTF");
@@ -15,7 +16,7 @@ body {
     font-size: 13px;
     line-height: 1.6em;
 }
-
+img{max-width:100%;}
 h2, .h2 {
     font-size: 20px;
 }
@@ -144,10 +145,17 @@ header {
     
     margin-right: 15px;
 }
-
+#fl-nav-menu {
+    background: url(/assets/images/bg-menu.png) repeat-x;
+    color: white;
+    height: 40px;
+    
+}
 .header-container .fl-nav-menu {
     display: block;
     border-radius: 3px;
+    color:white;
+
 }
 
 .header-container .fl-header-right {
@@ -261,7 +269,7 @@ header {
     }
 
 .navbar-collapse form[role="search"] input {
-    font-size: 14pt;
+    font-size: 12pt;
     height: 36px;
     float: left;
 }
@@ -1003,6 +1011,7 @@ background-color: #fff;
         border-bottom: none;
         display: block;
         float: left;
+        background: url(/assets/images/gachmenu.png) no-repeat top 0px right;
     }
 
         #nav > li.last {
@@ -1017,12 +1026,12 @@ background-color: #fff;
 
             #nav > li > a > span {
                 display: inline-block;
-                padding: 0 12px;
-                font-size: 15px;
+                padding: 0 18px;
+                font-size: 14px;
                 letter-spacing: 0.5px;
-                color: #171717;
+                color: white;
                 font-weight: 800;
-                font-family: SFUFuturaBold;
+                font-family: SFUFUturaBook, Arial;
             }
 
             #nav > li > a:hover > span {
@@ -3845,7 +3854,7 @@ ul.pdt-list li.item a img.image-hover {
                 }
 
                     .products-grid .item .item-inner .item-img .item-img-info a.product-image img {
-                        height: 100%;
+                       
                         width:auto;
                     }
 
@@ -4000,7 +4009,7 @@ ul.pdt-list li.item a img.image-hover {
             font-size: 12px;
             overflow: hidden;
             letter-spacing: 0.5px;
-            
+            min-height:62px;
         }
 
 
@@ -6727,8 +6736,8 @@ margin-right: 3px;
     padding: 14px 25px;
     margin: 0px;
     display: inline-block;
-    border: #fff double;
-    margin-top: 5px;
+    border: #f99428 double;
+    margin-top: 20px;
 }
 
 .col-main {
@@ -14090,7 +14099,7 @@ select#shipping-address-select {
 }
 
     .page-heading .page-title h2 {
-        color: #fff;
+        color: #3d3d3d;
     }
 
 .cms-page-view p {
@@ -14230,9 +14239,7 @@ select#shipping-address-select {
     max-height:120px;
     max-width:100%;
 }
-.relatepr-img{
-    max-height: 240px;
-}
+
 .top-header {
     background: #EEE;
     position: fixed;
@@ -14254,12 +14261,12 @@ select#shipping-address-select {
     z-index: 9999;
     box-shadow: 0 3px 3px #CCC;
     height:48px;
-    padding-top:7px;
+   
 }
 .search-fixed {
     position: fixed;
     z-index: 99999;
-    top: -47px;
+    top: -51px;
     right: 55px;
 }
 .feature-box a{color:white;}
@@ -14324,3 +14331,4 @@ select#shipping-address-select {
     font-family: SFUFuturaBook, "Open Sans", Arial;
 }
 .mega-menu a{color:black;}
+.center{text-align:center;}
