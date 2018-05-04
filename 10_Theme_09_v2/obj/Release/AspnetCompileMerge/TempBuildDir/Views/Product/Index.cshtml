@@ -15,8 +15,8 @@
         <link rel="stylesheet" type="text/css" href="~/assets/stylesheet/flexslider.css">
         <meta property="og:description" content="@item.ShortDesc" />
         <meta property="og:title" content="@item.PrName" />
-        <meta property="og:type" content="website" />      
-        <meta property="og:url" content="@ViewBag.WebsiteUrl" />  
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="@ViewBag.WebsiteUrl" />
         <meta property="og:image" content="@item.Images" />
         <link rel="stylesheet" type="text/css" href="~/assets/stylesheet/flexslider.css">
     }
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-          
+
         </div>
         <div class="main-container col1-layout wow bounceInUp animated">
             <div class="main">
@@ -46,12 +46,19 @@
                     <div class="product-view wow bounceInUp animated" itemscope="" itemtype="http://schema.org/Product" itemid="#product_base">
                         <div id="messages_product_view"></div>
                         <div class="product-essential container">
-                            <div class="row">                                
+                            <div class="row">
                                 <form action="" method="post" id="product_addtocart_form">
-                                    <div class="product-img-box col-sm-6 col-xs-12">                                       
+                                    <div class="product-img-box col-sm-6 col-xs-12">
                                         <div class="product-image">
-                                            <div class="large-image"> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.CatName, item.CatID)" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img src="@item.Images"> </a> </div>
-                                            <div class="flexslider flexslider-thumb">
+                                            @if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
+                                            {
+                                                <div class="large-image"> <a href="@item.ImagesSlide[0]" class="cloud-zoom cloud-zoom-gallery" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img src="@item.ImagesSlide[0]"> </a> </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="large-image"> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.CatName, item.CatID)" class="cloud-zoom cloud-zoom-gallery" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img src="@item.Images"> </a> </div>
+                                            }
+                                           <div class="flexslider flexslider-thumb">
                                                 @if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
                                                 {
                                                     <ul class="previews-list slides">
@@ -80,26 +87,26 @@
                                         }
 
                                         @*<span itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
-                                            
-                                                <div class="ratings">
-                                                    <p class="rating-links"><a href="tel:@commonInfo.HotLine">Gọi: @commonInfo.HotLine hoặc click mua ngay để đặt hàng</a> </p>
-                                                </div>
-                                       
-                                        </span>*@
+
+                                                    <div class="ratings">
+                                                        <p class="rating-links"><a href="tel:@commonInfo.HotLine">Gọi: @commonInfo.HotLine hoặc click mua ngay để đặt hàng</a> </p>
+                                                    </div>
+
+                                            </span>*@
                                         <div class="price-block">
-                                            <div class="price-box"> 
-                                                <span class="regular-price" id="product-price-123"> 
-                                                    @*<span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>*@ 
+                                            <div class="price-box">
+                                                <span class="regular-price" id="product-price-123">
+                                                    @*<span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>*@
                                                     @if (item.IsSale)
                                                     {
                                                         <p class="old-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
                                                         <p class="special-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span> </p>
                                                     }
                                                     else
-                                                    {                                                        
+                                                    {
                                                         <p><span class="price">@(item.Price == 0 ? "Đang cập nhật giá" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span> </p>
                                                     }
-                                                </span> 
+                                                </span>
                                             </div>
                                             @if (@item.IsInstock)
                                             {
@@ -116,29 +123,29 @@
 
                                         </div>
                                         @*<div class="short-description">
-                                            <h2>Mô tả ngắn</h2>
-                                            <p>@Html.Raw(item.ShortDesc)</p>
-                                        </div>*@
+                                                <h2>Mô tả ngắn</h2>
+                                                <p>@Html.Raw(item.ShortDesc)</p>
+                                            </div>*@
                                         <div class="add-to-box">
                                             <div class="add-to-cart">
                                                 <div class="pull-left">
                                                     <div class="custom pull-left">
                                                         <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="icon-minus">&nbsp;</i></button>
                                                         <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-                                                        <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button"><i class="icon-plus">&nbsp;</i></button>                                                        
+                                                        <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button"><i class="icon-plus">&nbsp;</i></button>
                                                     </div>
                                                 </div>
-                                                <button type="button" title="Add to Cart" class="button btn-cart" onclick="Cart.addProduct(@item.Id,'@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)','@item.Images','@item.PrName');"><span><i class="icon-basket"></i>Mua hàng</span></button>
+                                                <button type="button" title="Add to Cart" class="button btn-cart" onclick="Cart.addProduct(@item.Id,'@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName');"><span><i class="icon-basket"></i>Mua hàng</span></button>
                                             </div>
-                                            <div class="email-addto-box">                                                
-                                                <p class="add-to-links"><a class="link-wishlist" href="http://www.facebook.com/share.php?u=@ViewBag.WebsiteUrl" onclick="" title="Add To Wishlist"><span>Add To Wishlist</span></a></p>                                               
+                                            <div class="email-addto-box">
+                                                <p class="add-to-links"><a class="link-wishlist" href="http://www.facebook.com/share.php?u=@ViewBag.WebsiteUrl" onclick="" title="Add To Wishlist"><span>Add To Wishlist</span></a></p>
                                             </div>
                                         </div>
                                         <div class="social">
                                             <ul class="link">
                                                 @if (!string.IsNullOrEmpty(commonInfo.Skype) || !string.IsNullOrEmpty(commonInfo.FaceBookLink))
                                                 {
-                                                 
+
 
                                                     if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
                                                     {
@@ -151,7 +158,7 @@
 
                                                     }
                                                     <li class="tw pull-left"><a target="_blank" rel="nofollow" href="http://www.twitter.com/share?url=@ViewBag.WebsiteUrl" title="Twitter"></a></li>
-                                                    <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="https://plus.google.com/share?url=@ViewBag.WebsiteUrl" title="GooglePlus"></a></li>                                                    
+                                                    <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="https://plus.google.com/share?url=@ViewBag.WebsiteUrl" title="GooglePlus"></a></li>
                                                 }
                                             </ul>
                                         </div>
@@ -192,7 +199,7 @@
                                                                     <div class="item-img-info">
                                                                         <a href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName" class="product-image">
                                                                             <img src="@items.Images" alt="@items.PrName">
-                                                                        </a>                                                                        
+                                                                        </a>
                                                                         <div class="item-box-hover">
                                                                             <div class="box-inner">
                                                                                 <div class="product-detail-bnt">
@@ -211,13 +218,13 @@
                                                                                 @items.PrName
                                                                             </a>
                                                                         </div>
-                                                                        <div class="item-content">                                                                        
+                                                                        <div class="item-content">
                                                                             <div class="item-price">
-                                                                                <div class="price-box"><span class="regular-price"><span class="price">@(items.Price==0?"Liên hệ":Anpero.StringHelpper.ConVertToMoneyFormatInt(items.Price)+" đ") </span> </span> </div>
-                                                                                
+                                                                                <div class="price-box"><span class="regular-price"><span class="price">@(items.Price == 0 ? "Liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price) + " đ") </span> </span> </div>
+
                                                                             </div>
                                                                             <div class="add_cart">
-                                                                                <button class="button btn-cart" type="button" onclick="Cart.addProduct(@items.Id,'@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)','@items.Images','@items.PrName');"><span>Mua hàng</span></button>
+                                                                                <button class="button btn-cart" type="button" onclick="Cart.addProduct(@items.Id,'@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale?item.SalePrice:item.Price)','@items.Images','@items.PrName');"><span>Mua hàng</span></button>
                                                                             </div>
                                                                         </div>
                                                                     </div>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 namespace Anpero
 {
-   public static class Paging
+    public static class Paging
     {
         public static String setupAjaxPage(int curentPage, int pageSite, int itemCount, int MaxPage, string funcName)
         {
@@ -91,7 +91,7 @@ namespace Anpero
         public static String setUpPagedV2(int curentPage, int pageSite, int itemCount, int MaxPage, String query)
         {
             String pagedString = "";
-         
+
             int totallPaed = itemCount / pageSite;
             if (itemCount % pageSite > 0)
             {
@@ -105,17 +105,26 @@ namespace Anpero
 
             //totallPaed = totallPaed - totalPageSpit;
             #region get link
-            string  CurentUrl = HttpContext.Current.Request.RawUrl.ToString();
-
-            int legth = CurentUrl.LastIndexOf(query);
+            string CurentUrl = HttpContext.Current.Request.RawUrl.ToString();
+            query = query.Replace(@"?", string.Empty).Replace(@"&", string.Empty);
+            int legth = CurentUrl.LastIndexOf(@"?" + query);
             String pageaspx = CurentUrl;
             if (legth > 0)
             {
                 pageaspx = CurentUrl.Substring(0, legth);
             }
+            else
+            {
+                legth = CurentUrl.LastIndexOf(@"&" + query);
+                if (legth > 0)
+                {
+                    pageaspx = CurentUrl.Substring(0, legth);
+                }
+
+            }
 
             #endregion
-            query = query.Replace(@"?", string.Empty).Replace(@"&", string.Empty);
+
             query = pageaspx.Contains(@"?") ? "&" + query : "?" + query;
             // string path = HttpContext.Current.Request.Url.AbsolutePath;
             // // /TESTERS/Default6.aspx

@@ -12,19 +12,11 @@
             <div class="container">
                 <div class="row">
                     <div class="top-fix hearder-fix-t">
-                        <div style="float:left;"> LIÊN HỆ : @Anpero.StringHelpper.FormatPhoneNumber(commonInfo.HotLine)| <a href="/home/contact">HỖ TRỢ</a> | <a href="/tu-van-b120">TƯ VẤN NỘI THẤT</a></div>
+                        <div style="float:left;"> HotLine : @Anpero.StringHelpper.FormatPhoneNumber(commonInfo.HotLine)| <a href="/home/contact">HỖ TRỢ</a></div>
                         <div class="fl-cart-contain">
                             <div class="mini-cart">
                                 <div class="basket"> <a href="/product/checkout"><span class="spN">0</span></a> </div>
-                                @*<div class="fl-mini-cart-content" style="display:none;">
-                                        <div class="block-subtitle hide">
-                                            <div class="top-subtotal"><span class="spN">0</span> Sp, <span id="ttSC"></span> </div>
-                                        </div>
-                                        <ul class="mini-products-list" id="cart-sidebar" style="display: none;"></ul>
-                                        <div class="actions cart-buttons" style="display: none;">
-                                            <a class="btn-checkout" href="/product/checkout"><span>Đặt hàng</span></a>
-                                        </div>
-                                    </div>*@
+                            
                             </div>
                         </div>
                     </div>
@@ -36,14 +28,14 @@
             <div class="row">
                 <div class="logo">
                     <a href="/" title="@commonInfo.Desc | logo" alter="@commonInfo.Desc | logo">
-                        <div><img src="@commonInfo.Logo" alt="@commonInfo.Name"></div>
+                      <img src="@commonInfo.Logo" alt="@commonInfo.Name">
                     </a>
                 </div>
                 <div class="fl-header-right">
                     <div class="collapse navbar-collapse">
                         <form class="navbar-form" role="search" action="/search" method="get">
                             <div class="input-group search-input">
-                                <input type="text" class="form-control" placeholder="Tìm kiếm" name="keyword" id="keyword">
+                                <input type="text" class="form-control" placeholder="Tìm kiếm" name="keyword" id="keyword" aria-label="Tìm kiếm">
                                 <span class="input-group-btn">
                                     <button type="submit" class="search-btn"> <span class="glyphicon glyphicon-search"> <span class="sr-only">Search</span> </span> </button>
                                 </span>
@@ -57,7 +49,6 @@
         </div>
         <div id="fl-nav-menu">
             <div class="container">
-                <div class="row">
                     <div class="fl-nav-menu">
                         <nav>
                             <div class="mm-toggle-wrap">
@@ -65,6 +56,7 @@
                             </div>
                             <div class="nav-inner">
                                 <ul id="nav" class="hidden-xs">
+                                    <li class="level0 parent drop-menu"><a class="level-top" href="/"><span>Trang chủ</span></a></li>
                                     <li class="level0 parent drop-menu">
                                         <a class="level-top" href="/search?category=0&keyword="><span>Sản phẩm</span></a>
                                         <ul class="level1">
@@ -87,10 +79,11 @@
                                             }
                                         </ul>
                                     </li>
+
                                     @if (commonInfo.ProductGroupList != null && commonInfo.ProductGroupList.Length > 0)
                                     {
                                         <li class="level0 parent drop-menu">
-                                            <a class="level-top" href="/search?category=0&keyword="><span>Sản phẩm theo nhóm</span></a>
+                                            <a class="level-top" href="/search?category=0&keyword="><span>Nhóm sản phẩm</span></a>
                                             <ul class="level1">
                                                 @foreach (var item in commonInfo.ProductGroupList)
                                                 {
@@ -103,19 +96,6 @@
                                             </ul>
                                         </li>
                                     }
-                                    <li class="level0 parent drop-menu">
-                                        <a class="level-top" href="/goi-noi-that-c178"><span>Gói nội thất</span></a>
-                                        <ul class="level1">
-                                            <li class="level1"><a href="/noi-that-cho-ho-25-m2-cat406"><span>Gói nội thất 25 m2</span></a></li>
-                                            <li class="level1"><a href="/noi-that-cho-ho-35-m2-cat407"><span>Gói nội thất 35 m2</span></a></li>
-                                            <li class="level1"><a href="/noi-that-cho-ho-45-m2-cat408"><span>Gói nội thất 45 m2</span></a></li>
-                                            <li class="level1"><a href="/noi-that-cho-ho-55-m2-cat409"><span>Gói nội thất 55 m2</span></a></li>
-                                            <li class="level1"><a href="/noi-that-cho-ho-65-m2-cat410"><span>Gói nội thất 65 m2</span></a></li>
-                                            <li class="level1"><a href="/noi-that-cho-ho-70-m2-cat411"><span>Gói nội thất 70 m2</span></a></li>
-                                            <li class="level1"><a href="/noi-that-cho-ho-80-m2-cat412"><span>Gói nội thất 80 m2</span></a></li>
-                                            <li class="level1"><a href="/noi-that-cho-ho-110-m2-cat413"><span>Gói nội thất 110 m2</span></a></li>
-                                        </ul>
-                                    </li>
                                     <li class="fl-custom-tabmenulink mega-menu">
                                         <a href="#" class="level-top"> <span>Khuyến mại</span> </a>
                                         <div class="level0-wrapper fl-custom-tabmenu" style="left: 0px; display: none;">
@@ -148,33 +128,10 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="level0 parent drop-menu">
-                                        <a class="level-top" href="javascript:void(0);"><span>Tư vấn</span></a>
-                                        <ul class="level1">
-                                            <li class="level1">
-                                                <a title="shipper" href="/tu-van-thiet-ke-phong-khach-b120">
-                                                    <span>Tư vấn thiết kế phòng khách đẹp</span>
-                                                </a>
-                                            </li>
-                                            <li class="level1">
-                                                <a title="shipper" href="/tu-van-thiet-ke-phong-an-b121">
-                                                    <span>Tư vấn thiết kế phòng ăn đẹp</span>
-                                                </a>
-                                            </li>
-                                            <li class="level1">
-                                                <a title="shipper" href="/tu-van-thiet-ke-phong-ngu-b122">
-                                                    <span>Tư vấn thiết kế phòng ngủ đẹp</span>
-                                                </a>
-                                            </li>
-                                            <li class="level1">
-                                                <a title="shipper" href="/tu-van-thiet-ke-bep-dep-b123">
-                                                    <span>Tư vấn thiết kế phòng bếp đẹp</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="level0 parent drop-menu"><a class="level-top" href="/phong-thuy-b119"><span>Phong thủy</span></a></li>
-                                    <li class="level0 parent drop-menu">
+                                    <li class="level0 parent"><a href="/about" aria-label="Về chúng tôi"><span>Về chúng tôi</span></a></li>
+                                    <li class="level0 parent"><a href="/home/contact" aria-label="Liên hệ"><span>Liên hệ</span></a></li>
+                                    
+                                        <li class="level0 parent drop-menu">
                                         <a href="/blog"><span>Tin tức</span> </a>
                                         <ul class="level1">
                                             <li class="level1"><a title="blog" href="/blog"><span>Blogs Tin tức</span></a></li>
@@ -200,7 +157,6 @@
                             </div>
                         </nav>
                     </div>
-                </div>
             </div>
         </div>
     </div>

@@ -23,14 +23,58 @@
 }
 @if (!Request.Browser.IsMobileDevice)
 {
-    
-        <div class="row">
-            @Html.Partial("_partial/_HomeSlide_1")
+    <div class="content">
+        <div class="container">
+
+            <div class="row">
+                @Html.Partial("_partial/_HomeSlide_1")
+            </div>
         </div>
-   
+    </div>
 }
 <div class="content">
-  
+    <div class="best-pro featured-pro container">
+        <section class="wow bounceInUp animated">
+            <div class="slider-items-products">
+                <div class="new_title">
+                    <h2>Loại Sản phẩm</h2>
+                </div>
+                <div id="top-categories" class="product-flexslider hidden-buttons">
+                    <div class="slider-items slider-width-col4 products-grid">
+                        @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                        {
+
+                            foreach (var item in commonInfo.ProductCategoryList)
+                            {
+                                <div class="item">
+                                    <div class="pro-img">
+                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)">
+                                            <img src="@item.Images" alt="@item.Name">
+                                            <div class="pro-info">@item.Name</div>
+                                        </a>
+                                    </div>
+                                </div>
+                                if (item.ChildCategory != null && item.ChildCategory.Length > 0)
+                                {
+                                    foreach (var childItem in item.ChildCategory)
+                                    {
+                                        <div class="item">
+                                            <div class="pro-img">
+                                                <a href="@Anpero.StringHelpper.GetCategoryLink(childItem.Name, childItem.Id)">
+                                                    <img src="@childItem.Images" alt="@childItem.Name">
+                                                    <div class="pro-info">@childItem.Name</div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <section class="wow bounceInUp animated">
         <div class="best-pro slider-items-products container" style="margin-top: 50px;">
@@ -54,7 +98,7 @@
                                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">
                                                     <img src="@item.Images" alt="@item.PrName">
                                                 </a>
-                                            
+
                                             </div>
                                         </div>
                                         <div class="item-info">
@@ -65,7 +109,7 @@
                                                 <div class="hTag">@item.ParentCatName</div>
                                                 <div class="Specifications"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">@item.Specifications</a></div>
                                                 <div class="item-content">
-                                                    
+
                                                     <div class="item-price">
                                                         <div class="price-box">
                                                             <span class="regular-price">
@@ -97,6 +141,7 @@
             </div>
         </div>
     </section>
+
     <section class="wow bounceInUp animated">
         <div class="best-pro slider-items-products container" style="margin-top: -50px;">
             <div class="new_title">
@@ -119,7 +164,7 @@
                                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">
                                                     <img src="@item.Images" alt="@item.PrName">
                                                 </a>
-                                          
+
                                             </div>
                                         </div>
                                         <div class="item-info">
@@ -147,7 +192,7 @@
                                                     </div>
                                                     <div class="add_cart">
                                                         <a class="button btn-cart" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">Xem thêm</a>
-                                                        @if(item.IsInstock)
+                                                        @if (item.IsInstock)
                                                         {
                                                             <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,'@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)','@item.Images','@item.PrName');"><span>Mua hàng</span></button>
                                                         }
@@ -168,31 +213,31 @@
             </div>
         </div>
     </section>
-    @*<section class="wow bounceInUp animated">
+    <section class="wow bounceInUp animated">
         <div class="best-pro slider-items-products container">
             <div class="new_title">
-                <h2>TRANG TRÍ NỘI THẤT</h2>
+                <h2>NỔI BẬT</h2>
             </div>
             <div class="slider-items">
                 @if (ViewData["ads1"] != null)
-            {
-                Ads[] slide = (Ads[])ViewData["ads1"];
-                if (slide.Length > 0)
                 {
-                    for (int i = 0; i < slide.Length; i++)
+                    Ads[] slide = (Ads[])ViewData["ads1"];
+                    if (slide.Length > 0)
                     {
+                        for (int i = 0; i < slide.Length; i++)
+                        {
                             <div class="item">
                                 <a href="@slide[i].ClickUrl" target="_blank"><img src="@slide[i].ImagesUrl" alt="@slide[i].Description"></a>
                             </div>
                         }
                     }
                 }
-            </div> 
+            </div>
         </div>
-    </section>*@
+    </section>
     @if (ViewData["FeatureArticle"] != null)
-    {
-        SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
+            {
+                SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
         <div class="latest-blog wow bounceInUp animated animated container">
             <div class="new_title">
                 <h2>Bài viết mới nhất</h2>
@@ -225,7 +270,7 @@
     <script type="text/javascript" src="/assets/js/revslider.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function () {
-        
+
             jQuery('#thm-rev-slider').show().revolution({
                 dottedOverlay: 'none',
                 delay: 5000,

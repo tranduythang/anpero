@@ -15,18 +15,16 @@
     if (productList.Item.Length > 0)
     {
         @section health{
-            <meta name="description" content="@ViewBag.Description" />
+            <meta name="description" content="@Html.Raw(ViewBag.Description)" />
             <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(ViewBag.Keywords)" />
             <meta property="og:description" content="@ViewBag.Description" />
             <meta property="og:title" content="@ViewBag.Title" />
             <meta property="og:type" content="website" />
             <meta property="og:url" content="@ViewBag.WebsiteUrl" />
             <meta property="og:image" content="@ViewBag.ImageUrl" />
-
-        }
-        @section canonical{
             <link rel="canonical" href="@ViewBag.WebsiteUrl" />
         }
+
         <div id="page">
             <div class="page-heading">
                 <div class="breadcrumbs">
@@ -37,28 +35,28 @@
                                     <li class="home"> <a href="/" title="Trang chủ">Trang chủ</a> <span>—› </span> </li>
                                     @if (ViewBag.isParent != null)
                                     {
-                                        <li>
-                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
-                                                @productList.Item[0].ParentCatName
-                                            </a>
-                                        </li>
+                                    <li>
+                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
+                                            @productList.Item[0].ParentCatName
+                                        </a>
+                                    </li>
                                     }
                                     else
                                     {
-                                        <li>
-                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
-                                                @productList.Item[0].ParentCatName
-                                            </a>
-                                            <span>—› </span>
-                                        </li>
-                                        <li> <strong>@productList.Item[0].CatName</strong> </li>
+                                    <li>
+                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
+                                            @productList.Item[0].ParentCatName
+                                        </a>
+                                        <span>—› </span>
+                                    </li>
+                                    <li> <strong>@productList.Item[0].CatName</strong> </li>
                                     }
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-            
+
             </div>
             <section class="main-container col2-left-layout bounceInUp animated">
                 <div class="container">
@@ -85,20 +83,20 @@
 
                                         @if (!string.IsNullOrEmpty(ViewBag.page))
                                         {
-                                            <div class="pager">
-                                                <div class="pages">
-                                                    <label>Trang:</label>
-                                                    @Html.Raw(ViewBag.page)
-                                                </div>
-
+                                        <div class="pager">
+                                            <div class="pages">
+                                                <label>Trang:</label>
+                                                @Html.Raw(ViewBag.page)
                                             </div>
+
+                                        </div>
                                         }
                                     </div>
-                                   
                                     <div class="category-products">
+                                  
                                         <ul class="products-grid small-grid" id="products-list">
                                             @foreach (AnperoFrontend.WebService.ProductItem item in productList.Item)
-                                            {
+                                                {
                                                 <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                                     <div class="item-inner">
                                                         <div class="item-img">
@@ -107,13 +105,13 @@
                                                                     <img src="@item.Images" alt="@item.PrName">
                                                                 </a>
                                                                 @if (item.IsSale)
-                                                                {
+                                                                    {
                                                                     <div class="sale-label sale-top-right">Sale</div>
-                                                                }
-                                                                else
-                                                                {
+                                                                    }
+                                                                    else
+                                                                    {
                                                                     <div class="new-label new-top-left">Mới</div>
-                                                                }
+                                                                    }
                                                             </div>
                                                         </div>
                                                         <div class="item-info">
@@ -125,41 +123,42 @@
 
                                                                     <div class="hTag">@item.Tag</div>
                                                                     <div class="Specifications">@item.Specifications</div>
-
                                                                     <div class="item-price">
                                                                         <div class="price-box">
                                                                             <span class="regular-price" id="product-price-1">
                                                                                 @if (item.IsSale)
-                                                                                {
+                                                                                    {
                                                                                     <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
                                                                                     <span class="special-price price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
-                                                                                }
-                                                                                else
-                                                                                {
-                                                                                    <span class="price">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
-                                                                                }
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                    <span class="price">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price) + " đ")</span>
+                                                                                    }
                                                                             </span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="add_cart">
                                                                         <a class="button btn-cart" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">Xem thêm</a>
                                                                         @if (item.IsInstock)
-                                                                        {
-                                                                            <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,'@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)','@item.Images','@item.PrName');"><span>Mua hàng</span></button>
-                                                                        }
-                                                                        else
-                                                                        {
+                                                                            {
+                                                                            <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,'@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName');"><span>Mua hàng</span></button>
+                                                                            }
+                                                                            else
+                                                                            {
                                                                             <button class="button btn-cart" type="button" onclick="javascript:void(0);"><span>Hết Hàng</span></button>
-                                                                        }
-                                                                        
+                                                                            }
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </li>
-                                            }
+                                                }
                                         </ul>
+                                       
+
+
                                     </div>
                                     <div class="toolbar">
                                         <div id="sort-by">
@@ -177,12 +176,12 @@
                                         </div>
                                         @if (!string.IsNullOrEmpty(ViewBag.page))
                                         {
-                                            <div class="pager">
-                                                <div class="pages">
-                                                    <label>Trang:</label>
-                                                    @Html.Raw(ViewBag.page)
-                                                </div>
+                                        <div class="pager">
+                                            <div class="pages">
+                                                <label>Trang:</label>
+                                                @Html.Raw(ViewBag.page)
                                             </div>
+                                        </div>
                                         }
 
                                     </div>
@@ -193,50 +192,50 @@
                             @if (ViewData["saleProduct"] != null)
                             {
                                 AnperoFrontend.WebService.ProductItem[] saleProduct = (AnperoFrontend.WebService.ProductItem[])ViewData["saleProduct"];
-                                <div class="side-nav-categories">
-                                    <div class="block-title"> Đang khuyến mãi </div>
-                                    <div class="box-content box-category">
-                                        <ul>
-                                            @if (saleProduct != null && saleProduct.Length > 0)
+                            <div class="side-nav-categories">
+                                <div class="block-title"> Đang khuyến mãi </div>
+                                <div class="box-content box-category">
+                                    <ul>
+                                        @if (saleProduct != null && saleProduct.Length > 0)
                                             {
 
                                                 foreach (var item in saleProduct)
                                                 {
                                                     int itemPecentDow = Convert.ToInt32((item.Price - item.SalePrice) / item.Price * 100);
-                                                    <li>
-                                                        <div class="product-container">
-                                                            <div class="left-block">
-                                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">
-                                                                    <img class="img-responsive" alt="product" src="@item.Images" />
-                                                                </a>
-                                                                <div class="price-percent-reduction2">Giảm @itemPecentDow.ToString() %</div>
-                                                            </div>
-                                                            <div class="right-block">
-                                                                <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">@item.PrName</a></h5>
-                                                                <div class="show-count-down">
-                                                                    <span class="countdown-lastest" data-y="@item.SaleEndTime.Substring(0, 4)" data-m="@item.SaleEndTime.Substring(4, 2)" data-d="@item.SaleEndTime.Substring(6, 2)" data-h="0" data-i="00" data-s="10"></span>
-                                                                </div>
-                                                                <div class="price-box">
-                                                                    @if (item.IsSale)
+                                        <li>
+                                            <div class="product-container">
+                                                <div class="left-block">
+                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">
+                                                        <img class="img-responsive" alt="product" src="@item.Images" />
+                                                    </a>
+                                                    <div class="price-percent-reduction2">Giảm @itemPecentDow.ToString() %</div>
+                                                </div>
+                                                <div class="right-block">
+                                                    <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">@item.PrName</a></h5>
+                                                    <div class="show-count-down">
+                                                        <span class="countdown-lastest" data-y="@item.SaleEndTime.Substring(0, 4)" data-m="@item.SaleEndTime.Substring(4, 2)" data-d="@item.SaleEndTime.Substring(6, 2)" data-h="0" data-i="00" data-s="10"></span>
+                                                    </div>
+                                                    <div class="price-box">
+                                                        @if (item.IsSale)
                                                                     {
-                                                                        <p class="old-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
-                                                                        <p class="special-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span> </p>
+                                                            <p class="old-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                                            <p class="special-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span> </p>
                                                                     }
                                                                     else
                                                                     {
-                                                                        <p><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                                            <p><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
                                                                     }
 
-                                                                </div>
+                                                    </div>
 
-                                                            </div>
-                                                        </div>
-                                                    </li>
+                                                </div>
+                                            </div>
+                                        </li>
                                                 }
                                             }
-                                        </ul>
-                                    </div>
+                                    </ul>
                                 </div>
+                            </div>
                             }
                             <div class="side-nav-categories">
                                 <div class="block-title"> Danh mục sản phẩm </div>
@@ -248,23 +247,23 @@
                                             {
                                                 if (item.ChildCategory != null && item.ChildCategory.Length == 0)
                                                 {
-                                                    <li> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)">@item.Name‎</a> </li>
+                                        <li> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)">@item.Name‎</a> </li>
                                                 }
                                                 else
                                                 {
-                                                    <li>
-                                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)">@item.Name</a> <span class="subDropdown minus"></span>
-                                                        <ul class="level0_482" style="display:block">
-                                                            @foreach (var chidItem in item.ChildCategory)
+                                        <li>
+                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)">@item.Name</a> <span class="subDropdown minus"></span>
+                                            <ul class="level0_482" style="display:block">
+                                                @foreach (var chidItem in item.ChildCategory)
                                                             {
-                                                                <li>
-                                                                    <a href="@Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)">
-                                                                        @chidItem.Name
-                                                                    </a>
-                                                                </li>
+                                                <li>
+                                                    <a href="@Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)">
+                                                        @chidItem.Name
+                                                    </a>
+                                                </li>
                                                             }
-                                                        </ul>
-                                                    </li>
+                                            </ul>
+                                        </li>
                                                 }
                                             }
                                         }
@@ -278,50 +277,50 @@
                                 Ads[] slide = (Ads[])ViewData["slide3"];
                                 if (slide.Length > 0)
                                 {
-                                    <div class="custom-slider">
-                                        <div>
-                                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                                                <ol class="carousel-indicators">
-                                                    @for (int i = 0; i < slide.Length; i++)
+                            <div class="custom-slider">
+                                <div>
+                                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                        <ol class="carousel-indicators">
+                                            @for (int i = 0; i < slide.Length; i++)
                                                     {
                                                         if (i == 0)
                                                         {
-                                                            <li class="active" data-target="#carousel-example-generic" data-slide-to="0"></li>
+                                            <li class="active" data-target="#carousel-example-generic" data-slide-to="0"></li>
                                                         }
                                                         else if (i < 3)
                                                         {
-                                                            <li data-target="#carousel-example-generic" data-slide-to="@i" class=""></li>
+                                            <li data-target="#carousel-example-generic" data-slide-to="@i" class=""></li>
                                                         }
                                                     }
-                                                </ol>
-                                                <div class="carousel-inner">
-                                                    @for (int i = 0; i < slide.Length; i++)
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            @for (int i = 0; i < slide.Length; i++)
                                                     {
 
                                                         if (i == 0)
                                                         {
-                                                            <div class="item active">
-                                                                <img src="@slide[i].ImagesUrl" alt="@slide[i].Description" />
-                                                                <div class="carousel-caption">
-                                                                    @Html.Raw(slide[i].Description)
-                                                                </div>
-                                                            </div>
+                                            <div class="item active">
+                                                <img src="@slide[i].ImagesUrl" alt="@slide[i].Description" />
+                                                <div class="carousel-caption">
+                                                    @Html.Raw(slide[i].Description)
+                                                </div>
+                                            </div>
                                                         }
                                                         else if (i < 3)
                                                         {
-                                                            <div class="item">
-                                                                <img src="@slide[i].ImagesUrl" alt="@slide[i].Description" />
-                                                                <div class="carousel-caption">
-                                                                    @Html.Raw(slide[i].Description)
-                                                                </div>
-                                                            </div>
+                                            <div class="item">
+                                                <img src="@slide[i].ImagesUrl" alt="@slide[i].Description" />
+                                                <div class="carousel-caption">
+                                                    @Html.Raw(slide[i].Description)
+                                                </div>
+                                            </div>
                                                         }
                                                     }
-                                                </div>
-                                                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"> <span class="sr-only">Next</span> </a>
-                                            </div>
                                         </div>
+                                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"> <span class="sr-only">Next</span> </a>
                                     </div>
+                                </div>
+                            </div>
                                 }
                             }
                             <div class="block block-list block-cart">
@@ -342,7 +341,7 @@
                                     Ads[] slide = (Ads[])ViewData["slide3"];
                                     if (slide.Length > 0)
                                     {
-                                        <img src="@slide.LastOrDefault().ImagesUrl" alt="banner">
+                                     <img src="@slide.LastOrDefault().ImagesUrl" alt="banner">
                                     }
                                 }
                             </div>
@@ -360,21 +359,23 @@
         </script>
     }
     else
-    {
+    { <div>Sản phẩm đang được cập nhật. Vui lòng quay lại sau.</div>
         <script>
             var categoryId = "";
             var ParentCatId = "";
         </script>
     }
 }
+else
+{
+
+    <div class="main-container">Sản phẩm đang được cập nhật. Vui lòng quay lại sau.</div>
+}
 @section  scripts{
     <script src="/assets/js/countdown/jquery.plugin.js"></script>
     <script type="text/javascript" src="/assets/js/countdown/jquery.countdown.js"></script>
-
     <script>
-            $(document).ready(function () {
-                $(".item-img").height($(".item-img").width());
-            });
+
             $('[data-countdown]').each(function () {
                 var $this = $(this), finalDate = $(this).data('countdown');
                 $this.countdown(finalDate, function (event) {
