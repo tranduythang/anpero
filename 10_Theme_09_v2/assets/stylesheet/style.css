@@ -160,7 +160,7 @@ header {
 
 .header-container .fl-header-right {
    float:right;
-   margin-top:98px;
+   margin-top:73px;
 }
 .search-input {
     border: 1px solid #f1c40f;
@@ -14229,7 +14229,7 @@ select#shipping-address-select {
   color: #666;
 }
 .logo img, .co-info img{
-    max-height:120px;
+    max-height:90px;
     max-width:100%;
 }
 
@@ -14259,7 +14259,7 @@ select#shipping-address-select {
 .search-fixed {
     position: fixed;
     z-index: 99999;
-    top: -51px;
+    top: -26px;
     right: 55px;
 }
 .feature-box a{color:white;}

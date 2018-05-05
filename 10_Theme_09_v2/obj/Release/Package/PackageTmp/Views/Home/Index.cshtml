@@ -24,12 +24,9 @@
 @if (!Request.Browser.IsMobileDevice)
 {
     <div class="content">
-        <div class="container">
-
-            <div class="row">
+        
                 @Html.Partial("_partial/_HomeSlide_1")
-            </div>
-        </div>
+        
     </div>
 }
 <div class="content">
@@ -81,7 +78,6 @@
             <div class="new_title">
                 <h2>Sản phẩm mới</h2>
             </div>
-            <!--Xoa row-->
             <div class="category-products">
                 <ul class="products-grid small-grid">
                     @if (ViewData["newestProduct"] != null)

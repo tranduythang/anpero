@@ -39,7 +39,7 @@ namespace AnperoFrontend.handler
                             {
                                 foreach (var item in relateProduct.Item)
                                 {
-                                    rs += "<li class=\"item first\">";
+                                    rs += "<li class=\"item col-lg-4 col-md-4 col-sm-4 col-xs-6\">";
                                     rs += "<div class=\"product-image\">";
                                     rs += "<a href=\"" + Anpero.StringHelpper.GetProductLink(item.PrName, item.Id) + "\">";
                                     rs += "<img class=\"small-image\" src=\"" + item.Images + "\">";
