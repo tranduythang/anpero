@@ -12,7 +12,12 @@
             <div class="container">
                 <div class="row">
                     <div class="top-fix hearder-fix-t">
-                        <div style="float:left;"> HotLine : <a href="tel:@commonInfo.HotLine" aria-label="Call to hotline"> @Anpero.StringHelpper.FormatPhoneNumber(commonInfo.HotLine)</a> | @if (!string.IsNullOrEmpty(commonInfo.Email)){<a href="mailto:@commonInfo.Email">Email: @commonInfo.Email |</a> } <a href="/home/contact">HỖ TRỢ</a></div>
+                        <div style="float:left;"> HotLine : <a href="tel:@commonInfo.HotLine" aria-label="Call to hotline"> @Anpero.StringHelpper.FormatPhoneNumber(commonInfo.HotLine)</a> 
+                        @if (Request.Browser.IsMobileDevice)
+                        {
+                             if(!string.IsNullOrEmpty(commonInfo.Email)){<a href="mailto:@commonInfo.Email">| Email: @commonInfo.Email |</a> } <a href="/home/contact">HỖ TRỢ</a>
+                        } 
+                        </div>
                         <div class="fl-cart-contain">
                             <div class="mini-cart">
                                 <div class="basket"> <a href="/product/checkout"><span class="spN">0</span></a> </div>

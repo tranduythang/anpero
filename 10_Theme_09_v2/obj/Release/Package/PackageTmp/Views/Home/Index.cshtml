@@ -21,14 +21,14 @@
     <meta property="og:image" content="@commonInfo.Logo" />
     <link rel="canonical" href="@ViewBag.WebsiteUrl" />
 }
-@if (!Request.Browser.IsMobileDevice)
-{
+@*@if (!Request.Browser.IsMobileDevice)
+{*@
     <div class="content">
         
                 @Html.Partial("_partial/_HomeSlide_1")
         
     </div>
-}
+@*}*@
 <div class="content">
     <div class="best-pro featured-pro container">
         <section class="wow bounceInUp animated">
