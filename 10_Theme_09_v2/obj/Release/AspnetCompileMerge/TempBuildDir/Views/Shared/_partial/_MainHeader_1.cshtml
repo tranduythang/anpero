@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="top-fix hearder-fix-t">
                         <div style="float:left;"> HotLine : <a href="tel:@commonInfo.HotLine" aria-label="Call to hotline"> @Anpero.StringHelpper.FormatPhoneNumber(commonInfo.HotLine)</a> 
-                        @if (Request.Browser.IsMobileDevice)
+                        @if (!Request.Browser.IsMobileDevice)
                         {
                              if(!string.IsNullOrEmpty(commonInfo.Email)){<a href="mailto:@commonInfo.Email">| Email: @commonInfo.Email |</a> } <a href="/home/contact">HỖ TRỢ</a>
                         } 
@@ -34,6 +34,15 @@
                     <img src="@commonInfo.Logo" alt="@commonInfo.Name">
                 </a>
             </div>
+            <div class="logo">
+                <div class="hotline-top right">
+                    <i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>HOTLINE:
+                    <span class="hotline">
+                        <a href="tel:0962825528">0962.825.528</a> - <a href="tel:0963269998">0963.269.998</a> - <a href="tel:0948269998">0948.269.998</a> - <a href="tel:02466803331"> 02466.803.331</a>
+</span>
+                </div>
+            </div>
+            
             <div class="row">
                 <div class="fl-header-right">
                     <div class="collapse navbar-collapse">
@@ -85,7 +94,7 @@
                                     @if (commonInfo.ProductGroupList != null && commonInfo.ProductGroupList.Length > 0)
                                     {
                                         <li class="level0 parent drop-menu">
-                                            <a class="level-top" href="/search?category=0&keyword="><span>Nhóm sản phẩm</span></a>
+                                            <a class="level-top" href="/search?category=0&keyword="><span>Thương hiệu</span></a>
                                             <ul class="level1">
                                                 @foreach (var item in commonInfo.ProductGroupList)
                                                 {

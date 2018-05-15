@@ -8,6 +8,10 @@ namespace AnperoFrontend.Controllers
 {
     public class BaseController : Controller
     {
+        //if cloud frontend just change
+        //public static int webinFo = Cloud.GetWebInfoByDomain("domainName");
+        //public static string TokenKey = webinFo.TokenKey;
+        //public static string StoreID = webinFo.StoreID;
 
         public static int StoreID = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["storeID"]);
         public static string TokenKey = System.Configuration.ConfigurationManager.AppSettings["storeTokenKey"];
