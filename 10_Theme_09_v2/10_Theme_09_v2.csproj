@@ -118,6 +118,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\APIController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -125,6 +126,9 @@
     <Compile Include="Controllers\StaticController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="handler\PaymentHandler.ashx.cs">
+      <DependentUpon>PaymentHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="handler\ProductHandler.ashx.cs">
       <DependentUpon>ProductHandler.ashx</DependentUpon>
@@ -278,6 +282,7 @@
     <Content Include="assets\stylesheet\font-awesome.css" />
     <Content Include="assets\stylesheet\jquery.bxslider.css" />
     <Content Include="assets\stylesheet\jquery.mobile-menu.css" />
+    <Content Include="assets\stylesheet\NganLuongBankList.css" />
     <Content Include="assets\stylesheet\owl.carousel.css" />
     <Content Include="assets\stylesheet\owl.theme.css" />
     <Content Include="assets\stylesheet\responsive.css" />
@@ -304,6 +309,7 @@
     <Content Include="assets\fonts\SFUFuturaRegular.TTF" />
     <Content Include="assets\fonts\SFUFuturaBook.TTF" />
     <Content Include="assets\fonts\SFUFuturaBold.TTF" />
+    <Content Include="handler\PaymentHandler.ashx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -331,6 +337,7 @@
     <Content Include="Views\Shared\product\_productDetail.cshtml" />
     <Content Include="Views\Shared\_partial\_MainFooter_1.cshtml" />
     <Content Include="Views\Home\Policy.cshtml" />
+    <Content Include="Views\API\Index.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

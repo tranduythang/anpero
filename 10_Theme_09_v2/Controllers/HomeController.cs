@@ -118,5 +118,19 @@ namespace AnperoFrontend.Controllers
             SetupCommonProduct();
             return View();
         }
+        public string PolicyAjax(int type)
+        {
+            try
+            {
+                WebService.AnperoService service = new WebService.AnperoService();
+                return service.GetWebContent(StoreID, TokenKey, type);
+            }
+            catch (Exception)
+            {
+                return "Nội dung đang được cập nhật";
+            }
+
+
+        }
     }
 }

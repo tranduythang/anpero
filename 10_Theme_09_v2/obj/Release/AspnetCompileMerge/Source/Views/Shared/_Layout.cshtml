@@ -10,8 +10,9 @@
       xmlns:fb="http://ogp.me/ns/fb#">
 <head>
     <title>@ViewBag.Title</title>
-    @RenderSection("health", required: false)
+    
     @Styles.Render("~/Content/css")
+  
     <link rel="icon" href="@commonInfo.Logo" type="image/x-icon">
     <link rel="shortcut icon" href="@commonInfo.Logo" type="image/x-icon">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -21,9 +22,6 @@
     <!-- Apple iOS and Android stuff -->
     <meta name="apple-mobile-web-app-capable" content="no" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <!-- Apple iOS and Android stuff - don't remove! -->
-    <link rel="icon" href="#" type="image/x-icon">
-    <link rel="shortcut icon" href="#" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet/jquery.bxslider.css">
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet/style.css" media="all">
@@ -31,7 +29,12 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
-    @RenderSection("canonical", required: false)
+    @RenderSection("health", required: false)
+    <link rel="dns-prefetch" href="https://v2.zopim.com/">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com/">
+    <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
+    <link rel="dns-prefetch" href="https://www.facebook.com/">
+    <link href='/static/css' rel='stylesheet' type='text/css'>
 </head>
 <body>
     <h1 id="heading1" style="display:none;">

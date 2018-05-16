@@ -10,7 +10,7 @@ namespace AnperoFrontend.handler
     /// </summary>
     public class ProductHandler : IHttpHandler
     {
-
+        
         public void ProcessRequest(HttpContext context)
         {
             string rs = "";
@@ -81,17 +81,24 @@ namespace AnperoFrontend.handler
                             {
                             }
                             string detail = context.Request["detail"];
-                            int PayMentType = 0;
+                            int paymentMethod = 0;
+                            int shippingMethod = 0;
                             try
                             {
-                                PayMentType = Convert.ToInt32(context.Request["PayMentType"]);
+                                paymentMethod = Convert.ToInt32(context.Request["PayMentType"]);
                             }
                             catch (Exception)
                             {
                             }
-
+                            try
+                            {
+                                shippingMethod = Convert.ToInt32(context.Request["shippingMethod"]);
+                            }
+                            catch (Exception)
+                            {
+                            }
                             WebService.AnperoService sv = new WebService.AnperoService();
-                            int rs2 = sv.AddOrder(st, TokenKey, captcha, name, email, phone, address, ProductList, shipingFee, PayMentType, detail);
+                            int rs2 = sv.AddOrder(st, TokenKey, captcha, name, email, phone, address, ProductList, shipingFee, shippingMethod, paymentMethod, detail);
                             if (rs2 > 0)
                             {
                                 rs = rs2.ToString();

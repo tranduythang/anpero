@@ -134,7 +134,7 @@
                                                         <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button"><i class="icon-plus">&nbsp;</i></button>
                                                     </div>
                                                 </div>
-                                                <button type="button" title="Add to Cart" class="button btn-cart" onclick="Cart.addProduct(@item.Id,'@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName');"><span><i class="icon-basket"></i>Mua hàng</span></button>
+                                                <button type="button" title="Add to Cart" class="button btn-cart" onclick="Cart.addProduct(@item.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName.Replace(@"'",string.Empty)');"><span><i class="icon-basket"></i>Mua hàng</span></button>
                                             </div>
                                             <div class="email-addto-box">
                                                 <p class="add-to-links"><a class="link-wishlist" href="http://www.facebook.com/share.php?u=@ViewBag.WebsiteUrl" onclick="" title="Add To Wishlist"><span>Add To Wishlist</span></a></p>
@@ -168,11 +168,17 @@
                         <div class="product-collateral container">
                             <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
                                 <li class="active"> <a href="#product_tabs_description" data-toggle="tab"> Mô tả sản phẩm </a> </li>
+                                <li><a aria-expanded="false" data-toggle="tab" href="#paymentDetail" id="paymentTab">Thông tin thanh toán</a></li>
                             </ul>
                             <div id="productTabContent" class="tab-content">
                                 <div class="tab-pane fade in active" id="product_tabs_description">
                                     <div class="std">
                                         @Html.Raw(item.Detail)
+                                    </div>
+                                </div>
+                                <div id="paymentDetail" class="tab-pane fade in">
+                                    <div id='ajax_loader' style="left: 45%; top: 50%;">
+                                        <img src="http://media.anpero.com/images/38/102017/loading2017102517124312.gif" />
                                     </div>
                                 </div>
                             </div>
@@ -223,7 +229,7 @@
 
                                                                             </div>
                                                                             <div class="add_cart">
-                                                                                <button class="button btn-cart" type="button" onclick="Cart.addProduct(@items.Id,'@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale?item.SalePrice:item.Price)','@items.Images','@items.PrName');"><span>Mua hàng</span></button>
+                                                                                <button class="button btn-cart" type="button" onclick="Cart.addProduct(@items.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@items.Images','@items.PrName.Replace(@"'",string.Empty)');"><span>Mua hàng</span></button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -248,6 +254,21 @@
         <script type="text/javascript" src="~/assets/js/jquery.flexslider.js"></script>
         <script type="text/javascript" src="~/assets/js/jquery.bxslider.min.js"></script>
         <script type="text/javascript" src="~/assets/js/cloud-zoom.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#paymentTab").click(function () {
+                    
+                    $.ajax({
+                        type: "post",
+                        url: "/home/PolicyAjax",
+                        data: { type: 6 },
+                        success: function (rs) {
+                            $("#paymentDetail").html(rs);
+                        }
+                    });
+                });
+            });
+        </script>
     }
 }
 
