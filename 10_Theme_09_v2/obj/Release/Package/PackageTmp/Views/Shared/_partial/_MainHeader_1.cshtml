@@ -80,7 +80,7 @@
                                         @foreach (var item in commonInfo.ProductCategoryList)
                                         {
                                             <li class="level1">
-                                                <a title="rollback" href="@Anpero.StringHelpper.GetCategoryLink(item.Name,item.Id)">
+                                                <a title="rollback" href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">
                                                     <span>@item.Name</span>
                                                 </a>
                                                 @if (item.ChildCategory != null && item.ChildCategory.Length != 0)
