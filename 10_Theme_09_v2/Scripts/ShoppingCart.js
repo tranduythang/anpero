@@ -93,6 +93,19 @@
             }
         }
     },
+    updateQuantity: function (_id, _quantity) {
+
+        if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
+            Cart.list = jQuery.parseJSON($.cookie("CartList"));
+        }
+        for (var i = 0; i < Cart.list.length; i++) {
+            if (Cart.list[i].id == _id) {
+                Cart.list[i].quantity = _quantity;
+            }
+        }
+        $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
+        Cart.bindCartTable();
+    },
     bindCartTable: function () {
 
         var ttSC = 0;
@@ -116,7 +129,7 @@
                     htmlCat += '</td>';
                     htmlCat += '<td class="cart_avail"><span class="label label-success">Còn hàng</span></td>';
                     htmlCat += '<td class="price"><span>' + Util.toMoneyFormat(Cart.list[i].price) + '</span></td>';
-                    htmlCat += '<td>';
+                    htmlCat += '<td class="qty">';
                     htmlCat += '<a href="javascript:Cart.remove3(' + Cart.list[i].id + ',' + Cart.list[i].price + ');" class="btn">-</a>';
                     htmlCat += '<input class="input-text qty2" type="text" value="' + Cart.list[i].quantity + '" id="prQuantity_' + Cart.list[i].id + '">';
                     
@@ -137,6 +150,10 @@
                 $("#ttPrCt").html(Util.toMoneyFormat(ttSC) + " đ");
                 $("#ttOdCt").html(Util.toMoneyFormat(parseInt(ttSC) + parseInt(shipingFee) + parseInt(_paymentFee)) + " đ");
                 $("#prCatCtTable").html(htmlCat);
+                $(".qty input").change(function () {
+                    var id = $(this).attr('id').replace("prQuantity_", "");
+                    Cart.updateQuantity(id, $(this).val());
+                });
             } catch (e) {
                 $(".spN").html("0");
             }
