@@ -1,9 +1,8 @@
 ﻿var Cart = {
     list: [],
-    addProduct: function (_id, _price, _thumb, _title) {        
-      
+    addProduct: function (_id, _price, _thumb, _title) {
         var checkExited = false;
-        if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
+        if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
         }
 
@@ -25,14 +24,14 @@
                 } else {
                     Cart.list.push({ id: _id, quantity: qty, price: _price, thumb: _thumb, title: _title });
                 }
-
+                
             }
         }
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
         window.location.href = "/product/checkout";
     },
     addProduct2: function (_id, _price) {
-        
+        debugger
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
         }
@@ -46,22 +45,23 @@
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
         Cart.bindCartTable();
     },
-    addProduct3: function (_id, _price, _thumb, _title) {        
+    addProduct3: function (_id, _price, _thumb, _title) {
+        debugger
         var checkExited = false;
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
         }
 
         if (Cart.list.length == 0) {
-            Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });
+            Cart.list.push({ id: _id, quantity: 1, price: parseInt(_price), thumb: _thumb, title: _title });
         } else {
             for (var i = 0; i < Cart.list.length; i++) {
                 if (Cart.list[i].id == _id) {
-                    Cart.list[i].price = parseInt(_price);
+                    Cart.list[i].price = parseInt(_price) + parseInt(Cart.list[i].price)
                     Cart.list[i].quantity = parseInt(Cart.list[i].quantity) + 1;
                     checkExited = true;
                 }
-            }
+            }        
             if (!checkExited) {
                 Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });
             }
@@ -69,19 +69,6 @@
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
         Cart.bindCart();
 
-    },
-    updateQuantity: function (_id, _quantity) {
-
-        if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
-            Cart.list = jQuery.parseJSON($.cookie("CartList"));
-        }
-        for (var i = 0; i < Cart.list.length; i++) {
-            if (Cart.list[i].id == _id) {
-                Cart.list[i].quantity = _quantity;
-            }
-        }
-        $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
-        Cart.bindCartTable();
     },
     bindCart: function () {
         var ttSC = 0;
@@ -111,6 +98,19 @@
             }
         }
     },
+    updateQuantity: function (_id, _quantity) {
+
+        if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
+            Cart.list = jQuery.parseJSON($.cookie("CartList"));
+        }
+        for (var i = 0; i < Cart.list.length; i++) {
+            if (Cart.list[i].id == _id) {
+                Cart.list[i].quantity = _quantity;
+            }
+        }
+        $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
+        Cart.bindCartTable();
+    },
     bindCartTable: function () {
 
         var ttSC = 0;
@@ -133,12 +133,12 @@
                     htmlCat += '</td>';
                     htmlCat += '<td class="cart_avail"><span class="label label-success">Còn hàng</span></td>';
                     htmlCat += '<td class="price"><span>' + Util.toMoneyFormat(Cart.list[i].price) + '</span></td>';
-                    htmlCat += '<td class="qty">';
+                    htmlCat += '<td>';
                     htmlCat += '<a href="javascript:Cart.remove3(' + Cart.list[i].id + ',' + Cart.list[i].price + ');" class="btn">-</a>';
                     htmlCat += '<input class="input-text qty2" type="text" value="' + Cart.list[i].quantity + '" id="prQuantity_' + Cart.list[i].id + '">';
-
+                    
                     htmlCat += '<a href="javascript:Cart.addProduct2(' + Cart.list[i].id + ',' + Cart.list[i].price + ');" class="btn">+</a>';
-
+                    
                     htmlCat += '</td>';
                     htmlCat += '<td class="price">';
                     htmlCat += '<span>' + Util.toMoneyFormat(parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity)) + ' đ</span>';
@@ -161,7 +161,6 @@
             } catch (e) {
                 $(".spN").html("0");
             }
-
         }
     },
     remove: function (prId) {
@@ -170,10 +169,12 @@
             if (Cart.list[i].id == prId) {
                 Cart.list.splice(i, 1);
             }
-        }        
+        }
+        var date = new Date();
+        var minutes = 60 * 2;
+        date.setTime(date.getTime() + (minutes * 60 * 1000));
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
         Cart.bindCart();
-        
     },
     remove2: function (prId) {
         Cart.list = jQuery.parseJSON($.cookie("CartList"));
@@ -205,7 +206,6 @@
         var _detail = $("#detail").val();
         var _shipingType = $('input[name=radio_3]:checked').val();
         var _paymentType = $('input[name=radio_4]:checked').val();
-        var _paymentCode = $('input[name=radio_4]:checked').attr("payment-code");
         //case 2:  "Thanh toán online";
         //case 3: "Thanh toán Ngân Lượng";
         var _shipingFee = $('input[name=radio_3]:checked').attr("data-ship");
@@ -245,12 +245,21 @@
             valid = false;
         }
         var isPaymentOnline = false;
-        if ((parseInt(_paymentType) === 2 || parseInt(_paymentType) === 3) && _paymentCode != "" && _paymentCode != null) {
+        if (parseInt(_paymentType) === 2 || parseInt(_paymentType) === 3) {
             isPaymentOnline = true;
         }
         if (isPaymentOnline && $('input[name=bankcode]:checked').val() == null) {
             valid = false;
             Util.notify("", "Vui lòng chọn ngân hàng thanh toán. ");
+        }
+
+        if (isPaymentOnline && (_email == "" || !Util.isEmail(_email))) {
+            valid = false;
+            Util.notify("Lỗi: ", "Email không đúng định dạng, Thanh toán Online yêu cầu nhập Email.");
+        }
+        if (isPaymentOnline && (_email == "" || !Util.isEmail(_email))) {
+            valid = false;
+            Util.notify("Lỗi: ", "Email không đúng định dạng, Thanh toán Online yêu cầu nhập Email.");
         }
         if (valid) {
             $("#cartContent1").hide();
@@ -277,11 +286,15 @@
                                 method: "post",
                                 url: "/handler/PaymentHandler.ashx",
                                 datatype: "text/plain",
-                                data: { op: "nlCheckout", detail: "Thanh toán cho đơn hàng số #" + rs, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, price: _totalPrice, shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee), orderId: rs, payment_method: _paymentCode, bankcode: _bankcode },
+                                data: { op: "nlCheckout", detail: "Thanh toán cho đơn hàng số #" + rs, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, price: _totalPrice, shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee), orderId: rs, payment_method: _paymentType, bankcode: _bankcode },
 
                                 success: function (checkOutUrl) {
-                                    if (Util.isUrl(checkOutUrl))
+                                    if (Util.isUrl(checkOutUrl)) {
                                         window.location.href = checkOutUrl;
+                                    } else {
+                                        Util.notify("Lỗi: ", checkOutUrl);
+                                    }
+                                        
                                 }
                             });
                         } else {

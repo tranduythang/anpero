@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{AED1F7A6-1DD4-4075-8C36-F6D765B0A89B}</ProjectGuid>
+    <ProjectGuid>{C6D21F1E-555C-4213-B72A-E95E019C204D}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -123,12 +123,8 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Controllers\StaticController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="handler\PaymentHandler.ashx.cs">
-      <DependentUpon>PaymentHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="handler\ProductHandler.ashx.cs">
       <DependentUpon>ProductHandler.ashx</DependentUpon>
@@ -147,8 +143,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\images\bg-menu.png" />
-    <Content Include="assets\images\loading.gif" />
     <Content Include="assets\js\countdown\countdownBasic.html" />
     <Content Include="assets\js\countdown\countdownGlowing.gif" />
     <Content Include="assets\js\countdown\countdownLED.png" />
@@ -268,16 +262,6 @@
     <Content Include="assets\js\bootstrap.min.js" />
     <Content Include="assets\js\cloud-zoom.js" />
     <Content Include="assets\js\common.js" />
-    <Content Include="assets\js\countdown\countdownBasic.html" />
-    <Content Include="assets\js\countdown\countdownGlowing.gif" />
-    <Content Include="assets\js\countdown\countdownLED.png" />
-    <Content Include="assets\js\countdown\jquery.countdown-es.js" />
-    <Content Include="assets\js\countdown\jquery.countdown-vi.js" />
-    <Content Include="assets\js\countdown\jquery.countdown.css" />
-    <Content Include="assets\js\countdown\jquery.countdown.js" />
-    <Content Include="assets\js\countdown\jquery.countdown.min.js" />
-    <Content Include="assets\js\countdown\jquery.plugin.js" />
-    <Content Include="assets\js\countdown\jquery.plugin.min.js" />
     <Content Include="assets\js\jquery.bxslider.min.js" />
     <Content Include="assets\js\jquery.flexslider.js" />
     <Content Include="assets\js\jquery.min.js" />
@@ -291,15 +275,14 @@
     <Content Include="assets\stylesheet\font-awesome.css" />
     <Content Include="assets\stylesheet\jquery.bxslider.css" />
     <Content Include="assets\stylesheet\jquery.mobile-menu.css" />
-    <Content Include="assets\stylesheet\NganLuongBankList.css" />
     <Content Include="assets\stylesheet\owl.carousel.css" />
     <Content Include="assets\stylesheet\owl.theme.css" />
     <Content Include="assets\stylesheet\responsive.css" />
-    <Content Include="assets\stylesheet\revslider-v2.css" />
     <Content Include="assets\stylesheet\revslider.css" />
     <Content Include="assets\stylesheet\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="google74aa5e953cbe528c.html" />
     <Content Include="handler\ProductHandler.ashx" />
     <Content Include="assets\fonts\clhLqOv7MXn459PTh0gXYHW1xglZCgocDnD_teV2lMU.woff" />
     <Content Include="assets\fonts\fontawesome-webfont.eot" />
@@ -312,14 +295,13 @@
     <Content Include="assets\fonts\site-icons.eot" />
     <Content Include="assets\fonts\site-icons.ttf" />
     <Content Include="assets\fonts\site-icons.woff" />
-    <Content Include="handler\PaymentHandler.ashx" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="Robots.txt" />
     <Content Include="Scripts\Anpero.Common.js" />
-    <Content Include="Scripts\Bootrap-notify.js" />
     <Content Include="Scripts\Bootrap.notify.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Scripts\jquery.cokie.min.js" />
@@ -411,7 +393,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Static\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -462,7 +443,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>32561</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:12561/</IISUrl>
+          <IISUrl>http://localhost:32505</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

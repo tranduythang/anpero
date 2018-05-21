@@ -1,12 +1,12 @@
 ﻿@using AnperoFrontend.WebService;
 @{
-    ViewBag.Title = "Liên hệ với chúng tôi | Ngon Lành";
+    ViewBag.Title = "Liên hệ với chúng tôi | VinFish";
     AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
     if (ViewData["commonInfo"] != null)
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
         ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
-        ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau("Liên hệ |" + commonInfo.Name+" | "+ commonInfo.Desc);
+        ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau("cá chép nướng, cá rô nướng, VinFish, cá quả nướng, cá nướng, cá nướng thơm ngon, cá ngon, đặt hàng online, đặt tiệc");
     }
 }
 @section health{
@@ -29,14 +29,14 @@
         </div>
     </div>
 </div>
-<div class="main-container  col2-right-layout">
-    <div class="main  container" id="columns">
+<div class="columns-container">
+    <div class="container" id="columns">
         <!-- /assets/page heading-->
         <div id="contact" class="page-content page-contact">
             <div id="message-box-conact"></div>
-            <div class="row blog-wrapper">
+            <div class="row">
                 <div class="col-sm-6">
-                    <h3 class="page-subheading">Gửi tin nhắn cho @commonInfo.Name</h3>
+                    <h3 class="page-subheading">Gửi tin nhắn cho VinFish</h3>
                     <div class="contact-form-box">                       
                         <div class="form-selector">
                             <label>Tên liên hệ </label>
@@ -62,44 +62,35 @@
                             <div id="g-recaptcha"></div>
                         </div>
                         <div class="form-selector">
-                            <button id="btn-send-contact" class="btn">Gửi tin nhắn </button>
+                            <button id="btn-send-contact" class="btn">Gửi  </button>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6" id="contact_form_map">
                     <h3 class="page-subheading">Thông tin liên hệ @commonInfo.Name</h3>
-                    <div>@commonInfo.Desc</div>
+                    <p>@commonInfo.Desc</p>
                     <br />
                     
                     <br />
-                    <div class="co-info">
-                        
-                        <address>
-                            @if (!string.IsNullOrEmpty(commonInfo.Address))
-                            {
-                                <div> <span><em class="icon-location-arrow"></em> @commonInfo.Address</span></div>
-                            }
-                            @if (!string.IsNullOrEmpty(commonInfo.HotLine))
-                            {
-                                <div> <span><em class="icon-mobile-phone"></em> @commonInfo.HotLine</span></div>
-                            }
-                            @if (!string.IsNullOrEmpty(commonInfo.Email))
-                            {
-                                <div> <span><em class="icon-envelope"></em> @commonInfo.Email</span></div>
-                            }
-                            @if (!string.IsNullOrEmpty(commonInfo.Skype))
-                            {
-                                <div> <span><em class="fa fa-skype"></em> @commonInfo.Skype</span></div>
-                            }
-                            @if (!string.IsNullOrEmpty(commonInfo.Skype))
-                            {
-                                <div> <span><em class="fa fa-facebook"></em><a href="@commonInfo.FaceBookLink">@commonInfo.FaceBookLink</a></span></div>
-                            }
-                            
-                            
-                        </address>
-                        
-                    </div>
+                    <ul class="store_info">
+                        <li><i class="fa fa-home"></i>@commonInfo.Address</li>
+                        @if (!string.IsNullOrEmpty(commonInfo.HotLine))
+                        {
+                            <li><i class="fa fa-phone"></i><span><a href="tell:@commonInfo.HotLine">@commonInfo.HotLine</a></span></li>
+                        }
+                        @if (!string.IsNullOrEmpty(commonInfo.Skype))
+                        {
+                            <li><i class="fa fa-skype"></i><span> <a href="skype:@commonInfo.Skype"></a>@commonInfo.Skype</span></li>
+                        }
+                        @if (!string.IsNullOrEmpty(commonInfo.Email))
+                        {
+                            <li><i class="fa fa-envelope"></i><span><a href="mailto:@commonInfo.Email">@commonInfo.Email</a></span></li>
+                        }
+                        @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                        {
+                            <li><i class="fa fa-facebook"></i><span><a href="@commonInfo.FaceBookLink">@commonInfo.FaceBookLink</a></span></li>
+                        }
+                    </ul>
                 </div>
             </div>
             <div id='ajax_loader' style="position: fixed; left: 45%; top: 50%; display: none;">

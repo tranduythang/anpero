@@ -48,7 +48,7 @@ jQuery(document).ready(function() {
             pagination: !1
         }),
         /*  Featured Product Slider */
-        jQuery(".best-seller .slider-items").owlCarousel({
+        jQuery("#best-seller .slider-items").owlCarousel({
             items: 5,
             itemsDesktop: [1024, 4],
             itemsDesktopSmall: [900, 3],

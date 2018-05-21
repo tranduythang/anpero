@@ -36,11 +36,14 @@ namespace AnperoFrontend.Controllers
             s=sv.SearchArticle(StoreID, TokenKey, id, page, 12, 0);
             ViewData["ArticleList"] = s;
             ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, s.ResultsCount, 11, "?page=");
+            //seo
+            ViewBag.Description = "Tin tức VinFish - Blog tin chia sẽ các bài viết liên quan đến sản phẩm của VinFish. Các kinh nghiệm, mẹo vắt lựa chọn thực phẩm sạch, cá sạch. Công thức chế biến các món ăn ngon, cá nướng ngon.";
+            ViewBag.Keywords = "Kinh nghiệm lựa chọn thực phẩm sạch, Kinh nghiệm lựa chọn cá sạch, Công thức nấu ăn.";
             ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + "/blog";
             if (id == 0)
             {
                 ViewBag.CategoryName = "Blog";
-                ViewBag.Title = "Tin tức";
+                ViewBag.Title = "Tin tức | VinFish";
             }
             else
             {

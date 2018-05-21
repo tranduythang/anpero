@@ -13,15 +13,8 @@ namespace AnperoFrontend
                        "~/Scripts/jquery.cokie.min.js",
                         "~/assets/js/bootstrap.min.js",                      
                        "~/Scripts/Anpero.Common.js",
-                       "~/Scripts/Bootrap-notify.js",
-                       //"~/Scripts/ShoppingCart.js",
-                       "~/assets/js/parallax.js",
-                       "~/assets/js/revslider.js",
-                       "~/assets/js/common.js",
-                       "~/assets/js/jquery.bxslider.min.js",
-                       "~/assets/js/owl.carousel.min.js",
-                       "~/assets/js/jquery.mobile-menu.min.js"
-                          
+                       "~/Scripts/ShoppingCart.js"
+
                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
@@ -34,12 +27,7 @@ namespace AnperoFrontend
                   "~/assets/stylesheet/revslider.css",
                   "~/assets/stylesheet/owl.carousel.css",
                   "~/assets/stylesheet/owl.theme.css",
-                  "~/assets/stylesheet/jquery.mobile-menu.css",
-                  "~/assets/stylesheet/jquery.bxslider.css",
-                  "~/assets/stylesheet/font-awesome.css",
-                  "~/assets/stylesheet/style.css",
-                   "~/assets/stylesheet/responsive.css"
-                   
+                  "~/assets/stylesheet/jquery.mobile-menu.css"
 
            ));
             BundleTable.EnableOptimizations = true;

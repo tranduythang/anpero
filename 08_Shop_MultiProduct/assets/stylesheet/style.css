@@ -135,34 +135,25 @@ header {
 
 .header-container {
     position: relative;
-    /*background: rgba(255,255,255, 0.2);*/
-    background:rgba(135, 190, 76, 0.57);
+    background: rgba(255,255,255, 0.2);
 }
 
 .logo {
-   vertical-align: middle;
+    vertical-align: middle;
     cursor: pointer;
     text-align: left;
     display: block;
     line-height: 105px;
     float: left;
+    padding-top: 13px;
     padding-right: 25px;
     padding-left: 20px;
     margin-top: -41px;
-    background: #26293259;
+    background: #f5e416;
     height: 116px;
     margin-right: 15px;
-    width: 191px;
-    background-color: #252932;
+}
 
-}
-.logo img {
-    max-width: 100%;
-}
-#fl-nav-menu {
-    background: url(/assets/images/bg-menu.png) repeat-x;
-    color:white;
-}
 .header-container .fl-nav-menu {
     display: block;
     border-radius: 3px;
@@ -242,7 +233,7 @@ header {
 
 .navbar-form .search-btn {
     color: #fff;
-    background: rgba(135, 190, 76, 0.91);
+    background: #fff;
     z-index: 90;
     speak: none;
     font-style: normal;
@@ -938,11 +929,11 @@ background-color: #fff;
 }
 
 #nav > li > a.active:nth-child(1) {
-    color: #fff;
+    color: #88be4c;
 }
 
 #nav > li > a:hover.active:nth-child(1) {
-    color: white;
+    color: #fff;
 }
 
 #nav > li > a:first-child {
@@ -1409,8 +1400,8 @@ ul.level1 {
     }
 
     #nav ul.level0 > li > a {
-        color: #262932;
-        font-size: 12px;
+        color: #79ae3d;
+        font-size: 13px;
         font-weight: 700;
         line-height: 18px;
         padding: 10px 10px;
@@ -3820,6 +3811,7 @@ ul.pdt-list li.item a img.image-hover {
 
         .products-grid .item .item-inner .item-img {
             position: relative;
+            overflow:hidden;
             border: 1px #eaeaea solid;
         }
 
@@ -3855,15 +3847,18 @@ ul.pdt-list li.item a img.image-hover {
                 transition: all 0.3s ease-out;
                 position: relative;
                 overflow: hidden;
+                height:inherit;
             }
 
                 .products-grid .item .item-inner .item-img .item-img-info a.product-image {
                     display: block;
                     width: 100%;
+                    height:inherit;
                 }
 
                     .products-grid .item .item-inner .item-img .item-img-info a.product-image img {
-                        width: 100%;
+                        height: 100%;
+                        width:auto;
                     }
 
             .products-grid .item .item-inner .item-img:hover img {
@@ -4017,8 +4012,12 @@ ul.pdt-list li.item a img.image-hover {
             font-size: 12px;
             overflow: hidden;
             letter-spacing: 0.5px;
+            
         }
-
+        .small-grid .item .item-inner .item-info .info-inner .item-title {
+            min-height:64px;
+        }
+        
             .products-grid .item .item-inner .item-info .info-inner .item-title a {
                 text-decoration: none;
                 text-transform: uppercase;
@@ -4180,11 +4179,15 @@ ul.pdt-list li.item a img.image-hover {
     white-space: nowrap;
     color: #999;
     display: none;
+
 }
 
 .old-price {
     display: inline;
     margin-right: 5px;
+    text-decoration: line-through;
+    font-weight:normal;
+    color: #cdcdcd!important;
 }
     /* Old price */
     .old-price .price-label {
@@ -4312,7 +4315,7 @@ ul.pdt-list li.item a img.image-hover {
     padding: 0px;
     width: 100%;
     position: relative;
-    margin-top: 80px;
+    margin-top: 45px;
 }
 
     .top-cate .new_title {
@@ -4343,7 +4346,7 @@ ul.pdt-list li.item a img.image-hover {
             font-family: 'Montserrat', sans-serif;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            background: #88be4c;
+            background: #ed6663;
             margin-top: 0px;
             min-width: 250px;
         }
@@ -4930,7 +4933,7 @@ text-transform: uppercase
             font-family: 'Montserrat', sans-serif;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            background: #88be4c;
+            background: #f5e416;
             margin-top: 0px;
             min-width: 250px;
         }
@@ -8534,8 +8537,6 @@ ol#compare-items li {
     margin-bottom: 30px;
     display: block;
     padding-bottom: 25px;
-    padding-top:15px;
-
 }
 
 .products-list .ratings {
@@ -9232,7 +9233,7 @@ a.button.detail-bnt span {
 }
 
     .product-view .product-name h1 {
-        font-size: 28px;
+        font-size: 38px;
         margin: 0 0 2px;
         text-align: left;
         line-height: 1.2em;
@@ -10473,6 +10474,7 @@ button.button.submit:before {
         float: left;
         background: #FFF;
         margin-top: 20px;
+        width:100%;
     }
 
     .related-pro .owl-item .item {
@@ -11459,7 +11461,7 @@ button.button.login:before {
         font-family: 'Montserrat', sans-serif;
         letter-spacing: 0.5px;
         text-transform: uppercase;
-        background: #88be4c;
+        background: #f5e416;
         margin-top: 0px;
     }
 
@@ -11639,6 +11641,7 @@ footer .footer-inner {
 
 footer .co-info {
     margin-right: 0px !important;
+    background: #88be4c;
     padding: 35px 30px;
     text-align: center;
     margin-top: 35px;
@@ -11826,17 +11829,17 @@ footer address {
     padding: 0px;
 }
 
-/*.icon-location-arrow:before {
+.icon-location-arrow:before {
     color: #fff;
-}*/
+}
 
-/*.icon-mobile-phone:before {
+.icon-mobile-phone:before {
     color: #fff;
-}*/
+}
 
-/*.icon-envelope:before {
+.icon-envelope:before {
     color: #fff;
-}*/
+}
 
 footer address em {
     display: inline-block !important;
@@ -11852,23 +11855,14 @@ footer address span {
     display: inline-block !important;
 }
 
-footer address div{
+footer address div {
     display: block;
     text-align: left;
     overflow: hidden;
     padding: 15px 0px;
     border-bottom: 1px #fff dotted;
 }
-#contact_form_map address{
-    border:none;
-}
-#contact_form_map .co-info div {
-    display: block;
-    text-align: left;
-    overflow: hidden;
-    padding: 15px 0px;
-    border-bottom: 1px #959595 dotted;
-}
+
     footer address div:last-child {
         border: none;
     }
@@ -13821,7 +13815,7 @@ select#shipping-address-select {
 
 .fl-links {
     float: right;
-    background: #88be4c;
+    background: #f5e416;
 }
 
     .fl-links .clicker {
@@ -14115,6 +14109,17 @@ select#shipping-address-select {
     -o-transform: scale(1.25);
     transform: scale(1.25);
 }
+/*#background {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  width: 50%;
+  height: 100%;
+  background-color: #e0e0e0;
+}*/
+
+
 
 .page-heading {
     padding: 120px 0 60px 0;
@@ -14122,11 +14127,11 @@ select#shipping-address-select {
     border-bottom: none;
     text-align: center;
     background-repeat: no-repeat;
-    background-image: url(http://media.anpero.com/images/38/32018/bg2018032619202416.png);
+    background-image: url(/assets/images/category-bg.jpg);
     margin-top: -80px;
 }
 
-    .page-heading .page-title h2, .page-heading .page-title h1 {
+    .page-heading .page-title h2 {
         color: #fff;
     }
 
@@ -14263,6 +14268,10 @@ select#shipping-address-select {
   padding: 5px 0; 
   color: #666;
 }
-.container img{
-    max-width:100%;
+.logo img, .co-info img{
+    max-height:94px;
+    max-width: 172px;
+}
+.relatepr-img{
+    max-height: 240px;
 }
