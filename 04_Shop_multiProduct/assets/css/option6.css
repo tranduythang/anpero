@@ -1100,7 +1100,6 @@
 	margin-top: 30px;
 	overflow: hidden;
 }
-.logo img{height:200px;}
 .option6 .band-logo a{
 	float: left;
 	background: #eee;
@@ -1648,6 +1647,7 @@
 .rct{    
     padding-right: 0px;
     padding-left: 15px;
+    float:left;
 }
 .lct #left_column{
     padding-right: 0px;

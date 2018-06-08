@@ -263,7 +263,12 @@
                         $.removeCookie('CartList', { path: '/' });
                         if (isPaymentOnline) {
                             $("#cartContent2").html("<h4>Đơn hàng số #" + rs + " đang được chuyển tới cổng thanh toán</h4>");
-                            Util.notify("", "Đơn hàng đang được chuyển sang cổng thanh toán. ");
+                            try {
+                                Util.notify("", "Đơn hàng đang được chuyển sang cổng thanh toán. ");
+                            } catch (e) {
+
+                            }
+                            
                             var _totalPrice = $("#ttOdCt").html().replace("đ", "").replace(/\,/g, '');
                             var _bankcode = $('input[name=bankcode]:checked').val();
 
