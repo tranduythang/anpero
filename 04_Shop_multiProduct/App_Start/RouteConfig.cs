@@ -62,12 +62,7 @@ namespace AnperoFrontend
              url: "{title}-a{id}",
              defaults: new { controller = "article", action = "index", id = UrlParameter.Optional },
              constraints: new { id = @"\d+", title = @"[^/]+" }
-           );
-            routes.MapRoute(
-                name: "chuyendoitiengviet",
-                url: "chuyen-doi-tieng-viet",
-                defaults: new { controller = "home", action = "chuyendoitiengviet" }
-              );
+           );            
             routes.MapRoute(
                 name: "PaymentInfo",
                 url: "PaymentInfo",
