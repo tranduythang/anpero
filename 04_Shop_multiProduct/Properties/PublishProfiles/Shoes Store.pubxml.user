@@ -14,6 +14,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="assets/css/animate.css">
       <publishTime>05/05/2018 20:32:10</publishTime>
     </File>
+    <File Include="assets/css/blue-style.css">
+      <publishTime>06/09/2018 19:05:35</publishTime>
+    </File>
     <File Include="assets/css/NganLuongBankList.css">
       <publishTime>05/05/2018 20:32:10</publishTime>
     </File>
@@ -24,13 +27,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2018 20:32:11</publishTime>
     </File>
     <File Include="assets/css/option4.css">
-      <publishTime>05/05/2018 20:32:11</publishTime>
+      <publishTime>06/09/2018 18:22:42</publishTime>
     </File>
     <File Include="assets/css/option5.css">
       <publishTime>05/29/2018 19:12:17</publishTime>
     </File>
     <File Include="assets/css/option6.css">
-      <publishTime>06/07/2018 10:59:55</publishTime>
+      <publishTime>06/09/2018 18:41:20</publishTime>
     </File>
     <File Include="assets/css/reset.css">
       <publishTime>05/05/2018 20:32:11</publishTime>
@@ -39,7 +42,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/29/2018 19:25:48</publishTime>
     </File>
     <File Include="assets/css/style.css">
-      <publishTime>05/05/2018 20:32:11</publishTime>
+      <publishTime>06/11/2018 18:40:22</publishTime>
     </File>
     <File Include="assets/data/01_blue-dress.jpg">
       <publishTime>05/05/2018 20:32:11</publishTime>
@@ -2322,10 +2325,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/07/2018 11:00:13</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.dll">
-      <publishTime>06/07/2018 11:00:14</publishTime>
+      <publishTime>06/10/2018 17:03:10</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.XmlSerializers.dll">
-      <publishTime>06/07/2018 11:00:14</publishTime>
+      <publishTime>06/10/2018 17:03:11</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>05/05/2018 20:33:27</publishTime>
@@ -2451,7 +2454,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2018 20:32:10</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>06/08/2018 10:23:39</publishTime>
+      <publishTime>06/11/2018 18:39:47</publishTime>
     </File>
     <File Include="Views/Home/Policy.cshtml">
       <publishTime>05/05/2018 20:32:10</publishTime>
@@ -2490,13 +2493,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2018 20:32:10</publishTime>
     </File>
     <File Include="Views/Shared/product/_MenuAndAdsPartial.cshtml">
-      <publishTime>06/08/2018 10:25:51</publishTime>
+      <publishTime>06/10/2018 13:32:31</publishTime>
     </File>
     <File Include="Views/Shared/product/_productDetail.cshtml">
       <publishTime>05/05/2018 20:32:10</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>05/16/2018 13:46:52</publishTime>
+      <publishTime>06/09/2018 18:28:46</publishTime>
     </File>
     <File Include="Views/Shared/_partial/_HomeSlide_1.cshtml">
       <publishTime>05/29/2018 19:04:39</publishTime>
@@ -2544,7 +2547,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2018 20:32:10</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/24/2018 16:00:33</publishTime>
+      <publishTime>06/10/2018 17:03:15</publishTime>
     </File>
   </ItemGroup>
 </Project>
