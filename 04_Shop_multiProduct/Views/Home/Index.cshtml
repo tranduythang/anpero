@@ -165,10 +165,12 @@
                                                             <div class="group-price">
                                                                 <span class="product-new">Mới</span>
                                                                 @if (item.IsSale)
-                                                                {<span class="product-sale">- @Anpero.StringHelpper.ConVertToMoneyFormatInt(((item.Price - item.SalePrice) / item.Price * 100).ToString()) %</span>
+                                                                {
+                                                                    <span class="product-sale">- @Anpero.StringHelpper.ConVertToMoneyFormatInt(((item.Price - item.SalePrice) / item.Price * 100).ToString()) %</span>
                                                                 }
+                                                                
                                                             </div>
-                                                        </div>
+                                                        </div>                                                        
                                                         <div class="right-block">
                                                             <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></h5>
                                                             <div class="content_price">
@@ -334,16 +336,10 @@
             </div>
 
         }
-
-        <!-- Baner bottom -->
-        <!-- end banner bottom -->
-
         @if (ViewData["FeatureArticle"] != null)
         {
-            SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
-            
-                <div class="row-blog">
-
+            SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];            
+            <div class="row-blog">
                     <div class="blog-list">
                         <h2 class="page-heading">
                             <span class="page-heading-title">Tin từ blog</span>
