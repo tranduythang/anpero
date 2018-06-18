@@ -1,7 +1,4 @@
 
-/* ----------------
- [1. Common styles]
- */
 body{
     font-family: 'Arial', sans-serif;
     font-size: 14px;
@@ -5202,7 +5199,7 @@ span.notify-right{
     font-weight: 700;
     cursor: pointer;
 }
-.tree-menu>li ul li span:before {
+.tree-menu > li ul li span:before {
     content: "\f0da";
     font-size: 14px;
     display: inline-block;
@@ -5211,8 +5208,13 @@ span.notify-right{
     font-family: fontawesome;
     padding-right: 12px;
     color: #ccc;
+    .tree-menu li span
 }
 .tree-menu>li .txt{padding:0 10px;}
-#AdsSlide2 .banner-boder-zoom{
-    margin:5px;
+ .tree-menu > li > ul {
+display:none;
+}
+
+#AdsSlide2 .banner-boder-zoom {
+    margin: 5px;
 }
