@@ -14,7 +14,7 @@
                                 for (int i = 0; i < commonInfo.ProductCategoryList.Length; i++)
                                 {
                                     <li>
-                                        <div class="txt bold">
+                                        <div class="txt">
                                             <span></span><a href="@Anpero.StringHelpper.GetParentCategoryLink(commonInfo.ProductCategoryList[i].Name,commonInfo.ProductCategoryList[i].Id)">@commonInfo.ProductCategoryList[i].Name</a>
                                         </div>
                                         @if (commonInfo.ProductCategoryList[i].ChildCategory != null && commonInfo.ProductCategoryList[i].ChildCategory.Length > 0)
@@ -35,6 +35,7 @@
                         </ul>
                     </div>
                 </div>
+                
             }
         </div>
     </div>
@@ -316,12 +317,12 @@
             }
             else
             {
-                @*<div class="banner-opacity sm-banner">
+                <div class="banner-opacity sm-banner">
                         <a href="#"><img src="/assets/images/275px.jpg" alt="ads1"></a>
                     </div>
                     <div class="banner-opacity sm-banner">
                         <a href="#"><img src="/assets/images/275px.jpg" alt="ads1"></a>
-                    </div>*@
+                    </div>
 
             }
 
