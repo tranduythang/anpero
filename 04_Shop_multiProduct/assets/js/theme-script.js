@@ -1,4 +1,4 @@
-(function($){
+Ôªø(function($){
     "use strict"; // Start of use strict
     /* ---------------------------------------------
      Scripts initialization
@@ -56,7 +56,7 @@
            });
         });
         if($('.countdown-lastest').length >0){
-            var labels = ['N„m', 'ThaÏng', 'Tu‚Ãn', 'NgaÃy', 'GiıÃ', 'PhuÏt', 'Gi‚y'];
+            var labels = ['N√£m', 'Th√°ng', 'Tu·∫ßn', 'Ng√†y', 'Gi·ªù', 'Ph√∫t', 'Gi√¢y'];
             var layout = '<span class="box-count"><span class="number">{dnn}</span> <span class="text">Days</span></span><span class="dot">:</span><span class="box-count"><span class="number">{hnn}</span> <span class="text">Hrs</span></span><span class="dot">:</span><span class="box-count"><span class="number">{mnn}</span> <span class="text">Mins</span></span><span class="dot">:</span><span class="box-count"><span class="number">{snn}</span> <span class="text">Secs</span></span>';
             $('.countdown-lastest').each(function() {
                 var austDay = new Date($(this).data('y'),$(this).data('m') - 1,$(this).data('d'),$(this).data('h'),$(this).data('i'),$(this).data('s'));
@@ -224,18 +224,6 @@
             }
             return false;
         })
-        $('.tree-menu li span').hover(function () {
-            $(this).closest('li').children('ul').slideToggle();
-            try {
-                if ($(this).closest('li').haschildren('ul')) {
-                    $(this).toggleClass('open');
-                }
-            } catch (e) {
-
-            }
-            return false;
-        });
-      
         /* Open menu on mobile */
         $(document).on('click','.btn-open-mobile',function(){
             var width = $(window).width();

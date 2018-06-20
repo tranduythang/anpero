@@ -10,7 +10,7 @@ namespace AnperoFrontend.Controllers
     {
         // GET: Static
         [OutputCache(Duration = 300, VaryByParam = "none")]
-        public filele Css()
+        public ContentResult Css()
         {
             Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
             Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
@@ -18,9 +18,7 @@ namespace AnperoFrontend.Controllers
             Response.AppendHeader("Content-Type", "text/css");
             
             WebService.AnperoService service = new WebService.AnperoService();
-            return service.GetWebContent(StoreID, TokenKey, 7);
-           // return File("", contentType, "Report.doc");
-
+            return Content(service.GetWebContent(StoreID, TokenKey, 7), "text/css");
         }
     }
 }
