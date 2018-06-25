@@ -211,11 +211,11 @@
 
             <div id="introduce-box" class="row">
                 <div class="col-md-4">
-                    <div class="introduce-title">Các đại lý</div>
+                    <div class="introduce-title">Liên hệ với chúng tôi</div>
                     <div class="address-box">
 
-                        @*<a href="/"><img src="@commonInfo.Logo" alt="logo"></a>*@
-                        @*<div class="adrct">
+                        <a href="/"><img src="@commonInfo.Logo" alt="logo"></a>
+                        <div class="adrct">
                                 <div class="tit-contain"><i class="fa fa-home"></i> @commonInfo.Address Công ty cổ phần Citygo số 434 trần khát Trân, Hai Bà </div>
                                 <div class="tit-contain"><i class="fa fa-phone"></i> @commonInfo.HotLine</div>
 
@@ -230,21 +230,7 @@
                                     <div class="tit-contain"><a href="skype:@commonInfo.Skype?call"></a> @commonInfo.Skype</div>
                                 }
 
-                            </div>*@
-
-                        <div class="adrct">
-                            <div class="tit-contain"><i class=""></i> Thái Nguyên</div>
-                            <div class="tit-contain"><i class="fa fa-home"></i> CSSX chè Hùng Nhung</div>
-                            <div class="tit-contain"><i class="fa fa-location-arrow"></i> xóm Nam Đồng, xã Tân Cương, TP Thái Nguyên</div>
-
-                        </div>
-
-                        <div class="adrct">
-                            <div class="tit-contain"><i class=""></i> Hà Nội</div>
-                            <div class="tit-contain"><i class="fa fa-home"></i> Đại lý Phượng Chili</div>
-                            <div class="tit-contain"><i class="fa fa-location-arrow"></i> ngõ 35 Thái Thịnh, Hà Nội</div>
-
-                        </div>
+                            </div>
                         @{
 
                              string thisUrl = System.Web.HttpContext.Current.Request.Url.ToString();
@@ -268,10 +254,10 @@
                 <div class="col-md-4">
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="address-box" style="margin-top: 31px;">
+                            @*<div class="address-box" style="margin-top: 31px;">*@
 
                                 @*<a href="/"><img src="@commonInfo.Logo" alt="logo"></a>*@
-                                <div class="adrct">
+                                @*<div class="adrct">
                                     <div class="tit-contain"><i class=""></i> Bắc Kạn</div>
                                     <div class="tit-contain"><i class="fa fa-home"></i> Tạp hóa Tuyết Huân</div>
                                     <div class="tit-contain"><i class="fa fa-location-arrow"></i> số 33, tổ 11A, P Sông Cầu, Bắc Kạn</div>
@@ -283,15 +269,15 @@
                                     <div class="tit-contain"><i class="fa fa-home"></i> Đại lý Thu Dung</div>
                                     <div class="tit-contain"><i class="fa fa-location-arrow"></i> WBB 2617, West Bay, Ecopark</div>
 
-                                </div>
+                                </div>*@
 
 
-                            </div>
+                            @*</div>*@
                             @*<div class="introduce-list">
                                     @Html.Raw(commonInfo.Footer)
 
                                 </div>*@
-                            @*@if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                            @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                                 {
                                     <ul id="introduce-company" class="introduce-list">
                                         @foreach (var item in commonInfo.ProductCategoryList)
@@ -300,7 +286,7 @@
                                         }
 
                                     </ul>
-                                }*@
+                                }
                         </div>
                     </div>
                 </div>
@@ -312,10 +298,8 @@
                         <div class="fb-page" data-tabs="messages" data-href="@Html.Raw(commonInfo.FaceBookLink)" data-width="500" data-height="300" data-hide-cover="false"></div>
                         }
                     </div>
-
                 </div>
             </div>
-
             <div id="footer-menu-box">
                 <div class="col-sm-12">
                     <ul class="footer-menu-list">
