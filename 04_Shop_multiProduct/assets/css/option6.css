@@ -40,7 +40,7 @@
   right: 80px;
 }
 .latest-deals-product .product-list li{
-  border: 1px solid #eaeaea;
+
   overflow: hidden;
   padding-bottom: 5px;
 }
@@ -1643,11 +1643,6 @@
 }
 #footer a {
     color:white;
-}
-.rct{    
-    padding-right: 0px;
-    padding-left: 15px;
-    float:left;
 }
 .lct #left_column{
     padding-right: 0px;
