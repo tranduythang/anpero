@@ -12,16 +12,16 @@ namespace AnperoFrontend
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-          routes.MapRoute(
-              name: "checkout",
-              url: "checkout",
-              defaults: new { controller = "product", action = "checkout" }
-          );
-           routes.MapRoute(
-           name: "blogList3",
-           url: "blog",
-           defaults: new { controller = "Article", action = "Category", id = 0 }
-           );
+            routes.MapRoute(
+                name: "checkout",
+                url: "checkout",
+                defaults: new { controller = "product", action = "checkout" }
+            );
+            routes.MapRoute(
+            name: "blogList3",
+            url: "blog",
+            defaults: new { controller = "Article", action = "Category", id = 0 }
+            );
             routes.MapRoute(
             name: "blogList2",
             url: "blog/{title}-b{id}",
@@ -42,13 +42,13 @@ namespace AnperoFrontend
             routes.MapRoute(
               name: "search",
               url: "search",
-              defaults: new { controller = "product", action = "search"}
+              defaults: new { controller = "product", action = "search" }
            );
             routes.MapRoute(
              name: "category",
              url: "{title}-cat{id}",
              defaults: new { controller = "product", action = "category", id = UrlParameter.Optional },
-             constraints: new { id = @"\d+", title= @"[^/]+" }
+             constraints: new { id = @"\d+", title = @"[^/]+" }
            );
             routes.MapRoute(
              name: "ParentCategory",
@@ -56,18 +56,25 @@ namespace AnperoFrontend
              defaults: new { controller = "product", action = "ParentCategory", id = UrlParameter.Optional },
              constraints: new { id = @"\d+", title = @"[^/]+" }
            );
-          
+
             routes.MapRoute(
              name: "Article",
              url: "{title}-a{id}",
              defaults: new { controller = "article", action = "index", id = UrlParameter.Optional },
              constraints: new { id = @"\d+", title = @"[^/]+" }
-           );            
+           );
             routes.MapRoute(
-                name: "PaymentInfo",
-                url: "PaymentInfo",
-                defaults: new { controller = "home", action = "policy", type = 6 }
-              );
+               name: "GroupProduct",
+               url: "{title}-g{id}",
+               defaults: new { controller = "product", action = "Group", id = UrlParameter.Optional },
+               constraints: new { id = @"\d+", title = @"[^/]+" }
+            );
+
+            routes.MapRoute(
+            name: "PaymentInfo",
+            url: "PaymentInfo",
+            defaults: new { controller = "home", action = "policy", type = 6 }
+            );
             routes.MapRoute(
                 name: "PrivacyPolicy",
                 url: "PrivacyPolicy",

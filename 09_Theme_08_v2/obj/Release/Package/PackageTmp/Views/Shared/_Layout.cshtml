@@ -6,11 +6,10 @@
     }
 }
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//VI" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="vi" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:fb="http://ogp.me/ns/fb#">
+<html amp lang="vi" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
 <head>
     <title>@ViewBag.Title</title>
-    
+  
     @Styles.Render("~/Content/css")
   
     <link rel="icon" href="@commonInfo.Logo" type="image/x-icon">
@@ -22,10 +21,80 @@
     <!-- Apple iOS and Android stuff -->
     <meta name="apple-mobile-web-app-capable" content="no" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheet/jquery.bxslider.css">
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheet/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheet/style.css" media="all">
+    @*AMP*@
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1,end) 0s 1 normal both
+        }
+
+        @@-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @@-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @@-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @@-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @@keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+    </style>
+    <noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }
+        </style>
+    </noscript>
+    @*end AMP*@
+   
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet/responsive.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheet/font-awesome.css" media="all">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
@@ -35,6 +104,8 @@
     <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
     <link rel="dns-prefetch" href="https://www.facebook.com/">
     <link href='/static/css' rel='stylesheet' type='text/css'>
+  
+   
 </head>
 <body>
     <h1 id="heading1" style="display:none;">
@@ -51,15 +122,11 @@
     @Html.Raw(commonInfo.PageScript)
 
     @Html.Partial("_partial/_MainFooter_1")
-    <script type="text/javascript" src="/assets/js/parallax.js"></script>    
-    <script type="text/javascript" src="/assets/js/common.js"></script>
-    <script type="text/javascript" src="/assets/js/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="/assets/js/jquery.mobile-menu.min.js"></script>
+  
     @RenderSection("scripts", required: false)   
     <script type="text/javascript">
         jQuery(window).load(function () {
             Cart.bindCart();
-           
         });
     </script>
 </body>
