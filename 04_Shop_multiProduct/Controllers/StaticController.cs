@@ -16,7 +16,6 @@ namespace AnperoFrontend.Controllers
             Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
             Response.AppendHeader("Cache-Control", "public");
             Response.AppendHeader("Content-Type", "text/css");
-            
             WebService.AnperoService service = new WebService.AnperoService();
             return Content(service.GetWebContent(StoreID, TokenKey, 7), "text/css");
         }
