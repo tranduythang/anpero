@@ -63,7 +63,7 @@
                 <div class="layered">
                     <div class="layered-content">
                         <ul class="blog-list-sidebar clearfix">
-                            @for (int i = 0; i < TopArticle.ItemList.Length - 1; i++)
+                            @for (int i = 0; i < TopArticle.ItemList.Length; i++)
                             {
                                 <li>
                                     <div class="post-thumb">
@@ -71,12 +71,7 @@
                                     </div>
                                     <div class="post-info">
                                         <h5 class="entry_title"><a href="@Anpero.StringHelpper.GetArticleLink(TopArticle.ItemList[i].Title,TopArticle.ItemList[i].Id)">@TopArticle.ItemList[i].Title</a></h5>
-                                        <div class="post-meta">
-                                            <span class="date"><i class="fa fa-calendar"></i> @TopArticle.ItemList[i].CreateDate</span>
-                                            <span class="comment-count">
-                                                <i class="fa fa-comment-o"></i> @TopArticle.ItemList[i].ViewTime
-                                            </span>
-                                        </div>
+                                      
                                     </div>
                                 </li>
                             }
@@ -87,13 +82,6 @@
             </div>
         </div>
 
-        <!-- ./Popular Posts -->
-        <!-- Banner -->
-            <div class="block left-module">
-                <div class="banner-opacity">
-                    <a href="@Anpero.StringHelpper.GetArticleLink(TopArticle.ItemList[TopArticle.ItemList.Length-1].Title,TopArticle.ItemList[TopArticle.ItemList.Length-1].Id)"><img src="@TopArticle.ItemList[TopArticle.ItemList.Length-1].Thumb" alt="@TopArticle.ItemList[TopArticle.ItemList.Length-1].Title"></a>
-                </div>
-            </div>
     }
     <!-- ./Banner -->
     @*<!-- Recent Comments -->

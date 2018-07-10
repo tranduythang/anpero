@@ -19,11 +19,8 @@
             obj['-ms-' + prop] = val;
             obj['-webkit-' + prop] = val;
             obj[prop] = val;
-
         }
-
     }
-
     $.fn.precss = function (styles) {
 
         var prefixedStyles = {};
@@ -47,8 +44,6 @@
     }
 
 })(jQuery, window, document);
-
-
 (function ($, window, document, undefined) {
 
     'use strict';
@@ -1273,7 +1268,6 @@
                 var animationDuration = animationDelay * 2;
 
                 $slices.precss('animation-duration', animationDuration + 'ms');
-
                 $slices.each(function (index) {
 
                     if (direction === 'down') {
@@ -1307,7 +1301,6 @@
                 }
                 var numRows = Math.round(height / 100); // 100 is the target square size
                 var numCols = Math.round(self.$element.width() / 100);
-
                 // init current slide and prev slides position
                 self.slides[prevSlideIndex].$element.css('z-index', self.settings.baseZindex + 1);
                 currentSlide.$element.css({

@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
+
 namespace AnperoFrontend.Controllers
 {
+    
     public class HomeController : BaseController
     {
+       
         [BuildCommonHtml]
         [BunderHtml]
         public ActionResult Index()
         {
+            
+
+
             WebService.AnperoService service = new WebService.AnperoService();
 
             //ViewData["slide"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Slide);

@@ -1549,3 +1549,8 @@ a{color:black;}
 .breadcrumb a, .breadcrumb .fa {
     color: #64be43;
 }
+#best-seller .owl-item .item {
+    float: left;
+    background: #FFF;
+    margin-top: 20px;
+}
