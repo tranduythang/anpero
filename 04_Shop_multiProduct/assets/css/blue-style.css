@@ -6,13 +6,13 @@
     border-left: 1px solid #6089dc;
     height: 41px;
     background-color:#00a4e0;
-    color: #fff;
+    color: #1d292d;
 }
 
 .main-header .header-search-box .form-inline .btn-search{
 	color: #fff;
 	font-size: 16px;
-	background-color:rgba(43, 23, 13, 0.8);
+	background-color:white;
 }
 .main-header .header-search-box .form-inline {
     border: none;
@@ -33,7 +33,6 @@
     color: white;
     margin: 0;
 }
-
 .nav-top-menu.nav-ontop {
     background: #00a4e0;
 }
@@ -42,11 +41,10 @@
 }
 
 .header {
-    /*background:rgba(43, 23, 13, 0.8);*/
-    background-color: #00c9e0;
     background-image: none;
     background-size: cover;
     background-position: left top;
+    background-color:#00c9e0;
 }
 .main-header .header-search-box .form-inline .btn-search {
     background-color: rgb(53, 84, 148);
