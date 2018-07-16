@@ -150,6 +150,7 @@
     <Content Include="assets\css\pogo-slide.css" />
     <Content Include="assets\css\responsive.css" />
     <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\ProductListStyle.css" />
     <Content Include="assets\css\theme.default.min.css" />
     <Content Include="assets\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\fonts\icofont.svg" />
@@ -407,6 +408,7 @@
     <Content Include="Views\Shared\product\_productDetail.cshtml" />
     <Content Include="Views\Shared\_partial\_contact.cshtml" />
     <Content Include="Views\Home\Policy.cshtml" />
+    <Content Include="Views\Product\List_2.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

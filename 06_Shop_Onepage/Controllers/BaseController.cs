@@ -94,7 +94,6 @@ namespace AnperoFrontend.Controllers
 
         }
     }
-
     public partial class CommonConfig
     {
         public static int StoreID = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["storeID"]);

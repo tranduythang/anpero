@@ -1,436 +1,437 @@
 ﻿@using AnperoFrontend.WebService;
-@section health{
-    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
 
-    <meta name="description" content="@ViewBag.Description" />
-    <meta name="keywords" content="@ViewBag.Keywords" />
+@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
 }
-<section class="price-area section-padding" id="price">
-    <div class="container">
-        <div class="row">
-            <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
-                <div class="page-title">
-                    <h2>Đăng ký thiết kế website bán hàng chuyên nghiệp</h2>
-                    <p>Với sợ hỗ trợ của hệ thống điện toán đám mây, giúp trang web của quý khách luôn ổn định và được cập nhật miễn phí tự động theo hệ thống, hỗ trợ kỹ thuật 24/24</p>
-                </div>
-            </div>
-        </div>
-        <div class="row ">
-            <div class="tct2">
-                <ul class="tabs-list">
-                    <li class="tab vc_active" table-data="table1"><i class="fa fa-globe"></i><span class="title-text">Trang web</span></li>
-                    <li class="tta-tab" table-data="table2"><i class="tta-icon fa fa-user-o"></i><span class="title-text">Dịch vụ</span></li>
-                    <li class="tta-tab" table-data="table3"><i class="tta-icon fa fa-newspaper-o"></i><span class="title-text">Blog</span></li>
-                </ul>
-            </div>
-            <div id="table1" class="tab-ct active">
-                <div class="col-xs-12 col-sm-4 xs-bottom-40 wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
-                    <div class="single-price">
-                        <div class="price-header">
-                            <img src="/assets/images/dev.jpg" alt="price">
-                            <div class="price-plan">
-                                <div class="price-title">
-                                    <h3>Gói Lập trình 01</h3>
-                                </div>
-                                <div class="price-rate">
-                                    <h3>360.000 đ/Năm</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="price-body">
-                            <ul>
-                                <li>Dành cho những người có biết chút ít về coding</li>
-                                <li>Trang quản trị</li>
-                                <li>Web Service</li>
-                                <li>Tài liệu lập trình</li>
-                                <li>Tất cả các theme và mã nguồn frontend Anpero đã sử dụng</li>
-                                <li>Nhắn tin khi có đơn hàng miễn phí</li>
-                                <li>Gửi mail khi có đơn hàng miễn phí</li>
-                                <li>Không giới hạn dung ảnh</li>
-                                <li>Tối đa 100 sản phẩm</li>
-                                <li>Tối đa 100 tin bài</li>
-                                <li>Không giới hạn dung ảnh</li>
-                                <li>Không bao gồm hosting frontend</li>
-                                <li>Tự triển khai,tự setup web</li>
-                                <li>Hỗ trợ kỹ thuật, hướng dẫn lập trình</li>
-                                <li><a href="https://github.com/anpero-vietnam/anpero.git">Dowload mã nguồn frontend Github tại đây</a></li>
-                            </ul>
-                        </div>
-                        <div class="price-footer">
-                            <a href="javascript:Cart.addProduct(869,'300000','http://media.anpero.com/images/38/22018/12018022523310256.jpg','Gói API dành cho lập trình 01');" class="price-battn">Đặt hàng <i class="fa fa-angle-right"></i></a>
-                            <a href="/goi-api-danh-cho-lap-trinh-01-p869" class="price-battn">Chi tiết <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 xs-bottom-40 wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
-                    <div class="single-price">
-                        <div class="price-header">
-                            <img src="/assets/images/webDs.PNG" />
-                            <div class="price-plan">
-                                <div class="price-title">
-                                    <h3>Gói lập trình 02</h3>
-                                </div>
-                                <div class="price-rate">
-                                    <h3>720.000 đ/Năm</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="price-body">
-                            <ul>
-                                <li>Dành cho những người có biết chút ít về coding</li>
-                                <li>Đã bao gồm hosting năm đầu</li>
-                                <li>Sử dụng các mẫu có sẵn</li>
-                                <li>Quản lý sản phẩm, danh mục sản phẩm</li>
-                                <li>Quản lý đơn hàng, tạo đơn hàng, kiểm tra bảo hành</li>
-                                <li>Quản lý Khuyến Mãi</li>
-                                <li>Quản lý Blog</li>
-                                <li>Quản lý Đơn Hàng</li>
-                                <li>Quản lý Chi Nhánh</li>
-                                <li>Quản lý Khách Hàng</li>
-                                <li>Quản lý banner Quảng Cáo</li>
-                                <li>Quản lý plugin, javascript facebook, google</li>
-                                <li>Báo cáo tài chánh bán hàng</li>
-                                <li>Không giới hạn chi nhánh, nhân viên</li>
-                                <li>Tích hợp thanh toán Online miễn phí</li>
-                                <li>Nhắn tin khi có đơn hàng mới miễn phí</li>
-                                <li>Gửi mail khi có đơn hàng mới</li>
-                                <li>Tối đa 500 sản phẩm</li>
-                                <li>Tối đa 500 tin bài</li>
 
-                                <li>Không bao gồm phí tên miền</li>
-                                <li>Đăng ký tối thiểu 1 năm</li>
-                            </ul>
-                        </div>
-                        <div class="price-footer">
-                           
-                            <a href="javascript:Cart.addProduct(869,'720000','http://media.anpero.com/images/38/22018/12018022523310256.jpg','Gói API dành cho lập trình 02');" class="price-battn">Đặt hàng <i class="fa fa-angle-right"></i></a>
-                            <a href="/goi-api-danh-cho-lap-trinh-02-p900" class="price-battn">Chi tiết <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
-                    <div class="single-price">
-                        <div class="price-header">
-                            <img src="/assets/images/webDs.PNG" />
-                            <div class="price-plan">
-                                <div class="price-title">
-                                    <h3>Gói tự chủ</h3>
-                                </div>
-                                <div class="price-rate">
-                                    <h3>720.000 đ/Năm </h3>
-                                    <h5>+ 5.000.000 công thiết kế</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="price-body">
-                            <ul>
-                                <li>Thiết kế giao diện web theo yêu cầu</li>
-                                <li>Miễn phí thiết kế Logo</li>
-                                <li>Miễn phí thiết kế 03 ảnh quảng cáo trang chủ</li>
-                                <li>Miễn phí đăng 20 sản phẩm đầu tiên</li>
-                                <li>Quản lý sản phẩm, danh mục sản phẩm</li>
-                                <li>Quản lý đơn hàng, tạo đơn hàng, kiểm tra bảo hành</li>
-                                <li>Quản lý Khuyến Mãi</li>
-                                <li>Quản lý Blog</li>
-                                <li>Quản lý Đơn Hàng</li>
-                                <li>Quản lý Chi Nhánh</li>
-                                <li>Quản lý Khách Hàng</li>
-                                <li>Quản lý banner Quảng Cáo</li>
-                                <li>Quản lý plugin, javascript facebook, google</li>
-                                <li>Báo cáo tài chánh bán hàng</li>
-                                <li>Không giới hạn chi nhánh, nhân viên</li>
-                                <li>Tích hợp thanh toán Online miễn phí</li>
-                                <li>Nhắn tin khi có đơn hàng mới miễn phí</li>
-                                <li>Gửi mail khi có đơn hàng mới</li>
-                                <li>Tối đa 500 sản phẩm</li>
-                                <li>Tối đa 500 tin bài</li>
-                                <li>Đã bao gồm hosting năm đầu</li>
-                                <li>Miễn phí tên miền .com</li>
-                                <li>Đăng ký tối thiểu 1 năm</li>
-                            </ul>
-                        </div>
-                        <div class="price-footer">
-                            <a href="javascript:Cart.addProduct(901,'5700000','/assets/images/webDs.PNG','Thiết kế web bán hàng chuyên nghiệp');" class="price-battn">Đặt hàng <i class="fa fa-angle-right"></i></a>
-                            <a href="/thiet-ke-web-ban-hang-chuyen-nghiep-p901" class="price-battn">Chi tiết <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="table2" class="tab-ct">
-                <div class="col-xs-12 col-sm-4 xs-bottom-40">
-                    <div class="single-price">
-                        <div class="price-header">
-                            <img src="/assets/images/dev.jpg" alt="price">
-                            <div class="price-plan">
-                                <div class="price-title">
-                                    <h3>Nội dung</h3>
-                                    <div class="price-rate">
-                                        <h3>1.000.000 đ/ tháng</h3>
-                                    </div>
-                                </div>
-                              
-                            </div>
-                        </div>
-                        <div class="price-body">
-                            <ul>
-                                <li>Đăng bài, dàn trang, tối ưu từ khóa</li>
-                                <li>Đăng sản phẩm khách hàng yêu cầu</li>
-                                <li>Quản lý Facebook, đăng bài Facebook</li>
-                                <li>Nội dung khách hàng cấp ảnh và miêu tả qua Email</li>
-                            </ul>
-                        </div>
-                        <div class="price-footer">
-                            <a href="javascript:Cart.addProduct(886,'1000000','http://media.anpero.com/images/36/122017/mien-dong2017121121322774.jpg','Miến dong | Ngon lành');" class="price-battn">Đặt hàng <i class="fa fa-angle-right"></i></a>
-                            <a href="#" class="price-battn">Chi tiết <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 xs-bottom-40">
-                    <div class="single-price">
-                        <div class="price-header">
-                            <img src="/assets/images/webDs.PNG" />
-                            <div class="price-plan">
-                                <div class="price-title">
-                                    <h3>Quản trị</h3>
-                                </div>
-                                <div class="price-rate">
-                                    <h3>3.000.000 đ/tháng</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="price-body">
-                            <ul>
-                                <li>Đăng bài viết, và tin tức lên web và Facebook</li>
-                                <li>Trả lời các liên hệ từ web, và mạng xã hội ( yêu cầu khách hàng cung cấp thông tin về sản phẩm, dịch vụ) </li>
-                                <li>Thông báo hoặc chốt đơn, cho chủ web khi có đơn hàng mới.</li>
-                                <li>Chỉnh sửa banner quảng cáo không giới hạn</li>
-                                <li>Báo cáo doanh thu theo từng chi nhánh, nhân viên bán hàng qua email, hoặc tài liệu</li>
-                                <li>Báo cáo các sản phẩm bán chạy nhất qua email, hoặc tài liệu</li>
-                                <li>Báo cáo các nguồn khách hàng, tỷ lệ khách hàng tới web ( từ tìm kiếm, tự nhiên, hay nguồn nào dẫn tới web)</li>
-                              
-                            </ul>
-                        </div>
-                        <div class="price-footer">
-                            <a href="#" class="price-battn">Đặt hàng <i class="fa fa-angle-right"></i></a>
-                            <a href="#" class="price-battn">Chi tiết <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4">
-                    <div class="single-price">
-                        <div class="price-header">
-                            <img src="/assets/images/webDs.PNG" />
-                            <div class="price-plan">
-                                <div class="price-title">
-                                    <h3>Tăng doanh số</h3>
-                                </div>
-                                <div class="price-rate">
-                                    <h3>Cần phân tích </h3>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="price-body">
-                            <ul>
-                                <li>Cài đặt mã tiếp thị lại Google</li>
-                                <li>Cài đặt mã tiếp thị lại Facebook</li>
-                                <li>Lên kế hoạch tối ưu hóa từ khóa</li>
-                                <li>Quảng cáo trên Fan Pace</li>
-                                <li>Quảng cáo tìm kiếm Google</li>
-                                <li>Quảng cáo tiếp thị lại</li>
-                            </ul>
-                        </div>
-                        <div class="price-footer">
-                            <a href="/thiet-ke-web-ban-hang-chuyen-nghiep-p901" class="price-battn">Đặt hàng <i class="fa fa-angle-right"></i></a>
-                            <a href="/thiet-ke-web-ban-hang-chuyen-nghiep-p901" class="price-battn">Chi tiết <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+@if (ViewData["productList"] != null)
+{
 
-            </div>
-            <div id="table3" class="tab-ct"></div>
-        </div>
-    </div>
-</section>
-<div class="container section-relative ">
-    <div class="row">
-        @*@Html.Partial("product/_MenuAndAdsPartial")*@
-        <div class="col-md-12">
-            @if (ViewData["FeatureArticle"] != null)
-            {
-                SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
-                <section class="blog-area" id="blog" style="margin-top:-70px;">
+    AnperoFrontend.WebService.SearchResult productList = (AnperoFrontend.WebService.SearchResult)ViewData["productList"];
+    if (productList.Item.Length > 0)
+    {
+        @section health{
+            <meta name="description" content="@ViewBag.Description" />
+            <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(ViewBag.Keywords)" />
+            <meta property="og:description" content="@ViewBag.Description" />
+            <meta property="og:title" content="@ViewBag.Title" />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="@ViewBag.WebsiteUrl" />
+            <meta property="og:image" content="@ViewBag.ImageUrl" />
+<link rel="canonical" href="@ViewBag.WebsiteUrl" />
+        }
+      
+        <div id="page">
+            <div class="page-heading">
+                <div class="breadcrumbs">
                     <div class="container">
                         <div class="row">
-                            <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
-                                <div class="page-title">
-                                    <h2>Cập nhật và hướng dẫn</h2>
-                                    <p>Xem thêm các cập nhật về hệ thống quản lý web bán hàng tại đây <a href="/blog" title="Thiết kế web bán hàng tốt nhất">Xem thêm tại đây</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row blog-slide">
-                            @foreach (BlogItem item in FeatureArticle.ItemList)
-                            {
-                                <div class="col-xs-12 wow fadeIn">
-                                    <div class="single-blog">
-                                        <div class="blog-photo">
-                                            <a href="@Anpero.StringHelpper.GetArticleLink(item.Title, item.Id)"><img src="@item.Thumb" alt="@item.Title"></a>
-                                            <div class="blog-date">
-                                                <h3><span>@Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</span></h3>
-                                            </div>
-                                        </div>
-                                        <h2>@Anpero.StringHelpper.SubString(30, item.Title)</h2>
-                                        <p>@Anpero.StringHelpper.SubString(50, item.ShotDesc)</p>
-                                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title, item.Id)">@Anpero.StringHelpper.SubString(30, item.Title)</a>
-                                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title, item.Id)">Chi tiết</a>
-                                    </div>
-                                </div>
-
-                            }
-                        </div>
-                    </div>
-                </section>
-            }
-            @*<div class="center_column col-xs-12 col-sm-9" id="center_column">
-
-                    @if (ViewData["productList"] != null)
-                    {
-                        AnperoFrontend.WebService.SearchResult productList = (AnperoFrontend.WebService.SearchResult)ViewData["productList"];
-                        if (productList.Item.Length > 0)
-                        {
-                            <div id="view-product-list" class="view-product-list">
-                                <h2 class="page-heading">
+                            <div class="col-xs-12">
+                                <ul>
+                                    <li class="home"> <a href="/" title="Trang chủ">Trang chủ</a> <span>—› </span> </li>
                                     @if (ViewBag.isParent != null)
                                     {
-                                        <span class="page-heading-title">@productList.Item[0].ParentCatName</span>
+                                        <li class="category1599">
+                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
+                                                @productList.Item[0].ParentCatName
+                                            </a>
+                                        </li>
                                     }
                                     else
                                     {
-                                        <span class="page-heading-title">@productList.Item[0].CatName</span>
-                                    }
-                                </h2>
-                                <ul class="row product-list grid">
-                                    @foreach (AnperoFrontend.WebService.ProductItem item in productList.Item)
-                                    {
-                                        <li class="col-sx-12 col-sm-4">
-                                            <div class="product-container">
-                                                <div class="left-block">
-                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">
-                                                        <img class="img-responsive" alt="@item.PrName" src="@item.Images" />
-                                                        @if (item.Rank > 1)
-                                                        {
-                                                            <div class="featured-text"><span>Bán chạy</span></div>
-                                                        }
-                                                    </a>
-                                                    @if (item.IsSale)
-                                                    {
-                                                        <div class="price-percent-reduction2">giảm @Anpero.StringHelpper.ConVertToMoneyFormatInt((item.Price - item.SalePrice).ToString())</div>
-                                                    }
-                                                    <div class="quick-view">
-                                                        <a title="Quick view" class="search" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)"></a>
-                                                    </div>
-                                                    <div class="add-to-cart">
-                                                        <a title="Add to Cart" href="javascript:Cart.addProduct(@item.Id,'@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)','@item.Images','@item.PrName')">thêm vào giỏ hàng</a>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">@item.PrName</a></h5>
-                                                    @if (item.Rank > 1)
-                                                    {
-                                                        <div class="product-star">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-half-o"></i>
-                                                        </div>
-                                                    }
-                                                    @if (item.IsSale)
-                                                    {
-                                                        <div class="content_price">
-                                                            <span class="price product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)</span>
-                                                            <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span>
-                                                        </div>
-                                                    }
-                                                    else
-                                                    {
-                                                        <div class="content_price">
-                                                            <span class="price product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString())</span>
-                                                        </div>
-                                                    }
-                                                    <div class="info-orther">
-                                                        <p>Item Code: # @item.Id</p>
-                                                        @if (item.IsInstock)
-                                                        {
-                                                            <p class="availability">Trạng thái: <span>Còn hàng</span></p>
-                                                        }
-                                                        else
-                                                        {
-                                                            <p class="availability">Trạng thái: <span>Hết hàng</span></p>
-                                                        }
-                                                        <div class="product-desc">
-                                                            @Html.Raw(item.ShortDesc)
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <li class="category1599">
+                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
+                                                @productList.Item[0].ParentCatName
+                                            </a>
+                                            <span>—› </span>
                                         </li>
+                                        <li class="category1601"> <strong>@productList.Item[0].CatName</strong> </li>
                                     }
                                 </ul>
-
                             </div>
-                            <div class="sortPagiBar">
-                                <div class="bottom-pagination">
-                                    <nav>
-                                        @Html.Raw(ViewBag.page)
-                                    </nav>
+                            <!--col-xs-12-->
+                        </div>
+                        <!--row-->
+                    </div>
+                    <!--container-->
+                </div>
+                <div class="page-title">
+                    <h2>Sản phẩm</h2>
+                </div>
+            </div>
+            <section class="main-container col2-left-layout bounceInUp animated">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-main col-sm-9 col-sm-push-3">
+                            <div class="pro-coloumn">
+                                <article class="col-main">
+                                    <div class="toolbar">
+                                        <div id="sort-by">
+                                            <label class="left">Sắp xếp: </label>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">Tên<span class="right-arrow"></span></a>
+                                                    <ul>
+                                                        <li><a href="javascript:Search.setOrder('nameDesc');">Tên</a></li>
+                                                        <li><a href="javascript:Search.setOrder('pricedesc');">Giá giảm dần</a></li>
+                                                        <li><a href="javascript:Search.setOrder('pricedasc');">Giá tăng dần</a></li>
+                                                        <li><a href="javascript:Search.setOrder('timeDesc');">Mới nhất</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                            <a class="button-asc left" href="#" title="Set Descending Direction"><span class="top_arrow"></span></a>
+                                        </div>
+
+                                        @if (!string.IsNullOrEmpty(ViewBag.page))
+                                        {
+                                            <div class="pager">
+                                                <div class="pages">
+                                                    <label>Trang:</label>
+                                                    @Html.Raw(ViewBag.page)
+                                                </div>
+
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="category-products">
+                                        <ol class="products-list" id="products-list">
+                                            @foreach (AnperoFrontend.WebService.ProductItem item in productList.Item)
+                                            {
+                                                if (productList.Item.First() == item)
+                                                {
+                                                    <li class="item first">
+                                                        <div class="product-image">
+                                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="@item.PrName">
+                                                                <img class="small-image" src="@item.Images" alt="@item.PrName">
+                                                            </a>
+                                                        </div>
+                                                        <div class="product-shop">
+                                                            <h2 class="product-name">
+                                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="@item.PrName">@item.PrName</a>
+                                                            </h2>
+                                                            <div class="ratings">
+                                                                <div class="rating-box">
+                                                                    <div style="width:50%" class="rating"></div>
+                                                                </div>
+                                                                <p class="rating-links"> <a href="#/review/product/list/id/167/category/35/">1 Nhận xét</a> <span class="separator">|</span> <a href="#review-form">Thêm nhận xét</a> </p>
+                                                            </div>
+                                                            <div class="desc std">
+                                                                <p>
+                                                                    @item.ShortDesc
+                                                                </p>
+                                                                <p>
+                                                                    <a class="link-learn" title="" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">Chi tiết</a>
+                                                                </p>
+                                                            </div>
+                                                            <div class="price-box">
+                                                                @if (item.IsSale)
+                                                                {
+                                                                    <p class="old-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                                                    <p class="special-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span> </p>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <p><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+
+                                                                }
+
+                                                            </div>
+                                                            <div class="actions">
+                                                                <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct(@item.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName');"><span>Mua ngay</span></button>
+                                                                <span class="add-to-links">
+                                                                    <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct3(@item.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName');"><span>Thêm vào giỏ hàng</span></button>
+
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li class="item even">
+                                                        <div class="product-image">
+                                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="@item.PrName">
+                                                                <img class="small-image" src="@item.Images" alt="@item.PrName">
+                                                            </a>
+                                                        </div>
+                                                        <div class="product-shop">
+                                                            <h2 class="product-name">
+                                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="@item.PrName">@item.PrName</a>
+                                                            </h2>
+                                                            <div class="ratings">
+                                                                <div class="rating-box">
+                                                                    <div style="width:50%" class="rating"></div>
+                                                                </div>
+                                                                <p class="rating-links"> <a href="#/review/product/list/id/167/category/35/">1 Nhận xét</a> <span class="separator">|</span> <a href="#review-form">Thêm nhận xét</a> </p>
+                                                            </div>
+                                                            <div class="desc std">
+                                                                <p>
+                                                                    @item.ShortDesc
+                                                                </p>
+                                                                <p>
+                                                                    <a class="link-learn" title="" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">Chi tiết</a>
+                                                                </p>
+                                                            </div>
+                                                            <div class="price-box">
+                                                                @if (item.IsSale)
+                                                                {
+                                                                    <p class="old-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                                                    <p class="special-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span> </p>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <p><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+
+                                                                }
+                                                            </div>
+                                                            <div class="actions">
+                                                                <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct(@item.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName');"><span>Mua ngay</span></button>
+                                                                <span class="add-to-links">
+                                                                    <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct3(@item.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName');"><span>Thêm vào giỏ hàng</span></button>
+
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                }
+                                            }
+                                        </ol>
+                                    </div>
+                                    <div class="toolbar">
+                                        <div id="sort-by">
+                                            <label class="left">Sắp xếp: </label>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">Tên<span class="right-arrow"></span></a>
+                                                    <ul>
+                                                        <li><a href="#">Tên</a></li>
+                                                        <li><a href="#">Giá</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                            <a class="button-asc left" href="#" title="Set Descending Direction"><span class="top_arrow"></span></a>
+                                        </div>
+                                        @if (!string.IsNullOrEmpty(ViewBag.page))
+                                        {
+                                            <div class="pager">
+                                                <div class="pages">
+                                                    <label>Trang:</label>
+                                                    @Html.Raw(ViewBag.page)
+                                                </div>
+                                            </div>
+                                        }
+
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                        <aside class="col-left sidebar col-sm-3 col-xs-12 col-sm-pull-9 wow bounceInUp animated">
+                            @if (ViewData["saleProduct"] != null)
+                            {
+                                AnperoFrontend.WebService.ProductItem[] saleProduct = (AnperoFrontend.WebService.ProductItem[])ViewData["saleProduct"];
+                                <div class="side-nav-categories">
+                                    <div class="block-title"> Đang khuyến mãi </div>
+                                    <div class="box-content box-category">
+                                        <ul>
+                                            @if (saleProduct != null && saleProduct.Length > 1)
+                                            {
+
+                                                foreach (var item in saleProduct)
+                                                {
+                                                    int itemPecentDow = Convert.ToInt32((item.Price - item.SalePrice) / item.Price * 100);
+                                                    <li>
+                                                        <div class="product-container">
+                                                            <div class="left-block">
+                                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">
+                                                                    <img class="img-responsive" alt="product" src="@item.Images" />
+                                                                </a>
+                                                                <div class="price-percent-reduction2">Giảm @itemPecentDow.ToString() %</div>
+                                                            </div>
+                                                            <div class="right-block">
+                                                                <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">@item.PrName</a></h5>
+                                                                <div class="show-count-down">
+                                                                    <span class="countdown-lastest" data-y="@item.SaleEndTime.Substring(0, 4)" data-m="@item.SaleEndTime.Substring(4, 2)" data-d="@item.SaleEndTime.Substring(6, 2)" data-h="0" data-i="00" data-s="10"></span>
+                                                                </div>
+                                                                <div class="price-box">
+                                                                    @if (item.IsSale)
+                                                                    {
+                                                                        <p class="old-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                                                        <p class="special-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span> </p>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <p><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                                                    }
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            }
+                            <div class="side-nav-categories">
+                                <div class="block-title"> Danh mục sản phẩm </div>
+                                <div class="box-content box-category">
+                                    <ul>
+                                        @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                                        {
+                                            foreach (var item in commonInfo.ProductCategoryList)
+                                            {
+                                                if (item.ChildCategory != null && item.ChildCategory.Length == 0)
+                                                {
+                                                    <li> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)">@item.Name‎</a> </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)">@item.Name</a> <span class="subDropdown minus"></span>
+                                                        <ul class="level0_482" style="display:block">
+                                                            @foreach (var chidItem in item.ChildCategory)
+                                                            {
+                                                                <li>
+                                                                    <a href="@Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)">
+                                                                        @chidItem.Name
+                                                                    </a>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </li>
+                                                }
+                                            }
+                                        }
+
+                                    </ul>
                                 </div>
                             </div>
 
-                        }
+                            @if (ViewData["slide3"] != null)
+                            {
+                                Ads[] slide = (Ads[])ViewData["slide3"];
+                                if (slide.Length > 0)
+                                {
+                                    <div class="custom-slider">
+                                        <div>
+                                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                                <ol class="carousel-indicators">
+                                                    @for (int i = 0; i < slide.Length; i++)
+                                                    {
+                                                        if (i == 0)
+                                                        {
+                                                            <li class="active" data-target="#carousel-example-generic" data-slide-to="0"></li>
+                                                        }
+                                                        else if (i < 3)
+                                                        {
+                                                            <li data-target="#carousel-example-generic" data-slide-to="@i" class=""></li>
+                                                        }
+                                                    }
+                                                </ol>
+                                                <div class="carousel-inner">
+                                                    @for (int i = 0; i < slide.Length; i++)
+                                                    {
 
-                    }
-                </div>*@
+                                                        if (i == 0)
+                                                        {
+                                                            <div class="item active">
+                                                                <img src="@slide[i].ImagesUrl" alt="@slide[i].Description" />
+                                                                <div class="carousel-caption">
+                                                                    @Html.Raw(slide[i].Description)
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        else if (i < 3)
+                                                        {
+                                                            <div class="item">
+                                                                <img src="@slide[i].ImagesUrl" alt="@slide[i].Description" />
+                                                                <div class="carousel-caption">
+                                                                    @Html.Raw(slide[i].Description)
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    }
+                                                </div>
+                                                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"> <span class="sr-only">Next</span> </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            <div class="block block-list block-cart">
+                                <div class="block-title"> Giỏ hàng </div>
+                                <div class="block-content">
+                                    <div class="summary">
+                                        <p class="subtotal"> <span class="label">Giá trị SP:</span> <span class="price" id="lpr"></span> </p>
+                                    </div>
+                                    <div>
+                                        <a title="Checkout" class="btn btn-link" href="/product/checkout"> <span>Gửi đơn hàng</span> </a>
+                                    </div>
+                                    <ul id="cart-sidebar2" class="mini-products-list"></ul>
+                                </div>
+                            </div>
+                            <div class="hot-banner">
+                                @if (ViewData["slide3"] != null)
+                                {
+                                    Ads[] slide = (Ads[])ViewData["slide3"];
+                                    if (slide.Length > 0)
+                                    {
+                                        <img src="@slide.LastOrDefault().ImagesUrl" alt="banner">
+                                    }
+                                }
+                            </div>
+                        </aside>
+
+                    </div>
+
+                </div>
+            </section>
+
         </div>
-    </div>
-</div>
+        <script>
+            var categoryId = @productList.Item[0].CatID;
+            var ParentCatId = @productList.Item[0].ParentId;
+        </script>
+    }
+    else
+    {
+        <script>
+            var categoryId = "";
+            var ParentCatId = "";
+        </script>
+    }
+}
+@section  scripts{
+    <script src="/assets/js/countdown/jquery.plugin.js"></script>
+    <script type="text/javascript" src="/assets/js/countdown/jquery.countdown.js"></script>
 
-@section scripts{
+    <script>
 
-    <script src="/assets/js/owl-carousel-min.js"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function () {
-            $(".tabs-list li").click(function () {
-                $(".tabs-list li").removeClass("vc_active");
-                $(this).addClass("vc_active");
-                $(this).addClass("vc_active");
-                $(".tab-ct").removeClass("active");
-                $("#" + $(this).attr("table-data")).addClass("active");
+            $('[data-countdown]').each(function () {
+                var $this = $(this), finalDate = $(this).data('countdown');
+                $this.countdown(finalDate, function (event) {
+                    var fomat = '<span>%H</span><b></b><span>%M</span><b></b><span>%S</span>';
+                    $this.html(event.strftime(fomat));
+                });
             });
-            $(".blog-slide").owlCarousel({
-                items: 3,
-                loop: true,
-                autoplay: true,
-                autoplayTimeout: 7000,
-                smartSpeed: 1000,
-                responsive: {
-                    // breakpoint from 0 up
-                    0: {
-                        items: 1,
-                    },
-                    // breakpoint from 480 up
-                    480: {
-                        items: 2,
-                    },
-                    // breakpoint from 768 up
-                    768: {
-                        items: 3,
-                    }
-                }
-            });
-        });
+            if ($('.countdown-lastest').length > 0) {
+                var labels = ['Years', 'Months', 'Weeks', 'Days', 'Hrs', 'Mins', 'Secs'];
+                var layout = '<span class="box-count"><span class="number">{dnn}</span> <span class="text">Ngày</span></span><span class="dot">:</span><span class="box-count"><span class="number">{hnn}</span> <span class="text">Giờ</span></span><span class="dot">:</span><span class="box-count"><span class="number">{mnn}</span> <span class="text">Phút</span></span><span class="dot">:</span><span class="box-count"><span class="number">{snn}</span> <span class="text">Giây</span></span>';
+                $('.countdown-lastest').each(function () {
+                    var austDay = new Date($(this).data('y'), $(this).data('m') - 1, $(this).data('d'), $(this).data('h'), $(this).data('i'), $(this).data('s'));
+                    $(this).countdown({
+                        until: austDay,
+                        labels: labels,
+                        layout: layout
+                    });
+                });
+            }
     </script>
 
-    <script src="/Scripts/Bootrap.notify.js"></script>
 }

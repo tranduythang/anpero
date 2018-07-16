@@ -37,6 +37,7 @@ namespace AnperoFrontend
                         "~/assets/css/lightbox.css",
                         "~/assets/css/animate.css",
                          "~/assets/css/style.css",
+                         "~/assets/css/ProductListStyle.css",
                         "~/assets/css/responsive.css"
            ));
             BundleTable.EnableOptimizations = true;
