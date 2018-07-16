@@ -25,12 +25,9 @@
 <link rel="canonical" href="@ViewBag.WebsiteUrl" />
         }
       
-        <div id="page">
+        <div class="container section-padding">
             <div class="page-heading">
-                <div class="breadcrumbs">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-12">
+              
                                 <ul>
                                     <li class="home"> <a href="/" title="Trang chủ">Trang chủ</a> <span>—› </span> </li>
                                     @if (ViewBag.isParent != null)
@@ -52,24 +49,19 @@
                                         <li class="category1601"> <strong>@productList.Item[0].CatName</strong> </li>
                                     }
                                 </ul>
-                            </div>
-                            <!--col-xs-12-->
-                        </div>
-                        <!--row-->
-                    </div>
-                    <!--container-->
-                </div>
-                <div class="page-title">
-                    <h2>Sản phẩm</h2>
-                </div>
+                           
             </div>
             <section class="main-container col2-left-layout bounceInUp animated">
                 <div class="container">
                     <div class="row">
                         <div class="col-main col-sm-9 col-sm-push-3">
+                           
                             <div class="pro-coloumn">
                                 <article class="col-main">
                                     <div class="toolbar">
+                                        <h2 class="page-heading">
+                                            <span class="page-heading-title2">Blog</span>
+                                        </h2>
                                         <div id="sort-by">
                                             <label class="left">Sắp xếp: </label>
                                             <ul>
@@ -113,12 +105,6 @@
                                                             <h2 class="product-name">
                                                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="@item.PrName">@item.PrName</a>
                                                             </h2>
-                                                            <div class="ratings">
-                                                                <div class="rating-box">
-                                                                    <div style="width:50%" class="rating"></div>
-                                                                </div>
-                                                                <p class="rating-links"> <a href="#/review/product/list/id/167/category/35/">1 Nhận xét</a> <span class="separator">|</span> <a href="#review-form">Thêm nhận xét</a> </p>
-                                                            </div>
                                                             <div class="desc std">
                                                                 <p>
                                                                     @item.ShortDesc
@@ -162,12 +148,7 @@
                                                             <h2 class="product-name">
                                                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="@item.PrName">@item.PrName</a>
                                                             </h2>
-                                                            <div class="ratings">
-                                                                <div class="rating-box">
-                                                                    <div style="width:50%" class="rating"></div>
-                                                                </div>
-                                                                <p class="rating-links"> <a href="#/review/product/list/id/167/category/35/">1 Nhận xét</a> <span class="separator">|</span> <a href="#review-form">Thêm nhận xét</a> </p>
-                                                            </div>
+
                                                             <div class="desc std">
                                                                 <p>
                                                                     @item.ShortDesc
