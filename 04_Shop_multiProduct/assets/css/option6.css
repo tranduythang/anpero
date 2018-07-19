@@ -44,9 +44,7 @@
   overflow: hidden;
   padding-bottom: 5px;
 }
-.latest-deals-product .product-list li:hover{
-  border: 1px solid #007176;
-}
+
 .latest-deals-product .owl-next{
   top: -40px;
 }
@@ -110,8 +108,8 @@
 [4. Header ]
 */
 .header{
-	background:rgba(43, 23, 13, 0.8);
-    background-image: url(/assets/images/headerBg.jpg);
+	
+
     background-size: cover;
     background-position: left top;
 }
@@ -128,7 +126,7 @@
 	/*background: rgba(43, 23, 13, 0.8);*/
 	font-size: 12px;
 	color: #fff;
-    background: #fcb040d9;
+    background: #50b748;
 }
 .option6 .top-header a{
 	color: #fff;
@@ -163,7 +161,8 @@
     margin-right: 40px;
     border-left: 1px solid #21940c;
     height: 41px;
-    background-color:#008000cf;
+    background-color:#50b748;
+    border-left: 1px solid #f7931d;
     color: #fff;
     
 }
@@ -183,7 +182,8 @@
 .main-header .header-search-box .form-inline .btn-search{
 	color: #fff;
 	font-size: 16px;
-	background-color:rgba(43, 23, 13, 0.8);
+	background-color:rgb(80, 183, 72);
+    border-left: 1px solid #f7931d;
 }
 .option6 .select2-container--default .select2-selection--single .select2-selection__rendered{
 	color: #fff;
@@ -197,7 +197,7 @@
 	color: #fff;
 	display: inline-block;
 	min-width: 520px;
-    background-color:#008000cf;
+    background-color:#50b748;
 }
 .option6 .main-header .header-search-box .keyword{
 	display: inline-block;
@@ -225,18 +225,10 @@
 .option6 .main-header .header-search-box .form-inline .btn-search .fa{
 	line-height: inherit;
 }
-.option6 .group-button-header .btn-cart{
-	background: url("/assets/images/icon-cart-round6.png") no-repeat center center;
-}
-.option6 .group-button-header .btn-heart{
-	  background: url("/assets/images/icon-heart-round6.png") no-repeat center center;
-}
-.option6 .group-button-header .btn-compare{
-	background: url("/assets/images/icon-compare-round6.png") no-repeat center center;
-}
+
 
 .nav-top-menu.nav-ontop{
-	background:#008000bf;
+	background:#50b748;
 	height: 51px;
 }
 .option6 .nav-top-menu.nav-ontop .navbar-right{
@@ -252,7 +244,7 @@
 
 #main-menu .navbar{
 	border-radius: 0;
-	background: #008000bf;
+	background: #50b748;
 }
 .option6 #main-menu .navbar-default .navbar-nav>li>a{
 	color: #fff;

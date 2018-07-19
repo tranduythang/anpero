@@ -46,7 +46,7 @@
     <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
     <link rel="dns-prefetch" href="https://www.facebook.com/">
     <link href='/static/css' rel='stylesheet' type='text/css'>
-    <link href="/assets/css/blue-style.css" rel="stylesheet" />
+    @*<link href="/assets/css/blue-style.css" rel="stylesheet" />*@
 </head>
 <body class="@themeOptionText">
     <div id="header" class="header">
@@ -233,7 +233,7 @@
                         </div>
                         @{
 
-                            string thisUrl = System.Web.HttpContext.Current.Request.Url.ToString();
+                            string thisUrl = Request.Url.AbsoluteUri;
                             <div class="introduce-title" style="margin-top:10px;">Chia sẻ với bạn bè</div>
                             <div class="social-link">
                                 @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
