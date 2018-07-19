@@ -12,7 +12,12 @@ namespace AnperoFrontend
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            routes.MapRoute(
+              name: "Article",
+              url: "{title}-{id}",
+              defaults: new { controller = "article", action = "index", id = UrlParameter.Optional },
+              constraints: new { id = @"\d+", title = @"[^/]+" }
+            );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
