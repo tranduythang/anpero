@@ -58,7 +58,8 @@
                 Html.RenderPartial("_partial/_MainHeader_2");
                 break;
             default:
-                Html.RenderPartial("_partial/_MainHeader_1");
+                //Html.RenderPartial("_partial/_MainHeader_1", commonInfo);
+                Html.RenderPartial("_MainHeader_1",commonInfo);
                 break;
         }
         <div id="nav-top-menu" class="nav-top-menu">
