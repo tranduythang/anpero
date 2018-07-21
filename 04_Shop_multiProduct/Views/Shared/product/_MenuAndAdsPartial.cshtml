@@ -12,9 +12,10 @@
         <div class="block left-module search">
             <p class="title_block border-b tittle-b bw">Tìm kiếm</p>
             <div class="block_content border-b featureLand bw">
-                <form action="/search" name="search" id="search" method="get">
+                <form action="/search" name="search2" id="search2" method="get" aria-label="Tìm kiếm">
                     <div class="form-group">
-                        <select class="select-category" name="category">
+                        <label for="category">Danh mục</label>
+                        <select class="form-control" name="category" id="category" aria-label="category">
                             <option value="0">Danh mục sản phẩm</option>
                             @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                             {
@@ -26,70 +27,55 @@
                                     {
                                         for (int j = 0; j < commonInfo.ProductCategoryList[i].ChildCategory.Length; j++)
                                         {
-                                            <option value="@commonInfo.ProductCategoryList[i].ChildCategory[j].Id">@Anpero.StringHelpper.SubString(20, commonInfo.ProductCategoryList[i].ChildCategory[j].Name)</option>
+                                            <option value="@commonInfo.ProductCategoryList[i].ChildCategory[j].Id">-- @Anpero.StringHelpper.SubString(20, commonInfo.ProductCategoryList[i].ChildCategory[j].Name)</option>
                                         }
                                     }
                                 }
                             }
                         </select>
                     </div>
+                    @if (commonInfo.ProductGroupList != null && commonInfo.ProductGroupList.Count() > 0)
+                    {
+                        <div class="form-group">
+                            <label>Hãng sản xuất</label>
+                            <select class="form-control" name="GroupId">
+                                <option value="">Chọn nhà cung cấp</option>
+                                @for (int i = 0; i < commonInfo.ProductGroupList.Count(); i++)
+                                {
+                                    <option value="@commonInfo.ProductGroupList[i].Id">@commonInfo.ProductGroupList[i].Name </option>
+                                }
+                            </select>
+                        </div>
+                    }
                     <div class="form-group">
-                        <select class="input form-control" name="scat" id="scat">
-                            <option value="0">Loại nhà đất</option>
-                            <option value="218" style="display:none;" class="cct cct_81">Chung cư Thanh Hà</option>
-                            <option value="306" style="display:none;" class="cct cct_81">Biệt thự Thanh Hà</option>
-                            <option value="307" style="display:none;" class="cct cct_81">Liền kề Thanh Hà</option>
-                            <option value="308" style="display:none;" class="cct cct_81">Bất động sản Ciputra</option>
-                            <option value="309" style="display:none;" class="cct cct_81">Chung cư Ngoại Giao Đoàn</option>
-                            <option value="310" style="display:none;" class="cct cct_81">Tây Hồ Tây</option>
-                            <option value="311" style="display:none;" class="cct cct_81">Chung cư Linh Đàm</option>
-                            <option value="222" style="display:none;" class="cct cct_82">Bán căn hộ chung cư</option>
-                            <option value="223" style="display:none;" class="cct cct_82">Bán nhà riêng</option>
-                            <option value="224" style="display:none;" class="cct cct_82">Bán biệt thự liền kề</option>
-                            <option value="225" style="display:none;" class="cct cct_82">Bán nhà mặt phố</option>
-                            <option value="226" style="display:none;" class="cct cct_82">Bán đất nền dự án</option>
-                            <option value="227" style="display:none;" class="cct cct_82">Bán đất</option>
-                            <option value="228" style="display:none;" class="cct cct_82">Bán trang trại nghỉ dưỡng</option>
-                            <option value="229" style="display:none;" class="cct cct_82">Bán kho, nhà xưởng</option>
-                            <option value="230" style="display:none;" class="cct cct_82">Bán nhà đất khác</option>
-                            <option value="231" style="display:none;" class="cct cct_83">Cho thuê căn hộ chung cư</option>
-                            <option value="232" style="display:none;" class="cct cct_83">Cho thuê nhà riêng</option>
-                            <option value="233" style="display:none;" class="cct cct_83">Cho thuê biệt thự liền kề</option>
-                            <option value="234" style="display:none;" class="cct cct_83">Cho thuê nhà mặt phố</option>
-                            <option value="235" style="display:none;" class="cct cct_83">Cho thuê kho nhà xưởng</option>
-                            <option value="236" style="display:none;" class="cct cct_83">Cho thuê nhà trọ</option>
-                            <option value="237" style="display:none;" class="cct cct_83">Cho thuê văn phòng</option>
+                        <label>Sắp xếp</label>
+                        <select class="form-control" name="SortBy">
+                            <option value="pricedesc">Giá tăng dần</option>
+                            <option value="pricedasc">Giá giảm dần</option>
+                            <option value="timeDesc">Mới nhất</option>
                         </select>
-                        </div>
-                        <select class="input form-control" id="country" name="province"><option value="0">Tỉnh / thành phố</option><option value="1">Hồ Chí Minh</option><option value="2">Hà Nội</option><option value="4">Đà Nẵng</option><option value="5">Bình Dương</option><option value="6">Đồng Nai</option><option value="7">Khánh Hòa</option><option value="8">Hải Phòng</option><option value="9">Long An</option><option value="10">Quảng Nam</option><option value="11">Bà Rịa Vũng Tàu</option><option value="12">Đắk Lắk</option><option value="13">Cần Thơ</option><option value="14">Bình Thuận</option><option value="15">Lâm Đồng</option><option value="16">Thừa Thiên Huế</option><option value="17">Kiên Giang</option><option value="18">Bắc Ninh</option><option value="19">Quảng Ninh</option><option value="20">Thanh Hóa</option><option value="21">Nghệ An</option><option value="22">Hải Dương</option><option value="23">Gia Lai</option><option value="24">Bình Phước</option><option value="25">Hưng Yên</option><option value="26">Bình Định</option><option value="27">Tiền Giang</option><option value="28">Thái Bình</option><option value="29">Bắc Giang</option><option value="30">Hòa Bình</option><option value="31">An Giang</option><option value="32">Vĩnh Phúc</option><option value="33">Tây Ninh</option><option value="34">Thái Nguyên</option><option value="35">Lào Cai</option><option value="36">Nam Định</option><option value="37">Quảng Ngãi</option><option value="38">Bến Tre</option><option value="39">Đắk Nông</option><option value="40">Cà Mau</option><option value="41">Vĩnh Long</option><option value="42">Ninh Bình</option><option value="43">Phú Thọ</option><option value="44">Ninh Thuận</option><option value="45">Phú Yên</option><option value="46">Hà Nam</option><option value="47">Hà Tĩnh</option><option value="48">Đồng Tháp</option><option value="49">Sóc Trăng</option><option value="50">Kon Tum</option><option value="51">Quảng Bình</option><option value="52">Quảng Trị</option><option value="53">Trà Vinh</option><option value="54">Hậu Giang</option><option value="55">Sơn La</option><option value="56">Bạc Liêu</option><option value="57">Yên Bái</option><option value="58">Tuyên Quang</option><option value="59">Điện Biên</option><option value="60">Lai Châu</option><option value="61">Lạng Sơn</option><option value="62">Hà Giang</option><option value="63">Bắc Kạn</option><option value="64">Cao Bằng</option></select>
-                        <select class="input form-control" id="prov" name="district">
-                            <option value="0">Quận huyện</option>
+                    </div>
+                    <div class="form-group">
+                        <label>Khoảng giá</label>
+                        <select class="form-control" name="priceRank">
+                            <option value="">Tất cả khoảng giá</option>
+                            <option value="1000000-3000000">1 - 3 triệu</option>
+                            <option value="3000000-7000000">3 - 7 triệu</option>
+                            <option value="7000000-10000000">7- 10 triệu</option>
+                            <option value="10000000-15000000">10 -15 triệu</option>
                         </select>
-                        <select class="input form-control" name="priceRank">
-                            <option value="0">Mức giá</option>
-                            <option value="0">Giá thỏa thuận</option>
-                            <option value="2">5-10 triệu</option>
-                            <option value="3">30-40 triệu</option>
-                            <option value="6">1 đến 2 tỷ</option>
-                            <option value="7">2 đến 3 tỷ</option>
-                            <option value="8">3 đến 5 tỷ</option>
-                            <option value="9">5 đến 7 tỷ</option>
-                            <option value="10">7 đến 10 tỷ</option>
-                            <option value="11">10 đến 20 tỷ</option>
-                            <option value="12">20 đến 30 tỷ</option>
-                        </select>
-                        <div class="form-action">
-                            <button class="btn btn-primary form-control btn-search" type="submit">Tìm kiếm</button>
-                        </div>
+                    </div>
+                    <div class="form-action">
+                        <button class="btn btn-default form-control btn-search" type="submit">Tìm kiếm</button>
+                    </div>
 
-</form>
+                </form>
             </div>
         </div>
         <p class="title_block">Danh mục sản phẩm</p>
         <div class="block_content">
-            @if (ViewData["commonInfo"] != null)
+            @if (commonInfo != null)
             {
-                AnperoFrontend.WebService.Webconfig commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
                 <div class="layered layered-category">
                     <div class="layered-content">
                         <ul class="tree-menu">
@@ -404,9 +390,9 @@
                 <div class="banner-opacity sm-banner">
                     <a href="#"><img src="/assets/images/275px.jpg" alt="ads1"></a>
                 </div>
-                    <div class="banner-opacity sm-banner">
-                        <a href="#"><img src="/assets/images/275px.jpg" alt="ads1"></a>
-                    </div>
+                <div class="banner-opacity sm-banner">
+                    <a href="#"><img src="/assets/images/275px.jpg" alt="ads1"></a>
+                </div>
 
             }
 

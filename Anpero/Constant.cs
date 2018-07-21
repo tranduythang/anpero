@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Anpero.Constant
 {
-    public abstract class WebContentType
+    public static class WebContentType
     {
         public const int About = 1;
         public const int ShippingPolicy = 2;
@@ -16,7 +16,7 @@ namespace Anpero.Constant
         public const int Payment = 6;
 
     }
-    public abstract class WebContentTitle
+    public static class WebContentTitle
     {
         public const string About = "Về chúng tôi";
         public const string ShippingPolicy = "Chính sách vận chuyển";
@@ -52,4 +52,5 @@ namespace Anpero.Constant
 
         }
     }
+    
 }
