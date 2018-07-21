@@ -97,6 +97,7 @@ namespace AnperoFrontend.Controllers
         public ActionResult Search(SearchModel model)
         {
             model.StoreId = StoreID;
+            model.PageSize = 14;
             string pageQuery = Request.QueryString["page"];
             WebService.SearchResult rs;
             int page = 1;
@@ -108,12 +109,12 @@ namespace AnperoFrontend.Controllers
             if (!string.IsNullOrEmpty(model.Category) && model.Category.Contains(@"c-"))
             {
                 model.Category = model.Category.Replace(@"c-", string.Empty);                
-                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), "%", model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, SearchOrder.NameDesc, 0);
+                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), "%", model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
 
             }
             else
             {
-                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), "", model.GroupId, model.PriceFrom, model.PriceTo, model.PageSize, model.Page, model.KeyWord, SearchOrder.NameDesc, 0);
+                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), "", model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
             }
            
             ViewData["productList"] = rs;
@@ -141,8 +142,8 @@ namespace AnperoFrontend.Controllers
             WebService.AnperoService sv = new WebService.AnperoService();
             if (!string.IsNullOrEmpty(model.Category) && model.Category.Contains(@"c-"))
             {
-                model.Category = model.Category.Replace(@"c-", string.Empty);
-                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), "%", model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, SearchOrder.NameDesc, 0);
+                string parentCat = model.Category.Replace(@"c-", string.Empty);
+                rs = sv.SearchProduct(StoreID, TokenKey,"", parentCat, model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, SearchOrder.NameDesc, 0);
 
             }
             else
@@ -155,7 +156,7 @@ namespace AnperoFrontend.Controllers
             {
                 ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
             }
-            return PartialView("PartiarSerch");
+            return PartialView("SearchAjax");
         }
         [BuildCommonHtml]
         public ActionResult Checkout()

@@ -120,7 +120,7 @@
             else
             {
                 @Html.Partial("product/_MenuAndAdsPartial")
-                <div class="center_column col-xs-12 col-sm-9" id="center_column">
+                <div class="center_column col-xs-12 col-sm-9" >
                     <!-- view-product-list-->
                     @if (ViewData["productList"] != null)
                 {
@@ -129,16 +129,8 @@
                     {
                             <div id="view-product-list" class="view-product-list">
 
-                                <h2 class="page-heading">
-                                    @if (ViewBag.isParent != null)
-                                    {
-                                        <span class="page-heading-title">@productList.Item[0].ParentCatName</span>
-                                    }
-                                    else
-                                    {
-                                        <span class="page-heading-title">@productList.Item[0].CatName</span>
-                                    }
-
+                                <h2 class="page-heading">                                    
+                                    <span class="page-heading-title">@ViewBag.Title</span>
                                 </h2>
                                 <ul class="display-product-option">
                                     <li class="view-as-grid selected">
@@ -148,7 +140,7 @@
                                         <span>list</span>
                                     </li>
                                 </ul>
-                                <ul class="row product-list grid">
+                                <ul class="row product-list grid" id="prListContent">
                                     @foreach (AnperoFrontend.WebService.ProductItem item in productList.Item)
                                     {
                                         <li class="col-sx-12 col-sm-4">
@@ -238,7 +230,9 @@
 </div>
 
 @section scripts{
-
+<script>
+    Search.Init();
+    </script>
 <script src="/assets/lib/countdown/jquery.plugin.js"></script>
     <script src="/assets/lib/countdown/jquery.countdown.js"></script>
 <script src="/assets/lib/countdown/jquery.countdown-vi.js"></script>

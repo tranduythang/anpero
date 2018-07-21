@@ -32,3 +32,31 @@
     }
 
 }
+var Search = {
+    Data: {},
+    GetData: function () {
+        
+        this.Data.Category = $("#search2 select[name='category']").val();
+        this.Data.GroupId = $("#search2 select[name='GroupId']").val();
+        this.Data.SortBy = $("#search2 select[name='SortBy']").val();
+        this.Data.priceRank = $("#search2 select[name='priceRank']").val();
+       return this.Data;
+    },
+    Sunmit: function () {
+        $.ajax({
+            url: "/product/searchAjax",
+            data: Search.GetData(),
+            success: function (rs) {
+                $("#prListContent").html(rs);
+                
+            }
+
+
+        });
+    },
+    Init: function () {
+        $("form input,form select").change(function () {
+            Search.Sunmit();
+        });
+    }
+}
