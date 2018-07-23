@@ -19,6 +19,7 @@
             break;
     }
 }
+@using AnperoFrontend.WebService;
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,7 +60,7 @@
                 break;
             default:
                 Html.RenderPartial("_partial/_MainHeader_1");
-                
+
                 break;
         }
         <div id="nav-top-menu" class="nav-top-menu">
@@ -194,13 +195,13 @@
                     <li><a href="javascript:void(0);"><img src="/assets/data/nganluong.png" alt="Ngân lượng"></a></li>
                     <li><a href="javascript:void(0);"><img src="/assets/data/Techcombank_logo.jpg" alt="Techcombank"></a></li>
                     <li><a href="javascript:void(0);"><img src="/assets/data/trademark-wu.jpg" alt="ups"></a></li>
-                    <li><a href="javascript:void(0);"><img src="/assets/data/trademark-cn.jpg" alt="ups"></a></li>
+                    <li><a href="javascript:void(0);"><img src="~/assets/data/vib.jpg" alt="vib bank"></a></li>
                     <li><a href="javascript:void(0);"><img src="/assets/data/trademark-visa.jpg" alt="ups"></a></li>
                     <li><a href="javascript:void(0);"><img src="/assets/data/trademark-mc.jpg" alt="ups"></a></li>
                     <li><a href="javascript:void(0);"><img src="/assets/data/trademark-ems.jpg" alt="ups"></a></li>
                     <li><a href="javascript:void(0);"><img src="/assets/data/trademark-dhl.jpg" alt="ups"></a></li>
                     <li><a href="javascript:void(0);"><img src="/assets/data/trademark-fe.jpg" alt="ups"></a></li>
-                    <li><a href="javascript:void(0);"><img src="/assets/data/trademark-wm.jpg" alt="ups"></a></li>
+
                 </ul>
             </div>
         </div>
@@ -212,7 +213,7 @@
 
             <div id="introduce-box" class="row">
                 <div class="col-md-4">
-                    
+
                     <div class="address-box">
 
                         <a href="/"><img src="@commonInfo.Logo" alt="logo"></a>
@@ -228,7 +229,7 @@
                             @if (!string.IsNullOrEmpty(commonInfo.Skype))
                             {
                                 <div class="tit-name">Skype:</div>
-                                    <div class="tit-contain"><a href="skype:@commonInfo.Skype?call"></a> @commonInfo.Skype</div>
+                                <div class="tit-contain"><a href="skype:@commonInfo.Skype?call"></a> @commonInfo.Skype</div>
                             }
 
                         </div>
@@ -279,25 +280,39 @@
 
                                 </div>*@
                             @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
-                                {
-                            <ul id="introduce-company" class="introduce-list">
-                                @foreach (var item in commonInfo.ProductCategoryList)
-                                        {
+                            {
+                                <ul id="introduce-company" class="introduce-list">
+                                    @foreach (var item in commonInfo.ProductCategoryList)
+                                    {
                                         <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
-                                        }
+                                    }
 
-                            </ul>
-                                }
+                                </ul>
+                            }
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div id="contact-box" style="text-align: right;">
-                        @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                        @if (ViewData["AdsSlide3"] != null)
                         {
-                            <div class="fb-page" data-tabs="messages" data-href="@Html.Raw(commonInfo.FaceBookLink)" data-width="500" data-height="300" data-hide-cover="false"></div>
+                            Ads[] slide = (Ads[])ViewData["AdsSlide3"];
+                            if (slide.Length > 0)
+                            {
+                                <ul id="contenhomeslider">
+                                    @foreach (var item in slide)
+                                    {
+                                        <li><a href="@item.ClickUrl"><img alt="@item.Description" src="@item.ImagesUrl" title="@item.Description" /></a></li>
+                                    }
+                                </ul>
+                            }
+
                         }
+                        @*@if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                            {
+                                <div class="fb-page" data-tabs="messages" data-href="@Html.Raw(commonInfo.FaceBookLink)" data-width="500" data-height="300" data-hide-cover="false"></div>
+                            }*@
                     </div>
                 </div>
             </div>
@@ -318,7 +333,7 @@
                         <li><a title="Hướng dẫn thanh toán" href="/PaymentInfo">Hướng dẫn thanh toán</a></li>
                         <li><a href="/blog">Tin tức</a></li>
                         <li><a href="/#contact">Liên hệ</a></li>
-                        
+
                     </ul>
                 </div>
                 <p class="text-center">Copyrights © 2017 @commonInfo.Name. All Rights Reserved. Designed by <a href="http://anpero.com" title="thiết kế web bán hàng anpero">Anpero.com</a></p>

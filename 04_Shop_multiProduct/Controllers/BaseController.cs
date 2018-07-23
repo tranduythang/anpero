@@ -78,24 +78,37 @@ namespace AnperoFrontend.Controllers
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
+            WebService.AnperoService service = new WebService.AnperoService();
             if (HttpRuntime.Cache["commonInfo"] != null)
             {                
                 Webconfig rs= (Webconfig)HttpRuntime.Cache["commonInfo"];
-              //  filterContext.Controller.ViewBag.Title = rs.Name;
                 filterContext.Controller.ViewData["commonInfo"] = rs;
             }
             else
             {
-                WebService.AnperoService service = new WebService.AnperoService();
                 Webconfig rs = service.GetCommonConfig(CommonConfig.StoreID, CommonConfig.TokenKey);
-               // filterContext.Controller.ViewBag.Title = rs.Name;
                 filterContext.Controller.ViewData["commonInfo"] = rs;
                 if (rs != null)
                 {
                     HttpRuntime.Cache.Insert("commonInfo", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
             }
-          
+            
+            WebService.Ads[] AdsSlide3 = null;
+            if (HttpRuntime.Cache["AdsSlide3"] != null)
+            {
+                filterContext.Controller.ViewData["AdsSlide3"] = (WebService.Ads[])HttpRuntime.Cache["AdsSlide3"];
+            }
+            else
+            {
+                AdsSlide3 = service.GetAdsSlide(CommonConfig.StoreID, CommonConfig.TokenKey, PageContent.Ads3);
+                filterContext.Controller.ViewData["AdsSlide3"] = AdsSlide3;
+                if (AdsSlide3 != null)
+                {
+                    HttpRuntime.Cache.Insert("AdsSlide3", AdsSlide3, null, DateTime.Now.AddMinutes(shortCacheTime + 1), TimeSpan.Zero);
+                }
+            }
+
 
         }
     }

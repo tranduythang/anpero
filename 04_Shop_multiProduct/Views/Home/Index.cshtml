@@ -13,8 +13,10 @@
 }
 <div class="container">
     <div class="lct">
-        @Html.Partial("product/_MenuAndAdsPartial")
-    </div>
+        <div class="column col-xs-12 col-sm-3" id="left_column">
+            @Html.Partial("product/_MenuAndAdsPartial")
+            </div>
+        </div>
     <div class="col-md-9">
         @if (!Request.Browser.IsMobileDevice)
         {

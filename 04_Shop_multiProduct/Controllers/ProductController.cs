@@ -143,18 +143,18 @@ namespace AnperoFrontend.Controllers
             if (!string.IsNullOrEmpty(model.Category) && model.Category.Contains(@"c-"))
             {
                 string parentCat = model.Category.Replace(@"c-", string.Empty);
-                rs = sv.SearchProduct(StoreID, TokenKey,"", parentCat, model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, SearchOrder.NameDesc, 0);
+                rs = sv.SearchProduct(StoreID, TokenKey,"", parentCat, model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
 
             }
             else
             {
-                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), "", model.GroupId, model.PriceFrom, model.PriceTo, model.PageSize, model.Page, model.KeyWord, SearchOrder.NameDesc, 0);
+                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), "", model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
             }
 
             ViewData["productList"] = rs;
             if (rs != null)
             {
-                ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+                ViewBag.page = Anpero.Paging.setUpPagedV2(model.Page,model.PageSize, rs.ResultCount, 10, "?page=");
             }
             return PartialView("SearchAjax");
         }

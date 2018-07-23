@@ -71,7 +71,7 @@ namespace AnperoFrontend.Models
             PriceFrom = 0;
             PriceTo = 9999999;
             CurentPage = 1;
-            PageSize = 15;
+            PageSize = 18;
             GroupId = "";
         }
 
