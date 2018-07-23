@@ -190,7 +190,7 @@
                                         <h2>Sản phẩm liên quan</h2>
                                     </div>
                                     <div id="related-slider" class="product-flexslider hidden-buttons">
-                                        <div class="slider-items slider-width-col4 products-grid owl-carousel owl-theme">
+                                        <div class="slider-items slider-width-col4 products-grid">
                                             @if (ViewData["relateProduct"] != null)
                                             {
                                                 AnperoFrontend.WebService.SearchResult relateProduct = (AnperoFrontend.WebService.SearchResult)ViewData["relateProduct"];
@@ -200,7 +200,7 @@
                                                     {
                                                         <div class="item">
                                                             <div class="item-inner">
-                                                                <div class="item-img relatepr-img">
+                                                                <div class="item-img">
                                                                     <div class="item-img-info">
                                                                         <a href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName" class="product-image">
                                                                             <img src="@items.Images" alt="@items.PrName">
@@ -225,7 +225,7 @@
                                                                         </div>
                                                                         <div class="item-content">
                                                                             <div class="item-price">
-                                                                                <div class="price-box"><span class="regular-price"><span class="price">@(items.Price == 0 ? "Liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price) + " đ") </span> </span> </div>
+                                                                                <div class="price-box"><span class="regular-price"><span class="price">@(items.Price == 0 ? "Liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? items.SalePrice : items.Price) + " đ") </span> </span> </div>
 
                                                                             </div>
                                                                             <div class="add_cart">
@@ -255,8 +255,11 @@
         <script type="text/javascript" src="~/assets/js/cloud-zoom.js"></script>
         <script>
             $(document).ready(function () {
-                $("#paymentTab").click(function () {
-                    
+                $(window).resize(function () { 
+                    resizeVideo(); 
+                }); 
+               
+                $("#paymentTab").click(function () {                    
                     $.ajax({
                         type: "post",
                         url: "/home/PolicyAjax",
@@ -267,6 +270,14 @@
                     });
                 });
             });
+            function resizeVideo() { 
+                var contentW = $('#product_tabs_description').width(); 
+                var iframe = $('#product_tabs_description iframe'); 
+                var iframeW = iframe.css('width', contentW - 20); 
+                iframe.css('width', iframeW); 
+                var iframeH = contentW / 16 * 9; 
+                iframe.css('height', iframeH); 
+            }
         </script>
     }
 }
