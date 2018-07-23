@@ -164,26 +164,30 @@ img.alignright{
 .banner-boder-zoom{
   position: relative;
   overflow: hidden;
+
 }
-.banner-boder-zoom a:before{
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  content: "";
-  display: block;
-  z-index: 10;
-  background-color: rgba(0, 0, 0, 0.2);
-  background: rgba(0, 0, 0, 0.2);
-  color: rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
-}
+    .banner-boder-zoom img{
+        margin-bottom:5px;
+    }
+    .banner-boder-zoom a:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: "";
+        display: block;
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0.2);
+        background: rgba(0, 0, 0, 0.2);
+        color: rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        transition: all 1s ease;
+    }
 .banner-boder-zoom a:after{
   position: absolute;
   top: 10px;
@@ -5213,4 +5217,7 @@ span.notify-right{
 .tree-menu>li .txt{padding:0 10px;}
  .tree-menu > li > ul {
 display:none;
+}
+.vendor-list img {
+    margin: 3px -5px 5px -5px;
 }

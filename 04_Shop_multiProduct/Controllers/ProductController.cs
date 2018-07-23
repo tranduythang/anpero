@@ -12,6 +12,7 @@ namespace AnperoFrontend.Controllers
     {
 
         // GET: Product
+        [BunderHtml]
         [BuildCommonHtml]
         public ActionResult Index(int id)
         {
@@ -50,6 +51,7 @@ namespace AnperoFrontend.Controllers
             return View("Category");
         }
         [BuildCommonHtml]
+        [BunderHtml]
         public ActionResult Category(int id)
         {
             string pageQuery = Request.QueryString["page"];
@@ -73,6 +75,7 @@ namespace AnperoFrontend.Controllers
         }
        
         [BuildCommonHtml]
+        [BunderHtml]
         public ActionResult ParentCategory(int id)
         {
             string pageQuery = Request.QueryString["page"];
