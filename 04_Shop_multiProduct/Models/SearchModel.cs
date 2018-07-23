@@ -48,7 +48,12 @@ namespace AnperoFrontend.Models
                     catch (Exception)
                     {
                     }
-                    
+
+                }
+                else
+                {
+                    PriceFrom =0;
+                    PriceTo = 999999999;
                 }
                 priceRank = value;
             }
@@ -64,9 +69,10 @@ namespace AnperoFrontend.Models
             KeyWord = string.Empty;
             Category = "%";
             PriceFrom = 0;
-            PriceTo = 99999999;
+            PriceTo = 9999999;
             CurentPage = 1;
             PageSize = 15;
+            GroupId = "";
         }
 
     }

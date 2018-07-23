@@ -9,69 +9,7 @@
 }
 <div class="column col-xs-12 col-sm-3" id="left_column">
     <div class="block left-module">
-        <div class="block left-module search">
-            <p class="title_block border-b tittle-b bw">Tìm kiếm</p>
-            <div class="block_content border-b featureLand bw">
-                <form action="/search" name="search2" id="search2" method="get" aria-label="Tìm kiếm">
-                    <div class="form-group">
-                        <label for="category">Danh mục</label>
-                        <select class="form-control" name="category" id="category" aria-label="category">
-                            <option value="0">Danh mục sản phẩm</option>
-                            @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
-                            {
-                                for (int i = 0; i < commonInfo.ProductCategoryList.Length; i++)
-                                {
-
-                                    <option value="c-@commonInfo.ProductCategoryList[i].Id">@commonInfo.ProductCategoryList[i].Name</option>
-                                    if (commonInfo.ProductCategoryList[i].ChildCategory != null && commonInfo.ProductCategoryList[i].ChildCategory.Length > 0)
-                                    {
-                                        for (int j = 0; j < commonInfo.ProductCategoryList[i].ChildCategory.Length; j++)
-                                        {
-                                            <option value="@commonInfo.ProductCategoryList[i].ChildCategory[j].Id">-- @Anpero.StringHelpper.SubString(20, commonInfo.ProductCategoryList[i].ChildCategory[j].Name)</option>
-                                        }
-                                    }
-                                }
-                            }
-                        </select>
-                    </div>
-                    @if (commonInfo.ProductGroupList != null && commonInfo.ProductGroupList.Count() > 0)
-                    {
-                        <div class="form-group">
-                            <label>Hãng sản xuất</label>
-                            <select class="form-control" name="GroupId">
-                                <option value="">Chọn nhà cung cấp</option>
-                                @for (int i = 0; i < commonInfo.ProductGroupList.Count(); i++)
-                                {
-                                    <option value="@commonInfo.ProductGroupList[i].Id">@commonInfo.ProductGroupList[i].Name </option>
-                                }
-                            </select>
-                        </div>
-                    }
-                    <div class="form-group">
-                        <label>Sắp xếp</label>
-                        <select class="form-control" name="SortBy">
-                            <option value="pricedesc">Giá tăng dần</option>
-                            <option value="pricedasc">Giá giảm dần</option>
-                            <option value="timeDesc">Mới nhất</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Khoảng giá</label>
-                        <select class="form-control" name="priceRank">
-                            <option value="">Tất cả khoảng giá</option>
-                            <option value="1000000-3000000">1 - 3 triệu</option>
-                            <option value="3000000-7000000">3 - 7 triệu</option>
-                            <option value="7000000-10000000">7- 10 triệu</option>
-                            <option value="10000000-15000000">10 -15 triệu</option>
-                        </select>
-                    </div>
-                    <div class="form-action">
-                        <button class="btn btn-success form-control btn-search" type="submit">Tìm kiếm</button>
-                    </div>
-
-                </form>
-            </div>
-        </div>
+     
         <p class="title_block">Danh mục sản phẩm</p>
         <div class="block_content">
             @if (commonInfo != null)
