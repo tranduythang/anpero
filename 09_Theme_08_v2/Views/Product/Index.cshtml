@@ -78,12 +78,12 @@
                                         <div class="product-name">
                                             <h1 itemprop="name">@item.PrName</h1>
                                         </div>
-                                        @if (!string.IsNullOrEmpty(item.Tag))
+                                        @*@if (!string.IsNullOrEmpty(item.Tag))
                                         {
                                             <div class="product-name">
-                                                <h2 itemprop="name">@item.Tag</h2>
+                                                <h3 itemprop="name">@item.Tag</h3>
                                             </div>
-                                        }
+                                        }*@
 
                                         @*<span itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
 
@@ -121,10 +121,10 @@
                                             }
 
                                         </div>
-                                        @*<div class="short-description">
-                                                <h2>Mô tả ngắn</h2>
+                                        <div class="short-description">
+                                                @*<h2>Mô tả ngắn</h2>*@
                                                 <p>@Html.Raw(item.ShortDesc)</p>
-                                            </div>*@
+                                            </div>
                                         <div class="add-to-box">
                                             <div class="add-to-cart">
                                                 <div class="pull-left">
@@ -255,6 +255,7 @@
         <script type="text/javascript" src="~/assets/js/cloud-zoom.js"></script>
         <script>
             $(document).ready(function () {
+                resizeVideo(); 
                 $(window).resize(function () { 
                     resizeVideo(); 
                 }); 
