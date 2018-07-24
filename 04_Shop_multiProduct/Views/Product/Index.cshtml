@@ -17,18 +17,19 @@
                 @if (Request.Browser.IsMobileDevice)
                 {
                 
-                    @Html.Partial("product/_productDetail")                
-                    @Html.Partial("product/_MenuAndAdsPartial")
+                    @Html.Partial("product/_productDetail")
+                    <div class="column col-xs-12 col-sm-3" id="left_column">
+                        @Html.Partial("product/_MenuAndAdsPartial")
+                        </div>
                 }
                 else
                 {
-                    @Html.Partial("product/_MenuAndAdsPartial")
-                    @Html.Partial("product/_productDetail")
-                }
-
-            </div>
-            
-
+                    <div class="column col-xs-12 col-sm-3" id="left_column">
+                        @Html.Partial("product/_MenuAndAdsPartial")
+                        </div>
+                        @Html.Partial("product/_productDetail")
+                        }
+                    </div>
 
         </div>
     </div>
