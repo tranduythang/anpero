@@ -1,4 +1,4 @@
- 
+﻿ 
 /* Google Fonts
 =================*/
 
@@ -1553,4 +1553,92 @@ a{color:black;}
     float: left;
     background: #FFF;
     margin-top: 20px;
+}
+.tree-menu > li a:before {
+    content: '\f10c';
+    font-family: FontAwesome;
+    font-size: 5px;
+    padding-right: 6px;
+    color: rgb(153, 153, 153);
+    vertical-align: middle;
+}
+.toolbar {
+    clear: both;
+    margin-top: 0px;
+    padding: 20px 25px;
+    display: inline-block;
+    width: 100%;
+    padding-top: 0px;
+    border-bottom: #ececec double;
+}
+#sort-by {
+    float: right;
+    font-size: 12px;
+}
+.pager .limiter label, .toolbar label {
+    display: inline;
+    float: left;
+    margin-right: 10px;
+    padding: 5px 0;
+    font-size: 11px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+#sort-by ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline;
+}
+.toolbar .pager {
+    text-align: left;
+    margin: 0 10px 0 0;
+    padding: 0;
+    float: left;
+    width: 45%;
+}
+.toolbar .pager .pages {
+    float: left;
+}
+#sort-by li {
+    background: none repeat scroll 0 0 #fff;
+    cursor: pointer;
+    margin: 0 auto;
+    outline: medium none;
+    padding: 5px 15px;
+    position: relative;
+    width: 150px;
+    float: left;
+    color: #333;
+    border: 1px solid #ddd;
+}
+    #sort-by li:hover > ul {
+        visibility: visible;
+    }
+    #sort-by li li:hover {
+        background-color: #fff;
+        color: #ed6663;
+    }
+.pages .pagination {
+    margin: auto;
+}
+.pager .pages li {
+    display: inline-block;
+}
+    .pager .pages li a {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        padding: 5px 10px;
+        border-radius: 0px;
+        color: #333;
+        background: #fff;
+    }
+.pages .pagination > .active > a, .pages .pagination > .active > span, .pages .pagination > .active > a:hover, .pages .pagination > .active > span:hover, .pages .pagination > .active > a:focus, .pages .pagination > .active > span:focus {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #88be4c;
+    border-color: #88be4c;
+    border-radius: 0px;
+    border-width: 1px;
 }

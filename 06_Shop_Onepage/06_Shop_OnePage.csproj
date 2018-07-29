@@ -22,6 +22,7 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -214,6 +215,16 @@
     <Content Include="assets\js\ajaxchimp.js" />
     <Content Include="assets\js\bootstrap-min.js" />
     <Content Include="assets\js\contact-form.js" />
+    <Content Include="assets\js\countdown\countdownBasic.html" />
+    <Content Include="assets\js\countdown\countdownGlowing.gif" />
+    <Content Include="assets\js\countdown\countdownLED.png" />
+    <Content Include="assets\js\countdown\jquery.countdown-es.js" />
+    <Content Include="assets\js\countdown\jquery.countdown-vi.js" />
+    <Content Include="assets\js\countdown\jquery.countdown.css" />
+    <Content Include="assets\js\countdown\jquery.countdown.js" />
+    <Content Include="assets\js\countdown\jquery.countdown.min.js" />
+    <Content Include="assets\js\countdown\jquery.plugin.js" />
+    <Content Include="assets\js\countdown\jquery.plugin.min.js" />
     <Content Include="assets\js\lightbox.js" />
     <Content Include="assets\js\main.js" />
     <Content Include="assets\js\maps.js" />
