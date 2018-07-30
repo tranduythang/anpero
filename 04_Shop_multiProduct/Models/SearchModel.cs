@@ -53,7 +53,7 @@ namespace AnperoFrontend.Models
                 else
                 {
                     PriceFrom =0;
-                    PriceTo = 999999999;
+                    PriceTo = 99999999;
                 }
                 priceRank = value;
             }
@@ -69,7 +69,7 @@ namespace AnperoFrontend.Models
             KeyWord = string.Empty;
             Category = "%";
             PriceFrom = 0;
-            PriceTo = 9999999;
+            PriceTo = 99999999;
             CurentPage = 1;
             PageSize = 18;
             GroupId = "";
