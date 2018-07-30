@@ -177,47 +177,6 @@
         </div>
     </section>
 }
-<section class="portfolio-area padding-top gray-bg" id="images">
-    <div class="container">
-        <div class="row">
-            <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
-                <div class="page-title">
-                    <h2>Giao diện</h2>
-                    <p>Giao diện quản trị dễ dùng, quản trị tất cả các web chỉ trong một trang duy nhất. Các giao diện có sẵn của web bán hàng đều thích nghi với điện thoại di động và các trình duyệt. </p>
-                    <div class="filter-menu filter-options">
-                        <ul>
-                            <li class="filter active" data-filter="all">All</li>
-                            <li class="filter" data-filter=".admin">Admin</li>
-                            <li class="filter" data-filter=".fe">Giao diện web bán hàng</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-items fix">
-        @if (ViewData["slide1"] != null)
-        {
-            Ads[] slide = (Ads[])ViewData["slide1"];
-            if (slide.Length > 0)
-            {
-                for (int i = 0; i < slide.Length; i++)
-                {
-                    <div class="single-portfolio mix @slide[i].Description wow fadeIn">
-                        <img src="@slide[i].ImagesUrl" alt="pet">
-                        <div class="portfolio-zoom-icon">
-                            <a href="@slide[i].ClickUrl" data-lightbox="roadtrip">
-                                <i class="fa fa-search-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                }
-            }
-        }
-    
-       
-    </div>
-</section>
 
 @Html.Partial("_partial/_contact")
 @section scripts{
