@@ -134,7 +134,7 @@
                 htmlCat += '<span>' + Util.toMoneyFormat(parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity)) + ' đ</span>';
                 htmlCat += '</td>';
                 htmlCat += '<td class="action">';
-                htmlCat += '<a href="javascript:Cart.remove2(' + Cart.list[i].id + ')" class="remove_link"></a>';
+                htmlCat += '<a href="javascript:Cart.remove2(' + Cart.list[i].id + ')" class="remove_link"><i class="fa fa-trash-o"></i></a>';
                 htmlCat += '</td>';
                 htmlCat += '</tr>';
 

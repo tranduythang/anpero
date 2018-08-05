@@ -12,15 +12,8 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-7">
                     <div class="contact-number">
-                        <a href="http://admin.anpero.com" title="quản trị web bán hàng">Trang quản trị |</a>
-                        @if (!string.IsNullOrEmpty(commonInfo.HotLine))
-                        {
-                            <a href="tel:@commonInfo.HotLine"><span><i class="fa fa-phone"></i></span>@commonInfo.HotLine</a>
-                        }
-                        @if (!string.IsNullOrEmpty(commonInfo.Email))
-                        {
-                            <a href="mailto:@commonInfo.Email"><span><i class="fa fa-envelope-o"></i></span>@commonInfo.Email</a>
-                        }
+                        <a href="javascript:doGTranslate('vi|vi');" title="Dịch sang tiếng Việt" class="notranslate">Tiếng Việt |</a>
+                        <a href="javascript:doGTranslate('vi|en');" title="Dịch sang tiếng anh" class="notranslate">English</a>
                         
                     </div>
                 </div>
