@@ -67,26 +67,66 @@ namespace AnperoFrontend.Controllers
             return View("List");
         }
         [BuildCommonHtml]
-        public ActionResult Search(string category, string keyword)
-        {            
+        public ActionResult Search(SearchModel model)
+        {
+            model.StoreId = StoreID;
+            model.PageSize = 14;
             string pageQuery = Request.QueryString["page"];
+            WebService.SearchResult rs;
             int page = 1;
             if (!string.IsNullOrEmpty(pageQuery))
             {
                 page = Convert.ToInt32(pageQuery);
             }
             WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, category, "", "", 0, 999999999, page, 14, keyword, SearchOrder.NameDesc, 0);
-            ViewData["productList"] = rs;
-            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
-            if (rs != null && rs.Item.Length > 0)
+            if (!string.IsNullOrEmpty(model.Category) && model.Category.Contains(@"c-"))
             {
-                ViewBag.Title = rs.Item[0].CatName;
+                model.Category = model.Category.Replace(@"c-", string.Empty);
+                rs = sv.SearchProduct(StoreID, TokenKey, "%", model.Category.ToString(), model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
+            }
+            else
+            {
+                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), "", model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
+            }
+            ViewData["productList"] = rs;
+            if (rs != null)
+            {
+                ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+            }
+            ViewBag.Title = "Tìm kiếm sản phẩm";
+            SetupCommonProduct();
+
+            return View("Category", model);
+        }
+        [BuildCommonHtml]
+        public ActionResult SearchAjax(SearchModel model)
+        {
+            model.StoreId = StoreID;
+            string pageQuery = Request.QueryString["page"];
+            WebService.SearchResult rs;
+            int page = 1;
+            if (!string.IsNullOrEmpty(pageQuery))
+            {
+                page = Convert.ToInt32(pageQuery);
+            }
+            WebService.AnperoService sv = new WebService.AnperoService();
+            if (!string.IsNullOrEmpty(model.Category) && model.Category.Contains(@"c-"))
+            {
+                string parentCat = model.Category.Replace(@"c-", string.Empty);
+                rs = sv.SearchProduct(StoreID, TokenKey, "0", parentCat, model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
+
+            }
+            else
+            {
+                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), "0", model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
             }
 
-            SetupCommonProduct();
-            SetUpSeo(0, 0);
-            return View("List");
+            ViewData["productList"] = rs;
+            if (rs != null)
+            {
+                ViewBag.page = Anpero.Paging.setUpPagedV2(model.Page, model.PageSize, rs.ResultCount, 10, "?page=");
+            }
+            return PartialView("SearchAjax");
         }
         [BuildCommonHtml]
         public ActionResult Checkout()

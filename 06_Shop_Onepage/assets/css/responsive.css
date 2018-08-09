@@ -35,7 +35,7 @@
         margin-top: 20px;
     }
     .logo img {
-        width: 150px;
+       max-width: 150px;
     }
 }
 
@@ -132,7 +132,7 @@
         margin-top: 10px;
     }
     .logo img {
-        width: 150px;
+        max-width: 150px;
     }
     .contact-area input#form-name,
     .contact-area input#form-email {

@@ -22,6 +22,8 @@
     <meta property="og:title" content="@ViewBag.Title" />
     @Styles.Render("~/Content/css")      
     <script src="/assets/js/vendor/modernizr-2.js"></script>
+    <script src="/assets/js/vendor/jquery-224.js"></script>
+    
     @RenderSection("health", required: false)
 
 </head>
@@ -131,8 +133,7 @@
             </div>
         </div>
     </footer>
-    @Scripts.Render("~/bundles/script")
-  
+    @Scripts.Render("~/bundles/script")  
     @Html.Raw(commonInfo.AnperoPlugin)
 
     @RenderSection("scripts", required: false)

@@ -1,0 +1,966 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\webPublish\anperoDemo2</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="assets/css/animate.css">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/css/bootstrap.min.css">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/css/font-awesome.min.css">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/css/lightbox.css">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/css/normalize.css">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/css/owl.carousel.min.css">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/css/pogo-slide.css">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/css/ProductListStyle.css">
+      <publishTime>07/19/2018 09:48:32</publishTime>
+    </File>
+    <File Include="assets/css/responsive.css">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/css/style.css">
+      <publishTime>08/06/2018 09:50:39</publishTime>
+    </File>
+    <File Include="assets/css/theme.default.min.css">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfont.eot">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfont.svg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfont.ttf">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfont.woff">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfont.woff2">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/fonts/FontAwesome.otf">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/fonts/icofont.eot">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/fonts/icofont.svg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/fonts/icofont.ttf">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/fonts/icofont.woff">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/fonts/Stroke-Gap-Icons.eot">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/fonts/Stroke-Gap-Icons.svg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/fonts/Stroke-Gap-Icons.ttf">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/fonts/Stroke-Gap-Icons.woff">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/455x480.png">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/about.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/apple-touch-icon.png">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/blog-1.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/blog-2.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/blog-3.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/client-1.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/client-2.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/client-3.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/client-4.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/client-bg.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/close.png">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/contact-bg.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/dangky.gif">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/dev.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/discover-bg.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/favicon.ico">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/folio-1.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/folio-10.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/folio-2.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/folio-3.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/folio-4.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/folio-5.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/folio-6.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/folio-7.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/folio-8.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/folio-9.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/footer-logo.png">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/header-bottom-shap.svg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/loading.gif">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/logo.png">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/map-marker.png">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/news-list-1.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/news-list-2.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/news-list-3.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/next.png">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/offer-1.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/offer-2.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/offer-3.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/photography-1.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/photography-2.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/photography-3.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/prev.png">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/price-1.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/price-2.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/price-3.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/service_1.png">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/service_2.png">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/service_3.png">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/slide-1.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/slide-2.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/slide-3.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/slide-4.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/slide2.jpg">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/slide3.png">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/images/webDs.PNG">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/js/ajaxchimp.js">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/js/arallax-113.js">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/js/bootstrap-min.js">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/js/contact-form.js">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/js/countdown/countdownBasic.html">
+      <publishTime>07/30/2018 15:28:56</publishTime>
+    </File>
+    <File Include="assets/js/countdown/countdownGlowing.gif">
+      <publishTime>07/30/2018 15:28:56</publishTime>
+    </File>
+    <File Include="assets/js/countdown/countdownLED.png">
+      <publishTime>07/30/2018 15:28:56</publishTime>
+    </File>
+    <File Include="assets/js/countdown/jquery.countdown-es.js">
+      <publishTime>07/30/2018 15:28:56</publishTime>
+    </File>
+    <File Include="assets/js/countdown/jquery.countdown-vi.js">
+      <publishTime>07/30/2018 15:28:56</publishTime>
+    </File>
+    <File Include="assets/js/countdown/jquery.countdown.css">
+      <publishTime>07/30/2018 15:28:56</publishTime>
+    </File>
+    <File Include="assets/js/countdown/jquery.countdown.js">
+      <publishTime>07/30/2018 15:28:56</publishTime>
+    </File>
+    <File Include="assets/js/countdown/jquery.countdown.min.js">
+      <publishTime>07/30/2018 15:28:56</publishTime>
+    </File>
+    <File Include="assets/js/countdown/jquery.plugin.js">
+      <publishTime>07/30/2018 15:28:56</publishTime>
+    </File>
+    <File Include="assets/js/countdown/jquery.plugin.min.js">
+      <publishTime>07/30/2018 15:28:56</publishTime>
+    </File>
+    <File Include="assets/js/lightbox.js">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="assets/js/main.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/js/maps.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/js/mixitup-min.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/js/owl-carousel-min.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/js/plugins.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/js/pogo-slider.js">
+      <publishTime>07/10/2018 20:34:51</publishTime>
+    </File>
+    <File Include="assets/js/scrollUp-min.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/js/vendor/jquery-224.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/js/vendor/modernizr-2.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/js/wow-min.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/bootstrap/css/bootstrap-theme.css">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/bootstrap/css/bootstrap-theme.css.map">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/bootstrap/css/bootstrap-theme.min.css">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/bootstrap/css/bootstrap.css">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/bootstrap/css/bootstrap.css.map">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/bootstrap/css/bootstrap.min.css">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/bootstrap/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/bootstrap/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/bootstrap/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/bootstrap/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/bootstrap/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/bootstrap/js/bootstrap.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/bootstrap/js/bootstrap.min.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/bootstrap/js/npm.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/countdown/countdownBasic.html">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/countdown/countdownGlowing.gif">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/countdown/countdownLED.png">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/countdown/jquery.countdown-es.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/countdown/jquery.countdown-vi.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/countdown/jquery.countdown.css">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/countdown/jquery.countdown.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/countdown/jquery.countdown.min.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/countdown/jquery.plugin.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/countdown/jquery.plugin.min.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/fancyBox/blank.gif">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/fancyBox/fancybox_loading%402x.gif">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/fancyBox/fancybox_loading.gif">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/fancyBox/fancybox_overlay.png">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/fancyBox/fancybox_sprite%402x.png">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/fancyBox/fancybox_sprite.png">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/fancyBox/helpers/fancybox_buttons.png">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/fancyBox/helpers/jquery.fancybox-buttons.css">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/fancyBox/helpers/jquery.fancybox-buttons.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/fancyBox/helpers/jquery.fancybox-media.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/fancyBox/helpers/jquery.fancybox-thumbs.css">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/fancyBox/helpers/jquery.fancybox-thumbs.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/fancyBox/jquery.fancybox.css">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/fancyBox/jquery.fancybox.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/fancyBox/jquery.fancybox.pack.js">
+      <publishTime>05/05/2018 20:32:31</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/css/font-awesome.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/css/font-awesome.min.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/fonts/fontawesome-webfont.eot">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/fonts/fontawesome-webfont.svg">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/fonts/fontawesome-webfont.ttf">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/fonts/fontawesome-webfont.woff">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/fonts/fontawesome-webfont.woff2">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/fonts/FontAwesome.otf">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/less/animated.less">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/less/bordered-pulled.less">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/less/core.less">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/less/fixed-width.less">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/less/font-awesome.less">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/less/icons.less">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/less/larger.less">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/less/list.less">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/less/mixins.less">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/less/path.less">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/less/rotated-flipped.less">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/less/stacked.less">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/less/variables.less">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/scss/font-awesome.scss">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/scss/_animated.scss">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/scss/_bordered-pulled.scss">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/scss/_core.scss">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/scss/_fixed-width.scss">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/scss/_icons.scss">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/scss/_larger.scss">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/scss/_list.scss">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/scss/_mixins.scss">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/scss/_path.scss">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/scss/_rotated-flipped.scss">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/scss/_stacked.scss">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/font-awesome/scss/_variables.scss">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/hoveImages/css/reset.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/hoveImages/css/style1.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/hoveImages/css/style10.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/hoveImages/css/style2.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/hoveImages/css/style3.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/hoveImages/css/style4.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/hoveImages/css/style5.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/hoveImages/css/style6.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/hoveImages/css/style7.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/hoveImages/css/style8.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/hoveImages/css/style9.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/hoveImages/css/style_common.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/hoveImages/images/bgimg.jpg">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/hoveImages/images/white_texture.jpg">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-bxslider/bower.json">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-bxslider/images/bx_loader.gif">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-bxslider/images/controls.png">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-bxslider/jquery-bxslider.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-bxslider/jquery-bxslider.js">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-bxslider/jquery-bxslider.min.js">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-bxslider/plugins/jquery.easing.1.3.js">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-bxslider/plugins/jquery.fitvids.js">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-bxslider/readme.md">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/external/jquery/jquery.js">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/images/ui-bg_diagonals-thick_18_b81900_40x40.png">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/images/ui-bg_diagonals-thick_20_666666_40x40.png">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/images/ui-bg_flat_10_000000_40x100.png">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/images/ui-bg_glass_100_f6f6f6_1x400.png">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/images/ui-bg_glass_100_fdf5ce_1x400.png">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/images/ui-bg_gloss-wave_35_f6a828_500x100.png">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/images/ui-bg_highlight-soft_100_eeeeee_1x100.png">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/images/ui-bg_highlight-soft_75_ffe45c_1x100.png">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/images/ui-icons_222222_256x240.png">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/images/ui-icons_228ef1_256x240.png">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/images/ui-icons_ef8c08_256x240.png">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/images/ui-icons_ffd27a_256x240.png">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/images/ui-icons_ffffff_256x240.png">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/index.html">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/jquery-ui.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/jquery-ui.js">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/jquery-ui.min.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/jquery-ui.min.js">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/jquery-ui.structure.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/jquery-ui.structure.min.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/jquery-ui.theme.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery-ui/jquery-ui.theme.min.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery.countdown/jquery.countdown.js">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery.countdown/jquery.countdown.min.js">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery.elevatezoom.js">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery/jquery-1.11.2.min.js">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery/jquery-1.5.js">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jquery/jquery-ui.js">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jqzoom/jquery.jqzoom.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jqzoom/jquery.jqzoom.js">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/jqzoom/zoomloader.gif">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/owl-carousel/owl-carousel.css">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/owl-carousel/owl-carousel.min.js">
+      <publishTime>05/05/2018 20:32:32</publishTime>
+    </File>
+    <File Include="assets/lib/owl-carousel/owl.carousel.js">
+      <publishTime>05/05/2018 20:32:33</publishTime>
+    </File>
+    <File Include="assets/lib/select2/css/select2.css">
+      <publishTime>05/05/2018 20:32:33</publishTime>
+    </File>
+    <File Include="assets/lib/select2/css/select2.min.css">
+      <publishTime>05/05/2018 20:32:33</publishTime>
+    </File>
+    <File Include="assets/lib/select2/js/i18n/en.js">
+      <publishTime>05/05/2018 20:32:33</publishTime>
+    </File>
+    <File Include="assets/lib/select2/js/i18n/vi.js">
+      <publishTime>05/05/2018 20:32:33</publishTime>
+    </File>
+    <File Include="assets/lib/select2/js/select2.full.js">
+      <publishTime>05/05/2018 20:32:33</publishTime>
+    </File>
+    <File Include="assets/lib/select2/js/select2.full.min.js">
+      <publishTime>05/05/2018 20:32:33</publishTime>
+    </File>
+    <File Include="assets/lib/select2/js/select2.js">
+      <publishTime>05/05/2018 20:32:33</publishTime>
+    </File>
+    <File Include="assets/lib/select2/js/select2.min.js">
+      <publishTime>05/05/2018 20:32:33</publishTime>
+    </File>
+    <File Include="bin/Anpero.dll">
+      <publishTime>08/09/2018 12:53:05</publishTime>
+    </File>
+    <File Include="bin/AnperoFrontend.dll">
+      <publishTime>08/09/2018 12:58:52</publishTime>
+    </File>
+    <File Include="bin/AnperoFrontend.XmlSerializers.dll">
+      <publishTime>08/09/2018 12:58:53</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>05/05/2018 20:33:27</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>08/09/2018 12:58:56</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>08/09/2018 12:58:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>05/05/2018 20:33:28</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>05/05/2018 20:33:28</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>05/05/2018 20:33:28</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>05/05/2018 20:33:28</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>05/05/2018 20:33:28</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>05/05/2018 20:33:28</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>05/05/2018 20:33:28</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>05/05/2018 20:33:28</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>05/05/2018 20:33:28</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>05/05/2018 20:33:28</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>05/05/2018 20:33:28</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>05/05/2018 20:32:33</publishTime>
+    </File>
+    <File Include="handler/ProductHandler.ashx">
+      <publishTime>05/05/2018 20:32:33</publishTime>
+    </File>
+    <File Include="index.html">
+      <publishTime>05/05/2018 20:32:33</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>05/05/2018 20:32:34</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>08/09/2018 12:58:54</publishTime>
+    </File>
+    <File Include="Robots.txt">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Scripts/Anpero.Common.js">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Scripts/Bootrap.notify.js">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Scripts/jquery.cokie.min.js">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Scripts/respond.js">
+      <publishTime>07/16/2018 09:41:16</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>07/16/2018 09:28:26</publishTime>
+    </File>
+    <File Include="Scripts/ShoppingCart.js">
+      <publishTime>08/06/2018 09:50:39</publishTime>
+    </File>
+    <File Include="style.css">
+      <publishTime>05/05/2018 20:32:34</publishTime>
+    </File>
+    <File Include="Views/Article/Category.cshtml">
+      <publishTime>08/08/2018 16:10:29</publishTime>
+    </File>
+    <File Include="Views/Article/Index.cshtml">
+      <publishTime>07/10/2018 21:51:43</publishTime>
+    </File>
+    <File Include="Views/Home/Contact.cshtml">
+      <publishTime>07/10/2018 21:52:05</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>08/06/2018 09:50:39</publishTime>
+    </File>
+    <File Include="Views/Home/Policy.cshtml">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Views/Manage/AddPhoneNumber.cshtml">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Views/Manage/ChangePassword.cshtml">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Views/Manage/Index.cshtml">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Views/Manage/ManageLogins.cshtml">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Views/Manage/SetPassword.cshtml">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Views/Manage/VerifyPhoneNumber.cshtml">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Views/Product/Checkout.cshtml">
+      <publishTime>07/10/2018 21:52:18</publishTime>
+    </File>
+    <File Include="Views/Product/Index.cshtml">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Views/Product/List.cshtml">
+      <publishTime>07/30/2018 15:28:56</publishTime>
+    </File>
+    <File Include="Views/Product/List_2.cshtml">
+      <publishTime>07/16/2018 09:41:23</publishTime>
+    </File>
+    <File Include="Views/Shared/article/_MenuAndAdsPartial.cshtml">
+      <publishTime>07/10/2018 21:33:23</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Views/Shared/product/_MenuAndAdsPartial.cshtml">
+      <publishTime>07/10/2018 21:32:10</publishTime>
+    </File>
+    <File Include="Views/Shared/product/_productDetail.cshtml">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>08/09/2018 12:58:46</publishTime>
+    </File>
+    <File Include="Views/Shared/_partial/_contact.cshtml">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Views/Shared/_partial/_HomeSlide_1.cshtml">
+      <publishTime>07/10/2018 20:17:07</publishTime>
+    </File>
+    <File Include="Views/Shared/_partial/_HomeSlide_2.cshtml">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Views/Shared/_partial/_MainHeader_1.cshtml">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Views/Shared/_partial/_MainMenu.cshtml">
+      <publishTime>08/08/2018 16:10:29</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>05/05/2018 20:32:30</publishTime>
+    </File>
+    <File Include="Web References/WebService/Ads.datasource">
+      <publishTime>07/10/2018 21:55:15</publishTime>
+    </File>
+    <File Include="Web References/WebService/BlogCategory.datasource">
+      <publishTime>07/10/2018 21:55:15</publishTime>
+    </File>
+    <File Include="Web References/WebService/BlogItem.datasource">
+      <publishTime>07/10/2018 21:55:15</publishTime>
+    </File>
+    <File Include="Web References/WebService/Location.datasource">
+      <publishTime>07/10/2018 21:55:15</publishTime>
+    </File>
+    <File Include="Web References/WebService/PaymentConfig.datasource">
+      <publishTime>07/10/2018 21:55:15</publishTime>
+    </File>
+    <File Include="Web References/WebService/ProductItem.datasource">
+      <publishTime>07/10/2018 21:55:15</publishTime>
+    </File>
+    <File Include="Web References/WebService/SearchArticleResults.datasource">
+      <publishTime>07/10/2018 21:55:15</publishTime>
+    </File>
+    <File Include="Web References/WebService/SearchResult1.datasource">
+      <publishTime>07/10/2018 21:55:15</publishTime>
+    </File>
+    <File Include="Web References/WebService/Webconfig1.datasource">
+      <publishTime>07/10/2018 21:55:15</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>08/09/2018 12:53:29</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

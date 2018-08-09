@@ -8,8 +8,7 @@ namespace AnperoFrontend
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/script").Include(
-                  "~/assets/js/vendor/jquery-224.js",
+            bundles.Add(new ScriptBundle("~/bundles/script").Include(                  
                   "~/assets/js/bootstrap-min.js",
                     "~/assets/js/mixitup-min.js",
                     "~/assets/js/pogo-slider.js",
