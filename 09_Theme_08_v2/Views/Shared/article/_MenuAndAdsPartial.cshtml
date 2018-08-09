@@ -13,6 +13,20 @@
 }
 <div class="col-left sidebar col-sm-3 blog-side">
     <div id="secondary" class="widget_wrapper13" role="complementary">
+        <div id="categories-2" class="widget widget_categories wow bounceInUp animated animated" style="visibility: visible;">
+            <h2 class="widget-title">Các chuyên mục</h2>
+            <div class="content">
+                @if (categoryList != null && categoryList.Count > 0)
+                {
+                    foreach (BlogCategory item in categoryList)
+                    {
+                        <ul>
+                            <li class="cat-item"><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Name,item.Id)">@item.Name</a></li>
+                        </ul>
+                    }
+                }
+            </div>
+        </div>
         <div id="recent-posts-4" class="popular-posts widget widget__sidebar wow bounceInUp animated animated" style="visibility: visible;">
             <h2 class="widget-title">Bài viết đặc sắc</h2>
             <div class="widget-content">
@@ -39,20 +53,7 @@
                 </ul>
             </div>
         </div>
-        <div id="categories-2" class="widget widget_categories wow bounceInUp animated animated" style="visibility: visible;">
-            <h2 class="widget-title">Các chuyên mục</h2>
-            <div class="content">
-                @if (categoryList != null && categoryList.Count > 0)
-                {
-                    foreach (BlogCategory item in categoryList)
-                    {
-                        <ul>
-                            <li class="cat-item"><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Name,item.Id)">@item.Name</a></li>
-                        </ul>
-                    }
-                }
-            </div>
-        </div>
+       
         @if (ViewData["slide3"] != null)
         {
             Ads[] slide = (Ads[])ViewData["slide3"];

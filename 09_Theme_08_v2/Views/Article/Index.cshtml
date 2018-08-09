@@ -17,17 +17,7 @@
 <link rel="canonical" href="@ViewBag.WebsiteUrl" />
 }
 
-<div class="page-heading">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="page-title bl-title">
-                    <h1><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.CategoryName, item.CategoryId)">@item.CategoryName</a>  </h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <div class="main-container col2-right-layout">
     <div class="main container">
         <div class="row">
@@ -35,7 +25,7 @@
             {
                 @Html.Partial("article/_MenuAndAdsPartial")
             }
-            <div class="center_column col-xs-12 col-sm-9" id="center_column">
+            <div class="center_column col-xs-12 col-sm-9 sidebar" id="center_column">
                 <div id="main" class="blog-wrapper">
 
                     <div id="primary" class="site-content">

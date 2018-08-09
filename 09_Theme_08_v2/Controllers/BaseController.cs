@@ -59,15 +59,13 @@ namespace AnperoFrontend.Controllers
 
             }
             ViewData["saleProduct"] = saleProduct;
-
-
             if (HttpRuntime.Cache["BestsaleProduct"] != null)
             {
                 BestsaleProduct = (WebService.SearchResult)HttpRuntime.Cache["BestsaleProduct"];
             }
             else
             {
-                BestsaleProduct = sv.SearchProduct(StoreID, TokenKey, "", "", "", 0, 99999999, 1, 7, "", SearchOrder.TimeDesc, 1);
+                BestsaleProduct = sv.SearchProduct(StoreID, TokenKey, "0", "0", "0", 0, 99999999, 1, 7, "", SearchOrder.TimeDesc, 1);
                 if (BestsaleProduct != null)
                 {
                     HttpRuntime.Cache.Insert("BestsaleProduct", BestsaleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);

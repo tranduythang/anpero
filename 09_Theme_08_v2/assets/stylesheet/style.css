@@ -4009,7 +4009,7 @@ ul.pdt-list li.item a img.image-hover {
             font-size: 12px;
             overflow: hidden;
             letter-spacing: 0.5px;
-            min-height:62px;
+            min-height:66px;
         }
 
 
@@ -5516,6 +5516,7 @@ text-transform: uppercase
 
 .blog-wrapper h2 {
     font-size: 19px;
+    line-height:30px;
 }
 
 .blog-wrapper h3 {
