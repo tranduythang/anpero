@@ -1,4 +1,5 @@
-﻿ using System;
+﻿using AnperoFrontend.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -96,7 +97,7 @@ namespace AnperoFrontend.Controllers
             ViewBag.Title = "Tìm kiếm sản phẩm";
             SetupCommonProduct();
 
-            return View("Category", model);
+            return View("List", model);
         }
         [BuildCommonHtml]
         public ActionResult SearchAjax(SearchModel model)
