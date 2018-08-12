@@ -3,7 +3,7 @@
     AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewData["prDetail"];
     <div class="center_column col-xs-12 col-sm-9" id="center_column">
         <!-- Product -->
-        <div id="product">
+        <div id="product" class="product-view">
             <div class="primary-box row">
                 <div class="pb-left-column col-xs-12 col-sm-6">
                     <!-- product-imge-->
@@ -11,7 +11,7 @@
                         <div class="product-full">
                             <img id="product-zoom" src='@item.Images' data-zoom-image="@item.Images" />
                         </div>
-                        <div class="product-img-thumb" id="gallery_01">
+                        <div class="product-img-thumb">
                             @if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
                             {
                                 <ul class="owl-carousel" data-items="3" data-nav="true" data-dots="false" data-margin="20" data-loop="true">
@@ -31,19 +31,8 @@
                     <!-- product-imge-->
                 </div>
                 <div class="pb-right-column col-xs-12 col-sm-6">
-                    <h1 class="product-name">@item.PrName</h1>
-                    <div class="product-comments">
-                        <div class="product-star">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                        </div>
-
-                    </div>
+                    <h1 class="product-name">@item.PrName</h1>              
                     <div class="product-price-group">
-
                         @if (item.IsSale)
                         {
                             <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice.ToString()) đ </span>
@@ -53,7 +42,7 @@
                         }
                         else
                         {
-                            <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString()) đ</span>
+                            <span class="price">Giá <strong>@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString()) đ</strong></span>
                         }
                     </div>
                     <div class="info-orther">
@@ -62,11 +51,11 @@
                             Trạng thái:
                             @if (item.IsInstock)
                             {
-                                <span class="in-stock">Sẵn sàng phục vụ</span>
+                                <span class="in-stock">Còn hàng</span>
                             }
                             else
                             {
-                                <span class="in-stock">Đang bận</span>
+                                <span class="in-stock">Hết hàng</span>
                             }
                         </p>
                         @if (item.Warranty > 0)
