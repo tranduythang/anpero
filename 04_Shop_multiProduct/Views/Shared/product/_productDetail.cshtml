@@ -47,7 +47,7 @@
                         <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice.ToString()) đ </span>
 
                                         <span class="old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString()) đ</span>
-                                        <span class="discount">@Anpero.StringHelpper.ConVertToMoneyFormatInt((item.SalePrice - item.Price).ToString()) đ</span>
+                                        <span class="discount">giảm @Anpero.StringHelpper.ConVertToMoneyFormatInt(((item.Price - item.SalePrice) / item.Price * 100).ToString()) %</span>
                     }
                     else
                     {

@@ -307,7 +307,7 @@ namespace Anpero
             }
             else
             {
-                return "0";
+                return "Liên hệ";
             }
         }
        
