@@ -13,16 +13,17 @@
                             {
                             
                                 <li data-transition='random' data-slotamount='7' data-masterspeed='1000' data-thumb='@item.ImagesUrl'>
-                                    @*<img src='@item.ImagesUrl' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="slider-image1" />*@
-                                    <amp-img  media="(min-width: 650px)"  width="949"  height="470" src="@item.ImagesUrl"   layout="responsive" data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="@item.Description">
-                                        <noscript>
-                                            <img src="@item.ImagesUrl" />
-                                        </noscript>
-                                    </amp-img>
-                                    <div class="info">
-                                        @Html.Raw(item.Description)  
-                                    </div>
-                                </li>
+                                    
+                                        <img src='@item.ImagesUrl' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="slider-image1"/>
+                                        @*<amp-img media="(min-width: 650px)" width="1087" height="414" src="@item.ImagesUrl" layout="responsive" data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="@item.Description">
+                                            <noscript>
+                                                <img src="@item.ImagesUrl" />
+                                            </noscript>
+                                        </amp-img>*@
+                                        <div class="info">
+                                            @Html.Raw(item.Description)
+                                        </div>
+                                    </li>
                             }
                         }
                     }

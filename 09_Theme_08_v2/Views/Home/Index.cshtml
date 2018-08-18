@@ -24,7 +24,9 @@
 @if (!Request.Browser.IsMobileDevice)
 {
     <div class="content">
-         @Html.Partial("_partial/_HomeSlide_1")
+        <div class="container">
+            @Html.Partial("_partial/_HomeSlide_1")
+        </div>
     </div>
 }
 <div class="content">
@@ -44,7 +46,8 @@
                                 <div class="item">
                                     <div class="pro-img">
                                         <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)">
-                                            <img src="@item.Images" alt="@item.Name">
+                                            
+                                            <img src="@item.Images" class="img-responsive" />
                                             <div class="pro-info">@item.Name</div>
                                         </a>
                                     </div>

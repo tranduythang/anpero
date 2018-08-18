@@ -24,7 +24,9 @@
 @if (!Request.Browser.IsMobileDevice)
 {
     <div class="content">
-         @Html.Partial("_partial/_HomeSlide_1")
+        <div class="container">
+            @Html.Partial("_partial/_HomeSlide_1")
+        </div>
     </div>
 }
 <div class="content">
@@ -44,7 +46,8 @@
                                 <div class="item">
                                     <div class="pro-img">
                                         <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)">
-                                            <img src="@item.Images" alt="@item.Name">
+                                            
+                                            <img src="@item.Images" class="img-responsive" />
                                             <div class="pro-info">@item.Name</div>
                                         </a>
                                     </div>
@@ -92,7 +95,6 @@
                                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">
                                                     <img src="@item.Images" alt="@item.PrName">
                                                 </a>
-
                                             </div>
                                         </div>
                                         <div class="item-info">
@@ -103,7 +105,6 @@
                                                 <div class="hTag">@item.ParentCatName</div>
                                                 <div class="Specifications"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">@item.Specifications</a></div>
                                                 <div class="item-content">
-
                                                     <div class="item-price">
                                                         <div class="price-box">
                                                             <span class="regular-price">

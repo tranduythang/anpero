@@ -164,7 +164,7 @@
                                         </a>
                                         @if (item.IsSale)
                                                     {
-                                                <div class="price-percent-reduction2">giảm @Anpero.StringHelpper.ConVertToMoneyFormatInt((item.Price - item.SalePrice).ToString())</div>
+                                                <div class="price-percent-reduction2">- @Convert.ToInt32(((item.Price - item.SalePrice)/item.Price)*100) %</div>
                                                     }
                                         <div class="quick-view">
                                             <a title="Quick view" class="search" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)"></a>
