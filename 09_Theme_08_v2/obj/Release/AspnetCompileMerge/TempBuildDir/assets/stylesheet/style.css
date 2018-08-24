@@ -4380,7 +4380,7 @@ ul.pdt-list li.item a img.image-hover {
 }
 
 
-    .featured-pro .pro-img img {
+    .featured-pro .pro-img img,.featured-pro .img-rounded {
         position: relative;
         border-radius: 150px;
         width: 120px;

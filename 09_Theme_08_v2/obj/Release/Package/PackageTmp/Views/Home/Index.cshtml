@@ -44,25 +44,25 @@
                             foreach (var item in commonInfo.ProductCategoryList)
                             {
                                 <div class="item">
-                                    <div class="pro-img">
                                         <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)">
-                                            
-                                            <img src="@item.Images" class="img-responsive" />
+                                            <amp-img src="@item.Images" alt="Welcome" height="200" width="200" layout="responsive" class="img-rounded">
+                                                <noscript>
+                                                    <img src="@item.Images" class="res"/>
+                                                </noscript>
+                                            </amp-img>                                            
                                             <div class="pro-info">@item.Name</div>
                                         </a>
-                                    </div>
+
                                 </div>
                                 if (item.ChildCategory != null && item.ChildCategory.Length > 0)
                                 {
                                     foreach (var childItem in item.ChildCategory)
                                     {
-                                        <div class="item">
-                                            <div class="pro-img">
-                                                <a href="@Anpero.StringHelpper.GetCategoryLink(childItem.Name, childItem.Id)">
-                                                    <img src="@childItem.Images" alt="@childItem.Name">
+                                        <div class="item">                                            
+                                                <a href="@Anpero.StringHelpper.GetCategoryLink(childItem.Name, childItem.Id)">                                                    
+                                                    <amp-img src="@childItem.Images" @childItem.Name height="200" width="200"  class="img-rounded"></amp-img>
                                                     <div class="pro-info">@childItem.Name</div>
                                                 </a>
-                                            </div>
                                         </div>
                                     }
                                 }
@@ -93,7 +93,7 @@
                                         <div class="item-img">
                                             <div class="item-img-info">
                                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">
-                                                    <img src="@item.Images" alt="@item.PrName">
+                                                    <amp-img src="@item.Images" alt="@item.PrName" height="405" width="270"></amp-img>                                                    
                                                 </a>
                                             </div>
                                         </div>
@@ -157,7 +157,7 @@
                                         <div class="item-img">
                                             <div class="item-img-info">
                                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">
-                                                    <img src="@item.Images" alt="@item.PrName">
+                                                    <amp-img src="@item.Images" alt="@item.PrName" height="405" width="270"></amp-img>                                                                                                        
                                                 </a>
 
                                             </div>
@@ -237,13 +237,13 @@
                     else
                     {
                         <div class="item">
-                            <a href="http://media.anpero.com/images/38/52018/12018051519591544.jpg" target="_blank"><img src="http://media.anpero.com/images/38/52018/12018051519591544.jpg" alt="ads1"></a>
+                            <a href="//media.anpero.com/images/38/52018/12018051519591544.jpg" target="_blank"><img src="http://media.anpero.com/images/38/52018/12018051519591544.jpg" alt="ads1"></a>
                         </div>
                         <div class="item">
-                            <a href="http://media.anpero.com/images/38/52018/22018051520060323.jpg" target="_blank"><img src="http://media.anpero.com/images/38/52018/22018051520060323.jpg" alt="ads1"></a>
+                            <a href="//media.anpero.com/images/38/52018/22018051520060323.jpg" target="_blank"><img src="http://media.anpero.com/images/38/52018/22018051520060323.jpg" alt="ads1"></a>
                         </div>
                         <div class="item">
-                            <a href="http://media.anpero.com/images/38/52018/22018051520060323.jpg" target="_blank"><img src="http://media.anpero.com/images/38/52018/22018051520060323.jpg" alt="ads1"></a>
+                            <a href="//media.anpero.com/images/38/52018/22018051520060323.jpg" target="_blank"><img src="http://media.anpero.com/images/38/52018/22018051520060323.jpg" alt="ads1"></a>
                         </div>
                     }
                 }
@@ -274,7 +274,9 @@
                 <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
                     <div class="blog_inner">
                         <div class="blog-img">
-                            <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
+                            <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
+                                <amp-img src="@item.Thumb" alt="@item.ShotDesc" height="256" width="393"></amp-img>                                                                                 
+                            </a>
                             <div class="mask"> <a class="info" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Chi tiết</a> </div>
                         </div>
                         <div class="blog-info">

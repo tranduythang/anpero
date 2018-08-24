@@ -27,8 +27,9 @@
         </div>
         <div class="header-container container">
             <div class="logo">
-                <a href="/" title="@commonInfo.Desc | logo" alter="@commonInfo.Desc | logo">
-                    <img src="@commonInfo.Logo" alt="@commonInfo.Name">
+                <a href="/" title="@commonInfo.Desc | logo">
+                   <amp-img src="@commonInfo.Logo" alt="@commonInfo.Name" height="90" width="90"></amp-img>
+                    
                 </a>
             </div>
             @if (!string.IsNullOrEmpty(commonInfo.OtherPhone))
