@@ -48,7 +48,11 @@
                 <div class="row">
                     <div class="col-sm-4 col-xs-12 col-lg-4">
                         <div class="co-info">
-                            <div><a href="/"><img src="@commonInfo.Logo" alt="footer logo"></a></div>
+                            <div>
+                                <a href="/">
+                                    <amp-img src="@commonInfo.Logo" alt="@commonInfo.Name" height="200" width="200"></amp-img>
+                                </a>
+                            </div>
                             <address>
                                 <div><em class="icon-location-arrow"></em>@commonInfo.Address</div>
                                 <div> <em class="icon-mobile-phone"></em><span> @Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.HotLine)</span></div>
@@ -87,7 +91,7 @@
                                     foreach (var item in commonInfo.ProductCategoryList)
                                     {
 
-                                        <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
+                                        <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">@item.Name</a></li>
                                     }
                                 }
 
