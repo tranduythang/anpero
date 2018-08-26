@@ -46,13 +46,13 @@
                                 <div class="item">
                                     <div class="pro-img">
                                         <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)">
-                                            <amp-img src="@item.Images" alt="Welcome" height="200" width="200" layout="responsive">
+                                            <amp-img src="@item.Images" alt="@item.Description" height="120" width="120" layout="responsive">
                                                 <noscript>
-                                                    <img src="@item.Images" class="res"/>
+                                                    <img src="@item.Images" class="img-responsive"/>
                                                 </noscript>
                                             </amp-img>                                            
                                             <div class="pro-info">@item.Name</div>
-                                        </a>
+                                        </a> 
                                     </div>
                                 </div>
                                 if (item.ChildCategory != null && item.ChildCategory.Length > 0)
