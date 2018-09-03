@@ -24,9 +24,8 @@
 @if (!Request.Browser.IsMobileDevice)
 {
     <div class="content">
-        <div class="container">
+
             @Html.Partial("_partial/_HomeSlide_1")
-        </div>
     </div>
 }
 <div class="content">
@@ -44,25 +43,26 @@
                             foreach (var item in commonInfo.ProductCategoryList)
                             {
                                 <div class="item">
-                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)">
-                                            <amp-img src="@item.Images" alt="Welcome" height="200" width="200" layout="responsive" class="img-rounded">
-                                                <noscript>
-                                                    <img src="@item.Images" class="res"/>
-                                                </noscript>
-                                            </amp-img>                                            
-                                            <div class="pro-info">@item.Name</div>
-                                        </a>
+                                    <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)">
 
+                                        <amp-img src="@item.Images" alt="Welcome" height="200" width="200" layout="responsive" class="img-rounded">
+
+                                            <noscript>
+                                                <img src="@item.Images" class="img-responsive" />
+                                            </noscript>
+                                        </amp-img>
+                                        <div class="pro-info">@item.Name</div>
+                                    </a>
                                 </div>
                                 if (item.ChildCategory != null && item.ChildCategory.Length > 0)
                                 {
                                     foreach (var childItem in item.ChildCategory)
                                     {
-                                        <div class="item">                                            
-                                                <a href="@Anpero.StringHelpper.GetCategoryLink(childItem.Name, childItem.Id)">                                                    
-                                                    <amp-img src="@childItem.Images" @childItem.Name height="200" width="200"  class="img-rounded"></amp-img>
-                                                    <div class="pro-info">@childItem.Name</div>
-                                                </a>
+                                        <div class="item">
+                                            <a href="@Anpero.StringHelpper.GetCategoryLink(childItem.Name, childItem.Id)">
+                                                <amp-img src="@childItem.Images" @childItem.Name height="200" width="200" class="img-rounded"></amp-img>
+                                                <div class="pro-info">@childItem.Name</div>
+                                            </a>
                                         </div>
                                     }
                                 }
@@ -93,7 +93,7 @@
                                         <div class="item-img">
                                             <div class="item-img-info">
                                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">
-                                                    <amp-img src="@item.Images" alt="@item.PrName" height="405" width="270"></amp-img>                                                    
+                                                    <amp-img src="@item.Images" alt="@item.PrName" height="405" width="270"></amp-img>
                                                 </a>
                                             </div>
                                         </div>
@@ -157,7 +157,7 @@
                                         <div class="item-img">
                                             <div class="item-img-info">
                                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">
-                                                    <amp-img src="@item.Images" alt="@item.PrName" height="405" width="270"></amp-img>                                                                                                        
+                                                    <amp-img src="@item.Images" alt="@item.PrName" height="405" width="270"></amp-img>
                                                 </a>
 
                                             </div>
@@ -224,12 +224,12 @@
                             <div class="item">
                                 <a href="@slide[i].ClickUrl" target="_blank">
                                     @*<amp-img media="(min-width: 650px)" width="949" height="470" src="@slide[i].ImagesUrl" alt="@slide[i].Description" layout="responsive" >
-                                        <noscript>
-                                            <img src="@slide[i].ImagesUrl" />
-                                        </noscript>
-                                    </amp-img>*@
-                                <img src="@slide[i].ImagesUrl" alt="@slide[i].Description">
-                                
+                                            <noscript>
+                                                <img src="@slide[i].ImagesUrl" />
+                                            </noscript>
+                                        </amp-img>*@
+                                    <img src="@slide[i].ImagesUrl" alt="@slide[i].Description">
+
                                 </a>
                             </div>
                         }
@@ -275,7 +275,7 @@
                     <div class="blog_inner">
                         <div class="blog-img">
                             <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
-                                <amp-img src="@item.Thumb" alt="@item.ShotDesc" height="256" width="393"></amp-img>                                                                                 
+                                <amp-img src="@item.Thumb" alt="@item.ShotDesc" height="256" width="393"></amp-img>
                             </a>
                             <div class="mask"> <a class="info" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Chi tiết</a> </div>
                         </div>
@@ -295,13 +295,12 @@
 
 </div>
 @section scripts{
-if (!Request.Browser.IsMobileDevice)
-{
+    if (!Request.Browser.IsMobileDevice)
+    {
     <script type="text/javascript" src="/assets/js/jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="/assets/js/revslider.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function () {
-
             jQuery('#thm-rev-slider').show().revolution({
                 dottedOverlay: 'none',
                 delay: 5000,

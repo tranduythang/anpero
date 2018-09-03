@@ -50,7 +50,7 @@
                         <div class="co-info">
                             <div>
                                 <a href="/">
-                                    <amp-img src="@commonInfo.Logo" alt="@commonInfo.Name" height="200" width="200"></amp-img>s
+                                    <img src="@commonInfo.Logo" alt="@commonInfo.Name">
                                 </a>
                             </div>
                             <address>
@@ -91,7 +91,7 @@
                                     foreach (var item in commonInfo.ProductCategoryList)
                                     {
 
-                                        <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
+                                        <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">@item.Name</a></li>
                                     }
                                 }
 
