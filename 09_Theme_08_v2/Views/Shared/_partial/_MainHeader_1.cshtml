@@ -5,20 +5,23 @@
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority +Request.ApplicationPath.TrimEnd('/');
+
 }
 <header>
     <div id="header">
         <div class="top-header">
             <div class="container">
                 <div class="row">
-                    <div class="top-fix hearder-fix-t">
-                        <div style="float:left;">
-                            HotLine : <a href="tel:@commonInfo.HotLine" aria-label="Call to hotline"> @Anpero.StringHelpper.FormatPhoneNumber(commonInfo.HotLine)</a>
-                        </div>
-                        <div class="fl-cart-contain">
-                            <div class="mini-cart">
-                                <div class="basket"> <a href="/product/checkout"><span class="spN">0</span></a> </div>
-
+                    <div class="col-md-12">
+                        <div class="top-fix hearder-fix-t">
+                            <div style="float:left;">
+                                HotLine : <a href="tel:@commonInfo.HotLine" aria-label="Call to hotline"> @Anpero.StringHelpper.FormatPhoneNumber(commonInfo.HotLine)</a>
+                            </div>
+                            <div class="fl-cart-contain">
+                                <div class="mini-cart">
+                                    <div class="basket"> <a href="/product/checkout"><span class="spN">0</span></a> </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -28,7 +31,7 @@
         <div class="header-container container">
             <div class="logo">
                 <a href="/" title="@commonInfo.Desc | logo">
-                   <amp-img src="@commonInfo.Logo" alt="@commonInfo.Name" height="90" width="90"></amp-img>
+                   <img src="@commonInfo.Logo" alt="@commonInfo.Name">
                     
                 </a>
             </div>
@@ -47,10 +50,12 @@
 
             <div class="row">
                 <div class="fl-header-right">
-                    <div class="collapse navbar-collapse">
-                        <form class="navbar-form" role="search" action="/search" method="get" target="_parent" aria-label="Tìm kiếm">
+                    <div class="collapse navbar-collapse" itemscope itemtype="baseUrl">
+                        <meta itemprop="url" content="@(baseUrl+"/search")" />
+                        <form class="navbar-form" role="search" action="/search" itemscope itemtype="@(baseUrl+"/search")" method="get" target="_parent" aria-label="Tìm kiếm">
                             <div class="input-group search-input">
-                                <input type="text" class="form-control" placeholder="Tìm kiếm" name="keyword" id="keyword" aria-label="Tìm kiếm">
+                                <meta itemprop="target" content="@(baseUrl+"/search?keyword={keyword}")" />
+                                <input itemprop="query-input" type="text" class="form-control" placeholder="Tìm kiếm" name="keyword" id="keyword" aria-label="Tìm kiếm" required>
                                 <span class="input-group-btn">
                                     <button type="submit" class="search-btn"> <span class="glyphicon glyphicon-search"> <span class="sr-only">Search</span> </span> </button>
                                 </span>

@@ -4,6 +4,7 @@
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
 }
 <!DOCTYPE html>
 <html amp lang="vi">
@@ -125,12 +126,25 @@
     @Html.Raw(commonInfo.PageScript)
 
     @Html.Partial("_partial/_MainFooter_1")
-  
-    @RenderSection("scripts", required: false)   
+
+    @RenderSection("scripts", required: false)
     <script type="text/javascript">
         jQuery(window).load(function () {
             Cart.bindCart();
         });
+    </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "Organization",
+        "url": "@baseUrl",
+        "logo": "@commonInfo.Logo",
+        "contactPoint": [{
+        "@@type": "ContactPoint",
+        "telephone": "+84-@commonInfo.HotLine",
+        "contactType": "customer service"
+        }]
+        }
     </script>
 </body>
 </html>
