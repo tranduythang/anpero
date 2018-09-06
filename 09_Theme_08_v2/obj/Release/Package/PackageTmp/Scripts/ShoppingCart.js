@@ -90,6 +90,11 @@
                 $(".cart-buttons").show();
                 $("#cart-sidebar2").html(htmlCat);
                 $("#lpr").html(Util.toMoneyFormat(ttSC) + " đ");
+                $("#sendOrder").show();
+            } else {
+                $("#sendOrder").hide();
+                $("#cart-sidebar2").html("Giỏ hàng rỗng");
+                $("#lpr").html(" 0 đ");
             }
         }
     },
