@@ -11,13 +11,7 @@
                         @foreach (var item in slide)
                         {
                          <li><a href="@item.ClickUrl">
-                                 <amp-img media="(min-width: 650px)" width="847" height="375" src="@item.ImagesUrl" layout="responsive" data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="@item.Description">
-                                     <noscript>
                                          <img src="@item.ImagesUrl" />
-                                     </noscript>
-                                 </amp-img>
-                         
-                             
                              </a></li>
                         }
                         </ul>
@@ -80,9 +74,6 @@
                         </div>
                     </div>
                 }
-
-
-               
             </div>
         </div>
       
