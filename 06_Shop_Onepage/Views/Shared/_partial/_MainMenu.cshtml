@@ -5,6 +5,7 @@
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
 }
 <div class="header-top">
     <div class="header-top-bar hidden-xs">
@@ -101,10 +102,12 @@
                     <div class="menu-right-button hidden-xs hidden-sm">
                         <button id="search_toogle"><i class="fa fa-search"></i></button>
                     </div>
-                    <div class="search-box">
-                        <form action="#" method="post">
-                            <input type="search" name="search" placeholder="Search">
-                            <button id="search"><i class="fa fa-search"></i></button>
+                    <div class="search-box" itemscope itemtype="baseUrl">
+                        <meta itemprop="url" content="@(baseUrl+"/search")" />
+                        <form action="/search" itemscope itemtype="@(baseUrl+"/search")" method="get">
+                            <meta itemprop="target" content="@(baseUrl+"/search?keyword={keyword}")" />
+                            <input type="text" name="keyword" placeholder="keyword" required>
+                            <button id="search" type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>
                 </nav>

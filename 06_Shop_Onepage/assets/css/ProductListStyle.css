@@ -78,10 +78,9 @@
     color: #777;
 }
 .products-list .product-shop p {
-    font-size: 13px;
-    font-family: 'Open Sans', sans-serif;
-    color: #666;
-    line-height: 1.5em;
+    font-size: 13px;    
+    color: #23527c;
+    line-height: 1.6em;
 }
 .products-list .product-shop .price-box {
     margin: 10px 0;
@@ -140,7 +139,7 @@ button.button {
 }
 .products-list .product-image {
     float: left;
-    width: 28%;
+    width: 40%;
 }
 a {
     color: #333;
@@ -234,7 +233,7 @@ a {
 }
 .products-list .product-shop {
     float: right;
-    width: 68%;
+    width: 55%;
     text-align: left;
     margin-left: 25px;
 }
@@ -287,4 +286,61 @@ a {
     margin-top: 5px;
     color: #88be4c;
 }
+.price{
+    color:red;
+}
+.old-price {
+    display: inline;
+    margin-right: 5px;
+    text-decoration: line-through;
+    font-weight: normal;
+    color: #cdcdcd !important;
+}
+.product-container {
+    position: relative;
+}
 
+    .product-container .price-percent-reduction2 {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: red;
+        color:white;
+        padding:4px;
+        font-size:10px;
+
+    }
+.right-block .product-name a, .products-block-right .product-name a{
+    color: #666;
+    margin-top: 5px;
+    font-size: 12px;
+}
+.show-count-down{
+  text-align: center;
+  margin-bottom:5px;
+}
+.show-count-down .box-count{
+  display: inline-block;
+  margin-right: 2px;
+  color: #ff3366;
+}
+.show-count-down .dot{
+  display: none;
+}
+.show-count-down .box-count .number{
+  
+  width: 100%;
+  float: left;
+  background: #eaeaea;
+  padding: 5px 0;
+  font-size: 16px;
+}
+.show-count-down .box-count .text{
+  background: #eaeaea;
+  font-size: 12px;
+  margin-top: 1px;
+  width: 100%;
+  float: left;
+  padding: 5px 0; 
+  color: #666;
+}

@@ -8,8 +8,7 @@
     }
 
 }
-@section health{
-    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+@section health{    
     <meta name="description" content="@commonInfo.Desc" />
     <meta name="keywords" content="@commonInfo.Desc" />
 }
@@ -31,7 +30,7 @@
                 <div class="single-service">
                     <div class="service-photo">
                         <a href="/hat-giong-c55" class="read-more">  <img src="https://media.anpero.com/images/29/82018/seed100x1002018082017502539.png" alt="pet" style="height:100px;"></a>
-</div>
+                    </div>
                     <h2>Hạt giống</h2>
                     <p>Củ và hạt giống được nhập từ các công ty uy tín nhất thế giới. Đảm bảo tỷ lệ nảy mầm cao. </p>
                     <a href="/hat-giong-c55" class="read-more">Xem hạt giống</a>
@@ -80,7 +79,7 @@
                         Ofrezh hướng đến việc cung cấp từ trang trại đến gia đình
                     </p>
                     <div class="about-text-button">
-                        <a href="/home/about" class="battn">Xem thêm</a>
+                        <a href="/about" class="battn">Xem thêm</a>
                     </div>
                 </div>
             </div>
@@ -98,8 +97,6 @@
                     <h2>Công nghệ và Quy trình</h2>
                     <p>
                         Các công nghệ, quy trình OFREZH đảm bảo thân thiện với môi trường
-
-
                     </p>
                 </div>
             </div>
@@ -182,7 +179,6 @@
                                 </div>
                             </div>
                             <h2>@Anpero.StringHelpper.SubString(38, item.Title)</h2>
-
                         </div>
                     </div>
 
@@ -195,12 +191,13 @@
 @Html.Partial("_partial/_contact")
 @section scripts{
 
-    <script src="/assets/js/owl-carousel-min.js"></script>
+
     <script type="text/javascript">
         jQuery(document).ready(function () {
             $(".blog-slide").owlCarousel({
                 items: 3,
                 loop: true,
+                lazyLoad: true,
                 autoplay: true,
                 autoplayTimeout: 7000,
                 smartSpeed: 1000,

@@ -10,6 +10,7 @@
     ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
         Anpero.StringHelpper.GetProductLink(item.PrName, item.Id);
     @section health{
+        <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
         <meta name="description" content="@Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc)" />
         <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(item.KeyWord)" />
         <link rel="stylesheet" type="text/css" href="~/assets/stylesheet/flexslider.css">
@@ -19,9 +20,9 @@
         <meta property="og:url" content="@ViewBag.WebsiteUrl" />
         <meta property="og:image" content="@item.Images" />
         <link rel="stylesheet" type="text/css" href="~/assets/stylesheet/flexslider.css">
-<link rel="canonical" href="@ViewBag.WebsiteUrl" />
+        <link rel="canonical" href="@ViewBag.WebsiteUrl" />
     }
-    
+
     <div id="page">
         <div class="page-heading">
             <div class="breadcrumbs">
@@ -57,7 +58,7 @@
                                             {
                                                 <div class="large-image"> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.CatName, item.CatID)" class="cloud-zoom cloud-zoom-gallery" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img src="@item.Images"> </a> </div>
                                             }
-                                           <div class="flexslider flexslider-thumb">
+                                            <div class="flexslider flexslider-thumb">
                                                 @if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
                                                 {
                                                     <ul class="previews-list slides">
@@ -79,11 +80,11 @@
                                             <h1 itemprop="name">@item.PrName</h1>
                                         </div>
                                         @*@if (!string.IsNullOrEmpty(item.Tag))
-                                        {
-                                            <div class="product-name">
-                                                <h3 itemprop="name">@item.Tag</h3>
-                                            </div>
-                                        }*@
+                                            {
+                                                <div class="product-name">
+                                                    <h3 itemprop="name">@item.Tag</h3>
+                                                </div>
+                                            }*@
 
                                         @*<span itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
 
@@ -122,9 +123,9 @@
 
                                         </div>
                                         <div class="short-description">
-                                                @*<h2>Mô tả ngắn</h2>*@
-                                                <p>@Html.Raw(item.ShortDesc)</p>
-                                            </div>
+                                            @*<h2>Mô tả ngắn</h2>*@
+                                            <p>@Html.Raw(item.ShortDesc)</p>
+                                        </div>
                                         <div class="add-to-box">
                                             <div class="add-to-cart">
                                                 <div class="pull-left">
@@ -255,12 +256,12 @@
         <script type="text/javascript" src="~/assets/js/cloud-zoom.js"></script>
         <script>
             $(document).ready(function () {
-                resizeVideo(); 
-                $(window).resize(function () { 
-                    resizeVideo(); 
-                }); 
-               
-                $("#paymentTab").click(function () {                    
+                resizeVideo();
+                $(window).resize(function () {
+                    resizeVideo();
+                });
+
+                $("#paymentTab").click(function () {
                     $.ajax({
                         type: "post",
                         url: "/home/PolicyAjax",
@@ -271,13 +272,13 @@
                     });
                 });
             });
-            function resizeVideo() { 
-                var contentW = $('#product_tabs_description').width(); 
-                var iframe = $('#product_tabs_description iframe'); 
-                var iframeW = iframe.css('width', contentW - 20); 
-                iframe.css('width', iframeW); 
-                var iframeH = contentW / 16 * 9; 
-                iframe.css('height', iframeH); 
+            function resizeVideo() {
+                var contentW = $('#product_tabs_description').width();
+                var iframe = $('#product_tabs_description iframe');
+                var iframeW = iframe.css('width', contentW - 20);
+                iframe.css('width', iframeW);
+                var iframeH = contentW / 16 * 9;
+                iframe.css('height', iframeH);
             }
         </script>
     }
