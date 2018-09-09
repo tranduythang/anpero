@@ -113,8 +113,8 @@
     background-size: cover;
     background-position: left top;
 }
-.option6 .nav-top-menu{
-	background: transparent;
+.option6 .nav-top-menu {
+    background: #50b748;
 }
 .option6 .top-header img {
 	margin-top: -5px;
@@ -262,7 +262,13 @@
 .option6 #main-menu .navbar .navbar-nav>li.active a{
 	background: none;
 }
-.option6 #main-menu li.dropdown>a:after{
+.option6 #main-menu li.dropdown > a:after {
+    position: absolute;    
+    -ms-transform: translateX(-50%);    
+    transform: translateX(-50%);
+    right: 0px;
+}
+/*.option6 #main-menu li.dropdown>a:after{
 	position: absolute;
 	left: 46%;
 	-ms-transform: translateX(-50%);
@@ -270,7 +276,7 @@
   	transform: translateX(-50%);
 	top: 15px;
 	font-size: 12px;
-}
+}*/
 .option6 #main-menu li.dropdown:hover:before{
 	display: none;
 }
@@ -1384,9 +1390,9 @@
 	.option6 #main-menu .navbar{
 		background: none;
 	}
-	.option6 #main-menu .navbar-header{
-		background: #007176;
-	}
+    .option6 #main-menu .navbar-header {
+        background: #50b748;
+    }
 	.option6 #main-menu .navbar-default .navbar-nav>li>a{
 		background: none;
 		color: #999;
@@ -1519,9 +1525,9 @@
 	.option6 #main-menu .navbar{
 		background: none;
 	}
-	.option6 #main-menu .navbar-header{
-		background: #007176;
-	}
+    .option6 #main-menu .navbar-header {
+        background: #50b748;
+    }
 	.option6 #main-menu .navbar-default .navbar-nav>li>a{
 		background: none;
 		color: white;
