@@ -10,7 +10,15 @@ namespace Anpero
     {
         public StringHelpper()
         {
-          
+
+        }
+        public static int GetDiscountPersen(int oldPrice,int newPrive)
+        {
+            return  (oldPrice - newPrive)/ oldPrice*100;
+        }
+        public static int GetDiscountPersen(decimal oldPrice, decimal newPrive)
+        {
+            return Convert.ToInt32((oldPrice - newPrive) / oldPrice * 100);
         }
         public static Boolean isUrl(String url)
         {
