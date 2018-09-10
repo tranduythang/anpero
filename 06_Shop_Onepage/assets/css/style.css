@@ -1548,14 +1548,7 @@ a{color:black;}
     background: #FFF;
     margin-top: 20px;
 }
-.tree-menu > li a:before {
-    content: '\f10c';
-    font-family: FontAwesome;
-    font-size: 5px;
-    padding-right: 6px;
-    color: rgb(153, 153, 153);
-    vertical-align: middle;
-}
+
 .toolbar {
     clear: both;
     margin-top: 0px;
@@ -1669,3 +1662,6 @@ a{color:black;}
             background: rgba(0, 0, 0, 0.4) none repeat scroll 0% 0%;
             border-radius: 90%;
         }
+.logo img{
+    max-height:65px;
+}

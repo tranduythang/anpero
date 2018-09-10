@@ -2,14 +2,13 @@
     <div class="column col-md-3 col-xs-12 col-sm-12" id="left_column">
         <!-- block category -->
         <div class="block left-module">
-            <p class="title_block">Danh mục sản phẩm</p>
-            <div class="block_content">
+            <p class="title_block">Danh mục sản phẩm</p>            
                 <!-- layered -->
                 @if (ViewData["commonInfo"] != null)
             {
                 AnperoFrontend.WebService.Webconfig commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
                     <div class="layered layered-category">
-                        <div class="layered-content">
+                        <div class="layered-content box-category">
                             <ul class="tree-menu">
                                 @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                             {
@@ -37,7 +36,7 @@
 
 
                 }
-            </div>
+            
         </div>
         @if (ViewData["saleProduct"] != null)
             {
