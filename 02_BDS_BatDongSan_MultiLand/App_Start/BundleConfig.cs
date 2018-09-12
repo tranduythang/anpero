@@ -36,7 +36,7 @@ namespace AnperoFrontend
               "~/assets/css/animate.css",
               "~/assets/css/reset.css"
            ));
-            BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = false;
         }
     }
 }
