@@ -56,6 +56,11 @@
                             <address>
                                 <div><em class="icon-location-arrow"></em>@commonInfo.Address</div>
                                 <div> <em class="icon-mobile-phone"></em><span> @Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.HotLine)</span></div>
+                                @if (!string.IsNullOrEmpty(commonInfo.Skype))
+                                {
+                                    <div> <em class="icon-skype" style="color:#666;"></em><span><a href="skype:@commonInfo.Skype?call" style="color:white;"> @commonInfo.Skype</a> </span></div>
+                                }
+
                                 <div> <em class="icon-envelope"></em><span>@commonInfo.Email</span></div>
                             </address>
                             <div class="social">
@@ -104,8 +109,8 @@
                                 <li><a title="about" href="/about">Về chúng tôi</a></li>
                                 <li><a title="blog" href="/blog">Blogs</a></li>
                                 <li><a title="Chính sách vận chuyển" href="/shippolicy">Chính sách vận chuyển</a></li>
-                                <li><a title="Chính sách bảo hành" href="/WarrantyPolicy">Chính sách bảo hành</a></li>
-                                <li><a title="Chính sách đổi trả" href="/ProductReturnPolicy">Chính sách đổi trả</a></li>
+                                @*<li><a title="Chính sách bảo hành" href="/WarrantyPolicy">Chính sách bảo hành</a></li>
+                                <li><a title="Chính sách đổi trả" href="/ProductReturnPolicy">Chính sách đổi trả</a></li>*@
                                 <li><a title="Chính sách bảo mật" href="/PrivacyPolicy">Chính sách bảo mật</a></li>
                                 <li><a title="Hướng dẫn thanh toán" href="/PaymentInfo">Hướng dẫn thanh toán</a></li>
                             </ul>
@@ -150,9 +155,9 @@
         <li>
             <a href="/about">Giới thiệu</a>
         </li>
-        <li>
-            <a href="#">Sản phẩm</a>
-            <ul>
+        
+            
+            
                 @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                 {
                     foreach (var item in commonInfo.ProductCategoryList)
@@ -177,8 +182,8 @@
                         }
                     }
                 }
-            </ul>
-        </li>
+            
+        
         @if (commonInfo.ProductGroupList != null && commonInfo.ProductGroupList.Length > 0)
         {
             <li>

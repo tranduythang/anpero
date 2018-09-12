@@ -25,8 +25,7 @@
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
         window.location.href = "/product/checkout";
     },
-    addProduct3: function (_id, _price, _thumb, _title) {
-        debugger
+    addProduct3: function (_id, _price, _thumb, _title) {        
         var checkExited = false;
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
@@ -298,7 +297,7 @@
                                 }
                             });
                         } else {
-                            $("#cartContent2").html("<h4>Đơn hàng số #" + rs + " đã được gửi thành công tới bộ phận bán hàng. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</h4>");
+                            $("#cartContent2").html("<h4>Đơn hàng số #" + rs + " đã được gửi thành công tới bộ phận bán hàng. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</h4><h5>Với thông tin chuyển khoản vui lòng click vào <a href='' style='color: blue;'>link này</a> để được hướng dẫn chuyển khoản</h5>");
                             Util.notify("", "Đơn hàng đã được gửi tới bộ phận bán hàng. ");
                         }
 
@@ -311,6 +310,25 @@
                 }
             });
         }
+    },
+    saveTempForm: function () {
+        OrderForm.Name = $("#cName").val();
+        OrderForm.Phone = $("#cPhone").val();
+        OrderForm.Email = $("#cMail").val();
+        OrderForm.Address = $("#cAddress").val();
+        OrderForm.Detail = $("#detail").val();
+        $.cookie("TempForm", JSON.stringify(OrderForm), { path: '/' });
+    },
+    bindTempForm: function () {
+        if ($.cookie("TempForm") != null && $.cookie("TempForm") != "undefined") {
+            OrderForm = jQuery.parseJSON($.cookie("TempForm"));
+           $("#cName").val(OrderForm.Name);
+           $("#cPhone").val(OrderForm.Phone);
+           $("#cMail").val(OrderForm.Email);
+           $("#cAddress").val(OrderForm.Address);
+           $("#detail").val(OrderForm.Detail);
+        }
+
     }
 };
 var Search = {
@@ -329,5 +347,24 @@ var Search = {
         _order = order;
         Search.Products();
     }
-};
+}; 
+var OrderForm = {
+    Name: "",
+    Phone: "",
+    Email: "",
+    Address: "",
+    Detail: "",
+    PaymentMethod: "",
+    ShipMethod: ""
+}
+
 var _order = "pricedesc";
+$(document).ready(function () {
+    $("input").change(function () {
+        Cart.saveTempForm();
+    });
+    $("textarea").change(function () {
+        Cart.saveTempForm();
+    });
+    
+});

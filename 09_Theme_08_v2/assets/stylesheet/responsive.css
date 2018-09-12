@@ -1169,7 +1169,9 @@ website:   	http://www.themesmart.net/
         margin-top: 10px;
         margin-left: 0px;
     }
-
+    .add-to-cart .pull-left {
+        margin-right: 20px;
+    }
     .nav-tabs.product-tabs > li > a {
         width: 100%;
     }

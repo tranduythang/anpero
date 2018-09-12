@@ -7760,7 +7760,10 @@ ol#compare-items li {
     margin: 0;
     padding: 0;
 }
-
+.sidebar ol {
+    list-style: decimal;
+    margin-left: 30px;
+}
 #recently-viewed-items .product-name {
     text-align: left;
     margin: 0;
@@ -10435,7 +10438,7 @@ button.button.submit:before {
             font-family: 'Montserrat', sans-serif;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            background: #ed6663;
+            background: #f1c40d;
             margin-top: 0px;
         }
 
@@ -10448,7 +10451,7 @@ button.button.submit:before {
                 position: absolute;
                 bottom: -10px;
                 left: 0;
-                border-color: #d95451 #d95451 transparent transparent;
+                border-color: #49c662 #49c662 transparent transparent;
             }
 
     .related-pro .owl-item .item {

@@ -74,10 +74,10 @@
                                     </li>
 
                                     <li>
-                                        <label for="radio_button_4"><input type="radio" name="radio_3" id="radio_button_4" value="1" data-ship="40000"> Vận chuyển thường 40.000đ</label>
+                                        <label for="radio_button_4"><input type="radio" name="radio_3" id="radio_button_4" value="1" data-ship="0"> Vận chuyển thường</label>
                                     </li>
                                     <li>
-                                        <label for="radio_button_5"><input type="radio" name="radio_3" id="radio_button_5" value="2" data-ship="80000"> Vận chuyển nhanh 80.000đ</label>
+                                        <label for="radio_button_5"><input type="radio" name="radio_3" id="radio_button_5" value="2" data-ship="0"> Vận chuyển nhanh</label>
                                     </li>
                                 </ul>
                             </div>
@@ -91,10 +91,10 @@
                                         <label for="radio_button_41"><input type="radio" checked name="radio_4" id="radio_button_41" value="0" data-ship="0">Miễn phí 0 đ</label>
                                     </li>
                                     <li class="lb2">
-                                        <label for="radio_button_51"><input type="radio" name="radio_4" id="radio_button_51" value="4" data-ship="0"> Chuyển khoản 0đ</label>
+                                        <label for="radio_button_51"><input type="radio" name="radio_4" id="radio_button_51" value="4" data-ship="0"> Chuyển khoản <a href="/PaymentInfo">( Hướng dẫn chuyển khoản )</a></label>
                                     </li>
                                     <li class="lb2">
-                                        <label for="radio_button_6"><input type="radio" name="radio_4" id="radio_button_6" value="1" data-ship="15000"> Thu tiền tại nhà 15.000 đ</label>
+                                        <label for="radio_button_6"><input type="radio" name="radio_4" id="radio_button_6" value="1" data-ship="15000"> Thu tiền tại nhà</label>
                                     </li>
                                     @if (ViewBag.PaymentType == "NL")
                                     {
@@ -341,6 +341,7 @@
                 'theme': 'light',
                 'hl': 'vi'
             });
+            Cart.bindTempForm();
         });
     </script>
 }

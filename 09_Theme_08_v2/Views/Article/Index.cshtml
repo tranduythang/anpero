@@ -21,7 +21,7 @@
 <div class="main-container col2-right-layout">
     <div class="main container">
         <div class="row">
-            @if (!Request.Browser.IsMobileDevice)
+            @if(!Request.Browser.IsMobileDevice)
             {
                 @Html.Partial("article/_MenuAndAdsPartial")
             }
