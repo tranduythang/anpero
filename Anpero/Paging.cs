@@ -8,7 +8,7 @@ namespace Anpero
 {
     public static class Paging
     {
-        public static String setupAjaxPage(int curentPage, int pageSite, int itemCount, int MaxPage, string funcName)
+        public static String setupAjaxPage(int curentPage, int pageSite, int itemCount, int MaxPage, string funcName,string orderBy)
         {
             String pagedString = "";
 
@@ -29,7 +29,7 @@ namespace Anpero
                 }
                 else
                 {
-                    pagedString += @"<li><a href='javascript:" + funcName + "(" + (curentPage - 1) + ");'>&laquo;</a></li>";
+                    pagedString += @"<li><a href='javascript:" + funcName + "(" + (curentPage - 1) + ",\""+orderBy+"\");'>&laquo;</a></li>";
                 }
 
                 if (curentPage <= totallPaed)
@@ -64,7 +64,7 @@ namespace Anpero
                         }
                         else
                         {
-                            pagedString += @"<li><a href='javascript:" + funcName + "(" + i + ");'>" + i + "</a></li>";
+                            pagedString += @"<li><a href='javascript:" + funcName + "(" + i + ",\""+orderBy+"\");'>" + i + "</a></li>";
                         }
 
                     }

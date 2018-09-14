@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AnperoFrontend.Models;
+
 
 namespace AnperoFrontend.Controllers
 {
@@ -22,6 +24,37 @@ namespace AnperoFrontend.Controllers
             ViewBag.Title = item.PrName;
             SetupCommonProduct();
             return View();
+        }
+        
+        public ActionResult SearchAjax(SearchModel model)
+        {
+            model.StoreId = StoreID;
+            string pageQuery = Request.QueryString["page"];
+            WebService.SearchResult rs;
+            int page = 1;
+            if (!string.IsNullOrEmpty(pageQuery))
+            {
+                page = Convert.ToInt32(pageQuery);
+            }
+            WebService.AnperoService sv = new WebService.AnperoService();
+            if (!string.IsNullOrEmpty(model.Category) && model.Category.Contains(@"c-"))
+            {
+                string parentCat = model.Category.Replace(@"c-", string.Empty);
+                rs = sv.SearchProduct(StoreID, TokenKey, "0", parentCat, model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
+
+            }
+            else
+            {
+                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), "0", model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
+            }
+
+            ViewData["productList"] = rs;
+            if (rs != null)
+            {
+                //ViewBag.page = Anpero.Paging.setUpPagedV2(model.Page, model.PageSize, rs.ResultCount, 10, "?page=");
+                ViewBag.page = Anpero.Paging.setupAjaxPage(model.Page, model.PageSize, rs.ResultCount, 10, "Search.Products", model.SortBy);
+            }
+            return PartialView("SearchAjax");
         }
         [BuildCommonHtml]
         public ActionResult Category(int id)

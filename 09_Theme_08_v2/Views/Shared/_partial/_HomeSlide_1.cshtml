@@ -10,12 +10,12 @@
                     <ul>
                         @foreach (var item in slide)
                         {
-                            <li data-transition='random' data-slotamount='7' data-masterspeed='1000' data-thumb='@item.ImagesUrl'>
-                                <img src="@item.ImagesUrl" />
-                                <div class="info">
-                                    @Html.Raw(item.Description)
-                                </div>
-                            </li>
+                        <li data-transition='random' data-slotamount='7' data-masterspeed='1000' data-thumb='@item.ImagesUrl'>
+                            <img src="@item.ImagesUrl"/>
+                            <div class="info">
+                                @Html.Raw(item.Description)
+                            </div>
+                        </li>                        
                         }
                     </ul>
                 </div>
@@ -23,7 +23,17 @@
         </div>
     }
 }
-
+<style>
+    .tp-caption.LargeTitle span {
+        color: #0090ad !important;
+    }
+    .slider-shortDesc {
+        color: #16191f !important;
+        font-weight: bold;
+        font-style: italic;
+        font-weight: 700 !important;
+    }
+</style>
 
 @*<div id="thm-mart-slideshow" class="thm-mart-slideshow">
         <div id='thm_slider_wrapper' class='thm_slider_wrapper fullwidthbanner-container'>

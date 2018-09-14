@@ -280,11 +280,11 @@ header {
     z-index: 100;
     border-radius: 0;
     border: none;
-    line-height: 45px;
-    height: 75px;
+    line-height: 45px;    
     font-size: 14px;
     padding: 0px 25px;
     width: 315px;
+    display:block!important;
 }
 
 /* Open state */
@@ -11593,6 +11593,7 @@ footer a {
 footer .footer-inner {
     margin: auto;
     overflow: hidden;
+    border-bottom: 3px solid #e37f29;
 }
 
     footer .footer-inner h3 {
@@ -14260,6 +14261,9 @@ select#shipping-address-select {
     top: -26px;
     right: 55px;
 }
+    .search-fixed input.form-control {
+        display: none;
+    }
 .feature-box a{color:white;}
 .hTag {
     overflow: hidden;

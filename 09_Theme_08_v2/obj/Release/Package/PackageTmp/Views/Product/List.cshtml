@@ -62,7 +62,7 @@
                     <div class="row">
                         <div class="col-main col-sm-9 col-sm-push-3">
                             <div class="pro-coloumn">
-                                <article class="col-main">
+                                <article class="col-main" id="pr-listCt">
                                     <div class="toolbar">
                                         <div id="sort-by">
                                             <label class="left">Sắp xếp: </label>
@@ -72,7 +72,7 @@
                                                     <ul>
                                                         <li><a href="javascript:Search.setOrder('nameDesc');">Tên</a></li>
                                                         <li><a href="javascript:Search.setOrder('pricedesc');">Giá giảm dần</a></li>
-                                                        <li><a href="javascript:Search.setOrder('pricedasc');">Giá tăng dần</a></li>
+                                                        <li><a href="javascript:Search.setOrder('priceAsc');">Giá tăng dần</a></li>
                                                         <li><a href="javascript:Search.setOrder('timeDesc');">Mới nhất</a></li>
                                                     </ul>
                                                 </li>
@@ -166,8 +166,10 @@
                                                 <li>
                                                     <a href="#">Tên<span class="right-arrow"></span></a>
                                                     <ul>
-                                                        <li><a href="#">Tên</a></li>
-                                                        <li><a href="#">Giá</a></li>
+                                                        <li><a href="javascript:Search.setOrder('nameDesc');">Tên</a></li>
+                                                        <li><a href="javascript:Search.setOrder('pricedesc');">Giá giảm dần</a></li>
+                                                        <li><a href="javascript:Search.setOrder('priceAsc');">Giá tăng dần</a></li>
+                                                        <li><a href="javascript:Search.setOrder('timeDesc');">Mới nhất</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
