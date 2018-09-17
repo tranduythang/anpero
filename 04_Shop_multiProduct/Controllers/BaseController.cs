@@ -7,12 +7,12 @@ using AnperoFrontend.WebService;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.IO;
+using Anpero;
 
 namespace AnperoFrontend.Controllers
 {
     public class BaseController : Controller
     {
-
         public static int StoreID = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["storeID"]);
         public static string TokenKey = System.Configuration.ConfigurationManager.AppSettings["storeTokenKey"];
         public static int shortCacheTime= Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);

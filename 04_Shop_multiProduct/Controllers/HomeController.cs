@@ -12,7 +12,7 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         [BunderHtml]
         public ActionResult Index()
-        {
+        {             
             WebService.AnperoService service = new WebService.AnperoService();
             //ViewData["slide"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Slide);
             //ViewData["AdsSlide"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads1);
@@ -23,6 +23,7 @@ namespace AnperoFrontend.Controllers
             SetUpSlideAds();
             return View();
         }
+
         [BuildCommonHtml]
         public ActionResult Policy(int type)
         {
