@@ -12,6 +12,7 @@ namespace AnperoFrontend.Models
         public string SortBy { get; set; }
         public string GroupId { get; set; }
         public string Category { get; set; }
+        public string ParentCategory { get; set; }
         public int PriceFrom { get; set; }
         public int PriceTo { get; set; }
         public int CurentPage { get; set; }
@@ -73,6 +74,7 @@ namespace AnperoFrontend.Models
             CurentPage = 1;
             PageSize = 18;
             GroupId = "";
+            ParentCategory = "0";
         }
 
     }
