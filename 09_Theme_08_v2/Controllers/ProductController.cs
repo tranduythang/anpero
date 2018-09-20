@@ -30,28 +30,28 @@ namespace AnperoFrontend.Controllers
         {
             model.StoreId = StoreID;
             string pageQuery = Request.QueryString["page"];
-            WebService.SearchResult rs;
+            SearchResult rs = new SearchResult();
             int page = 1;
             if (!string.IsNullOrEmpty(pageQuery))
             {
                 page = Convert.ToInt32(pageQuery);
             }
             WebService.AnperoService sv = new WebService.AnperoService();
-            if (!string.IsNullOrEmpty(model.Category) && model.Category.Contains(@"c-"))
-            {
-                string parentCat = model.Category.Replace(@"c-", string.Empty);
-                rs = sv.SearchProduct(StoreID, TokenKey, "0", parentCat, model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
-
-            }
-            else
-            {
-                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), "0", model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
-            }
-
+            //if (!string.IsNullOrEmpty(model.ParentCategory) && model.ParentCategory!="0")
+            //{
+            //    rs = sv.GetProductByParentCategory(StoreID, TokenKey, Convert.ToInt32(model.ParentCategory), model.Page, model.PageSize, 0);
+            //}
+            //else if (!string.IsNullOrEmpty(model.Category) && model.Category != "0")
+            //{
+            //    rs = sv.GetProductByCategory(StoreID, TokenKey, Convert.ToInt32(model.Category), model.Page, model.PageSize, 0);
+            //}
+            //else
+            //{
+                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), model.ParentCategory, model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
+            //}
             ViewData["productList"] = rs;
             if (rs != null)
             {
-                //ViewBag.page = Anpero.Paging.setUpPagedV2(model.Page, model.PageSize, rs.ResultCount, 10, "?page=");
                 ViewBag.page = Anpero.Paging.setupAjaxPage(model.Page, model.PageSize, rs.ResultCount, 10, "Search.Products", model.SortBy);
             }
             return PartialView("SearchAjax");
