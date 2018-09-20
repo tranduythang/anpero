@@ -332,20 +332,30 @@
     }
 };
 var Search = {
-    Products: function () {
+    //public string KeyWord { get; set; }
+    //    public string SortBy { get; set; }
+    //    public string GroupId { get; set; }
+    //    public string Category { get; set; }
+    //    public int PriceFrom { get; set; }
+    //    public int PriceTo { get; set; }
+    //    public int CurentPage { get; set; }
+    //    public int PageSize { get; set; }
+    //    public int MinPrioty { get; set; }
+    //    public int Page { get; set; }
+
+    Products: function (page,orderBy) {
         $.ajax({
             method: "post",
-            url: "/handler/ProductHandler.ashx",
+            url: "/product/searchAjax",
             datatype: "text/plain",
-            data: { op: "searchProduct", cat: categoryId, ParentCat: ParentCatId, order: _order, captcha: "off" },
+            data: { cat: categoryId, ParentCat: ParentCatId, SortBy: orderBy},
             success: function (rs) {
-                $("#products-list").html(rs);
+                $("#pr-listCt").html(rs);
             }
         });
     },
-    setOrder: function (order) {
-        _order = order;
-        Search.Products();
+    setOrder: function (order) {        
+        Search.Products(1, order);
     }
 }; 
 var OrderForm = {
@@ -358,7 +368,7 @@ var OrderForm = {
     ShipMethod: ""
 }
 
-var _order = "pricedesc";
+var order = "pricedesc";
 $(document).ready(function () {
     $("input").change(function () {
         Cart.saveTempForm();
