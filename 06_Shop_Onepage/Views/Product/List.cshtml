@@ -38,139 +38,32 @@
             <strong>@ViewBag.Title</strong>
         </span>
     </div>
-    <div class="row">
 
-        @Html.Partial("product/_MenuAndAdsPartial")
-        <div class="column col-md-9 col-xs-12 col-sm-12" id="center_column">
-            <div class="pro-coloumn">
-                <article class="col-main">
-                    <div class="toolbar">
-                        <div id="sort-by">
-                            <label class="left">Sắp xếp: </label>
-                            <ul>
-                                <li>
-                                    <a href="#">Tên<span class="right-arrow"></span></a>
-                                    <ul>
-                                        <li><a href="javascript:Search.setOrder('nameDesc');">Tên</a></li>
-                                        <li><a href="javascript:Search.setOrder('pricedesc');">Giá giảm dần</a></li>
-                                        <li><a href="javascript:Search.setOrder('pricedasc');">Giá tăng dần</a></li>
-                                        <li><a href="javascript:Search.setOrder('timeDesc');">Mới nhất</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <a class="button-asc left" href="#" title="Set Descending Direction"><span class="top_arrow"></span></a>
-                        </div>
+    @if (Request.Browser.IsMobileDevice)
+    {
+        <div class="row">
+            <div id="pr-listCt">
+                @Html.Partial("ListContent")
+            </div>
+            @Html.Partial("product/_MenuAndAdsPartial")
 
-                        @if (!string.IsNullOrEmpty(ViewBag.page))
-                        {
-                            <div class="pager">
-                                <div class="pages">
-                                    <label>Trang:</label>
-                                    @Html.Raw(ViewBag.page)
-                                </div>
-                            </div>
-                        }
-                    </div>
-                    @if (ViewData["productList"] != null)
-                    {
 
-                        AnperoFrontend.WebService.SearchResult productList = (AnperoFrontend.WebService.SearchResult)ViewData["productList"];
-                        if (productList.Item.Length > 0)
-                        {
-                            <div class="category-products">
-                                <ol class="products-list" id="products-list">
-                                    @foreach (AnperoFrontend.WebService.ProductItem item in productList.Item)
-                                    {
-                                        <li class="item  @(productList.Item.First() == item?"first":"even")">
-                                            <div class="product-image">
-                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="@item.PrName">
-                                                    <img class="small-image" src="@item.Images" alt="@item.PrName">
-                                                </a>
-                                            </div>
-                                            <div class="product-shop">
-                                                <h2 class="product-name">
-                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="@item.PrName">@item.PrName</a>
-                                                </h2>
-                                                <div class="desc std">
-                                                    <p>
-                                                        @item.ShortDesc
-                                                    </p>
-                                                    <p>
-                                                        <a class="link-learn" title="" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">Chi tiết</a>
-                                                    </p>
-                                                </div>
-                                                <div class="price-box">
-                                                    @if (item.IsSale)
-                                                    {
-                                                        <p class="special-price">
-                                                            <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
-                                                            <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
-                                                        </p>
-                                                    }
-                                                    else
-                                                    {
-                                                        <p><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
-                                                    }
+        </div>
+    }
+    else
+    {
+        <div class="row">
 
-                                                </div>
-                                                <div class="actions">
-                                                    <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct(@item.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName');"><span>Mua ngay</span></button>
-                                                    @*<span class="add-to-links">
-                                                            <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct3(@item.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName');"><span>Giỏ hàng</span></button>
-
-                                                        </span>*@
-                                                </div>
-                                            </div>
-                                        </li>
-                                    }
-                                </ol>
-                            </div>
-                            <div class="toolbar">
-                                <div id="sort-by">
-                                    <label class="left">Sắp xếp: </label>
-                                    <ul>
-                                        <li>
-                                            <a href="#">Tên<span class="right-arrow"></span></a>
-                                            <ul>
-                                                <li><a href="#">Tên</a></li>
-                                                <li><a href="#">Giá</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <a class="button-asc left" href="#" title="Set Descending Direction"><span class="top_arrow"></span></a>
-                                </div>
-                                @if (!string.IsNullOrEmpty(ViewBag.page))
-                                {
-                                    <div class="pager">
-                                        <div class="pages">
-                                            <label>Trang:</label>
-                                            @Html.Raw(ViewBag.page)
-                                        </div>
-                                    </div>
-                                }
-
-                            </div>
-                            <script>
-                            var categoryId = @productList.Item[0].CatID;
-                            var ParentCatId = @productList.Item[0].ParentId;
-                            </script>
-                        }
-                        else
-                        {
-                            <script>
-                                var categoryId = "";
-                                var ParentCatId = "";
-                            </script>
-
-                            <p>Hiện tại nội dung đang cập nhật, quý khách vui lòng quay lại sau.</p>
-
-                        }
-
-                    }
-                </article>
+            @Html.Partial("product/_MenuAndAdsPartial")
+            <div id="pr-listCt">
+                @Html.Partial("ListContent")
             </div>
         </div>
-    </div>
+    }
+
+
+
+
 </div>
 @section  scripts{
     <script src="/assets/js/countdown/jquery.plugin.js"></script>

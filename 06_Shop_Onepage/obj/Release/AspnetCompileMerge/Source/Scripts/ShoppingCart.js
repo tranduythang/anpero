@@ -301,5 +301,73 @@
                 }
             });
         }
+    },
+    saveTempForm: function () {
+        OrderForm.Name = $("#cName").val();
+        OrderForm.Phone = $("#cPhone").val();
+        OrderForm.Email = $("#cMail").val();
+        OrderForm.Address = $("#cAddress").val();
+        OrderForm.Detail = $("#detail").val();
+        $.cookie("TempForm", JSON.stringify(OrderForm), { path: '/' });
+    },
+    bindTempForm: function () {
+        if ($.cookie("TempForm") != null && $.cookie("TempForm") != "undefined") {
+            OrderForm = jQuery.parseJSON($.cookie("TempForm"));
+            $("#cName").val(OrderForm.Name);
+            $("#cPhone").val(OrderForm.Phone);
+            $("#cMail").val(OrderForm.Email);
+            $("#cAddress").val(OrderForm.Address);
+            $("#detail").val(OrderForm.Detail);
+        }
+
     }
 }
+var Search = {
+    ParentCatId: 0,
+    Category: 0,
+    Page: 1,
+    PageSize: 24,
+    Products: function (page, orderBy) {
+        if (page != null) {
+            Search.Page = page;
+        }
+        var res = window.location.pathname.match(/[a-z0-9-]*-c(\d+)$/);
+        if (res != null && res.length == 2) {
+            Search.ParentCatId = res[1];
+        }
+        var res2 = window.location.pathname.match(/[a-z0-9-]*-cat(\d+)$/);
+        if (res2 != null && res2.length == 2) {
+            Search.Category = res2[1];
+        }
+        $.ajax({
+            method: "post",
+            url: "/product/searchAjax",
+            datatype: "text/plain",
+            data: { cat: categoryId, ParentCategory: Search.ParentCatId, Category: Search.Category, SortBy: orderBy, Page: Search.Page, PageSize: this.Products.PageSize },
+            success: function (rs) {
+                $("#pr-listCt").html(rs);
+            }
+        });
+    },
+    setOrder: function (order) {
+        Search.Products(1, order);
+    }
+};
+var OrderForm = {
+    Name: "",
+    Phone: "",
+    Email: "",
+    Address: "",
+    Detail: "",
+    PaymentMethod: "",
+    ShipMethod: ""
+}
+$(document).ready(function () {
+    $("input").change(function () {
+        Cart.saveTempForm();
+    });
+    $("textarea").change(function () {
+        Cart.saveTempForm();
+    });
+
+});

@@ -132,7 +132,7 @@
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <script>
         var googleCatcha;
-        $(window).load(function () {
+        $(document).ready(function () {
             var width = $(window).width();
             $("#ajax_loader").css("left", ((width / 2) - 100) + "px")
             Cart.bindCartTable();
@@ -150,6 +150,8 @@
                 'theme': 'light',
                 'hl': 'vi'
             });
+            Cart.bindTempForm();
         });
     </script>
 }
+ 

@@ -52,5 +52,12 @@ namespace Anpero.Constant
 
         }
     }
-    
+    public static class PageContent
+    {
+        public static string Slide = "slide";
+        public static string Ads1 = "ads1";
+        public static string Ads2 = "ads2";
+        public static string Ads3 = "ads3";
+
+    }
 }

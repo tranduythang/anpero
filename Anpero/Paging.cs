@@ -80,8 +80,8 @@ namespace Anpero
                 }
                 else
                 {
-                    pagedString += @"<li><a href='javascript:" + funcName + "(" + totallPaed + @");'> . " + totallPaed + @"</a></li>";
-                    pagedString += @"<li><a href='javascript:" + funcName + "(" + (curentPage + 1) + ");'>&raquo;</a></li>";
+                    pagedString += @"<li><a href='javascript:" + funcName + "(" + totallPaed + ",\"" + orderBy + "\");'>" + totallPaed + @"</a></li>";                    
+                    pagedString += @"<li><a href='javascript:" + funcName + "(" + (curentPage + 1) + ",\"" + orderBy + "\");'>&raquo;</a></li>";
 
                 }
                 pagedString += @"</ul>";

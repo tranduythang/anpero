@@ -92,7 +92,7 @@ namespace AnperoFrontend.Controllers
             ViewData["productList"] = rs;
             if (rs != null)
             {
-                ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+                ViewBag.page = Anpero.Paging.setUpPagedV2(page, model.PageSize, rs.ResultCount, 10, "?page=");
             }
             ViewBag.Title = "Tìm kiếm sản phẩm";
             SetupCommonProduct();
@@ -125,9 +125,9 @@ namespace AnperoFrontend.Controllers
             ViewData["productList"] = rs;
             if (rs != null)
             {
-                ViewBag.page = Anpero.Paging.setUpPagedV2(model.Page, model.PageSize, rs.ResultCount, 10, "?page=");
+                ViewBag.page = Anpero.Paging.setupAjaxPage(model.Page, model.PageSize, rs.ResultCount, 10, "Search.setOrder", model.SortBy);
             }
-            return PartialView("SearchAjax");
+            return PartialView("ListContent", model);
         }
         [BuildCommonHtml]
         public ActionResult Checkout()
