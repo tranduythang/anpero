@@ -34,46 +34,19 @@
                         {    <div class="col-xs-12 col-sm-4 xs-bottom-40 wow fadeIn">
                                 <div class="single-service">
                                     <div class="service-photo">
-                                        <a href="/hat-giong-c55" class="read-more">  <img src="//media.anpero.com/images/29/92018/s2018091802034836.jpg" alt="pet" style="height:100px;"></a>
+                                        <a href="@slide[i].ClickUrl" class="read-more">  <img src="@slide[i].ImagesUrl" alt="pet" style="height:100px;"></a>
                                     </div>
-                                    <h2>Hạt giống</h2>
-                                    <p>Củ và hạt giống được nhập từ các công ty uy tín nhất thế giới. Đảm bảo tỷ lệ nảy mầm cao. </p>
-                                    <a href="/hat-giong-c55" class="read-more">Xem hạt giống</a>
+                                    @Html.Raw(slide[i].Description)
                                 </div>
                             </div>
 
                         }
                     }
-
-
-                    <div class="col-xs-12 col-sm-4 xs-bottom-40 xs-bottom-40 wow fadeIn">
-                        <div class="single-service">
-                            <div class="service-photo">
-                                <a href="/rau-cu-huu-co-c242" class="read-more">  <img src="//media.anpero.com/images/29/92018/12018091900344091.jpg" alt="pet" style="height:100px;"></a>
-                            </div>
-                            <h2>Thực phẩm</h2>
-                            <p>Rau củ, gia cầm, và trứng gia cầm hữu cơ luôn tươi ngon, được <strong>OFREZH</strong> quản lý chất lượng nghiêm khắc từ khâu hạt giống. </p>
-                            @*<a href="/rau-cu-huu-co-c242" class="read-more">Xem thực phẩm</a>*@
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 xs-bottom-40  wow fadeIn">
-                        <div class="single-service">
-                            <div class="service-photo">
-                                <a href="/phan-trun-que-c56" class="read-more"><img src="//media.anpero.com/images/29/92018/12018091802090567.jpg" alt="pet" style="height:100px;"></a>
-                            </div>
-                            <h2>Phân trùn quế</h2>
-                            <p>Bổ xung dưỡng chất cho đất một cách bền vững, tăng tỷ lệ nảy mầm cho hạt giống, giúp cây to khỏe.</p>
-                            <a href="/phan-trun-que-c56" class="read-more">Xem sản phẩm</a>
-                        </div>
-                    </div>
                     <br />
                 </div>
             </div>
         </section>
     }
-
-
-
 }
 
 <section class="about-area section-padding section-relative" id="about">
