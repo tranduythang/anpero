@@ -31,7 +31,7 @@
                     @if (slide.Length > 1)
                     {
                         for (int i = 1; i < slide.Length; i++)
-                        {    <div class="col-xs-12 col-sm-4 xs-bottom-40 wow fadeIn">
+                        {<div class="col-xs-12 col-sm-4 xs-bottom-40 wow fadeIn">
                                 <div class="single-service">
                                     <div class="service-photo">
                                         <a href="@slide[i].ClickUrl" class="read-more">  <img src="@slide[i].ImagesUrl" alt="pet" style="height:100px;"></a>
@@ -48,99 +48,78 @@
         </section>
     }
 }
+@if (ViewData[PageContent.Ads2] != null)
+{
+    Ads[] slide2 = (Ads[])ViewData[PageContent.Ads2];
+    if (slide2 != null && slide2.Length > 0)
+    {
+        <section class="about-area section-padding section-relative" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 text-justify wow fadeIn">
+                        @Html.Raw(slide2[0].Description)
 
-<section class="about-area section-padding section-relative" id="about">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 text-justify wow fadeIn">
-                <div class="page-title">
-                    <h2>Về chúng tôi</h2>
-                </div>
-                <div class="about-text">
-                    <h3>Những con người sáng tạo và có tầm nhìn</h3>
-                    <p>
-                        Ofrezh được thành lập vào năm 2018 trên di sản của Công ty Cổ phần Mạnh Khang, một công ty thương mại chuyên về hệ thống canh tác đô thị và phân bón chất lượng cao,
-                        với tầm nhìn để tạo ra một thế hệ canh tác hữu cơ bền vững trên khắp Việt Nam và khu vực Đông Nam Á.
-                    </p>
-                    <p>
-                        Với một mạng lưới các trang trại <strong>trùn quế</strong> ngày càng phát triển và nhiều năm kinh nghiệm trong việc thiết lập hệ thống nhà kính đô thị và các hệ thống phát triển thông minh với quy mô khác nhau,
-                        Ofrezh hướng đến việc cung cấp từ trang trại đến gia đình
-                    </p>
-                    <div class="about-text-button">
-                        <a href="/about" class="battn">Xem thêm</a>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 text-right wow fadeIn">
+                        <img src="@slide2[0].ImagesUrl" />
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 text-right wow fadeIn">
-                <img src="//media.anpero.com/images/29/92018/banner2018091823261027.png" />
-            </div>
-        </div>
-    </div>
-</section>
-<section class="photography-area  section-relative" id="philosophy">
-    <div class="container">
-        <div class="row">
-            <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
-                <div class="page-title">
-                    <h2>Công nghệ và Quy trình</h2>
-                    <p>
-                        Các công nghệ, quy trình OFREZH đảm bảo thân thiện với môi trường
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div id="photographyCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-            <div class="row">
-                <div class="col-xs-12 col-sm-5">
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                            <img src="//media.anpero.com/images/29/92018/12018090402141934.jpg" alt="Rau hữu cơ, phân trùn quế">
-                        </div>
-                        <div class="item">
-                            <img src="//media.anpero.com/images/29/92018/22018090402201016.jpg" alt="thiết kế web quản lý bán hàng">
-                        </div>
-                        <div class="item">
-                            <img src="//media.anpero.com/images/29/92018/12018090402141934.jpg" alt="web bán hàng giá rẻ">
+        </section>
+
+    }
+    if (ViewData[PageContent.Ads3] != null)
+    {
+        Ads[] Ads3 = (Ads[])ViewData[PageContent.Ads3];
+        if (Ads3 != null && Ads3.Length > 0)
+        {
+            <section class="photography-area section-relative" id="philosophy">
+                <div class="container">
+
+
+                    <div class="row">
+                        <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
+                            @Html.Raw(Ads3[0].Description)
                         </div>
                     </div>
+                    @if (Ads3.Length > 1)
+                    {
+                        
+                        <div id="photographyCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-5">
+                                    <div class="carousel-inner" role="listbox">
+                                        @for (int i = 1; i < Ads3.Length; i++)
+                                        {
+
+                                            <div class="item @((i==1)?"active":"")">
+                                                <img src="@Ads3[i].ImagesUrl">
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-7">
+                                    <ol class="carousel-indicators">
+                                        @for (int i = 1; i < Ads3.Length; i++)
+                                        {
+                                            <li data-target="#photographyCarousel" data-slide-to="@(i-1)" class="@((i==1)?"active":"")">
+                                                <div class="single-photography">
+                                                    @Html.Raw(Ads3[i].Description)
+                                                </div>
+                                            </li>
+                                        }
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
                 </div>
-                <div class="col-xs-12 col-sm-7">
-                    <ol class="carousel-indicators">
-                        <li data-target="#photographyCarousel" data-slide-to="0" class="active">
-                            <div class="single-photography">
-                                <div class="photography-icon">
-                                    <i class="fa fa-gift"></i>
-                                </div>
-                                <h2>Bảo quản</h2>
-                                <p>Các sản phẩm hữu cơ có thể để lâu hơn các sản phẩm sạch, và sử dụng phân bón kích thích. OFREZH không dùng bất cứ một chất phụ gia nào để bảo quản thực phẩm.</p>
-                            </div>
-                        </li>
-                        <li data-target="#photographyCarousel" data-slide-to="1">
-                            <div class="single-photography">
-                                <div class="photography-icon">
-                                    <i class="fa fa-database"></i>
-                                </div>
-                                <h2>Công nghệ nuôi trùn quế</h2>
-                                <p>Kỹ thuật nuôi giun trùn quế được chuyển giao từ Cộng Hòa Liên Bang Đức. Đảm bảo thành phần dinh dưỡng mà Phân Trùn Quế mang lại cho cây trồng ở mức cao nhất, giúp cây phát triển khỏe mạnh từ giao đoạn ươm hạt đến khi thu hoạch.</p>
-                            </div>
-                        </li>
-                        <li data-target="#photographyCarousel" data-slide-to="2">
-                            <div class="single-photography">
-                                <div class="photography-icon">
-                                    <i class="fa fa-leaf"></i>
-                                </div>
-                                <h2>Công nghệ trồng rau hữu cơ</h2>
-                                <p>Rau Hữu Cơ OFREZH trồng từ Phân Trùn Quế không cần bất cứ loại phân bón nào mà vẫn phát triển khỏe mạnh. Chúng tôi nói không với phân bón hóa học, thuốc bảo vệ thực vật.</p>
-                            </div>
-                        </li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End-Photography-Area-->
-<!-- Start-Blog-Area -->
+            </section>
+
+        }
+    }
+}
 
 @if (ViewData["FeatureArticle"] != null)
 {
