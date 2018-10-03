@@ -2790,22 +2790,24 @@ span.notify-right{
   margin: 0 auto;
 }
 
-#left_column .block .title_block{
-  font-size: 12px;
-  font-weight: bold;
-  border-bottom: 1px solid #eaeaea;
-  padding-left: 28px;
-  text-transform: uppercase;
-  padding-top: 11px;
-  padding-bottom: 12px;
-  background-color: #50b748;
-  color: white;
-  
-  margin:0;
+#left_column .block .title_block {
+    font-size: 13px;
+    font-weight: bold;
+    border-bottom: 1px solid #eaeaea;    
+    text-transform: uppercase;
+    padding-top: 11px;
+    padding-bottom: 5px;
+    color: #3e0c0c;
+    margin: 0;
+    border-bottom: 3px solid #007176;   
+}
+#left_column .block .title-l {
+    border-bottom: 1px solid #d9edee;
+    padding-bottom: 5px;
 }
 .tree-menu {
     border: 1px solid #eaeaea;
-    border-top:none;
+    border-top: none;
 }
 #left_column .block .block_content, .tree-menu>li>ul {
  padding: 0;
@@ -5203,6 +5205,7 @@ span.notify-right{
     color: #ccc;
     font-weight: 700;
     cursor: pointer;
+    margin-left:10px;
 }
 .tree-menu > li ul li span:before {
     content: "\f0da";
@@ -5221,4 +5224,7 @@ display:none;
 }
 .vendor-list img {
     margin: 3px -5px 5px -5px;
+}
+.logo img{
+    max-height:75px;
 }

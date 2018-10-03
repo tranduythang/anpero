@@ -12,14 +12,14 @@
     <meta name="keywords" content="@commonInfo.Desc" />
 }
 <div class="container">
-    <div class="lct">
+    @*<div class="lct">
         <div class="column col-xs-12 col-sm-3" id="left_column">
         @ViewBag.rd  @Html.Partial("product/_MenuAndAdsPartial")
         </div>
-    </div>
-    <div class="col-md-9">
-        @if (!Request.Browser.IsMobileDevice)
-        {
+    </div>*@
+    <div class="col-md-12">
+        @*@if (!Request.Browser.IsMobileDevice)
+        {*@
             <div id="home-slider" style="margin-top:5px;">
                 @switch (commonInfo.ThemeOption)
                 {
@@ -31,8 +31,8 @@
                         break;
                 }
             </div>
-        }
-        <div class="service ">
+            @*}*@
+        @*<div class="service ">
             <div class="col-xs-6 col-sm-4 service-item">
                 <div class="icon">
                     <amp-img width="375" height="375" src="/assets/data/s1.png" layout="responsive" data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat'>
@@ -73,7 +73,7 @@
                     <span>Qua COD hoặc ngân hàng</span>
                 </div>
             </div>
-        </div>
+        </div>*@
         <div class="col-md-12 col-xs-12 col-sm-12 page-top-left">
             <h2 class="page-heading">
                 <span class="page-heading-title">Đang khuyến mãi</span>

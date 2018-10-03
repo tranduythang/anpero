@@ -14,7 +14,7 @@ namespace AnperoFrontend
                         
                         ));
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/assets/lib/bootstrap/js/bootstrap.min.js",
+                      
                       "~/assets/lib/select2/js/select2.min.js",
                        "~/assets/lib/jquery-bxslider/jquery-bxslider.min.js",
                        "~/assets/lib/owl-carousel/owl-carousel.min.js",
@@ -28,8 +28,7 @@ namespace AnperoFrontend
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-             "~/assets/lib/bootstrap/css/bootstrap.min.css",
-              "~/assets/lib/font-awesome/css/font-awesome.min.css",              
+              "~/assets/lib/font-awesome/css/font-awesome.min.css",
               "~/assets/lib/select2/css/select2.min.css",
               "~/assets/lib/owl-carousel/owl-carousel.css",
               "~/assets/lib/jquery-ui/jquery-ui.css",
