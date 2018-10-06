@@ -15,23 +15,25 @@
     <!-- Blog category -->
     @if (categoryList!=null && categoryList.Count > 0)
     {
-        <div class="block left-module">
-            <p class="title_block">Các chuyên mục</p>
-            <div class="block_content">
-                <!-- layered -->
-                <div class="layered layered-category">
-                    <div class="layered-content">
-                        <ul class="tree-menu">                         
-                            @foreach (BlogCategory item in categoryList)
-                               {
-                                <li><span></span><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Name,item.Id)">@item.Name</a></li>
-                               }
-                        </ul>
-                    </div>
-                </div>
-                <!-- ./layered -->
+    <div class="block left-module">
+        <h2 class="page-heading">
+            <span class="page-heading-title">Các chuên mục</span>
+
+        </h2>
+        <div class="block_content">
+            <!-- layered -->
+
+            <div class="box-content box-category">
+                <ul>
+                    @foreach (BlogCategory item in categoryList)
+                    {
+                        <li><span></span><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Name,item.Id)">@item.Name</a></li>
+                    }
+                </ul>
             </div>
+            <!-- ./layered -->
         </div>
+    </div>
     }
     else
     {
@@ -56,8 +58,11 @@
     @if (TopArticle!=null && TopArticle.ItemList.Length > 0)
     {
 
-        <div class="block left-module">
-            <p class="title_block">Tin nổi bật</p>
+        <div class="block left-module">            
+            <h2 class="page-heading">
+                <span class="page-heading-title">Tin nổi bật</span>
+
+            </h2>
             <div class="block_content">
                 <!-- layered -->
                 <div class="layered">

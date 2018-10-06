@@ -7,6 +7,9 @@
         // auto width megamenu
         auto_width_megamenu();
         resizeTopmenu();
+        jQuery(".subDropdown")[0] && jQuery(".subDropdown").on("click", function () {
+            jQuery(this).toggleClass("plus"), jQuery(this).toggleClass("minus"), jQuery(this).parent().find("ul").slideToggle()
+        })
     });
     /* ---------------------------------------------
      Scripts ready
