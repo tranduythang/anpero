@@ -40,7 +40,7 @@ namespace AnperoFrontend.Controllers
             //GetTopArticle();
             SetupCommonProduct();
             SetUpSeo(2, id);
-            return View("List_2");
+            return View("List");
         }
        
         [BuildCommonHtml]

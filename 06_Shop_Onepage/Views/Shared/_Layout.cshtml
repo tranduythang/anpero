@@ -157,7 +157,7 @@
     <script src="/Scripts/jquery.cokie.min.js"></script>
     <script src="/Scripts/ShoppingCart.js"></script>
     @Html.Raw(commonInfo.PageScript)
-    <script>
+    <script type="text/javascript">
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
@@ -166,9 +166,21 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
 
-    </script>
-    <script type="text/javascript">
-
+        $(document).ready(function () {
+            $(".owl-carousel").each(function (index, el) {
+                var config = $(this).data();
+                config.navText = ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'];
+                config.smartSpeed = "300";
+                if ($(this).hasClass('owl-style2')) {
+                    config.animateOut = "fadeOut";
+                    config.animateIn = "fadeIn";
+                }
+                $(this).owlCarousel(config);
+            });
+            jQuery(".subDropdown")[0] && jQuery(".subDropdown").on("click", function () {
+                jQuery(this).toggleClass("plus"), jQuery(this).toggleClass("minus"), jQuery(this).parent().find("ul").slideToggle()
+            })
+        });
         function GTranslateGetCurrentLang() { var keyValue = document.cookie.match('(^|;) ?googtrans=([^;]*)(;|$)'); return keyValue ? keyValue[2].split('/')[2] : null; }
         function GTranslateFireEvent(element, event) { try { if (document.createEventObject) { var evt = document.createEventObject(); element.fireEvent('on' + event, evt) } else { var evt = document.createEvent('HTMLEvents'); evt.initEvent(event, true, true); element.dispatchEvent(evt) } } catch (e) { } }
         function doGTranslate(lang_pair) {
@@ -189,7 +201,7 @@
     </style>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b7a515bc8da872d"></script>
+   <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b7a515bc8da872d"></script>
     
 </body>
 </html>
