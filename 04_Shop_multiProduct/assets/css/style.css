@@ -5248,7 +5248,9 @@ span.notify-right{
     text-decoration: none;
     padding-left: 0px;
     color: #666;
+    text-transform:uppercase;
     transition: color 300ms ease-in-out 0s, background-color 300ms ease-in-out 0s, background-position 300ms ease-in-out 0s;
+    line-height:20px;
 }
     .box-category > ul > li ul > li > a:before {
         content: '\f10c';
