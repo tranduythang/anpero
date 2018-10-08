@@ -825,9 +825,6 @@
 .option6 .product-list li .add-to-cart:hover{
 	opacity: 1;
 }
-.option6 .product-list li .add-to-cart a {
-	  background: url("/assets/images/icon-cart-option2.png") no-repeat left center;
-}
 .option6 .product-list li .quick-view a.compare:before{
 	  content: "\f066";
 }
@@ -1166,6 +1163,7 @@
 */
 .option6 #footer{
 	margin-top: 60px;
+    padding-bottom:30px;
 }
 .option6 #mail-box .btn{
 	background: #007176;

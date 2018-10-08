@@ -18,31 +18,66 @@
                     <span><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.CategoryName, item.CategoryId)" title="@item.CategoryName">@item.CategoryName</a> </span>
                 </div>
             </div>
-            @Html.Partial("article/_MenuAndAdsPartial")
-            <div class="col-md-9 col-xs-9 col-sm-12">
-                <article class="entry-detail">
-                    <div class="page-title text-center ">
-                        <h2>@item.Title</h2>
-                    </div>
-                    <div id="photographyCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-                        <div class="col-xs-12 col-sm-12">@Html.Raw(item.Content)</div>
-                        <div class="entry-meta-data">
-                            <span class="comment-count">
-                                <i class="fa fa-eye"></i> @item.ViewTime
-                            </span>
-                            <span class="date"><i class="fa fa-calendar"></i> @Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</span>
-                        </div>
-                    </div>
+            @if (Request.Browser.IsMobileDevice)
+            {
 
-                    <div class="content-text clearfix"></div>
-                    @*<div class="entry-tags">
-                            <span>Tags:</span>
-                            @item.Tag
-                        </div>*@
-                </article>
-            </div>
+                <div class="col-md-9 col-xs-12 col-sm-12">
+                    <article class="entry-detail">
+                        <div class="page-title text-center ">
+                            <h2>@item.Title</h2>
+                        </div>
+                        <div id="photographyCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+                            <div class="col-xs-12 col-sm-12">@Html.Raw(item.Content)</div>
+                            <div class="entry-meta-data">
+                                <span class="comment-count">
+                                    <i class="fa fa-eye"></i> @item.ViewTime
+                                </span>
+                                <span class="date"><i class="fa fa-calendar"></i> @Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</span>
+                            </div>
+                        </div>
+
+                        <div class="content-text clearfix"></div>
+                        @*<div class="entry-tags">
+                        <span>Tags:</span>
+                        @item.Tag
+                    </div>*@
+                    </article>
+                </div>
+                <div class="column col-md-3 col-xs-12 col-sm-12" id="left_column">
+                    @Html.Partial("article/_MenuAndAdsPartial")
+                </div>
+            }
+            else
+            {
+                <div class="column col-md-3 col-xs-12 col-sm-12" id="left_column">
+                    @Html.Partial("article/_MenuAndAdsPartial")
+                </div>
+                <div class="col-md-9 col-xs-9 col-sm-12">
+                    <article class="entry-detail">
+                        <div class="page-title text-center ">
+                            <h2>@item.Title</h2>
+                        </div>
+                        <div id="photographyCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+                            <div class="col-xs-12 col-sm-12">@Html.Raw(item.Content)</div>
+                            <div class="entry-meta-data">
+                                <span class="comment-count">
+                                    <i class="fa fa-eye"></i> @item.ViewTime
+                                </span>
+                                <span class="date"><i class="fa fa-calendar"></i> @Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</span>
+                            </div>
+                        </div>
+
+                        <div class="content-text clearfix"></div>
+                        @*<div class="entry-tags">
+                        <span>Tags:</span>
+                        @item.Tag
+                    </div>*@
+                    </article>
+                </div>
+            }
+
         </div>
-    </div>
+        </div>
 </section>
 <div class="columns-container">
     <div class="container">
@@ -58,7 +93,7 @@
                             <section class="blog-area section-padding" id="blog">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
+                                        <div class="text-center col-xs-12 col-sm-12 col-sm-offset-2">
                                             <div class="page-title">
                                                 <h2>Bài liên quan</h2>
                                             </div>
@@ -67,7 +102,7 @@
                                     <div class="row blog-slide">
                                         @foreach (var articleItem in articleList.ItemList)
                                         {
-                                            <div class="col-xs-3 wow fadeIn">
+                                            <div class="col-md-3 col-xs-12 wow fadeIn">
 
                                                 <div class="single-blog">
                                                     <div class="blog-photo">
@@ -89,128 +124,7 @@
                     }
 
                 }
-                <section class="blog-area section-padding" id="blog">
-                    <div class="container">
-                        <div class="row">
-                            <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
-                                <div class="page-title">
-                                    <h2>LATEST BLOG POSTS</h2>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row blog-slide">
-                            <div class="col-xs-3 wow fadeIn">
-                                <div class="single-blog">
-                                    <div class="blog-photo">
-                                        <img src="assets//images/blog-1.jpg" alt="">
-                                        <div class="blog-date">
-                                            <h3>oct <span>2016</span></h3>
-                                        </div>
-                                    </div>
-                                    <h2>Healthy &amp; fun frozen yogurt sancks</h2>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when pecimen book. It has scenturies,</p>
-                                    <div class="tags">
-                                        <a href="#"><i class="fa fa-user"></i>Jhon</a>
-                                        <a href="#"><i class="fa fa-tag"></i>Pet</a>
-                                        <a href="#"><i class="fa fa-comments"></i>10 Comments</a>
-                                    </div>
-                                    <a href="#" class="read-more">Read More</a>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 fadeIn">
-                                <div class="single-blog">
-                                    <div class="blog-photo">
-                                        <img src="/images/blog-2.jpg" alt="">
-                                        <div class="blog-date">
-                                            <h3>Nov <span>2016</span></h3>
-                                        </div>
-                                    </div>
-                                    <h2>Healthy &amp; fun frozen yogurt sancks</h2>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when pecimen book. It has scenturies,</p>
-                                    <div class="tags">
-                                        <a href="#"><i class="fa fa-user"></i>Jhon</a>
-                                        <a href="#"><i class="fa fa-tag"></i>Pet</a>
-                                        <a href="#"><i class="fa fa-comments"></i>10 Comments</a>
-                                    </div>
-                                    <a href="#" class="read-more">Read More</a>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 wow fadeIn">
-                                <div class="single-blog">
-                                    <div class="blog-photo">
-                                        <img src="images/blog-3.jpg" alt="">
-                                        <div class="blog-date">
-                                            <h3>Dec <span>2016</span></h3>
-                                        </div>
-                                    </div>
-                                    <h2>Healthy &amp; fun frozen yogurt sancks</h2>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when pecimen book. It has scenturies,</p>
-                                    <div class="tags">
-                                        <a href="#"><i class="fa fa-user"></i>Jhon</a>
-                                        <a href="#"><i class="fa fa-tag"></i>Pet</a>
-                                        <a href="#"><i class="fa fa-comments"></i>10 Comments</a>
-                                    </div>
-                                    <a href="#" class="read-more">Read More</a>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 wow fadeIn">
-                                <div class="single-blog">
-                                    <div class="blog-photo">
-                                        <img src="images/blog-1.jpg" alt="">
-                                        <div class="blog-date">
-                                            <h3>oct <span>2016</span></h3>
-                                        </div>
-                                    </div>
-                                    <h2>Healthy &amp; fun frozen yogurt sancks</h2>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when pecimen book. It has scenturies,</p>
-                                    <div class="tags">
-                                        <a href="#"><i class="fa fa-user"></i>Jhon</a>
-                                        <a href="#"><i class="fa fa-tag"></i>Pet</a>
-                                        <a href="#"><i class="fa fa-comments"></i>10 Comments</a>
-                                    </div>
-                                    <a href="#" class="read-more">Read More</a>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 wow fadeIn">
-                                <div class="single-blog">
-                                    <div class="blog-photo">
-                                        <img src="images/blog-2.jpg" alt="">
-                                        <div class="blog-date">
-                                            <h3>Nov <span>2016</span></h3>
-                                        </div>
-                                    </div>
-                                    <h2>Healthy &amp; fun frozen yogurt sancks</h2>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when pecimen book. It has scenturies,</p>
-                                    <div class="tags">
-                                        <a href="#"><i class="fa fa-user"></i>Jhon</a>
-                                        <a href="#"><i class="fa fa-tag"></i>Pet</a>
-                                        <a href="#"><i class="fa fa-comments"></i>10 Comments</a>
-                                    </div>
-                                    <a href="#" class="read-more">Read More</a>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 wow fadeIn">
-                                <div class="single-blog">
-                                    <div class="blog-photo">
-                                        <img src="images/blog-3.jpg" alt="">
-                                        <div class="blog-date">
-                                            <h3>Dec <span>2016</span></h3>
-                                        </div>
-                                    </div>
-                                    <h2>Healthy &amp; fun frozen yogurt sancks</h2>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when pecimen book. It has scenturies,</p>
-                                    <div class="tags">
-                                        <a href="#"><i class="fa fa-user"></i>Jhon</a>
-                                        <a href="#"><i class="fa fa-tag"></i>Pet</a>
-                                        <a href="#"><i class="fa fa-comments"></i>10 Comments</a>
-                                    </div>
-                                    <a href="#" class="read-more">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+       
 
             </div>
         </div>

@@ -3,9 +3,9 @@
     AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
     if (ViewData["commonInfo"] != null)
     {
-        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];    
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
-
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
 }
 @*<div class="top-header">
     <div class="container">
@@ -29,22 +29,24 @@
         <div class="col-xs-12 col-sm-12 col-md-3 logo">
             <a href="/"><img alt="@commonInfo.Desc" src="@commonInfo.Logo" /></a>
         </div>
-        <div class="col-xs-7 col-sm-8 col-md-7 header-search-box">
-            <form class="form-inline" action="/search" name="search" id="search" method="get">
+        <div class="col-xs-7 col-sm-8 col-md-7 header-search-box" itemscope itemtype="baseUrl">
+            <form class="form-inline" action="/search" name="search" id="search" method="get" role="search">
+                <meta itemprop="url" content="@(baseUrl+"/search")" />
+                <meta itemprop="target" content="@(baseUrl+"/search?keyword={keyword}")" />
                 <div class="form-group form-category">
-                    <select class="select-category"  name="category">
+                    <select class="select-category" name="category">
                         <option value="0">Danh mục sản phẩm</option>
                         @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                         {
                             for (int i = 0; i < commonInfo.ProductCategoryList.Length; i++)
                             {
-                                
+
                                 <option value="c-@commonInfo.ProductCategoryList[i].Id">@commonInfo.ProductCategoryList[i].Name</option>
                                 if (commonInfo.ProductCategoryList[i].ChildCategory != null && commonInfo.ProductCategoryList[i].ChildCategory.Length > 0)
                                 {
                                     for (int j = 0; j < commonInfo.ProductCategoryList[i].ChildCategory.Length; j++)
                                     {
-                                        <option value="@commonInfo.ProductCategoryList[i].ChildCategory[j].Id">@Anpero.StringHelpper.SubString(20,commonInfo.ProductCategoryList[i].ChildCategory[j].Name)</option>
+                                        <option value="@commonInfo.ProductCategoryList[i].ChildCategory[j].Id">@Anpero.StringHelpper.SubString(20, commonInfo.ProductCategoryList[i].ChildCategory[j].Name)</option>
                                     }
                                 }
                             }
@@ -52,7 +54,7 @@
                     </select>
                 </div>
                 <div class="form-group input-serach">
-                    <input type="text" placeholder="Tìm kiếm ..." name="keyword">
+                    <input type="text" placeholder="Tìm kiếm ..." name="keyword" itemprop="query-input" required>
                 </div>
                 <button type="submit" class="pull-right btn-search" id="btnSearch"></button>
             </form>
