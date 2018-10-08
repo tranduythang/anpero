@@ -34,6 +34,7 @@
     <meta name="robots" content="index,follow,all" />
     <meta property="og:title" content="@Html.Raw(ViewBag.Title)" />
     @RenderSection("health", required: false)
+    <link href="//media.anpero.com/cdn/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css" />
@@ -199,7 +200,11 @@
         </div>
     </div>
     @RenderBody()
-    @Scripts.Render("~/bundles/jquery")
+    <script src="//media.anpero.com/cdn/plugins/jquery-1.10.2.min.js"></script>
+    <script src="//media.anpero.com/cdn/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    
+
     @Scripts.Render("~/bundles/bootstrap")
     <script src="/Scripts/ShoppingCart.js"></script>
     @Html.Raw(commonInfo.AnperoPlugin)
@@ -365,7 +370,7 @@
                 </div>
 
                 <div class="col-md-5 col-sm-12">
-                  
+
                     <div id="contact-box" style="text-align: right;">
                         <div class="introduce-title">Đối tác của chúng tôi</div>
                         @if (ViewData["AdsSlide3"] != null)
@@ -388,10 +393,6 @@
                             }
 
                         }
-                        @*@if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                            {
-                                <div class="fb-page" data-tabs="messages" data-href="@Html.Raw(commonInfo.FaceBookLink)" data-width="500" data-height="300" data-hide-cover="false"></div>
-                            }*@
                     </div>
                 </div>
             </div>
@@ -433,7 +434,14 @@
         });
         $(".tree-menu li span").mouseenter(function () {
             $(this).closest('li').children('ul').show();
-        })
+        });
+                            //$(window).scroll(function () {
+                            //    var mainHearder = $(".main-header").height() + 30;
+                            //    if ($(window).scrollTop() == mainHearder) {
+                            //        console.log($(window).scrollTop());
+                            //    }
+                            //})
+
 
     </script>
 </body>

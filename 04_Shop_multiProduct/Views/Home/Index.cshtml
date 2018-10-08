@@ -12,26 +12,12 @@
     <meta name="keywords" content="@commonInfo.Desc" />
 }
 <div class="container">
-    <div class="lct">
+    @*<div class="lct">
         <div class="column col-xs-12 col-sm-3" id="left_column">
         @ViewBag.rd  @Html.Partial("product/_MenuAndAdsPartial")
         </div>
-    </div>
-    <div class="col-md-9">
-        @if (!Request.Browser.IsMobileDevice)
-        {
-            <div id="home-slider" style="margin-top:5px;">
-                @switch (commonInfo.ThemeOption)
-                {
-                    case 2:
-                        Html.RenderPartial("_partial/_HomeSlide_2");
-                        break;
-                    default:
-                        Html.RenderPartial("_partial/_HomeSlide_1");
-                        break;
-                }
-            </div>
-        }
+    </div>*@
+    <div class="col-md-12">
         <div class="service ">
             <div class="col-xs-6 col-sm-4 service-item">
                 <div class="icon">
@@ -39,7 +25,7 @@
                         <noscript>
                             <img src="/assets/data/s1.png" class="img-responsive" />
                         </noscript>
-                    </amp-img>                    
+                    </amp-img>
                 </div>
                 <div class="info">
                     <a href="/policy/ship"><h3>Miễn phí ship</h3></a>
@@ -53,7 +39,7 @@
                         <noscript>
                             <img src="/assets/data/s3.png" class="img-responsive" />
                         </noscript>
-                    </amp-img>                    
+                    </amp-img>
                 </div>
                 <div class="info">
                     <a href="/"><h3>Tư vấn 24/7</h3></a>
@@ -74,6 +60,21 @@
                 </div>
             </div>
         </div>
+        @*@if (!Request.Browser.IsMobileDevice)
+        {*@
+        <div id="home-slider" style="margin-top:5px;">
+            @switch (commonInfo.ThemeOption)
+            {
+                case 2:
+                    Html.RenderPartial("_partial/_HomeSlide_2");
+                    break;
+                default:
+                    Html.RenderPartial("_partial/_HomeSlide_1");
+                    break;
+            }
+        </div>
+        @*}*@
+
         <div class="col-md-12 col-xs-12 col-sm-12 page-top-left">
             <h2 class="page-heading">
                 <span class="page-heading-title">Đang khuyến mãi</span>
@@ -88,11 +89,7 @@
                             <div class="product-container">
                                 <div class="left-block">
                                     <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
-                                        <amp-img width="375" height="375" src="@item.Images" layout="responsive" data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat'>
-                                            <noscript>
-                                                <img src="@item.Images" class="img-responsive" />
-                                            </noscript>
-                                        </amp-img>
+                                        <img src="@item.Images" class="img-responsive" />
                                         @if (item.Rank >= 1)
                                         {
                                             <div class="featured-text"><span>Bán chạy</span></div>
@@ -152,13 +149,8 @@
                                 <li>
                                     <div class="product-container">
                                         <div class="left-block">
-                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
-                                                <amp-img width="375" height="375" src="@item.Images" layout="responsive" data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat'>
-                                                    <noscript>
-                                                        <img src="@item.Images" class="img-responsive" />
-                                                    </noscript>
-                                                </amp-img>
-                                                @*<img class="img-responsive" alt="@item.PrName" src="@item.Images" />*@
+                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">                                                
+                                                <img src="@item.Images" class="img-responsive" />                                                
                                                 @if (item.Rank >= 1)
                                                 {
                                                     <div class="featured-text"><span>Bán chạy</span></div>

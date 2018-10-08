@@ -1,57 +1,36 @@
 ﻿@using AnperoFrontend.WebService;
 <div class="row">
-        <div class="col-sm-12">
-            <div class="homeslider">
-                @if (ViewData["slide"] != null)
+    <div class="col-sm-12 col-md-12">
+        <div class="homeslider">
+            @if (ViewData["slide"] != null)
+            {
+                Ads[] slide = (Ads[])ViewData["slide"];
+                if (slide.Length > 0)
                 {
-                    Ads[] slide = (Ads[])ViewData["slide"];
-                    if (slide.Length > 0)
-                    {
-                        <ul id="contenhomeslider-customPage">
+                    <ul id="contenhomeslider-customPage">
                         @foreach (var item in slide)
                         {
-                         <li><a href="@item.ClickUrl">
-                                         <img src="@item.ImagesUrl" />
-                             </a></li>
+                            <li>
+                                <a href="@item.ClickUrl">
+                                    <img src="@item.ImagesUrl" style="width:100%;">
+                                </a>
+                            </li>
                         }
-                        </ul>
-                        <div class="bx-control">
-                            <div class="slide-prev">
-                                <span id="bx-prev"></span>
-                            </div>
-                            <div id="bx-pager" class="slide-pager">
-                                @for (int i = 0; i < slide.Length; i++)
-                                {
-                                    <a data-slide-index="@i" href="">@(i+1)</a>
-                                }
-                            </div>
-                            <div class="slide-next">
-                                <span id="bx-next"></span>
-                            </div>
+                    </ul>
+                    <div class="bx-control">
+                        <div class="slide-prev">
+                            <span id="bx-prev"></span>
                         </div>
-                    }
-                    else
-                    {
-                        <ul id="contenhomeslider-customPage">
-                            <li><a href="#"><img alt="Funky roots" src="/assets/images/862.jpg" title="Funky roots" /></a></li>
-                            <li><a href="#"><img alt="Funky roots" src="/assets/images/862.jpg" title="Funky roots" /></a></li>
-                            <li><a href="#"><img alt="Funky roots" src="/assets/images/862.jpg" title="Funky roots" /></a></li>
-                            
-                        </ul>
-                        <div class="bx-control">
-                            <div class="slide-prev">
-                                <span id="bx-prev"></span>
-                            </div>
-                            <div id="bx-pager" class="slide-pager">
-                                <a data-slide-index="0" href="">1</a>
-                                <a data-slide-index="1" href="">2</a>
-                                <a data-slide-index="2" href="">3</a>
-                            </div>
-                            <div class="slide-next">
-                                <span id="bx-next"></span>
-                            </div>
+                        <div id="bx-pager" class="slide-pager">
+                            @for (int i = 0; i < slide.Length; i++)
+                            {
+                                <a data-slide-index="@i" href="">@(i + 1)</a>
+                            }
                         </div>
-                    }
+                        <div class="slide-next">
+                            <span id="bx-next"></span>
+                        </div>
+                    </div>
                 }
                 else
                 {
@@ -59,6 +38,7 @@
                         <li><a href="#"><img alt="Funky roots" src="/assets/images/862.jpg" title="Funky roots" /></a></li>
                         <li><a href="#"><img alt="Funky roots" src="/assets/images/862.jpg" title="Funky roots" /></a></li>
                         <li><a href="#"><img alt="Funky roots" src="/assets/images/862.jpg" title="Funky roots" /></a></li>
+
                     </ul>
                     <div class="bx-control">
                         <div class="slide-prev">
@@ -74,8 +54,30 @@
                         </div>
                     </div>
                 }
-            </div>
+            }
+            else
+            {
+                <ul id="contenhomeslider-customPage">
+                    <li><a href="#"><img alt="Funky roots" src="/assets/images/862.jpg" title="Funky roots" /></a></li>
+                    <li><a href="#"><img alt="Funky roots" src="/assets/images/862.jpg" title="Funky roots" /></a></li>
+                    <li><a href="#"><img alt="Funky roots" src="/assets/images/862.jpg" title="Funky roots" /></a></li>
+                </ul>
+                <div class="bx-control">
+                    <div class="slide-prev">
+                        <span id="bx-prev"></span>
+                    </div>
+                    <div id="bx-pager" class="slide-pager">
+                        <a data-slide-index="0" href="">1</a>
+                        <a data-slide-index="1" href="">2</a>
+                        <a data-slide-index="2" href="">3</a>
+                    </div>
+                    <div class="slide-next">
+                        <span id="bx-next"></span>
+                    </div>
+                </div>
+            }
         </div>
-      
     </div>
+
+</div>
 

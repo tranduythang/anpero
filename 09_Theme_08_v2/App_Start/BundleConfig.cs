@@ -32,12 +32,13 @@ namespace AnperoFrontend
                   "~/assets/stylesheet/owl.carousel.css",
                   "~/assets/stylesheet/owl.theme.css",
                   "~/assets/stylesheet/jquery.mobile-menu.css",
-                 
                   "~/assets/stylesheet/jquery.bxslider.css",
-                  "~/assets/stylesheet/style.css"
-                   
+                  "~/assets/stylesheet/style.css",
+                  "~/assets/stylesheet/grey.css"
+
+
            ));
-            BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = false;
         }
     }
 }
