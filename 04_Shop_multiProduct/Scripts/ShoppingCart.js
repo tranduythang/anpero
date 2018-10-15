@@ -123,7 +123,7 @@
                 htmlCat += '<p class="product-name"><a href="#">' + Cart.list[i].title + ' </a></p>';
 
                 htmlCat += '</td>';
-                htmlCat += '<td class="cart_avail"><span class="label label-success">Sẵn sàng</span></td>';
+                htmlCat += '<td class="cart_avail"><span class="label label-success">Sẵn hàng</span></td>';
                 htmlCat += '<td class="price"><span>' + Util.toMoneyFormat(Cart.list[i].price) + '</span></td>';
                 htmlCat += '<td class="qty">';
                 htmlCat += '<input class="form-control input-sm" type="text" value="' + Cart.list[i].quantity + '" id="prQuantity_' + Cart.list[i].id + '">';
