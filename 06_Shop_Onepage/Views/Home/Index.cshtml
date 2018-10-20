@@ -68,28 +68,57 @@
         </section>
 
     }
-    <section class="photography-area section-relative" id="philosophy">
-        <div class="container">
+    if (ViewData[PageContent.Ads3] != null)
+    {
+        Ads[] Ads3 = (Ads[])ViewData[PageContent.Ads3];
+        if (Ads3 != null && Ads3.Length > 0)
+        {
+            <section class="photography-area section-relative" id="philosophy">
+                <div class="container">
 
 
-            <div class="row">
-                <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
-                    <div class="page-title">
-                        <h2>Bản đồ</h2>
-                    
+                    <div class="row">
+                        <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
+                            @Html.Raw(Ads3[0].Description)
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div id="photographyCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-                <div class="row">
-                  <div class="col-lg-12 col-md-12">
+                    @if (Ads3.Length > 1)
+                    {
 
-                  </div>
+                        <div id="photographyCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-5">
+                                    <div class="carousel-inner" role="listbox">
+                                        @for (int i = 1; i < Ads3.Length; i++)
+                                        {
+
+                                            <div class="item @((i==1)?"active":"")">
+                                                <img src="@Ads3[i].ImagesUrl">
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-7">
+                                    <ol class="carousel-indicators">
+                                        @for (int i = 1; i < Ads3.Length; i++)
+                                        {
+                                            <li data-target="#photographyCarousel" data-slide-to="@(i-1)" class="@((i==1)?"active":"")">
+                                                <div class="single-photography">
+                                                    @Html.Raw(Ads3[i].Description)
+                                                </div>
+                                            </li>
+                                        }
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
                 </div>
-            </div>
-        </div>
-    </section>
-   
+            </section>
+
+        }
+    }
 }
 
 @if (ViewData["FeatureArticle"] != null)
@@ -101,7 +130,7 @@
                 <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
                     <div class="page-title">
                         <h2>Cập nhật mới nhất</h2>
-                        <p>Xem thêm các cập nhật về @commonInfo.Name tại đây <a href="/blog" title="BLOG">Xem thêm tại đây</a></p>
+                        <p>Xem thêm các cập nhật về @commonInfo.Name tại đây <a href="/blog" title="Thiết kế web bán hàng tốt nhất">Xem thêm tại đây</a></p>
                     </div>
                 </div>
             </div>
