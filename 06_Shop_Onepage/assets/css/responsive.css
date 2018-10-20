@@ -46,8 +46,12 @@
 /* Mobile Layout: 320px. */
 
 @media only screen and (max-width: 767px) {
-    .products-list .product-shop{
-        width:100%;
+    .single-photography .photography-icon{
+        float:left;
+        margin-right:15px;
+    }
+    .products-list .product-shop {
+        width: 100%;
     }
     .products-list .product-image {
         width: 100%;
