@@ -143,11 +143,11 @@
                             <li class="col-sx-12 col-sm-3">
                                 <div class="product-container">
                                     <div class="left-block">
-                                        <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, @item.Id)">
-                                            <img class="img-responsive" alt="@item.PrName" src="@items.Images" />
-                                            @if (item.IsSale)
+                                        <a href="@Anpero.StringHelpper.GetProductLink(items.PrName, @items.Id)">
+                                            <img class="img-responsive" alt="@items.PrName" src="@items.Images" />
+                                            @if (items.IsSale)
                                             {
-                                                <div class="price-percent-reduction2">giảm @Anpero.StringHelpper.ConVertToMoneyFormatInt((item.Price - item.SalePrice).ToString())</div>
+                                                <div class="price-percent-reduction2">giảm @Anpero.StringHelpper.ConVertToMoneyFormatInt((items.Price - items.SalePrice).ToString())</div>
                                             }
                                         </a>
                                         <div class="quick-view">
@@ -160,7 +160,7 @@
                                         </div>
                                     </div>
                                     <div class="right-block">
-                                        <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName, @item.Id)">@item.PrName</a></h5>
+                                        <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName, @item.Id)">@items.PrName</a></h5>
                                         <div class="product-star">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -169,14 +169,14 @@
                                             <i class="fa fa-star-half-o"></i>
                                         </div>
                                         <div class="content_price">
-                                            @if (item.IsSale)
+                                            @if (items.IsSale)
                                             {
-                                                <span class="price product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice.ToString())</span>
-                                                                <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString())</span>
+                                                <span class="price product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(items.SalePrice.ToString())</span>
+                                                                <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(items.Price.ToString())</span>
                                             }
                                             else
                                             {
-                                                <span class="price product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString())</span>
+                                                <span class="price product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(items.Price.ToString())</span>
                                             }
 
                                         </div>

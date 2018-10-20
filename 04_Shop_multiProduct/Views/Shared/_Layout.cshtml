@@ -43,88 +43,17 @@
         <link href="/assets/lib/jquery-bxslider/jquery-bxslider.css" rel="stylesheet" />
     }
     <link rel="stylesheet" type="text/css" href="/assets/css/@(themeOptionText+".css")" />
-    <link rel="dns-prefetch" href="https://v2.zopim.com/">
-    <link rel="dns-prefetch" href="https://www.google-analytics.com/">
-    <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
-    <link rel="dns-prefetch" href="https://www.facebook.com/">
+    <link rel="dns-prefetch" href="//v2.zopim.com/">
+    <link rel="dns-prefetch" href="//www.google-analytics.com/">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com/">
+    <link rel="dns-prefetch" href="//www.facebook.com/">
     <link href='/static/css' rel='stylesheet' type='text/css'>
     @*<link href="/assets/css/blue-style.css" rel="stylesheet" />*@
     <link href="/assets/css/Green-style.css" rel="stylesheet" />
-    @*AMP*@
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <style amp-boilerplate>
-        body {
-            -webkit-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
-            -moz-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
-            -ms-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
-            animation: -amp-start 8s steps(1,end) 0s 1 normal both
-        }
-
-        @@-webkit-keyframes -amp-start {
-            from {
-                visibility: hidden
-            }
-
-            to {
-                visibility: visible
-            }
-        }
-
-        @@-moz-keyframes -amp-start {
-            from {
-                visibility: hidden
-            }
-
-            to {
-                visibility: visible
-            }
-        }
-
-        @@-ms-keyframes -amp-start {
-            from {
-                visibility: hidden
-            }
-
-            to {
-                visibility: visible
-            }
-        }
-
-        @@-o-keyframes -amp-start {
-            from {
-                visibility: hidden
-            }
-
-            to {
-                visibility: visible
-            }
-        }
-
-        @@keyframes -amp-start {
-            from {
-                visibility: hidden
-            }
-
-            to {
-                visibility: visible
-            }
-        }
-    </style>
-    <noscript>
-        <style amp-boilerplate>
-            body {
-                -webkit-animation: none;
-                -moz-animation: none;
-                -ms-animation: none;
-                animation: none
-            }
-        </style>
-    </noscript>
-    @*end AMP*@
+   
 </head>
 <body class="@themeOptionText">
     <div id="header" class="header">
-
 
         @switch (commonInfo.ThemeOption)
         {
@@ -189,9 +118,9 @@
                         </nav>
                     </div>
                 </div>
+                <div id="user-info-opntop"></div>
                 <div id="form-search-opntop"></div>
                 <!-- userinfo on top-->
-                <div id="user-info-opntop"></div>
                 <!-- CART ICON ON MMENU -->
                 <div id="shopping-cart-box-ontop">
                     <i class="fa fa-shopping-cart"></i>
@@ -284,6 +213,7 @@
         </div>
     </div>
 
+
     <footer id="footer">
         <div class="container">
 
@@ -323,39 +253,30 @@
                                 {
                                     <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
                                 }
-                                <a href="https://plus.google.com/share?url=@thisUrl" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                <a href="http://pinterest.com/pinthis?url=@thisUrl" target="_blank"><i class="fa fa-pinterest-p"></i></a>
-                                <a href="http://www.twitter.com/share?url=@thisUrl" target="_blank"><i class="fa fa-twitter"></i></a>
+                                <a href="//plus.google.com/share?url=@thisUrl" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                <a href="//pinterest.com/pinthis?url=@thisUrl" target="_blank"><i class="fa fa-pinterest-p"></i></a>
+                                <a href="//www.twitter.com/share?url=@thisUrl" target="_blank"><i class="fa fa-twitter"></i></a>
                             </div>
                         }
                     </div>
+                    <!-- Histats.com  (div with counter) --><div id="histats_counter"></div>
+                    <!-- Histats.com  START  (aync)-->
+                    <script type="text/javascript">
+                        var _Hasync = _Hasync || [];
+                        _Hasync.push(['Histats.start', '1,4138849,4,428,112,75,00001111']);
+                        _Hasync.push(['Histats.fasi', '1']);
+                        _Hasync.push(['Histats.track_hits', '']);
+                        (function () {
+                            var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+                            hs.src = ('//s10.histats.com/js15_as.js');
+                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+                        })();</script>
+                    <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?4138849&101" alt="" border="0"></a></noscript>
+                    <!-- Histats.com  END  -->
                 </div>
-                <div class="col-md-3  col-sm-12">
+                <div class="col-md-4  col-sm-12">
                     <div class="row">
                         <div class="col-sm-12">
-                            @*<div class="address-box" style="margin-top: 31px;">*@
-
-                            @*<a href="/"><img src="@commonInfo.Logo" alt="logo"></a>*@
-                            @*<div class="adrct">
-                                    <div class="tit-contain"><i class=""></i> Bắc Kạn</div>
-                                    <div class="tit-contain"><i class="fa fa-home"></i> Tạp hóa Tuyết Huân</div>
-                                    <div class="tit-contain"><i class="fa fa-location-arrow"></i> số 33, tổ 11A, P Sông Cầu, Bắc Kạn</div>
-
-                                </div>
-
-                                <div class="adrct">
-                                    <div class="tit-contain"><i class=""></i> Ecopark</div>
-                                    <div class="tit-contain"><i class="fa fa-home"></i> Đại lý Thu Dung</div>
-                                    <div class="tit-contain"><i class="fa fa-location-arrow"></i> WBB 2617, West Bay, Ecopark</div>
-
-                                </div>*@
-
-
-                            @*</div>*@
-                            @*<div class="introduce-list">
-                                    @Html.Raw(commonInfo.Footer)
-
-                                </div>*@
                             @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                             {
                                 <ul class="introduce-list">
@@ -369,32 +290,14 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-5 col-sm-12">
-
+                <div class="col-md-4">
                     <div id="contact-box" style="text-align: right;">
-                        <div class="introduce-title">Đối tác của chúng tôi</div>
-                        @if (ViewData["AdsSlide3"] != null)
+                        @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
                         {
-                            Ads[] slide = (Ads[])ViewData["AdsSlide3"];
-                            if (slide.Length > 0)
-                            {
-
-                                foreach (var item in slide)
-                                {
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="banner-boder-zoom vendor-list">
-                                            <a href="@item.ClickUrl" target="_blank" rel="nofollow">
-                                                <img alt="@item.Description" src="@item.ImagesUrl" title="@item.Description" />
-                                            </a>
-                                        </div>
-                                    </div>
-                                }
-
-                            }
-
+                            <div class="fb-page" data-tabs="messages" data-href="@Html.Raw(commonInfo.FaceBookLink)" data-width="500" data-height="300" data-hide-cover="false"></div>
                         }
                     </div>
+
                 </div>
             </div>
 
@@ -433,19 +336,15 @@
         }(document, 'script', 'facebook-jssdk'));
         $(window).load(function () {
             Cart.bindCart();
+            jQuery(".subDropdown")[0] && jQuery(".subDropdown").on("click", function () {
+                jQuery(this).toggleClass("plus"), jQuery(this).toggleClass("minus"), jQuery(this).parent().find("ul").slideToggle()
+            })
         });
         $(".tree-menu li span").mouseenter(function () {
             $(this).closest('li').children('ul').show();
         });
-                                //$(window).scroll(function () {
-                                //    var mainHearder = $(".main-header").height() + 30;
-                                //    if ($(window).scrollTop() == mainHearder) {
-                                //        console.log($(window).scrollTop());
-                                //    }
-                                //})
-
-
     </script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b7a515bc8da872d"></script>
 </body>
 </html>
 
