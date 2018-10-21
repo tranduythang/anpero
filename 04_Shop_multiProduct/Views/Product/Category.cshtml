@@ -3,7 +3,6 @@
 
 <div class="page-top">
     <div class="container">
-
         <div class="row">
             @if (Request.Browser.IsMobileDevice)
             {
@@ -124,7 +123,7 @@
             else
             {
 
-                <div class="column col-xs-12 col-sm-3 col-md-3" id="left_column">
+                <div class="column col-xs-12 col-sm-12 col-md-3" id="left_column">
                     @Html.Partial("product/_SearchBox")
                     @Html.Partial("product/_MenuAndAdsPartial")
                 </div>

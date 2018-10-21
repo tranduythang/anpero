@@ -42,6 +42,8 @@
     {
         <link href="/assets/lib/jquery-bxslider/jquery-bxslider.css" rel="stylesheet" />
     }
+    <link rel="shortcut icon" href="@commonInfo.Logo" type="image/x-icon">
+
     <link rel="stylesheet" type="text/css" href="/assets/css/@(themeOptionText+".css")" />
     <link rel="dns-prefetch" href="//v2.zopim.com/">
     <link rel="dns-prefetch" href="//www.google-analytics.com/">
@@ -50,7 +52,7 @@
     <link href='/static/css' rel='stylesheet' type='text/css'>
     @*<link href="/assets/css/blue-style.css" rel="stylesheet" />*@
     <link href="/assets/css/Green-style.css" rel="stylesheet" />
-   
+
 </head>
 <body class="@themeOptionText">
     <div id="header" class="header">
@@ -336,9 +338,9 @@
         }(document, 'script', 'facebook-jssdk'));
         $(window).load(function () {
             Cart.bindCart();
-            jQuery(".subDropdown")[0] && jQuery(".subDropdown").on("click", function () {
-                jQuery(this).toggleClass("plus"), jQuery(this).toggleClass("minus"), jQuery(this).parent().find("ul").slideToggle()
-            })
+            //jQuery(".subDropdown")[0] && jQuery(".subDropdown").on("click", function () {
+            //    jQuery(this).toggleClass("plus"), jQuery(this).toggleClass("minus"), jQuery(this).parent().find("ul").slideToggle()
+            //})
         });
         $(".tree-menu li span").mouseenter(function () {
             $(this).closest('li').children('ul').show();
