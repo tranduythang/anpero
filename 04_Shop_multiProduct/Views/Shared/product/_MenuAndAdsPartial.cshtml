@@ -5,6 +5,7 @@
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
+    bool isShowChidenCat =true; 
 
 }
 
@@ -27,8 +28,8 @@
 
                             @if (commonInfo.ProductCategoryList[i].ChildCategory != null && commonInfo.ProductCategoryList[i].ChildCategory.Length > 0)
                             {
-                                <span class="subDropdown plus"></span>
-                                <ul>
+                                <span class="subDropdown @(isShowChidenCat?"minus":"plus")"></span>
+                                <ul style="@(isShowChidenCat?"display:block;":"")">
                                     @for (int j = 0; j < commonInfo.ProductCategoryList[i].ChildCategory.Length; j++)
                                     {
                                         <li>
