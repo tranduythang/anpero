@@ -8,9 +8,13 @@
             <div class="breadcrumb clearfix">
                 <a class="home" href="/" title="Return to Home">Home</a>
                 <span class="navigation-pipe">&nbsp;</span>
-                <a href="/">@item.ParentCatName</a>
-                <span class="navigation-pipe">&nbsp;</span>
-                <a href="/">@item.CatName</a>
+                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName,item.ParentId)">@item.ParentCatName</a>
+                @if (!string.IsNullOrEmpty(item.CatName))
+                {
+                    <span class="navigation-pipe">&nbsp;</span>
+                    <a href="@Anpero.StringHelpper.GetCategoryLink(item.CatName,item.CatID)">@item.CatName</a>
+                }
+
             </div>
             <!-- ./breadcrumb -->            
             <div class="row">              
