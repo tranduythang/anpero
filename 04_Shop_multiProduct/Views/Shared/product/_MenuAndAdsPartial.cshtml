@@ -5,7 +5,7 @@
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
-
+    bool isShowAllMenu = true;
 }
 
 <div class="block left-module side-nav-categories">    
@@ -27,8 +27,8 @@
 
                             @if (commonInfo.ProductCategoryList[i].ChildCategory != null && commonInfo.ProductCategoryList[i].ChildCategory.Length > 0)
                             {
-                                <span class="subDropdown plus"></span>
-                                <ul>
+                                <span class="subDropdown @(isShowAllMenu?"minus":"plus") "></span>
+                                <ul style="@(isShowAllMenu?"display:block;":"")" >
                                     @for (int j = 0; j < commonInfo.ProductCategoryList[i].ChildCategory.Length; j++)
                                     {
                                         <li>
