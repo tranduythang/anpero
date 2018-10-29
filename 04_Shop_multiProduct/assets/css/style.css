@@ -5233,7 +5233,7 @@ span.notify-right{
 .box-category > ul > li > a {
     color: #333;
     text-transform: uppercase;
-    display: block;
+    display: inline-block;
     font-size: 12px;
     font-weight: 700;
 }
