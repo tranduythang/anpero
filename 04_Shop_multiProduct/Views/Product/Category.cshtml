@@ -147,6 +147,11 @@
                                         <span>list</span>
                                     </li>
                                 </ul>
+                                @if (!string.IsNullOrEmpty(ViewBag.Desc))
+                                {
+                                    <div class="cat-short-desc">@Html.Raw(ViewBag.Desc)</div>
+                                }
+
                                 <ul class="row product-list grid" id="prListContent" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product">
                                     @foreach (AnperoFrontend.WebService.ProductItem item in productList.Item)
                                     {
@@ -154,7 +159,7 @@
                                             <div class="product-container">
                                                 <div class="left-block">
                                                     <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" itemprop="url">
-                                                        <img class="img-responsive" alt="@item.PrName" src="@item.Images" itemprop="image"/>
+                                                        <img class="img-responsive" alt="@item.PrName" src="@item.Images" itemprop="image" />
                                                         @if (item.Rank > 1)
                                                         {
                                                             <div class="featured-text"><span>Bán chạy</span></div>

@@ -61,21 +61,34 @@ namespace AnperoFrontend.Controllers
                 page = Convert.ToInt32(pageQuery);
             }
             WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.SearchResult rs   = sv.GetProductByCategory(StoreID, TokenKey, id,  page, 14,0);
+            WebService.SearchResult rs = sv.GetProductByCategory(StoreID, TokenKey, id, page, 14, 0);
             ViewData["productList"] = rs;
-            ViewBag.page =Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
-            if(rs!=null && rs.Item.Length > 0)
-            {
-                ViewBag.Title = rs.Item[0].CatName;
-            }
-            
+            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
             SetupCommonProduct();
+            ProductCategory[] pc = CommontInfo.ProductCategoryList;
+            if (pc != null)
+            {
+                foreach (var item in pc)
+                {
+                    if (item.ChildCategory.Length > 0)
+                    {
+                        foreach (var chidItem in item.ChildCategory)
+                        {
+                            if (chidItem.Id == id)
+                            {
+                                ViewBag.Title = chidItem.Name;
+                                ViewBag.Desc = chidItem.Description;
+                            }
+                        }
+                    }
+                }
 
+            }
             return View();
         }
-       
+
         [BuildCommonHtml]
-        
+
         public ActionResult ParentCategory(int id)
         {
             string pageQuery = Request.QueryString["page"];
@@ -89,9 +102,11 @@ namespace AnperoFrontend.Controllers
             ViewData["productList"] = rs;
             ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
             ViewBag.isParent = "1";
-            if (rs != null && rs.Item.Length > 0)
+            ProductCategory pc = CommontInfo.ProductCategoryList.Where(x => x.Id == id).FirstOrDefault();
+            if (pc != null)
             {
-                ViewBag.Title = rs.Item[0].ParentCatName;
+                ViewBag.Title = pc.Name;
+                ViewBag.Desc = pc.Description;
             }
             SetupCommonProduct();
             return View("Category");
@@ -111,7 +126,7 @@ namespace AnperoFrontend.Controllers
             WebService.AnperoService sv = new WebService.AnperoService();
             if (!string.IsNullOrEmpty(model.Category) && model.Category.Contains(@"c-"))
             {
-                model.Category = model.Category.Replace(@"c-", string.Empty);                
+                model.Category = model.Category.Replace(@"c-", string.Empty);
                 rs = sv.SearchProduct(StoreID, TokenKey, "%", model.Category.ToString(), model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
             }
             else
@@ -119,7 +134,7 @@ namespace AnperoFrontend.Controllers
                 rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), "", model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
             }
             ViewData["productList"] = rs;
-            if(rs!=null)
+            if (rs != null)
             {
                 ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
             }
@@ -143,7 +158,7 @@ namespace AnperoFrontend.Controllers
             if (!string.IsNullOrEmpty(model.Category) && model.Category.Contains(@"c-"))
             {
                 string parentCat = model.Category.Replace(@"c-", string.Empty);
-                rs = sv.SearchProduct(StoreID, TokenKey,"0", parentCat, model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
+                rs = sv.SearchProduct(StoreID, TokenKey, "0", parentCat, model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
 
             }
             else
@@ -154,15 +169,15 @@ namespace AnperoFrontend.Controllers
             ViewData["productList"] = rs;
             if (rs != null)
             {
-                ViewBag.page = Anpero.Paging.setUpPagedV2(model.Page,model.PageSize, rs.ResultCount, 10, "?page=");
+                ViewBag.page = Anpero.Paging.setUpPagedV2(model.Page, model.PageSize, rs.ResultCount, 10, "?page=");
             }
             return PartialView("SearchAjax");
         }
         [BuildCommonHtml]
         public ActionResult Checkout()
         {
-            AnperoService ws = new AnperoService();            
-            PaymentConfig[] pa = ws.GetPaymentAPIConfig(StoreID,TokenKey);            
+            AnperoService ws = new AnperoService();
+            PaymentConfig[] pa = ws.GetPaymentAPIConfig(StoreID, TokenKey);
             if (pa != null && pa.Length > 0)
             {
                 for (int i = 0; i < pa.Length; i++)
