@@ -1,0 +1,39 @@
+﻿@using AnperoFrontend.WebService;
+@model SearchArticleResults
+
+@if (Model!=null)
+{   
+    <div class="col-md-12 col-xs-12 col-sm-12">
+        <div class="row-blog">
+            <div class="blog-list">
+                <h2 class="page-heading">
+                    <span class="page-heading-title">@ViewBag.Name</span>
+                </h2>
+                <div class="blog-list-wapper">
+                    <ul class="owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="5" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
+                        @foreach (BlogItem item in Model.ItemList)
+                        {
+                            <li>
+                                <div class="post-thumb image-hover2">
+                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)"><img src="@item.Thumb" alt="@item.Title"></a>
+                                </div>
+                                <div class="post-desc">
+                                    <h5 class="post-title">
+                                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@Anpero.StringHelpper.SubString(30, item.Title)</a>
+                                    </h5>
+                                    <div class="post-meta">
+                                        <span class="date">@Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</span>
+
+                                    </div>
+                                    <div class="readmore">
+                                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Chi tiết</a>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}

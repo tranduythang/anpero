@@ -51,22 +51,12 @@
     <link rel="dns-prefetch" href="//www.facebook.com/">
     <link href='/static/css' rel='stylesheet' type='text/css'>
     @*<link href="/assets/css/blue-style.css" rel="stylesheet" />*@
-    <link href="/assets/css/Green-style.css" rel="stylesheet" />
+    @*<link href="/assets/css/Green-style.css" rel="stylesheet" />*@
 
 </head>
 <body class="@themeOptionText">
     <div id="header" class="header">
-
-        @switch (commonInfo.ThemeOption)
-        {
-            case 2:
-                Html.RenderPartial("_partial/_MainHeader_2");
-                break;
-            default:
-                Html.RenderPartial("_partial/_MainHeader_1");
-
-                break;
-        }
+        @Html.Partial("_partial/_MainHeader_1")
         <div id="nav-top-menu" class="nav-top-menu">
             <div class="container">
                 <div class="row">
@@ -267,20 +257,6 @@
                             </div>
                         }
                     </div>
-                    <!-- Histats.com  (div with counter) --><div id="histats_counter"></div>
-                    <!-- Histats.com  START  (aync)-->
-                    <script type="text/javascript">
-                        var _Hasync = _Hasync || [];
-                        _Hasync.push(['Histats.start', '1,4138849,4,428,112,75,00001111']);
-                        _Hasync.push(['Histats.fasi', '1']);
-                        _Hasync.push(['Histats.track_hits', '']);
-                        (function () {
-                            var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-                            hs.src = ('//s10.histats.com/js15_as.js');
-                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-                        })();</script>
-                    <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?4138849&101" alt="" border="0"></a></noscript>
-                    <!-- Histats.com  END  -->
                 </div>
                     <div class="col-md-4  col-sm-12">
                         <div class="row">
@@ -354,7 +330,5 @@
             $(this).closest('li').children('ul').show();
         });
     </script>
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b7a515bc8da872d"></script>
-    @Html.Partial("GoogleTranslate")
 </body>
 </html>

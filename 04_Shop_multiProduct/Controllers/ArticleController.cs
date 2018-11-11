@@ -8,12 +8,7 @@ namespace AnperoFrontend.Controllers
 {
     public class ArticleController : BaseController
     {
-        [BuildCommonHtml]
-        public ActionResult ChuyenDoiTiengViet()
-        {
-            SetUpCommonArticle();            
-            return View();
-        }
+      
         // GET: Article
         [BuildCommonHtml]
         public ActionResult Index(int id)
@@ -57,6 +52,12 @@ namespace AnperoFrontend.Controllers
             }
             SetUpCommonArticle();
             return View();
+        }
+        public ActionResult _CategoryPartial(int id,string name)
+        {
+            AnperoService sv = new AnperoService();
+            ViewBag.Name = name;
+            return PartialView(sv.SearchArticle(StoreID, TokenKey, id, 1, 5, 0));
         }
         private void SetUpCommonArticle()
         {

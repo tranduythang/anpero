@@ -20,7 +20,6 @@
         <!-- row -->
         <div class="row">
             <!-- Left colunm -->
-            @Html.Partial("article/_MenuAndAdsPartial")
             <!-- ./left colunm -->
             <!-- Center colunm-->
             <div class="center_column col-xs-12 col-sm-9" id="center_column">
@@ -29,17 +28,17 @@
                 </h1>
                 <article class="entry-detail">
                     <div class="entry-meta-data">
-                     
-                       
+
+
                         <span class="comment-count">
                             <i class="fa fa-comment-o"></i> @item.ViewTime
                         </span>
                         <span class="date"><i class="fa fa-calendar"></i> @Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</span>
-                      
+
                     </div>
-                   
+
                     <div class="content-text clearfix">
-                      @Html.Raw(item.Content)
+                        @Html.Raw(item.Content)
                     </div>
                     <div class="entry-tags">
                         <span>Tags:</span>
@@ -67,7 +66,7 @@
                                             <div class="entry-ci">
                                                 <h3 class="entry-title"><a href="@Anpero.StringHelpper.GetArticleLink(articleItem.Title, articleItem.Id)">@articleItem.Title</a></h3>
                                                 <div class="entry-meta-data">
-                                                   
+
                                                     <span class="date">
                                                         <i class="fa fa-calendar"></i> @Anpero.StringHelpper.ConvertTimeVN(articleItem.CreateDate)
                                                     </span>
@@ -80,14 +79,15 @@
                                     </li>
                                 }
                             </ul>
-                            </div>
+                        </div>
                     }
 
                 }
 
-         
+
             </div>
             <!-- ./ Center colunm -->
+            @Html.Partial("article/_MenuAndAdsPartial")
         </div>
         <!-- ./row-->
     </div>

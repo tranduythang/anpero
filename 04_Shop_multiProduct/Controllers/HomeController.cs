@@ -17,7 +17,7 @@ namespace AnperoFrontend.Controllers
             //ViewData["slide"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Slide);
             //ViewData["AdsSlide"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads1);
           
-            GetNewestProduct();
+            //GetNewestProduct();
             SetupCommonProduct();
             GetTopArticle();
             SetUpSlideAds();
