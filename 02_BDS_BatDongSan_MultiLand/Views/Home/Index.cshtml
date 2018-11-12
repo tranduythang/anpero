@@ -11,11 +11,13 @@
 @section health{
     <meta name="description" content="@commonInfo.Desc" />
     <meta name="keywords" content="@commonInfo.Desc" />
+    <link href="/assets/lib/Content-Slider/dist/css/slider-pro.min.css" rel="stylesheet" />
+    <link href="/assets/lib/Content-Slider/examples/css/examples.css" rel="stylesheet" />
 }
 <div class="page-top ">
     <div class="container">
         <div class="row">
-            <div class="_l10 col-md-3 col-sm-3" >
+            <div class="_l10 col-md-3 col-sm-3">
                 @Html.Partial("_partial/_searchBox")
             </div>
             @Html.Partial("_partial/_HomeSlide_2")
@@ -28,46 +30,46 @@
     Ads[] slide = (Ads[])ViewData["AdsSlide2"];
     if (slide.Length > 0)
     {
-        <div class="container bw">
-                <div class="row banner-bottom">
-                    @for (int i = 0; i < slide.Length; i++)
+        <div class="container">
+            <div class="row banner-bottom">
+                @for (int i = 0; i < slide.Length; i++)
+                {
+                    if (i == 0)
                     {
-                        if (i == 0)
-                        {
-                            <div class="col-sm-6 item-left">
-                                <div class="banner-boder-zoom">
-                                    <a href="@slide[0].ClickUrl"><img alt="@slide[0].Description" class="img-responsive" src="@slide[0].ImagesUrl" /></a>
-                                </div>
+                        <div class="col-sm-6 item-left">
+                            <div class="banner-boder-zoom">
+                                <a href="@slide[0].ClickUrl"><img alt="@slide[0].Description" class="img-responsive" src="@slide[0].ImagesUrl" /></a>
                             </div>
-                        }
-                        if (i == 1)
-                        {
-                            <div class="col-sm-6 item-right">
-                                <div class="banner-boder-zoom">
-                                    <a href="@slide[1].ClickUrl"><img alt="@slide[1].Description" class="img-responsive" src="@slide[1].ImagesUrl" /></a>
-                                </div>
-                            </div>
-                        }
-
+                        </div>
                     }
-                </div>       
+                    if (i == 1)
+                    {
+                        <div class="col-sm-6 item-right">
+                            <div class="banner-boder-zoom">
+                                <a href="@slide[1].ClickUrl"><img alt="@slide[1].Description" class="img-responsive" src="@slide[1].ImagesUrl" /></a>
+                            </div>
+                        </div>
+                    }
+
+                }
+            </div>
         </div>
     }
     else
     {
         <div class="container">
-                <div class="row banner-bottom">
-                    <div class="col-sm-6 item-left">
-                        <div class="banner-boder-zoom">
-                            <a href="#" title="AdsSlide2"><img alt="AdsSlide2" class="img-responsive" src="/assets/data/option5/banner1.jpg" title="AdsSlide2" /></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 item-right">
-                        <div class="banner-boder-zoom">
-                            <a href="#" title="AdsSlide2"><img alt="AdsSlide2" class="img-responsive" src="/assets/data/option5/banner2.jpg" title="AdsSlide2" /></a>
-                        </div>
+            <div class="row banner-bottom">
+                <div class="col-sm-6 item-left">
+                    <div class="banner-boder-zoom">
+                        <a href="#" title="AdsSlide2"><img alt="AdsSlide2" class="img-responsive" src="/assets/data/option5/banner1.jpg" title="AdsSlide2" /></a>
                     </div>
                 </div>
+                <div class="col-sm-6 item-right">
+                    <div class="banner-boder-zoom">
+                        <a href="#" title="AdsSlide2"><img alt="AdsSlide2" class="img-responsive" src="/assets/data/option5/banner2.jpg" title="AdsSlide2" /></a>
+                    </div>
+                </div>
+            </div>
         </div>
     }
 }
@@ -98,7 +100,7 @@ else
             <div class="container">
                 <div class="row  page-top-left">
                     <div class="col-md-6 col-sm-6">
-                        
+
                         <h2 class="page-heading">
                             <span class="page-heading-title">Bất động sản mới <img src="/assets/images/new-marker.gif"></span>
                         </h2>
@@ -121,15 +123,15 @@ else
                                                                 <div class="featured-text"><span>Bán chạy</span></div>
                                                             }
                                                         </a>
-                                                    
+
                                                     </div>
                                                     <div class="right-block">
-                                                        <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></h5>                                                        
+                                                        <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></h5>
                                                         @if (item.Price > 0)
                                                         {
                                                             <div class="content_price">
                                                                 <span class="price product-price">@Anpero.StringHelpper.ConvertToVndMoney(item.Price) </span>
-                                                                
+
                                                             </div>
                                                         }
                                                         @if (item.Warranty > 0)
@@ -151,7 +153,7 @@ else
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3 home-article">
-                        
+
                         <h2 class="page-heading">
                             <span class="page-heading-title">Tin mới đăng <img src="/assets/images/new-marker.gif"></span>
                         </h2>
@@ -172,7 +174,7 @@ else
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3 home-article">
-                        
+
                         <h2 class="page-heading">
                             <span class="page-heading-title">Phong thủy <img src="/assets/images/new-marker.gif"></span>
                         </h2>
@@ -245,6 +247,7 @@ else
     </div>
 }
 @section scripts{
+    <script src="/assets/lib/Content-Slider/dist/js/jquery.sliderPro.min.js"></script>
     <script src="/assets/js/jquery-slimscroll-min.js"></script>
     <script>
         $(document).ready(function () {
@@ -263,6 +266,25 @@ else
                 autoplayTimeout: 2000,
                 autoplayHoverPause: true
             });
+            $('#example5').sliderPro({
+                width: 760,
+                height: 350,
+                arrows: true,
+                buttons: false,
+                waitForLayers: true,
+                thumbnailWidth: 100,
+                thumbnailHeight: 70,
+                thumbnailPointer: true,
+                autoplay: false,
+                autoScaleLayers: false,
+                breakpoints: {
+                    500: {
+                        thumbnailWidth: 120,
+                        thumbnailHeight: 50
+                    }
+                }
+            });
+            
         });
         Location.Init();
         Category.Init();

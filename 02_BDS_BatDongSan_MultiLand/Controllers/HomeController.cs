@@ -14,24 +14,6 @@ namespace AnperoFrontend.Controllers
             SetupCommonProduct();
             GetTopArticle();
             SetUpSlideAds();
-            WebService.SearchResult featureleProduct;
-            WebService.AnperoService sv = new WebService.AnperoService();
-            if (HttpRuntime.Cache["featureleProduct"] != null)
-            {
-                featureleProduct = (WebService.SearchResult)HttpRuntime.Cache["featureleProduct"];
-            }
-            else
-            {
-                featureleProduct = sv.SearchProduct(StoreID, TokenKey, "", "", "", 0, 1999999990, 1, 8, "", SearchOrder.TimeDesc, 2);
-                if (featureleProduct != null)
-                {
-                    HttpRuntime.Cache.Insert("featureleProduct", featureleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
-                }
-            }
-            ViewData["featureleProduct"] = featureleProduct;
-
-        
-        
             return View();
         }
         private void SetUpSlideAds()
