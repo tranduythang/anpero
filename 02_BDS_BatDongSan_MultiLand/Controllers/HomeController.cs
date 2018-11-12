@@ -23,20 +23,20 @@ namespace AnperoFrontend.Controllers
             WebService.AnperoService service = new WebService.AnperoService();
 
 
-            //WebService.Ads[] Ads1 = null;
-            //if (HttpRuntime.Cache["AdsSlide"] != null)
-            //{
-            //    ViewData["AdsSlide"] = (WebService.Ads[])HttpRuntime.Cache["AdsSlide"];
-            //}
-            //else
-            //{
-            //    Ads1 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads1);
-            //    ViewData["AdsSlide"] = Ads1;
-            //    if (Ads1 != null)
-            //    {
-            //        HttpRuntime.Cache.Insert("AdsSlide", Ads1, null, DateTime.Now.AddMinutes(shortCacheTime + 2), TimeSpan.Zero);
-            //    }
-            //}
+            WebService.Ads[] Ads1 = null;
+            if (HttpRuntime.Cache["AdsSlide"] != null)
+            {
+                ViewData["AdsSlide"] = (WebService.Ads[])HttpRuntime.Cache["AdsSlide"];
+            }
+            else
+            {
+                Ads1 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads1);
+                ViewData["AdsSlide"] = Ads1;
+                if (Ads1 != null)
+                {
+                    HttpRuntime.Cache.Insert("AdsSlide", Ads1, null, DateTime.Now.AddMinutes(shortCacheTime + 2), TimeSpan.Zero);
+                }
+            }
             WebService.Ads[] Ads2 = null;
             if (HttpRuntime.Cache["Ads2"] != null)
             {

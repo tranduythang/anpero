@@ -14,7 +14,6 @@
                 <span class="navigation-pipe">&nbsp;</span>
                 <a href="@Anpero.StringHelpper.GetCategoryLink(item.CatName,item.CatID)" title="Return to Home">@item.CatName</a>
             </div>
-            <!-- ./breadcrumb -->            
             <div class="row bw">              
                 @if (Request.Browser.IsMobileDevice)
                 {
@@ -27,11 +26,7 @@
                     @Html.Partial("product/_MenuAndAdsPartial")
                     @Html.Partial("product/_productDetail")
                 }
-
             </div>
-            
-
-
         </div>
     </div>
     @section health{
