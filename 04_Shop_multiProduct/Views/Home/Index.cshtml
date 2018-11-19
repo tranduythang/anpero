@@ -14,7 +14,7 @@
 }
 @if (!Request.Browser.IsMobileDevice)
 {
-        <div id="home-slider" style="margin-top:5px;">
+        <div id="home-slider">
             @Html.Partial("_partial/_HomeSlide_1")
         </div>
 }
@@ -334,7 +334,7 @@
                 </div>
             }
             @{
-                Html.RenderAction("_CategoryPartial", "Article", new { id = 169, name = "Video Hướng Dẫn" });
+                Html.RenderAction("_CategoryPartial", "Article", new { id = 169, name = "Video Hướng Dẫn",showPlayVideo=true });
             }
         </div>
     </div>

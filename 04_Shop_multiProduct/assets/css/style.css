@@ -5275,3 +5275,12 @@ span.notify-right{
     .box-category .subDropdown.minus {
         background-image: url(//media.anpero.com/images/38/102018/minus-blue2018100614211640.png);
     }
+.playbtn {
+    position: absolute;
+    width: 70px;
+    left: 50%;
+    top: 50%;
+    margin-top: -35px;
+    margin-left: -35px;
+
+}

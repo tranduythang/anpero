@@ -15,7 +15,13 @@
                         {
                             <li>
                                 <div class="post-thumb image-hover2">
-                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)"><img src="@item.Thumb" alt="@item.Title"></a>
+                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
+                                        <img src="@item.Thumb" alt="@item.Title">
+                                        @if (ViewBag.showPlayVideo)
+                                        {
+                                            <img src="//media.anpero.com/images/38/112018/playvide2018111913211284.png" alt="Play video" class="playbtn" style="width:70px;">
+                                        }
+                                    </a>
                                 </div>
                                 <div class="post-desc">
                                     <h5 class="post-title">

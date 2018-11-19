@@ -92,5 +92,26 @@
         <!-- ./row-->
     </div>
 </div>
-    
 
+
+
+@section  scripts{
+    <script>
+
+        $(document).ready(function () {
+            Util.resizeVideo();
+            $("#paymentTab").click(function () {
+                $.ajax({
+                    type: "post",
+                    url: "/home/PolicyAjax",
+                    data: { type: 6 },
+                    success: function (rs) {
+                        $("#paymentDetail").html(rs);
+                    }
+                });
+            });
+        });
+
+        $(window).resize(function () { Util.resizeVideo(); });
+    </script>
+}
