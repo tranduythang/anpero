@@ -9,10 +9,10 @@
 }
 <div class="container main-header">
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-2 logo">
+        <div class="col-xs-12 col-sm-12 col-md-3 logo">
             <a href="/"><img alt="@commonInfo.Desc" src="@commonInfo.Logo" /></a>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-7">
+        <div class="col-xs-12 col-sm-12 col-md-9">
             @if (ViewData["ads1"] != null)
             {
                 Ads[] slide = (Ads[])ViewData["ads1"];
@@ -25,7 +25,7 @@
                 }
             }
          </div>
-            <div class="col-xs-12 col-sm-12 col-md-3 header-search-box" itemscope itemtype="baseUrl">
+            <div class="col-xs-12 col-sm-12 col-md-3 header-search-box hide" itemscope itemtype="baseUrl">
                 <form class="form-inline" action="/search" name="search" id="search" method="get" role="search">
                     <meta itemprop="url" content="@(baseUrl+"/search")" />
                     <meta itemprop="target" content="@(baseUrl+"/search?keyword={keyword}")" />
