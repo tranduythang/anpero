@@ -299,18 +299,18 @@ namespace Anpero
         public static String ConVertToMoneyFormatInt(String s)
         {
             int dotIndex = s.LastIndexOf(".");
-            if (s != null && !DBNull.Value.Equals(s))
+            if (!string.IsNullOrEmpty(s) && !DBNull.Value.Equals(s))
             {
                 if (s == "0" || s == "0.00")
                 {
-                    return "0";
+                    return "Liên hệ";
                 }
                 if (s.Length > (dotIndex + 3) && dotIndex != -1)
                 {
                     s = s.Substring(0, dotIndex + 2);
 
                 }
-                return string.Format("{0:##,###}", Convert.ToDecimal(s));
+                return string.Format("{0:##,###}", Convert.ToDecimal(s)) +"đ";
 
             }
             else

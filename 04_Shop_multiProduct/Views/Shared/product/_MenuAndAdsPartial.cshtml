@@ -48,6 +48,8 @@
 </div>
 @if (ViewData["saleProduct"] != null)
 {
+    AnperoFrontend.WebService.ProductItem[] saleProduct = (AnperoFrontend.WebService.ProductItem[])ViewData["saleProduct"];
+    if (saleProduct != null && saleProduct.Length > 1) { 
     <div class="block left-module">
         <p class="title-l">
             <span class="title_block">Đang giảm giá</span>
@@ -55,7 +57,7 @@
         <div class="block_content product-onsale">
 
             @{
-                AnperoFrontend.WebService.ProductItem[] saleProduct = (AnperoFrontend.WebService.ProductItem[])ViewData["saleProduct"];
+
                 if (saleProduct != null && saleProduct.Length > 1)
                 {
                     <ul class="product-list owl-carousel" data-loop="true" data-nav="false" data-margin="0" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-items="1" data-autoplay="true">
@@ -117,13 +119,10 @@
                     </ul>
 
                 }
-
             }
-
-
-
         </div>
     </div>
+    }
 }
 @if (ViewData["AdsSlide"] != null)
 {
