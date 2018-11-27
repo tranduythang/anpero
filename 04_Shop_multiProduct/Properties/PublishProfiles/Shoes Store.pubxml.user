@@ -36,7 +36,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/29/2018 19:12:17</publishTime>
     </File>
     <File Include="assets/css/option6.css">
-      <publishTime>11/15/2018 11:38:27</publishTime>
+      <publishTime>11/27/2018 17:19:40</publishTime>
     </File>
     <File Include="assets/css/reset.css">
       <publishTime>05/05/2018 20:32:11</publishTime>
@@ -45,7 +45,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/05/2018 09:08:35</publishTime>
     </File>
     <File Include="assets/css/style.css">
-      <publishTime>11/19/2018 13:19:49</publishTime>
+      <publishTime>11/27/2018 17:33:43</publishTime>
     </File>
     <File Include="assets/data/01_blue-dress.jpg">
       <publishTime>05/05/2018 20:32:11</publishTime>
@@ -1673,6 +1673,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="assets/fonts/fontello.woff">
       <publishTime>05/05/2018 20:32:12</publishTime>
     </File>
+    <File Include="assets/fonts/Lobster.otf">
+      <publishTime>11/27/2018 17:29:57</publishTime>
+    </File>
     <File Include="assets/images/275px.jpg">
       <publishTime>05/05/2018 20:32:12</publishTime>
     </File>
@@ -2328,19 +2331,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2018 20:32:13</publishTime>
     </File>
     <File Include="bin/Anpero.dll">
-      <publishTime>11/15/2018 11:43:56</publishTime>
+      <publishTime>11/27/2018 17:33:51</publishTime>
     </File>
     <File Include="bin/Anpero.pdb">
-      <publishTime>11/15/2018 11:43:56</publishTime>
+      <publishTime>11/27/2018 17:33:51</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.dll">
-      <publishTime>11/19/2018 13:23:14</publishTime>
+      <publishTime>11/27/2018 17:33:51</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.pdb">
-      <publishTime>11/19/2018 13:23:14</publishTime>
+      <publishTime>11/27/2018 17:33:51</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.XmlSerializers.dll">
-      <publishTime>11/19/2018 13:23:15</publishTime>
+      <publishTime>11/27/2018 17:33:52</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>05/05/2018 20:33:27</publishTime>
@@ -2472,7 +2475,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/07/2018 16:22:00</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>11/19/2018 13:12:55</publishTime>
+      <publishTime>11/27/2018 17:24:52</publishTime>
     </File>
     <File Include="Views/Home/Policy.cshtml">
       <publishTime>05/05/2018 20:32:10</publishTime>
@@ -2508,7 +2511,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/05/2018 09:04:02</publishTime>
     </File>
     <File Include="Views/Shared/article/_MenuAndAdsPartial.cshtml">
-      <publishTime>10/19/2018 14:47:14</publishTime>
+      <publishTime>11/27/2018 17:15:14</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>05/05/2018 20:32:10</publishTime>
@@ -2517,7 +2520,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/26/2018 12:58:33</publishTime>
     </File>
     <File Include="Views/Shared/product/_MenuAndAdsPartial.cshtml">
-      <publishTime>10/29/2018 10:29:13</publishTime>
+      <publishTime>11/27/2018 17:13:04</publishTime>
     </File>
     <File Include="Views/Shared/product/_productDetail.cshtml">
       <publishTime>10/26/2018 12:58:33</publishTime>
@@ -2526,7 +2529,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/08/2018 13:41:59</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/19/2018 13:03:15</publishTime>
+      <publishTime>11/27/2018 17:11:45</publishTime>
     </File>
     <File Include="Views/Shared/_partial/_HomeSlide_1.cshtml">
       <publishTime>10/31/2018 17:52:37</publishTime>

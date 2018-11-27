@@ -489,6 +489,7 @@
 .option6 .page-heading{
 	font-size: 16px;
 	font-weight: bold;
+    text-align:center;
 }
     .option6 .page-heading span.page-heading-title {
         border-bottom: 3px solid #50b748;
@@ -1628,9 +1629,8 @@
 
 }
 #footer {
-    background: rgba(43, 23, 13, 0.8)!important;
-    color:white;
-
+    background: rgb(35, 31, 32) !important;
+    color: white;
 }
 #footer a {
     color:white;
