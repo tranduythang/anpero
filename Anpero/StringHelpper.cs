@@ -303,7 +303,7 @@ namespace Anpero
             {
                 if (s == "0" || s == "0.00")
                 {
-                    return "0";
+                    return "Liên hệ";
                 }
                 if (s.Length > (dotIndex + 3) && dotIndex != -1)
                 {
