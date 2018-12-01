@@ -53,10 +53,11 @@ namespace AnperoFrontend.Controllers
             SetUpCommonArticle();
             return View();
         }
-        public ActionResult _CategoryPartial(int id,string name)
+        public ActionResult _CategoryPartial(int id,string name,bool showPlayVideo=false)
         {
             AnperoService sv = new AnperoService();
             ViewBag.Name = name;
+            ViewBag.showPlayVideo = showPlayVideo;
             return PartialView(sv.SearchArticle(StoreID, TokenKey, id, 1, 5, 0));
         }
         private void SetUpCommonArticle()

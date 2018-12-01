@@ -2688,7 +2688,7 @@ span.notify-right{
     background: #da4735;
 }
 #footer-menu-box {
-    background: #231f20;
+    background: rgba(43, 23, 13, 0.8) !important;
     padding-top: 20px;
     padding-bottom: 20px;
     color: white;
@@ -3264,17 +3264,16 @@ span.notify-right{
 }
 .page-heading{
   height: 41px;
-  border-bottom: 1px solid #eaeaea;
+  
   line-height: 40px;
   position: relative;
   font-size: 24px;
 }
-.page-heading span.page-heading-title{
-  border-bottom: 3px solid #ff3366;
-  position: absolute;
-  bottom: -1px;
-  padding: 0 12px;
-}
+    .page-heading span.page-heading-title {
+        border-bottom: 3px solid #ff3366;
+        bottom: -1px;
+        padding-bottom: 10px;
+    }
 .page-heading span.page-heading-title2{
   text-transform: uppercase;
 }
@@ -5203,9 +5202,7 @@ span.notify-right{
 .vendor-list img {
     margin: 3px -5px 5px -5px;
 }
-.logo img{
-    max-height:75px;
-}
+
 .box-category > ul > li {
     display: block;
     position: relative;
@@ -5275,3 +5272,12 @@ span.notify-right{
     .box-category .subDropdown.minus {
         background-image: url(//media.anpero.com/images/38/102018/minus-blue2018100614211640.png);
     }
+.playbtn {
+    position: absolute;
+    width: 70px;
+    left: 50%;
+    top: 50%;
+    margin-top: -35px;
+    margin-left: -35px;
+
+}

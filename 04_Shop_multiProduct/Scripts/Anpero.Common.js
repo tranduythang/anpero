@@ -29,7 +29,8 @@
   '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
   '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
         return pattern.test(string);
-    }
+    },
+    resizeVideo:function () { var contentW = $('#center_column').width(); var iframe = $('#center_column iframe'); var iframeW = iframe.css('width', contentW - 20); iframe.css('width', iframeW); var iframeH = contentW / 16 * 9; iframe.css('height', iframeH); }
 
 }
 var Search = {
