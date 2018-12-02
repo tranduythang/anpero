@@ -81,15 +81,19 @@
                 }
                 <div class="form-action">
                     <div class="button-group">
-                        @if (item.IsInstock)
+                        @if (item.Price > 0)
                         {
-                            <a class="btn-add-cart" href="javascript:Cart.addProduct(@item.Id,'@Convert.ToInt32(item.SalePrice)','@HttpUtility.UrlEncode(item.Images)','@item.PrName')">Đặt mua</a>
+                            if (item.IsInstock)
+                            {
+                                <a class="btn-add-cart" href="javascript:Cart.addProduct(@item.Id,'@Convert.ToInt32(item.SalePrice)','@HttpUtility.UrlEncode(item.Images)','@item.PrName')">Đặt mua</a>
+                            }
+                            else
+                            {
+                                <a class="btn-add-cart" href="javascript:void(0);">Tạm hết hàng</a>
+                            }
                         }
-                        else
-                        {
-                            <a class="btn-add-cart" href="javascript:void(0);">Tạm hết hàng</a>
-                        }
-                    </div>
+                        
+                        </div>
 
                     <div class="button-group">
                         <a target="_blank" class="wishlist" href="//www.facebook.com/sharer.php?u=@HttpContext.Current.Request.RawUrl">

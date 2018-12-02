@@ -5281,3 +5281,14 @@ span.notify-right{
     margin-left: -35px;
 
 }
+#left-mn .box-category {
+    border: 1px #50b748 solid;
+}
+    #left-mn .page-heading {
+        color: white;
+        background: #50b748;
+        border: 1px #50b748 solid;
+    }
+#left-mn .page-heading span.page-heading-title {
+        border: 0px;
+}
