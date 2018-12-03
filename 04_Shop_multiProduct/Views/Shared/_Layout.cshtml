@@ -43,6 +43,8 @@
         <link href="/assets/lib/jquery-bxslider/jquery-bxslider.css" rel="stylesheet" />
     }
     <link rel="shortcut icon" href="@commonInfo.Logo" type="image/x-icon">
+    <link rel="image_src" href="@commonInfo.Logo" />
+    <meta property="og:image" content="@commonInfo.Logo">
 
     <link rel="stylesheet" type="text/css" href="/assets/css/@(themeOptionText+".css")" />
     <link rel="dns-prefetch" href="//v2.zopim.com/">
@@ -132,140 +134,128 @@
     @Html.Raw(commonInfo.AnperoPlugin)
     @RenderSection("scripts", required: false)
     @Html.Raw(commonInfo.PageScript)
-    <div class="container">
-        <div class="services2">
-            <ul>
-                <li class="col-xs-12 col-sm-6 col-md-4 services2-item">
-                    <div class="service-wapper">
-                        <div class="row">
-                            <div class="col-sm-6 image">
-                                <div class="icon">
-                                    <img src="/assets/data/icon-s1.png" alt="service">
-                                </div>
-                                <h3 class="title"><a href="#">Giá rẻ nhất</a></h3>
-                            </div>
-                            <div class="col-sm-6 text">
-                                Sản phẩm trực tiếp từ nhà cung ứng. đảm bảo chất lượng và giá tốt nhất
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="col-xs-12 col-sm-6 col-md-4 services2-item">
-                    <div class="service-wapper">
-                        <div class="row">
-                            <div class="col-sm-6 image">
-                                <div class="icon">
-                                    <img src="/assets/data/icon-s2.png" alt="service">
-                                </div>
-                                <h3 class="title"><a href="#">Giao hàng toàn quốc</a></h3>
-                            </div>
-                            <div class="col-sm-6 text">
-                                Đơn hàng được xử lý nhanh chóng. Sản phẩm được vận chuyển sau 30 phút bạn đặt hàng online
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="col-xs-12 col-sm-6 col-md-4 services2-item">
-                    <div class="service-wapper">
-                        <div class="row">
-                            <div class="col-sm-6 image">
-                                <div class="icon">
-                                    <img src="/assets/data/icon-s4.png" alt="service">
-                                </div>
-                                <h3 class="title"><a href="#">Hỗ trợ kỹ thuật</a></h3>
-                            </div>
-                            <div class="col-sm-6 text">
-                                Vui lòng gọi @commonInfo.HotLine chúng tôi rất hân hạnh được hỗ trợ quý khách
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-
     <footer id="footer">
         <div class="container">
-            <div id="introduce-box" class="row">
-                @if (!string.IsNullOrEmpty(commonInfo.Footer))
-                {
-                    <text>@Html.Raw(commonInfo.Footer)</text>
-                }
-                else
-                {
-                    <div class="col-md-4">
-
-                        <div class="address-box">
-
-                            <a href="/"><img src="@commonInfo.Logo" alt="logo"></a>
-                            <div class="adrct">
-                                <div class="tit-contain"><i class="fa fa-home"></i> @commonInfo.Address</div>
-                                <div class="tit-contain"><i class="fa fa-phone"></i> @commonInfo.HotLine</div>
-
-                                @if (!string.IsNullOrEmpty(commonInfo.Email))
-                                {
-                                    <div class="tit-contain"><i class="fa fa-envelope"></i> @commonInfo.Email</div>
-                                }
-
-                                @if (!string.IsNullOrEmpty(commonInfo.Skype))
-                                {
-                                    <div class="tit-name">Skype:</div>
-                                    <div class="tit-contain"><a href="skype:@commonInfo.Skype?call"></a> @commonInfo.Skype</div>
-                                }
-
-                            </div>
-                            @{
-
-                                string thisUrl = Request.Url.AbsoluteUri;
-                                <div class="introduce-title" style="margin-top:10px;">Chia sẻ với bạn bè</div>
-                                <div class="social-link">
-                                    @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                                    {
-                                        <a href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" target="_blank"><i class="fa fa-facebook"></i></a>
-                                    }
-                                    @if (!string.IsNullOrEmpty(commonInfo.Skype))
-                                    {
-                                        <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
-                                    }
-                                    <a href="//plus.google.com/share?url=@thisUrl" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                    <a href="//pinterest.com/pinthis?url=@thisUrl" target="_blank"><i class="fa fa-pinterest-p"></i></a>
-                                    <a href="//www.twitter.com/share?url=@thisUrl" target="_blank"><i class="fa fa-twitter"></i></a>
+            <div class="servicesMenu">
+                <div class="row">
+                    
+                    
+                
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <ul style="width:100%;position:absolute;z-index:99;background-color:#285134;top:-25px;">
+                            <li class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="service-wapper">
+                                    <div class="row">
+                                        <h3 class="title"><a href="/shippolicy"> <i class="fa fa-truck"></i> Giao hàng toàn quốc</a></h3>
+                                    </div>
                                 </div>
-                            }
-                        </div>
-                    </div>
-                    <div class="col-md-4  col-sm-12">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
-                                {
-                                    <ul class="introduce-list">
-                                        @foreach (var item in commonInfo.ProductCategoryList)
-                                        {
-                                            <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
-                                        }
+                            </li>
+                            <li class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="service-wapper">
+                                    <div class="row">
+                                        <h3 class="title"><a href="/WarrantyPolicy"> <i class="fa fa-truck"></i> Cam kết đảm bảo</a></h3>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="service-wapper">
+                                    <div class="row">
+                                        <h3 class="title"><a href="/home/contact"> <i class="fa fa-truck"></i> Hỗ trợ kỹ thuật</a></h3>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="service-wapper">
+                                    <div class="row">
+                                        <h3 class="title"><a href="/PaymentInfo"> <i class="fa fa-truck"></i>Hướng dẫn mua hàng</a></h3>
+                                    </div>
+                                </div>
+                            </li>
 
-                                    </ul>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                }
-
-                <div class="col-md-4">
-                    <div id="contact-box" style="text-align: right;">
-                        @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                        {
-                            <div class="fb-page" data-tabs="messages" data-href="@Html.Raw(commonInfo.FaceBookLink)" data-width="500" data-height="300" data-hide-cover="false"></div>
-                        }
+                        </ul>
                     </div>
 
                 </div>
-            </div>
+               
+                </div>
+                <div id="introduce-box" class="row">
+                    @if (!string.IsNullOrEmpty(commonInfo.Footer))
+                    {
+                        <text>@Html.Raw(commonInfo.Footer)</text>
+                    }
+                    else
+                    {
+                        <div class="col-md-4">
 
-        </div>
+                            <div class="address-box">
+
+                                <a href="/"><img src="@commonInfo.Logo" alt="logo"></a>
+                                <div class="adrct">
+                                    <div class="tit-contain"><i class="fa fa-home"></i> @commonInfo.Address</div>
+                                    <div class="tit-contain"><i class="fa fa-phone"></i> @commonInfo.HotLine</div>
+
+                                    @if (!string.IsNullOrEmpty(commonInfo.Email))
+                                    {
+                                        <div class="tit-contain"><i class="fa fa-envelope"></i> @commonInfo.Email</div>
+                                    }
+
+                                    @if (!string.IsNullOrEmpty(commonInfo.Skype))
+                                    {
+                                        <div class="tit-name">Skype:</div>
+                                        <div class="tit-contain"><a href="skype:@commonInfo.Skype?call"></a> @commonInfo.Skype</div>
+                                    }
+
+                                </div>
+                                @{
+
+                                    string thisUrl = Request.Url.AbsoluteUri;
+                                    <div class="introduce-title" style="margin-top:10px;">Chia sẻ với bạn bè</div>
+                                    <div class="social-link">
+                                        @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                                        {
+                                            <a href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" target="_blank"><i class="fa fa-facebook"></i></a>
+                                        }
+                                        @if (!string.IsNullOrEmpty(commonInfo.Skype))
+                                        {
+                                            <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
+                                        }
+                                        <a href="//plus.google.com/share?url=@thisUrl" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                        <a href="//pinterest.com/pinthis?url=@thisUrl" target="_blank"><i class="fa fa-pinterest-p"></i></a>
+                                        <a href="//www.twitter.com/share?url=@thisUrl" target="_blank"><i class="fa fa-twitter"></i></a>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-md-4  col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                                    {
+                                        <ul class="introduce-list">
+                                            @foreach (var item in commonInfo.ProductCategoryList)
+                                            {
+                                                <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
+                                            }
+
+                                        </ul>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <div class="col-md-4">
+                        <div id="contact-box" style="text-align: right;">
+                            @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                            {
+                                <div class="fb-page" data-tabs="messages" data-href="@Html.Raw(commonInfo.FaceBookLink)" data-width="500" data-height="300" data-hide-cover="false"></div>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
     </footer>
     <div id="footer-menu-box">
         @*<div class="col-sm-12">

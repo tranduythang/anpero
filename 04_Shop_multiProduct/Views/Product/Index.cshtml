@@ -22,15 +22,17 @@
             {
 
                 @Html.Partial("product/_productDetail")
-                <div class="column col-xs-12 col-sm-3" id="left_column">
-                    @Html.Partial("product/_MenuAndAdsPartial")
-                </div>
+            <div class="column col-xs-12 col-sm-3" id="left_column">
+                @Html.Partial("product/_SearchBox")
+                @Html.Partial("product/_MenuAndAdsPartial")
+            </div>
             }
             else
             {
-                <div class="column col-xs-12 col-sm-3" id="left_column">
-                    @Html.Partial("product/_MenuAndAdsPartial")
-                </div>
+            <div class="column col-xs-12 col-sm-3" id="left_column">
+                @Html.Partial("product/_SearchBox")
+                @Html.Partial("product/_MenuAndAdsPartial")
+            </div>
                 @Html.Partial("product/_productDetail")
             }
         </div>

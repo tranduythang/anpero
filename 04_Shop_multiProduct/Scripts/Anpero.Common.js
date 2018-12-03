@@ -10,37 +10,40 @@
             title: '<strong>' + _title + '</strong>',
             message: '<strong>' + _mesage + '</strong>'
         }, {
-            type: 'warning',
-            delay: 3000,
-            z_index: 9999,
-            placement: {
-                from: "top",
-                align: "center"
-            }
+                type: 'warning',
+                delay: 3000,
+                z_index: 9999,
+                placement: {
+                    from: "top",
+                    align: "center"
+                }
 
-        });
+            });
 
     },
     isUrl: function (string) {
         var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
-  '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domain name
-  '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
-  '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-  '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-  '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+            '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
         return pattern.test(string);
     },
-    resizeVideo:function () { var contentW = $('#center_column').width(); var iframe = $('#center_column iframe'); var iframeW = iframe.css('width', contentW - 20); iframe.css('width', iframeW); var iframeH = contentW / 16 * 9; iframe.css('height', iframeH); }
+    resizeVideo: function () { var contentW = $('#center_column').width(); var iframe = $('#center_column iframe'); var iframeW = iframe.css('width', contentW - 20); iframe.css('width', iframeW); var iframeH = contentW / 16 * 9; iframe.css('height', iframeH); }
 
-}
+};
 var Search = {
     Data: {},
     GetData: function () {
-        
+        var priceRank = $("#search2 select[name='priceRank']").val();
+        if (priceRank != null) {
+            this.Data.priceRank = $("#search2 select[name='priceRank']").val();
+        }
         this.Data.Category = $("#search2 select[name='category']").val();
         this.Data.GroupId = $("#search2 select[name='GroupId']").val();
         this.Data.SortBy = $("#search2 select[name='SortBy']").val();
-        this.Data.priceRank = $("#search2 select[name='priceRank']").val();
+        
        return this.Data;
     },
     Sunmit: function () {

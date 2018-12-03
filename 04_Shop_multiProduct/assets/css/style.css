@@ -5281,14 +5281,27 @@ span.notify-right{
     margin-left: -35px;
 
 }
-#left-mn .box-category {
+.left-module .box-category {
     border: 1px #50b748 solid;
 }
-    #left-mn .page-heading {
-        color: white;
-        background: #50b748;
-        border: 1px #50b748 solid;
+.left-module .page-heading {
+    color: white;
+    background: #50b748;
+    border: 1px #50b748 solid;
+}
+    .left-module .page-heading span.page-heading-title {
+        border: 0px!important;
     }
-#left-mn .page-heading span.page-heading-title {
-        border: 0px;
+.left-module .featureLand,#left_column .block .block_content {
+    border: 1px #50b748 solid;
+    padding: 10px !important;
+    margin-top: 0px !important;
+}
+.servicesMenu .service-wapper a, .servicesMenu .service-wapper i {
+    line-height: 50px;
+}
+.servicesMenu .title a i {
+    margin-left: 30px;
+    margin-right: 10px;
+   
 }
