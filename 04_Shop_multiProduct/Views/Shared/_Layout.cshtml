@@ -126,7 +126,7 @@
     @RenderBody()
     <script src="//media.anpero.com/cdn/plugins/jquery-1.10.2.min.js"></script>
     <script src="//media.anpero.com/cdn/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    
+
 
 
     @Scripts.Render("~/bundles/bootstrap")
@@ -138,9 +138,9 @@
         <div class="container">
             <div class="servicesMenu">
                 <div class="row">
-                    
-                    
-                
+
+
+
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <ul style="width:100%;position:absolute;z-index:99;background-color:#285134;top:-25px;">
                             <li class="col-xs-12 col-sm-6 col-md-3">
@@ -176,107 +176,126 @@
                     </div>
 
                 </div>
-               
-                </div>
-                <div id="introduce-box" class="row">
-                    @if (!string.IsNullOrEmpty(commonInfo.Footer))
-                    {
-                        <text>@Html.Raw(commonInfo.Footer)</text>
-                    }
-                    else
-                    {
-                        <div class="col-md-4">
-
-                            <div class="address-box">
-
-                                <a href="/"><img src="@commonInfo.Logo" alt="logo"></a>
-                                <div class="adrct">
-                                    <div class="tit-contain"><i class="fa fa-home"></i> @commonInfo.Address</div>
-                                    <div class="tit-contain"><i class="fa fa-phone"></i> @commonInfo.HotLine</div>
-
-                                    @if (!string.IsNullOrEmpty(commonInfo.Email))
-                                    {
-                                        <div class="tit-contain"><i class="fa fa-envelope"></i> @commonInfo.Email</div>
-                                    }
-
-                                    @if (!string.IsNullOrEmpty(commonInfo.Skype))
-                                    {
-                                        <div class="tit-name">Skype:</div>
-                                        <div class="tit-contain"><a href="skype:@commonInfo.Skype?call"></a> @commonInfo.Skype</div>
-                                    }
-
-                                </div>
-                                @{
-
-                                    string thisUrl = Request.Url.AbsoluteUri;
-                                    <div class="introduce-title" style="margin-top:10px;">Chia sẻ với bạn bè</div>
-                                    <div class="social-link">
-                                        @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                                        {
-                                            <a href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" target="_blank"><i class="fa fa-facebook"></i></a>
-                                        }
-                                        @if (!string.IsNullOrEmpty(commonInfo.Skype))
-                                        {
-                                            <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
-                                        }
-                                        <a href="//plus.google.com/share?url=@thisUrl" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                        <a href="//pinterest.com/pinthis?url=@thisUrl" target="_blank"><i class="fa fa-pinterest-p"></i></a>
-                                        <a href="//www.twitter.com/share?url=@thisUrl" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    </div>
-                                }
-                            </div>
-                        </div>
-                        <div class="col-md-4  col-sm-12">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
-                                    {
-                                        <ul class="introduce-list">
-                                            @foreach (var item in commonInfo.ProductCategoryList)
-                                            {
-                                                <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
-                                            }
-
-                                        </ul>
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                    }
-
-                    <div class="col-md-4">
-                        <div id="contact-box" style="text-align: right;">
-                            @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                            {
-                                <div class="fb-page" data-tabs="messages" data-href="@Html.Raw(commonInfo.FaceBookLink)" data-width="500" data-height="300" data-hide-cover="false"></div>
-                            }
-                        </div>
-
-                    </div>
-                </div>
 
             </div>
+            <div id="introduce-box" class="row">
+                @if (!string.IsNullOrEmpty(commonInfo.Footer))
+                {
+                    <text>@Html.Raw(commonInfo.Footer)</text>
+                }
+                else
+                {
+                    <div class="col-md-4">
+
+                        <div class="address-box">
+
+                            <a href="/"><img src="@commonInfo.Logo" alt="logo"></a>
+                            <div class="adrct">
+                                <div class="tit-contain"><i class="fa fa-home"></i> @commonInfo.Address</div>
+                                <div class="tit-contain"><i class="fa fa-phone"></i> @commonInfo.HotLine</div>
+
+                                @if (!string.IsNullOrEmpty(commonInfo.Email))
+                                {
+                                    <div class="tit-contain"><i class="fa fa-envelope"></i> @commonInfo.Email</div>
+                                }
+
+                                @if (!string.IsNullOrEmpty(commonInfo.Skype))
+                                {
+                                    <div class="tit-name">Skype:</div>
+                                    <div class="tit-contain"><a href="skype:@commonInfo.Skype?call"></a> @commonInfo.Skype</div>
+                                }
+
+                            </div>
+                            @{
+
+                                string thisUrl = Request.Url.AbsoluteUri;
+                                <div class="introduce-title" style="margin-top:10px;">Chia sẻ với bạn bè</div>
+                                <div class="social-link">
+                                    @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                                    {
+                                        <a href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    }
+                                    @if (!string.IsNullOrEmpty(commonInfo.Skype))
+                                    {
+                                        <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
+                                    }
+                                    <a href="//plus.google.com/share?url=@thisUrl" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                    <a href="//pinterest.com/pinthis?url=@thisUrl" target="_blank"><i class="fa fa-pinterest-p"></i></a>
+                                    <a href="//www.twitter.com/share?url=@thisUrl" target="_blank"><i class="fa fa-twitter"></i></a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4  col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                @{
+                                    List<BlogCategory> categoryList = new List<BlogCategory>();
+                                    if (ViewData["categoryMenuList"] != null)
+                                    {
+                                        categoryList = (List<BlogCategory>)ViewData["categoryMenuList"];
+                                        if (categoryList != null && categoryList.Count > 0)
+                                        {
+                                            <ul class="introduce-list">
+                                                @foreach (BlogCategory item in categoryList)
+                                                {
+                                                    <li><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Name,item.Id)">@item.Name</a></li>
+                                                }
+
+                                            </ul>
+                                        }
+                                    }
+
+                                }
+                                @*@if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                                {
+                                    <ul class="introduce-list">
+                                        @foreach (var item in commonInfo.ProductCategoryList)
+                                        {
+                                            <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
+                                        }
+
+                                    </ul>
+                                }*@
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <div class="col-md-4">
+                    <div id="contact-box" style="text-align: right;">
+                        @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                        {
+                            <div class="fb-page" data-tabs="messages" data-href="@Html.Raw(commonInfo.FaceBookLink)" data-width="500" data-height="300" data-hide-cover="false"></div>
+                        }
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
     </footer>
     <div id="footer-menu-box">
         @*<div class="col-sm-12">
-            <ul class="footer-menu-list">
-                <li><a title="about" href="/about">Về chúng tôi</a></li>
-                <li><a href="/home/contact">Liên hệ</a></li>
+                <ul class="footer-menu-list">
+                    <li><a title="about" href="/about">Về chúng tôi</a></li>
+                    <li><a href="/home/contact">Liên hệ</a></li>
 
-            </ul>
-        </div>*@
+                </ul>
+            </div>*@
         @*<div class="col-sm-12">
-            <ul class="footer-menu-list">
-                <li><a title="Chính sách vận chuyển" href="/shippolicy">Chính sách vận chuyển</a></li>
-                <li><a title="Chính sách bảo hành" href="/WarrantyPolicy">Chính sách bảo hành</a></li>
-                <li><a title="Chính sách đổi trả" href="/ProductReturnPolicy">Chính sách đổi trả</a></li>
-                <li><a title="Chính sách bảo mật" href="/PrivacyPolicy">Chính sách bảo mật</a></li>
-                <li><a title="Hướng dẫn thanh toán" href="/PaymentInfo">Hướng dẫn thanh toán</a></li>
-                <li><a href="/blog">Tin tức</a></li>
-                <li><a href="/home/contact">Liên hệ</a></li>
+                <ul class="footer-menu-list">
+                    <li><a title="Chính sách vận chuyển" href="/shippolicy">Chính sách vận chuyển</a></li>
+                    <li><a title="Chính sách bảo hành" href="/WarrantyPolicy">Chính sách bảo hành</a></li>
+                    <li><a title="Chính sách đổi trả" href="/ProductReturnPolicy">Chính sách đổi trả</a></li>
+                    <li><a title="Chính sách bảo mật" href="/PrivacyPolicy">Chính sách bảo mật</a></li>
+                    <li><a title="Hướng dẫn thanh toán" href="/PaymentInfo">Hướng dẫn thanh toán</a></li>
+                    <li><a href="/blog">Tin tức</a></li>
+                    <li><a href="/home/contact">Liên hệ</a></li>
 
-            </ul>
-        </div>*@
+                </ul>
+            </div>*@
         <p class="text-center">Copyrights © 2017 @commonInfo.Name. All Rights Reserved. Designed by <a href="http://anpero.com" title="thiết kế web bán hàng anpero"> Anpero.com</a></p>
     </div>
     <div id="fb-root"></div>

@@ -19,7 +19,7 @@
                 if (slide.Length > 0)
                 {
                     Ads ads = slide.ToList().OrderBy(x => Guid.NewGuid()).FirstOrDefault();
-                    <a href="@ads.ClickUrl" target="_blank">
+                    <a href="@ads.ClickUrl">
                         <img src="@ads.ImagesUrl" alt="@ads.Description" />
                     </a>
                 }
