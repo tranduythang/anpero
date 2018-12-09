@@ -1737,9 +1737,10 @@ span.notify-right{
 .latest-deals .product-list li .right-block{
     padding: 0;
 }
-.latest-deals .content_price{
-  width: 100%!important;
-}
+    .latest-deals .content_price, product-container .content_price {
+        width: 100% !important;
+        text-align:center;
+    }
 .latest-deals .colreduce-percentage{
   float: right;
   padding-right: 20px;
@@ -2018,8 +2019,9 @@ span.notify-right{
 }
 
 .product-list li .content_price{
-    width: auto;
+    width: 100%;
     display: inline-block;
+    text-align:center;
 }
 .product-list li .product-price{
     font-size: 18px;
@@ -5281,9 +5283,9 @@ span.notify-right{
     margin-left: -35px;
 
 }
-.left-module .box-category {
+/*.left-module .box-category {
     border: 1px #50b748 solid;
-}
+}*/
 .left-module .page-heading {
     color: white;
     background: #50b748;
