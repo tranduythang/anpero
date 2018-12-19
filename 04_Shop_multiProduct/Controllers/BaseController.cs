@@ -128,6 +128,21 @@ namespace AnperoFrontend.Controllers
                     HttpRuntime.Cache.Insert("commonInfo", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
             }
+            
+            if (HttpRuntime.Cache["categoryMenuList"] != null)
+            {
+                filterContext.Controller.ViewData["categoryMenuList"] = (List<WebService.BlogCategory>)HttpRuntime.Cache["categoryMenuList"];
+            }
+            else
+            {
+                List<WebService.BlogCategory> categoryList = service.GetBlogCategory(CommonConfig.StoreID, CommonConfig.TokenKey).ToList();
+                filterContext.Controller.ViewData["categoryMenuList"] = categoryList;
+                if (categoryList != null)
+                {
+                    HttpRuntime.Cache.Insert("categoryMenuList", categoryList, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                }
+
+            }
 
             WebService.Ads[] ads1 = null;
             if (HttpRuntime.Cache["ads1"] != null)

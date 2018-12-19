@@ -10,10 +10,10 @@
                     <span class="page-heading-title">@ViewBag.Name </span>
                 </h2>
                 <div class="blog-list-wapper">
-                    <ul class="owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="5" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
+                    <ul class="row product-list grid">
                         @foreach (BlogItem item in Model.ItemList)
                         {
-                            <li>
+                            <li class="col-sx-6 col-sm-3">
                                 <div class="post-thumb image-hover2">
                                     <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
                                         <img src="@item.Thumb" alt="@item.Title">
