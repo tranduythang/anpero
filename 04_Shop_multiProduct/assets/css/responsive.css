@@ -3,11 +3,19 @@
 [1. Styles for devices(>1200px)]
 */
 @media (min-width: 1201px){
+    .product-list .product-container {
+        min-height: 315px;
+    }
+    
 }
 /*----------------
 [2. Styles for devices(>=993px and <=1200px)]
 */
 @media (min-width: 993px) and (max-width: 1200px) {
+
+    .product-list .product-container {
+        min-height: 315px;
+    }
 	.nav-menu .nav > li > a{
 		padding: 15px 15px;
 	}
@@ -123,6 +131,9 @@
 [3. Styles for devices(>=768px and <=992px)]
 */
 @media (min-width: 768px) and (max-width: 992px) {
+    .product-list .product-container {
+        min-height: 315px;
+    }
 	.home .box-vertical-megamenus .vertical-menu-content{
 		display: none;
 	}
@@ -304,10 +315,13 @@
 /*--------------------
 [4. Styles for devices(>=481px and <=767px)]
 */
-@media (min-width: 481px) and (max-width: 767px) { 
-	.home .box-vertical-megamenus .vertical-menu-content{
-		display: none;
-	}
+@media (min-width: 481px) and (max-width: 767px) {
+    #introduce-box{
+        margin-top:165px;
+    }
+    .home .box-vertical-megamenus .vertical-menu-content {
+        display: none;
+    }
 	.category-featured>.nav-menu>.container{
 		padding-left: 0;
 	}
@@ -676,6 +690,7 @@
 [5. Styles for devices(<=480px)]
 */
 @media (max-width: 480px) {
+    
 	.top-banner{
 		display: none;
 	}
@@ -827,7 +842,7 @@
 		padding-left: 10px;
 	}
 	#introduce-box {
-	    margin-top: 30px;
+	    margin-top: 168px;
 	}
 	#introduce-box .introduce-title{
 		margin-top: 30px;
@@ -1145,4 +1160,5 @@
 	.hot-deals-box .hot-deals-tab-content{
 		padding: 10px;
 	}
+    
 }
