@@ -55,3 +55,14 @@
 .adrct {
     border-bottom: 1px solid #0fc8c8;
 }
+.option6 .nav-top-menu {
+    background: #00a4e0
+}
+.header {
+    background-color: white;    
+}
+@media (max-width: 480px) {
+    .option6 #main-menu .navbar-header {
+        background: #00a4e0;
+    }
+}
