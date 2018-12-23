@@ -61,6 +61,12 @@
 .header {
     background-color: white;    
 }
+.service .service-item h3, .service .info span, .page-heading span.page-heading-title {
+    color: #1e80b5;
+}
+.option6 .page-heading span.page-heading-title {
+    border-bottom: 3px solid #1e80b5;
+}
 @media (max-width: 480px) {
     .option6 #main-menu .navbar-header {
         background: #00a4e0;

@@ -56,17 +56,17 @@
                 <div class="service ">
                     <div class="col-xs-6 col-sm-4 service-item">
                         <div class="icon">
-                            <img src="/assets/data/s1.png" class="img-responsive" />
+                            <img src="https://media.anpero.com/images/51/122018/12018122400404247.png" class="img-responsive" />
                         </div>
                         <div class="info">
-                            <a href="/policy/ship"><h3>Miễn phí ship</h3></a>
-                            <span>Cho đơn hàng trên 3 triệu</span>
+                            <a href="/policy/ship"><h3>Giao hàng tận nhà</h3></a>
+                            <span>Nhận và trả đồ tại nhà</span>
                         </div>
                     </div>
 
                     <div class="col-xs-6 col-sm-4 service-item">
                         <div class="icon">
-                            <img src="/assets/data/s3.png" class="img-responsive" />
+                            <img src="https://media.anpero.com/images/51/122018/22018122400453306.png" class="img-responsive" />
                         </div>
                         <div class="info">
                             <a href="/"><h3>Tư vấn 24/7</h3></a>
@@ -75,11 +75,11 @@
                     </div>
                     <div class="col-xs-6 col-sm-4 service-item">
                         <div class="icon">
-                            <img src="/assets/data/s4.png" class="img-responsive" />
+                            <img src="https://media.anpero.com/images/51/122018/32018122400503748.png" class="img-responsive" />
                         </div>
                         <div class="info">
-                            <a href="/policy/payment"><h3>Thanh toán an toàn</h3></a>
-                            <span>Qua COD hoặc ngân hàng</span>
+                            <a href="/policy/payment"><h3>Tiết kiệm thời gian</h3></a>
+                            <span>Nhận và trả đồ nhanh chóng</span>
                         </div>
                     </div>
                 </div>
@@ -148,8 +148,61 @@
 
             </div>
             <div class="col-md-12 col-xs-12 col-sm-12 page-top-left">
+                @if (ViewData["AdsSlide2"] != null)
+                {
+                    Ads[] slide = (Ads[])ViewData["AdsSlide2"];
+                    if (slide.Length > 0)
+                    {
+
+                        <div class="row banner-bottom">
+                            @for (int i = 0; i < slide.Length; i++)
+                            {
+                                <div class="col-sm-6">
+                                    <div class="banner-boder-zoom">
+                                        <a href="@slide[i].ClickUrl" target="_blank">
+                                            <img src="@slide[i].ImagesUrl" />
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row banner-bottom">
+                            <div class="col-sm-6 item-left">
+                                <div class="banner-boder-zoom">
+                                    <a href="#"><img alt="ads slide 2" class="img-responsive" src="//media.anpero.com/images/38/102018/bannerfix2018100714234621.jpg" title="ads slide 2" /></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 item-right">
+                                <div class="banner-boder-zoom">
+                                    <a href="#"><img alt="ads" class="img-responsive" src="//media.anpero.com/images/38/102018/bannerfix2018100714234621.jpg" title="ads slide 2" /></a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="row banner-bottom">
+                        <div class="col-sm-6 item-left">
+                            <div class="banner-boder-zoom">
+                                <a href="#"><img alt="ads" class="img-responsive" src="//media.anpero.com/images/38/102018/bannerfix2018100714234621.jpg" /></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 item-right">
+                            <div class="banner-boder-zoom">
+                                <a href="#"><img alt="ads" class="img-responsive" src="//media.anpero.com/images/38/102018/bannerfix2018100714234621.jpg" /></a>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="animated wow bounceInUp ">
+                    <img src="https://media.anpero.com/images/51/122018/banner2018122401311382.gif" alt="Dịch vụ giặt là"/>
+                </div>
                 <h2 class="page-heading">
-                    <span class="page-heading-title">Sản phẩm mới</span>
+                    <span class="page-heading-title">Dịch vụ</span>
                 </h2>
                 <div class="latest-deals-product">
                     @*<ul class="row product-list grid">*@
@@ -213,121 +266,8 @@
 
             </div>
 
-            <div class="col-xs-12 col-sm-12 page-top-left">
-                <div class="popular-tabs">
-                    <ul class="nav-tab">
-                        <li><a data-toggle="tab" href="#tab-3">Được mua nhiều</a></li>
-                    </ul>
-                    <div class="tab-container">
-                        <div id="tab-3" class="tab-panel active">
-                            <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="5" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3},"1000":{"items":4}}'>
-                                @if (ViewData["BestsaleProduct"] != null)
-                                {
-                                    AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["BestsaleProduct"];
-                                    if (bestSaleList != null && bestSaleList.Item.Length > 0)
-                                    {
-                                        foreach (ProductItem item in bestSaleList.Item)
-                                        {
-                                            <li>
-                                                <div class="product-container">
-                                                    <div class="left-block">
-                                                        <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
-                                                            <img class="img-responsive" alt="@item.PrName" src="@item.Images" />
-                                                            @if (item.Rank >= 1)
-                                                            {
-                                                                <div class="featured-text"><span>Bán chạy</span></div>
-                                                            }
-                                                        </a>
-                                                        <div class="quick-view">
-                                                            <a title="Chi tiết sản phẩm" class="search" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)"></a>
-                                                        </div>
-                                                        <div class="add-to-cart">
-                                                            <a title="Add to Cart" href="javascript:Cart.addProduct3(@item.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName')">Đặt mua</a>
-                                                        </div>
-                                                        <div class="group-price">
-                                                            <span class="product-new">Mới</span>
-                                                            @if (item.IsSale)
-                                                            {
-                                                                <span class="product-sale">@Anpero.StringHelpper.ConVertToMoneyFormatInt((item.SalePrice - item.Price).ToString())</span>
-                                                            }
-                                                        </div>
-                                                    </div>
-                                                    <div class="right-block">
-                                                        <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></h5>
-                                                        <div class="content_price">
-                                                            @if (item.IsSale)
-                                                            {
-                                                                <span class="price product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice.ToString()) đ</span>
-                                                                <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price.ToString()) đ</span>
-                                                            }
-                                                            else
-                                                            {
-                                                                <span class="price product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice.ToString()) đ</span>
-                                                            }
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        }
-                                    }
-                                }
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @if (ViewData["AdsSlide2"] != null)
-            {
-                Ads[] slide = (Ads[])ViewData["AdsSlide2"];
-                if (slide.Length > 0)
-                {
-
-                    <div class="row banner-bottom">
-                        @for (int i = 0; i < slide.Length; i++)
-                        {
-                            <div class="col-sm-6">
-                                <div class="banner-boder-zoom">
-                                    <a href="@slide[i].ClickUrl" target="_blank">
-                                        <img src="@slide[i].ImagesUrl" />
-                                    </a>
-                                </div>
-                            </div>
-                        }
-                    </div>
-                }
-                else
-                {
-                    <div class="row banner-bottom">
-                        <div class="col-sm-6 item-left">
-                            <div class="banner-boder-zoom">
-                                <a href="#"><img alt="ads slide 2" class="img-responsive" src="//media.anpero.com/images/38/102018/bannerfix2018100714234621.jpg" title="ads slide 2" /></a>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 item-right">
-                            <div class="banner-boder-zoom">
-                                <a href="#"><img alt="ads" class="img-responsive" src="//media.anpero.com/images/38/102018/bannerfix2018100714234621.jpg" title="ads slide 2" /></a>
-                            </div>
-                        </div>
-                    </div>
-                }
-            }
-            else
-            {
-                <div class="row banner-bottom">
-                    <div class="col-sm-6 item-left">
-                        <div class="banner-boder-zoom">
-                            <a href="#"><img alt="ads" class="img-responsive" src="//media.anpero.com/images/38/102018/bannerfix2018100714234621.jpg" /></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 item-right">
-                        <div class="banner-boder-zoom">
-                            <a href="#"><img alt="ads" class="img-responsive" src="//media.anpero.com/images/38/102018/bannerfix2018100714234621.jpg" /></a>
-                        </div>
-                    </div>
-                </div>
-            }
+    
+       
             @if (ViewData["FeatureArticle"] != null)
             {
                 SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
