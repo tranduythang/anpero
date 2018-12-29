@@ -198,9 +198,23 @@
                         </div>
                     </div>
                 }
-                <div class="animated wow bounceInUp ">
-                    <img src="https://media.anpero.com/images/51/122018/banner2018122401311382.gif" alt="Dịch vụ giặt là"/>
-                </div>
+                @if (ViewData["AdsSlide3"] != null)
+                {
+                    Ads[] slide3 = (Ads[])ViewData["AdsSlide3"];
+                    if (slide3.Length > 0)
+                    {
+
+                        for (int i = 0; i < slide3.Length; i++)
+                        {
+                            <div class="animated wow">
+                                <a href="@slide3[i].ClickUrl"><img src="@slide3[i].ImagesUrl" alt="@slide3[i].Description" /></a>
+                            </div>
+                        }
+
+                    }
+                }
+
+
                 <h2 class="page-heading">
                     <span class="page-heading-title">Dịch vụ</span>
                 </h2>
@@ -263,11 +277,25 @@
 
 
                 </div>
+                @if (ViewData["AdsSlide4"] != null)
+                {
+                    Ads[] slide4 = (Ads[])ViewData["AdsSlide4"];
+                    if (slide4.Length > 0)
+                    {
 
+                        for (int i = 0; i < slide4.Length; i++)
+                        {
+                            <div class="animated wow">
+                                <a href="@slide4[i].ClickUrl"><img src="@slide4[i].ImagesUrl" alt="@slide4[i].Description" /></a>
+                            </div>
+                        }
+
+                    }
+                }
             </div>
 
-    
-       
+
+
             @if (ViewData["FeatureArticle"] != null)
             {
                 SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
