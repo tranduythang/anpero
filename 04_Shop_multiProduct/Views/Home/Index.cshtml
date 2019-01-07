@@ -52,7 +52,7 @@
             </diSv>
         }
         <div class="row">
-            <div class="col-md-12">
+            @*<div class="col-md-12">
                 <div class="service ">
                     <div class="col-xs-6 col-sm-4 service-item">
                         <div class="icon">
@@ -83,7 +83,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*@
             <div class="col-md-12 col-xs-12 col-sm-12 page-top-left">
 
 
@@ -148,6 +148,21 @@
 
             </div>
             <div class="col-md-12 col-xs-12 col-sm-12 page-top-left">
+                @if (ViewData["AdsSlide3"] != null)
+                {
+                    Ads[] slide3 = (Ads[])ViewData["AdsSlide3"];
+                    if (slide3.Length > 0)
+                    {
+
+                        for (int i = 0; i < slide3.Length; i++)
+                        {
+                            <div class="animated wow">
+                                <a href="@slide3[i].ClickUrl"><img src="@slide3[i].ImagesUrl" alt="@slide3[i].Description" /></a>
+                            </div>
+                        }
+
+                    }
+                }
                 @if (ViewData["AdsSlide2"] != null)
                 {
                     Ads[] slide = (Ads[])ViewData["AdsSlide2"];
@@ -198,21 +213,7 @@
                         </div>
                     </div>
                 }
-                @if (ViewData["AdsSlide3"] != null)
-                {
-                    Ads[] slide3 = (Ads[])ViewData["AdsSlide3"];
-                    if (slide3.Length > 0)
-                    {
 
-                        for (int i = 0; i < slide3.Length; i++)
-                        {
-                            <div class="animated wow">
-                                <a href="@slide3[i].ClickUrl"><img src="@slide3[i].ImagesUrl" alt="@slide3[i].Description" /></a>
-                            </div>
-                        }
-
-                    }
-                }
 
 
                 <h2 class="page-heading">
