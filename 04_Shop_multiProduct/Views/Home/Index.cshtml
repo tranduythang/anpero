@@ -277,9 +277,9 @@
 
 
                 </div>
-                @if (ViewData["AdsSlide4"] != null)
+                @if (ViewData["Ads1"] != null)
                 {
-                    Ads[] slide4 = (Ads[])ViewData["AdsSlide4"];
+                    Ads[] slide4 = (Ads[])ViewData["Ads1"];
                     if (slide4.Length > 0)
                     {
 
@@ -293,9 +293,6 @@
                     }
                 }
             </div>
-
-
-
             @if (ViewData["FeatureArticle"] != null)
             {
                 SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];

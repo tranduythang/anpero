@@ -76,22 +76,22 @@ namespace AnperoFrontend.Controllers
                 }
             }
             WebService.Ads[] Ads1 = null;
-            if (HttpRuntime.Cache["AdsSlide"] != null)
+            if (HttpRuntime.Cache["Ads1"] != null)
             {
-                ViewData["AdsSlide"] = (WebService.Ads[])HttpRuntime.Cache["AdsSlide"];
+                ViewData["Ads1"] = (WebService.Ads[])HttpRuntime.Cache["Ads1"];
             }
             else
             {
                 Ads1 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads1);
-                ViewData["AdsSlide"] = Ads1;
+                ViewData["Ads1"] = Ads1;
                 if (Ads1 != null)
                 {
-                    HttpRuntime.Cache.Insert("AdsSlide", Ads1, null, DateTime.Now.AddMinutes(shortCacheTime + 2), TimeSpan.Zero);
+                    HttpRuntime.Cache.Insert("Ads1", Ads1, null, DateTime.Now.AddMinutes(shortCacheTime + 2), TimeSpan.Zero);
                 }
             }
             WebService.Ads[] Ads2 = null;
             WebService.Ads[] Ads3 = null;
-            WebService.Ads[] Ads4 = null;
+            //WebService.Ads[] Ads4 = null;
             if (HttpRuntime.Cache["Ads2"] != null)
             {
                 ViewData["AdsSlide2"] = (WebService.Ads[])HttpRuntime.Cache["Ads2"];
@@ -118,19 +118,19 @@ namespace AnperoFrontend.Controllers
                     HttpRuntime.Cache.Insert("Ads3", Ads3, null, DateTime.Now.AddMinutes(shortCacheTime + 1), TimeSpan.Zero);
                 }
             }
-            if (HttpRuntime.Cache["Ads4"] != null)
-            {
-                ViewData["AdsSlide4"] = (WebService.Ads[])HttpRuntime.Cache["Ads4"];
-            }
-            else
-            {
-                Ads4 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads4);
-                ViewData["AdsSlide4"] = Ads4;
-                if (Ads2 != null)
-                {
-                    HttpRuntime.Cache.Insert("Ads4", Ads4, null, DateTime.Now.AddMinutes(shortCacheTime + 1), TimeSpan.Zero);
-                }
-            }
+            //if (HttpRuntime.Cache["Ads4"] != null)
+            //{
+            //    ViewData["AdsSlide4"] = (WebService.Ads[])HttpRuntime.Cache["Ads4"];
+            //}
+            //else
+            //{
+            //    Ads4 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads4);
+            //    ViewData["AdsSlide4"] = Ads4;
+            //    if (Ads2 != null)
+            //    {
+            //        HttpRuntime.Cache.Insert("Ads4", Ads4, null, DateTime.Now.AddMinutes(shortCacheTime + 1), TimeSpan.Zero);
+            //    }
+            //}
             //Response.Cache.SetExpires(DateTime.Now.AddMinutes(60));
             Response.Cache.SetCacheability(HttpCacheability.Public);
         }
