@@ -736,10 +736,7 @@ img.alignright{
 .select2-container .select2-selection--single .select2-selection__rendered {
     padding-left: 15px;
 }
-.main-header .header-search-box .form-inline .input-serach{
-    width: calc(100% - 300px);
-    
-}
+
 .main-header .header-search-box .form-inline .input-serach input{
     border: none;
     padding-left: 15px;

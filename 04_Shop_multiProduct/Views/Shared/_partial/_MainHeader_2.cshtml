@@ -3,7 +3,7 @@
     AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
     if (ViewData["commonInfo"] != null)
     {
-        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];    
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
 }
 <div class="container main-header">
@@ -12,7 +12,7 @@
             <form class="form-inline" action="/search" name="search" id="search" method="get">
                 <div class="form-group input-serach">
                     <input type="text" placeholder="Tìm kiếm ..." name="keyword">
-                                </div>
+                </div>
                 <button type="submit" class="pull-right btn-search"><i class="fa fa-search"></i></button>
             </form>
         </div>
@@ -20,7 +20,6 @@
             <a href="/"><img alt="@commonInfo.Desc" src="@commonInfo.Logo" /></a>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 group-button-header">
-            
             <a target="_blank" title="Chia sẻ trên google+" href="https://plus.google.com/share?url=@HttpContext.Current.Request.Url.AbsoluteUri" class="btn-heart">wishlist</a>
             <div class="btn-cart" id="cart-block">
                 <a title="My cart" href="/product/checkout">Cart</a>

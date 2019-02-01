@@ -31,14 +31,14 @@
         <div class="col-xs-12 col-sm-12 col-md-3 logo">
             <a href="/"><img alt="@commonInfo.Desc" src="@commonInfo.Logo" /></a>
         </div>
-        <div class="col-xs-7 col-sm-8 col-md-7 header-search-box" itemscope itemtype="baseUrl">
+        <div class="col-xs-4 col-sm-4 col-md-3 header-search-box" itemscope itemtype="baseUrl">
             <form class="form-inline" action="/search" name="search" id="search" method="get" role="search">
                 <meta itemprop="url" content="@(baseUrl+"/search")" />
                 <meta itemprop="target" content="@(baseUrl+"/search?keyword={keyword}")" />
-                <div class="form-group form-category">
+                <div class="form-group form-category" style="display:none;">
                     <select class="select-category" name="category">
                         <option value="0">Danh mục sản phẩm</option>
-                        @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                        @*@if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                         {
                             for (int i = 0; i < commonInfo.ProductCategoryList.Length; i++)
                             {
@@ -52,7 +52,7 @@
                                     }
                                 }
                             }
-                        }
+                        }*@
                     </select>
                 </div>
                 <div class="form-group input-serach">
@@ -61,30 +61,35 @@
                 <button type="submit" class="pull-right btn-search" id="btnSearch"></button>
             </form>
         </div>
-        <div class="col-xs-5 col-sm-3 col-md-2 group-button-header">
-            <a target="_blank" title="Chia sẻ trên google+" href="https://plus.google.com/share?url=@HttpContext.Current.Request.RawUrl" class="btn-heart">wishlist</a>
-            <div class="btn-cart" id="cart-block">
-                <a title="My cart" href="/product/checkout">Cart</a>
-                <span class="notify notify-right spN"></span>
-                <div class="cart-block">
-                    <div class="cart-block-content">
-                        <h5 class="cart-title"><span class="spN"></span> Sản phẩm</h5>
-                        <div class="cart-block-list">
-                            <ul id="prCatCt"></ul>
-                        </div>
-                        <div class="toal-cart">
-                            <span>Total</span>
-                            <span class="toal-price pull-right" id="ttSC"></span>
-                        </div>
-                        <div class="cart-buttons">
-                            <a href="/product/checkout" class="btn-check-out">Thanh toán</a>
+        <div class="col-xs-4 col-sm-4 col-md-4 add-ct">
+            <div><a href="tel:commonInfo.HotLine"><i class="fa fa-phone"></i> @Anpero.StringHelpper.FormatPhoneNumber(commonInfo.HotLine)</a> </div>
+            <div><a href="@commonInfo.FaceBookLink"><i class="fa fa-facebook"></i> @commonInfo.Name</a></div>
+            <address><i class="fa fa-home"></i> @commonInfo.Address</address>
+        </div> 
+            <div class="col-xs-5 col-sm-3 col-md-2 group-button-header">
+                <a target="_blank" title="Chia sẻ trên google+" href="https://plus.google.com/share?url=@HttpContext.Current.Request.RawUrl" class="btn-heart">wishlist</a>
+                <div class="btn-cart" id="cart-block">
+                    <a title="My cart" href="/product/checkout">Cart</a>
+                    <span class="notify notify-right spN"></span>
+                    <div class="cart-block">
+                        <div class="cart-block-content">
+                            <h5 class="cart-title"><span class="spN"></span> Sản phẩm</h5>
+                            <div class="cart-block-list">
+                                <ul id="prCatCt"></ul>
+                            </div>
+                            <div class="toal-cart">
+                                <span>Total</span>
+                                <span class="toal-price pull-right" id="ttSC"></span>
+                            </div>
+                            <div class="cart-buttons">
+                                <a href="/product/checkout" class="btn-check-out">Thanh toán</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
     

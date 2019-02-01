@@ -18,7 +18,7 @@
     border: none;
     color: #fff;
     display: inline-block;
-    min-width: 520px;
+    min-width: 300px;
     background-color: #00a4e0;
 }
 #left_column .block .title_block {
@@ -72,3 +72,13 @@
         background: #00a4e0;
     }
 }
+.add-ct{
+    padding-left:78px;
+}
+    .add-ct, .add-ct i, .add-ct .address {
+        line-height: 24px;
+    }
+    .add-ct i {
+        color: #00a4e0;
+        margin-right:5px;
+    }
