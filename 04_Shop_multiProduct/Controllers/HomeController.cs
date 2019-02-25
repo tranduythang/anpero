@@ -14,9 +14,6 @@ namespace AnperoFrontend.Controllers
         public ActionResult Index()
         {             
             WebService.AnperoService service = new WebService.AnperoService();
-            //ViewData["slide"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Slide);
-            //ViewData["AdsSlide"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads1);
-          
             GetNewestProduct();
             SetupCommonProduct();
             GetTopArticle();
