@@ -665,7 +665,7 @@ namespace Anpero
             }
 
         }
-        public static String ConvertTimeVN(String YYYYMMddhhmmss)
+        public static string ConvertTimeVN(string YYYYMMddhhmmss)
         {
             try
             {
@@ -689,6 +689,31 @@ namespace Anpero
 
 
         }
+        public static DateTime ConvertDateTime(string YYYYMMddhhmmss)
+        {
+            try
+            {
+                if (YYYYMMddhhmmss.Length >= 8) { 
+
+                    string year = YYYYMMddhhmmss.Substring(0, 4);
+                    string month = YYYYMMddhhmmss.Substring(4, 2);
+                    string day = YYYYMMddhhmmss.Substring(6, 2);
+                    return new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day));
+                }
+                else
+                {
+                    return DateTime.Now;
+                }
+            }
+            catch (Exception)
+            {
+
+                return DateTime.Now;
+            }
+
+
+        }
+
         /// <summary>
     }
 }

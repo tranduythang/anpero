@@ -15,800 +15,190 @@
         <div class="page_container">
             <div class="top_pannel ">
                 <div class="container">
-                    <div class="top_pannel_text">Order online or call us (1800) 000 8808</div>
-
+                    <div class="top_pannel_text">Hotline đặt hàng @commonInfo.HotLine</div>
                     <div class="top_pannel_menu">
-
-
-
                         <div class="header_search">
-                            <span class="search_toggle"><i class="fa fa-search" aria-hidden="true"></i><b>Search</b><i class="fa fa-times"></i></span>
-                            <form action="https://theme583-cosmetic-store.myshopify.com/search" method="get" role="search" class="search_form">
-                                <input type="search" name="q" placeholder="Search" aria-label="Search">
+                            <span class="search_toggle"><i class="fa fa-search" aria-hidden="true"></i><b>Tìm kiếm</b><i class="fa fa-times"></i></span>
+                            <form action="@baseUrl/search" method="get" role="search" class="search_form">
+                                <input type="search" name="keyword" placeholder="Tìm kiếm" aria-label="Search" itemprop="query-input">
                                 <button type="submit">
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                 </button>
                             </form>
                             <div id="search_result_container"></div>
-
                         </div>
-
-
-
-
                         <div class="header_account">
-                            <a href="account/login.html" title="My account"><i class="fa fa-user" aria-hidden="true"></i><span>My account</span></a>
-
-
+                            <a href="/home/contact" title="My account"><i class="fa fa-user" aria-hidden="true"></i><span>Liên hệ</span></a>
                         </div>
-                        <div class="header_wishlist">
-                            <a href="pages/wishlist.html"><i class="fa fa-heart" aria-hidden="true"></i><span>Wishlist</span></a>
+                        <div class="header_wishlist currency_selector" style="margin-right:0px;">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=@baseUrl" target="_blank"><i class="fa fa-heart" aria-hidden="true"></i><span>Share</span></a>
                         </div>
-                        <div class="currency_selector">
-                            <div class="currency_selector__wrap" title="Currency">
-                                <div id="currency_active">USD</div>
-
-                                <ul id="currency_selector">
-                                    <li data-value="USD" id="currency_selected" class="currency_selector__item">USD</li>
-
-
-
-
-
-                                    <li data-value="EUR" class="currency_selector__item">EUR</li>
-
-
-
-                                    <li data-value="GBP" class="currency_selector__item">GBP</li>
-
-
-                                </ul>
-                            </div>
-                        </div>
-
-
-
-
-                        <script src="../cdn.shopify.com/s/files/1/0079/6649/0720/t/2/assets/currency-toolsf18a.js?15229272438163834218" defer></script>
-
-
                     </div>
                 </div>
             </div>
-
             <div class="header_wrap1">
                 <div class="container header_main_wrap">
                     <div class="header_wrap2 header_left">
-
-
-
-
-                        <a class="header_logo" href="index.html">
-                            <img src="../cdn.shopify.com/s/files/1/0079/6649/0720/files/logo_130x30_crop_center%402x1a9f.png?v=1548319350" alt="Skin beauty" style="max-width: 130px">
-
+                        <a class="header_logo" href="/">
+                            <img src="@commonInfo.Logo" alt="Skin beauty" style="max-width: 130px">
                         </a>
-
-
-
                     </div>
-
                     <div class="header_wrap2 header_center">
-
                         <nav id="megamenu" class="megamenu">
                             <h2 id="megamenu_mobile_toggle"><i class="fa fa-bars" aria-hidden="true"></i>Menu</h2>
-
                             <div id="megamenu_mobile_close">
                                 <div class="close_icon"></div>
                             </div>
-
                             <ul id="megamenu_level__1" class="level_1">
-
-
-
-
-
                                 <li class="level_1__item level_2__small">
-                                    <a class="level_1__link active" href="index.html">
+                                    <a class="level_1__link active" href="/">
                                         Home
-                                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_1546967326575"></i>
+                                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_1"></i>
                                     </a>
-
-
-
-                                    <ul class="level_2" id="menu_1546967326575">
+                                    <ul class="level_2" id="menu_1">
                                         <li>
                                             <div>
                                                 <ul class="level_3">
-
-
-
                                                     <li class="level_3__item ">
-                                                        <a class="level_3__link" href="index.html">Home</a>
-
-
+                                                        <a class="level_3__link" href="/">Trang chủ</a>
                                                     </li>
-
-
-
                                                     <li class="level_3__item ">
-                                                        <a class="level_3__link" href="collections/all.html">Catalog</a>
-
-
+                                                        <a class="level_3__link" href="/search">Danh mục sản phẩm</a>
                                                     </li>
-
-
-
                                                     <li class="level_3__item ">
-                                                        <a class="level_3__link" href="collections.html">Collections</a>
-
-
+                                                        <a class="level_3__link" href="/home/contact">Liên hệ</a>
                                                     </li>
-
-
-
                                                     <li class="level_3__item ">
-                                                        <a class="level_3__link" href="pages/contact-us.html">Contact us</a>
-
-
+                                                        <a class="level_3__link" href="/about">Về chúng tôi</a>
                                                     </li>
-
-
-
                                                     <li class="level_3__item ">
-                                                        <a class="level_3__link" href="pages/about-us.html">About us</a>
-
-
+                                                        <a class="level_3__link" href="/PaymentInfo">Thanh toán</a>
                                                     </li>
-
-
-
                                                     <li class="level_3__item ">
-                                                        <a class="level_3__link" href="pages/privacy-policy.html">Privacy Policy</a>
-
-
+                                                        <a class="level_3__link" href="/blog">Blog</a>
                                                     </li>
-
-
-
-                                                    <li class="level_3__item ">
-                                                        <a class="level_3__link" href="blogs/news.html">Blog</a>
-
-
-                                                    </li>
-
-
-
-                                                    <li class="level_3__item with_ul">
-                                                        <a class="level_3__link" href="pages/faq.html">Pages<i class="level_3__trigger megamenu_trigger" data-submenu="submenu_1546967326575-8"></i></a>
-
-
-                                                        <ul class="level_3_2 droped_linklist" id="submenu_1546967326575-8">
-
-
-
-                                                            <li class="level_3_2_item ">
-                                                                <a class="level_3_2_link" href="pages/faq.html">FAQ</a>
-
-
-                                                            </li>
-
-
-
-                                                            <li class="level_3_2_item ">
-                                                                <a class="level_3_2_link" href="pages/password-page.html">Password</a>
-
-
-                                                            </li>
-
-
-
-                                                            <li class="level_3_2_item ">
-                                                                <a class="level_3_2_link" href="pages/services.html">Services</a>
-
-
-                                                            </li>
-
-
-
-                                                            <li class="level_3_2_item ">
-                                                                <a class="level_3_2_link" href="pages/wishlist.html">Wishlist</a>
-
-
-                                                            </li>
-
-                                                        </ul>
-
-                                                    </li>
-
                                                 </ul>
                                             </div>
                                         </li>
                                     </ul>
-
-
-
-
                                 </li>
-
-
-
-
-
-
                                 <li class="level_1__item level_2__links">
-                                    <a class="level_1__link " href="collections.html">
-                                        Collections
-                                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_1546967214674"></i>
+                                    <a class="level_1__link " href="/search">
+                                        Bộ sưu tập
+                                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_5"></i>
                                     </a>
-
-
-
-                                    <ul class="level_2" id="menu_1546967214674">
+                                    <ul class="level_2" id="menu_5">
                                         <li class="container">
-
-
-
-                                            <div class="megamenu_col__item ">
-
-
-                                                <img src="../cdn.shopify.com/s/files/1/0079/6649/0720/files/collection_1_255x180_crop_center5b13.jpg?v=1548320875" alt="Catalog #1">
-
-
-                                                <h3>Catalog #1 <i class="level_2__trigger megamenu_trigger" data-submenu="menu_1546967214674-1"></i></h3>
-
-                                                <ul class="level_3" id="menu_1546967214674-1">
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/hair.html">Hair</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/nails.html">Nails</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/frontpage.html">Eyes</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/tools-accessories.html">Tools & Accessories</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/face.html">Face</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/sale.html">Sale</a>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-
-
-
-                                            <div class="megamenu_col__item ">
-
-
-                                                <img src="../cdn.shopify.com/s/files/1/0079/6649/0720/files/collection_2_255x180_crop_center2359.jpg?v=1548320894" alt="Catalog #2">
-
-
-                                                <h3>Catalog #2 <i class="level_2__trigger megamenu_trigger" data-submenu="menu_1546967214674-2"></i></h3>
-
-                                                <ul class="level_3" id="menu_1546967214674-2">
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/tools-accessories.html">Tools & Accessories</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/frontpage.html">Eyes</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/nails.html">Nails</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/sale.html">Sale</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/hair.html">Hair</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/face.html">Face</a>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-
-
-
-                                            <div class="megamenu_col__item ">
-
-
-                                                <img src="../cdn.shopify.com/s/files/1/0079/6649/0720/files/collection_3_255x180_crop_center82aa.jpg?v=1548320976" alt="Catalog #3">
-
-
-                                                <h3>Catalog #3 <i class="level_2__trigger megamenu_trigger" data-submenu="menu_1546967214674-3"></i></h3>
-
-                                                <ul class="level_3" id="menu_1546967214674-3">
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/nails.html">Nails</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/sale.html">Sale</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/face.html">Face</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/frontpage.html">Eyes</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/tools-accessories.html">Tools & Accessories</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/hair.html">Hair</a>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-
-
-
-                                            <div class="megamenu_col__item ">
-
-
-                                                <img src="../cdn.shopify.com/s/files/1/0079/6649/0720/files/collection_4_255x180_crop_center4090.jpg?v=1548320923" alt="Catalog #4">
-
-
-                                                <h3>Catalog #4 <i class="level_2__trigger megamenu_trigger" data-submenu="menu_1546967214674-4"></i></h3>
-
-                                                <ul class="level_3" id="menu_1546967214674-4">
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/face.html">Face</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/tools-accessories.html">Tools & Accessories</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/sale.html">Sale</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/hair.html">Hair</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/frontpage.html">Eyes</a>
-                                                    </li>
-
-                                                    <li class="level_3__item">
-
-
-                                                        <a class="level_3__link" href="collections/nails.html">Nails</a>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-
+                                            @foreach (var item in commonInfo.ProductCategoryList)
+                                            {
+                                                <div class="megamenu_col__item ">
+                                                    <img src="@item.Images" alt="@item.Name">
+                                                    <h3>@item.Name<i class="level_2__trigger megamenu_trigger" data-submenu="menu_pr_@item.Id"></i></h3>
+                                                    <ul class="level_3" id="menu_pr_@item.Id">
+                                                        @foreach (var subItem in item.ChildCategory)
+                                                        {
+                                                            <li class="level_3__item">
+                                                                <a class="level_3__link" href="@Anpero.StringHelpper.GetCategoryLink(subItem.Name,subItem.Id)">@subItem.Name</a>
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            }
                                         </li>
                                     </ul>
-
-
-
-
                                 </li>
-
-
-
-
-
-
                                 <li class="level_1__item level_2__links">
-                                    <a class="level_1__link " href="collections/all.html">
-                                        Catalog
-                                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_1546966210784"></i>
+                                    <a class="level_1__link " href="/search">
+                                        Danh mục sản phẩm
+                                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_3"></i>
                                     </a>
-
-
-
-                                    <ul class="level_2" id="menu_1546966210784">
+                                    <ul class="level_2" id="menu_3">
                                         <li class="container">
-
-
-
-
-
-
-                                            <div class="megamenu_col__item align_center">
-
-                                                <a href="collections/frontpage.html">
-                                                    <img src="../cdn.shopify.com/s/files/1/0079/6649/0720/files/catalog_1_255x180_crop_center7f7a.png?v=1548321114" alt="Eyes">
-
-
-                                                    <h4>Eyes</h4>
-
-                                                </a>
-                                            </div>
-
-
-
-
-
-
-
-                                            <div class="megamenu_col__item align_center">
-
-                                                <a href="collections/face.html">
-                                                    <img src="../cdn.shopify.com/s/files/1/0079/6649/0720/files/catalog_2_255x180_crop_centerd23d.png?v=1548321189" alt="Face">
-
-
-                                                    <h4>Face</h4>
-
-                                                </a>
-                                            </div>
-
-
-
-
-
-
-
-                                            <div class="megamenu_col__item align_center">
-
-                                                <a href="collections/hair.html">
-                                                    <img src="../cdn.shopify.com/s/files/1/0079/6649/0720/files/catalog_3_255x180_crop_centerb225.png?v=1548321207" alt="Hair">
-
-
-                                                    <h4>Hair</h4>
-
-                                                </a>
-                                            </div>
-
-
-
-
-
-
-
-                                            <div class="megamenu_col__item align_center">
-
-                                                <a href="collections/nails.html">
-                                                    <img src="../cdn.shopify.com/s/files/1/0079/6649/0720/files/catalog_4_255x180_crop_center33a6.png?v=1548321238" alt="Nails">
-
-
-                                                    <h4>Nails</h4>
-
-                                                </a>
-                                            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                            @foreach (var item in commonInfo.ProductCategoryList)
+                                            {
+                                                <div class="megamenu_col__item align_center">
+                                                    <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">
+                                                        <img src="@item.Images" alt="@item.Name">
+                                                        <h4>@item.Name</h4>
+                                                    </a>
+                                                </div>
+                                            }
                                         </li>
                                     </ul>
-
-
-
-
                                 </li>
-
-
-
-
-
-
                                 <li class="level_1__item level_2__products">
-                                    <a class="level_1__link " href="collections/sale.html">
-                                        Sale
-                                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_1479746552441"></i>
+                                    <a class="level_1__link " href="/">
+                                        Khuyến mãi
+                                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_6"></i>
                                     </a>
-
-
-
-                                    <ul class="level_2" id="menu_1479746552441">
+                                    <ul class="level_2" id="menu_6">
                                         <li class="container">
-
-                                            <div class="megamenu_col__item">
-                                                <div class="product">
-                                                    <div class="product_img">
-                                                        <a href="products/verattiva-face-tonic-rinse-and-refresher-7-ounce-1.html">
-                                                            <img src="../cdn.shopify.com/s/files/1/0079/6649/0720/products/verattiva_face_tonic_rinse_and_refresher_7_ounce_1_255xc64d.png?v=1548313174" alt="VERAttiva Face Tonic Rinse and Refresher 7-Ounce" />
-                                                        </a>
+                                            @if (ViewData["saleProduct"] != null)
+                                            {
+                                                ProductItem[] saleList = (ProductItem[])ViewData["saleProduct"];
+                                                foreach (var item in saleList)
+                                                {
+                                                    <div class="megamenu_col__item">
+                                                        <div class="product">
+                                                            <div class="product_img">
+                                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
+                                                                    <img src="@item.Images" alt="@item.PrName" />
+                                                                </a>
+                                                            </div>
+                                                            <div class="product_info">
+                                                                <p class="product_name">
+                                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
+                                                                </p>
+                                                                <p class="product_price">
+                                                                    <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span>
+                                                                    <span class="money money_sale">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
                                                     </div>
-
-                                                    <div class="product_info">
-                                                        <p class="product_name">
-                                                            <a href="products/verattiva-face-tonic-rinse-and-refresher-7-ounce-1.html">VERAttiva Face Tonic Rinse and Refresher 7-Ounce</a>
-                                                        </p>
-
-                                                        <p class="product_price">
-                                                            <span class="money">$20.00</span>
-
-
-                                                            <span class="money money_sale">$26.00</span>
-
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="megamenu_col__item">
-                                                <div class="product">
-                                                    <div class="product_img">
-                                                        <a href="products/shany-eye-and-lip-primer-base-paraben-talc-free-1.html">
-                                                            <img src="../cdn.shopify.com/s/files/1/0079/6649/0720/products/shany_eye_and_lip_primer_base_paraben_talc_free_1_255x7a15.png?v=1548313163" alt="SHANY Eye and Lip Primer Base Paraben Talc Free" />
-                                                        </a>
-                                                    </div>
-
-                                                    <div class="product_info">
-                                                        <p class="product_name">
-                                                            <a href="products/shany-eye-and-lip-primer-base-paraben-talc-free-1.html">SHANY Eye and Lip Primer Base Paraben Talc Free</a>
-                                                        </p>
-
-                                                        <p class="product_price">
-                                                            <span class="money">$29.00</span>
-
-
-                                                            <span class="money money_sale">$39.00</span>
-
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="megamenu_col__item">
-                                                <div class="product">
-                                                    <div class="product_img">
-                                                        <a href="products/physicians-formula-eye-definer-automatic-eye-pencil-ultra-black-1.html">
-                                                            <img src="../cdn.shopify.com/s/files/1/0079/6649/0720/products/physicians_formula_eye_definer_automatic_eye_pencil_ultra_black_1_255x8d57.png?v=1548313134" alt="Physicians Formula Eye Definer Automatic Eye Pencil Ultra Black" />
-                                                        </a>
-                                                    </div>
-
-                                                    <div class="product_info">
-                                                        <p class="product_name">
-                                                            <a href="products/physicians-formula-eye-definer-automatic-eye-pencil-ultra-black-1.html">Physicians Formula Eye Definer Automatic Eye Pe...</a>
-                                                        </p>
-
-                                                        <p class="product_price">
-                                                            <span class="money">$12.00</span>
-
-
-                                                            <span class="money money_sale">$20.00</span>
-
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="megamenu_col__item">
-                                                <div class="product">
-                                                    <div class="product_img">
-                                                        <a href="products/pantene-pro-v-color-preserve-shine-2-in-1-shampoo-conditioner-12-6-fl-oz-1.html">
-                                                            <img src="../cdn.shopify.com/s/files/1/0079/6649/0720/products/pantene_pro_v_color_preserve_shine_2_in_1_shampoo___conditioner_12_6_fl_oz_1_255x0d3d.png?v=1548313109" alt="Pantene Pro-V Color Preserve Shine 2-In-1 Shampoo & Conditioner 12 6 Fl Oz" />
-                                                        </a>
-                                                    </div>
-
-                                                    <div class="product_info">
-                                                        <p class="product_name">
-                                                            <a href="products/pantene-pro-v-color-preserve-shine-2-in-1-shampoo-conditioner-12-6-fl-oz-1.html">Pantene Pro-V Color Preserve Shine 2-In-1 Shamp...</a>
-                                                        </p>
-
-                                                        <p class="product_price">
-                                                            <span class="money">$22.00</span>
-
-
-                                                            <span class="money money_sale">$33.00</span>
-
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
+                                                }
+                                            }
                                         </li>
                                     </ul>
-
-
-
-
                                 </li>
-
-
-
-
-
-
                                 <li class="level_1__item level_2__blog">
-                                    <a class="level_1__link " href="blogs/news.html">
+                                    <a class="level_1__link " href="/blog">
                                         Blog
                                         <i class="level_1__trigger megamenu_trigger" data-submenu="menu_1479747008568"></i>
                                     </a>
-
-
-
                                     <ul class="level_2" id="menu_1479747008568">
                                         <li class="container">
+                                            @if (ViewData["FeatureArticle"] != null)
+                                            {
+                                                SearchArticleResults articleList = (SearchArticleResults)ViewData["FeatureArticle"];
+                                                foreach (BlogItem item in articleList.ItemList)
+                                                {
+                                                    <div class="megamenu_col__item">
+                                                        <div class="blog_img">                                                            
+                                                            <img src="@item.Thumb" alt="@item.Title">
+                                                        </div>
+                                                        <div class="blog_info">
+                                                            <p class="blog_date">
+                                                                <span class="article_day">Ngày @Anpero.StringHelpper.ConvertDateTime(item.CreateDate).Day</span>
+                                                                Tháng @Anpero.StringHelpper.ConvertDateTime(item.CreateDate).Month
+                                                            </p>
+                                                            <h3 class="blog_title"><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Title,item.Id)">@Anpero.StringHelpper.SubString(40,item.Title)</a></h3>
+                                                        </div>
+                                                    </div>
+                                                }
 
-                                            <div class="megamenu_col__item">
-
-                                                <div class="blog_img">
-                                                    <img src="../cdn.shopify.com/s/files/1/0079/6649/0720/articles/blog_3_350x308_crop_center5214.jpg?v=1548318699" alt="Our goal is to help you stay healthy as well as gorgeous at the same time">
-                                                </div>
-
-
-                                                <div class="blog_info">
-                                                    <p class="blog_date">
-                                                        <span class="article_day">24</span>
-                                                        January
-                                                    </p>
-
-                                                    <h3 class="blog_title"><a href="blogs/news/our-goal-is-to-help-you-stay-healthy-as-well-as-gorgeous-at-the-same-time.html">Our goal is to help you stay healthy as well as gorg...</a></h3>
-                                                </div>
-                                            </div>
-
-                                            <div class="megamenu_col__item">
-
-                                                <div class="blog_img">
-                                                    <img src="../cdn.shopify.com/s/files/1/0079/6649/0720/articles/blog_2_350x308_crop_centerb3a6.jpg?v=1548318657" alt="Also you can always contact our consultants!">
-                                                </div>
+                                            }
 
 
-                                                <div class="blog_info">
-                                                    <p class="blog_date">
-                                                        <span class="article_day">24</span>
-                                                        January
-                                                    </p>
-
-                                                    <h3 class="blog_title"><a href="blogs/news/also-you-can-always-contact-our-consultants.html">Also you can always contact our consultants!</a></h3>
-                                                </div>
-                                            </div>
-
-                                            <div class="megamenu_col__item">
-
-                                                <div class="blog_img">
-                                                    <img src="../cdn.shopify.com/s/files/1/0079/6649/0720/articles/blog_1_350x308_crop_center3ce7.jpg?v=1548316923" alt="Our company advocates the postulate that the health is the biggest value in our lives">
-                                                </div>
-
-
-                                                <div class="blog_info">
-                                                    <p class="blog_date">
-                                                        <span class="article_day">24</span>
-                                                        January
-                                                    </p>
-
-                                                    <h3 class="blog_title"><a href="blogs/news/our-company-advocates-the-postulate-that-the-health-is-the-biggest-value-in-our-lives.html">Our company advocates the postulate that the health ...</a></h3>
-                                                </div>
-                                            </div>
 
                                         </li>
                                     </ul>
-
-
-
-
                                 </li>
-
-
-
-
-
-
                                 <li class="level_1__item ">
-                                    <a class="level_1__link " href="pages/contact-us.html">
-                                        Contact us
-
+                                    <a class="level_1__link " href="/home/contact">
+                                        Liên hệ
                                     </a>
-
-
-
                                 </li>
-
-
                             </ul>
                         </nav>
 
@@ -817,19 +207,14 @@
                     <div class="header_wrap2 header_right">
 
                         <div class="header_cart" id="main__cart_item">
-                            <a class="cart_link" href="cart.html"><b><i class="fa fa-shopping-bag" aria-hidden="true"></i>My Cart: </b><span id="cart_items"> 0 </span> item(s)</a>
-
-
-
+                            <a class="cart_link" href="/product/checkout"><b><i class="fa fa-shopping-bag" aria-hidden="true"></i>Giỏ hàng: </b><span id="cart_items" class="spN"> 0 </span> sản phẩm</a>
                             <div class="cart_content_wrap">
                                 <div class="cart_content_preloader off">
                                     <div class="global_loader"></div>
                                 </div>
                                 <div id="cart_content_box">
-
-                                    <p class="alert alert-warning">It appears that your cart is currently empty</p>
-
-
+                                    <p class="alert alert-warning">Bạn chưa có sản phẩm nào</p>
+                                    
                                 </div>
                             </div>
 
@@ -840,7 +225,7 @@
             </div>
         </div>
     </header>
-   
+
     <a id="back_top" href="#">
         <i class="fa fa-angle-up" aria-hidden="true"></i>
     </a>

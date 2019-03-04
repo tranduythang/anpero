@@ -86,7 +86,6 @@ namespace AnperoFrontend.Controllers
             ViewBag.Description = "Tin tức |"+ categoryName;
             ViewBag.Keywords = categoryName;
             ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + "/blog";
-            GetTopArticle();
         }
     }
 }

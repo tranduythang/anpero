@@ -15,9 +15,6 @@ namespace AnperoFrontend.Controllers
 
             WebService.AnperoService service = new WebService.AnperoService();
             GetNewestProduct();
-            SetupCommonProduct();
-            GetTopArticle();
-
             SetUpSlideAds();
             return View();
         }
@@ -56,6 +53,35 @@ namespace AnperoFrontend.Controllers
                     HttpRuntime.Cache.Insert("ads1", ads1, null, DateTime.Now.AddMinutes(shortCacheTime + 3), TimeSpan.Zero);
                 }
             }
+            WebService.Ads[] Ads2 = null;
+            if (HttpRuntime.Cache["ads2"] != null)
+            {
+                ViewData["ads2"] = (WebService.Ads[])HttpRuntime.Cache["ads2"];
+            }
+            else
+            {
+                Ads2 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads2);
+                ViewData["Ads2"] = Ads2;
+                if (Slide != null)
+                {
+                    HttpRuntime.Cache.Insert("Ads2", Ads2, null, DateTime.Now.AddMinutes(shortCacheTime + 3), TimeSpan.Zero);
+                }
+            }
+            WebService.Ads[] ads3 = null;
+            if (HttpRuntime.Cache["ads3"] != null)
+            {
+                ViewData["ads3"] = (WebService.Ads[])HttpRuntime.Cache["ads3"];
+            }
+            else
+            {
+                ads3 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads3);
+                ViewData["ads3"] = ads3;
+                if (Slide != null)
+                {
+                    HttpRuntime.Cache.Insert("Ads2", ads3, null, DateTime.Now.AddMinutes(shortCacheTime + 3), TimeSpan.Zero);
+                }
+            }
+            
             Response.Cache.SetCacheability(HttpCacheability.Public);
         }
         private void GetNewestProduct()
@@ -116,7 +142,7 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult Contact()
         {
-            SetupCommonProduct();
+            
             return View();
         }
         public string PolicyAjax(int type)

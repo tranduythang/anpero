@@ -1,7 +1,7 @@
 ﻿var Cart = {
     list: [],
     addProduct: function (_id, _price, _thumb, _title) {
-        debugger
+
         var checkExited = false;
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
@@ -25,7 +25,7 @@
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
         window.location.href = "/product/checkout";
     },
-    addProduct3: function (_id, _price, _thumb, _title) {        
+    addProduct3: function (_id, _price, _thumb, _title) {
         var checkExited = false;
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
@@ -66,30 +66,35 @@
     },
     bindCart: function () {
         var ttSC = 0;
-        var htmlCat = "";
+        var htmlCat = "<ul class=\"cart_list_items\">";
         if ($.cookie("CartList") != 'null' && $.cookie("CartList") != "undefined" && $.cookie("CartList") != undefined) {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
             $(".spN").html(Cart.list.length);
             for (var i = 0; i < Cart.list.length; i++) {
                 ttSC += parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity);
-                htmlCat += '<li class="item last"><div class="item-inner">';
-                htmlCat += '<a class="product-image" href="' + Cart.list[i].thumb + '"><img src="' + Cart.list[i].thumb + '"></a>';
-                htmlCat += '<div class="product-details">';
-                htmlCat += '<div class="access"><a class="btn-remove1" href="javascript:Cart.remove(' + Cart.list[i].id + ')">Xóa</a> </div>';
-                htmlCat += '<strong>' + Cart.list[i].quantity + '</strong> x <span class="price">' + Util.toMoneyFormat(Cart.list[i].price) + '</span>';
-                htmlCat += '<p class="product-name">' + Cart.list[i].title + '</p>';
-                htmlCat += '</div>';
+                htmlCat += '<li class="cart_items">';
+                htmlCat += '<img src="' + Cart.list[i].thumb + '" class="item_img cart-img">';
+                htmlCat += '<div class="item_desc">';
+                    htmlCat += '<span class="product_title">' + Cart.list[i].title + '</span>';                    
+                    htmlCat += '<span class="money" data-currency-usd="$22.00">' + Util.toMoneyFormat(Cart.list[i].price) + '</span>';
+                    htmlCat += ' <p class="product_quantity">x' + Cart.list[i].quantity + '</p>';
+                    htmlCat += '<a class="item_remove_btn" href="javascript:Cart.remove(' + Cart.list[i].id + ')"><i class="fa fa-trash"></i></a>';                    
                 htmlCat += '</div>';
                 htmlCat += '</li>';
             }
+            htmlCat += "</ul>";
             if (Cart.list.length > 0) {
-                $("#cart-sidebar").html(htmlCat);
+                
                 $(".toal-cart").show();
                 $(".mini-products-list").show();
-                $(".cart-buttons").show();
-                $("#cart-sidebar2").html(htmlCat);
+                $(".cart-buttons").show();                
                 $("#lpr").html(Util.toMoneyFormat(ttSC) + " đ");
                 $("#sendOrder").show();
+                htmlCat += '<div class="box_footer">';
+                htmlCat += '<p class="cart_total"><b>Tổng giá: </b><span class="money">' + Util.toMoneyFormat(ttSC) + ' đ</span></p>';
+                htmlCat += '<a id="clear_cart_all_items" class="cart_clear" href="/product/checkout"><i class="fa fa-refresh" title="Clear cart"></i></a><a class="btn cart_url pull-right"" href="/product/checkout">Thanh toán</a>';
+                htmlCat += '</div>';
+                $("#cart_content_box").html(htmlCat);
             } else {
                 $("#sendOrder").hide();
                 $("#cart-sidebar2").html("Giỏ hàng rỗng");
@@ -117,7 +122,7 @@
         var _paymentFee = $('input[name=radio_4]:checked').attr("data-ship");
         var htmlCat = ""; debugger
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined") {
-         
+
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
             try {
                 $(".spN").html(Cart.list.length);
@@ -136,9 +141,9 @@
                     htmlCat += '<td class="qty">';
                     htmlCat += '<a href="javascript:Cart.remove3(' + Cart.list[i].id + ',' + Cart.list[i].price + ');" class="btn">-</a>';
                     htmlCat += '<input class="input-text qty2" type="text" value="' + Cart.list[i].quantity + '" id="prQuantity_' + Cart.list[i].id + '">';
-                    
+
                     htmlCat += '<a href="javascript:Cart.addProduct2(' + Cart.list[i].id + ',' + Cart.list[i].price + ');" class="btn">+</a>';
-                    
+
                     htmlCat += '</td>';
                     htmlCat += '<td class="price">';
                     htmlCat += '<span>' + Util.toMoneyFormat(parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity)) + ' đ</span>';
@@ -322,23 +327,23 @@
     bindTempForm: function () {
         if ($.cookie("TempForm") != null && $.cookie("TempForm") != "undefined") {
             OrderForm = jQuery.parseJSON($.cookie("TempForm"));
-           $("#cName").val(OrderForm.Name);
-           $("#cPhone").val(OrderForm.Phone);
-           $("#cMail").val(OrderForm.Email);
-           $("#cAddress").val(OrderForm.Address);
-           $("#detail").val(OrderForm.Detail);
+            $("#cName").val(OrderForm.Name);
+            $("#cPhone").val(OrderForm.Phone);
+            $("#cMail").val(OrderForm.Email);
+            $("#cAddress").val(OrderForm.Address);
+            $("#detail").val(OrderForm.Detail);
         }
 
     }
 };
 
 var Search = {
-    ParentCatId:0,
+    ParentCatId: 0,
     Category: 0,
     Page: 1,
     PageSize: 24,
     Products: function (page, orderBy) {
-        if (page != null) {            
+        if (page != null) {
             Search.Page = page;
         }
         var res = window.location.pathname.match(/[a-z0-9-]*-c(\d+)$/);
@@ -346,23 +351,23 @@ var Search = {
             Search.ParentCatId = res[1];
         }
         var res2 = window.location.pathname.match(/[a-z0-9-]*-cat(\d+)$/);
-        if (res2!=null && res2.length == 2) {
+        if (res2 != null && res2.length == 2) {
             Search.Category = res2[1];
         }
         $.ajax({
             method: "post",
             url: "/product/searchAjax",
             datatype: "text/plain",
-            data: { cat: categoryId, ParentCategory: Search.ParentCatId, Category: Search.Category, SortBy: orderBy, Page: Search.Page, PageSize:this.Products.PageSize},
+            data: { cat: categoryId, ParentCategory: Search.ParentCatId, Category: Search.Category, SortBy: orderBy, Page: Search.Page, PageSize: this.Products.PageSize },
             success: function (rs) {
-                $("#pr-listCt").html(rs);
+                $("#product_listing__sorted").html(rs);
             }
         });
     },
-    setOrder: function (order) {        
+    setOrder: function (order) {
         Search.Products(1, order);
     }
-}; 
+};
 var OrderForm = {
     Name: "",
     Phone: "",
@@ -381,5 +386,5 @@ $(document).ready(function () {
     $("textarea").change(function () {
         Cart.saveTempForm();
     });
-    
+
 });

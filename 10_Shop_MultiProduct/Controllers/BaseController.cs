@@ -20,75 +20,8 @@ namespace AnperoFrontend.Controllers
         public static int StoreID = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["storeID"]);
         public static string TokenKey = System.Configuration.ConfigurationManager.AppSettings["storeTokenKey"];
         public static int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
-        public void GetTopArticle()
-        {
-            WebService.SearchArticleResults rs = new WebService.SearchArticleResults();
-            WebService.AnperoService service = new WebService.AnperoService();
-            if (HttpRuntime.Cache["TopArticle"] != null)
-            {
-                rs = (WebService.SearchArticleResults)HttpRuntime.Cache["TopArticle"];
-            }
-            else
-            {
-                rs = service.SearchArticle(StoreID, TokenKey, 0, 1, 4, 2);
-                if (rs != null)
-                {
-                    HttpRuntime.Cache.Insert("TopArticle", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
-                }
-
-            }
-            ViewData["FeatureArticle"] = rs;
-        }
-        public void SetupCommonProduct()
-        {
-            WebService.ProductItem[] saleProduct;
-            WebService.SearchResult BestsaleProduct;
-            WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.Ads[] Slide = null;
-            if (HttpRuntime.Cache["saleProduct"] != null)
-            {
-                saleProduct = (WebService.ProductItem[])HttpRuntime.Cache["saleProduct"];
-            }
-            else
-            {
-                saleProduct = sv.GetSaleProduct(StoreID, TokenKey);
-                if (saleProduct != null)
-                {
-                    HttpRuntime.Cache.Insert("saleProduct", saleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
-                }
-
-            }
-            ViewData["saleProduct"] = saleProduct;
-            if (HttpRuntime.Cache["BestsaleProduct"] != null)
-            {
-                BestsaleProduct = (WebService.SearchResult)HttpRuntime.Cache["BestsaleProduct"];
-            }
-            else
-            {
-                BestsaleProduct = sv.SearchProduct(StoreID, TokenKey, "0", "0", "0", 0, 99999999, 1, 7, "", SearchOrder.TimeDesc, 1);
-                if (BestsaleProduct != null)
-                {
-                    HttpRuntime.Cache.Insert("BestsaleProduct", BestsaleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
-                }
-
-            }
-            ViewData["BestsaleProduct"] = BestsaleProduct;
-            //slide of list product page
-            if (HttpRuntime.Cache["slide3"] != null)
-            {
-                ViewData["slide3"] = (WebService.Ads[])HttpRuntime.Cache["slide3"];
-            }
-            else
-            {
-                Slide = sv.GetAdsSlide(StoreID, TokenKey, PageContent.Ads3);
-                ViewData["slide3"] = Slide;
-                if (Slide != null)
-                {
-                    HttpRuntime.Cache.Insert("slide3", Slide, null, DateTime.Now.AddMinutes(shortCacheTime + 6), TimeSpan.Zero);
-                }
-            }
-           
-        }
+   
+      
 
     }
     public class BuildCommonHtml : ActionFilterAttribute
@@ -96,6 +29,7 @@ namespace AnperoFrontend.Controllers
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
+            SetupCommonData(filterContext);
             if (HttpRuntime.Cache["commonInfo"] != null)
             {
                 filterContext.Controller.ViewData["commonInfo"] = HttpRuntime.Cache["commonInfo"];
@@ -113,6 +47,68 @@ namespace AnperoFrontend.Controllers
           
             
             
+        }
+        public void SetupCommonData(ActionExecutedContext filterContext)
+        {
+            int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
+            int StoreID = CommonConfig.StoreID;
+            string TokenKey = CommonConfig.TokenKey;
+            WebService.ProductItem[] saleProduct;
+            WebService.SearchResult BestsaleProduct;
+            WebService.AnperoService sv = new WebService.AnperoService();
+           
+            if (HttpRuntime.Cache["saleProduct"] != null)
+            {
+                saleProduct = (WebService.ProductItem[])HttpRuntime.Cache["saleProduct"];
+            }
+            else
+            {
+                saleProduct = sv.GetSaleProduct(StoreID, TokenKey);
+                if (saleProduct != null)
+                {
+                    HttpRuntime.Cache.Insert("saleProduct", saleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                }
+            }
+            filterContext.Controller.ViewData["saleProduct"] = saleProduct;
+            if (HttpRuntime.Cache["BestsaleProduct"] != null)
+            {
+                BestsaleProduct = (WebService.SearchResult)HttpRuntime.Cache["BestsaleProduct"];
+            }
+            else
+            {
+                BestsaleProduct = sv.SearchProductFullData(StoreID, TokenKey, "0", "0", "0", 0, 99999999, 1, 7, "", SearchOrder.TimeDesc, 1, true);
+                if (BestsaleProduct != null)
+                {
+                    HttpRuntime.Cache.Insert("BestsaleProduct", BestsaleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                }
+
+            }
+            filterContext.Controller.ViewData["BestsaleProduct"] = BestsaleProduct;
+
+            GetTopArticle(filterContext, shortCacheTime);
+            //slide of list product page
+
+        }
+        public void GetTopArticle(ActionExecutedContext filterContext,int shortCacheTime)
+        {
+            int StoreID = CommonConfig.StoreID;
+            string TokenKey = CommonConfig.TokenKey;
+            WebService.SearchArticleResults rs = new WebService.SearchArticleResults();
+            WebService.AnperoService service = new WebService.AnperoService();
+            if (HttpRuntime.Cache["TopArticle"] != null)
+            {
+                rs = (WebService.SearchArticleResults)HttpRuntime.Cache["TopArticle"];
+            }
+            else
+            {
+                rs = service.SearchArticle(StoreID, TokenKey, 0, 1, 4, 2);
+                if (rs != null)
+                {
+                    HttpRuntime.Cache.Insert("TopArticle", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                }
+
+            }
+            filterContext.Controller.ViewData["FeatureArticle"] = rs;
         }
     }
     public class BunderHtml : ActionFilterAttribute

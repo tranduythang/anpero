@@ -22,7 +22,7 @@ namespace AnperoFrontend.Controllers
             ViewData["relateProduct"] = relateProduct;
             ViewData["prDetail"] = item;
             ViewBag.Title = item.PrName;
-            SetupCommonProduct();
+            
             return View();
         }
         
@@ -76,7 +76,7 @@ namespace AnperoFrontend.Controllers
                 ViewBag.Title = rs.Item[0].CatName;
             }
             
-            SetupCommonProduct();
+            
             SetUpSeo(2, id);
             return View("List");
         }
@@ -101,7 +101,7 @@ namespace AnperoFrontend.Controllers
             {
                 ViewBag.Title = rs.Item[0].ParentCatName;
             }
-            SetupCommonProduct();
+            
             SetUpSeo(1, id);
             return View("List");
         }
@@ -126,7 +126,7 @@ namespace AnperoFrontend.Controllers
             {
                 ViewBag.Title = rs.Item[0].ParentCatName;
             }
-            SetupCommonProduct();
+            
             SetUpSeo(1,id);
             return View("List");
         }
@@ -147,8 +147,6 @@ namespace AnperoFrontend.Controllers
             {
                 ViewBag.Title = rs.Item[0].CatName;
             }
-            
-            SetupCommonProduct();
             SetUpSeo(0,0);
             return View("List");
         }

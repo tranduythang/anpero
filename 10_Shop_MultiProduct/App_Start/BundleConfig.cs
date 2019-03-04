@@ -15,6 +15,7 @@ namespace AnperoFrontend
                        "~/Scripts/Anpero.Common.js",
                        "~/assets/js/common.js",
                        "~/assets/assets.js",
+                       "~/assets/shop.js",
                        "~/assets/scripts.js",
                        "~/assets/animate.js",
                        "~/Scripts/ShoppingCart.js"                         
