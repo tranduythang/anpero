@@ -5,199 +5,229 @@
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
-    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority +Request.ApplicationPath.TrimEnd('/');
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
 
 }
-<header>
-    <div id="header">
-        <div class="top-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="top-fix hearder-fix-t">
-                            <div style="float:left;">
-                                HotLine : <a href="tel:@commonInfo.HotLine" aria-label="Call to hotline"> @Anpero.StringHelpper.FormatPhoneNumber(commonInfo.HotLine)</a>
-                            </div>
-                            <div class="fl-cart-contain">
-                                <div class="mini-cart">
-                                    <div class="basket"> <a href="/product/checkout"><span class="spN">0</span></a> </div>
-                                </div>
-                            </div>
+
+<div id="shopify-section-header" class="shopify-section">
+    <div id="pseudo_sticky_block"></div>
+    <header id="page_header">
+        <div class="page_container">
+            <div class="top_pannel ">
+                <div class="container">
+                    <div class="top_pannel_text">Hotline đặt hàng @commonInfo.HotLine</div>
+                    <div class="top_pannel_menu">
+                        <div class="header_search">
+                            <span class="search_toggle"><i class="fa fa-search" aria-hidden="true"></i><b>Tìm kiếm</b><i class="fa fa-times"></i></span>
+                            <form action="@baseUrl/search" method="get" role="search" class="search_form">
+                                <input type="search" name="keyword" placeholder="Tìm kiếm" aria-label="Search" itemprop="query-input">
+                                <button type="submit">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                            <div id="search_result_container"></div>
+                        </div>
+                        <div class="header_account">
+                            <a href="/home/contact" title="My account"><i class="fa fa-user" aria-hidden="true"></i><span>Liên hệ</span></a>
+                        </div>
+                        <div class="header_wishlist currency_selector" style="margin-right:0px;">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=@baseUrl" target="_blank"><i class="fa fa-heart" aria-hidden="true"></i><span>Share</span></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="header-container container">
-            <div class="logo">
-                <a href="/" title="@commonInfo.Desc | logo">
-                   <img src="@commonInfo.Logo" alt="@commonInfo.Name">
-                    
-                </a>
-            </div>
-            @if (!string.IsNullOrEmpty(commonInfo.OtherPhone))
-            {
-                <div class="logo">
-                    <div class="hotline-top right">
-                        <i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>HOTLINE:
-                        <span class="hotline">
-                            @Html.Raw(commonInfo.OtherPhone)
-                        </span>
+            <div class="header_wrap1">
+                <div class="container header_main_wrap">
+                    <div class="header_wrap2 header_left">
+                        <a class="header_logo" href="/">
+                            <img src="@commonInfo.Logo" alt="Skin beauty" style="max-width: 130px">
+                        </a>
                     </div>
-                </div>
-            }
-
-
-            <div class="row">
-                <div class="fl-header-right">
-                    <div class="collapse navbar-collapse" itemscope itemtype="baseUrl">
-                        <meta itemprop="url" content="@(baseUrl+"/search")" />
-                        <form class="navbar-form" role="search" action="/search" itemscope itemtype="@(baseUrl+"/search")" method="get" target="_parent" aria-label="Tìm kiếm">
-                            <div class="input-group search-input">
-                                <meta itemprop="target" content="@(baseUrl+"/search?keyword={keyword}")" />
-                                <input itemprop="query-input" type="text" class="form-control" placeholder="Tìm kiếm" name="keyword" id="keyword" aria-label="Tìm kiếm" required>
-                                <span class="input-group-btn">
-                                    <button type="submit" class="search-btn"> <span class="glyphicon glyphicon-search"> <span class="sr-only">Search</span> </span> </button>
-                                </span>
+                    <div class="header_wrap2 header_center">
+                        <nav id="megamenu" class="megamenu">
+                            <h2 id="megamenu_mobile_toggle"><i class="fa fa-bars" aria-hidden="true"></i>Menu</h2>
+                            <div id="megamenu_mobile_close">
+                                <div class="close_icon"></div>
                             </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="fl-nav-menu">
-            <div class="container">
-                <div class="fl-nav-menu">
-                    <nav>
-                        <div class="mm-toggle-wrap">
-                            <div class="mm-toggle"><i class="icon-align-justify"></i><span class="mm-label">Menu</span> </div>
-                        </div>
-                        <div class="nav-inner">
-                            <ul id="nav" class="hidden-xs">
-                                @if (commonInfo.MenuList != null && commonInfo.MenuList.Count() > 0)
-                                {
-                                    foreach (var item in commonInfo.MenuList)
-                                    {
-                                        <li class="level0 parent drop-menu">
-                                            <a class="level-top" href="@item.Link"><span>@item.Tittle</span></a>
-                                            @if (item.ChidMenu.Count() > 0)
-                                            {
-                                                <ul class="level2">
-                                                    @foreach (var chidItem in item.ChidMenu)
-                                                    {
-                                                        <li class="level2"><a href="@chidItem.Link"><span>@chidItem.Tittle</span></a></li>
-                                                    }
+                            <ul id="megamenu_level__1" class="level_1">
+                                <li class="level_1__item level_2__small">
+                                    <a class="level_1__link active" href="/">
+                                        Home
+                                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_1"></i>
+                                    </a>
+                                    <ul class="level_2" id="menu_1">
+                                        <li>
+                                            <div>
+                                                <ul class="level_3">
+                                                    <li class="level_3__item ">
+                                                        <a class="level_3__link" href="/">Trang chủ</a>
+                                                    </li>
+                                                    <li class="level_3__item ">
+                                                        <a class="level_3__link" href="/search">Danh mục sản phẩm</a>
+                                                    </li>
+                                                    <li class="level_3__item ">
+                                                        <a class="level_3__link" href="/home/contact">Liên hệ</a>
+                                                    </li>
+                                                    <li class="level_3__item ">
+                                                        <a class="level_3__link" href="/about">Về chúng tôi</a>
+                                                    </li>
+                                                    <li class="level_3__item ">
+                                                        <a class="level_3__link" href="/PaymentInfo">Thanh toán</a>
+                                                    </li>
+                                                    <li class="level_3__item ">
+                                                        <a class="level_3__link" href="/blog">Blog</a>
+                                                    </li>
                                                 </ul>
-                                            }
-                                        </li>
-                                    }
-                                }
-                                else
-                                {
-                                    <li class="level0 parent drop-menu"><a class="level-top" href="/"><span>Home</span></a></li>
-                                    <li class="level0 parent drop-menu">
-                                        <a class="level-top" href="/search?category=0&keyword="><span>Sản phẩm</span></a>
-                                        <ul class="level1">
-                                            @foreach (var item in commonInfo.ProductCategoryList)
-                                            {
-                                                <li class="level1">
-                                                    <a title="rollback" href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">
-                                                        <span>@item.Name</span>
-                                                    </a>
-                                                    @if (item.ChildCategory != null && item.ChildCategory.Length != 0)
-                                                    {
-                                                        <ul class="level2">
-                                                            @foreach (var chidItem in item.ChildCategory)
-                                                            {
-                                                                <li class="level2"><a href="@Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)"><span>@chidItem.Name</span></a></li>
-                                                            }
-                                                        </ul>
-                                                    }
-                                                </li>
-                                            }
-                                        </ul>
-                                    </li>
-
-                                       if (commonInfo.ProductGroupList != null && commonInfo.ProductGroupList.Length > 0)
-                                        {
-                                            <li class="level0 parent drop-menu">
-                                                <a class="level-top" href="/search?category=0&keyword="><span>Thương hiệu</span></a>
-                                                <ul class="level1">
-                                                    @foreach (var item in commonInfo.ProductGroupList)
-                                                    {
-                                                        <li class="level1">
-                                                            <a title="rollback" href="@Anpero.StringHelpper.GetProductGroupLink(item.Name, item.Id)">
-                                                                <span>@item.Name</span>
-                                                            </a>
-                                                        </li>
-                                                    }
-                                                </ul>
-                                            </li>
-                                        }
-                                        <li class="fl-custom-tabmenulink mega-menu">
-                                            <a href="#" class="level-top"> <span>Khuyến mại</span> </a>
-                                            <div class="level0-wrapper fl-custom-tabmenu" style="left: 0px; display: none;">
-                                                <div class="container">
-                                                    <div class="header-nav-dropdown-wrapper clearer">
-                                                        @if (ViewData["saleProduct"] != null)
-                                                        {
-                                                            AnperoFrontend.WebService.ProductItem[] saleProduct = (AnperoFrontend.WebService.ProductItem[])ViewData["saleProduct"];
-                                                            if (saleProduct != null && saleProduct.Length > 0)
-                                                            {
-                                                                for (int i = 0; i < saleProduct.Length; i++)
-                                                                {
-                                                                    if (i < 4)
-                                                                    {
-                                                                        int itemPecentDow = Convert.ToInt32((saleProduct[i].Price - saleProduct[i].SalePrice) / saleProduct[i].Price * 100);
-                                                                        <div class="grid12-3">
-                                                                            <div>
-                                                                                <a href="@Anpero.StringHelpper.GetProductLink(saleProduct[i].PrName, saleProduct[i].Id)" title="@saleProduct[i].PrName">
-                                                                                    <img src="@saleProduct[i].Images" alt="@saleProduct[i].PrName">
-                                                                                </a>
-                                                                            </div>
-                                                                            <h4 class="heading">Giảm giá @itemPecentDow.ToString()%</h4>
-                                                                            <p>@Anpero.StringHelpper.SubString(61, saleProduct[i].ShortDesc)</p>
-                                                                        </div>
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    </div>
-                                                </div>
                                             </div>
                                         </li>
-                                        <li class="level0 parent"><a href="/about" aria-label="Về chúng tôi"><span>Về chúng tôi</span></a></li>
-                                        <li class="level0 parent"><a href="/home/contact" aria-label="Liên hệ"><span>Liên hệ</span></a></li>
-
-                                        <li class="level0 parent drop-menu">
-                                            <a href="/blog"><span>Tin tức</span> </a>
-                                            <ul class="level1">
-                                                <li class="level1"><a title="blog" href="/blog"><span>Blogs Tin tức</span></a></li>
-                                                <li class="level1">
-                                                    <a title="shipper" href="/shippolicy">
-                                                        <span>Vận chuyển</span>
-                                                    </a>
-                                                </li>
-                                                <li class="level1">
-                                                    <a title="rollback" href="/ProductReturnPolicy">
-                                                        <span>Chính sách đổi trả</span>
-                                                    </a>
-                                                </li>
-                                                <li class="level1">
-                                                    <a title="pay" href="/PaymentInfo">
-                                                        <span>Hướng dẫn thanh toán</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
+                                    </ul>
+                                </li>
+                                <li class="level_1__item level_2__links">
+                                    <a class="level_1__link " href="/search">
+                                        Bộ sưu tập
+                                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_5"></i>
+                                    </a>
+                                    <ul class="level_2" id="menu_5">
+                                        <li class="container">
+                                            @foreach (var item in commonInfo.ProductCategoryList)
+                                            {
+                                                <div class="megamenu_col__item ">
+                                                    <img src="@item.Images" alt="@item.Name">
+                                                    <h3>@item.Name<i class="level_2__trigger megamenu_trigger" data-submenu="menu_pr_@item.Id"></i></h3>
+                                                    <ul class="level_3" id="menu_pr_@item.Id">
+                                                        @foreach (var subItem in item.ChildCategory)
+                                                        {
+                                                            <li class="level_3__item">
+                                                                <a class="level_3__link" href="@Anpero.StringHelpper.GetCategoryLink(subItem.Name,subItem.Id)">@subItem.Name</a>
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            }
                                         </li>
-                                }
+                                    </ul>
+                                </li>
+                                <li class="level_1__item level_2__links">
+                                    <a class="level_1__link " href="/search">
+                                        Danh mục sản phẩm
+                                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_3"></i>
+                                    </a>
+                                    <ul class="level_2" id="menu_3">
+                                        <li class="container">
+                                            @foreach (var item in commonInfo.ProductCategoryList)
+                                            {
+                                                <div class="megamenu_col__item align_center">
+                                                    <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">
+                                                        <img src="@item.Images" alt="@item.Name">
+                                                        <h4>@item.Name</h4>
+                                                    </a>
+                                                </div>
+                                            }
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="level_1__item level_2__products">
+                                    <a class="level_1__link " href="/">
+                                        Khuyến mãi
+                                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_6"></i>
+                                    </a>
+                                    <ul class="level_2" id="menu_6">
+                                        <li class="container">
+                                            @if (ViewData["saleProduct"] != null)
+                                            {
+                                                ProductItem[] saleList = (ProductItem[])ViewData["saleProduct"];
+                                                foreach (var item in saleList)
+                                                {
+                                                    <div class="megamenu_col__item">
+                                                        <div class="product">
+                                                            <div class="product_img">
+                                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
+                                                                    <img src="@item.Images" alt="@item.PrName" />
+                                                                </a>
+                                                            </div>
+                                                            <div class="product_info">
+                                                                <p class="product_name">
+                                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
+                                                                </p>
+                                                                <p class="product_price">
+                                                                    <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span>
+                                                                    <span class="money money_sale">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            }
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="level_1__item level_2__blog">
+                                    <a class="level_1__link " href="/blog">
+                                        Blog
+                                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_1479747008568"></i>
+                                    </a>
+                                    <ul class="level_2" id="menu_1479747008568">
+                                        <li class="container">
+                                            @if (ViewData["FeatureArticle"] != null)
+                                            {
+                                                SearchArticleResults articleList = (SearchArticleResults)ViewData["FeatureArticle"];
+                                                foreach (BlogItem item in articleList.ItemList)
+                                                {
+                                                    <div class="megamenu_col__item">
+                                                        <div class="blog_img">                                                            
+                                                            <img src="@item.Thumb" alt="@item.Title">
+                                                        </div>
+                                                        <div class="blog_info">
+                                                            <p class="blog_date">
+                                                                <span class="article_day">Ngày @Anpero.StringHelpper.ConvertDateTime(item.CreateDate).Day</span>
+                                                                Tháng @Anpero.StringHelpper.ConvertDateTime(item.CreateDate).Month
+                                                            </p>
+                                                            <h3 class="blog_title"><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Title,item.Id)">@Anpero.StringHelpper.SubString(40,item.Title)</a></h3>
+                                                        </div>
+                                                    </div>
+                                                }
+
+                                            }
 
 
+
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="level_1__item ">
+                                    <a class="level_1__link " href="/home/contact">
+                                        Liên hệ
+                                    </a>
+                                </li>
                             </ul>
+                        </nav>
+
+                    </div>
+
+                    <div class="header_wrap2 header_right">
+
+                        <div class="header_cart" id="main__cart_item">
+                            <a class="cart_link" href="/product/checkout"><b><i class="fa fa-shopping-bag" aria-hidden="true"></i>Giỏ hàng: </b><span id="cart_items" class="spN"> 0 </span> sản phẩm</a>
+                            <div class="cart_content_wrap">
+                                <div class="cart_content_preloader off">
+                                    <div class="global_loader"></div>
+                                </div>
+                                <div id="cart_content_box">
+                                    <p class="alert alert-warning">Bạn chưa có sản phẩm nào</p>
+                                    
+                                </div>
+                            </div>
+
                         </div>
-                    </nav>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
+
+    <a id="back_top" href="#">
+        <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </a>
+</div>
+
