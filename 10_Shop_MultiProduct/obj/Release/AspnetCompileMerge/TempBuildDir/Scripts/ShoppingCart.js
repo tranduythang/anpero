@@ -1,19 +1,21 @@
 ﻿var Cart = {
     list: [],
+    quantity: 1,
     addProduct: function (_id, _price, _thumb, _title) {
 
         var checkExited = false;
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
         }
-
+        var quantity = Cart.quantity;
         if (Cart.list.length == 0) {
-            Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });
+          
+            Cart.list.push({ id: _id, quantity, price: _price, thumb: _thumb, title: _title });
         } else {
             for (var i = 0; i < Cart.list.length; i++) {
                 if (Cart.list[i].id == _id) {
                     Cart.list[i].price = parseInt(_price);
-                    Cart.list[i].quantity = parseInt(Cart.list[i].quantity) + 1;
+                    Cart.list[i].quantity = parseInt(Cart.list[i].quantity) + parseInt(quantity);
                     checkExited = true;
                 }
             }
@@ -130,7 +132,7 @@
                     ttSC += parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity);
                     htmlCat += '<tr>';
                     htmlCat += '<td class="cart_product">';
-                    htmlCat += '<a href="#"><img src="' + Cart.list[i].thumb + '" alt="' + Cart.list[i].title + '"></a>';
+                    htmlCat += '<a href="#"><img src="' + Cart.list[i].thumb + '" alt="' + unescape(Cart.list[i].title) + '"></a>';
                     htmlCat += '</td>';
                     htmlCat += '<td class="cart_description">';
                     htmlCat += '<p class="product-name"><a href="#">' + Cart.list[i].title + ' </a></p>';
@@ -149,7 +151,7 @@
                     htmlCat += '<span>' + Util.toMoneyFormat(parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity)) + ' đ</span>';
                     htmlCat += '</td>';
                     htmlCat += '<td class="a-center last">';
-                    htmlCat += '<a href="javascript:Cart.remove2(' + Cart.list[i].id + ')" class="button remove-item"></a>';
+                    htmlCat += '<a href="javascript:Cart.remove2(' + Cart.list[i].id + ')" class="button remove-item">Xóa</a>';
                     htmlCat += '</td>';
                     htmlCat += '</tr>';
 

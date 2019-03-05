@@ -20,72 +20,72 @@
     <meta property="og:image" content="@commonInfo.Logo" />
 <link href="~/assets/stylesheet/NganLuongBankList.css" rel="stylesheet" />
 }
-<div class="page-heading">
+<div class="breadcrumbs">
     <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="page-title bl-title">
-                    <h2>Tạo đơn hàng</h2>
-                </div>
-            </div>
-        </div>
+        <ul>
+            <li><a href="/">Trang chủ</a></li>
+            <li><span>Giỏ hàng</span></li>
+        </ul>
     </div>
 </div>
-<div class="main-container col2-right-layout">
-    <div class="main container">
-        <div class="row">
+
+    <div class="container">
+        <h1 class="page_heading">Thông tin nhận hàng</h1>
             <div class="center_column col-xs-12 col-sm-12" id="center_column">
                 <div id="main" class="blog-wrapper">
                     <div class="page-content checkout-page" id="cartContent1">
-                        <h3 class="checkout-sep">1. Thông tin nhận hàng</h3>
-                        <div class="box-border">
+                        <h3 class="checkout-sep mt-25">1. Thông tin nhận hàng</h3>
+                        <div class="box-border col-md-12">
                             <ul class="form-list">
                                 <li class="row">
                                     <div class="col-sm-12">
-                                        <label for="first_name_1" class="required">Họ tên (*)</label>
+                                        <label for="first_name_1" class="required mt-25">Họ tên (*)</label>
                                         <input class="input form-control" type="text" name="" id="cName">
                                     </div>
                                 </li>
                                 <li class="row">
                                     <div class="col-sm-6">
-                                        <label for="company_name_1">Số điện thoại (*)</label>
+                                        <label for="company_name_1" class="mt-25">Số điện thoại (*)</label>
                                         <input class="input form-control" type="text" name="" id="cPhone">
                                     </div>
                                     <div class="col-sm-6">
-                                        <label for="company_name_1">Email</label>
+                                        <label for="company_name_1" class="mt-25">Email</label>
                                         <input class="input form-control" type="text" name="" id="cMail">
                                     </div>
                                     <div class="col-sm-12">
-                                        <label for="email_address_1" class="required">Địa chỉ (*)</label>
+                                        <label for="email_address_1" class="required mt-25">Địa chỉ (*)</label>
                                         <textarea class="input form-control" name="" id="cAddress"></textarea>
 
                                     </div>
                                     <div class="col-sm-12">
-                                        <label for="email_address_1" class="required">Bạn có muốn ghi chú gì cho đơn hàng này không ?</label>
+                                        <label for="email_address_1" class="required mt-25">Bạn có muốn ghi chú gì cho đơn hàng này không ?</label>
                                         <textarea class="input form-control" name="" id="detail"></textarea>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-md-6">
-                            <h3 class="checkout-sep">2. Phương thức vận chuyển</h3>
+                            <h3 class="checkout-sep mt-25">2. Phương thức vận chuyển</h3>
                             <div class="box-border">
                                 <ul class="shipping_method form-list">
                                     <li style="display:none;">
-                                        <label for="radio_button_3"><input type="radio" checked name="radio_3" id="radio_button_3" value="0" data-ship="0">Miễn phí 0đ</label>
+                                        <label for="radio_button_3">
+                                            <input type="radio" checked name="radio_3" id="radio_button_3" value="0" data-ship="0" class="input-radio">Miễn phí 0đ
+                                        </label>
                                     </li>
 
                                     <li>
-                                        <label for="radio_button_4"><input type="radio" name="radio_3" id="radio_button_4" value="1" data-ship="0"> Vận chuyển thường</label>
+                                        <label for="radio_button_4"><input type="radio" name="radio_3" id="radio_button_4" value="1" data-ship="0" class="input-radio"> Vận chuyển thường</label>
                                     </li>
                                     <li>
                                         <label for="radio_button_5"><input type="radio" name="radio_3" id="radio_button_5" value="2" data-ship="0"> Vận chuyển nhanh</label>
+
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <h3 class="checkout-sep">3. Phương thức thanh toán</h3>
+                            <h3 class="checkout-sep mt-25">3. Phương thức thanh toán</h3>
                             <div class="box-border">
                                 <ul class="shipping_method form-list">
                                     <li style="display:none;" class="lb2">
@@ -264,57 +264,73 @@
                                 </ul>
                             </div>
                         </div>
-                        <h3 class="checkout-sep">4. Kiểm tra lại thông tin sản phẩm</h3>
-                        <div class="box-border">
-                            <table class="table table-bordered table-responsive add-to-cart" id="shopping-cart-table">
-                                <thead>
-                                    <tr>
-                                        <th class="cart_product">Ảnh</th>
-                                        <th>Thông tin</th>
-                                        <th>Tình trạng.</th>
-                                        <th>Đơn giá</th>
-                                        <th>Số lượng</th>
-                                        <th>Tổng</th>
-                                        <th class="action"><i class="fa fa-trash-o"></i></th>
-                                    </tr>
-                                </thead>
-                                <tbody id="prCatCtTable"></tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan="2" rowspan="2"></td>
-                                        <td colspan="3">Tổng giá sản phẩm </td>
-                                        <td colspan="2" id="ttPrCt"></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3"><strong>Tổng đơn hàng (bao gồm ship)</strong></td>
-                                        <td colspan="2"><strong id="ttOdCt"></strong></td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                            <div class="col-md-12 ctContent">
-                                <div id="g-recaptcha" class="pull-right"></div>
+                        <div class="col-md-12">
+                            <h3 class="checkout-sep mt-25">4. Kiểm tra lại thông tin sản phẩm</h3>
+                            <div class="box-border">
+                                <table class="table table-bordered table-responsive add-to-cart" id="shopping-cart-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="cart_product">Ảnh</th>
+                                            <th>Thông tin</th>
+                                            <th>Tình trạng.</th>
+                                            <th>Đơn giá</th>
+                                            <th>Số lượng</th>
+                                            <th>Tổng</th>
+                                            <th class="action"><i class="fa fa-trash-o"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="prCatCtTable"></tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="2" rowspan="2"></td>
+                                            <td colspan="3">Tổng giá sản phẩm </td>
+                                            <td colspan="2" id="ttPrCt"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3"><strong>Tổng đơn hàng (bao gồm ship)</strong></td>
+                                            <td colspan="2"><strong id="ttOdCt"></strong></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <div class="col-md-12 ctContent">
+                                    <div id="g-recaptcha" class="pull-right"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-md-12 ">
+                                    <a href="/" title="Continue Shopping" class="btn button btn-continue" onclick=""><span><span>Mua thêm</span></span></a>
+
+                                    <button type="submit" name="update_cart_action" value="update_qty" title="Update Cart" class="btn btn_alt button btn-update pull-right" id="orderBtn" style="margin-top:15px;">
+                                        <span>
+
+                                            <span>Gửi đơn hàng</span>
+                                        </span>
+                                    </button>
+
+                                </div>
+                                <div class="clearfix"></div>
                             </div>
-                            <div class="clearfix"></div>
-                            <div class="col-md-12 ">
-                                <a href="/" title="Continue Shopping" class="btn button btn-continue" onclick=""><span><span>Mua thêm</span></span></a>                                
-                                <button type="submit" name="update_cart_action" value="update_qty" title="Update Cart" class="button btn-update pull-right" id="orderBtn"><span><span>Gửi đơn hàng</span></span></button>                                
-                               
-                            </div>
-                            <div class="clearfix"></div>
                         </div>
                     </div>
-                    <div class="page-content checkout-page" id="cartContent2" style="display:none;"></div>
-                    <div id='ajax_loader' style="position: fixed; left: 45%; top: 50%; display: none;">
-                        <img src="//media.anpero.com/images/38/102017/loading2017102517124312.gif" />
-                    </div>        
-                </div>
+                        <div class="page-content checkout-page" id="cartContent2" style="display:none;"></div>
+                        <div id='ajax_loader' style="position: fixed; left: 45%; top: 50%; display: none;">
+                            <img src="//media.anpero.com/images/38/102017/loading2017102517124312.gif" />
+                        </div>
+                    </div>
             </div>
         </div>
-    </div>
+
 </div>
 @section scripts{
     <script src="~/Scripts/Bootrap.notify.js"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
+    <style>
+        .mt-25{
+            margin-top:25px;
+        }
+        .form-list label{
+            line-height:25px!important;
+        }
+    </style>
     <script>
         var googleCatcha;
         $(window).load(function () {

@@ -7,6 +7,7 @@
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
     string currentUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+    string pageName = string.IsNullOrEmpty(ViewBag.pageName) ? "" : ViewBag.pageName;
 }
 
 @if (ViewData["productList"] != null)
@@ -26,12 +27,19 @@
             <link rel="canonical" href="@ViewBag.WebsiteUrl" />
         }
         <div class="page_container">
-
             <div class="breadcrumbs">
                 <div class="container">
                     <ul>
                         <li><a href="/">Trang chủ</a></li>
-                        @if (ViewBag.isParent != null)
+                        @if (pageName.ToLower().Equals("search"))
+                        {
+                            <li>
+                                <span>
+                                    Tất cả sản phẩm
+                                </span>
+                            </li>
+                        }
+                        else if (ViewBag.isParent != null)
                         {
                             <li>
                                 <span>
@@ -45,13 +53,9 @@
                                 <a href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
                                     @productList.Item[0].ParentCatName
                                 </a>
-
                             </li>
                             <li> <span>@productList.Item[0].CatName</span> </li>
                         }
-
-
-
                     </ul>
                 </div>
             </div>
@@ -59,19 +63,50 @@
                 <div class="row">
                     <div class="main_content sidebar_on col-sm-9  col-sm-push-3">
                         <div id="shopify-section-template-collection" class="shopify-section section_template section_template__collection">
-                            <h1 class="page_heading">Products</h1>
-                            <div class="button_filters">
-                                <ul>
-                                    <li>
-                                        <a href="#">All</a>
-                                    </li>
-                                    <li class="active"><a href="anti-ageing.html" title="Show products matching tag Anti-Ageing">Anti-Ageing</a></li>
-                                    <li><a href="combination.html" title="Show products matching tag Combination">Combination</a></li>
-                                    <li><a href="damaged.html" title="Show products matching tag Damaged">Damaged</a></li>
-                                    <li><a href="dark-circles.html" title="Show products matching tag Dark Circles">Dark Circles</a></li>
-                                    <li><a href="dry-dehydrated.html" title="Show products matching tag Dry/Dehydrated">Dry/Dehydrated</a></li>
-                                </ul>
-                            </div>
+                            <h1 class="page_heading">Sản phẩm</h1>
+                            @if (!pageName.ToLower().Equals("search"))
+                            {
+                                <div class="button_filters">
+                                    <ul>
+                                        @{
+                                            int catId = productList.Item[0].CatID;
+                                            int parentId = productList.Item[0].ParentId;
+                                            bool isParent = ViewBag.isParent != null;
+                                            foreach (var item in commonInfo.ProductCategoryList)
+                                            {
+                                                if (item.Id == productList.Item[0].ParentId)
+                                                {
+                                                    if (isParent)
+                                                    {
+                                                        <li class="active">
+                                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">@item.Name</a>
+                                                        </li>
+                                                    }
+                                                    else
+                                                    {
+                                                        <li>
+                                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">@item.Name</a>
+                                                        </li>
+                                                    }
+                                                    foreach (var subItem in item.ChildCategory)
+                                                    {
+                                                        string activeClass = "";
+                                                        if (!isParent && subItem.Id == productList.Item[0].CatID)
+                                                        {
+                                                            activeClass = "active";
+                                                        }
+                                                        <li class="@activeClass" ><a href="@Anpero.StringHelpper.GetCategoryLink(subItem.Name, subItem.Id)" title="@subItem.Name">@subItem.Name</a></li>
+
+
+                                                    }
+
+                                                }
+
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            }
                             <div class="product_options">
                                 @*<ul class="product_view">
                                         <li id="view_grid" data-view="grid" class="active">
@@ -258,7 +293,7 @@
                                                                 </div>
                                                             </div>
                                                         </li>
-           
+
                                                     }
                                                 }
                                             }
@@ -290,7 +325,6 @@
                                             </div>
                                         }
                                     </div>
-                                 
                                 </article>
                             </div>
                         </div>
@@ -306,7 +340,14 @@
         </script>
     }
     else
-    { <div>Sản phẩm đang được cập nhật. Vui lòng quay lại sau.</div>
+    { <div class="page_container">
+
+            <div class="breadcrumbs">
+                <div class="container">
+                    <div>Sản phẩm đang được cập nhật. Vui lòng quay lại sau.</div>
+                </div>
+            </div>
+        </div>
         <script>
             var categoryId = "";
             var ParentCatId = "";

@@ -22,247 +22,222 @@
         <link rel="stylesheet" type="text/css" href="~/assets/stylesheet/flexslider.css">
         <link rel="canonical" href="@ViewBag.WebsiteUrl" />
     }
-
-    <div id="page">
-        <div class="page-heading">
-            <div class="breadcrumbs">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <ul>
-                                <li class="home"> <a href="/" title="Trang chủ">Trang chủ</a> <span>—› </span> </li>
-                                <li> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName, item.ParentId)" title="">@item.ParentCatName</a> <span>—› </span> </li>
-                                <li> <a href="@Anpero.StringHelpper.GetCategoryLink(item.CatName, item.CatID)" title="">@item.CatName</a> </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="main-container col1-layout wow bounceInUp animated">
-            <div class="main">
-                <div class="col-main">
-                    <div class="product-view wow bounceInUp animated" itemscope="" itemtype="https://schema.org/Product" itemid="#product_base">
-                        <div id="messages_product_view"></div>
-                        <div class="product-essential container">
-                            <div class="row">
-                                <form action="" method="post" id="product_addtocart_form">
-                                    <div class="product-img-box col-sm-6 col-xs-12">
-                                        <div class="product-image">
-                                            @if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
-                                            {
-                                                <div class="large-image"> <a href="@item.ImagesSlide[0]" class="cloud-zoom cloud-zoom-gallery" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img src="@item.ImagesSlide[0]"> </a> </div>
-                                            }
-                                            else
-                                            {
-                                                <div class="large-image"> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.CatName, item.CatID)" class="cloud-zoom cloud-zoom-gallery" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img src="@item.Images"> </a> </div>
-                                            }
-                                            <div class="flexslider flexslider-thumb">
-                                                @if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
-                                                {
-                                                    <ul class="previews-list slides">
-                                                        @foreach (var images in item.ImagesSlide)
-                                                        {
-                                                            <li>
-                                                                <a href='@images' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '@images' ">
-                                                                    <img src="@images" alt="@item.PrName" />
-                                                                </a>
-                                                            </li>
-                                                        }
-                                                    </ul>
-                                                }
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-shop col-sm-6 col-xs-12">
-                                        <div class="product-name">
-                                            <h1 itemprop="name">@item.PrName</h1>
-                                        </div>
-                                        @*@if (!string.IsNullOrEmpty(item.Tag))
-                                            {
-                                                <div class="product-name">
-                                                    <h3 itemprop="name">@item.Tag</h3>
-                                                </div>
-                                            }*@
-
-                                        @*<span itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
-
-                                                    <div class="ratings">
-                                                        <p class="rating-links"><a href="tel:@commonInfo.HotLine">Gọi: @commonInfo.HotLine hoặc click mua ngay để đặt hàng</a> </p>
-                                                    </div>
-
-                                            </span>*@
-                                        <div class="price-block">
-                                            <div class="price-box">
-                                                <span class="regular-price" id="product-price-123">
-                                                    @*<span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>*@
-                                                    @if (item.IsSale)
-                                                    {
-                                                        <p class="old-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
-                                                        <p class="special-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span> </p>
-                                                    }
-                                                    else
-                                                    {
-                                                        <p><span class="price">@(item.Price == 0 ? "Đang cập nhật giá" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span> </p>
-                                                    }
-                                                </span>
-                                            </div>
-                                            @if (@item.IsInstock)
-                                            {
-                                                <p class="availability in-stock">
-                                                    <span>Còn hàng</span>
-                                                </p>
-                                            }
-                                            else
-                                            {
-                                                <p class="availability out-stock">
-                                                    <span>Hết hàng</span>
-                                                </p>
-                                            }
-
-                                        </div>
-                                        <div class="short-description">
-                                            @*<h2>Mô tả ngắn</h2>*@
-                                            <p>@Html.Raw(item.ShortDesc)</p>
-                                        </div>
-                                        <div class="add-to-box">
-                                            <div class="add-to-cart">
-                                                <div class="pull-left">
-                                                    <div class="custom pull-left">
-                                                        <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="icon-minus">&nbsp;</i></button>
-                                                        <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-                                                        <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button"><i class="icon-plus">&nbsp;</i></button>
-                                                    </div>
-                                                </div>
-                                                <button type="button" title="Add to Cart" class="button btn-cart" onclick="Cart.addProduct(@item.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName.Replace(@"'",string.Empty)');"><span><i class="icon-basket"></i>Mua hàng</span></button>
-                                            </div>
-                                            <div class="email-addto-box">
-                                                <p class="add-to-links"><a class="link-wishlist" href="http://www.facebook.com/share.php?u=@ViewBag.WebsiteUrl" onclick="" title="Add To Wishlist"><span>Add To Wishlist</span></a></p>
-                                            </div>
-                                        </div>
-                                        <div class="social">
-                                            <ul class="link">
-                                                @if (!string.IsNullOrEmpty(commonInfo.Skype) || !string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                                                {
-
-
-                                                    if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                                                    {
-                                                        <li class="fb pull-left"><a target="_blank" rel="nofollow" href="https://www.facebook.com/share.php?u=@ViewBag.WebsiteUrl" title="Facebook"></a></li>
-
-                                                    }
-                                                    if (!string.IsNullOrEmpty(commonInfo.Skype))
-                                                    {
-                                                        <li class="skype pull-left"><a target="_blank" rel="nofollow" href="skype:@commonInfo.Skype?call" title="skype"></a></li>
-
-                                                    }
-                                                    <li class="tw pull-left"><a target="_blank" rel="nofollow" href="https://www.twitter.com/share?url=@ViewBag.WebsiteUrl" title="Twitter"></a></li>
-                                                    <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="https://plus.google.com/share?url=@ViewBag.WebsiteUrl" title="GooglePlus"></a></li>
-                                                }
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="product-collateral container">
-                            <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
-                                <li class="active"> <a href="#product_tabs_description" data-toggle="tab"> Mô tả sản phẩm </a> </li>
-                                <li><a aria-expanded="false" data-toggle="tab" href="#paymentDetail" id="paymentTab">Thông tin thanh toán</a></li>
-                            </ul>
-                            <div id="productTabContent" class="tab-content">
-                                <div class="tab-pane fade in active" id="product_tabs_description">
-                                    <div class="std">
-                                        @Html.Raw(item.Detail)
-                                    </div>
-                                </div>
-                                <div id="paymentDetail" class="tab-pane fade in">
-                                    <div id='ajax_loader' style="left: 45%; top: 50%;">
-                                        <img src="//media.anpero.com/images/38/102017/loading2017102517124312.gif" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-additional">
-                            <div class="related-pro container">
-                                <div class="slider-items-products">
-                                    <div class="new_title center">
-                                        <h2>Sản phẩm liên quan</h2>
-                                    </div>
-                                    <div id="related-slider" class="product-flexslider hidden-buttons">
-                                        <div class="slider-items slider-width-col4 products-grid">
-                                            @if (ViewData["relateProduct"] != null)
-                                            {
-                                                AnperoFrontend.WebService.SearchResult relateProduct = (AnperoFrontend.WebService.SearchResult)ViewData["relateProduct"];
-
-                                                if (relateProduct.Item != null && relateProduct.Item.Length > 0)
-                                                {
-                                                   // relateProduct.Item= relateProduct.Item.Where(x => x.Id != item.Id);
-                                                    foreach (var items in relateProduct.Item)
-                                                    {
-                                                        <div class="item">
-                                                            <div class="item-inner">
-                                                                <div class="item-img">
-                                                                    <div class="item-img-info">
-                                                                        <a href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName" class="product-image">
-                                                                            <img src="@items.Images" alt="@items.PrName">
-                                                                        </a>
-                                                                        <div class="item-box-hover">
-                                                                            <div class="box-inner">
-                                                                                <div class="product-detail-bnt">
-                                                                                    <a class="button detail-bnt" href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName">
-                                                                                        <span>Chi tiết</span>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="item-info">
-                                                                    <div class="info-inner">
-                                                                        <div class="item-title">
-                                                                            <a href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName">
-                                                                                @items.PrName
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="item-content">
-                                                                            <div class="item-price">
-                                                                                <div class="price-box"><span class="regular-price"><span class="price">@(items.Price == 0 ? "Liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? items.SalePrice : items.Price) + " đ") </span> </span> </div>
-
-                                                                            </div>
-                                                                            <div class="add_cart">
-                                                                                <button class="button btn-cart" type="button" onclick="Cart.addProduct(@items.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@items.Images','@items.PrName.Replace(@"'",string.Empty)');"><span>Mua hàng</span></button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    }
-                                            }
-                                            }
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="breadcrumbs">
+        <div class="container">
+            <ul>
+                <li><a href="/" title="Trang chủ">Trang chủ</a></li>
+                <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName, item.ParentId)" title="">@item.ParentCatName</a></li>
+                <li><a href="@Anpero.StringHelpper.GetCategoryLink(item.CatName, item.CatID)" title="">@item.CatName</a> </li>
+                <li><span>@item.PrName</span></li>
+            </ul>
         </div>
     </div>
+    <div class="main_content ">
+        <div id="shopify-section-template-product" class="shopify-section section section_single-product section_product section_template__product">
+
+            <script type="application/json" id="product_json_template-product">
+                {"id":1904420520032,"title":"Pantene Pro-V Color Preserve Shine 2-In-1 Shampoo \u0026 Conditioner 12 6 Fl Oz","handle":"pantene-pro-v-color-preserve-shine-2-in-1-shampoo-conditioner-12-6-fl-oz-1","description":"\u003ch2\u003eOur goal is to help you stay healthy\u003c\/h2\u003e\n\u003cp\u003e\u003cspan\u003eAlso you can always contact our consultants that are always glad to provide you with full information about our goods and natural products that are used in the process of production of organic cosmetics. Our goal is to satisfy all our clients despite of their age, gender and race with premium, modern, effective alternatives to conventional beauty products.&nbsp;\u003c\/span\u003e\u003c\/p\u003e\n\u003col\u003e\u003c\/ol\u003e\n\u003cp\u003e\u003cstrong\u003eOur company advocates the postulate that the health is the biggest value in our lives.\u003c\/strong\u003e The point is that science and nature are easily combined in products that we are glad to offer you today. Our goal is to help you stay healthy as well as gorgeous at the same time. Soon you’ll discover how it is possible to use organic cosmetics for your body.\u003c\/p\u003e\n\u003ch3\u003e&nbsp;We’ve collected all our knowledge to deliver you\u003c\/h3\u003e\n\u003cp\u003eOur goal is to satisfy all our clients despite of their age, gender and race with premium, modern, effective alternatives to conventional beauty products.The point is that science and nature are easily combined in products that we are glad to offer you today. Our goal is to help you stay healthy as well as gorgeous at the same time. Soon you’ll discover how it is possible to use organic cosmetics for your body.&nbsp;\u003c\/p\u003e","published_at":"2019-01-24T01:58:19-05:00","created_at":"2019-01-24T01:58:29-05:00","vendor":"Borghese","type":"Nails","tags":["Dark Circles"],"price":2200,"price_min":2200,"price_max":2200,"available":true,"price_varies":false,"compare_at_price":3300,"compare_at_price_min":3300,"compare_at_price_max":3300,"compare_at_price_varies":false,"variants":[{"id":18416424681568,"inventory_quantity":100,"title":"Default Title","option1":"Default Title","option2":null,"option3":null,"sku":"327038","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Pantene Pro-V Color Preserve Shine 2-In-1 Shampoo \u0026 Conditioner 12 6 Fl Oz","public_title":null,"options":["Default Title"],"price":2200,"weight":32600,"compare_at_price":3300,"inventory_management":"shopify","barcode":"555-6322-1"}],"images":["\/\/cdn.shopify.com\/s\/files\/1\/0079\/6649\/0720\/products\/pantene_pro_v_color_preserve_shine_2_in_1_shampoo___conditioner_12_6_fl_oz_1.png?v=1548313109","#\/\/cdn.shopify.com\/s\/files\/1\/0079\/6649\/0720\/products\/pantene_pro_v_color_preserve_shine_2_in_1_shampoo___conditioner_12_6_fl_oz_2.png?v=1548313109","#\/\/cdn.shopify.com\/s\/files\/1\/0079\/6649\/0720\/products\/pantene_pro_v_color_preserve_shine_2_in_1_shampoo___conditioner_12_6_fl_oz_3.png?v=1548313109","#\/\/cdn.shopify.com\/s\/files\/1\/0079\/6649\/0720\/products\/pantene_pro_v_color_preserve_shine_2_in_1_shampoo___conditioner_12_6_fl_oz_4.png?v=1548313109","\/\/cdn.shopify.com\/s\/files\/1\/0079\/6649\/0720\/products\/pantene_pro_v_color_preserve_shine_2_in_1_shampoo___conditioner_12_6_fl_oz_5.png?v=1548313109"],"featured_image":"\/\/cdn.shopify.com\/s\/files\/1\/0079\/6649\/0720\/products\/pantene_pro_v_color_preserve_shine_2_in_1_shampoo___conditioner_12_6_fl_oz_1.png?v=1548313109","options":["Title"],"content":"\u003ch2\u003eOur goal is to help you stay healthy\u003c\/h2\u003e\n\u003cp\u003e\u003cspan\u003eAlso you can always contact our consultants that are always glad to provide you with full information about our goods and natural products that are used in the process of production of organic cosmetics. Our goal is to satisfy all our clients despite of their age, gender and race with premium, modern, effective alternatives to conventional beauty products.&nbsp;\u003c\/span\u003e\u003c\/p\u003e\n\u003col\u003e\u003c\/ol\u003e\n\u003cp\u003e\u003cstrong\u003eOur company advocates the postulate that the health is the biggest value in our lives.\u003c\/strong\u003e The point is that science and nature are easily combined in products that we are glad to offer you today. Our goal is to help you stay healthy as well as gorgeous at the same time. Soon you’ll discover how it is possible to use organic cosmetics for your body.\u003c\/p\u003e\n\u003ch3\u003e&nbsp;We’ve collected all our knowledge to deliver you\u003c\/h3\u003e\n\u003cp\u003eOur goal is to satisfy all our clients despite of their age, gender and race with premium, modern, effective alternatives to conventional beauty products.The point is that science and nature are easily combined in products that we are glad to offer you today. Our goal is to help you stay healthy as well as gorgeous at the same time. Soon you’ll discover how it is possible to use organic cosmetics for your body.&nbsp;\u003c\/p\u003e"}
+            </script>
+
+            <script type="application/json" id="variant_weights_template-product">
+                {"18416424681568":"32.6 kg"}
+            </script>
+
+            <script>
+                theme.productViewType = 'carousel';
+            </script>
+
+            <div itemscope="" itemtype="http://schema.org/Product" class="product-scope container type_carousel">
+                <meta itemprop="url" content="https://theme583-cosmetic-store.myshopify.com/products/pantene-pro-v-color-preserve-shine-2-in-1-shampoo-conditioner-12-6-fl-oz-1">
+                <meta itemprop="image" content="//cdn.shopify.com/s/files/1/0079/6649/0720/products/pantene_pro_v_color_preserve_shine_2_in_1_shampoo___conditioner_12_6_fl_oz_1_grande.png?v=1548313109">
+                <div class="row">
+
+                    <div class="single_product__img col-sm-7">
+
+                        <div id="gallery_thumbs-template-product" class="gallery_thumbs gallery_thumbs__ swiper-container swiper-container-vertical">
+                            <div class="swiper-wrapper">
+                                @foreach (var slideItem in item.ImagesSlide)
+                                {
+                                    <div class="swiper-slide swiper-slide-active">
+                                        <img src="@slideItem" alt="@item.Price">
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                        <div id="gallery_big-template-product" class="gallery_big swiper-container swiper-container-horizontal swiper-container-fade">
+                            <div class="swiper-wrapper">
+                                @foreach (var slideItem in item.ImagesSlide)
+                                {
+                                    <div class="swiper-slide swiper-slide-active">
+                                        <img src="@slideItem" alt="@item.Price">
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                        <div id="prev_template-product" class="swiper_btn swiper_btn__prev swiper-button-disabled"></div>
+                        <div id="next_template-product" class="swiper_btn swiper_btn__next"></div>
+                    </div>
+
+                    <div class="single_product__info col-sm-5">
+                        <h2 itemprop="name" class="single_product__title">@item.PrName</h2>
+                        <div class="single_product__details">
+                            <form action="https://theme583-cosmetic-store.myshopify.com/cart/add" method="post" enctype="multipart/form-data" data-section="template-product">
+
+                                <div class="details_wrapper">
+                                    <p class="single_product__availability">
+                                        <b>Tình trạng:</b>
+                                        <span id="single_product__availability-template-product" class="notify_success">@(item.IsInstock ? "Còn hàng" : "Hết Hàng")</span>
+                                    </p>
+                                    <p class="single_product__sku">
+                                        <b>SKU:</b>
+                                        <span id="single_product__sku-template-product">@item.Id</span>
+                                    </p>
+
+                                    <p class="single_product__collections">
+                                        <b>Collections:</b>
+                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName,item.ParentId)">@item.CatName</a>
+                                    </p>
+                                    @if (item.Warranty > 0)
+                                    {
+                                        <p class="single_product__type">
+                                            <b>Bảo hành:</b>
+                                            <span>
+                                                @item.Warranty tháng
+                                            </span>
+                                        </p>
+                                    }
+                                    <div class="clearfix"></div>
+                                    <div class="price_and_quantity">
+                                        <p class="single_product__price">
+                                            <span id="single_product__price-template-product">
+                                                @if (item.IsSale)
+                                                {
+                                                    <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
+                                                    <span class="money money_sale">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
+                                                    <span class="money_sale_percent">– @Convert.ToInt32(item.SalePrice/item.Price*100)%</span>
+
+                                                }
+                                                else
+                                                {
+                                                    <span class="money">@(item.Price == 0 ? "Đang cập nhật giá" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
+                                                }
+                                            </span>
+                                        </p>
+                                        <div class="single_product__quantity">
+                                            <label for="single_product__quantity-template-product">Số lượng: </label>
+                                            <div class="quantity_box">
+                                                <span class="quantity_down"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                                <input id="single_product__quantity-template-product" class="quantity_input" type="text" name="quantity" value="1">
+                                                <span class="quantity_up"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="button_block">
+                                        <button type="submit" name="add" class="btn" id="single_product__addtocart">Mua hàng</button>
+                                        <p class="wishlist_section"><a href="http://www.facebook.com/sharer.php?u=@ViewBag.WebsiteUrl" class="wishlist_form"><i class="fa fa-heart" aria-hidden="true"></i> Chia sẻ sản phẩm này</a></p>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="social_sharing_block">
+                                <a target="_blank" href="http://www.facebook.com/sharer.php?u=@ViewBag.WebsiteUrl" title="Share">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                                <a target="_blank" href="http://twitter.com/share?text=@item.PrName&amp;url=@ViewBag.WebsiteUrl" title="Share">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab_content_wrapper">
+                    <div class="tab_navigation">
+                        <span class="tab_nav tab_nav_1 active" data-tab="0">Chi tiết</span>
+                        <span class="tab_nav tab_nav_2" data-tab="1">Hướng dẫn thanh toán</span>
+                    </div>
+                    <div class="tab_content">
+                        <div class="tab_item tab_item_1 active">
+                            <div itemprop="description" class="product_description rte">
+                                @Html.Raw(item.Detail)
+                            </div>
+                        </div>
+                        <div class="rte tab_item tab_item_2">
+                            <div class="accordion active" id="paymentDetail"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="widget_related_products container">
+                <h3>Bạn cũng có thể thích những sản phẩm này</h3>
+                <div class="widget_content">
+                    <div class="row product_listing__main product_listing_related">
+                        @if (ViewData["relateProduct"] != null)
+                        {
+                            AnperoFrontend.WebService.SearchResult relateProduct = (AnperoFrontend.WebService.SearchResult)ViewData["relateProduct"];
+
+                            if (relateProduct.Item != null && relateProduct.Item.Length > 0)
+                            {
+                                // relateProduct.Item= relateProduct.Item.Where(x => x.Id != item.Id);
+                                foreach (var relateItem in relateProduct.Item.Where(x => x.Id != item.Id))
+                                {
+                                    <div class="col-sm-3 product product__1">
+                                        <div class="product_item">
+                                            <div class="product_img">
+                                                <a class="img_change" href="@Anpero.StringHelpper.GetProductLink(relateItem.PrName,relateItem.Id)">
+                                                    <img class="img__1" src="@relateItem.Images" alt="@relateItem.PrName">                                                    
+                                                    <span class="product_badge new">new</span>
+                                                </a>
+                                            </div>
+                                            <div class="product_info">
+                                                <p class="product_name">
+                                                    <a href="@Anpero.StringHelpper.GetProductLink(relateItem.PrName,relateItem.Id)">@Anpero.StringHelpper.SubString(40,relateItem.PrName)</a>
+                                                </p>
+                                                <p class="product_desc product_desc__short">
+                                                    @relateItem.ShortDesc
+                                                </p>
+                                                <p class="product_desc product_desc__long">
+                                                    @relateItem.ShortDesc
+                                                </p>
+                                                <div class="product_prop">
+                                                    <p class="product_price">
+                                                        <span class="money" data-currency-usd="$23.00">@Anpero.StringHelpper.ConVertToMoneyFormatInt(relateItem.SalePrice) đ</span>
+                                                    </p>
+                                                    <p class="product_color"></p>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                 
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+            <script>
+                var producText = {
+                    available: "Available",
+                    unavailable: "Unavailable",
+                    items: "items",
+                };
+
+            </script>
+        </div>
+    </div>
+        
+                                    
+                                   
     @section scripts{
-        <script type="text/javascript" src="~/assets/js/jquery.flexslider.js"></script>
-        <script type="text/javascript" src="~/assets/js/jquery.bxslider.min.js"></script>
-        <script type="text/javascript" src="~/assets/js/cloud-zoom.js"></script>
         <script>
             $(document).ready(function () {
                 resizeVideo();
                 $(window).resize(function () {
                     resizeVideo();
                 });
-
                 $("#paymentTab").click(function () {
                     $.ajax({
                         type: "post",
@@ -274,6 +249,11 @@
                     });
                 });
             });
+            $("#single_product__addtocart").click(function () {
+                Cart.quantity = $("#single_product__quantity-template-product").val();
+                Cart.addProduct(@item.Id, '@Convert.ToInt32(item.SalePrice)','@item.Images', '@HttpUtility.HtmlEncode(item.PrName)');
+            });
+            
             function resizeVideo() {
                 var contentW = $('#product_tabs_description').width();
                 var iframe = $('#product_tabs_description iframe');

@@ -8,14 +8,13 @@
     string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
 
 }
-
 <div id="shopify-section-header" class="shopify-section">
     <div id="pseudo_sticky_block"></div>
     <header id="page_header">
         <div class="page_container">
             <div class="top_pannel ">
-                <div class="container">
-                    <div class="top_pannel_text">Hotline đặt hàng @commonInfo.HotLine</div>
+                <div class="container"  itemscope itemtype="http://schema.org/LocalBusiness">
+                    <div class="top_pannel_text">Hotline đặt hàng <a href="tel:@commonInfo.HotLine" title="Điện thoại" itemprop="telephone">@commonInfo.HotLine</a></div>
                     <div class="top_pannel_menu">
                         <div class="header_search">
                             <span class="search_toggle"><i class="fa fa-search" aria-hidden="true"></i><b>Tìm kiếm</b><i class="fa fa-times"></i></span>
