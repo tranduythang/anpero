@@ -77,10 +77,10 @@
                 htmlCat += '<li class="cart_items">';
                 htmlCat += '<img src="' + Cart.list[i].thumb + '" class="item_img cart-img">';
                 htmlCat += '<div class="item_desc">';
-                    htmlCat += '<span class="product_title">' + Cart.list[i].title + '</span>';                    
+                    htmlCat += '<span class="product_title">' +unescape(Cart.list[i].title) + '</span>';                    
                     htmlCat += '<span class="money" data-currency-usd="$22.00">' + Util.toMoneyFormat(Cart.list[i].price) + '</span>';
                     htmlCat += ' <p class="product_quantity">x' + Cart.list[i].quantity + '</p>';
-                    htmlCat += '<a class="item_remove_btn" href="javascript:Cart.remove(' + Cart.list[i].id + ')"><i class="fa fa-trash"></i></a>';                    
+                    htmlCat += '<a class="item_remove_btn" href="javascript:Cart.remove(' + Cart.list[i].id + ')">Xóa</a>';                    
                 htmlCat += '</div>';
                 htmlCat += '</li>';
             }
@@ -99,6 +99,7 @@
                 $("#cart_content_box").html(htmlCat);
             } else {
                 $("#sendOrder").hide();
+                $("#cart_content_box").html("Giỏ hàng rỗng");
                 $("#cart-sidebar2").html("Giỏ hàng rỗng");
                 $("#lpr").html(" 0 đ");
             }
@@ -135,17 +136,14 @@
                     htmlCat += '<a href="#"><img src="' + Cart.list[i].thumb + '" alt="' + unescape(Cart.list[i].title) + '"></a>';
                     htmlCat += '</td>';
                     htmlCat += '<td class="cart_description">';
-                    htmlCat += '<p class="product-name"><a href="#">' + Cart.list[i].title + ' </a></p>';
-
+                    htmlCat += '<p class="product-name"><a href="#">' +unescape(Cart.list[i].title) + ' </a></p>';
                     htmlCat += '</td>';
                     htmlCat += '<td class="cart_avail"><span class="label label-success">Còn hàng</span></td>';
                     htmlCat += '<td class="price"><span>' + Util.toMoneyFormat(Cart.list[i].price) + '</span></td>';
                     htmlCat += '<td class="qty">';
                     htmlCat += '<a href="javascript:Cart.remove3(' + Cart.list[i].id + ',' + Cart.list[i].price + ');" class="btn">-</a>';
                     htmlCat += '<input class="input-text qty2" type="text" value="' + Cart.list[i].quantity + '" id="prQuantity_' + Cart.list[i].id + '">';
-
                     htmlCat += '<a href="javascript:Cart.addProduct2(' + Cart.list[i].id + ',' + Cart.list[i].price + ');" class="btn">+</a>';
-
                     htmlCat += '</td>';
                     htmlCat += '<td class="price">';
                     htmlCat += '<span>' + Util.toMoneyFormat(parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity)) + ' đ</span>';
@@ -154,10 +152,8 @@
                     htmlCat += '<a href="javascript:Cart.remove2(' + Cart.list[i].id + ')" class="button remove-item">Xóa</a>';
                     htmlCat += '</td>';
                     htmlCat += '</tr>';
-
                 }
                 var shipingFee = $('input[name=radio_3]:checked').attr("data-ship");
-
                 $("#ttPrCt").html(Util.toMoneyFormat(ttSC) + " đ");
                 $("#ttOdCt").html(Util.toMoneyFormat(parseInt(ttSC) + parseInt(shipingFee) + parseInt(_paymentFee)) + " đ");
                 $("#prCatCtTable").html(htmlCat);
@@ -168,7 +164,6 @@
             } catch (e) {
                 $(".spN").html("0");
             }
-
         }
     },
     remove: function (prId) {
