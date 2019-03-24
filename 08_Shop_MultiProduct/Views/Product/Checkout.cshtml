@@ -85,7 +85,7 @@
                         <div class="col-md-6">
                             <h3 class="checkout-sep">3. Phương thức thanh toán</h3>
                             <div class="box-border">
-                              
+
                                 <ul class="shipping_method form-list">
                                     <li style="display:none;">
                                         <p class="subcaption bold">Tại cửa hàng</p>
@@ -293,9 +293,9 @@
                             </div>
                             <div class="clearfix"></div>
                             <div class="col-md-12 ">
-                                <a href="/" title="Continue Shopping" class="btn button btn-continue" onclick=""><span><span>Mua thêm</span></span></a>                                
-                                <button type="submit" name="update_cart_action" value="update_qty" title="Update Cart" class="button btn-update pull-right" id="orderBtn"><span><span>Gửi đơn hàng</span></span></button>                                
-                               
+                                <a href="/" title="Continue Shopping" class="btn button btn-continue" onclick=""><span><span>Mua thêm</span></span></a>
+                                <button type="submit" name="update_cart_action" value="update_qty" title="Update Cart" class="button btn-update pull-right" id="orderBtn"><span><span>Gửi đơn hàng</span></span></button>
+
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -311,7 +311,7 @@
 </div>
 @section scripts{
     <script src="~/Scripts/Bootrap.notify.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=renderCapcha&render=explicit"></script>
     <script>
         var googleCatcha;
         $(window).load(function () {
@@ -327,11 +327,14 @@
             $("#orderBtn").click(function () {
                 Cart.sendOrder();
             });
+            
+        });
+        function renderCapcha() {
             googleCatcha = grecaptcha.render('g-recaptcha', {
                 'sitekey': googleCapchaSitekey,
                 'theme': 'light',
                 'hl': 'vi'
             });
-        });
+        }
     </script>
 }

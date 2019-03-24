@@ -185,7 +185,7 @@
                                                         <a class="button btn-cart" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">Xem thêm</a>
                                                         @if (item.IsInstock)
                                                         {
-                                                            <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,'@Convert.ToInt32(item.Price)','@item.Images','@item.PrName.Replace(@"'",string.Empty)');"><span>Mua hàng</span></button>
+                                                            <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName.Replace(@"'",string.Empty)');"><span>Mua hàng</span></button>
                                                         }
                                                         else
                                                         {
