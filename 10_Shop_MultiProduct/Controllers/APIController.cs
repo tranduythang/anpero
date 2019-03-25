@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using RazorEngine;
+using RazorEngine.Templating; // For extension methods.
 namespace AnperoFrontend.Controllers
 {
     public class APIController : BaseController
@@ -14,6 +15,7 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult Index()
         {
+            
             return View();
         }
         [BuildCommonHtml]

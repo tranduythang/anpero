@@ -20,7 +20,7 @@ namespace AnperoFrontend.Controllers
             ViewData["blogdeltail"] = rs;
             SearchArticleResults s = new SearchArticleResults();
             s = ws.SearchArticle(StoreID, TokenKey, rs.CategoryId, 1, 5, 0);
-            ViewData["ArticleList"] = s;
+            ViewData["FeatureArticle"] = s;
             return View();
         }
         [BuildCommonHtml]

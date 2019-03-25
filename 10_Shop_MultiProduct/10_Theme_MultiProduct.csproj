@@ -55,6 +55,9 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -339,22 +342,11 @@
     <Content Include="assets\loadingLogo.gif" />
     <Content Include="Html\cdn.shopify.com\s\files\1\0079\6649\0720\t\2\assets\style.scssf18a.css" />
     <Content Include="assets\scripts.js" />
-    <Content Include="Html\collections\all.atom" />
-    <Content Include="Html\collections\all\anti-ageing.atom" />
-    <Content Include="Html\collections\all\combination.atom" />
-    <Content Include="Html\collections\all\damaged.atom" />
-    <Content Include="Html\collections\all\dark-circles.atom" />
-    <Content Include="Html\collections\all\dry-dehydrated.atom" />
-    <Content Include="Html\collections\hair.atom" />
-    <Content Include="Html\collections\hair.oembed" />
-    <Content Include="Html\collections\hair4658.oembed" />
-    <Content Include="Html\collections\tools-accessories.oembed" />
     <Content Include="Html\cdn.shopify.com\s\files\1\0079\6649\0720\t\2\assets\fontawesome-webfont9e99.eot" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="Html\account\login.html" />
     <Content Include="Html\blogs\news.html" />
     <Content Include="Html\blogs\news\also-you-can-always-contact-our-consultants.html" />
     <Content Include="Html\blogs\news\our-company-advocates-the-postulate-that-the-health-is-the-biggest-value-in-our-lives.html" />
@@ -367,80 +359,6 @@
     <Content Include="Html\blogs\news\tagged\tools-accessories.html" />
     <Content Include="Html\cart.html" />
     <Content Include="Html\collections.html" />
-    <Content Include="Html\collections\all.html" />
-    <Content Include="Html\collections\all2679.html" />
-    <Content Include="Html\collections\all4658.html" />
-    <Content Include="Html\collections\all9ba9.html" />
-    <Content Include="Html\collections\all\anti-ageing.html" />
-    <Content Include="Html\collections\all\combination.html" />
-    <Content Include="Html\collections\all\damaged.html" />
-    <Content Include="Html\collections\all\dark-circles.html" />
-    <Content Include="Html\collections\all\dry-dehydrated.html" />
-    <Content Include="Html\collections\face.html" />
-    <Content Include="Html\collections\frontpage.html" />
-    <Content Include="Html\collections\hair.html" />
-    <Content Include="Html\collections\hair2679.html" />
-    <Content Include="Html\collections\hair4658.html" />
-    <Content Include="Html\collections\hair\anti-ageing.html" />
-    <Content Include="Html\collections\hair\combination.html" />
-    <Content Include="Html\collections\hair\damaged.html" />
-    <Content Include="Html\collections\hair\dark-circles-2.html" />
-    <Content Include="Html\collections\hair\dark-circles-3.html" />
-    <Content Include="Html\collections\hair\dark-circles.html" />
-    <Content Include="Html\collections\hair\dry-dehydrated-2.html" />
-    <Content Include="Html\collections\hair\dry-dehydrated-3.html" />
-    <Content Include="Html\collections\hair\dry-dehydrated.html" />
-    <Content Include="Html\collections\hair\products\borghese-effetto-immediato-spa-soothing-tonic-1.html" />
-    <Content Include="Html\collections\hair\products\cerave-foaming-facial-cleanser-12-ounce-1.html" />
-    <Content Include="Html\collections\hair\products\loreal-paris-advanced-revitalift-face-and-neck-day-cream-1.html" />
-    <Content Include="Html\collections\hair\products\nivea-body-creme-13-5-ounce-1.html" />
-    <Content Include="Html\collections\hair\products\olay-cc-cream-total-effects-tone-correcting-moisturizer-with-sunscreen-1.html" />
-    <Content Include="Html\collections\hair\products\olay-complete-all-day-uv-moisture-cream-spf-15-1.html" />
-    <Content Include="Html\collections\hair\products\olay-complete-daily-defense-all-day-moisturizer-with-sunscreen-spf30-sensitive-skin-1.html" />
-    <Content Include="Html\collections\hair\products\olay-total-effects-anti-aging-daily-moisturizer-1.html" />
-    <Content Include="Html\collections\hair\products\pantene-pro-v-color-preserve-shine-2-in-1-shampoo-conditioner-12-6-fl-oz-1.html" />
-    <Content Include="Html\collections\hair\products\pantene-pro-v-expert-collection-agedefy-advanced-thickening-treatment-1.html" />
-    <Content Include="Html\collections\hair\products\physicians-formula-eye-definer-automatic-eye-pencil-ultra-black-1.html" />
-    <Content Include="Html\collections\hair\products\products\borghese_effetto_immediato_spa_soothing_tonic_1.png" />
-    <Content Include="Html\collections\hair\products\products\cerave_foaming_facial_cleanser_12_ounce_1.png" />
-    <Content Include="Html\collections\hair\products\products\loreal_paris_advanced_revitalift_face_and_neck_day_cream_1.png" />
-    <Content Include="Html\collections\hair\products\products\nivea_body_creme_13_5_ounce_1.png" />
-    <Content Include="Html\collections\hair\products\products\olay_cc_cream_total_effects_tone_correcting_moisturizer_with_sunscreen_1.png" />
-    <Content Include="Html\collections\hair\products\products\olay_complete_all_day_uv_moisture_cream_spf_15_1.png" />
-    <Content Include="Html\collections\hair\products\products\olay_complete_daily_defense_all_day_moisturizer_with_sunscreen_spf30_sensitive_skin_1.html" />
-    <Content Include="Html\collections\hair\products\products\olay_total_effects_anti_aging_daily_moisturizer_1.png" />
-    <Content Include="Html\collections\hair\products\products\pantene_pro_v_color_preserve_shine_2_in_1_shampoo___conditioner_12_6_fl_oz_1.png" />
-    <Content Include="Html\collections\hair\products\products\pantene_pro_v_expert_collection_agedefy_advanced_thickening_treatment_1.png" />
-    <Content Include="Html\collections\hair\products\shany-eye-and-lip-primer-base-paraben-talc-free-1.html" />
-    <Content Include="Html\collections\index.html" />
-    <Content Include="Html\collections\nails.html" />
-    <Content Include="Html\collections\sale.html" />
-    <Content Include="Html\collections\tools-accessories-2.html" />
-    <Content Include="Html\collections\tools-accessories.html" />
-    <Content Include="Html\collections\tools-accessories4658.html" />
-    <Content Include="Html\collections\tools-accessories\anti-ageing.html" />
-    <Content Include="Html\collections\tools-accessories\combination.html" />
-    <Content Include="Html\collections\tools-accessories\damaged.html" />
-    <Content Include="Html\collections\tools-accessories\dark-circles.html" />
-    <Content Include="Html\collections\tools-accessories\dry-dehydrated.html" />
-    <Content Include="Html\collections\tools-accessories\products\australian-made-natural-deodorant-100-free-of-all-forms-of-aluminum-1.html" />
-    <Content Include="Html\collections\tools-accessories\products\cerave-foaming-facial-cleanser-12-ounce-1.html" />
-    <Content Include="Html\collections\tools-accessories\products\loreal-paris-advanced-revitalift-face-and-neck-day-cream-1.html" />
-    <Content Include="Html\collections\tools-accessories\products\nivea-body-creme-13-5-ounce-1.html" />
-    <Content Include="Html\collections\tools-accessories\products\olay-cc-cream-total-effects-tone-correcting-moisturizer-with-sunscreen-1.html" />
-    <Content Include="Html\collections\tools-accessories\products\olay-complete-all-day-uv-moisture-cream-spf-15-1.html" />
-    <Content Include="Html\collections\tools-accessories\products\olay-complete-daily-defense-all-day-moisturizer-with-sunscreen-spf30-sensitive-skin-1.html" />
-    <Content Include="Html\collections\tools-accessories\products\olay-total-effects-anti-aging-daily-moisturizer-1.html" />
-    <Content Include="Html\collections\tools-accessories\products\pantene-pro-v-color-preserve-shine-2-in-1-shampoo-conditioner-12-6-fl-oz-1.html" />
-    <Content Include="Html\collections\tools-accessories\products\pantene-pro-v-expert-collection-agedefy-advanced-thickening-treatment-1.html" />
-    <Content Include="Html\collections\tools-accessories\products\physicians-formula-eye-definer-automatic-eye-pencil-ultra-black-1.html" />
-    <Content Include="Html\collections\tools-accessories\products\products\loreal_paris_advanced_revitalift_face_and_neck_day_cream_1.png" />
-    <Content Include="Html\collections\tools-accessories\products\products\nivea_body_creme_13_5_ounce_1.png" />
-    <Content Include="Html\collections\tools-accessories\products\products\olay_complete_all_day_uv_moisture_cream_spf_15_1.png" />
-    <Content Include="Html\collections\tools-accessories\products\products\olay_total_effects_anti_aging_daily_moisturizer_1.html" />
-    <Content Include="Html\collections\tools-accessories\products\products\pantene_pro_v_expert_collection_agedefy_advanced_thickening_treatment_1.html" />
-    <Content Include="Html\collections\tools-accessories\products\shany-eye-and-lip-primer-base-paraben-talc-free-1.html" />
-    <Content Include="Html\collections\tools-accessories\products\verattiva-face-tonic-rinse-and-refresher-7-ounce-1.html" />
     <Content Include="Html\index.html" />
     <Content Include="Html\pages\about-us.html" />
     <Content Include="Html\pages\contact-us.html" />
@@ -542,7 +460,6 @@
     <Folder Include="Html\cdn.shopify.com\s\assets\themes_support\" />
     <Folder Include="Html\cdn.shopify.com\s\files\1\0079\6649\0720\t\2\compiled_assets\" />
     <Folder Include="Html\cdn.shopify.com\s\javascripts\tricorder\" />
-    <Folder Include="Html\collections\face\products\products\" />
     <Folder Include="Html\products\products\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>

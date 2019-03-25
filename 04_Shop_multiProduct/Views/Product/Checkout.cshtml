@@ -75,22 +75,22 @@
                     </ul>
                 </div>
             </div>
-                <div class="col-md-6">
-                    <h3 class="checkout-sep">3. Phương thức thanh toán</h3>
-                    <div class="box-border">
-                        <ul class="shipping_method">
-                            <li class="lb2">
-                                <p class="subcaption bold">Tại showroom</p>
-                                <label for="radio_button_41"><input type="radio" checked name="radio_4" id="radio_button_41" value="0" data-ship="0">Thanh toán tại Showroom</label>
-                            </li>
-                            <li class="lb2">
-                                <label for="radio_button_51"><input type="radio" name="radio_4" id="radio_button_51" value="4" data-ship="0"> Chuyển khoản 0đ</label>
-                            </li>
-                            <li class="lb2">
-                                <label for="radio_button_6"><input type="radio" name="radio_4" id="radio_button_6" value="1" data-ship="15000"> Thu tiền tại nhà 15.000 đ</label>
-                            </li>
-                           @if (ViewBag.PaymentType == "NL")
-                           {
+            <div class="col-md-6">
+                <h3 class="checkout-sep">3. Phương thức thanh toán</h3>
+                <div class="box-border">
+                    <ul class="shipping_method">
+                        <li class="lb2">
+                            <p class="subcaption bold">Tại showroom</p>
+                            <label for="radio_button_41"><input type="radio" checked name="radio_4" id="radio_button_41" value="0" data-ship="0">Thanh toán tại Showroom</label>
+                        </li>
+                        <li class="lb2">
+                            <label for="radio_button_51"><input type="radio" name="radio_4" id="radio_button_51" value="4" data-ship="0"> Chuyển khoản 0đ</label>
+                        </li>
+                        <li class="lb2">
+                            <label for="radio_button_6"><input type="radio" name="radio_4" id="radio_button_6" value="1" data-ship="15000"> Thu tiền tại nhà 15.000 đ</label>
+                        </li>
+                        @if (ViewBag.PaymentType == "NL")
+                        {
                             <li>
                                 <label for="radio_button_8" id="lb1"><input type="radio" name="radio_4" id="radio_button_8" value="2" payment-code="ATM_ONLINE" data-ship="0"> Thanh toán online bằng thẻ ngân hàng nội địa </label>
                                 <ul class="cardList form-list clearfix" style="display:none;">
@@ -251,59 +251,59 @@
 
                                 </ul>
                             </li>
-                           }
-           
+                        }
 
-                        </ul>
-                    </div>
-                </div>
-                <h3 class="checkout-sep">4. Kiểm tra lại thông tin sản phẩm</h3>
-                <div class="box-border">
-                    <table class="table table-bordered table-responsive cart_summary">
-                        <thead>
-                            <tr>
-                                <th class="cart_product">Ảnh</th>
-                                <th>Thông tin</th>
-                                <th>Tình trạng.</th>
-                                <th>Đơn giá</th>
-                                <th>Số lượng</th>
-                                <th>Tổng</th>
-                                <th class="action"><i class="fa fa-trash-o"></i></th>
-                            </tr>
-                        </thead>
-                        <tbody id="prCatCtTable"></tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="2" rowspan="2"></td>
-                                <td colspan="3">Tổng giá sản phẩm </td>
-                                <td colspan="2" id="ttPrCt"></td>
-                            </tr>
-                            <tr>
-                                <td colspan="3"><strong>Tổng đơn hàng (bao gồm ship)</strong></td>
-                                <td colspan="2"><strong id="ttOdCt"></strong></td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                    <div class="col-md-12">
-                        <div id="g-recaptcha" class="pull-right"></div>
-                    </div>
-                    <button class="button pull-right" id="orderBtn">Xác nhận đặt hàng</button>
-                    <a class="button pull-right" href="/">Mua thêm</a>
+
+                    </ul>
                 </div>
             </div>
+            <h3 class="checkout-sep">4. Kiểm tra lại thông tin sản phẩm</h3>
+            <div class="box-border">
+                <table class="table table-bordered table-responsive cart_summary">
+                    <thead>
+                        <tr>
+                            <th class="cart_product">Ảnh</th>
+                            <th>Thông tin</th>
+                            <th>Tình trạng.</th>
+                            <th>Đơn giá</th>
+                            <th>Số lượng</th>
+                            <th>Tổng</th>
+                            <th class="action"><i class="fa fa-trash-o"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody id="prCatCtTable"></tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2" rowspan="2"></td>
+                            <td colspan="3">Tổng giá sản phẩm </td>
+                            <td colspan="2" id="ttPrCt"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><strong>Tổng đơn hàng (bao gồm ship)</strong></td>
+                            <td colspan="2"><strong id="ttOdCt"></strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="col-md-12">
+                    <div id="g-recaptcha" class="pull-right"></div>
+                </div>
+                <button class="button pull-right" id="orderBtn">Xác nhận đặt hàng</button>
+                <a class="button pull-right" href="/">Mua thêm</a>
+            </div>
+        </div>
         <div class="page-content checkout-page" id="cartContent2" style="display:none;"></div>
         <div id='ajax_loader' style="position: fixed; left: 45%; top: 50%; display: none;">
             <img src="http://media.anpero.com/images/38/102017/loading2017102517124312.gif" />
-        </div>        
+        </div>
     </div>
 </div>
 
 @section scripts{
-   
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js?onload=renderCapcha&render=explicit"></script>
     <script>
         var googleCatcha;
-        $(window).load(function () {
+        $(document).ready(function () {
             var width = $(window).width();
             $("#ajax_loader").css("left", ((width / 2) - 100) + "px")
             Cart.bindCartTable();
@@ -316,17 +316,20 @@
             $("#orderBtn").click(function () {
                 Cart.sendOrder();
             });
-            $("#lb1").click(function(){
-            $(".cardList").show();
+            $("#lb1").click(function () {
+                $(".cardList").show();
             });
             $(".lb2").click(function () {
                 $(".cardList").hide();
             });
+            
+        });
+        function renderCapch() {
             googleCatcha = grecaptcha.render('g-recaptcha', {
                 'sitekey': googleCapchaSitekey,
                 'theme': 'light',
                 'hl': 'vi'
             });
-        });
+        }
     </script>
 }
