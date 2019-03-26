@@ -124,6 +124,7 @@
     <Compile Include="Controllers\APIController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BrandsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\StaticController.cs" />
@@ -390,6 +391,7 @@
     <Content Include="Views\Home\Policy.cshtml" />
     <Content Include="Views\API\Index.cshtml" />
     <Content Include="Views\Product\SearchAjax.cshtml" />
+    <Content Include="Views\Brands\Index.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

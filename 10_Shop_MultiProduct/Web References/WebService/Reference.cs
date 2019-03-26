@@ -1615,6 +1615,10 @@ namespace AnperoFrontend.WebService {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class ProductCategory {
         
+        private int rankField;
+        
+        private string defaultLinkField;
+        
         private string nameField;
         
         private int idField;
@@ -1626,6 +1630,26 @@ namespace AnperoFrontend.WebService {
         private string keywordsField;
         
         private string descriptionField;
+        
+        /// <remarks/>
+        public int Rank {
+            get {
+                return this.rankField;
+            }
+            set {
+                this.rankField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DefaultLink {
+            get {
+                return this.defaultLinkField;
+            }
+            set {
+                this.defaultLinkField = value;
+            }
+        }
         
         /// <remarks/>
         public string Name {
@@ -1777,6 +1801,8 @@ namespace AnperoFrontend.WebService {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class Webconfig {
         
+        private string serverNameField;
+        
         private string tokenField;
         
         private Menu[] menuListField;
@@ -1810,6 +1836,16 @@ namespace AnperoFrontend.WebService {
         private string nameField;
         
         private int themeOptionField;
+        
+        /// <remarks/>
+        public string ServerName {
+            get {
+                return this.serverNameField;
+            }
+            set {
+                this.serverNameField = value;
+            }
+        }
         
         /// <remarks/>
         public string Token {

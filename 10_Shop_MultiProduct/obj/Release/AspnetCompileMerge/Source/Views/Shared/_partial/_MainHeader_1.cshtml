@@ -81,31 +81,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="level_1__item level_2__links">
-                                    <a class="level_1__link " href="/search">
-                                        Bộ sưu tập
-                                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_5"></i>
-                                    </a>
-                                    <ul class="level_2" id="menu_5">
-                                        <li class="container">
-                                            @foreach (var item in commonInfo.ProductCategoryList)
-                                            {
-                                                <div class="megamenu_col__item ">
-                                                    <img src="@item.Images" alt="@item.Name">
-                                                    <h3>@item.Name<i class="level_2__trigger megamenu_trigger" data-submenu="menu_pr_@item.Id"></i></h3>
-                                                    <ul class="level_3" id="menu_pr_@item.Id">
-                                                        @foreach (var subItem in item.ChildCategory)
-                                                        {
-                                                            <li class="level_3__item">
-                                                                <a class="level_3__link" href="@Anpero.StringHelpper.GetCategoryLink(subItem.Name,subItem.Id)">@subItem.Name</a>
-                                                            </li>
-                                                        }
-                                                    </ul>
-                                                </div>
-                                            }
-                                        </li>
-                                    </ul>
-                                </li>
+
                                 <li class="level_1__item level_2__links">
                                     <a class="level_1__link " href="/search">
                                         Danh mục sản phẩm
@@ -124,6 +100,29 @@
                                             }
                                         </li>
                                     </ul>
+                                </li>
+                                <li class="level_1__item level_2__links">
+                                    <a class="level_1__link " href="/Brands">
+                                        Thương hiệu
+                                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_3"></i>
+                                    </a>
+                                    @if (commonInfo.ProductGroupList != null)
+                                    {
+                                        <ul class="level_2" id="menu_3">
+                                            <li class="container">
+
+                                                @foreach (var item in commonInfo.ProductGroupList)
+                                                {
+                                                    <div class="megamenu_col__item align_center">
+                                                        <a href="@Anpero.StringHelpper.GetProductGroupLink(item.Name,item.Id)">
+                                                            <h4>@item.Name</h4>
+                                                        </a>
+                                                    </div>
+                                                }
+                                            </li>
+                                        </ul>
+                                    }
+                                   
                                 </li>
                                 <li class="level_1__item level_2__products">
                                     <a class="level_1__link " href="/">
@@ -173,7 +172,7 @@
                                                 foreach (BlogItem item in articleList.ItemList)
                                                 {
                                                     <div class="megamenu_col__item">
-                                                        <div class="blog_img">                                                            
+                                                        <div class="blog_img">
                                                             <img src="@item.Thumb" alt="@item.Title">
                                                         </div>
                                                         <div class="blog_info">
@@ -181,7 +180,7 @@
                                                                 <span class="article_day">Ngày @Anpero.StringHelpper.ConvertDateTime(item.CreateDate).Day</span>
                                                                 Tháng @Anpero.StringHelpper.ConvertDateTime(item.CreateDate).Month
                                                             </p>
-                                                            <h3 class="blog_title"><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Title,item.Id)">@Anpero.StringHelpper.SubString(40,item.Title)</a></h3>
+                                                            <h3 class="blog_title"><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Title,item.Id)">@Anpero.StringHelpper.SubString(40, item.Title)</a></h3>
                                                         </div>
                                                     </div>
                                                 }
