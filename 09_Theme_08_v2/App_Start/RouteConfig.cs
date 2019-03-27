@@ -13,6 +13,16 @@ namespace AnperoFrontend
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
+               name: "robot",
+               url: "robots.txt",
+               defaults: new { controller = "Seo", action = "RobotsText" }
+            );
+            routes.MapRoute(
+                name: "siteMapRouter",
+                url: "sitemap.xml",
+                defaults: new { controller = "Seo", action = "SitemapXml" }
+            );
+            routes.MapRoute(
                 name: "checkout",
                 url: "checkout",
                 defaults: new { controller = "product", action = "checkout" }
