@@ -331,29 +331,24 @@
 
     }
 };
-
 var Search = {
-    ParentCatId:0,
-    Category: 0,
-    Page: 1,
-    PageSize: 24,
-    Products: function (page, orderBy) {
-        if (page != null) {            
-            Search.Page = page;
-        }
-        var res = window.location.pathname.match(/[a-z0-9-]*-c(\d+)$/);
-        if (res != null && res.length == 2) {
-            Search.ParentCatId = res[1];
-        }
-        var res2 = window.location.pathname.match(/[a-z0-9-]*-cat(\d+)$/);
-        if (res2!=null && res2.length == 2) {
-            Search.Category = res2[1];
-        }
+    //public string KeyWord { get; set; }
+    //    public string SortBy { get; set; }
+    //    public string GroupId { get; set; }
+    //    public string Category { get; set; }
+    //    public int PriceFrom { get; set; }
+    //    public int PriceTo { get; set; }
+    //    public int CurentPage { get; set; }
+    //    public int PageSize { get; set; }
+    //    public int MinPrioty { get; set; }
+    //    public int Page { get; set; }
+
+    Products: function (page,orderBy) {
         $.ajax({
             method: "post",
             url: "/product/searchAjax",
             datatype: "text/plain",
-            data: { cat: categoryId, ParentCategory: Search.ParentCatId, Category: Search.Category, SortBy: orderBy, Page: Search.Page, PageSize:this.Products.PageSize},
+            data: { cat: categoryId, ParentCat: ParentCatId, SortBy: orderBy},
             success: function (rs) {
                 $("#pr-listCt").html(rs);
             }

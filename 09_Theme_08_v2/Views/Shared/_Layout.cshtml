@@ -23,79 +23,7 @@
     <!-- Apple iOS and Android stuff -->
     <meta name="apple-mobile-web-app-capable" content="no" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
-    @*AMP*@
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
-    <style amp-boilerplate>
-        body {
-            -webkit-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
-            -moz-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
-            -ms-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
-            animation: -amp-start 8s steps(1,end) 0s 1 normal both
-        }
-
-        @@-webkit-keyframes -amp-start {
-            from {
-                visibility: hidden
-            }
-
-            to {
-                visibility: visible
-            }
-        }
-
-        @@-moz-keyframes -amp-start {
-            from {
-                visibility: hidden
-            }
-
-            to {
-                visibility: visible
-            }
-        }
-
-        @@-ms-keyframes -amp-start {
-            from {
-                visibility: hidden
-            }
-
-            to {
-                visibility: visible
-            }
-        }
-
-        @@-o-keyframes -amp-start {
-            from {
-                visibility: hidden
-            }
-
-            to {
-                visibility: visible
-            }
-        }
-
-        @@keyframes -amp-start {
-            from {
-                visibility: hidden
-            }
-
-            to {
-                visibility: visible
-            }
-        }
-    </style>
-    <noscript>
-        <style amp-boilerplate>
-            body {
-                -webkit-animation: none;
-                -moz-animation: none;
-                -ms-animation: none;
-                animation: none
-            }
-        </style>
-    </noscript>
-    @*end AMP*@
+	<meta name="google-site-verification" content="MLrz3kB0o305th5xcLC59DsjVdKfictiXbflXiJRzsM" />  
 
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet/responsive.css" media="all">
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet/font-awesome.css" media="all">
@@ -122,6 +50,18 @@
     @Html.Raw(commonInfo.AnperoPlugin)
 
     @Html.Raw(commonInfo.PageScript)
+   <!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4197650,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4197650&101" alt="" border="0"></a></noscript>
+<!-- Histats.com  END  -->
 
     @Html.Partial("_partial/_MainFooter_1")
 
@@ -131,19 +71,7 @@
             Cart.bindCart();
         });
     </script>
-    <script type="application/ld+json">
-        {
-        "@@context": "https://schema.org",
-        "@@type": "Organization",
-        "url": "@baseUrl",
-        "logo": "@commonInfo.Logo",
-        "contactPoint": [{
-        "@@type": "ContactPoint",
-        "telephone": "+84-@commonInfo.HotLine",
-        "contactType": "customer service"
-        }]
-        }
-    </script>
+    
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b7a515bc8da872d"></script>
 </body>
 </html>

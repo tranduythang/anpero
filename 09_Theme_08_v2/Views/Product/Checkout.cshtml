@@ -312,7 +312,7 @@
 </div>
 @section scripts{
     <script src="~/Scripts/Bootrap.notify.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js?onload=renderCapcha&render=explicit"></script>
+     <script src="https://www.google.com/recaptcha/api.js?onload=renderCapcha&render=explicit"></script>
     <script>
         var googleCatcha;
         $(document).ready(function () {
@@ -337,12 +337,12 @@
            
             Cart.bindTempForm();
         });
-        function renderCapcha() {
-            googleCatcha = grecaptcha.render('g-recaptcha', {
+		function renderCapcha(){
+		 googleCatcha = grecaptcha.render('g-recaptcha', {
                 'sitekey': googleCapchaSitekey,
                 'theme': 'light',
                 'hl': 'vi'
             });
-        }
+		}
     </script>
 }

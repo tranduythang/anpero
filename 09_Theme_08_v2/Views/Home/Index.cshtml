@@ -56,7 +56,7 @@
                                     {
                                         <div class="item">
                                             <a href="@Anpero.StringHelpper.GetCategoryLink(childItem.Name, childItem.Id)">
-                                                <amp-img src="@childItem.Images" @childItem.Name height="200" width="200" class="img-rounded"></amp-img>
+                                                <img src="@childItem.Images" @childItem.Name class="img-rounded">
                                                 <div class="pro-info">@childItem.Name</div>
                                             </a>
                                         </div>
@@ -89,7 +89,7 @@
                                             <div class="item-img">
                                                 <div class="item-img-info">
                                                     <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">
-                                                        <amp-img src="@item.Images" alt="@item.PrName" height="405" width="270"></amp-img>
+                                                        <img src="@item.Images" alt="@item.PrName" height="405" width="270">
                                                     </a>
                                                 </div>
                                             </div>
@@ -152,8 +152,8 @@
                                     <div class="item-inner">
                                         <div class="item-img">
                                             <div class="item-img-info">
-                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">                                                    
-                                                    <img src="@item.Images" class="img-responsive" alt="@item.PrName"/>
+                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">
+                                                    <img src="@item.Images" alt="@item.PrName">
                                                 </a>
 
                                             </div>
@@ -185,7 +185,7 @@
                                                         <a class="button btn-cart" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">Xem thêm</a>
                                                         @if (item.IsInstock)
                                                         {
-                                                            <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName.Replace(@"'",string.Empty)');"><span>Mua hàng</span></button>
+                                                            <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName.Replace(@"'",string.Empty)');"><span>Mua hàng</span></button>
                                                         }
                                                         else
                                                         {
@@ -271,7 +271,7 @@
                     <div class="blog_inner">
                         <div class="blog-img">
                             <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
-                                <amp-img src="@item.Thumb" alt="@item.ShotDesc" height="256" width="393"></amp-img>
+                                <img src="@item.Thumb" alt="@item.ShotDesc" >
                             </a>
                             <div class="mask"> <a class="info" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Chi tiết</a> </div>
                         </div>

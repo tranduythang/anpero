@@ -149,83 +149,27 @@
 </div>
 <div id="mobile-menu">
     <ul>
-        <li>
-            <div class="home"><a href="/"><i class="icon-home"></i>Trang chủ</a> </div>
-        </li>
-        <li>
-            <a href="/about">Giới thiệu</a>
-        </li>
-        
-            
-            
-                @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
-                {
-                    foreach (var item in commonInfo.ProductCategoryList)
-                    {
-                        if (item.ChildCategory != null && item.ChildCategory.Length == 0)
-                        {
-                            <li>
-                                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)"><span>@item.Name‎</span></a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li>
-                                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)"><span>@item.Name</span> </a>
-                                <ul>
-                                    @foreach (var chidItem in item.ChildCategory)
-                                    {
-                                        <li><a href="@Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)"><span>@chidItem.Name</span></a></li>
-                                    }
-                                </ul>
-                            </li>
-                        }
-                    }
-                }
-            
-        
-        @if (commonInfo.ProductGroupList != null && commonInfo.ProductGroupList.Length > 0)
+        @if (commonInfo.MenuList != null && commonInfo.MenuList.Count() > 0)
         {
-            <li>
-                <a href="/search?category=0&keyword=">Sản phẩm theo nhóm</a>
-                <ul>
-                    @foreach (var item in commonInfo.ProductGroupList)
+            foreach (var item in commonInfo.MenuList)
+            {
+                <li>
+                    <a class="level-top" href="@item.Link"><span>@item.Tittle</span></a>
+                    @if (item.ChidMenu.Count() > 0)
                     {
-                        <li><a href="@Anpero.StringHelpper.GetProductGroupLink(item.Name, item.Id)"><span>@item.Name</span></a></li>
-                    }
-                </ul>
-
-            </li>
-        }
-        @if (ViewData["saleProduct"] != null)
-        {
-            AnperoFrontend.WebService.ProductItem[] saleProduct = (AnperoFrontend.WebService.ProductItem[])ViewData["saleProduct"];
-            <li>
-                <a href="#">Sản phẩm khuyến mại</a>
-                @if (saleProduct != null && saleProduct.Length > 0)
-                {
-                    <ul>
-                        @for (int i = 0; i < saleProduct.Length; i++)
-                        {
-                            if (i < 4)
+                        <ul class="level2">
+                            @foreach (var chidItem in item.ChidMenu)
                             {
-                                <li><a href="@Anpero.StringHelpper.GetProductLink(saleProduct[i].PrName, saleProduct[i].Id)">@saleProduct[i].PrName</a></li>
+                                <li class="level2"><a href="@chidItem.Link"><span>@chidItem.Tittle</span></a></li>
                             }
-                        }
-                    </ul>
-                }
-            </li>
+                        </ul>
+                    }
+                </li>
+            }
         }
-        <li>
-            <a href="/blog">Tin tức</a>
-            <ul>
-                <li><a href="/blog">Blogs</a></li>
-                <li><a href="/chinh-sach-van-chuyen-a86">Vận chuyển</a></li>
-                <li><a href="/ProductReturnPolicy">Chính sách đổi trả</a></li>
-                <li><a href="/PaymentInfo">Hướng dẫn thanh toán</a></li>
-            </ul>
-        </li>
-        <li><a href="/home/contact">Liên hệ</a></li>
+     
+
+     
     </ul>
 </div>
 <div id="fb-root"></div>
