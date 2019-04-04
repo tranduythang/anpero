@@ -33,10 +33,13 @@
                         foreach (var item in slide)
                         {
                             <div class="swiper-slide image_slide">
-                                <div class="img_placeholder__wrap img_placeholder__large" style="background-image: url(@item.ImagesUrl);"></div>
-                                <div class="slide_caption container">
-                                    <div class="slide_caption_text"></div>
-                                </div>
+                                <a href="@item.ClickUrl">
+                                    <div class="img_placeholder__wrap img_placeholder__large" style="background-image: url(@item.ImagesUrl);"></div>
+                                    <div class="slide_caption container">
+                                        <div class="slide_caption_text"></div>
+                                    </div>
+                                </a>
+                                
                             </div>
                         }
                         <div class="navigations">
