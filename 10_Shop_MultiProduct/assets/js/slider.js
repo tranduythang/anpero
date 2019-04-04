@@ -1,9 +1,3 @@
-// script.aculo.us slider.js v1.8.2, Tue Nov 18 18:30:58 +0100 2008
-
-// Copyright (c) 2005-2008 Marty Haught, Thomas Fuchs
-//
-// script.aculo.us is freely distributable under the terms of an MIT-style license.
-// For details, see the script.aculo.us web site: http://script.aculo.us/
 
 if (!Control) var Control = { };
 

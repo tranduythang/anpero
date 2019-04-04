@@ -35,7 +35,7 @@
                         {
                             <li>
                                 <span>
-                                    Tất cả sản phẩm
+                                    All Product
                                 </span>
                             </li>
                         }
@@ -63,7 +63,7 @@
                 <div class="row">
                     <div class="main_content sidebar_on col-sm-9  col-sm-push-3">
                         <div id="shopify-section-template-collection" class="shopify-section section_template section_template__collection">
-                            <h1 class="page_heading">Sản phẩm</h1>
+                            <h1 class="page_heading">Product</h1>
                             @if (!pageName.ToLower().Equals("search"))
                             {
                                 <div class="button_filters">
@@ -180,9 +180,9 @@
                                                     <p class="product_price">
                                                         @if (item.IsSale)
                                                         {
-                                                            <span class="money money_sale" data-currency-usd="$33.00">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
+                                                            <span class="money money_sale" data-currency-usd="$33.00">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) $</span>
                                                         }
-                                                        <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
+                                                        <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) $</span>
                                                     </p>
                                                     <p class="product_color"></p>
                                                 </div>
@@ -225,7 +225,7 @@
                         <div id="shopify-section-sidebar" class="shopify-section page_sidebar">
                             <div class="sidebar">
                                 <div class="sidebar_widget sidebar_widget__linklist">
-                                    <h3 class="widget_header">Danh mục sản phẩm</h3>
+                                    <h3 class="widget_header">Category</h3>
                                     <div class="widget_content">
                                         <ul class="list_links">
                                             @foreach (var item in commonInfo.ProductCategoryList)
@@ -245,14 +245,7 @@
                         </div>
                         <div id="shopify-section-sidebar-ensuing" class="shopify-section page_sidebar">
                             <div class="sidebar">
-                                <div class="sidebar_widget sidebar_widget__banner">
-                                    <div class="img_placeholder__wrap img_placeholder__large" style="background-image: url(http://media.anpero.com/images/53/32019/12019030406264126.jpg)"></div>
-                                    <div class="sidebar_banner_caption">
-                                        <a href="/search">
-                                            <h3>NEW COLLECTION</h3>
-                                        </a>
-                                    </div>
-                                </div>
+                               
                                 <div class="sidebar_widget sidebar_widget__products">
                                     <h3 class="widget_header">Products</h3>
                                     <div class="widget_content">
@@ -280,12 +273,12 @@
                                                                 <div class="product_price">
                                                                     @if (item.IsSale)
                                                                     {
-                                                                        <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
+                                                                        <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) $</span>
 
 
                                                                     }
 
-                                                                    <span class="money compare-at-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
+                                                                    <span class="money compare-at-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) $</span>
 
                                                                 </div>
                                                                 <div class="product_links">

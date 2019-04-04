@@ -5,7 +5,7 @@
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
-    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+    string baseUrl = Request.Url.Scheme + "s://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
 
 }
 <div id="shopify-section-header" class="shopify-section">
@@ -13,13 +13,13 @@
     <header id="page_header">
         <div class="page_container">
             <div class="top_pannel ">
-                <div class="container"  itemscope itemtype="http://schema.org/LocalBusiness">
-                    <div class="top_pannel_text">Hotline đặt hàng <a href="tel:@commonInfo.HotLine" title="Điện thoại" itemprop="telephone">@commonInfo.HotLine</a></div>
+                <div class="container"  itemscope itemtype="https://schema.org/LocalBusiness">
+                    <div class="top_pannel_text">Hotline <a href="tel:@commonInfo.HotLine" title="Điện thoại" itemprop="telephone">@commonInfo.HotLine</a></div>
                     <div class="top_pannel_menu">
                         <div class="header_search">
-                            <span class="search_toggle"><i class="fa fa-search" aria-hidden="true"></i><b>Tìm kiếm</b><i class="fa fa-times"></i></span>
+                            <span class="search_toggle"><i class="fa fa-search" aria-hidden="true"></i><b>Search</b><i class="fa fa-times"></i></span>
                             <form action="@baseUrl/search" method="get" role="search" class="search_form">
-                                <input type="search" name="keyword" placeholder="Tìm kiếm" aria-label="Search" itemprop="query-input">
+                                <input type="search" name="keyword" placeholder="Search" aria-label="Search" itemprop="query-input">
                                 <button type="submit">
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                 </button>
@@ -27,7 +27,7 @@
                             <div id="search_result_container"></div>
                         </div>
                         <div class="header_account">
-                            <a href="/home/contact" title="My account"><i class="fa fa-user" aria-hidden="true"></i><span>Liên hệ</span></a>
+                            <a href="/home/contact" title="My account"><i class="fa fa-user" aria-hidden="true"></i><span>Contact</span></a>
                         </div>
                         <div class="header_wishlist currency_selector" style="margin-right:0px;">
                             <a href="https://www.facebook.com/sharer/sharer.php?u=@baseUrl" target="_blank"><i class="fa fa-heart" aria-hidden="true"></i><span>Share</span></a>
@@ -59,19 +59,19 @@
                                             <div>
                                                 <ul class="level_3">
                                                     <li class="level_3__item ">
-                                                        <a class="level_3__link" href="/">Trang chủ</a>
+                                                        <a class="level_3__link" href="/">Home</a>
                                                     </li>
                                                     <li class="level_3__item ">
-                                                        <a class="level_3__link" href="/search">Danh mục sản phẩm</a>
+                                                        <a class="level_3__link" href="/search">Category</a>
                                                     </li>
                                                     <li class="level_3__item ">
-                                                        <a class="level_3__link" href="/home/contact">Liên hệ</a>
+                                                        <a class="level_3__link" href="/home/contact">Contact</a>
                                                     </li>
                                                     <li class="level_3__item ">
-                                                        <a class="level_3__link" href="/about">Về chúng tôi</a>
+                                                        <a class="level_3__link" href="/about">About us</a>
                                                     </li>
                                                     <li class="level_3__item ">
-                                                        <a class="level_3__link" href="/PaymentInfo">Thanh toán</a>
+                                                        <a class="level_3__link" href="/PaymentInfo">Payment</a>
                                                     </li>
                                                     <li class="level_3__item ">
                                                         <a class="level_3__link" href="/blog">Blog</a>
@@ -84,7 +84,7 @@
 
                                 <li class="level_1__item level_2__links">
                                     <a class="level_1__link " href="/search">
-                                        Danh mục sản phẩm
+                                        Category
                                         <i class="level_1__trigger megamenu_trigger" data-submenu="menu_3"></i>
                                     </a>
                                     <ul class="level_2" id="menu_3">
@@ -103,7 +103,7 @@
                                 </li>
                                 <li class="level_1__item level_2__links">
                                     <a class="level_1__link " href="/Brands">
-                                        Thương hiệu
+                                        Branch
                                         <i class="level_1__trigger megamenu_trigger" data-submenu="menu_3"></i>
                                     </a>
                                     @if (commonInfo.ProductGroupList != null)
@@ -126,7 +126,7 @@
                                 </li>
                                 <li class="level_1__item level_2__products">
                                     <a class="level_1__link " href="/">
-                                        Khuyến mãi
+                                        Sale
                                         <i class="level_1__trigger megamenu_trigger" data-submenu="menu_6"></i>
                                     </a>
                                     <ul class="level_2" id="menu_6">
@@ -148,8 +148,8 @@
                                                                     <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
                                                                 </p>
                                                                 <p class="product_price">
-                                                                    <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span>
-                                                                    <span class="money money_sale">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)</span>
+                                                                    <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)</span>
+                                                                    <span class="money money_sale">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -194,7 +194,7 @@
                                 </li>
                                 <li class="level_1__item ">
                                     <a class="level_1__link " href="/home/contact">
-                                        Liên hệ
+                                        Contact
                                     </a>
                                 </li>
                             </ul>
@@ -205,13 +205,13 @@
                     <div class="header_wrap2 header_right">
 
                         <div class="header_cart" id="main__cart_item">
-                            <a class="cart_link" href="/product/checkout"><b><i class="fa fa-gift" aria-hidden="true"></i>Giỏ hàng: </b><span id="cart_items" class="spN"> 0 </span> sản phẩm</a>
+                            <a class="cart_link" href="/product/checkout"><b><i class="fa fa-gift" aria-hidden="true"></i>My Cart: </b><span id="cart_items" class="spN"> 0 </span> product</a>
                             <div class="cart_content_wrap">
                                 <div class="cart_content_preloader off">
                                     <div class="global_loader"></div>
                                 </div>
                                 <div id="cart_content_box">
-                                    <p class="alert alert-warning">Bạn chưa có sản phẩm nào</p>
+                                    <p class="alert alert-warning">Cart empry</p>
                                     
                                 </div>
                             </div>

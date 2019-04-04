@@ -14,7 +14,7 @@ namespace AnperoFrontend.Controllers
             Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
 
             WebService.AnperoService service = new WebService.AnperoService();
-            GetNewestProduct();
+            //GetNewestProduct();
             SetUpSlideAds();
             return View();
         }
@@ -135,7 +135,7 @@ namespace AnperoFrontend.Controllers
             }
             catch (Exception)
             {
-                ViewBag.HtmlContent ="Nội dung đang được cập nhật";
+                ViewBag.HtmlContent ="";
             }
             return View();
         }
@@ -154,7 +154,7 @@ namespace AnperoFrontend.Controllers
             }
             catch (Exception)
             {
-                return "Nội dung đang được cập nhật";
+                return "";
             }
 
 

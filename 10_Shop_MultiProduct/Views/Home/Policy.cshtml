@@ -1,11 +1,18 @@
 ﻿@{
-    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();    
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
     if (ViewData["commonInfo"] != null)
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
         ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau(commonInfo.Desc);
         ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
     }
+    string title = ViewBag.Title;
+    title = title.Replace(@"Hướng dẫn thanh toán", "Softvip Payment Protection Policy");
+    title = title.Replace(@"Chính sách bảo hành", "Warranty policy at Softvip");
+    title = title.Replace(@"Chính sách bảo mật", "Chính sách bảo mật");
+    title = title.Replace(@"Chính sách đổi trả", "Return Policy");
+    
+
 }
 @section health{
     <meta name="description" content="@commonInfo.Desc" />
@@ -15,22 +22,23 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="@ViewBag.WebsiteUrl" />
     <meta property="og:image" content="@commonInfo.Logo" />
+    
 }
 <div class="page-heading">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <div class="page-title center">
-                    <h2>@ViewBag.Title</h2>
+                    <h2 style="margin-top:20px;margin-bottom:20px;">@title</h2>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="main-container col1-layout wow bounceInUp animated animated" style="visibility: visible;">
+<div class="main-container col1-layout wow  animated animated" style="visibility: visible;">
     <div class="main container">
         <div class="std">
-            <div class="wrapper_bl" style="margin-top: 1px;">
+            <div class="wrapper_bl" style="margin-top: 10px;margin-bottom:20px;">
                 <div class="form_background">
                         @Html.Raw(ViewBag.HtmlContent)
                 </div>

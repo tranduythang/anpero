@@ -93,7 +93,7 @@
                 $("#lpr").html(Util.toMoneyFormat(ttSC) + " đ");
                 $("#sendOrder").show();
                 htmlCat += '<div class="box_footer">';
-                htmlCat += '<p class="cart_total"><b>Tổng giá: </b><span class="money">' + Util.toMoneyFormat(ttSC) + ' đ</span></p>';
+                htmlCat += '<p class="cart_total"><b>Price: </b><span class="money">' + Util.toMoneyFormat(ttSC) + ' $</span></p>';
                 htmlCat += '<a id="clear_cart_all_items" class="cart_clear" href="/product/checkout"><i class="fa fa-refresh" title="Clear cart"></i></a><a class="btn cart_url pull-right"" href="/product/checkout">Thanh toán</a>';
                 htmlCat += '</div>';
                 $("#cart_content_box").html(htmlCat);
@@ -123,7 +123,7 @@
         var ttSC = 0;
 
         var _paymentFee = $('input[name=radio_4]:checked').attr("data-ship");
-        var htmlCat = ""; debugger
+        var htmlCat = ""; 
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined") {
 
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
@@ -146,7 +146,7 @@
                     htmlCat += '<a href="javascript:Cart.addProduct2(' + Cart.list[i].id + ',' + Cart.list[i].price + ');" class="btn">+</a>';
                     htmlCat += '</td>';
                     htmlCat += '<td class="price">';
-                    htmlCat += '<span>' + Util.toMoneyFormat(parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity)) + ' đ</span>';
+                    htmlCat += '<span>' + Util.toMoneyFormat(parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity)) + ' $</span>';
                     htmlCat += '</td>';
                     htmlCat += '<td class="a-center last">';
                     htmlCat += '<a href="javascript:Cart.remove2(' + Cart.list[i].id + ')" class="button remove-item">Xóa</a>';
@@ -273,7 +273,6 @@
                 datatype: "text/plain",
                 data: { op: "CreateOrder", detail: _detail, PayMentType: _paymentType, shippingMethod: _shipingType, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, ProductList: $.cookie("CartList"), shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee) },
                 success: function (rs) {
-                    debugger
                     $("#ajax_loader").hide();
                     if (!isNaN(rs)) {
                         $.removeCookie('CartList', { path: '/' });

@@ -105,11 +105,11 @@ namespace AnperoFrontend.handler
                             }
                             if (rs2 == -1)
                             {
-                                rs = "Số điện thoại không đúng định dạng";
+                                rs = "Phone incorrect format";
                             }
                             if (rs2 == -2)
                             {
-                                rs = "Vui lòng kick vào ô kiểm tra";
+                                rs = "Please check to checkbox";
                             }
                             break;
                         }

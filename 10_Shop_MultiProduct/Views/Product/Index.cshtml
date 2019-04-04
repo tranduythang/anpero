@@ -32,7 +32,7 @@
     </div>
     <div class="main_content ">
         <div id="section-template-product" class="shopify-section section section_single-product section_product section_template__product">
-            <div itemscope="" itemtype="http://schema.org/Product" class="product-scope container type_carousel">
+            <div itemscope itemtype="http://schema.org/Product" class="product-scope container type_carousel">
                 <meta itemprop="url" content="@ViewBag.WebsiteUrl">
                 <meta itemprop="image" content="@item.Images">
                 <div class="row">
@@ -42,21 +42,32 @@
                             <div class="swiper-wrapper">
                                 @foreach (var slideItem in item.ImagesSlide)
                                 {
-                                    <div class="swiper-slide swiper-slide-active">
-                                        <img src="@slideItem" alt="@item.Price">
-                                    </div>
+                                    <div class="swiper-slide sm-item">
+                                        <img src="@slideItem" alt="@item.PrName">
+                                    </div>                                    
                                 }
                             </div>
                         </div>
-
-                        <div id="gallery_big-template-product" class="gallery_big swiper-container swiper-container-horizontal swiper-container-fade">
-                            <div class="swiper-wrapper">
-                                @foreach (var slideItem in item.ImagesSlide)
+                        <div class="swiper-pagination"></div>
+                        <div id="gallery_big-template-product" class="gallery_big swiper-container">
+                            <div class="swiper-wrapper owl-carousel">
+                                @if (item.ImagesSlide.Count() > 0)
+                                {
+                                    foreach (var slideItem in item.ImagesSlide)
+                                    {
+                                        <div class="swiper-slide swiper-slide-active">
+                                            <img src="@slideItem" alt="@item.PrName">
+                                        </div>
+                                    }
+                                }
+                                else
                                 {
                                     <div class="swiper-slide swiper-slide-active">
-                                        <img src="@slideItem" alt="@item.Price">
+                                        <img src="@item.Images" alt="@item.PrName">
                                     </div>
                                 }
+
+
                             </div>
                         </div>
 
@@ -64,13 +75,13 @@
                         <div id="next_template-product" class="swiper_btn swiper_btn__next"></div>
                     </div>
 
-                    <div class="single_product__info col-sm-5">
-                        <h2 itemprop="name" class="single_product__title">@item.PrName</h2>
-                        <div class="single_product__details">
+                        <div class="single_product__info col-sm-5">
+                            <h2 itemprop="name" class="single_product__title">@item.PrName</h2>
+                            <div class="single_product__details">
                                 <div class="details_wrapper">
                                     <p class="single_product__availability">
                                         <b>Tình trạng:</b>
-                                        <span id="single_product__availability-template-product" class="notify_success">@(item.IsInstock ? "Còn hàng" : "Hết Hàng")</span>
+                                        <span id="single_product__availability-template-product" class="notify_success">@(item.IsInstock ? "Instock" : "out of stock")</span>
                                     </p>
                                     <p class="single_product__sku">
                                         <b>SKU:</b>
@@ -96,19 +107,19 @@
                                             <span id="single_product__price-template-product">
                                                 @if (item.IsSale)
                                                 {
-                                                    <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
-                                                    <span class="money money_sale">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
-                                                    <span class="money_sale_percent">– @Convert.ToInt32(item.SalePrice/item.Price*100)%</span>
+                                                    <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) $</span>
+                                                    <span class="money money_sale">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) $</span>
+                                                    <span class="money_sale_percent">– @Convert.ToInt32(item.SalePrice / item.Price * 100)%</span>
 
                                                 }
                                                 else
                                                 {
-                                                    <span class="money">@(item.Price == 0 ? "Đang cập nhật giá" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
+                                                    <span class="money">@(item.Price == 0 ? "Đang cập nhật giá" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " $")</span>
                                                 }
                                             </span>
                                         </p>
                                         <div class="single_product__quantity">
-                                            <label for="single_product__quantity-template-product">Số lượng: </label>
+                                            <label for="single_product__quantity-template-product">Quantity: </label>
                                             <div class="quantity_box">
                                                 <span class="quantity_down"><i class="fa fa-minus" aria-hidden="true"></i></span>
                                                 <input id="single_product__quantity-template-product" class="quantity_input" type="text" name="quantity" value="1">
@@ -119,20 +130,20 @@
 
                                     <div class="button_block">
                                         <button type="submit" name="add" class="btn" id="single_product__addtocart">Mua hàng</button>
-                                        <p class="wishlist_section"><a href="http://www.facebook.com/sharer.php?u=@ViewBag.WebsiteUrl" class="wishlist_form"><i class="fa fa-heart" aria-hidden="true"></i> Chia sẻ sản phẩm này</a></p>
+                                        <p class="wishlist_section"><a href="http://www.facebook.com/sharer.php?u=@ViewBag.WebsiteUrl" class="wishlist_form"><i class="fa fa-heart" aria-hidden="true"></i> Share</a></p>
                                     </div>
-                                </div>                            
-                            <div class="social_sharing_block">
-                                <a target="_blank" href="http://www.facebook.com/sharer.php?u=@ViewBag.WebsiteUrl" title="Share">
-                                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                                </a>
-                                <a target="_blank" href="http://twitter.com/share?text=@item.PrName&amp;url=@ViewBag.WebsiteUrl" title="Share">
-                                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                                </a>
+                                </div>
+                                <div class="social_sharing_block">
+                                    <a target="_blank" href="http://www.facebook.com/sharer.php?u=@ViewBag.WebsiteUrl" title="Share">
+                                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                                    </a>
+                                    <a target="_blank" href="http://twitter.com/share?text=@item.PrName&amp;url=@ViewBag.WebsiteUrl" title="Share">
+                                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 <div class="tab_content_wrapper">
                     <div class="tab_navigation">
                         <span class="tab_nav tab_nav_1 active" data-tab="0">Chi tiết</span>
@@ -151,7 +162,7 @@
                 </div>
             </div>
             <div class="widget_related_products container">
-                <h3>Bạn cũng có thể thích những sản phẩm này</h3>
+                <h3>Other product</h3>
                 <div class="widget_content">
                     <div class="row product_listing__main product_listing_related">
                         @if (ViewData["relateProduct"] != null)
@@ -183,7 +194,7 @@
                                                 </p>
                                                 <div class="product_prop">
                                                     <p class="product_price">
-                                                        <span class="money" data-currency-usd="$23.00">@Anpero.StringHelpper.ConVertToMoneyFormatInt(relateItem.SalePrice) đ</span>
+                                                        <span class="money" data-currency-usd="$23.00">@Anpero.StringHelpper.ConVertToMoneyFormatInt(relateItem.SalePrice) $</span>
                                                     </p>
                                                     <p class="product_color"></p>
                                                 </div>
@@ -210,9 +221,37 @@
         </div>
     </div>
     @section scripts{
+    <script src="/assets/js/owl.carousel.min.js"></script>
         <script>
             $(document).ready(function () {
+                var swiper = new Swiper('#gallery_thumbs-template-product', {
+                    direction: 'vertical',
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                    mousewheel: true,                    
+                    navigation: {
+                        nextEl: '.swiper_btn__next',
+                        prevEl: '.swiper_btn__prev',
+                        clickable: true,
+                    }
+                });
+
+                
                 resizeVideo();
+                $("#gallery_thumbs-template-product img").click(function () {
+                    var imgLink = $(this).attr("src");
+                    $("#gallery_big-template-product img").attr("src", imgLink);
+                });
+                
+                $('.owl-carousel').owlCarousel({
+                    loop: true,
+                    autoplay: true,
+                    items: 1,
+                    nav: true,
+                    autoplayHoverPause: true,
+                    animateOut: 'slideOutUp',
+                    animateIn: 'slideInUp'
+                })
                 $(window).resize(function () {
                     resizeVideo();
                 });

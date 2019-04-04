@@ -18,13 +18,13 @@
                 <div class="row footer_main">
                     <div class="col-sm-3 footer_block footer_block__2_1">
                         <div class="footer_item footer_item__about ">
-                            <h3>Về chúng tôi</h3>
+                            <h3>About us</h3>
                             <div class="about_text"><p> @commonInfo.Desc</p></div>
                         </div>
                     </div>
                     <div class="col-sm-3 footer_block ">
                         <div class="footer_item footer_item__links ">
-                            <h3>Danh mục sản phẩm</h3>
+                            <h3>Category</h3>
                             <ul>
                                 @foreach (var item in commonInfo.ProductCategoryList)
                                 {
@@ -39,30 +39,37 @@
                     <div class="col-sm-3 footer_block footer_block__2_1">
 
                         <div class="footer_item footer_item__links ">
-                            <h3>Thông tin</h3>
+                            <h3>Info</h3>
                             <ul>
                                 <li>
-                                    <a href="/about">Giới thiệu</a>
+                                    <a href="/about">About us</a>
                                 </li>
                                 <li>
-                                    <a href="/shippolicy">Chính sách vận chuyển</a>
+                                    <a href="/PaymentInfo">Payment Protection Policy</a>
                                 </li>
                                 <li>
-                                    <a href="/PaymentInfo">Hướng dẫn thanh toán</a>
+                                    <a href="/WarrantyPolicy">Warranty policy at Softvip</a>
                                 </li>
+                                <li>
+                                    <a href="/PrivacyPolicy">Payment Protection Policy</a>
+                                </li>
+                                <li>
+                                    <a href="/ProductReturnPolicy">Return Policy</a>
+                                </li>
+
                             </ul>
                         </div>
                     </div>
                     <div class="col-sm-3 footer_block ">
                         <div class="footer_item footer_item__links ">
-                            <h3>Tin tức</h3>
+                            <h3>Blog</h3>
                             <ul>
                                 <li>
                                     <a href="/Blog">Blogs</a>
                                 </li>
 
                                 <li>
-                                    <a href="/home/contact">Liên hệ</a>
+                                    <a href="/home/contact">Contact</a>
                                 </li>
                                 @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
                                 {
