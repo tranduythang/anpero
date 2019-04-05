@@ -49,9 +49,7 @@ namespace Anpero.PaymentApi.NganLuong
                 XmlDocument dom = new XmlDocument();
                 dom.LoadXml(result);
                 XmlNodeList root = dom.DocumentElement.ChildNodes;
-
                 ResponseCheckOrder objResult = new ResponseCheckOrder();
-
 
                 objResult.errorCode = root.Item(0).InnerText;
                 objResult.token = root.Item(1).InnerText;
@@ -61,8 +59,7 @@ namespace Anpero.PaymentApi.NganLuong
                 objResult.paymentAmount = root.Item(6).InnerText;
                 objResult.payerName = root.Item(16).InnerText; //buyer_fullname
                 objResult.payerEmail = root.Item(17).InnerText; //buyer_email
-                objResult.payerMobile = root.Item(18).InnerText; //buyer_mobile
-                                                                 
+                objResult.payerMobile = root.Item(18).InnerText; //buyer_mobile                                                                 
                                                                  
                 objResult.transactionId = root.Item(21).InnerText;
 
