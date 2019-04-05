@@ -59,7 +59,7 @@ namespace AnperoFrontend.Controllers
            
             if (HttpRuntime.Cache["saleProduct"] != null)
             {
-                saleProduct = (WebService.ProductItem[])HttpRuntime.Cache["saleProduct"];
+                saleProduct = (WebService.ProductItem[])   HttpRuntime.Cache["saleProduct"];
             }
             else
             {
