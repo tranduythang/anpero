@@ -90,7 +90,7 @@
                 $(".toal-cart").show();
                 $(".mini-products-list").show();
                 $(".cart-buttons").show();                
-                $("#lpr").html(Util.toMoneyFormat(ttSC) + " đ");
+                $("#lpr").html(Util.toMoneyFormat(ttSC) + " $");
                 $("#sendOrder").show();
                 htmlCat += '<div class="box_footer">';
                 htmlCat += '<p class="cart_total"><b>Price: </b><span class="money">' + Util.toMoneyFormat(ttSC) + ' $</span></p>';
@@ -101,7 +101,7 @@
                 $("#sendOrder").hide();
                 $("#cart_content_box").html("Giỏ hàng rỗng");
                 $("#cart-sidebar2").html("Giỏ hàng rỗng");
-                $("#lpr").html(" 0 đ");
+                $("#lpr").html(" 0 $");
             }
         }
     },
@@ -149,13 +149,13 @@
                     htmlCat += '<span>' + Util.toMoneyFormat(parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity)) + ' $</span>';
                     htmlCat += '</td>';
                     htmlCat += '<td class="a-center last">';
-                    htmlCat += '<a href="javascript:Cart.remove2(' + Cart.list[i].id + ')" class="button remove-item">Xóa</a>';
+                    htmlCat += '<a href="javascript:Cart.remove2(' + Cart.list[i].id + ')" class="button remove-item">delete</a>';
                     htmlCat += '</td>';
                     htmlCat += '</tr>';
                 }
                 var shipingFee = $('input[name=radio_3]:checked').attr("data-ship");
-                $("#ttPrCt").html(Util.toMoneyFormat(ttSC) + " đ");
-                $("#ttOdCt").html(Util.toMoneyFormat(parseInt(ttSC) + parseInt(shipingFee) + parseInt(_paymentFee)) + " đ");
+                $("#ttPrCt").html(Util.toMoneyFormat(ttSC) + " $");
+                $("#ttOdCt").html(Util.toMoneyFormat(parseInt(ttSC) + parseInt(shipingFee) + parseInt(_paymentFee)) + " $");
                 $("#prCatCtTable").html(htmlCat);
                 $(".qty input").change(function () {
                     var id = $(this).attr('id').replace("prQuantity_", "");
@@ -236,16 +236,16 @@
             Util.notify("Lỗi: ", "Số điện không được để trống");
         } else if (!Util.isVnFone(_phone)) {
             valid = false;
-            Util.notify("Lỗi: ", "Số điện không đúng định dạng");
+            Util.notify("Error: ", "The phone number is incorrect");
         }
         var captchaResponse = grecaptcha.getResponse(googleCatcha);
         if (captchaResponse == "" || captchaResponse == null) {
             grecaptcha.reset();
-            Util.notify("Lỗi", "Vui lòng nhập click vào ô kiểm tra");
+            Util.notify("Error", "Please click on the check box");
             valid = false;
         }
         if ($.cookie("CartList") == "[]" || $.cookie("CartList") == null) {
-            Util.notify("Lỗi", "Giỏ hàng đang trống không thể tạo đơn hàng");
+            Util.notify("Error", "The shopping cart is empty and cannot create an order");
             valid = false;
         }
         var isPaymentOnline = false;
@@ -254,18 +254,18 @@
         }
         if (isPaymentOnline && $('input[name=bankcode]:checked').val() == null) {
             valid = false;
-            Util.notify("", "Vui lòng chọn ngân hàng thanh toán. ");
+            Util.notify("", "Please select a payment bank. ");
 
         }
 
         if (isPaymentOnline && (_email == "" || !Util.isEmail(_email))) {
             valid = false;
-            Util.notify("Lỗi: ", "Email không đúng định dạng, Thanh toán Online yêu cầu nhập Email.");
+            Util.notify("Lỗi: ", "Email is malformed, Online Payment requires email entry.");
         }
         if (valid) {
             $("#cartContent1").hide();
             $("#cartContent2").show();
-            $("#cartContent2").html("<h4>Đơn hàng đang được gửi ...</h4>");
+            $("#cartContent2").html("<h4>Order is being sent ...</h4>");
             $("#ajax_loader").show();
             $.ajax({
                 method: "post",
@@ -277,9 +277,9 @@
                     if (!isNaN(rs)) {
                         $.removeCookie('CartList', { path: '/' });
                         if (isPaymentOnline) {
-                            $("#cartContent2").html("<h4>Đơn hàng số #" + rs + " đang được chuyển tới cổng thanh toán</h4>");
-                            Util.notify("", "Đơn hàng đang được chuyển sang cổng thanh toán. ");
-                            var _totalPrice = $("#ttOdCt").html().replace("đ", "").replace(/\,/g, '');
+                            $("#cartContent2").html("<h4>Order number #" + rs + " being transferred to the payment gateway</h4>");
+                            Util.notify("", "The order is being transferred to the payment gateway. ");
+                            var _totalPrice = $("#ttOdCt").html().replace("đ", "").replace("$", "").replace(/\,/g, '');
                             var _bankcode = $('input[name=bankcode]:checked').val();
 
                             $.ajax({
@@ -298,8 +298,8 @@
                                 }
                             });
                         } else {
-                            $("#cartContent2").html("<h4>Đơn hàng số #" + rs + " đã được gửi thành công tới bộ phận bán hàng. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</h4><h5>Với thông tin chuyển khoản vui lòng click vào <a href='' style='color: blue;'>link này</a> để được hướng dẫn chuyển khoản</h5>");
-                            Util.notify("", "Đơn hàng đã được gửi tới bộ phận bán hàng. ");
+                            $("#cartContent2").html("<h4>Order number #" + rs + " has been successfully sent to the sales department.Thank you for using our service!</h4>");
+                            Util.notify("", "The order has been sent to the sales department. ");
                         }
 
 

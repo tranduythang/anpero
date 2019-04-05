@@ -25,18 +25,18 @@
 <div class="breadcrumbs">
     <div class="container">
         <ul>
-            <li><a href="/">Trang chủ</a></li>
-            <li><span>Giỏ hàng</span></li>
+            <li><a href="/">Home</a></li>
+            <li><span>Cart</span></li>
         </ul>
     </div>
 </div>
 
 <div class="container">
-    <h1 class="page_heading">Thông tin nhận hàng</h1>
+    <h1 class="page_heading">Your payment info</h1>
     <div class="center_column col-xs-12 col-sm-12" id="center_column">
         <div id="main" class="blog-wrapper">
             <div class="page-content checkout-page" id="cartContent1">
-                <h3 class="checkout-sep mt-25">1. Thông tin nhận hàng</h3>
+                <h3 class="checkout-sep mt-25">1. Your payment info</h3>
                 <div class="box-border col-md-12">
                     <ul class="form-list">
                         <li class="row">
@@ -47,7 +47,7 @@
                         </li>
                         <li class="row">
                             <div class="col-sm-6">
-                                <label for="company_name_1" class="mt-25">Số điện thoại (*)</label>
+                                <label for="company_name_1" class="mt-25">Phone (*)</label>
                                 <input class="input form-control" type="text" name="" id="cPhone">
                             </div>
                             <div class="col-sm-6">
@@ -60,13 +60,13 @@
 
                             </div>
                             <div class="col-sm-12">
-                                <label for="email_address_1" class="required mt-25">Bạn có muốn ghi chú gì cho đơn hàng này không ?</label>
+                                <label for="email_address_1" class="required mt-25">Note ?</label>
                                 <textarea class="input form-control" name="" id="detail"></textarea>
                             </div>
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 hidden" >
                     <h3 class="checkout-sep mt-25">2. Phương thức vận chuyển</h3>
                     <div class="box-border">
                         <ul class="shipping_method form-list">
@@ -86,7 +86,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 hidden">
                     <h3 class="checkout-sep mt-25">3. Phương thức thanh toán</h3>
                     <div class="box-border">
                         <ul class="shipping_method form-list">
@@ -267,17 +267,17 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <h3 class="checkout-sep mt-25">4. Kiểm tra lại thông tin sản phẩm</h3>
+                    <h3 class="checkout-sep mt-25">4. Product</h3>
                     <div class="box-border">
                         <table class="table table-bordered table-responsive add-to-cart" id="shopping-cart-table">
                             <thead>
                                 <tr>
-                                    <th class="cart_product">Ảnh</th>
-                                    <th>Thông tin</th>
+                                    <th class="cart_product">Images</th>
+                                    <th>Priduct name</th>
                                     <th>Tình trạng.</th>
-                                    <th>Đơn giá</th>
-                                    <th>Số lượng</th>
-                                    <th>Tổng</th>
+                                    <th>price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
                                     <th class="action"><i class="fa fa-trash-o"></i></th>
                                 </tr>
                             </thead>
@@ -285,11 +285,11 @@
                             <tfoot>
                                 <tr>
                                     <td colspan="2" rowspan="2"></td>
-                                    <td colspan="3">Tổng giá sản phẩm </td>
+                                    <td colspan="3">Tottal price </td>
                                     <td colspan="2" id="ttPrCt"></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3"><strong>Tổng đơn hàng (bao gồm ship)</strong></td>
+                                    <td colspan="3"><strong>Total</strong></td>
                                     <td colspan="2"><strong id="ttOdCt"></strong></td>
                                 </tr>
                             </tfoot>
@@ -299,12 +299,11 @@
                         </div>
                         <div class="clearfix"></div>
                         <div class="col-md-12 ">
-                            <a href="/" title="Continue Shopping" class="btn button btn-continue" onclick=""><span><span>Mua thêm</span></span></a>
+                            <a href="/" title="Continue Shopping" class="btn button btn-continue" onclick=""><span><span>Buy more</span></span></a>
 
                             <button type="submit" name="update_cart_action" value="update_qty" title="Update Cart" class="btn btn_alt button btn-update pull-right" id="orderBtn" style="margin-top:15px;">
                                 <span>
-
-                                    <span>Gửi đơn hàng</span>
+                                    <span>Send order</span>
                                 </span>
                             </button>
 

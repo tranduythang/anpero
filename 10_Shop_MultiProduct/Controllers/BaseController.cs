@@ -81,13 +81,10 @@ namespace AnperoFrontend.Controllers
                 {
                     HttpRuntime.Cache.Insert("BestsaleProduct", BestsaleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
-
             }
             filterContext.Controller.ViewData["BestsaleProduct"] = BestsaleProduct;
-
             GetTopArticle(filterContext, shortCacheTime);
             //slide of list product page
-
         }
         public void GetTopArticle(ActionExecutedContext filterContext,int shortCacheTime)
         {

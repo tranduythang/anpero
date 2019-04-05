@@ -30,7 +30,7 @@
             <div class="breadcrumbs">
                 <div class="container">
                     <ul>
-                        <li><a href="/">Trang chủ</a></li>
+                        <li><a href="/">Home</a></li>
                         @if (pageName.ToLower().Equals("search"))
                         {
                             <li>
@@ -190,7 +190,7 @@
                                                     <div class="add_to_cart_form">
                                                         @if (item.IsInstock)
                                                         {
-                                                            <button onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@item.PrName') @Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="btn-cart">Mua hàng</button>
+                                                            <button onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@item.PrName') @Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="btn-cart">Buy</button>
                                                         }
                                                         else
                                                         {
