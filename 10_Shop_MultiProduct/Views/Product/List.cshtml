@@ -95,7 +95,7 @@
                                                         {
                                                             activeClass = "active";
                                                         }
-                                                        <li class="@activeClass" ><a href="@Anpero.StringHelpper.GetCategoryLink(subItem.Name, subItem.Id)" title="@subItem.Name">@subItem.Name</a></li>
+                                                        <li class="@activeClass"><a href="@Anpero.StringHelpper.GetCategoryLink(subItem.Name, subItem.Id)" title="@subItem.Name">@subItem.Name</a></li>
 
 
                                                     }
@@ -107,15 +107,7 @@
                                     </ul>
                                 </div>
                             }
-                            <div class="product_options">
-                                @*<ul class="product_view">
-                                        <li id="view_grid" data-view="grid" class="active">
-                                            <i class="fa fa-th" aria-hidden="true"></i>
-                                        </li>
-                                        <li id="view_list" data-view="list">
-                                            <i class="fa fa-th-list" aria-hidden="true"></i>
-                                        </li>
-                                    </ul>*@
+                            <div class="product_options">                          
                                 <div class="product_options__sort">
                                     <label for="sort_by_select">Sắp xếp theo:</label>
 
@@ -176,30 +168,8 @@
                                                 <p class="product_desc product_desc__long">
                                                     @item.ShortDesc
                                                 </p>
-                                                <div class="product_prop">
-                                                    <p class="product_price">
-                                                        @if (item.IsSale)
-                                                        {
-                                                            <span class="money money_sale" data-currency-usd="$33.00">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
-                                                        }
-                                                        <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
-                                                    </p>
-                                                    <p class="product_color"></p>
-                                                </div>
-                                                <div class="product_links">
-                                                    <div class="add_to_cart_form">
-                                                        @if (item.IsInstock)
-                                                        {
-                                                            <button onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@item.PrName') @Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="btn-cart">Mua hàng</button>
-                                                        }
-                                                        else
-                                                        {
-                                                            <button disabled onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@item.PrName') @Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="btn-cart">Mua hàng</button>
-                                                        }
-                                                    </div>
-                                                    <a class="wishlist_btn" href="https://www.facebook.com/sharer/sharer.php?u=@currentUrl" target="_blank" title="Chia sẻ với bạn bè"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                                    <a class="quick_view_btn_1" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="Quick view"><i class="fa fa-search-plus" aria-hidden="true"></i></a>
-                                                </div>
+                                              
+                                             
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
@@ -245,14 +215,7 @@
                         </div>
                         <div id="shopify-section-sidebar-ensuing" class="shopify-section page_sidebar">
                             <div class="sidebar">
-                                <div class="sidebar_widget sidebar_widget__banner">
-                                    <div class="img_placeholder__wrap img_placeholder__large" style="background-image: url(http://media.anpero.com/images/53/32019/12019030406264126.jpg)"></div>
-                                    <div class="sidebar_banner_caption">
-                                        <a href="/search">
-                                            <h3>NEW COLLECTION</h3>
-                                        </a>
-                                    </div>
-                                </div>
+                               
                                 <div class="sidebar_widget sidebar_widget__products">
                                     <h3 class="widget_header">Products</h3>
                                     <div class="widget_content">

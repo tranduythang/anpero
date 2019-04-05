@@ -32,12 +32,16 @@
                         Ads[] slide = (Ads[])ViewData["Slide"];
                         foreach (var item in slide)
                         {
+
                             <div class="swiper-slide image_slide">
-                                <div class="img_placeholder__wrap img_placeholder__large" style="background-image: url(@item.ImagesUrl);"></div>
-                                <div class="slide_caption container">
-                                    <div class="slide_caption_text"></div>
-                                </div>
+                                <a href="@item.ClickUrl">
+                                    <div class="img_placeholder__wrap img_placeholder__large" style="background-image: url(@item.ImagesUrl);"></div>
+                                    <div class="slide_caption container">
+                                        <div class="slide_caption_text"></div>
+                                    </div>
+                                </a>
                             </div>
+
                         }
                     }
                     <div class="navigations">
@@ -69,73 +73,36 @@
         </div>
         <div id="shopify-section-1546967523308" class="shopify-section section section_homepage section_featured-products">
             <div class="container">
-                <h2 class="section_heading">Thịnh hành</h2>
+                <h2 class="section_heading">Sản phẩm</h2>
                 <div class="row product_listing__main">
-                    @if (ViewData["BestsaleProduct"] != null)
+                    @if (commonInfo.ProductCategoryList != null)
                     {
-                        AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["BestsaleProduct"];
-                        if (bestSaleList != null && bestSaleList.Item.Length > 0)
+                        foreach (var item in commonInfo.ProductCategoryList)
                         {
-                            foreach (ProductItem item in bestSaleList.Item)
-                            {
-                                <div class="col-xs-4 item_4_1 item_2_1">
-                                    <div class="product_item">
-                                        <div class="product_img">
-                                            <a class="img_change" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
-                                                <img class="img__1" src="@item.Images" alt="@item.PrName">
-                                                @if (item.ImagesSlide != null && item.ImagesSlide.Count() > 0)
-                                                {
-                                                    <img class="img__2" src="@item.ImagesSlide[0]" alt="@item.PrName">
-                                                }
-                                                <span class="product_badge new">mới</span>
-                                                @if (item.IsSale)
-                                                {
-                                                    <span class="product_badge sale">sale</span>
-                                                }
-
-                                            </a>
-                                        </div>
-                                        <div class="product_info">
-                                            <p class="product_name">
-                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
-                                            </p>
-                                            <p class="product_desc product_desc__short">
-                                                @item.ShortDesc
-                                            </p>
-                                            <p class="product_desc product_desc__long">
-                                                @item.ShortDesc
-                                            </p>
-                                            <div class="product_prop">
-                                                <p class="product_price">
-                                                    @if (item.IsSale)
-                                                    {
-                                                    <span class="money money_sale" data-currency-usd="$33.00">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
-                                                    }
-                                                    <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
-                                                </p>
-                                                <p class="product_color"></p>
-                                            </div>
-                                            <div class="product_links">
-                                                <div class="add_to_cart_form">
-                                                    @if (item.IsInstock)
-                                                    {
-                                                        <button onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@item.PrName') @Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="btn-cart">Mua hàng</button>
-                                                    }
-                                                    else
-                                                    {
-                                                        <button disabled onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@item.PrName') @Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="btn-cart">Mua hàng</button>
-                                                    }
-                                                </div>
-                                                <a class="wishlist_btn" href="https://www.facebook.com/sharer/sharer.php?u=@currentUrl" target="_blank" title="Chia sẻ với bạn bè"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                                <a class="quick_view_btn_1" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="Quick view"><i class="fa fa-search-plus" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix"></div>
+                            <div class="col-xs-4 item_4_1 item_2_1">
+                                <div class="product_item">
+                                    <div class="product_img">
+                                        <a class="img_change" href="@Anpero.StringHelpper.GetCategoryLink(item.Name,item.Id)">
+                                            <img class="img__1" src="@item.Images" alt="@item.Name">
+                                        </a>
                                     </div>
+                                    <div class="product_info">
+                                        <p class="product_name">
+                                            <a href="@Anpero.StringHelpper.GetCategoryLink(item.Name,item.Id)">@item.Name</a>
+                                        </p>
+                                        <p class="product_desc product_desc__short">
+                                            @item.Description
+                                        </p>
+                                        <p class="product_desc product_desc__long">
+                                            @item.Description
+                                        </p>
+                                    </div>
+                                    <div class="clearfix"></div>
                                 </div>
-                            }
+                            </div>
                         }
                     }
+
                 </div>
             </div>
 
@@ -143,104 +110,34 @@
             <div class="divider_item container" style="padding-top: 50px;"></div>
             <div class="divider_item tablet_show container" style="padding-top: 50px;"></div>
         </div>
-        <div id="shopify-section-1547295055745" class="shopify-section section section_homepage section_two_banners">
-            <div class="row">
-                @if (ViewData["ads1"] != null)
-                {
-                    Ads[] ads1 = (Ads[])ViewData["ads1"];
-                    if (ads1.Count() > 0)
+        <div class="shopify-section section section_homepage section_two_banners">
+            <div class="container">
+                <div class="row about-news">
+
+                    @if (ViewData["ads1"] != null)
                     {
-                        <div class="col-sm-6 banner_left">
-                            <div class="banner_left__item">
-                                <div class="img_placeholder__wrap img_placeholder__left" style="background-image: url( @ads1[0].ImagesUrl);"></div>
+                        Ads[] ads1 = (Ads[])ViewData["ads1"];
+                        if (ads1.Count() > 0)
+                        {
+                            <div class="col-sm-6">
+
+                                <h2 class="title">Về chúng tôi</h2>
+                                <div class="">
+                                    <img src="@ads1[0].ImagesUrl" style="max-width:100%;" />
+                                </div>
                                 <div class="banner_left__caption position_left">
                                     <div class="caption_text">
                                         @Html.Raw(ads1[0].Description)
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        if (ads1.Count() > 1)
-                        {
-                            <div class="col-sm-6 banner_right">
-                                <div class="banner_right__item">
-                                    <div class="img_placeholder__wrap img_placeholder__right" style="background-image: url(@ads1[1].ImagesUrl);"></div>
-                                    <div class="banner_right__caption position_left">
-                                        <div class="caption_text">
-                                            @ads1[1].Description
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    }
-                }
-            </div>
-        </div>
-        <div id="shopify-section-1546967580528" class="shopify-section  section section_homepage section_featured-products">
-            <div class="container">
-                <h2 class="section_heading">Sản phẩm mới</h2>
-                <div class="row product_listing__main">
-                    @if (ViewData["newestProduct"] != null)
-                    {
-                        AnperoFrontend.WebService.SearchResult newestProduct = (AnperoFrontend.WebService.SearchResult)ViewData["newestProduct"];
-                        if (newestProduct != null && newestProduct.Item.Length > 0)
-                        {
-                            foreach (ProductItem item in newestProduct.Item)
-                            {
-                                <div class="col-xs-4 item_4_1 item_2_1">
-                                    <div class="product_item">
-                                        <div class="product_img">
-                                            <a class="img_change" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
-                                                <img class="img__1" src="@item.Images" alt="@item.PrName">
-                                                @if (item.ImagesSlide != null && item.ImagesSlide.Count() > 0)
-                                                {
-                                                    <img class="img__2" src="@item.ImagesSlide[0]" alt="@item.PrName">
-                                                }
-                                                <span class="product_badge new">mới</span>
-                                                @if (item.IsSale)
-                                                {
-                                                    <span class="product_badge sale">sale</span>
-                                                }
 
-                                            </a>
-                                        </div>
-                                        <div class="product_info">
-                                            <p class="product_name">
-                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
-                                            </p>
-                                            <p class="product_desc product_desc__short">
-                                                @item.ShortDesc
-                                            </p>
-                                            <p class="product_desc product_desc__long">
-                                                @item.ShortDesc
-                                            </p>
-                                            <div class="product_prop">
-                                                <p class="product_price">
-                                                    @if (item.IsSale)
-                                                    {
-                                                        <span class="money money_sale" data-currency-usd="$33.00">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
-                                                    }
-                                                    <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
-                                                </p>
-                                                <p class="product_color"></p>
-                                            </div>
-                                            <div class="product_links">
-                                                <div class="add_to_cart_form">
-                                                    @if (item.IsInstock)
-                                                    {
-                                                        <button onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@item.PrName') @Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="btn-cart">Mua hàng</button>
-                                                    }
-                                                    else
-                                                    {
-                                                        <button disabled onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@item.PrName') @Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="btn-cart">Mua hàng</button>
-                                                    }
-                                                </div>
-                                                <a class="wishlist_btn" href="https://www.facebook.com/sharer/sharer.php?u=@currentUrl" target="_blank" title="Chia sẻ với bạn bè"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                                <a class="quick_view_btn_1" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="Quick view"><i class="fa fa-search-plus" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix"></div>
+                            </div>
+                            if (ads1.Count() > 1)
+                            {
+                                <div class="col-sm-6" id="content-video">
+                                    <h2 class="title">Video</h2>
+                                    <div class="caption_text">
+                                        @Html.Raw(ads1[1].Description)
                                     </div>
                                 </div>
                             }
@@ -248,7 +145,6 @@
                     }
                 </div>
             </div>
-
         </div>
         <div id="shopify-section-1547200797889" class="shopify-section  section section_divider">
             <div class="divider_item container" style="padding-top: 22px;"></div>
@@ -256,6 +152,7 @@
         </div>
         <div id="shopify-section-1547217564453" class="shopify-section section section_homepage section_banners_countdown_custom">
             <div class="row">
+
                 @if (ViewData["ads2"] != null)
                 {
                     Ads[] ads2 = (Ads[])ViewData["ads2"];
@@ -291,8 +188,10 @@
 
 
             </div>
-        </div><div id="shopify-section-1546967621042" class="shopify-section section section_homepage section_logo-list">
+        </div>
+        <div id="shopify-section-1546967621042" class="shopify-section section section_homepage section_logo-list">
             <div class="container">
+                <h2 class="section_heading">Khách hàng</h2>
                 <div class="row">
                     @if (ViewData["ads3"] != null)
                     {
@@ -316,3 +215,34 @@
         </div><!-- END content_for_index -->
     </div>
 </div>
+<style>
+    .about-news .title {
+        margin-bottom: 5px;
+        line-height: 38px;
+        text-align: left;
+        width: initial;
+        display: inline-block;
+        font-size: 18px;
+        padding: 5px;
+        padding-top: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-bottom: solid 2px #0e47b0;
+    }
+</style>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            resizeVideo();
+        });
+        function resizeVideo() {
+            var contentW = $('#content-video').width();
+            var iframe = $('#content-video .caption_text iframe');
+            var iframeW = iframe.css('width', contentW - 20);
+            iframe.css('width', iframeW);
+            var iframeH = contentW / 16 * 9;
+            iframe.css('height', iframeH);
+        }
+    </script>
+    
+}

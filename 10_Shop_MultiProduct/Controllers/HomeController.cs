@@ -14,7 +14,7 @@ namespace AnperoFrontend.Controllers
             Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
 
             WebService.AnperoService service = new WebService.AnperoService();
-            GetNewestProduct();
+           //GetNewestProduct();
             SetUpSlideAds();
             return View();
         }
@@ -53,20 +53,20 @@ namespace AnperoFrontend.Controllers
                     HttpRuntime.Cache.Insert("ads1", ads1, null, DateTime.Now.AddMinutes(shortCacheTime + 3), TimeSpan.Zero);
                 }
             }
-            WebService.Ads[] Ads2 = null;
-            if (HttpRuntime.Cache["ads2"] != null)
-            {
-                ViewData["ads2"] = (WebService.Ads[])HttpRuntime.Cache["ads2"];
-            }
-            else
-            {
-                Ads2 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads2);
-                ViewData["Ads2"] = Ads2;
-                if (Slide != null)
-                {
-                    HttpRuntime.Cache.Insert("Ads2", Ads2, null, DateTime.Now.AddMinutes(shortCacheTime + 3), TimeSpan.Zero);
-                }
-            }
+            //WebService.Ads[] Ads2 = null;
+            //if (HttpRuntime.Cache["ads2"] != null)
+            //{
+            //    ViewData["ads2"] = (WebService.Ads[])HttpRuntime.Cache["ads2"];
+            //}
+            //else
+            //{
+            //    Ads2 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads2);
+            //    ViewData["Ads2"] = Ads2;
+            //    if (Slide != null)
+            //    {
+            //        HttpRuntime.Cache.Insert("Ads2", Ads2, null, DateTime.Now.AddMinutes(shortCacheTime + 3), TimeSpan.Zero);
+            //    }
+            //}
             WebService.Ads[] ads3 = null;
             if (HttpRuntime.Cache["ads3"] != null)
             {

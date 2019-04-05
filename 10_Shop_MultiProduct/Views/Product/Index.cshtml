@@ -46,17 +46,24 @@
                                         <img src="@slideItem" alt="@item.Price">
                                     </div>
                                 }
+                                <div class="swiper-slide swiper-slide-active">
+                                    <img src="@item.Images" alt="@item.Price">
+                                </div>
                             </div>
                         </div>
 
                         <div id="gallery_big-template-product" class="gallery_big swiper-container swiper-container-horizontal swiper-container-fade">
                             <div class="swiper-wrapper">
+
                                 @foreach (var slideItem in item.ImagesSlide)
                                 {
                                     <div class="swiper-slide swiper-slide-active">
                                         <img src="@slideItem" alt="@item.Price">
                                     </div>
                                 }
+                                <div class="swiper-slide swiper-slide-active">
+                                    <img src="@item.Images" alt="@item.Price">
+                                </div>
                             </div>
                         </div>
 
@@ -72,10 +79,7 @@
                                         <b>Tình trạng:</b>
                                         <span id="single_product__availability-template-product" class="notify_success">@(item.IsInstock ? "Còn hàng" : "Hết Hàng")</span>
                                     </p>
-                                    <p class="single_product__sku">
-                                        <b>SKU:</b>
-                                        <span id="single_product__sku-template-product">@item.Id</span>
-                                    </p>
+                               
 
                                     <p class="single_product__collections">
                                         <b>Collections:</b>
@@ -91,34 +95,8 @@
                                         </p>
                                     }
                                     <div class="clearfix"></div>
-                                    <div class="price_and_quantity">
-                                        <p class="single_product__price">
-                                            <span id="single_product__price-template-product">
-                                                @if (item.IsSale)
-                                                {
-                                                    <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
-                                                    <span class="money money_sale">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
-                                                    <span class="money_sale_percent">– @Convert.ToInt32(item.SalePrice/item.Price*100)%</span>
-
-                                                }
-                                                else
-                                                {
-                                                    <span class="money">@(item.Price == 0 ? "Đang cập nhật giá" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
-                                                }
-                                            </span>
-                                        </p>
-                                        <div class="single_product__quantity">
-                                            <label for="single_product__quantity-template-product">Số lượng: </label>
-                                            <div class="quantity_box">
-                                                <span class="quantity_down"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                                <input id="single_product__quantity-template-product" class="quantity_input" type="text" name="quantity" value="1">
-                                                <span class="quantity_up"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="button_block">
-                                        <button type="submit" name="add" class="btn" id="single_product__addtocart">Mua hàng</button>
+                                 
+                                    <div class="button_block">                                        
                                         <p class="wishlist_section"><a href="http://www.facebook.com/sharer.php?u=@ViewBag.WebsiteUrl" class="wishlist_form"><i class="fa fa-heart" aria-hidden="true"></i> Chia sẻ sản phẩm này</a></p>
                                     </div>
                                 </div>                            
@@ -136,7 +114,7 @@
                 <div class="tab_content_wrapper">
                     <div class="tab_navigation">
                         <span class="tab_nav tab_nav_1 active" data-tab="0">Chi tiết</span>
-                        <span class="tab_nav tab_nav_2" data-tab="1">Hướng dẫn thanh toán</span>
+                        @*<span class="tab_nav tab_nav_2" data-tab="1">Hướng dẫn thanh toán</span>*@
                     </div>
                     <div class="tab_content">
                         <div class="tab_item tab_item_1 active">
@@ -181,12 +159,7 @@
                                                 <p class="product_desc product_desc__long">
                                                     @relateItem.ShortDesc
                                                 </p>
-                                                <div class="product_prop">
-                                                    <p class="product_price">
-                                                        <span class="money" data-currency-usd="$23.00">@Anpero.StringHelpper.ConVertToMoneyFormatInt(relateItem.SalePrice) đ</span>
-                                                    </p>
-                                                    <p class="product_color"></p>
-                                                </div>
+                                              
                                                 
                                             </div>
                                             <div class="clearfix"></div>
@@ -213,6 +186,23 @@
         <script>
             $(document).ready(function () {
                 resizeVideo();
+                var swiper = new Swiper('#gallery_thumbs-template-product', {
+                    direction: 'vertical',
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                    mousewheel: true,
+                    navigation: {
+                        nextEl: '.swiper_btn__next',
+                        prevEl: '.swiper_btn__prev',
+                        clickable: true,
+                    }
+                });
+                $("#gallery_thumbs-template-product img").click(function () {
+                    var imgLink = $(this).attr("src");
+                    $("#gallery_big-template-product img").attr("src", imgLink);
+                });
+
+
                 $(window).resize(function () {
                     resizeVideo();
                 });
