@@ -83,6 +83,7 @@ namespace AnperoFrontend.Controllers
                 }
 
             }
+            BestsaleProduct.Item = BestsaleProduct.Item.ToList().OrderBy(qu => Guid.NewGuid()).Take(3).ToArray();
             filterContext.Controller.ViewData["BestsaleProduct"] = BestsaleProduct;
 
             GetTopArticle(filterContext, shortCacheTime);
