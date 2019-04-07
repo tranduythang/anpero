@@ -26,12 +26,16 @@
                         <div class="footer_item footer_item__links ">
                             <h3>Category</h3>
                             <ul>
-                                @foreach (var item in commonInfo.ProductCategoryList)
+                                @if (commonInfo != null)
                                 {
-                                    <li>
-                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">@item.Name</a>
-                                    </li>
+                                    foreach (var item in commonInfo.ProductCategoryList)
+                                    {
+                                        <li>
+                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">@item.Name</a>
+                                        </li>
+                                    }
                                 }
+
                             </ul>
                         </div>
                     </div>

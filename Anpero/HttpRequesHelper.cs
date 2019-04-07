@@ -31,8 +31,45 @@ namespace Anpero
             {
                 return default(T);
             }
-        }        
+        }
+        /// <summary>
+        /// using System.net.WebRequest
+        /// </summary>
+        /// <param name="postData">param=abg&param2=value</param>
+        /// <returns></returns>
+        public static String HttpPost(string url,object paramObject,bool usingSSL)
+        {
 
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            byte[] data = encoding.GetBytes(GetParamString(paramObject));
+
+            // Prepare web request...
+            HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create(url);
+            if (usingSSL)
+            {
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls
+                       | SecurityProtocolType.Tls11
+                       | SecurityProtocolType.Tls12
+                       | SecurityProtocolType.Ssl3;
+            }
+
+
+            myRequest.Method = "POST";
+            myRequest.ContentType = "application/x-www-form-urlencoded";
+            myRequest.ContentLength = data.Length;
+            Stream newStream = myRequest.GetRequestStream();
+            // Send the data.
+
+            newStream.Write(data, 0, data.Length);
+            newStream.Close();
+
+            HttpWebResponse response = (HttpWebResponse)myRequest.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            string output = reader.ReadToEnd();
+            response.Close();
+            return output;
+        }
         public static string PostAndReturnJson(string url, object paramObject)
         {
             client.DefaultRequestHeaders.Accept.Clear();
@@ -73,6 +110,21 @@ namespace Anpero
                 return default(T);
             }
           
+        }
+        public static string GetParamString( object paramObject)
+        {
+            var content = ObjectToDictionary(paramObject);
+            string url = string.Empty;
+            var condition = "?";
+            foreach (KeyValuePair<string, string> entry in content)
+            {
+                if (!string.IsNullOrEmpty(entry.Value))
+                {
+                    url += condition + entry.Key + "=" + entry.Value;
+                    condition = "&";
+                }
+            }
+            return url;
         }
         public static string GetUrlByParam(string url, object paramObject)
         {

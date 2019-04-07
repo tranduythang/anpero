@@ -89,15 +89,19 @@
                                     </a>
                                     <ul class="level_2" id="menu_3">
                                         <li class="container">
-                                            @foreach (var item in commonInfo.ProductCategoryList)
+                                            @if (commonInfo.ProductCategoryList != null)
                                             {
-                                                <div class="megamenu_col__item align_center">
-                                                    <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">
-                                                        <img src="@item.Images" alt="@item.Name">
-                                                        <h4>@item.Name</h4>
-                                                    </a>
-                                                </div>
+                                                foreach (var item in commonInfo.ProductCategoryList)
+                                                {
+                                                    <div class="megamenu_col__item align_center">
+                                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">
+                                                            <img src="@item.Images" alt="@item.Name">
+                                                            <h4>@item.Name</h4>
+                                                        </a>
+                                                    </div>
+                                                }
                                             }
+
                                         </li>
                                     </ul>
                                 </li>

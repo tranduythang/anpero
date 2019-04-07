@@ -48,7 +48,7 @@ namespace Anpero.PaymentApi.VTC
         /// </summary>
         public string Payment_type { get => payment_type; set => payment_type = value; }
         /// <summary>
-        /// Tài khoản nhận tiền của đối tác khi giao dịch thành công
+        /// (bắt buộc) Tài khoản nhận tiền của đối tác khi giao dịch thành công
         /// </summary>
         public string Receiver_account { get => receiver_account; set => receiver_account = value; }
         /// <summary>
@@ -66,17 +66,18 @@ namespace Anpero.PaymentApi.VTC
         /// <summary>
         ///(bắt buộc) Chữ ký, SHA (256). Text để tạo chữ ký bao gồm các tham số truyền trên Url và SecretKey. Các trường sắp xếp theo trật tự alphabe ngăn nhau bởi ký tự “|”, Ví dụ: Trường hợp request có năm tham số amount, currency, receiver_account, reference_number, website_id thì: plaintext = string.Format("{0}|{1}|{2}|{3}|{4}|{5}", amount, currency, receiver_account, reference_number, website_id, Security_Key);
         /// </summary>
-        public string Signature { get => signature; set => signature = value; }
+        
         public double Amount { get => amount; set => amount = value; }
         public int Website_id { get => website_id; set => website_id = value; }
+        public string Signature { get => signature; set => signature = value; }
         public  RequestParam(){
-            Language="VI";
+            
             Currency = Currencys.VND;
         }
     }
     public static class Currencys
     {
-        public const string VND = "VND";
-        public const string USD = "USD";
+        public const string VND = "vnd";
+        public const string USD = "usd";
     }
 }
