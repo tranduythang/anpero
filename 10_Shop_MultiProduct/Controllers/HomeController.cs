@@ -1,23 +1,73 @@
-﻿using System;
+﻿using Anpero.PaymentApi.VTC;
+using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 namespace AnperoFrontend.Controllers
 {
+    public class test
+    {
+        public string Input { get; set; }
+    }
     public class HomeController : BaseController
     {
+        
         [BuildCommonHtml]
         
         public ActionResult Index()
         {
             Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
             Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
-
+         
             WebService.AnperoService service = new WebService.AnperoService();
            //GetNewestProduct();
             SetUpSlideAds();
             return View();
         }
+        public ActionResult VTC()
+        {
+            Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
+            Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
+
+
+            Anpero.PaymentApi.VTC.RequestParam param = new Anpero.PaymentApi.VTC.RequestParam();
+            param.Amount = 100000;
+            string plaintext = string.Format("{0}|{1}|{2}|{3}|{4}|{5}", param.Amount, param.Currency, param.Receiver_account, param.Reference_number, param.Website_id, "FSfgasdfafsadf&^&TR&(asdf654654654654654");
+            param.Signature = Anpero.HashHelper.ComputeSha256Hash(plaintext);
+            param.Reference_number = Guid.NewGuid().ToString();
+            param.Website_id = 8032;
+            param.Receiver_account = "0906006580";
+            param.Reference_number = Guid.NewGuid().ToString();
+            string url = Anpero.HttpRequesHelper<Anpero.PaymentApi.VTC.ReturnData>.GetUrlByParam("https://vtcpay.vn/bank-gateway/checkout.html", param);
+            Anpero.HttpRequesHelper<Anpero.PaymentApi.VTC.ReturnData>.Post("https://vtcpay.vn/bank-gateway/checkout.html", param);
+            /// Response.Redirect(url);
+            WebService.AnperoService service = new WebService.AnperoService();
+            //GetNewestProduct();
+            SetUpSlideAds();
+            return View();
+        }
+        public ActionResult VTCCallBack(ReturnData data)
+        {
+            var x = data;
+            Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
+            Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
+
+
+            Anpero.PaymentApi.VTC.RequestParam param = new Anpero.PaymentApi.VTC.RequestParam();
+            param.Amount = 100000;
+            string plaintext = string.Format("{0}|{1}|{2}|{3}|{4}|{5}", param.Amount, param.Currency, param.Receiver_account, param.Reference_number, param.Website_id, "FSfgasdfafsadf&^&TR&(asdf654654654654654");
+            param.Signature = Anpero.HashHelper.ComputeSha256Hash(plaintext);
+            param.Reference_number = Guid.NewGuid().ToString();
+            param.Website_id = 8032;
+            param.Receiver_account = "0906006580";
+            param.Reference_number = Guid.NewGuid().ToString();
+            param.Url_return =Anpero.UrlHelper.GetCurrentRootUrl()+ "/home/VTCCallBack";
+            string url = Anpero.HttpRequesHelper<Anpero.PaymentApi.VTC.ReturnData>.GetUrlByParam("https://vtcpay.vn/bank-gateway/checkout.html", param);
+            Anpero.HttpRequesHelper<Anpero.PaymentApi.VTC.ReturnData>.Post("https://vtcpay.vn/bank-gateway/checkout.html", param);
+            Response.Redirect(url);
+            return View();
+        }
+
         private void SetUpSlideAds()
         {
            

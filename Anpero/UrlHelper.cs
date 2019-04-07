@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Anpero
 {
-    class UrlHelper
+    public class UrlHelper
     {
         public static string GetRootUrlReferrer()
         {
@@ -24,6 +25,10 @@ namespace Anpero
                 return string.Empty;
             }
 
+        }
+        public static string GetCurrentRootUrl()
+        {
+            return HttpContext.Current.Request.Url.Scheme + @"://" + HttpContext.Current.Request.Url.Host;
         }
     }
 }
