@@ -1,6 +1,8 @@
 ﻿using Anpero.PaymentApi.VTC;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 namespace AnperoFrontend.Controllers
@@ -32,43 +34,26 @@ namespace AnperoFrontend.Controllers
 
 
             Anpero.PaymentApi.VTC.RequestParam param = new Anpero.PaymentApi.VTC.RequestParam();
+            param.website_id = 99255;
+            param.amount = 12;
+           
+            param.receiver_account = "0963465816";
+            param.url_return = "https://softvip.net/home/VTCCallBack";
+            param.currency = "VND";
+            //param.currency = "USD";
 
-        //amount | 
-        //bill_to_address | 
-        //bill_to_email | 
-        //bill_to_forename | 
-        //bill_to_phone | 
-        //bill_to_surname | 
-        //currency | 
-        //language | 
-        //payment_type | 
-        //receiver_account | 
-        //reference_number | 
-        //website_id | 
-        //SecurityCode
-        https://vtcpay.vn/bank-gateway/checkout.html?Receiver_account=0906006580&Amount=1000000&Website_id=8032&Signature=5a04442622aaa9514563f61231a0e98f4918d8b3b881f987fc60299dd127a6f4
-            param.Website_id = 8032;
-            param.Amount = 100000;
-            param.Bill_to_address = "Bill_to_address";
-            param.Bill_to_phone = "0906006580";
-            param.Receiver_account = "0906006580";
-            
-            
-            param.Reference_number = "OD2";
+
+            param.reference_number = "Anpero3";
             string securityKey = string.Empty;
-            securityKey = param.Amount.ToString();
-            securityKey += "|" + param.Bill_to_address;
-            securityKey += "|" + param.Bill_to_phone;
-
-            securityKey += "|"+ param.Currency;
+            securityKey = param.amount.ToString();
+            securityKey += "|"+ param.currency;
             //securityKey += "|" + param.Language;
-            securityKey += "|" + param.Receiver_account;
-            securityKey += "|" + param.Reference_number;
-            securityKey += "|" + param.Website_id;
-            securityKey += "|" + @"FSfgasdfafsadf&^&TR&(asdf654654654654654";
-        
-            param.Signature = Anpero.HashHelper.ComputeSha256Hash(securityKey);
-
+            securityKey += "|" + param.receiver_account;
+            securityKey += "|" + param.reference_number;
+            securityKey += "|" + param.url_return;
+            securityKey += "|" + param.website_id;
+            securityKey += "|" + @"Daiak321123123321";
+            param.signature = Anpero.HashHelper.ComputeSha256Hash(securityKey);
             //ReturnData x3;
             //string x1;
             //try
@@ -88,12 +73,25 @@ namespace AnperoFrontend.Controllers
             //{
             //}
 
-            string url = Anpero.HttpRequesHelper<Anpero.PaymentApi.VTC.ReturnData>.GetUrlByParam("https://vtcpay.vn/bank-gateway/checkout.html", param);
+            //string url = Anpero.HttpRequesHelper<Anpero.PaymentApi.VTC.ReturnData>.GetUrlByParam("https://vtcpay.vn/bank-gateway/checkout.html", param);
+            string url = Anpero.HttpRequesHelper<Anpero.PaymentApi.VTC.ReturnData>.GetUrlByParam("http://alpha1.vtcpay.vn/portalgateway/checkout.html", param);
             Response.Redirect(url);
             WebService.AnperoService service = new WebService.AnperoService();
             //GetNewestProduct();
             SetUpSlideAds();
             return View();
+        }
+        private string ToShaKey(string input)
+        {
+            byte[] bytes = Encoding.Unicode.GetBytes(input);
+            SHA256Managed hashstring = new SHA256Managed();
+            byte[] hash = hashstring.ComputeHash(bytes);
+            string hashString = string.Empty;
+            foreach (byte x in hash)
+            {
+                hashString += String.Format("{0:x2}", x);
+            }
+            return hashString;
         }
         [BuildCommonHtml]
         public ActionResult VTCCallBack(ReturnData data)
