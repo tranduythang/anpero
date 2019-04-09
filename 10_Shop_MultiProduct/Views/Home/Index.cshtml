@@ -25,7 +25,7 @@
 <div class="page_container">
     <div class="main_content ">
         <div id="shopify-section-1547051873685" class="shopify-section index-section">
-            <div class="section section_homepage section_slideshow_full_width section_slideshow__large swiper-container" id="slideshow_1547051873685" data-autoplay="false" data-speed="5000">
+            <div class="section section_homepage section_slideshow_full_width section_slideshow__large swiper-container" id="slideshow_1547051873685" data-autoplay="true" data-speed="3000">
                 <div class="swiper-wrapper">
                     @if (ViewData["Slide"] != null)
                     {
@@ -44,11 +44,7 @@
 
                         }
                     }
-                    <div class="navigations">
-                        <div id="slider_prev_1547051873685" class="swiper_btn swiper_btn__prev"></div>
-                        <div id="pagination_1547051873685" class="swiper_pagination"></div>
-                        <div id="slider_next_1547051873685" class="swiper_btn swiper_btn__next"></div>
-                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -79,7 +75,7 @@
                     {
                         foreach (var item in commonInfo.ProductCategoryList)
                         {
-                            <div class="col-xs-4 item_4_1 item_2_1">
+                            <div class="col-xs-12 col-md-4 item_4_1 item_2_1">
                                 <div class="product_item">
                                     <div class="product_img">
                                         <a class="img_change" href="@Anpero.StringHelpper.GetCategoryLink(item.Name,item.Id)">
@@ -228,6 +224,17 @@
         font-weight: bold;
         text-transform: uppercase;
         border-bottom: solid 2px #0e47b0;
+    }
+    @@media (max-width: 767px){
+        .color_scheme .product_listing__main .product_img, .color_scheme .product_listing__main .product_name, .color_scheme .product_listing__main .product_info {
+            width: 100%;
+        }
+        
+    }
+    @@media (max-width: 479px) {
+        .color_scheme .product_listing__main .product_img, .color_scheme .product_listing__main .product_name, .color_scheme .product_listing__main .product_info {
+            width: 100%;
+        }
     }
 </style>
 @section scripts{
