@@ -31,6 +31,12 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
     <link rel="dns-prefetch" href="https://www.facebook.com/">
     <link href='/static/css' rel='stylesheet' type='text/css'>
+    <link href="/assets/animate.css" rel="stylesheet" />
+    <link href="/assets/style.css" rel="stylesheet" type="text/css" media="all" />
+    <noscript id="deferred_styles">
+        <link href="/assets/responsive.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&amp;subset=cyrillic" rel="stylesheet" type="text/css">S
+    </noscript>
     <script src="/Scripts/jquery-1-10.js"></script>
     <script>
 			var theme = {
@@ -44,7 +50,6 @@
         <div id="page_preloader__bg">
             <img id="page_preloader__img" src="/assets/loadingLogo.gif" />
         </div>
-
         <script>
             preloaderBg = document.getElementById('page_preloader__bg');
             preloaderImg = document.getElementById('page_preloader__img');
@@ -67,25 +72,20 @@
 
     </div>
 
-    <link href="/assets/animate.css" rel="stylesheet" />
-    <link href="/assets/style.css" rel="stylesheet" type="text/css" media="all" />
-    <noscript id="deferred_styles">
-        <link href="/assets/responsive.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="http://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&amp;subset=cyrillic" rel="stylesheet" type="text/css">S
-    </noscript>
-    <script  defer="defer" src="/assets/js/express_buttons.js" crossorigin="anonymous"></script>
-    <script src="/assets/js/features.js"  defer="defer" crossorigin="anonymous"></script>    
-    <script id="sections-script" data-sections="index-slideshow-full-width,index-banners-countdown-custom,index-logo-list,header,footer" defer="defer" src="/assets/shop.js"></script>
     <h1 id="heading1" style="display:none;">
         @commonInfo.Desc
     </h1>
+
+    @Html.Partial("_partial/_MainFooter_1")
+    @RenderSection("scripts", required: false)
+
+    <script defer="defer" src="/assets/js/express_buttons.js" crossorigin="anonymous"></script>
+    <script src="/assets/js/features.js" defer="defer" crossorigin="anonymous"></script>
+    <script id="sections-script" data-sections="index-slideshow-full-width,index-banners-countdown-custom,index-logo-list,header,footer" defer="defer" src="/assets/shop.js"></script>
     @Scripts.Render("~/bundles/scripts")
 
     @Html.Raw(commonInfo.AnperoPlugin)
     @Html.Raw(commonInfo.PageScript)
-
-    @Html.Partial("_partial/_MainFooter_1")
-    @RenderSection("scripts", required: false)
     <script type="text/javascript">
         jQuery(window).load(function () {
             Cart.bindCart();
