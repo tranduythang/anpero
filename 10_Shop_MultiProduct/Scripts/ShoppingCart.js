@@ -219,21 +219,21 @@
         var _address = $("#cAddress").val();
         if (_name == 'null' || _name == "") {
             valid = false;
-            Util.notify("Lỗi: ", "Bạn chưa nhập tên liên hệ");
+            Util.notify("Error: ", "You have not entered a contact name");
         }
         if (_address == 'null' || _address == "") {
             valid = false;
-            Util.notify("Lỗi: ", "Vui lòng nhập địa chỉ");
+            Util.notify("Error: ", "Please enter your address");
         }
 
         if (_email != "" && !Util.isEmail(_email)) {
             valid = false;
-            Util.notify("Lỗi: ", "Email không đúng định dạng");
+            Util.notify("Error: ", "Email invalidate");
         }
 
         if (_phone == "" || _phone == 'null') {
             valid = false;
-            Util.notify("Lỗi: ", "Số điện không được để trống");
+            Util.notify("Error: ", "Phone number must not be blank");
         } else if (!Util.isVnFone(_phone)) {
             valid = false;
             Util.notify("Error: ", "The phone number is incorrect");
@@ -262,6 +262,7 @@
             valid = false;
             Util.notify("Lỗi: ", "Email is malformed, Online Payment requires email entry.");
         }
+        isPaymentOnline = true;
         if (valid) {
             $("#cartContent1").hide();
             $("#cartContent2").show();
@@ -280,14 +281,11 @@
                             $("#cartContent2").html("<h4>Order number #" + rs + " being transferred to the payment gateway</h4>");
                             Util.notify("", "The order is being transferred to the payment gateway. ");
                             var _totalPrice = $("#ttOdCt").html().replace("đ", "").replace("$", "").replace(/\,/g, '');
-                            var _bankcode = $('input[name=bankcode]:checked').val();
-
                             $.ajax({
                                 method: "post",
-                                url: "/handler/PaymentHandler.ashx",
+                                url: "/api/GetVTCRedirectUrl",
                                 datatype: "text/plain",
-                                data: { op: "nlCheckout", detail: "Thanh toán cho đơn hàng số #" + rs, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, price: _totalPrice, shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee), orderId: rs, payment_method: _paymentCode, bankcode: _bankcode },
-
+                                data: { amount: _totalPrice, orderId: rs},
                                 success: function (checkOutUrl) {
                                     if (Util.isUrl(checkOutUrl)) {
                                         window.location.href = checkOutUrl;

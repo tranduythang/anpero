@@ -26,80 +26,10 @@ namespace AnperoFrontend.Controllers
             SetUpSlideAds();
             return View();
         }
-        [BuildCommonHtml]
-        public ActionResult VTC()
-        {
-            Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
-            Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
-
-
-            Anpero.PaymentApi.VTC.RequestParam param = new Anpero.PaymentApi.VTC.RequestParam();
-            param.website_id = 99255;
-            param.amount = 12;
-           
-            param.receiver_account = "0963465816";
-            param.url_return = "https://softvip.net/home/VTCCallBack";
-            param.currency = "VND";
-            //param.currency = "USD";
-
-
-            param.reference_number = "Anpero3";
-            string securityKey = string.Empty;
-            securityKey = param.amount.ToString();
-            securityKey += "|"+ param.currency;
-            //securityKey += "|" + param.Language;
-            securityKey += "|" + param.receiver_account;
-            securityKey += "|" + param.reference_number;
-            securityKey += "|" + param.url_return;
-            securityKey += "|" + param.website_id;
-            securityKey += "|" + @"Daiak321123123321";
-            param.signature = Anpero.HashHelper.ComputeSha256Hash(securityKey);
-            //ReturnData x3;
-            //string x1;
-            //try
-            //{
-            //     x1 = Anpero.HttpRequesHelper<Anpero.PaymentApi.VTC.ReturnData>.HttpPost("https://vtcpay.vn/bank-gateway/checkout.html", param,true);
-
-            //}
-            //catch (Exception ex)
-            //{
-            //}
-            //try
-            //{
-
-            //     x3 = Anpero.HttpRequesHelper<Anpero.PaymentApi.VTC.ReturnData>.Get("https://vtcpay.vn/bank-gateway/checkout.html", param);
-            //}
-            //catch (Exception ex)
-            //{
-            //}
-
-            //string url = Anpero.HttpRequesHelper<Anpero.PaymentApi.VTC.ReturnData>.GetUrlByParam("https://vtcpay.vn/bank-gateway/checkout.html", param);
-            string url = Anpero.HttpRequesHelper<Anpero.PaymentApi.VTC.ReturnData>.GetUrlByParam("http://alpha1.vtcpay.vn/portalgateway/checkout.html", param);
-            Response.Redirect(url);
-            WebService.AnperoService service = new WebService.AnperoService();
-            //GetNewestProduct();
-            SetUpSlideAds();
-            return View();
-        }
-        private string ToShaKey(string input)
-        {
-            byte[] bytes = Encoding.Unicode.GetBytes(input);
-            SHA256Managed hashstring = new SHA256Managed();
-            byte[] hash = hashstring.ComputeHash(bytes);
-            string hashString = string.Empty;
-            foreach (byte x in hash)
-            {
-                hashString += String.Format("{0:x2}", x);
-            }
-            return hashString;
-        }
-        [BuildCommonHtml]
-        public ActionResult VTCCallBack(ReturnData data)
-        {
-            var x = data;
-            
-            return View(data);
-        }
+      
+  
+       
+       
 
         private void SetUpSlideAds()
         {

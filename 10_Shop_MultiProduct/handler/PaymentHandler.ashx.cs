@@ -94,9 +94,7 @@ namespace AnperoFrontend.handler
                                             rs = result.Description + " (" + result.Description + ")";
                                     }
                                 }
-                              
                             }
-                          
                             break;
                         default:
                             break;
