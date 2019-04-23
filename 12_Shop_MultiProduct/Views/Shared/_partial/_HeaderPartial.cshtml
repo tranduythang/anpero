@@ -1,0 +1,341 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    var commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+
+}
+<header class="header">
+    <div class="header-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-12 col-xs-12 header-logo">
+                    <div class="visible-xs visible-sm toggle-menu translateY-50">
+                        <a href="javascript:void(0)" class="btnMBToggleNav"><img src="~/Html/images/icons/icon-menu.png" alt=""></a>
+                    </div>
+                    <div class="logo">
+                        <a href="/"><img src="@commonInfo.Logo" alt="@commonInfo.Name"></a>
+                    </div>
+                    <div class="visible-xs visible-sm box-cart-mobile translateY-50">
+                        <a href="javascript:void(0);">
+                            <div class="icon">
+                                <i class="fa fa-shopping-bag"></i>
+                            </div>
+                            <span class="js-cart-count numberCart">0</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-12 header-search">
+                    <div class="form-search">
+                        <form action="@baseUrl/search" method="get" role="search">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                            <input type="hidden" name="type" value="product">
+                            <input type="text" placeholder="Tìm kiếm" aria-label="Tìm kiếm">
+                            <button type="submit" class="btn-search">Tìm kiếm</button>
+                        </form>
+                    </div>
+                    @*<ul class="search-notice">
+                            <li class="title"><strong>Gợi ý từ khóa:</strong></li>
+                            <li><span>Thời trang nam, Thời trang nữ, Balo, túi xách, Mè và bé...</span></li>
+                        </ul>*@
+                </div>
+                <div class="col-md-3 hidden-sm hidden-xs header-user">
+                    @*<div class="box-user pull-left relative">
+                            <a href="#">
+                                <div class="box">
+                                    <div class="icon">
+                                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="text">
+                                        <span>Tài khoản</span>
+                                        <span class="sub">Đơn hàng</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>*@
+                    <div class="box-cart pull-right relative">
+                        <a href="#">
+                            <div class="box">
+                                <div class="box">
+                                    <div class="icon">
+                                        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="text">
+                                        <span>Giỏ hàng (<span class="js-cart-count numberCart">0</span>)</span>
+                                        <span id="cartPrice" class="sub">0₫</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="overlayMenu"></div>
+            </div>
+        </div>
+    </div>
+    <!--header-page-->
+
+    <nav class="header-menu">
+        <div class="container">
+            <div class="login-mobile visible-xs visible-sm">
+                <div class="login clearfix">
+                </div>
+            </div>
+            <ul class="nav-navbar">
+                <li class="active">
+                    <a href="/" class=" current" title="Trang chủ">
+                        <span>Trang chủ <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                    </a>
+                    <ul class="main-child level-2">
+                        <li class="li-child">
+                            <a href="/">Trang chủ</a>
+                        </li>
+                        <li class="li-child">
+                            <a href="/search">Danh mục sản phẩm</a>
+                        </li>
+                        <li class="li-child">
+                            <a href="/home/contact">Liên hệ</a>
+                        </li>
+                        <li class="li-child">
+                            <a href="/about">Về chúng tôi</a>
+                        </li>
+                        <li class="li-child">
+                            <a href="/PaymentInfo">Thanh toán</a>
+                        </li>
+                        <li class="li-child">
+                            <a href="/blog">Blog</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="li-child">
+                    <a href="/search">
+                        <span>Danh mục sản phẩm</span> <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </a>
+                    <ul class="main-child level-2">
+                        <li class="">
+                            @foreach (var item in commonInfo.ProductCategoryList)
+                            {
+                                <div class="megamenu_col__item align_center">
+                                    <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">
+                                        <img src="@item.Images" alt="@item.Name">
+                                        <h4>@item.Name</h4>
+                                    </a>
+                                </div>
+                            }
+                        </li>
+                    </ul>
+                </li>
+                <li class="level_1__item level_2__links">
+                    <a class="level_1__link " href="/Brands">
+                        Thương hiệu
+                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_3"></i>
+                    </a>
+                    @if (commonInfo.ProductGroupList != null)
+                    {
+                        <ul class="level_2" id="menu_3">
+                            <li class="container">
+
+                                @foreach (var item in commonInfo.ProductGroupList)
+                                {
+                                    <div class="megamenu_col__item align_center">
+                                        <a href="@Anpero.StringHelpper.GetProductGroupLink(item.Name,item.Id)">
+                                            <h4>@item.Name</h4>
+                                        </a>
+                                    </div>
+                                }
+                            </li>
+                        </ul>
+                    }
+
+                </li>
+                <li class="level_1__item level_2__products">
+                    <a class="level_1__link " href="/">
+                        Khuyến mãi
+                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_6"></i>
+                    </a>
+                    <ul class="level_2" id="menu_6">
+                        <li class="container">
+                            @if (ViewData["saleProduct"] != null)
+                            {
+                                ProductItem[] saleList = (ProductItem[])ViewData["saleProduct"];
+                                foreach (var item in saleList)
+                                {
+                                    <div class="megamenu_col__item">
+                                        <div class="product">
+                                            <div class="product_img">
+                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
+                                                    <img src="@item.Images" alt="@item.PrName" />
+                                                </a>
+                                            </div>
+                                            <div class="product_info">
+                                                <p class="product_name">
+                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
+                                                </p>
+                                                <p class="product_price">
+                                                    <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span>
+                                                    <span class="money money_sale">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </li>
+                    </ul>
+                </li>
+                <li class="level_1__item level_2__blog">
+                    <a class="level_1__link " href="/blog">
+                        Blog
+                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_1479747008568"></i>
+                    </a>
+                    <ul class="level_2" id="menu_1479747008568">
+                        <li class="container">
+                            @if (ViewData["FeatureArticle"] != null)
+                            {
+                                SearchArticleResults articleList = (SearchArticleResults)ViewData["FeatureArticle"];
+                                foreach (BlogItem item in articleList.ItemList)
+                                {
+                                    <div class="megamenu_col__item">
+                                        <div class="blog_img">
+                                            <img src="@item.Thumb" alt="@item.Title">
+                                        </div>
+                                        <div class="blog_info">
+                                            <p class="blog_date">
+                                                <span class="article_day">Ngày @Anpero.StringHelpper.ConvertDateTime(item.CreateDate).Day</span>
+                                                Tháng @Anpero.StringHelpper.ConvertDateTime(item.CreateDate).Month
+                                            </p>
+                                            <h3 class="blog_title"><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Title,item.Id)">@Anpero.StringHelpper.SubString(40, item.Title)</a></h3>
+                                        </div>
+                                    </div>
+                                }
+
+                            }
+                        </li>
+                    </ul>
+                </li>
+                <li class="level_1__item ">
+                    <a class="level_1__link " href="/home/contact">
+                        Liên hệ
+                    </a>
+                </li>
+                <li class="li-child">
+                    <a href="#" title="" class="">
+                        <span>Sản phẩm</span> <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </a>
+                    <ul class="main-child level-2">
+                        <li class="li-child">
+                            <a href="#" class="" title="">
+                                <span>Thời trang & Phụ kiện</span>
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </a>
+                            <ul class="main-child level-3">
+                                <li class="">
+                                    <a href="#" title=""><span>Áo khoát nam/nữ</span></a>
+                                </li>
+                                <li class="">
+                                    <a href="#" title=""><span>Áo thun nam/nữ</span></a>
+                                </li>
+                                <li class="">
+                                    <a href="#" title=""><span>Áo sơ mi nam/nữ</span></a>
+                                </li>
+                                <li class="">
+                                    <a href="#" title=""><span>Giày thể thao</span></a>
+                                </li>
+                                <li class="">
+                                    <a href="#" title=""><span>Balo nam/nữ</span></a>
+                                </li>
+                                <li class="">
+                                    <a href="#" title=""><span>Túi xách nam/nữ</span></a>
+                                </li>
+                                <li class="">
+                                    <a href="#" title=""><span>Phụ kiện</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="#" title=""><span>Làm đẹp & Sức khỏe</span></a>
+                        </li>
+                        <li class="">
+                            <a href="#" title=""><span>Gia dụng & Điện lạnh</span></a>
+                        </li>
+                        <li class="">
+                            <a href="#" title=""><span>Điện thoại & Tablet</span></a>
+                        </li>
+                        <li class="li-child">
+                            <a href="#" class="" title="">
+                                <span>Phụ kiện công nghệ</span>
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </a>
+                            <ul class="main-child level-3">
+                                <li class="">
+                                    <a href="#" title=""><span>Tai nghe laptop</span></a>
+                                </li>
+                                <li class="">
+                                    <a href="#" title=""><span>USB</span></a>
+                                </li>
+                                <li class="">
+                                    <a href="#" title=""><span>Sạt dự phòng</span></a>
+                                </li>
+                                <li class="">
+                                    <a href="#" title=""><span>Gậy tự sướng</span></a>
+                                </li>
+                                <li class="">
+                                    <a href="#" title=""><span>Chuột máy tính</span></a>
+                                </li>
+                                <li class="">
+                                    <a href="#" title=""><span>Phụ kiện khác</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="#" title=""><span>Laptop & Thiết bị IT</span></a>
+                        </li>
+                        <li class="">
+                            <a href="#" title=""><span>Sách & VPP</span></a>
+                        </li>
+                        <li class="">
+                            <a href="#" title=""><span>Mẹ & Bé</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#" class="" title="">
+                        <span>Khuyến mãi HOT</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#" class="" title="">
+                        <span>Sản phẩm mới</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#" class="" title="">
+                        <span>Thương hiệu</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#" class="" title="">
+                        <span>Tin tức</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#" class="" title="">
+                        <span>Giới thiệu</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#" class="" title="">
+                        <span>Liên hệ</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="visible-xs visible-sm close-menu-mobile text-center">
+                <a href="javascript:void(0)" class="close-nav view-all">Đóng</a>
+            </div>
+        </div>
+    </nav>
+</header>
+<!--header-->
