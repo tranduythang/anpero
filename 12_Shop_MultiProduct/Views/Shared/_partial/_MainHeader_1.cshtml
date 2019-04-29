@@ -5,8 +5,8 @@
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
-    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
 
+    string baseUrl = Url.Content("~", true);
 }
 <div id="shopify-section-header" class="shopify-section">
     <div id="pseudo_sticky_block"></div>

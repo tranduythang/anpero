@@ -5,8 +5,7 @@
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
-    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
-
+    string baseUrl = Url.Content("~", true);
 }
 <header class="header">
     <div class="header-page">
@@ -30,7 +29,7 @@
                 </div>
                 <div class="col-md-6 col-sm-12 col-xs-12 header-search">
                     <div class="form-search">
-                        <form action="@baseUrl/search" method="get" role="search">
+                        <form action="/search" method="get" role="search">
                             <i class="fa fa-search" aria-hidden="true"></i>
                             <input type="hidden" name="type" value="product">
                             <input type="text" placeholder="Tìm kiếm" aria-label="Tìm kiếm">
@@ -120,7 +119,7 @@
                             {
                                 <div class="megamenu_col__item align_center">
                                     <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">
-                                        <img src="@item.Images" alt="@item.Name">
+                                        <img src="https://via.placeholder.com/150x400" alt="@item.Name">
                                         <h4>@item.Name</h4>
                                     </a>
                                 </div>
