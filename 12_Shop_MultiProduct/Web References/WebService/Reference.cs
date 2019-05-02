@@ -1300,8 +1300,7 @@ namespace AnperoFrontend.WebService {
         }
         
         /// <remarks/>
-        public decimal PrName
-        {
+        public decimal Price {
             get {
                 return this.priceField;
             }

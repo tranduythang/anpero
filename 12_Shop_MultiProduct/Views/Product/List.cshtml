@@ -99,7 +99,7 @@
                                                     <li class="active property-item"><a href="/search?property=@string.Join(",",item.Values.Select(x=>x.Id.ToString()).ToList())">Tất cả @item.Name</a></li>
                                                     @foreach (var valueItem in item.Values)
                                                     {
-                                                        <li data-id="@valueItem.Id" class="property-item"><a href="/search?property=@valueItem.Id" >@valueItem.Values</a></li>
+                                                        <li data-id="@valueItem.Id" class="property-item"><a href="/search?property=@valueItem.Id">@valueItem.Values</a></li>
                                                     }
                                                 </ul>
                                             }
@@ -238,7 +238,31 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
+                                    <div class="sidebar_widget sidebar_widget__linklist">
+                                        @foreach (var item in commonInfo.ProductProperties)
+                                        {
+                                            if (item.Values != null && item.Values.Length > 0)
+                                            {
+                                                <h3 class="widget_header">@item.Name</h3>
+                                                <div class="widget_content">
+                                                    <ul class="list_links">
+                                                        <li class="level_1__item">
+                                                            @foreach (var valueItem in item.Values)
+                                                            {
+                                                                <div class="checkbox">
+                                                                    <label><input type="checkbox" name="properties" value="@valueItem.Id" /> @valueItem.Values</label>
+                                                                </div>
+                                                            }
+
+
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            }
+
+                                        }
+                                    </div>
+                                </div>
                         </div>
                         <div id="shopify-section-sidebar-sort" class="shopify-section page_sidebar_sort sidebar_widget">
                             <div class="section_filter_block"></div>
@@ -339,14 +363,27 @@
             var ParentCatId = @productList.Item[0].ParentId;
             var property = "@ViewBag.property";
             $(document).ready(function () {
+                $("input[type=checkbox][name=properties]").click(function () {
+                    var attributeIdList = "";
+                    $("input[type=checkbox][name=properties]:checked").each(function () {
+                        attributeIdList += $(this).val() + ",";
+                    });
+                    window.location.href = "/search?property=" + attributeIdList;
+                })
                 if (property != "") {
                     var propertyList = property.split(",")
                     $("li.property-item").removeClass("active");
                     for (var i = 0; i < propertyList.length; i++) {
-                        $("li.property-item[data-id=" + propertyList[i] + "]").addClass("active");
+                        try {
+                            $("li.property-item[data-id=" + propertyList[i] + "]").addClass("active");
+                            $("input[type=checkbox][name=properties][value=" + propertyList[i] + "]").prop("checked", true);
+                        } catch (e) {
+
+                        }
+                       
+                        
                     }
                 }
-                
             });
         </script>
     }
@@ -397,7 +434,7 @@ else
                     $(this).countdown({
                         until: austDay,
                         labels: labels,
-                        layout: layout
+                        layout: layouta
                     });
                 });
             }
