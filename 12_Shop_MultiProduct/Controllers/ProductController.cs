@@ -18,7 +18,7 @@ namespace AnperoFrontend.Controllers
         {
             WebService.AnperoService sv = new WebService.AnperoService();
             WebService.ProductItem item = sv.GetProductDetail(StoreID, TokenKey, id);
-            WebService.SearchResult relateProduct = sv.SearchProduct(StoreID, TokenKey, item.CatID.ToString(), "0", "0", 0, 999999, 1, 5, "", SearchOrder.TimeDesc, 0);
+            WebService.SearchResult relateProduct = sv.SearchProduct(StoreID, TokenKey, item.CatID.ToString(), "0", "0", 0, 999999, 1, 5, "", SearchOrder.TimeDesc, 0,string.Empty);
             ViewData["relateProduct"] = relateProduct;
             ViewData["prDetail"] = item;
             ViewBag.Title = item.PrName;
@@ -47,7 +47,7 @@ namespace AnperoFrontend.Controllers
             //}
             //else
             //{
-                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), model.ParentCategory, model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
+                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), model.ParentCategory, model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0,string.Empty);
             //}
             ViewData["productList"] = rs;
             if (rs != null)
@@ -124,32 +124,33 @@ namespace AnperoFrontend.Controllers
             ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
             
             ViewBag.isParent = "1";
-            if (rs != null && rs.Item.Length > 0)
-            {
-                ViewBag.Title = rs.Item[0].ParentCatName;
-            }
-            
             SetUpSeo(1,id);
             return View("List");
         }
         [BuildCommonHtml]
         public ActionResult Search(string category, string keyword)
-        {            
+        {
+            string title = "";
             string pageQuery = Request.QueryString["page"];
+            string property = Request.QueryString["property"];
+            
             int page = 1;
             if (!string.IsNullOrEmpty(pageQuery))
             {
                 page = Convert.ToInt32(pageQuery);
             }
             WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, category, "", "", 0, 999999999, page, 14, keyword, SearchOrder.NameDesc, 0);
+            WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, category, "", "", 0, 999999999, page, 14, keyword, SearchOrder.NameDesc, 0, property);
             ViewData["productList"] = rs;
+            
             ViewBag.pageName = "Search";
-            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");            
-            if (rs != null && rs.Item.Length > 0)
+            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+            if (!string.IsNullOrEmpty(keyword))
             {
-                ViewBag.Title = rs.Item[0].CatName;
+                title += keyword;
             }
+            ViewBag.property = property;
+            ViewBag.Title = title;
             SetUpSeo(0,0);
             return View("List");
         }
@@ -211,6 +212,7 @@ namespace AnperoFrontend.Controllers
                                 ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
                                  Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id);
                                 ViewBag.ImageUrl = item.Images;
+                                ViewBag.Title = item.Name;
                                 break;
                             }
                         }
@@ -227,10 +229,10 @@ namespace AnperoFrontend.Controllers
                                     ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
                                      Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id);
                                     ViewBag.ImageUrl = item.Images;
+                                    ViewBag.Title = item.Name;
                                     break;
                                 }
                             }
-
                         }
                         break;
                     default:

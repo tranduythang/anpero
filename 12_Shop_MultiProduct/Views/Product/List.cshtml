@@ -63,49 +63,49 @@
                 <div class="row">
                     <div class="main_content sidebar_on col-sm-9  col-sm-push-3">
                         <div id="shopify-section-template-collection" class="shopify-section section_template section_template__collection">
-                            <h1 class="page_heading">Sản phẩm</h1>
+                            <h1 class="page_heading">@ViewBag.Title</h1>
                             @if (!pageName.ToLower().Equals("search"))
                             {
-                                <div class="button_filters">
-                                    <ul>
-                                        @{
-                                            int catId = productList.Item[0].CatID;
-                                            int parentId = productList.Item[0].ParentId;
-                                            bool isParent = ViewBag.isParent != null;
-                                            foreach (var item in commonInfo.ProductCategoryList)
+
+                                if (productList.PropertiesValue != null && productList.PropertiesValue.Length > 0)
+                                {
+                                    <div class="button_filters">
+                                        <ul>
+                                            @foreach (var item in productList.PropertiesValue)
                                             {
-                                                if (item.Id == productList.Item[0].ParentId)
-                                                {
-                                                    if (isParent)
+                                                @*<li class="active">
+                                                        <a href="/search?property=">@item.Values</a>
+                                                    </li>*@
+                                                <li data-id="@item.Id" class="property-item">
+                                                    <a href="/search?property=@item.Id">@item.Values</a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                if (commonInfo.ProductProperties != null && commonInfo.ProductProperties.Length > 0)
+                                {
+                                    <div class="button_filters">
+
+                                        @foreach (var item in commonInfo.ProductProperties)
+                                        {
+                                            if (item.Values != null && item.Values.Length > 0)
+                                            {
+
+                                                <ul>
+                                                    <li class="active property-item"><a href="/search?property=@string.Join(",",item.Values.Select(x=>x.Id.ToString()).ToList())">Tất cả @item.Name</a></li>
+                                                    @foreach (var valueItem in item.Values)
                                                     {
-                                                        <li class="active">
-                                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">@item.Name</a>
-                                                        </li>
+                                                        <li data-id="@valueItem.Id" class="property-item"><a href="/search?property=@valueItem.Id" >@valueItem.Values</a></li>
                                                     }
-                                                    else
-                                                    {
-                                                        <li>
-                                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">@item.Name</a>
-                                                        </li>
-                                                    }
-                                                    foreach (var subItem in item.ChildCategory)
-                                                    {
-                                                        string activeClass = "";
-                                                        if (!isParent && subItem.Id == productList.Item[0].CatID)
-                                                        {
-                                                            activeClass = "active";
-                                                        }
-                                                        <li class="@activeClass" ><a href="@Anpero.StringHelpper.GetCategoryLink(subItem.Name, subItem.Id)" title="@subItem.Name">@subItem.Name</a></li>
-
-
-                                                    }
-
-                                                }
-
+                                                </ul>
                                             }
                                         }
-                                    </ul>
-                                </div>
+                                    </div>
+                                }
                             }
                             <div class="product_options">
                                 @*<ul class="product_view">
@@ -337,6 +337,17 @@
         <script>
             var categoryId = @productList.Item[0].CatID;
             var ParentCatId = @productList.Item[0].ParentId;
+            var property = "@ViewBag.property";
+            $(document).ready(function () {
+                if (property != "") {
+                    var propertyList = property.split(",")
+                    $("li.property-item").removeClass("active");
+                    for (var i = 0; i < propertyList.length; i++) {
+                        $("li.property-item[data-id=" + propertyList[i] + "]").addClass("active");
+                    }
+                }
+                
+            });
         </script>
     }
     else

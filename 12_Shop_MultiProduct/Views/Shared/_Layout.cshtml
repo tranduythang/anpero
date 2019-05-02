@@ -1,10 +1,12 @@
 ﻿@{
-    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
-    if (ViewData["commonInfo"] != null)
-    {
-        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
-    }
-    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+                /**/
+
+                AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+                if (ViewData["commonInfo"] != null)
+                {
+                    commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+                }
+                string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
 }
 <!DOCTYPE html>
 <html lang="vi" class="color_scheme">
@@ -73,8 +75,8 @@
         <link href="/assets/responsive.css" rel="stylesheet" type="text/css" media="all" />
         <link href="http://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&amp;subset=cyrillic" rel="stylesheet" type="text/css">S
     </noscript>
-    <script  defer="defer" src="/assets/js/express_buttons.js" crossorigin="anonymous"></script>
-    <script src="/assets/js/features.js"  defer="defer" crossorigin="anonymous"></script>    
+    <script defer="defer" src="/assets/js/express_buttons.js" crossorigin="anonymous"></script>
+    <script src="/assets/js/features.js" defer="defer" crossorigin="anonymous"></script>
     <script id="sections-script" data-sections="index-slideshow-full-width,index-banners-countdown-custom,index-logo-list,header,footer" defer="defer" src="/assets/shop.js"></script>
     <h1 id="heading1" style="display:none;">
         @commonInfo.Desc
