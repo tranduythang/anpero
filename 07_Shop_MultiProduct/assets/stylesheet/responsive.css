@@ -1,31 +1,18 @@
-/*
-* Flavours Templates Style
-version:   	1.4.5
-date:      	13/08/15
-author:		ThemesMart
-email:      support@themesmart.net
-website:   	http://www.themesmart.net/
-*/
-
-/* Table of Content
-#Custom Fonts
-#Site Styles
-#Media Queries
-*/
-
-/* body RobotoSlab,Arial,sans-serif /*/
 
 @media only screen and (min-width: 320px) and (max-width: 479px) {
-.header-container .fl-nav-menu {
-    display: block;
-    border-radius: 3px;
-    /* overflow: hidden; */
-    /* top: 150px; */
-    margin-top: 85px;
-    background-color: #fff;
-	clear: both;
-}
-
+    .header-container .fl-nav-menu {
+        display: block;
+        border-radius: 3px;
+        /* overflow: hidden; */
+        /* top: 150px; */
+        margin-top: 25px;
+        background-color: #fff;
+        clear: both;
+        margin-bottom: 10px;
+    }
+    #header {
+        background-color: white;
+    }
 #thm-mart-slideshow {margin:0px}
 #thm-mart-slideshow:before {left: -500px;}
 #top {margin-top:0px}
@@ -261,17 +248,17 @@ width:300px;
 	padding-left: 8px;
 }
 .logo {
-    text-align: center;
+    /*text-align: center;
     padding-bottom: 0px;
-    margin-top: 0px;
-    /* width: 100%; */
+    margin-top: 0px;    
     border-bottom: 1px solid #e5e5e5;
     height: auto;
     line-height: normal;
     padding-top: 15px;
     padding-bottom: 15px;
 	padding-left:0px;
-	padding-right:0px
+	padding-right:0px;*/
+    display:none;
 }
 
 .logo img {	width: 60%;}
@@ -944,6 +931,9 @@ footer .newsletter-row {
 #fade{ display: none !important; }
 }
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+    #header {
+        background-color: white;
+    }
 #fade{ display: none !important; }
 .logo {
     text-align: center;
@@ -970,9 +960,10 @@ footer .newsletter-row {
     border-radius: 0px;
     /* overflow: hidden; */
     /* top: 150px; */
-    margin-top: 85px;
+    margin-top: 25px;
     background-color: #fff;
 	clear: both;
+    margin-bottom:10px;
 }
 
 #thm-mart-slideshow {margin:0px}

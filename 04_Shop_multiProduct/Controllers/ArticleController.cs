@@ -8,6 +8,12 @@ namespace AnperoFrontend.Controllers
 {
     public class ArticleController : BaseController
     {
+        [BuildCommonHtml]
+        public ActionResult ChuyenDoiTiengViet()
+        {
+            SetUpCommonArticle();            
+            return View();
+        }
         // GET: Article
         [BuildCommonHtml]
         public ActionResult Index(int id)

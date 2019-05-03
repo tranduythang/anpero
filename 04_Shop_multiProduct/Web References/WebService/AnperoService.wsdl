@@ -2,6 +2,59 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetPaymentAPIConfig">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPaymentAPIConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPaymentAPIConfigResult" type="tns:ArrayOfPaymentConfig" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPaymentConfig">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PaymentConfig" nillable="true" type="tns:PaymentConfig" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PaymentConfig">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="St" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantPassword" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateTime" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Isdefault" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="St1" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaymentFee" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateOrderStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentVendor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateOrderStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateOrderStatusResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetLocation">
         <s:complexType>
           <s:sequence>
@@ -124,6 +177,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="ProductList" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="price" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="shippingMethod" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentMethod" type="s:int" />
             <s:element minOccurs="0" maxOccurs="1" name="modeDetail" type="s:string" />
           </s:sequence>
         </s:complexType>
@@ -132,6 +186,31 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="AddOrderResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddOrder2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="st" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="captcha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductList" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="price" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="shippingMethod" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="modeDetail" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddOrder2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddOrder2Result" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -206,6 +285,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="Logo" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Desc" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="ProductCategoryList" type="tns:ArrayOfProductCategory" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductGroupList" type="tns:ArrayOfProductGroup" />
           <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="AnperoPlugin" type="s:string" />
@@ -238,6 +318,20 @@
           <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="ChildCategory" type="tns:ArrayOfProductCategory" />
+          <s:element minOccurs="0" maxOccurs="1" name="Images" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Keywords" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProductGroup">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProductGroup" nillable="true" type="tns:ProductGroup" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProductGroup">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="GetBlogCategory">
@@ -274,7 +368,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="tokenKey" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="CategoryId" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="parentCategoryId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="originId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupId" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="priceFrom" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="priceTo" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="curentPage" type="s:int" />
@@ -327,6 +421,9 @@
           <s:element minOccurs="0" maxOccurs="1" name="KeyWord" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="IsInstock" type="s:boolean" />
           <s:element minOccurs="0" maxOccurs="1" name="ImagesSlide" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TagLink" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Specifications" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfString">
@@ -334,6 +431,32 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:element name="SearchProductByLocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CategoryId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parentCategoryId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="priceFrom" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="priceTo" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="curentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSite" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="province" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="district" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="acreageFrom" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="acreageTo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchProductByLocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchProductByLocationResult" type="tns:SearchResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetProductByParentCategory">
         <s:complexType>
           <s:sequence>
@@ -372,6 +495,25 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetProductByGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GroupId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="curentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSite" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="minPrioty" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductByGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductByGroupResult" type="tns:SearchResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetSaleProduct">
         <s:complexType>
           <s:sequence>
@@ -384,6 +526,22 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="GetSaleProductResult" type="tns:ArrayOfProductItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRandomSaleProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxRecord" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRandomSaleProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRandomSaleProductResult" type="tns:ArrayOfProductItem" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -403,8 +561,36 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetWebContent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="contentId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWebContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWebContentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="GetPaymentAPIConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPaymentAPIConfig" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentAPIConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPaymentAPIConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOrderStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateOrderStatus" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOrderStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateOrderStatusResponse" />
+  </wsdl:message>
   <wsdl:message name="GetLocationSoapIn">
     <wsdl:part name="parameters" element="tns:GetLocation" />
   </wsdl:message>
@@ -434,6 +620,12 @@
   </wsdl:message>
   <wsdl:message name="AddOrderSoapOut">
     <wsdl:part name="parameters" element="tns:AddOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddOrder2SoapIn">
+    <wsdl:part name="parameters" element="tns:AddOrder2" />
+  </wsdl:message>
+  <wsdl:message name="AddOrder2SoapOut">
+    <wsdl:part name="parameters" element="tns:AddOrder2Response" />
   </wsdl:message>
   <wsdl:message name="GetRandomAdsSlideSoapIn">
     <wsdl:part name="parameters" element="tns:GetRandomAdsSlide" />
@@ -465,6 +657,12 @@
   <wsdl:message name="SearchProductSoapOut">
     <wsdl:part name="parameters" element="tns:SearchProductResponse" />
   </wsdl:message>
+  <wsdl:message name="SearchProductByLocationSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchProductByLocation" />
+  </wsdl:message>
+  <wsdl:message name="SearchProductByLocationSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchProductByLocationResponse" />
+  </wsdl:message>
   <wsdl:message name="GetProductByParentCategorySoapIn">
     <wsdl:part name="parameters" element="tns:GetProductByParentCategory" />
   </wsdl:message>
@@ -477,11 +675,23 @@
   <wsdl:message name="GetProductByCategorySoapOut">
     <wsdl:part name="parameters" element="tns:GetProductByCategoryResponse" />
   </wsdl:message>
+  <wsdl:message name="GetProductByGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductByGroup" />
+  </wsdl:message>
+  <wsdl:message name="GetProductByGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductByGroupResponse" />
+  </wsdl:message>
   <wsdl:message name="GetSaleProductSoapIn">
     <wsdl:part name="parameters" element="tns:GetSaleProduct" />
   </wsdl:message>
   <wsdl:message name="GetSaleProductSoapOut">
     <wsdl:part name="parameters" element="tns:GetSaleProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRandomSaleProductSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRandomSaleProduct" />
+  </wsdl:message>
+  <wsdl:message name="GetRandomSaleProductSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRandomSaleProductResponse" />
   </wsdl:message>
   <wsdl:message name="GetProductDetailSoapIn">
     <wsdl:part name="parameters" element="tns:GetProductDetail" />
@@ -489,7 +699,21 @@
   <wsdl:message name="GetProductDetailSoapOut">
     <wsdl:part name="parameters" element="tns:GetProductDetailResponse" />
   </wsdl:message>
+  <wsdl:message name="GetWebContentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWebContent" />
+  </wsdl:message>
+  <wsdl:message name="GetWebContentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWebContentResponse" />
+  </wsdl:message>
   <wsdl:portType name="AnperoServiceSoap">
+    <wsdl:operation name="GetPaymentAPIConfig">
+      <wsdl:input message="tns:GetPaymentAPIConfigSoapIn" />
+      <wsdl:output message="tns:GetPaymentAPIConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrderStatus">
+      <wsdl:input message="tns:UpdateOrderStatusSoapIn" />
+      <wsdl:output message="tns:UpdateOrderStatusSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetLocation">
       <wsdl:input message="tns:GetLocationSoapIn" />
       <wsdl:output message="tns:GetLocationSoapOut" />
@@ -509,6 +733,10 @@
     <wsdl:operation name="AddOrder">
       <wsdl:input message="tns:AddOrderSoapIn" />
       <wsdl:output message="tns:AddOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrder2">
+      <wsdl:input message="tns:AddOrder2SoapIn" />
+      <wsdl:output message="tns:AddOrder2SoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetRandomAdsSlide">
       <wsdl:input message="tns:GetRandomAdsSlideSoapIn" />
@@ -530,6 +758,10 @@
       <wsdl:input message="tns:SearchProductSoapIn" />
       <wsdl:output message="tns:SearchProductSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="SearchProductByLocation">
+      <wsdl:input message="tns:SearchProductByLocationSoapIn" />
+      <wsdl:output message="tns:SearchProductByLocationSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetProductByParentCategory">
       <wsdl:input message="tns:GetProductByParentCategorySoapIn" />
       <wsdl:output message="tns:GetProductByParentCategorySoapOut" />
@@ -538,17 +770,47 @@
       <wsdl:input message="tns:GetProductByCategorySoapIn" />
       <wsdl:output message="tns:GetProductByCategorySoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetProductByGroup">
+      <wsdl:input message="tns:GetProductByGroupSoapIn" />
+      <wsdl:output message="tns:GetProductByGroupSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetSaleProduct">
       <wsdl:input message="tns:GetSaleProductSoapIn" />
       <wsdl:output message="tns:GetSaleProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRandomSaleProduct">
+      <wsdl:input message="tns:GetRandomSaleProductSoapIn" />
+      <wsdl:output message="tns:GetRandomSaleProductSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetProductDetail">
       <wsdl:input message="tns:GetProductDetailSoapIn" />
       <wsdl:output message="tns:GetProductDetailSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetWebContent">
+      <wsdl:input message="tns:GetWebContentSoapIn" />
+      <wsdl:output message="tns:GetWebContentSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="AnperoServiceSoap" type="tns:AnperoServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPaymentAPIConfig">
+      <soap:operation soapAction="http://tempuri.org/GetPaymentAPIConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrderStatus">
+      <soap:operation soapAction="http://tempuri.org/UpdateOrderStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetLocation">
       <soap:operation soapAction="http://tempuri.org/GetLocation" style="document" />
       <wsdl:input>
@@ -587,6 +849,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddOrder">
       <soap:operation soapAction="http://tempuri.org/AddOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrder2">
+      <soap:operation soapAction="http://tempuri.org/AddOrder2" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -639,6 +910,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SearchProductByLocation">
+      <soap:operation soapAction="http://tempuri.org/SearchProductByLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetProductByParentCategory">
       <soap:operation soapAction="http://tempuri.org/GetProductByParentCategory" style="document" />
       <wsdl:input>
@@ -657,8 +937,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetProductByGroup">
+      <soap:operation soapAction="http://tempuri.org/GetProductByGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetSaleProduct">
       <soap:operation soapAction="http://tempuri.org/GetSaleProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRandomSaleProduct">
+      <soap:operation soapAction="http://tempuri.org/GetRandomSaleProduct" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -675,9 +973,36 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetWebContent">
+      <soap:operation soapAction="http://tempuri.org/GetWebContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="AnperoServiceSoap12" type="tns:AnperoServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPaymentAPIConfig">
+      <soap12:operation soapAction="http://tempuri.org/GetPaymentAPIConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrderStatus">
+      <soap12:operation soapAction="http://tempuri.org/UpdateOrderStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetLocation">
       <soap12:operation soapAction="http://tempuri.org/GetLocation" style="document" />
       <wsdl:input>
@@ -716,6 +1041,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddOrder">
       <soap12:operation soapAction="http://tempuri.org/AddOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrder2">
+      <soap12:operation soapAction="http://tempuri.org/AddOrder2" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -768,6 +1102,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SearchProductByLocation">
+      <soap12:operation soapAction="http://tempuri.org/SearchProductByLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetProductByParentCategory">
       <soap12:operation soapAction="http://tempuri.org/GetProductByParentCategory" style="document" />
       <wsdl:input>
@@ -786,6 +1129,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetProductByGroup">
+      <soap12:operation soapAction="http://tempuri.org/GetProductByGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetSaleProduct">
       <soap12:operation soapAction="http://tempuri.org/GetSaleProduct" style="document" />
       <wsdl:input>
@@ -795,8 +1147,26 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetRandomSaleProduct">
+      <soap12:operation soapAction="http://tempuri.org/GetRandomSaleProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetProductDetail">
       <soap12:operation soapAction="http://tempuri.org/GetProductDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWebContent">
+      <soap12:operation soapAction="http://tempuri.org/GetWebContent" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -7,7 +7,7 @@
         ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
         ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau(commonInfo.Desc);
     }
-    <link href = "/assets/stylesheet/NganLuongBankList.css" rel = "stylesheet" />
+    <link href="/assets/stylesheet/NganLuongBankList.css" rel="stylesheet" />
 }
 @section health{
     <meta name="description" content="@commonInfo.Desc" />
@@ -97,7 +97,7 @@
                                         <label for="radio_button_6"><input type="radio" name="radio_4" id="radio_button_6" value="2" data-ship="15000"> Thu tiền tại nhà 15.000 đ</label>
                                     </li>
                                     <li>
-                                        <label for="radio_button_7"><input type="radio" name="radio_4" id="radio_button_7" value="NL" data-ship="0">  Thanh toán bằng Ví điện tử NgânLượng <span class="red">(miễn phí)</span></label>                                       
+                                        <label for="radio_button_7"><input type="radio" name="radio_4" id="radio_button_7" value="NL" data-ship="0">  Thanh toán bằng Ví điện tử NgânLượng <span class="red">(miễn phí)</span></label>
                                     </li>
                                     <li>
                                         <label for="radio_button_8" id="lb1"><input type="radio" name="radio_4" id="radio_button_8" value="ATM_ONLINE" data-ship="0"> Thanh toán online bằng thẻ ngân hàng nội địa <span class="red">(miễn phí)</span></label>
@@ -265,53 +265,58 @@
                                     <li>
                                         <label for="radio_button_9"><input type="radio" name="radio_4" id="radio_button_9" value="VISA" data-ship="0"> Thanh toán bằng thẻ Visa hoặc MasterCard <span class="red">(miễn phí)</span></label>
                                     </li>
-                                
+
                                 </ul>
-                            
+
                             </div>
                         </div>
                         <h3 class="checkout-sep">4. Kiểm tra lại thông tin sản phẩm</h3>
                         <div class="box-border">
-                            <table class="table table-bordered table-responsive add-to-cart" id="shopping-cart-table">
-                                <thead>
-                                    <tr>
-                                        <th class="cart_product">Ảnh</th>
-                                        <th>Thông tin</th>
-                                        <th>Tình trạng.</th>
-                                        <th>Đơn giá</th>
-                                        <th>Số lượng</th>
-                                        <th>Tổng</th>
-                                        <th class="action"><i class="fa fa-trash-o"></i></th>
-                                    </tr>
-                                </thead>
-                                <tbody id="prCatCtTable"></tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan="2" rowspan="2"></td>
-                                        <td colspan="3">Tổng giá sản phẩm </td>
-                                        <td colspan="2" id="ttPrCt"></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3"><strong>Tổng đơn hàng (bao gồm ship)</strong></td>
-                                        <td colspan="2"><strong id="ttOdCt"></strong></td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                            <div class="col-md-12 ctContent">
+                            <div class="col-md-12">
+                                <table class="table table-bordered table-responsive add-to-cart table-striped" id="shopping-cart-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="cart_product">Ảnh</th>
+                                            <th>Thông tin</th>
+                                            <th>Tình trạng.</th>
+                                            <th>Đơn giá</th>
+                                            <th>Số lượng</th>
+                                            <th>Tổng</th>
+                                            <th class="action"><i class="fa fa-trash-o"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="prCatCtTable"></tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="2" rowspan="2"></td>
+                                            <td colspan="3">Tổng giá sản phẩm </td>
+                                            <td colspan="2" id="ttPrCt"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3"><strong>Tổng đơn hàng (bao gồm ship)</strong></td>
+                                            <td colspan="2"><strong id="ttOdCt"></strong></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="col-xs -12 ctContent">
                                 <div id="g-recaptcha" class="pull-right"></div>
                             </div>
                             <div class="clearfix"></div>
-                            <div class="col-md-12 ">
-                                <a href="/" title="Continue Shopping" class="btn button btn-continue" onclick=""><span><span>Mua thêm</span></span></a>                                
-                                <button type="submit" name="update_cart_action" value="update_qty" title="Update Cart" class="button btn-update pull-right" id="orderBtn"><span><span>Gửi đơn hàng</span></span></button>                                
-                               
+                            <div class="col-xs -12">
+                                <a href="/" title="Continue Shopping" class="btn button btn-continue" onclick=""><span><span>Mua thêm</span></span></a>
+
+                                <button type="submit" name="update_cart_action" value="update_qty" title="Update Cart" class="btn button pull-right" id="orderBtn"><span><span>Gửi đơn hàng</span></span></button>
                             </div>
+
                             <div class="clearfix"></div>
                         </div>
                     </div>
                     <div class="page-content checkout-page" id="cartContent2" style="display:none;"></div>
                     <div id='ajax_loader' style="position: fixed; left: 45%; top: 50%; display: none;">
-                        <img src="/assets/images/loading.gif" />
+                        <img src="http://media.anpero.com/images/38/102017/loading2017102517124312.gif" />
                     </div>
                 </div>
             </div>
@@ -319,8 +324,8 @@
     </div>
 </div>
 @section scripts{
-<script src="~/Scripts/Bootrap.notify.js"></script>
-<script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="~/Scripts/Bootrap.notify.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=renderCapcha&render=explicit"></script>
     <script>
         var googleCatcha;
         $(window).load(function () {
@@ -338,12 +343,15 @@
             });
             $("#lb1").click(function () {
                 $(".cardList").show();
-            });            
+            });
+           
+        });
+        function renderCapcha() {
             googleCatcha = grecaptcha.render('g-recaptcha', {
                 'sitekey': googleCapchaSitekey,
                 'theme': 'light',
                 'hl': 'vi'
             });
-        });
+        }
     </script>
 }

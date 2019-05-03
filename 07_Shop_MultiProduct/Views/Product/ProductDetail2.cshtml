@@ -1,0 +1,270 @@
+﻿@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+}
+@if (ViewData["prDetail"] != null)
+{
+
+    string thisUrl = HttpContext.Current.Request.Url.AbsolutePath;
+    AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewData["prDetail"];
+    ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
+        Anpero.StringHelpper.GetProductLink(item.PrName, item.Id);
+    @section health{
+        <meta name="description" content="@Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc)" />
+        <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(item.KeyWord)" />
+        <link rel="stylesheet" type="text/css" href="~/assets/stylesheet/flexslider.css">
+        <meta property="og:description" content="@item.ShortDesc" />
+        <meta property="og:title" content="@item.PrName" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="@ViewBag.WebsiteUrl" />
+        <meta property="og:image" content="@item.Images" />
+        <link rel="stylesheet" type="text/css" href="~/assets/stylesheet/flexslider.css">
+        <link href="/assets/plugins/fancybox-3/src/css/core.css" rel="stylesheet" />
+        <link href="/assets/plugins/fancybox-3/src/css/fullscreen.css" rel="stylesheet" />
+    }
+    <div id="page">
+        <div class="page-heading">
+            <div class="breadcrumbs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <ul>
+                                <li class="home"> <a href="/" title="Trang chủ">Trang chủ</a> <span>—› </span> </li>
+                                <li> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName, item.ParentId)" title="">@item.ParentCatName</a> <span>—› </span> </li>
+                                <li> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.CatName, item.CatID)" title="">@item.CatName</a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-title">
+                <h2>@item.PrName</h2>
+            </div>
+        </div>
+        <div class="main-container col1-layout wow bounceInUp animated">
+            <div class="main">
+
+                <div class="col-md-3" style="margin-top:25px;">
+                    @Html.Partial("_partial/RenderProducMenuLeft")
+                </div>
+                <div class="col-md-9">
+
+                    <div class="product-view wow bounceInUp animated" itemscope="" itemtype="http://schema.org/Product" itemid="#product_base">
+                        <div id="messages_product_view"></div>
+                        <div class="product-essential">
+                            <div class="row">
+                                <form action="" method="post" id="product_addtocart_form">
+                                    <div class="product-img-box col-sm-12 col-xs-12">
+                                        <div class="new-label new-top-left"> New </div>
+                                        <div class="product-image">
+
+
+                                            @if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
+                                            {
+                                                <div class="large-image"> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.CatName, item.CatID)" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img src="@item.ImagesSlide[0]"> </a> </div>
+                                                <div class="flexslider flexslider-thumb">
+                                                    <ul class="previews-list slides">
+                                                        @foreach (var images in item.ImagesSlide)
+                                                        {
+                                                            <li>
+                                                                <a href='@images' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '@images' ">
+                                                                    <img src="@images" alt="@item.PrName" />
+                                                                </a>
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            }
+
+                                        </div>
+                                    </div>
+                                    <div class="product-shop col-sm-6 col-xs-6">
+                                        <div class="product-name">
+                                            <h1 itemprop="name">@item.PrName</h1>
+                                        </div>
+                                        <span itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+                                            <div class="rating">
+                                                <div class="ratings">
+                                                    <p class="rating-links"><a href="tel:@commonInfo.HotLine">Gọi: @commonInfo.HotLine hoặc click mua ngay để đặt hàng</a> </p>
+                                                </div>
+                                            </div>
+                                        </span>
+                                        <div class="price-block">
+                                            <div class="price-box"> <span class="regular-price" id="product-price-123"> <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </span> </div>
+                                            @if (@item.IsInstock)
+                                            {
+                                                <p class="availability in-stock">
+                                                    <span>Còn hàng</span>
+                                                </p>
+                                            }
+                                            else
+                                            {
+                                                <p class="availability out-stock">
+                                                    <span>Hết hàng</span>
+                                                </p>
+                                            }
+
+                                        </div>
+                                        <div class="short-description">
+                                            <h2>Mô tả ngắn</h2>
+                                            <p>@Html.Raw(item.ShortDesc)</p>
+                                        </div>
+                                        <div class="add-to-box">
+                                            <div class="add-to-cart">
+                                                <div class="pull-left">
+                                                    <div class="custom pull-left">
+                                                        <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="icon-minus">&nbsp;</i></button>
+                                                        <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+                                                        <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button"><i class="icon-plus">&nbsp;</i></button>
+                                                    </div>
+                                                </div>
+                                                <button type="button" title="Add to Cart" class="button btn-cart" onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@item.PrName');"><span><i class="icon-basket"></i>Đặt hàng</span></button>
+                                            </div>
+                                            <div class="email-addto-box">
+                                                <p class="add-to-links"><a class="link-wishlist" href="http://www.facebook.com/share.php?u=@thisUrl&title=@commonInfo.Desc" onclick="" title="Add To Wishlist"><span>Add To Wishlist</span></a></p>
+                                            </div>
+                                        </div>
+                                        <div class="social">
+                                            <ul class="link">
+                                                @if (!string.IsNullOrEmpty(commonInfo.Skype) || !string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                                                {
+
+
+                                                    if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                                                    {
+                                                        <li class="fb pull-left"><a target="_blank" rel="nofollow" href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" title="Facebook"></a></li>
+
+                                                    }
+                                                    if (!string.IsNullOrEmpty(commonInfo.Skype))
+                                                    {
+                                                        <li class="skype pull-left"><a target="_blank" rel="nofollow" href="skype:@commonInfo.Skype?call" title="skype"></a></li>
+
+                                                    }
+                                                    <li class="tw pull-left"><a target="_blank" rel="nofollow" href="http://www.twitter.com/share?url=@thisUrl" title="Twitter"></a></li>
+                                                    <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="https://plus.google.com/share?url=@thisUrl" title="GooglePlus"></a></li>
+                                                            <li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="http://pinterest.com/pinthis?url=@thisUrl" title="PInterest"></a></li>
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="product-collateral container">
+                            <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
+                                <li class="active"> <a href="#product_tabs_description" data-toggle="tab"> Mô tả sản phẩm </a> </li>
+                            </ul>
+                            <div id="productTabContent" class="tab-content">
+                                <div class="tab-pane fade in active" id="product_tabs_description">
+                                    <div class="std">
+                                        @Html.Raw(item.Detail)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-additional">
+                            <div class="related-pro container">
+                                <div class="slider-items-products">
+                                    <div class="new_title center">
+                                        <h2>Sản phẩm liên quan</h2>
+                                    </div>
+                                    <div id="related-slider" class="product-flexslider hidden-buttons">
+                                        <div class="slider-items slider-width-col4 products-grid">
+                                            @if (ViewData["relateProduct"] != null)
+                                            {
+                                                AnperoFrontend.WebService.SearchResult relateProduct = (AnperoFrontend.WebService.SearchResult)ViewData["relateProduct"];
+                                                if (relateProduct.Item != null && relateProduct.Item.Length > 0)
+                                                {
+                                                    foreach (var items in relateProduct.Item)
+                                                    {
+                                                        <div class="item">
+                                                            <div class="item-inner">
+                                                                <div class="item-img">
+                                                                    <div class="item-img-info">
+                                                                        <a href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName" class="product-image">
+                                                                            <img src="@items.Images" alt="@items.PrName">
+                                                                        </a>
+                                                                        <div class="new-label new-top-left">New</div>
+                                                                        <div class="item-box-hover">
+                                                                            <div class="box-inner">
+                                                                                <div class="product-detail-bnt">
+                                                                                    <a class="button detail-bnt" href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName">
+                                                                                        <span>Chi tiết</span>
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="item-info">
+                                                                    <div class="info-inner">
+                                                                        <div class="item-title">
+                                                                            <a href="@Anpero.StringHelpper.GetProductLink(items.PrName,items.Id)" title="@items.PrName">
+                                                                                @items.PrName
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="item-content">
+                                                                            <div class="rating">
+                                                                                <div class="ratings">
+                                                                                    <div class="rating-box">
+                                                                                        <div class="rating" style="width:80%"></div>
+                                                                                    </div>
+                                                                                    <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="item-price">
+                                                                                <div class="price-box"><span class="regular-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(items.Price) đ</span> </span> </div>
+                                                                            </div>
+                                                                            <div class="add_cart">
+                                                                                <button class="button btn-cart" type="button" onclick="Cart.addProduct(@items.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@items.Images','@items.PrName');"><span>Đặt hàng</span></button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section scripts{
+        <script type="text/javascript" src="~/assets/js/jquery.flexslider.js"></script>
+        <script type="text/javascript" src="~/assets/js/jquery.bxslider.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/cloud-zoom.js"></script>
+        <script src="~/assets/plugín/jquery.lazyload.min.js"></script>
+        <script src="/assets/plugins/jquery.lazyload.min.js"></script>
+        <script src="/assets/plugins/fancybox-3/dist/jquery.fancybox.min.js"></script>
+
+        <script>
+            $(window).load(function(){
+                $(function () {
+                    $(".lazy img").lazyload({
+                        effect: "fadeIn"
+                    });
+                    $(".fancybox").fancybox({
+                        openEffect: 'none',
+                        closeEffect: 'none'
+                    });
+
+                });
+            });
+
+        </script>
+
+    }
+}
+

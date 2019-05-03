@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Tạo đơn Hàng | Ngon Lành";
+    ViewBag.Title = "Tạo đơn Hàng ";
     AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
     if (ViewData["commonInfo"] != null)
     {
@@ -7,7 +7,6 @@
         ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
         ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau(commonInfo.Desc);
     }
-    <link href = "/assets/stylesheet/NganLuongBankList.css" rel = "stylesheet" />
 }
 @section health{
     <meta name="description" content="@commonInfo.Desc" />
@@ -65,50 +64,46 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <h3 class="checkout-sep">2. Phương thức vận chuyển</h3>
                             <div class="box-border">
                                 <ul class="shipping_method form-list">
                                     <li style="display:none;">
-                                        <label for="radio_button_3"><input type="radio" checked name="radio_3" id="radio_button_3" value="0" data-ship="0">Miễn phí 0đ</label>
+                                        <label for="radio_button_3"><input type="radio" checked name="radio_3" id="radio_button_3" value="3" data-ship="0">Miễn phí 0đ</label>
                                     </li>
 
                                     <li>
-                                        <label for="radio_button_4"><input type="radio" name="radio_3" id="radio_button_4" value="1" data-ship="40000"> Vận chuyển thường 40.000đ</label>
+                                        <label for="radio_button_4"><input type="radio" name="radio_3" id="radio_button_4" value="2" data-ship="40000"> Vận chuyển thường 40.000đ</label>
                                     </li>
                                     <li>
-                                        <label for="radio_button_5"><input type="radio" name="radio_3" id="radio_button_5" value="2" data-ship="80000"> Vận chuyển nhanh 80.000đ</label>
+                                        <label for="radio_button_5"><input type="radio" name="radio_3" id="radio_button_5" value="1" data-ship="80000"> Vận chuyển nhanh 80.000đ</label>
                                     </li>
+
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <h3 class="checkout-sep">3. Phương thức thanh toán</h3>
                             <div class="box-border">
+
                                 <ul class="shipping_method form-list">
                                     <li style="display:none;">
                                         <p class="subcaption bold">Tại cửa hàng</p>
                                         <label for="radio_button_41"><input type="radio" checked name="radio_4" id="radio_button_41" value="0" data-ship="0">Miễn phí 0 đ</label>
                                     </li>
                                     <li>
-                                        <label for="radio_button_51"><input type="radio" name="radio_4" id="radio_button_51" value="1" data-ship="0"> Chuyển khoản 0đ</label>
+                                        <label for="radio_button_51"><input type="radio" name="radio_4" id="radio_button_51" value="4" data-ship="0"> Chuyển khoản 0đ</label>
                                     </li>
                                     <li>
-                                        <label for="radio_button_6"><input type="radio" name="radio_4" id="radio_button_6" value="2" data-ship="15000"> Thu tiền tại nhà 15.000 đ</label>
+                                        <label for="radio_button_6"><input type="radio" name="radio_4" id="radio_button_6" value="1" data-ship="10000"> Thu tiền tại nhà 10.000 đ</label>
                                     </li>
                                     <li>
-                                        <label for="radio_button_7"><input type="radio" name="radio_4" id="radio_button_7" value="NL" data-ship="0">  Thanh toán bằng Ví điện tử NgânLượng <span class="red">(miễn phí)</span></label>                                       
-                                    </li>
-                                    <li>
-                                        <label for="radio_button_8" id="lb1"><input type="radio" name="radio_4" id="radio_button_8" value="ATM_ONLINE" data-ship="0"> Thanh toán online bằng thẻ ngân hàng nội địa <span class="red">(miễn phí)</span></label>
+                                        <label for="radio_button_8" id="lb1"><input type="radio" name="radio_4" id="radio_button_8" value="2" data-ship="0"> Thanh toán online bằng thẻ ngân hàng nội địa <span class="red">(miễn phí)</span></label>
                                         <ul class="cardList form-list clearfix" style="display:none;">
-
                                             <li class="bank-online-methods ">
                                                 <label for="vcb_ck_on">
                                                     <i class="VCB" title="Ngân hàng TMCP Ngoại Thương Việt Nam"></i>
                                                     <input type="radio" name="bankcode" id="vcb_ck_on" value="VCB">
-
-
                                                 </label>
                                             </li>
 
@@ -262,12 +257,8 @@
 
                                         </ul>
                                     </li>
-                                    <li>
-                                        <label for="radio_button_9"><input type="radio" name="radio_4" id="radio_button_9" value="VISA" data-ship="0"> Thanh toán bằng thẻ Visa hoặc MasterCard <span class="red">(miễn phí)</span></label>
-                                    </li>
-                                
+
                                 </ul>
-                            
                             </div>
                         </div>
                         <h3 class="checkout-sep">4. Kiểm tra lại thông tin sản phẩm</h3>
@@ -302,9 +293,9 @@
                             </div>
                             <div class="clearfix"></div>
                             <div class="col-md-12 ">
-                                <a href="/" title="Continue Shopping" class="btn button btn-continue" onclick=""><span><span>Mua thêm</span></span></a>                                
-                                <button type="submit" name="update_cart_action" value="update_qty" title="Update Cart" class="button btn-update pull-right" id="orderBtn"><span><span>Gửi đơn hàng</span></span></button>                                
-                               
+                                <a href="/" title="Continue Shopping" class="btn button btn-continue" onclick=""><span><span>Mua thêm</span></span></a>
+                                <button type="submit" name="update_cart_action" value="update_qty" title="Update Cart" class="button btn-update pull-right" id="orderBtn"><span><span>Gửi đơn hàng</span></span></button>
+
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -319,8 +310,8 @@
     </div>
 </div>
 @section scripts{
-<script src="~/Scripts/Bootrap.notify.js"></script>
-<script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="~/Scripts/Bootrap.notify.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=renderCapcha&render=explicit"></script>
     <script>
         var googleCatcha;
         $(window).load(function () {
@@ -336,14 +327,14 @@
             $("#orderBtn").click(function () {
                 Cart.sendOrder();
             });
-            $("#lb1").click(function () {
-                $(".cardList").show();
-            });            
+            
+        });
+        function renderCapcha() {
             googleCatcha = grecaptcha.render('g-recaptcha', {
                 'sitekey': googleCapchaSitekey,
                 'theme': 'light',
                 'hl': 'vi'
             });
-        });
+        }
     </script>
 }

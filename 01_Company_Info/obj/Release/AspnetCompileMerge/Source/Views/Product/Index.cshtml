@@ -1,0 +1,56 @@
+﻿
+
+
+@if (ViewData["prDetail"] != null)
+{
+    AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewData["prDetail"];
+    <div class="page-top ">
+        <div class="container ">
+            <div class="breadcrumb clearfix ">
+                <a class="home" href="/" title="Return to Home">Home</a>
+                <span class="navigation-pipe">&nbsp;</span>
+                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName,item.ParentId)" title="Return to Home">@item.ParentCatName</a>
+                <span class="navigation-pipe">&nbsp;</span>
+                <a href="@Anpero.StringHelpper.GetCategoryLink(item.CatName,item.CatID)" title="Return to Home">@item.CatName</a>
+            </div>
+            <div class="row ">              
+                @if (Request.Browser.IsMobileDevice)
+                {
+                
+                    @Html.Partial("product/_productDetail")                
+                    @Html.Partial("product/_MenuAndAdsPartial")
+                }
+                else
+                {
+                    @Html.Partial("product/_MenuAndAdsPartial")
+                    @Html.Partial("product/_productDetail")
+                }
+
+            </div>
+            
+
+
+        </div>
+    </div>
+    @section health{
+        <meta name="description" content="@Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc)" />
+        <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(item.KeyWord)" />
+    }
+    @section  scripts{
+        <link rel="stylesheet" type="text/css" href="/assets/lib/fancyBox/jquery.fancybox.css">        
+        <script type="text/javascript" src="/assets/lib/fancyBox/jquery.fancybox.js"></script>
+        <script>
+            $(window).load(function () {
+                $(function () {
+                    $(".lazy").fancybox({
+                        openEffect: 'none',
+                        closeEffect: 'none'
+                    });
+
+                });
+            });
+        </script>
+        @item.Script
+     
+    }
+}

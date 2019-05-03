@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Web;
 namespace Anpero
 {
-   public static class Paging
+    public static class Paging
     {
-        public static String setupAjaxPage(int curentPage, int pageSite, int itemCount, int MaxPage, string funcName)
+        public static String setupAjaxPage(int curentPage, int pageSite, int itemCount, int MaxPage, string funcName,string orderBy)
         {
             String pagedString = "";
 
@@ -29,7 +29,7 @@ namespace Anpero
                 }
                 else
                 {
-                    pagedString += @"<li><a href='javascript:" + funcName + "(" + (curentPage - 1) + ");'>&laquo;</a></li>";
+                    pagedString += @"<li><a href='javascript:" + funcName + "(" + (curentPage - 1) + ",\""+orderBy+"\");'>&laquo;</a></li>";
                 }
 
                 if (curentPage <= totallPaed)
@@ -64,7 +64,7 @@ namespace Anpero
                         }
                         else
                         {
-                            pagedString += @"<li><a href='javascript:" + funcName + "(" + i + ");'>" + i + "</a></li>";
+                            pagedString += @"<li><a href='javascript:" + funcName + "(" + i + ",\""+orderBy+"\");'>" + i + "</a></li>";
                         }
 
                     }
@@ -80,8 +80,8 @@ namespace Anpero
                 }
                 else
                 {
-                    pagedString += @"<li><a href='javascript:" + funcName + "(" + totallPaed + @");'> . " + totallPaed + @"</a></li>";
-                    pagedString += @"<li><a href='javascript:" + funcName + "(" + (curentPage + 1) + ");'>&raquo;</a></li>";
+                    pagedString += @"<li><a href='javascript:" + funcName + "(" + totallPaed + ",\"" + orderBy + "\");'>" + totallPaed + @"</a></li>";                    
+                    pagedString += @"<li><a href='javascript:" + funcName + "(" + (curentPage + 1) + ",\"" + orderBy + "\");'>&raquo;</a></li>";
 
                 }
                 pagedString += @"</ul>";
@@ -91,7 +91,7 @@ namespace Anpero
         public static String setUpPagedV2(int curentPage, int pageSite, int itemCount, int MaxPage, String query)
         {
             String pagedString = "";
-         
+
             int totallPaed = itemCount / pageSite;
             if (itemCount % pageSite > 0)
             {
@@ -105,16 +105,27 @@ namespace Anpero
 
             //totallPaed = totallPaed - totalPageSpit;
             #region get link
-            string  CurentUrl = HttpContext.Current.Request.RawUrl.ToString();
-
-            int legth = CurentUrl.LastIndexOf(query);
+            string CurentUrl = HttpContext.Current.Request.RawUrl.ToString();
+            query = query.Replace(@"?", string.Empty).Replace(@"&", string.Empty);
+            int legth = CurentUrl.LastIndexOf(@"?" + query);
             String pageaspx = CurentUrl;
             if (legth > 0)
             {
                 pageaspx = CurentUrl.Substring(0, legth);
             }
+            else
+            {
+                legth = CurentUrl.LastIndexOf(@"&" + query);
+                if (legth > 0)
+                {
+                    pageaspx = CurentUrl.Substring(0, legth);
+                }
+
+            }
 
             #endregion
+
+            query = pageaspx.Contains(@"?") ? "&" + query : "?" + query;
             // string path = HttpContext.Current.Request.Url.AbsolutePath;
             // // /TESTERS/Default6.aspx
             //nếu số tin lới hơn số tin trên trang mới hiển thị phân trang

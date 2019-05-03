@@ -1,12 +1,12 @@
 ﻿@using AnperoFrontend.WebService;
 @{
-    ViewBag.Title = "Liên hệ với chúng tôi | Ngon Lành";
+    ViewBag.Title = "Liên hệ với chúng tôi | VinFish";
     AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
     if (ViewData["commonInfo"] != null)
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
         ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
-        ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau("thực phẩm sạch, hoa qua sạch, rau sạch, ngon lành, ngon sạch, trái cây sạch, bơ sáp, bơ booth, bưởi diễn, bưởi danh xanh, bưởi quế dương,mật ong");
+        ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau("cá chép nướng, cá rô nướng, VinFish, cá quả nướng, cá nướng, cá nướng thơm ngon, cá ngon, đặt hàng online, đặt tiệc");
     }
 }
 @section health{
@@ -36,7 +36,7 @@
             <div id="message-box-conact"></div>
             <div class="row">
                 <div class="col-sm-6">
-                    <h3 class="page-subheading">Gửi tin nhắn cho Ngon&Lành</h3>
+                    <h3 class="page-subheading">Gửi tin nhắn cho VinFish</h3>
                     <div class="contact-form-box">                       
                         <div class="form-selector">
                             <label>Tên liên hệ </label>

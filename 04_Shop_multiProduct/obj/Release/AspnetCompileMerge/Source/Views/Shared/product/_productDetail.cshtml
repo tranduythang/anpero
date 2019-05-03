@@ -25,10 +25,8 @@
                                 }
                             </ul>
                         }
-
                     </div>
                 </div>
-                <!-- product-imge-->
             </div>
             <div class="pb-right-column col-xs-12 col-sm-6">
                 <h1 class="product-name">@item.PrName</h1>
@@ -85,8 +83,7 @@
                     <div class="button-group">
                         @if (item.IsInstock)
                         {
-                            <a class="btn-add-cart" href="javascript:Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName')">Đặt mua</a>
-
+                            <a class="btn-add-cart" href="javascript:Cart.addProduct(@item.Id,'@Convert.ToInt32(item.SalePrice)','@HttpUtility.UrlEncode(item.Images)','@item.PrName')">Đặt mua</a>
                         }
                         else
                         {
@@ -116,17 +113,22 @@
                     <li class="active">
                         <a aria-expanded="false" data-toggle="tab" href="#product-detail">Thông tin chi tiết</a>
                     </li>
+                    <li>
+                        <a aria-expanded="false" data-toggle="tab" href="#paymentDetail"   id="paymentTab">Thông tin thanh toán</a>
+                    </li>
                 </ul>
                 <div class="tab-container">
                     <div id="product-detail" class="tab-panel active">
                         @Html.Raw(item.Detail)
                     </div>
+                    <div id="paymentDetail" lass="active">
+                        <div id='ajax_loader' style="left: 45%; top: 50%;">
+                            <img src="http://media.anpero.com/images/38/102017/loading2017102517124312.gif" />
+                        </div>        
+                    </div>
                 </div>
             </div>
         }
-
-        <!-- ./tab product -->
-        <!-- box product -->
         <div class="page-product-box">
             <h3 class="heading">Sản phẩm liên quan</h3>
             <ul class="product-list">
@@ -186,9 +188,7 @@
 
             </ul>
         </div>
-        <!-- ./box product -->
-
     </div>
-    <!-- Product -->
 </div>
+    
 }

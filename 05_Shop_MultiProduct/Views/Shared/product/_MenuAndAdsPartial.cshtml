@@ -1,4 +1,7 @@
-﻿<div class="column col-xs-12 col-sm-3" id="left_column">
+﻿@{ 
+    bool isShowAllMenu = true;
+}
+<div class="column col-xs-12 col-sm-3" id="left_column">
     <!-- block category -->
     <div class="block left-module">
         <p class="title_block">Danh mục sản phẩm</p>
@@ -9,7 +12,7 @@
                 AnperoFrontend.WebService.Webconfig commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
                 <div class="layered layered-category">
                     <div class="layered-content">
-                        <ul class="tree-menu">
+                        <ul class="tree-menu" >
                             @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                             {
                                 for (int i = 0; i < commonInfo.ProductCategoryList.Length; i++)

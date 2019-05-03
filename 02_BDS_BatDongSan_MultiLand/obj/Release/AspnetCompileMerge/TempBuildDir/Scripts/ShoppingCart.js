@@ -1,7 +1,6 @@
 ﻿var Cart = {
     list: [],
-    addProduct: function (_id, _price, _thumb, _title) {
-        debugger
+    addProduct: function (_id, _price, _thumb, _title) {        
         var checkExited = false;
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));

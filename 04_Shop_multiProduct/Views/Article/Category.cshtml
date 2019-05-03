@@ -9,14 +9,14 @@
         <div class="breadcrumb clearfix">
             <a class="home" href="#" title="Return to Home">Home</a>
             <span class="navigation-pipe">&nbsp;</span>
-            <span class="navigation_page">Blog</span>
+            <span class="navigation_page">Blog</span><span class="navigation-pipe">&nbsp;</span>
+            
         </div>
         <!-- ./breadcrumb -->
         <!-- row -->
         <div class="row">
 
             <!-- Left colunm -->
-            @Html.Partial("article/_MenuAndAdsPartial")
             <!-- ./left colunm -->
             <!-- Center colunm-->
             @if (articleList.ResultsCount > 0)
@@ -33,7 +33,7 @@
                                 @Html.Raw(ViewBag.page)
                             </nav>
                         </div>
-                       
+
                     </div>
                     @foreach (var item in articleList.ItemList)
                     {
@@ -51,18 +51,18 @@
                                         <div class="col-sm-7">
                                             <div class="entry-ci">
                                                 <h3 class="entry-title"><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h3>
-                                                <div class="entry-meta-data">                                                   
+                                                <div class="entry-meta-data">
                                                     <span class="cat">
                                                         <i class="fa fa-folder-o"></i>
                                                         <a href="@Anpero.StringHelpper.GetCategoryLink(item.CategoryName,item.CategoryId)">@item.CategoryName </a>
-                                                        
+
                                                     </span>
                                                     <span class="comment-count">
                                                         <i class="fa fa-comment-o"></i> @item.ViewTime
                                                     </span>
                                                     <span class="date"><i class="fa fa-calendar"></i> @Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</span>
                                                 </div>
-                                                
+
                                                 <div class="entry-excerpt">
                                                     @item.ShotDesc
                                                 </div>
@@ -78,7 +78,7 @@
 
                         </ul>
                     }
-            
+
                     <div class="sortPagiBar clearfix">
                         <div class="bottom-pagination">
                             <nav>
@@ -126,7 +126,7 @@
                                     </div>
                                     <div class="col-sm-7">
                                         <div class="entry-ci">
-                                            <h3 class="entry-title"><a href="#">Sed ut perspiciatis unde omnis iste natus error</a></h3>
+                                            <h3 class="entry-title"><a href="#">Nội dung đang được cập nhật</a></h3>
                                             <div class="entry-meta-data">
                                                 <span class="author">
                                                     <i class="fa fa-user"></i>
@@ -151,7 +151,7 @@
                                                 <span>(7 votes)</span>
                                             </div>
                                             <div class="entry-excerpt">
-                                                Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum dolor sit amet, consecvtetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel.
+                                                Nội dung mục này đang được cập nhật. Vui lòng quay lại sau
                                             </div>
                                             <div class="entry-more">
                                                 <a href="#">Read more</a>
@@ -161,7 +161,7 @@
                                 </div>
                             </article>
                         </li>
-              
+
 
                     </ul>
                     <div class="sortPagiBar clearfix">
@@ -184,7 +184,7 @@
                     </div>
                 </div>
             }
-      
+            @Html.Partial("article/_MenuAndAdsPartial")
             <!-- ./ Center colunm -->
         </div>
         <!-- ./row-->

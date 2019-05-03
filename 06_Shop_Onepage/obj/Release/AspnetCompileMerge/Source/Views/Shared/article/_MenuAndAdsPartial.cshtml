@@ -11,49 +11,29 @@
         TopArticle = (SearchArticleResults)ViewData["FeatureArticle"];
     }
 }
-<div class="column col-xs-12 col-sm-3" id="left_column">
+
     <!-- Blog category -->
-    @if (categoryList!=null && categoryList.Count > 0)
+    @if (categoryList != null && categoryList.Count > 0)
     {
         <div class="block left-module">
             <p class="title_block">Các chuyên mục</p>
-            <div class="block_content">
-                <!-- layered -->
-                <div class="layered layered-category">
-                    <div class="layered-content">
-                        <ul class="tree-menu">                         
-                            @foreach (BlogCategory item in categoryList)
-                               {
-                                <li><span></span><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Name,item.Id)">@item.Name</a></li>
-                               }
-                        </ul>
-                    </div>
+            <div class="layered layered-category">
+                <div class="layered-content box-category">
+                    <ul class="tree-menu">
+                        @foreach (BlogCategory item in categoryList)
+                        {
+                            <li><span></span><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Name,item.Id)">@item.Name</a></li>
+                        }
+                    </ul>
                 </div>
-                <!-- ./layered -->
-            </div>
-        </div>
-    }
-    else
-    {
-        <div class="block left-module">
-            <p class="title_block">Các chuyên đề</p>
-            <div class="block_content">
-                <!-- layered -->
-                <div class="layered layered-category">
-                    <div class="layered-content">
-                        <ul class="tree-menu">
-                            <li><span></span><a href="#">Chưa có chuyên mục nào</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- ./layered -->
             </div>
         </div>
     }
 
+
     <!-- ./blog category  -->
     <!-- Popular Posts -->
-    @if (TopArticle!=null && TopArticle.ItemList.Length > 0)
+    @if (TopArticle != null && TopArticle.ItemList.Length > 0)
     {
 
         <div class="block left-module">
@@ -63,7 +43,7 @@
                 <div class="layered">
                     <div class="layered-content">
                         <ul class="blog-list-sidebar clearfix">
-                            @for (int i = 0; i < TopArticle.ItemList.Length - 1; i++)
+                            @for (int i = 0; i < TopArticle.ItemList.Length; i++)
                             {
                                 <li>
                                     <div class="post-thumb">
@@ -71,12 +51,7 @@
                                     </div>
                                     <div class="post-info">
                                         <h5 class="entry_title"><a href="@Anpero.StringHelpper.GetArticleLink(TopArticle.ItemList[i].Title,TopArticle.ItemList[i].Id)">@TopArticle.ItemList[i].Title</a></h5>
-                                        <div class="post-meta">
-                                            <span class="date"><i class="fa fa-calendar"></i> @TopArticle.ItemList[i].CreateDate</span>
-                                            <span class="comment-count">
-                                                <i class="fa fa-comment-o"></i> @TopArticle.ItemList[i].ViewTime
-                                            </span>
-                                        </div>
+
                                     </div>
                                 </li>
                             }
@@ -87,79 +62,71 @@
             </div>
         </div>
 
-        <!-- ./Popular Posts -->
-        <!-- Banner -->
-            <div class="block left-module">
-                <div class="banner-opacity">
-                    <a href="@Anpero.StringHelpper.GetArticleLink(TopArticle.ItemList[TopArticle.ItemList.Length-1].Title,TopArticle.ItemList[TopArticle.ItemList.Length-1].Id)"><img src="@TopArticle.ItemList[TopArticle.ItemList.Length-1].Thumb" alt="@TopArticle.ItemList[TopArticle.ItemList.Length-1].Title"></a>
-                </div>
-            </div>
     }
     <!-- ./Banner -->
     @*<!-- Recent Comments -->
-    <div class="block left-module">
-        <p class="title_block">Recent Comments</p>
-        <div class="block_content">
-            <!-- layered -->
-            <div class="layered">
-                <div class="layered-content">
-                    <ul class="recent-comment-list">
-                        <li>
-                            <h5><a href="#">Lorem ipsum dolor sit amet</a></h5>
-                            <div class="comment">
-                                "Consectetuer adipis. Mauris accumsan nulla vel diam. Sed in..."
-                            </div>
-                            <div class="author">Posted by <a href="#">Admin</a></div>
-                        </li>
-                        <li>
-                            <h5><a href="#">Lorem ipsum dolor sit amet</a></h5>
-                            <div class="comment">
-                                "Consectetuer adipis. Mauris accumsan nulla vel diam. Sed in..."
-                            </div>
-                            <div class="author">Posted by <a href="#">Admin</a></div>
-                        </li>
-                        <li>
-                            <h5><a href="#">Lorem ipsum dolor sit amet</a></h5>
-                            <div class="comment">
-                                "Consectetuer adipis. Mauris accumsan nulla vel diam. Sed in..."
-                            </div>
-                            <div class="author">Posted by <a href="#">Admin</a></div>
-                        </li>
-                    </ul>
+        <div class="block left-module">
+            <p class="title_block">Recent Comments</p>
+            <div class="block_content">
+                <!-- layered -->
+                <div class="layered">
+                    <div class="layered-content">
+                        <ul class="recent-comment-list">
+                            <li>
+                                <h5><a href="#">Lorem ipsum dolor sit amet</a></h5>
+                                <div class="comment">
+                                    "Consectetuer adipis. Mauris accumsan nulla vel diam. Sed in..."
+                                </div>
+                                <div class="author">Posted by <a href="#">Admin</a></div>
+                            </li>
+                            <li>
+                                <h5><a href="#">Lorem ipsum dolor sit amet</a></h5>
+                                <div class="comment">
+                                    "Consectetuer adipis. Mauris accumsan nulla vel diam. Sed in..."
+                                </div>
+                                <div class="author">Posted by <a href="#">Admin</a></div>
+                            </li>
+                            <li>
+                                <h5><a href="#">Lorem ipsum dolor sit amet</a></h5>
+                                <div class="comment">
+                                    "Consectetuer adipis. Mauris accumsan nulla vel diam. Sed in..."
+                                </div>
+                                <div class="author">Posted by <a href="#">Admin</a></div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+                <!-- ./layered -->
             </div>
-            <!-- ./layered -->
         </div>
-    </div>
-    <!-- ./Recent Comments -->*@
+        <!-- ./Recent Comments -->*@
     <!-- tags -->
     @*<div class="block left-module">
-        <p class="title_block">TAGS</p>
-        <div class="block_content">
-            <div class="tags">
-                <a href="#"><span class="level1">actual</span></a>
-                <a href="#"><span class="level2">adorable</span></a>
-                <a href="#"><span class="level3">change</span></a>
-                <a href="#"><span class="level4">consider</span></a>
-                <a href="#"><span class="level3">phenomenon</span></a>
-                <a href="#"><span class="level4">span</span></a>
-                <a href="#"><span class="level1">spanegs</span></a>
-                <a href="#"><span class="level5">spanegs</span></a>
-                <a href="#"><span class="level1">actual</span></a>
-                <a href="#"><span class="level2">adorable</span></a>
-                <a href="#"><span class="level3">change</span></a>
-                <a href="#"><span class="level4">consider</span></a>
-                <a href="#"><span class="level2">gives</span></a>
-                <a href="#"><span class="level3">change</span></a>
-                <a href="#"><span class="level2">gives</span></a>
-                <a href="#"><span class="level1">good</span></a>
-                <a href="#"><span class="level3">phenomenon</span></a>
-                <a href="#"><span class="level4">span</span></a>
-                <a href="#"><span class="level1">spanegs</span></a>
-                <a href="#"><span class="level5">spanegs</span></a>
+            <p class="title_block">TAGS</p>
+            <div class="block_content">
+                <div class="tags">
+                    <a href="#"><span class="level1">actual</span></a>
+                    <a href="#"><span class="level2">adorable</span></a>
+                    <a href="#"><span class="level3">change</span></a>
+                    <a href="#"><span class="level4">consider</span></a>
+                    <a href="#"><span class="level3">phenomenon</span></a>
+                    <a href="#"><span class="level4">span</span></a>
+                    <a href="#"><span class="level1">spanegs</span></a>
+                    <a href="#"><span class="level5">spanegs</span></a>
+                    <a href="#"><span class="level1">actual</span></a>
+                    <a href="#"><span class="level2">adorable</span></a>
+                    <a href="#"><span class="level3">change</span></a>
+                    <a href="#"><span class="level4">consider</span></a>
+                    <a href="#"><span class="level2">gives</span></a>
+                    <a href="#"><span class="level3">change</span></a>
+                    <a href="#"><span class="level2">gives</span></a>
+                    <a href="#"><span class="level1">good</span></a>
+                    <a href="#"><span class="level3">phenomenon</span></a>
+                    <a href="#"><span class="level4">span</span></a>
+                    <a href="#"><span class="level1">spanegs</span></a>
+                    <a href="#"><span class="level5">spanegs</span></a>
+                </div>
             </div>
-        </div>
-    </div>*@
+        </div>*@
     <!-- ./tags -->
- 
-</div>
+

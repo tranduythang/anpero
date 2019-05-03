@@ -1,0 +1,171 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    ViewBag.Title = "Liên hệ với chúng tôi | VinFish";
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+        ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+        ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau("cá chép nướng, cá rô nướng, VinFish, cá quả nướng, cá nướng, cá nướng thơm ngon, cá ngon, đặt hàng online, đặt tiệc");
+    }
+}
+@section health{
+    <meta name="description" content="@commonInfo.Desc" />
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    <meta property="og:description" content="@commonInfo.Desc" />
+    <meta property="og:title" content="@commonInfo.Desc" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="@ViewBag.WebsiteUrl" />
+    <meta property="og:image" content="@commonInfo.Logo" />
+}
+<div class="page-heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="page-title center">
+                    <h2>Liên hệ với chúng tôi</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="columns-container">
+    <div class="container" id="columns">
+        <!-- /assets/page heading-->
+        <div id="contact" class="page-content page-contact">
+            <div id="message-box-conact"></div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3 class="page-subheading">Gửi tin nhắn yêu cầu hỗ trợ</h3>
+                    <div class="contact-form-box">                       
+                        <div class="form-selector">
+                            <label>Tên liên hệ </label>
+                            <input type="text" class="form-control input-sm" id="name" />
+                        </div>
+                        <div class="form-selector">
+                            <label>Email </label>
+                            <input type="text" class="form-control input-sm" id="email" />
+                        </div>
+                        <div class="form-selector">
+                            <label>Số điện thoại (*)</label>
+                            <input type="text" class="form-control input-sm" id="phone" />
+                        </div>
+                        <div class="form-selector">
+                            <label>Địa chỉ (*)</label>
+                            <input type="text" class="form-control input-sm" id="address" />
+                        </div>
+                        <div class="form-selector">
+                            <label>Tin nhắn (*)</label>
+                            <textarea class="form-control input-sm" rows="10" id="message"></textarea>
+                        </div>                        
+                        <div class="form-selector">
+                            <div id="g-recaptcha"></div>
+                        </div>
+                        <div class="form-selector">
+                            <button id="btn-send-contact" class="btn">Gửi  </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6" id="contact_form_map">
+                    <h3 class="page-subheading">Thông tin liên hệ @commonInfo.Name</h3>
+                    <p>@commonInfo.Desc</p>
+                    <br />
+                    
+                    <br />
+                    <ul class="store_info">
+                        <li><i class="fa fa-home"></i>@commonInfo.Address</li>
+                        @if (!string.IsNullOrEmpty(commonInfo.HotLine))
+                        {
+                            <li><i class="fa fa-phone"></i><span><a href="tell:@commonInfo.HotLine">@commonInfo.HotLine</a></span></li>
+                        }
+                        @if (!string.IsNullOrEmpty(commonInfo.Skype))
+                        {
+                            <li><i class="fa fa-skype"></i><span> <a href="skype:@commonInfo.Skype"></a>@commonInfo.Skype</span></li>
+                        }
+                        @if (!string.IsNullOrEmpty(commonInfo.Email))
+                        {
+                            <li><i class="fa fa-envelope"></i><span><a href="mailto:@commonInfo.Email">@commonInfo.Email</a></span></li>
+                        }
+                        @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                        {
+                            <li><i class="fa fa-facebook"></i><span><a href="@commonInfo.FaceBookLink">@commonInfo.FaceBookLink</a></span></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div id='ajax_loader' style="position: fixed; left: 45%; top: 50%; display: none;">
+                <img src="~/assets/images/loading.gif" />
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/Bootrap.notify.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+        var width = $(window).width();
+        $("#ajax_loader").css("left", ((width / 2) - 100) + "px");
+        var googleCatcha;
+        $(window).load(function () {
+            googleCatcha = grecaptcha.render('g-recaptcha', {
+                'sitekey': googleCapchaSitekey,
+                'theme': 'light',
+                'hl': 'vi'
+            });
+
+            $("#btn-send-contact").click(function () {
+                $("#btn-send-contact").removeAttr('disabled');
+                var valid = true;
+                var captchaResponse = grecaptcha.getResponse(googleCatcha);
+                var _name = $("#name").val();
+                var _email = $("#email").val();
+                var _phone = $("#phone").val();
+                var _address = $("#address").val();
+                var _message = $("#message").val();
+                if (_phone == null || _phone == "" || !Util.isVnFone(_phone)) {
+                    Util.notify("", "Vui lòng nhập số điện thoại. ");
+                    valid = false;
+                }
+                if (_name == null || _name == "") {
+                    Util.notify("", "Vui lòng nhập tên liên hệ. ");
+                    valid = false;
+                }
+                if (_message == null || _message == "") {
+                    Util.notify("", "Vui lòng nhập nội dung tin nhắn. ");
+                    valid = false;
+                }
+                if (captchaResponse == null || captchaResponse=="") {
+                    Util.notify("", "Vui lòng click vào ô kiểm tra bảo mật. ");
+                    valid = false;
+                }
+                if (valid) {
+                    $("#ajax_loader").show();
+                    $.ajax({
+                        method: "post",
+                        url: "/handler/ProductHandler.ashx",
+                        datatype: "text/plain",
+                        data: { op: "sendContact", name: _name, email: _email, phone: _phone, address: _address, message: _message, captcha: captchaResponse },
+                        success: function (rs) {
+                            $("#ajax_loader").hide();
+                            if (!isNaN(rs)) {                                                      
+                                Util.notify("", "Tin nhắn liên hệ đã được gửi, cảm ơn bạn đã đóng góp!");
+                            }
+                            resetContactForm();
+                           
+                        }
+                    });
+                }
+            });
+        });
+        function resetContactForm() {
+            $("#name").val("");
+            $("#email").val("");
+            $("#phone").val("");
+            $("#address").val("");
+            $("#message").val("");
+            grecaptcha.reset();
+            $("#btn-send-contact").prop('disabled', false);
+        }
+    </script>
+}

@@ -1,0 +1,95 @@
+﻿
+@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+        ViewBag.Title = commonInfo.Name;
+        ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau(commonInfo.Desc);
+        ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+
+    }
+    string currentUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+}
+<div id="shopify-section-footer" class="shopify-section">
+    <footer style="background: #f6f6f6;">
+        <div class="footer_row__1">
+            <div class="container">
+                <div class="row footer_main">
+                    <div class="col-sm-3 footer_block footer_block__2_1">
+                        <div class="footer_item footer_item__about ">
+                            <h3>Về chúng tôi</h3>
+                            <div class="about_text"><p> @commonInfo.Desc</p></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 footer_block ">
+                        <div class="footer_item footer_item__links ">
+                            <h3>Danh mục sản phẩm</h3>
+                            <ul>
+                                @foreach (var item in commonInfo.ProductCategoryList)
+                                {
+                                    <li>
+                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">@item.Name</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 footer_block footer_block__2_1">
+
+                        <div class="footer_item footer_item__links ">
+                            <h3>Thông tin</h3>
+                            <ul>
+                                <li>
+                                    <a href="/about">Giới thiệu</a>
+                                </li>
+                                <li>
+                                    <a href="/shippolicy">Chính sách vận chuyển</a>
+                                </li>
+                                <li>
+                                    <a href="/PaymentInfo">Hướng dẫn thanh toán</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 footer_block ">
+                        <div class="footer_item footer_item__links ">
+                            <h3>Tin tức</h3>
+                            <ul>
+                                <li>
+                                    <a href="/Blog">Blogs</a>
+                                </li>
+
+                                <li>
+                                    <a href="/home/contact">Liên hệ</a>
+                                </li>
+                                @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                                {
+                                    <li>
+                                        <a href="commonInfo.FaceBookLink" target="_blank">Fanpage</a>
+                                    </li>
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_row__2  bottom_inverted" style="background: #acdbb4;">
+            <div class="container">
+                <div class="footer_wrap_1">
+                    <div class="footer_wrap_2 footer_center">
+                        Copyrights © 2019 @commonInfo.Name. <a target="_blank" href="https://anpero.com">Powered by Anpero</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <style>
+        #shopify-section-footer footer {
+            padding-top: 0px;
+        }
+    </style>
+</div>

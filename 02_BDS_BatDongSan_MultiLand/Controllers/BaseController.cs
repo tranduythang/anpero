@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AnperoFrontend.WebService;
+using System.IO;
+using System.Text;
+using System.Text.RegularExpressions;
+
 namespace AnperoFrontend.Controllers
 {
     public class BaseController : Controller
@@ -38,7 +42,7 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                TopNewArticle = service.SearchArticle(StoreID, TokenKey, 0, 0, 12, 0);
+                TopNewArticle = service.SearchArticle(StoreID, TokenKey, 0, 0, 20, 0);
                 if (TopNewArticle != null)
                 {
                     HttpRuntime.Cache.Insert("TopNewArticle", TopNewArticle, null, DateTime.Now.AddMinutes(shortCacheTime+10), TimeSpan.Zero);
@@ -52,8 +56,8 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                customArticle = service.SearchArticle(StoreID, TokenKey, 110, 0, 5, 0);
-                if (TopNewArticle != null)
+                customArticle = service.SearchArticle(StoreID, TokenKey, Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["CustomArticleId"]), 0, 5, 0);
+                if (customArticle != null)
                 {
                     HttpRuntime.Cache.Insert("customArticle", customArticle, null, DateTime.Now.AddMinutes(shortCacheTime + 10), TimeSpan.Zero);
                 }
@@ -139,8 +143,41 @@ namespace AnperoFrontend.Controllers
 
 
         }
-    }
+      
 
+    }
+    public class BunderHtml : ActionFilterAttribute
+    {
+       
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            var originalFilter = filterContext.HttpContext.Response.Filter;
+            filterContext.HttpContext.Response.Filter = new KeywordStream(originalFilter);
+        }
+
+    }
+    public class KeywordStream : MemoryStream
+    {
+        private readonly Stream responseStream;
+
+        public KeywordStream(Stream stream)
+        {
+            responseStream = stream;
+        }
+
+        public override void Write(byte[] buffer,
+        int offset, int count)
+        {
+            string html = Encoding.UTF8.GetString(buffer);
+
+            html=Regex.Replace(html, @"\s*(<[^>]+>)\s*", "$1", RegexOptions.Singleline);
+    
+            buffer = Encoding.UTF8.GetBytes(html);
+
+            responseStream.Write(buffer, offset, buffer.Length);
+        }
+
+    }
     public partial class CommonConfig
     {
         public static int StoreID = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["storeID"]);

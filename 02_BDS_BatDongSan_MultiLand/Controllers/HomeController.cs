@@ -1,11 +1,12 @@
-﻿using System;
+﻿using AnperoFrontend.WebService;
+using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 namespace AnperoFrontend.Controllers
 {
     public class HomeController : BaseController
-    {
+    {  
         [BuildCommonHtml]
         public ActionResult Index()
         {
@@ -13,21 +14,6 @@ namespace AnperoFrontend.Controllers
             SetupCommonProduct();
             GetTopArticle();
             SetUpSlideAds();
-            WebService.SearchResult featureleProduct;
-            WebService.AnperoService sv = new WebService.AnperoService();
-            if (HttpRuntime.Cache["featureleProduct"] != null)
-            {
-                featureleProduct = (WebService.SearchResult)HttpRuntime.Cache["featureleProduct"];
-            }
-            else
-            {
-                featureleProduct = sv.SearchProduct(StoreID, TokenKey, "", "", "", 0, 1999999990, 1, 8, "", SearchOrder.TimeDesc, 2);
-                if (featureleProduct != null)
-                {
-                    HttpRuntime.Cache.Insert("featureleProduct", featureleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
-                }
-            }
-            ViewData["featureleProduct"] = featureleProduct;
             return View();
         }
         private void SetUpSlideAds()
@@ -37,20 +23,20 @@ namespace AnperoFrontend.Controllers
             WebService.AnperoService service = new WebService.AnperoService();
 
 
-            //WebService.Ads[] Ads1 = null;
-            //if (HttpRuntime.Cache["AdsSlide"] != null)
-            //{
-            //    ViewData["AdsSlide"] = (WebService.Ads[])HttpRuntime.Cache["AdsSlide"];
-            //}
-            //else
-            //{
-            //    Ads1 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads1);
-            //    ViewData["AdsSlide"] = Ads1;
-            //    if (Ads1 != null)
-            //    {
-            //        HttpRuntime.Cache.Insert("AdsSlide", Ads1, null, DateTime.Now.AddMinutes(shortCacheTime + 2), TimeSpan.Zero);
-            //    }
-            //}
+            WebService.Ads[] Ads1 = null;
+            if (HttpRuntime.Cache["AdsSlide"] != null)
+            {
+                ViewData["AdsSlide"] = (WebService.Ads[])HttpRuntime.Cache["AdsSlide"];
+            }
+            else
+            {
+                Ads1 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads1);
+                ViewData["AdsSlide"] = Ads1;
+                if (Ads1 != null)
+                {
+                    HttpRuntime.Cache.Insert("AdsSlide", Ads1, null, DateTime.Now.AddMinutes(shortCacheTime + 2), TimeSpan.Zero);
+                }
+            }
             WebService.Ads[] Ads2 = null;
             if (HttpRuntime.Cache["Ads2"] != null)
             {

@@ -94,7 +94,6 @@ namespace AnperoFrontend.Controllers
 
         }
     }
-
     public partial class CommonConfig
     {
         public static int StoreID = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["storeID"]);
@@ -109,13 +108,6 @@ namespace AnperoFrontend.Controllers
         public static string NameDesc = "nameDesc";
         public static string NameAsc = "nameAsc";
     }
-    public static class PageContent
-    {
-        public static string Slide = "slide";
-        public static string Ads1 = "ads1";
-        public static string Ads2 = "ads2";
-        public static string Ads3 = "ads3";
-        
-    }
+  
 
 }

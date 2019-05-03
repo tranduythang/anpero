@@ -53,7 +53,7 @@
                                 </div>
                                 <div id="navbar" class="navbar-collapse collapse">
                                     <ul class="nav navbar-nav">
-                                        <li class="active"><a href="/">Home</a></li>
+                                        <li class="active"><a href="/"><img src="/assets/images/home.png" alt="Home"/></a></li>
                                         @if (commonInfo.MenuList != null)
                                         {
                                             for (int i = 0; i < commonInfo.MenuList.Length; i++)
@@ -100,6 +100,7 @@
     @Html.Raw(commonInfo.AnperoPlugin)
     @RenderSection("scripts", required: false)
     @Html.Raw(commonInfo.PageScript)
+    <div id="fb-root"></div>
     <footer id="footer">
         <div class="container">
             @Html.Raw(commonInfo.Footer)
@@ -145,6 +146,7 @@
                                 <a href="http://www.twitter.com/share?url=@thisUrl" target="_blank"><i class="fa fa-twitter"></i></a>
                             }
                         </div>
+                        <div id="google_translate_element2"></div>
 
                     </div>
                 </div>
@@ -159,7 +161,6 @@
                                     {
                                         <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
                                     }
-                                    <li><a href="/blog">Blogs</a></li>
                                     <li><a href="/home/contact">Liên hệ</a></li>
                                 </ul>
                             }
@@ -182,17 +183,19 @@
                     </div>
                 </div>
             </div>
-            <div id="footer-menu-box">
-                <div class="col-sm-12">
-                    <ul class="footer-menu-list">
-                        <li><a href="/">Giới thiệu về chúng tôi</a></li>
-                    </ul>
-                </div>
-                <p class="text-center">Copyrights © 2017 <a href="/">@commonInfo.Name</a>. All Rights Reserved. Designed by <a href="http://anpero.com" title="thiết kế web bán hàng anpro">Anpero.com</a></p>
-            </div>
+
         </div>
     </footer>
-    <div id="fb-root"></div>
+    <div id="footer-menu-box">
+        <div class="col-sm-12">
+            <ul class="footer-menu-list">
+                <li><a href="/home/contact">Liên hệ</a></li>
+            </ul>
+        </div>
+        <p class="text-center">Copyrights © 2017 <a href="/">@commonInfo.Name</a>. All Rights Reserved. Designed by <a href="http://anpero.com" title="thiết kế web bán hàng anpro">Anpero.com</a></p>
+    </div>
+ 
+   
     <script>
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -205,7 +208,7 @@
             Cart.bindCart();
         });
     </script>
-    @if (ViewData["AdsSlide"] != null)
+    @*@if (ViewData["AdsSlide"] != null)
     {
         Ads[] slide = (Ads[])ViewData["AdsSlide"];
         if (slide.Length > 0)
@@ -231,6 +234,6 @@
 
         }
 
-    }
+    }*@
 </body>
 </html>

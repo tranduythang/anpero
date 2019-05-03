@@ -19,13 +19,13 @@
                 <li>
                     <div class="feature-box need-help">
                         <div class="icon-support"></div>
-                        <div class="content">Điện thoại Tư vấn 0906.006.580</div>
+                        <div class="content">Điện thoại Tư vấn @commonInfo.HotLine</div>
                     </div>
                 </li>
                 <li>
                     <div class="feature-box money-back">
                         <div class="icon-money"></div>
-                        <div class="content">Đổi trả trong 30 ngày</div>
+                        <div class="content">Hoàn trả lại tiền cho khách</div>
                     </div>
                 </li>
                 <li class="last">
@@ -40,7 +40,7 @@
     <footer>
         <!-- BEGIN INFORMATIVE FOOTER -->
         <div class="footer-inner">
-            <div class="newsletter-row">
+            @*<div class="newsletter-row">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col">
@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <!--footer-column-last-->
-            </div>
+            </div>*@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4 col-xs-12 col-lg-4">
@@ -103,7 +103,7 @@
 
                                         if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
                                         {
-                                            <li class="fb pull-left"><a target="_blank" rel="nofollow" href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" title="Facebook"></a></li>
+                                            <li class="fb pull-left"><a target="_blank" rel="nofollow" href="http://www.facebook.com/share.php?u=@thisUrl" title="Facebook"></a></li>
 
                                         }
                                         if (!string.IsNullOrEmpty(commonInfo.Skype))
@@ -114,7 +114,7 @@
                                         <li class="tw pull-left"><a target="_blank" rel="nofollow" href="http://www.twitter.com/share?url=@thisUrl" title="Twitter"></a></li>
                                         <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="https://plus.google.com/share?url=@thisUrl" title="GooglePlus"></a></li>
                                         @*<li class="rss pull-left"><a target="_blank" rel="nofollow" href="#" title="RSS"></a></li>*@
-                                        <li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="http://pinterest.com/pinthis?url=@thisUrl" title="PInterest"></a></li>
+                                        @*<li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="http://pinterest.com/pinthis?url=@thisUrl" title="PInterest"></a></li>*@
                                         @*<li class="linkedin pull-left"><a target="_blank" rel="nofollow" href="#" title="Linkedin"></a></li>*@
                                         @*<li class="youtube pull-left"><a target="_blank" rel="nofollow" href="#" title="Youtube"></a></li>*@
                                     }
@@ -159,48 +159,31 @@
                                 <div class="fb-page"
                                      data-tabs="messages"
                                      data-href="@Html.Raw(commonInfo.FaceBookLink)"
-                                     data-height="220"
+                                     data-height="310"
                                      data-hide-cover="false">
                                 </div>
                             }
                         </div>
                     </div>
-
-                    <!--col-sm-12 col-xs-12 col-lg-8-->
-                    <!--col-xs-12 col-lg-4-->
                 </div>
-                <!--row-->
             </div>
-
-            <!--container-->
         </div>
-        <!--footer-inner-->
-
         <div class="footer-middle">
             <div class="container">
                 <div class="row">
                     <div class="row"> </div>
                 </div>
-                <!--row-->
             </div>
-            <!--container-->
         </div>
-        <!--footer-middle-->
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12 col-xs-12 coppyright">© 2016 Ngonlanh. All Rights Reserved. Power by Anpero</div>
-
-                </div>
-                <!--row-->
-            </div>
-            <!--container-->
-        </div>
-        <!--footer-bottom-->
-        <!-- BEGIN SIMPLE FOOTER -->
+                    <div class="col-sm-12 col-xs-12 coppyright">© 2016 Vinfish. All Rights Reserved. Power by <a href="http://anpero.com" title="thiết kế web quản lý bán hàng, thiết kế web chuyên nghiệp">Anpero</a></div>
+                </div>                
+            </div>            
+        </div>        
     </footer>
 </div>
-
 <div id="mobile-menu">
     <ul>
         <li>
@@ -238,6 +221,19 @@
                 }
             </ul>
         </li>
+        @if(commonInfo.ProductGroupList!=null && commonInfo.ProductGroupList.Length > 0)
+        {
+            <li>
+                <a href="/search?category=0&keyword=">Phòng</a>
+                <ul>
+                    @foreach (var item in commonInfo.ProductGroupList)
+                    {
+                        <li><a href="@Anpero.StringHelpper.GetProductGroupLink(item.Name, item.Id)"><span>@item.Name</span></a></li>
+                    }
+                </ul>
+
+            </li>
+        }
         @if (ViewData["saleProduct"] != null)
         {
             AnperoFrontend.WebService.ProductItem[] saleProduct = (AnperoFrontend.WebService.ProductItem[])ViewData["saleProduct"];
@@ -246,9 +242,12 @@
                 @if (saleProduct != null && saleProduct.Length > 0)
                 {
                     <ul>
-                        @foreach (ProductItem item in saleProduct)
+                        @for (int i = 0; i < saleProduct.Length; i++)
                         {
-                            <li><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></li>
+                            if ( i < 4)
+                            {
+                                <li><a href="@Anpero.StringHelpper.GetProductLink(saleProduct[i].PrName, saleProduct[i].Id)">@saleProduct[i].PrName</a></li>
+                            }
                         }
                     </ul>
                 }
@@ -258,9 +257,9 @@
             <a href="/blog">Tin tức</a>
             <ul>
                 <li><a href="/blog">Blogs</a></li>
-                <li><a href="/shippolicy">Chính sách vận chuyển</a></li>
-                <li><a href="/ProductReturnPolicy">Chính sách đổi trả</a></li>
-                <li><a href="/PaymentInfo">Hướng dẫn thanh toán</a></li>
+                <li><a href="/chinh-sach-van-chuyen-a86">Vận chuyển</a></li>
+                <li><a href="/chinh-sach-doi-tra-hang-tai-ngonlan-a84">Chính sách đổi trả</a></li>
+                <li><a href="/huong-dan-thanh-toan-khi-mua-hang-t-a85">Hướng dẫn thanh toán</a></li>
             </ul>
         </li>
         <li><a href="/home/contact">Liên hệ</a></li>

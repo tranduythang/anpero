@@ -2,12 +2,10 @@
     <div class="container">
      
         <div class="row">
-           
-            <!-- Left colunm -->
-            @Html.Partial("product/_MenuAndAdsPartial")
-            <!-- ./left colunm -->
+
+
             <!-- Center colunm-->
-            <div class="center_column col-xs-12 col-sm-9" id="center_column">
+            <div class="center_column col-xs-12 col-sm-9 bw" id="center_column">
                 <!-- view-product-list-->
                 @if (ViewData["productList"] != null)
                 {
@@ -25,7 +23,7 @@
                                 {
                                     <span class="page-heading-title">@productList.Item[0].CatName</span>
                                 }
-                                
+
                             </h2>
                             <ul class="display-product-option">
                                 <li class="view-as-grid selected">
@@ -48,7 +46,7 @@
                                                         <div class="featured-text"><span>Bán chạy</span></div>
                                                     }
                                                 </a>
-                                                @if (item.Price>0)
+                                                @if (item.Price > 0)
                                                 {
                                                     <div class="price-percent-reduction2">giảm @Anpero.StringHelpper.ConvertToVndMoney((item.Price))</div>
                                                 }
@@ -56,7 +54,7 @@
                                                     <a title="Quick view" class="search" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)"></a>
                                                 </div>
                                                 <div class="add-to-cart">
-                                                    <a title="Add to Cart" href="javascript:Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName')"> Liên hệ tư vấn</a>
+                                                    <a title="Add to Cart" href="javascript:Cart.addProduct(@item.Id,'@Convert.ToInt32(item.Price)','@item.Images','@item.PrName')"> Liên hệ tư vấn</a>
                                                 </div>
                                             </div>
                                             <div class="right-block">
@@ -84,7 +82,7 @@
                                                         <span class="price product-price">@Anpero.StringHelpper.ConvertToVndMoney(item.Price)</span>
                                                     </div>
                                                 }
-                                                <div class="info-orther">                                                  
+                                                <div class="info-orther">
                                                     @if (item.IsInstock)
                                                     {
                                                         <p class="availability">Trạng thái: <span>Còn hàng</span></p>
@@ -102,38 +100,38 @@
                                     </li>
                                 }
                             </ul>
-                          
+
                         </div>
                         <div class="sortPagiBar">
                             <div class="bottom-pagination">
                                 <nav>
                                     @Html.Raw(ViewBag.page)
-                                   
+
                                 </nav>
                             </div>
                             @*<div class="show-product-item">
-                                <select name="">
-                                    <option value="">Show 18</option>
-                                    <option value="">Show 20</option>
-                                    <option value="">Show 50</option>
-                                    <option value="">Show 100</option>
-                                </select>
-                            </div>*@
+                            <select name="">
+                                <option value="">Show 18</option>
+                                <option value="">Show 20</option>
+                                <option value="">Show 50</option>
+                                <option value="">Show 100</option>
+                            </select>
+                        </div>*@
                             @*<div class="sort-product">
-                                <select>
-                                    <option value="">Product Name</option>
-                                    <option value="">Price</option>
-                                </select>
-                                <div class="sort-product-icon">
-                                    <i class="fa fa-sort-alpha-asc"></i>
-                                </div>
-                            </div>*@
+                            <select>
+                                <option value="">Product Name</option>
+                                <option value="">Price</option>
+                            </select>
+                            <div class="sort-product-icon">
+                                <i class="fa fa-sort-alpha-asc"></i>
+                            </div>
+                        </div>*@
                         </div>
                     }
                 }
+            </div>
+            @Html.Partial("product/_MenuAndAdsPartial")
         </div>
-
-    </div>
 </div>
 </div>
 @section  scripts{    

@@ -1,36 +1,39 @@
-﻿
-
-
-@if (ViewData["prDetail"] != null)
-{
+﻿@{ 
     AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewData["prDetail"];
+}
+    
     <div class="page-top">
         <div class="container">
             <!-- breadcrumb -->
             <div class="breadcrumb clearfix">
                 <a class="home" href="/" title="Return to Home">Home</a>
                 <span class="navigation-pipe">&nbsp;</span>
-                <a href="/" title="Return to Home">@item.ParentCatName</a>
-                <span class="navigation-pipe">&nbsp;</span>
-                <a href="/" title="Return to Home">@item.CatName</a>
+                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName,item.ParentId)">@item.ParentCatName</a>
+                @if (!string.IsNullOrEmpty(item.CatName))
+                {
+                    <span class="navigation-pipe">&nbsp;</span>
+                    <a href="@Anpero.StringHelpper.GetCategoryLink(item.CatName,item.CatID)">@item.CatName</a>
+                }
+
             </div>
             <!-- ./breadcrumb -->            
             <div class="row">              
                 @if (Request.Browser.IsMobileDevice)
                 {
                 
-                    @Html.Partial("product/_productDetail")                
-                    @Html.Partial("product/_MenuAndAdsPartial")
+                    @Html.Partial("product/_productDetail")
+                    <div class="column col-xs-12 col-sm-3" id="left_column">
+                        @Html.Partial("product/_MenuAndAdsPartial")
+                        </div>
                 }
                 else
                 {
-                    @Html.Partial("product/_MenuAndAdsPartial")
-                    @Html.Partial("product/_productDetail")
-                }
-
-            </div>
-            
-
+                    <div class="column col-xs-12 col-sm-3" id="left_column">
+                        @Html.Partial("product/_MenuAndAdsPartial")
+                        </div>
+                        @Html.Partial("product/_productDetail")
+                        }
+                    </div>
 
         </div>
     </div>
@@ -46,7 +49,7 @@
         <script type="text/javascript" src="/assets/lib/countdown/jquery.countdown.js"></script>
         @item.Script
         <script>
-            /** COUNT DOWN **/
+
             $('[data-countdown]').each(function () {
                 var $this = $(this), finalDate = $(this).data('countdown');
                 $this.countdown(finalDate, function (event) {
@@ -66,7 +69,18 @@
                     });
                 });
             }
+            $(document).ready(function () {
+                $("#paymentTab").click(function () {
+                    
+                    $.ajax({
+                        type: "post",
+                        url: "/home/PolicyAjax",
+                        data: { type: 6 },
+                        success: function (rs) {
+                            $("#paymentDetail").html(rs);
+                        }
+                    });
+                });
+            });
         </script>
-
     }
-}

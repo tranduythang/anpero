@@ -22,6 +22,7 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,10 +46,6 @@
     <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Anpero, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Anpero\bin\Debug\Anpero.dll</HintPath>
-    </Reference>
     <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
@@ -121,6 +118,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\APIController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -131,6 +129,7 @@
     <Compile Include="handler\ProductHandler.ashx.cs">
       <DependentUpon>ProductHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -324,6 +323,7 @@
     <Content Include="Views\Shared\product\_productDetail.cshtml" />
     <Content Include="Views\Shared\_partial\_MainFooter_1.cshtml" />
     <Content Include="Views\Home\Policy.cshtml" />
+    <Content Include="Views\API\Index.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -365,11 +365,15 @@
     </Content>
     <Content Include="Web References\WebService\BlogItem.datasource">
       <DependentUpon>Reference.map</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Web References\WebService\BlogCategory.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
     <Content Include="Web References\WebService\Location.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebService\PaymentConfig.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
     <None Include="Web References\WebService\Reference.map">
@@ -388,7 +392,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
@@ -416,6 +419,12 @@
       <CachedSettingsPropName>AnperoFrontend_AnperoService_AnperoService</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Anpero\Anpero.csproj">
+      <Project>{b88546ac-d123-448f-bd9b-7287e7ce1b38}</Project>
+      <Name>Anpero</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -434,7 +443,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>32561</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:32505</IISUrl>
+          <IISUrl>http://localhost:11028</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

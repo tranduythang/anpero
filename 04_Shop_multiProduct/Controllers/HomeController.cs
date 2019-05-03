@@ -2,24 +2,55 @@
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
+
 namespace AnperoFrontend.Controllers
 {
+    
     public class HomeController : BaseController
     {
+       
         [BuildCommonHtml]
+        [BunderHtml]
         public ActionResult Index()
-        {
+        {             
             WebService.AnperoService service = new WebService.AnperoService();
-
-            //ViewData["slide"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Slide);
-            //ViewData["AdsSlide"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads1);
-            //ViewData["AdsSlide2"] = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads2);
-
             GetNewestProduct();
             SetupCommonProduct();
             GetTopArticle();
             SetUpSlideAds();
             return View();
+        }
+
+        [BuildCommonHtml]
+        public ActionResult Policy(int type)
+        {
+            try
+            {
+                WebService.AnperoService service = new WebService.AnperoService();
+                ViewBag.HtmlContent = service.GetWebContent(StoreID, TokenKey, type);
+                ViewBag.Title = Anpero.Constant.WebContentTitle.GetTitle(type);
+            }
+            catch (Exception)
+            {
+                ViewBag.HtmlContent = "Nội dung đang được cập nhật";
+            }
+
+            return View();
+        }
+        public string PolicyAjax(int type)
+        {
+            try
+            {
+                WebService.AnperoService service = new WebService.AnperoService();
+                return  service.GetWebContent(StoreID, TokenKey, type);
+               
+            }
+            catch (Exception)
+            {
+                return "Nội dung đang được cập nhật";
+            }
+
+            
         }
         private void SetUpSlideAds()
         {

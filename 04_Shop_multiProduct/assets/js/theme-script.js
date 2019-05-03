@@ -1,4 +1,4 @@
-(function($){
+﻿(function($){
     "use strict"; // Start of use strict
     /* ---------------------------------------------
      Scripts initialization
@@ -7,6 +7,9 @@
         // auto width megamenu
         auto_width_megamenu();
         resizeTopmenu();
+        jQuery(".subDropdown")[0] && jQuery(".subDropdown").on("click", function () {
+            jQuery(this).toggleClass("plus"), jQuery(this).toggleClass("minus"), jQuery(this).parent().find("ul").slideToggle()
+        })
     });
     /* ---------------------------------------------
      Scripts ready
@@ -56,7 +59,7 @@
            });
         });
         if($('.countdown-lastest').length >0){
-            var labels = ['Years', 'Months', 'Weeks', 'Days', 'Hrs', 'Mins', 'Secs'];
+            var labels = ['Nãm', 'Tháng', 'Tuần', 'Ngày', 'Giờ', 'Phút', 'Giây'];
             var layout = '<span class="box-count"><span class="number">{dnn}</span> <span class="text">Days</span></span><span class="dot">:</span><span class="box-count"><span class="number">{hnn}</span> <span class="text">Hrs</span></span><span class="dot">:</span><span class="box-count"><span class="number">{mnn}</span> <span class="text">Mins</span></span><span class="dot">:</span><span class="box-count"><span class="number">{snn}</span> <span class="text">Secs</span></span>';
             $('.countdown-lastest').each(function() {
                 var austDay = new Date($(this).data('y'),$(this).data('m') - 1,$(this).data('d'),$(this).data('h'),$(this).data('i'),$(this).data('s'));
@@ -213,10 +216,14 @@
             return false;
         })
         /// tre menu category
-        $(document).on('click','.tree-menu li span',function(){
+        $(document).on('click', '.tree-menu li span', function () {
             $(this).closest('li').children('ul').slideToggle();
-            if($(this).closest('li').haschildren('ul')){
-                $(this).toggleClass('open');
+            try {
+                if ($(this).closest('li').haschildren('ul')) {
+                    $(this).toggleClass('open');
+                }
+            } catch (e) {
+
             }
             return false;
         })

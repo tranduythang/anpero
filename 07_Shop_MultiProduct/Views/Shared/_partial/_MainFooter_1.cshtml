@@ -58,8 +58,15 @@
                                 {
                                     foreach (var item in commonInfo.ProductCategoryList)
                                     {
+                                        if (item.Id == 182 || item.Id == 183)
+                                        {
+                                            <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)?view=gallery" alter="@item.Name">@item.Name</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
+                                        }
 
-                                        <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" alter="@item.Name">@item.Name</a></li>
                                     }
                                 }
 
@@ -86,7 +93,7 @@
                                 <div class="fb-page"
                                      data-tabs="messages"
                                      data-href="@Html.Raw(commonInfo.FaceBookLink)"
-                                     data-height="220"
+                                     data-height="320"
                                      data-hide-cover="false">
                                 </div>
                             }
@@ -133,36 +140,39 @@
         <li>
             <div class="home"><a href="/"><i class="icon-home"></i>Trang chủ</a> </div>
         </li>
-        <li>
-            <a href="/about">Giới thiệu</a>
+        <li class="level0 parent drop-menu">
+            <a href="/biet-thu-c182?view=gallery"><span>Biệt thự</span></a>
+            <ul class="level1">
+                <li class="level2"><a href="/biet-thu-1-2-tang-cat414?view=gallery"><span>Biệt thự 1 - 2 tầng</span></a></li>
+                <li class="level2"><a href="/biet-thu-25-3-tang-cat415?view=gallery"><span>Biệt thự 2,5 - 3 tầng</span></a></li>
+                <li class="level2"><a href="/biet-thu-4-tang-tro-len-cat417?view=gallery"><span>Biệt thự 4 tầng trở lên</span></a></li>
+            </ul>
         </li>
-        <li>
-            <a href="#">Sản phẩm</a>
-            <ul>
-                @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
-                {
-                    foreach (var item in commonInfo.ProductCategoryList)
-                    {
-                        if (item.ChildCategory != null && item.ChildCategory.Length == 0)
-                        {
-                            <li>
-                                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)"><span>@item.Name‎</span></a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li>
-                                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)"><span>@item.Name</span> </a>
-                                <ul>
-                                    @foreach (var chidItem in item.ChildCategory)
-                                    {
-                                        <li><a href="@Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)"><span>@chidItem.Name</span></a></li>
-                                    }
-                                </ul>
-                            </li>
-                        }
-                    }
-                }
+        <li class="level0 parent drop-menu">
+            <a href="/lau-dai-dinh-thu-c183?view=gallery"><span>Lâu Đài-Dinh thự</span></a>
+        </li>
+        <li class="level0 parent drop-menu">
+            <a href="/noi-that-c130"><span>Nội thất</span></a>
+            <ul class="level1">
+                <li class="level2"><a href="/sofas-cat366"><span>Sofas</span></a></li>
+                <li class="level2"><a href="/armchairs-cat367"><span>Armchairs</span></a></li>
+                <li class="level2"><a href="/ghe-cat368"><span>Ghế</span></a></li>
+                <li class="level2"><a href="/ban-cat369"><span>Bàn</span></a></li>
+                <li class="level2"><a href="/giuong-cat370"><span>Giường</span></a></li>
+                <li class="level2"><a href="/tu-cat371"><span>Tủ</span></a></li>
+                <li class="level2"><a href="/den-trang-tri-cat372"><span>Đèn trang trí</span></a></li>
+                <li class="level2"><a href="/accesories-cat373"><span>Accesories</span></a></li>
+                <li class="level2"><a href="/bep-cat374"><span>Bếp</span></a></li>
+                <li class="level2"><a href="/vat-lieu-thi-cong-noi-that-cat375"><span>Vật liệu thi công nội thất</span></a></li>
+            </ul>
+        </li>
+        <li class="level0 parent drop-menu">
+            <a href="/vat-tu-hoan-thien-c132"><span>Vật tư hoàn thiện</span></a>
+            <ul class="level1">
+                <li class="level2"><a href="/thiet-bi-ve-sinh-cat376"><span>Thiết bị vệ sinh</span></a></li>
+                <li class="level2"><a href="/thiet-bi-dien-cat377"><span>Thiết bị điện</span></a></li>
+                <li class="level2"><a href="/den-cat378"><span>Đèn</span></a></li>
+                <li class="level2"><a href="/op-lat-cat379"><span>Ốp lát</span></a></li>
             </ul>
         </li>
         @if (ViewData["saleProduct"] != null)
@@ -175,7 +185,10 @@
                     <ul>
                         @foreach (ProductItem item in saleProduct)
                         {
-                            <li><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></li>
+                           
+                                <li><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></li>
+                           
+
                         }
                     </ul>
                 }

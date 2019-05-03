@@ -13,6 +13,7 @@
 /* Tablet Layout: 768px. */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+
     .news-list {
         margin-bottom: 70px;
     }
@@ -35,7 +36,7 @@
         margin-top: 20px;
     }
     .logo img {
-        width: 150px;
+       max-width: 150px;
     }
 }
 
@@ -45,6 +46,17 @@
 /* Mobile Layout: 320px. */
 
 @media only screen and (max-width: 767px) {
+    .single-photography .photography-icon {
+        clear: both;
+        float: left;
+        margin-right: 15px;
+    }
+    .products-list .product-shop {
+        width: 100%;
+    }
+    .products-list .product-image {
+        width: 100%;
+    }
     .mainmenu .navbar-toggle {
         border: 2px solid #fafafa;
         border-radius: 2px;
@@ -117,7 +129,7 @@
         font-size: 22px;
     }
     .section-padding {
-        padding: 60px 0;
+        padding: 88px 0;
     }
     .padding-top {
         padding-top: 60px;
@@ -132,7 +144,7 @@
         margin-top: 10px;
     }
     .logo img {
-        width: 150px;
+        max-width: 150px;
     }
     .contact-area input#form-name,
     .contact-area input#form-email {

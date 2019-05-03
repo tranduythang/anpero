@@ -1,0 +1,91 @@
+﻿@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+}
+<div class="side-nav-categories">
+    <div class="block-title"> Danh mục sản phẩm </div>
+    <div class="box-content box-category">
+        <ul>
+            @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+            {
+                foreach (var item in commonInfo.ProductCategoryList)
+                {
+                    if (item.ChildCategory != null && item.ChildCategory.Length == 0)
+                    {
+                        <li> <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)">@item.Name‎</a> </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)">@item.Name</a> <span class="subDropdown minus"></span>
+                            <ul class="level0_482" style="display:block">
+                                @foreach (var chidItem in item.ChildCategory)
+                                {
+                                    <li>
+                                        <a href="@Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id)">
+                                            @chidItem.Name
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                }
+            }
+
+        </ul>
+    </div>
+</div>
+
+
+@*@if (ViewData["saleProduct"] != null)
+{
+    AnperoFrontend.WebService.ProductItem[] saleProduct = (AnperoFrontend.WebService.ProductItem[])ViewData["saleProduct"];
+    <div class="side-nav-categories">
+        <div class="block-title"> Đang khuyến mãi </div>
+        <div class="box-content box-category">
+            <ul>
+                @if (saleProduct != null && saleProduct.Length > 1)
+                {
+
+                    foreach (var item in saleProduct)
+                    {
+                        int itemPecentDow = Convert.ToInt32((item.Price - item.SalePrice) / item.Price * 100);
+                        <li>
+                            <div class="product-container">
+                                <div class="left-block">
+                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">
+                                        <img class="img-responsive" alt="product" src="@item.Images" />
+                                    </a>
+                                    <div class="price-percent-reduction2">Giảm @itemPecentDow.ToString() %</div>
+                                </div>
+                                <div class="right-block">
+                                    <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">@item.PrName</a></h5>
+                                    <div class="show-count-down">
+                                        <span class="countdown-lastest" data-y="@item.SaleEndTime.Substring(0, 4)" data-m="@item.SaleEndTime.Substring(4, 2)" data-d="@item.SaleEndTime.Substring(6, 2)" data-h="0" data-i="00" data-s="10"></span>
+                                    </div>
+                                    <div class="price-box">
+                                        @if (item.IsSale)
+                                        {
+                                            <p class="old-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                            <p class="special-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span> </p>
+                                        }
+                                        else
+                                        {
+                                            <p><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                        }
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+}*@

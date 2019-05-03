@@ -71,7 +71,7 @@ namespace AnperoFrontend.handler
                             string phone = context.Request["phone"];
                             string address = context.Request["address"];
                             string ProductList = context.Request["ProductList"];
-
+                            int shippingMethod = 0;
                             int shipingFee = 0;
                             try
                             {
@@ -89,8 +89,15 @@ namespace AnperoFrontend.handler
                             catch (Exception)
                             {
                             }
+                            try
+                            {
+                                shippingMethod = Convert.ToInt32(context.Request["shippingMethod"]);
+                            }
+                            catch (Exception)
+                            {
+                            }
                             WebService.AnperoService sv = new WebService.AnperoService();
-                            int rs2 = sv.AddOrder(st, TokenKey, captcha, name, email, phone, address, ProductList, shipingFee, PayMentType, detail);
+                            int rs2 = sv.AddOrder(st, TokenKey, captcha, name, email, phone, address, ProductList, shipingFee, shippingMethod, PayMentType, detail);
                             if (rs2 > 0)
                             {
                                 rs = rs2.ToString();

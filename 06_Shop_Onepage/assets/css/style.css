@@ -1,58 +1,22 @@
-/*-----------------------------------------------------------------------------------
-
-    Template Name: Petshop HTML5 Template,
-    Template URI: http://themectg.com
-    Description: This is html5 template
-    Author: BootExperts
-    Author URI: http://themectg.com
-    Version: 1.0
-
------------------------------------------------------------------------------------
-    
-    CSS INDEX
-    ===================
-	0. Theme Default CSS (body, link color, section etc),
-    1. Helper Class
-    2. Top Area 
-    3. About Area
-    4. Service-area
-    5. Portfolo-area
-    6. Skill-area
-    7. Discover Area
-    8. Blog Area
-    9. Offer Area
-    10. Price-area  
-    11. Client-area
-    12. Footer-area
------------------------------------------------------------------------------------*/
-
-
-/* 0. Theme Default CSS (body, link color, section etc) 
-========================================================*/
-
-
-/* Google Fonts
-=================*/
-
+﻿
 @import url('https://fonts.googleapis.com/css?family=Dosis:300,400,600,700|Open+Sans:400,700');
-
-/* 0. Theme Default CSS */
-
 * {
     margin: 0;
     padding: 0;
+    
 }
 
 a {
     -webkit-transition: 0.3s;
     transition: 0.3s;
-    font-family: 'Open Sans', sans-serif;
+    font-family:Arial,'Times New Roman';
+    color: #666;
 }
 
-a:focus {
-    outline: 0 solid;
-    color: #ffffff;
-}
+    a:focus {
+        outline: 0 solid;
+        color: #64BE43;
+    }
 
 img {
     max-width: 100%;
@@ -67,9 +31,7 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0 0 15px;
-    font-family: 'Dosis', sans-serif;
-    text-transform: capitalize;
+    margin: 0 0 15px;    
     -webkit-transition: 0.3s;
     transition: 0.3s;
     line-height: 1.4
@@ -81,7 +43,7 @@ body {
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Segoe UI', Verdana,'Open Sans', sans-serif,arial,'Times New Roman';
     font-weight: 300;
     font-size: 15px;
     color: #464646;
@@ -154,7 +116,10 @@ textarea.form-control:focus {
 }
 
 .section-padding {
-    padding: 120px 0;
+    padding: 155px 0;
+}
+.section-padding2 {
+    padding: 55px 0;
 }
 
 .padding-top {
@@ -229,7 +194,7 @@ textarea.form-control:focus {
     content: "";
     height: 100%;
     left: 0;
-    opacity: 0.8;
+    opacity: 0.4;
     position: absolute;
     top: 0;
     width: 100%;
@@ -632,8 +597,7 @@ textarea.form-control:focus {
     display: inline-block;
     padding: 2px 10px;
     border-radius: 3px;
-    cursor: pointer;
-    font-family: 'Dosis', sans-serif;
+    cursor: pointer;    
     font-weight: 600;
     color: #64BE43;
     transition: 0.3s;
@@ -649,6 +613,7 @@ textarea.form-control:focus {
     float: left;
     overflow: hidden;
     position: relative;
+    padding:5px;
 }
 
 .portfolio-zoom-icon {
@@ -739,8 +704,7 @@ textarea.form-control:focus {
     height: 85px;
     margin: auto;
     top: 0;
-    bottom: 0;
-    font-family: 'Dosis', sans-serif;
+    bottom: 0;    
     font-weight: 700;
 }
 
@@ -1013,22 +977,27 @@ textarea.form-control:focus {
 .single-price:hover .price-plan {
     color: #ffffff;
 }
-
+.price-title{
+    text-align:center;
+}
 .price-title h3 {
     font-weight: 600;
-    font-size: 45px;
+    font-size: 28px;
     text-transform: uppercase;
+    color:white;
 }
 
 .price-rate {
-    border-left: 1px solid #64BE43;
+    border-left: 1px solid #fff;
     margin-left: 15px;
     padding-left: 15px;
+    color:white;
 }
 
 .price-rate h3 {
     font-weight: 700;
-    font-size: 45px;
+    font-size:26px;
+     white-space: nowrap ;
 }
 
 .price-rate h5 {
@@ -1042,7 +1011,10 @@ textarea.form-control:focus {
     padding: 0;
     list-style: none;
 }
-
+.price-body ul li{
+    text-align:left;
+    padding-left:15px;
+}
 .price-body ul li:before {
     content: "\f00c";
     font-family: fontawesome;
@@ -1075,11 +1047,10 @@ textarea.form-control:focus {
 .price-battn {
     background-color: #ffffff;
     padding: 4px 20px;
-    border-radius: 100px;
+    border-radius: 5px;
     display: inline-block;
     color: #464646;
-    font-weight: 600;
-    font-family: 'Dosis', sans-serif;
+    font-weight: 600;    
 }
 
 .price-battn:hover {
@@ -1159,8 +1130,7 @@ textarea.form-control:focus {
 
 .client-text {
     width: 70%;
-    margin: auto;
-    font-family: 'Dosis', sans-serif;
+    margin: auto;    
     font-size: 18px;
     font-weight: 600;
     line-height: 1.4;
@@ -1291,19 +1261,14 @@ Contact Area
 }
 
 .news-list li {
-    padding-left: 60px;
+ 
     position: relative;
-    min-height: 50px;
-    margin-bottom: 15px;
+    min-height: 30px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed;
 }
 
-.news-list li .news-list-photo {
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
-.footer-area .open-hour li {
+.footer-area .open-hour li{
     margin-bottom: 10px;
     border-bottom: 1px dashed;
     padding-bottom: 10px;
@@ -1490,3 +1455,229 @@ li{ list-style:none;}
     margin-top: -1px;
 }
 .blog-posts a{color:#333;}
+.mainmenu ul.nav.navbar-nav .adm {
+    display:none;
+}
+@media (max-width: 767px){
+    .adm{
+        display:block!important;
+    }
+
+}
+.mbt15{margin-bottom:15px;}
+.tct2 ul {
+    margin: 0;
+    text-align: center;
+    overflow: inherit;
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+.tct2 ul .vc_active i, .tct2 ul .vc_active span, .tct2 ul li:hover {
+    color: white !important;
+}
+.tct2 ul .vc_active, .tct2 ul li:hover {
+    background-color: rgba(43, 23, 13, 0.8);
+}
+.tct2 ul li {
+    position: relative;
+    display: inline-block;
+    height: 80px;
+    width: 80px;
+    background-color: white;
+    margin: 5px;
+    box-shadow: 1px 1px 1px #888888;
+    cursor: pointer;
+    color: rgb(87, 71, 65);
+}
+.tct2 ul li i {
+    margin: 0;
+    display: inline-block;
+    font-size: 28px;
+    height: 50px;
+    line-height: 50px;
+}
+.tct2 ul li span {
+    display: block;
+    margin: 0;
+}
+.tct2 ul li:after {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid;
+    bottom: -10px;
+    content: "";
+    height: 0;
+    left: 50%;
+    margin-left: -10px;
+    position: absolute;
+    width: 0;
+    -webkit-opacity: 0;
+    -khtml-opacity: 0;
+    -moz-opacity: 0;
+    opacity: 0;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+    filter: alpha(opacity=0);
+    visibility: hidden;
+}
+.tct2 ul .vc_active:after {
+    -webkit-opacity: 1;
+    -khtml-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=80);
+    filter: alpha(opacity=80);
+    visibility: visible;
+    color: #574741;
+}
+.tab-ct{display:none;}
+.active{display:block;}
+.cart_summary .qty a {
+    padding: 8px 10px 5px 10px;
+    border: 1px solid #eaeaea;
+    display: inline-block;
+    width: auto;
+    margin-top: 5px;
+}
+#prCatCtTable .form-control{width:60px;}.mg-top-15{margin-top:15px;}
+a{color:black;}
+.breadcrumb a, .breadcrumb .fa {
+    color: #64be43;
+}
+#best-seller .owl-item .item {
+    float: left;
+    background: #FFF;
+    margin-top: 20px;
+}
+
+.toolbar {
+    clear: both;
+    margin-top: 0px;
+    padding: 20px 25px;
+    display: inline-block;
+    width: 100%;
+    padding-top: 0px;
+    border-bottom: #ececec double;
+}
+#sort-by {
+    float: right;
+    font-size: 12px;
+}
+.pager .limiter label, .toolbar label {
+    display: inline;
+    float: left;
+    margin-right: 10px;
+    padding: 5px 0;
+    font-size: 11px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+#sort-by ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline;
+}
+.toolbar .pager {
+    text-align: left;
+    margin: 0 10px 0 0;
+    padding: 0;
+    float: left;
+    width: 45%;
+}
+.toolbar .pager .pages {
+    float: left;
+}
+#sort-by li {
+    background: none repeat scroll 0 0 #fff;
+    cursor: pointer;
+    margin: 0 auto;
+    outline: medium none;
+    padding: 5px 15px;
+    position: relative;
+    width: 150px;
+    float: left;
+    color: #333;
+    border: 1px solid #ddd;
+}
+    #sort-by li:hover > ul {
+        visibility: visible;
+    }
+    #sort-by li li:hover {
+        background-color: #fff;
+        color: #ed6663;
+    }
+.pages .pagination {
+    margin: auto;
+}
+.pager .pages li {
+    display: inline-block;
+}
+    .pager .pages li a {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        padding: 5px 10px;
+        border-radius: 0px;
+        color: #333;
+        background: #fff;
+    }
+.pages .pagination > .active > a, .pages .pagination > .active > span, .pages .pagination > .active > a:hover, .pages .pagination > .active > span:hover, .pages .pagination > .active > a:focus, .pages .pagination > .active > span:focus {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #88be4c;
+    border-color: #88be4c;
+    border-radius: 0px;
+    border-width: 1px;
+}
+#prCatCtTable img{max-width:150px;}
+.product-view .product-name h1 {
+    font-size: 28px;
+    margin: 0 0 2px;
+    text-align: left;
+    line-height: 1.2em;
+    padding-bottom: 12px;
+    letter-spacing: normal;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+}
+.product-view .product-name {
+    border-bottom: #ececec double;
+}
+#product .pb-right-column .form-action .button-group {
+    margin-top: 15px;
+    overflow: hidden;
+}
+    #product .pb-right-column .form-action .button-group .wishlist, #product .pb-right-column .form-action .button-group .compare {
+        min-width: 50px;
+        padding-right: 15px;
+        text-align: center;
+        float: left;
+    }
+        #product .pb-right-column .form-action .button-group .wishlist .fa, #product .pb-right-column .form-action .button-group .compare .fa {
+            font-size: 18px;
+            width: 30px;
+            height: 30px;
+            color: #fff;
+            line-height: 30px;
+            background: rgba(0, 0, 0, 0.4) none repeat scroll 0% 0%;
+            border-radius: 90%;
+        }
+.logo img{
+    max-height:65px;
+}
+.box-category .subDropdown {
+    top: 14px;
+    right: 18px;
+    position: absolute;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    padding: 2px;
+}
+.box-category .subDropdown.plus {
+    background-image: url(//media.anpero.com/images/38/102018/plus-blue2018100613560299.png);
+}
+
+.box-category .subDropdown.minus {
+    background-image: url(//media.anpero.com/images/38/102018/minus-blue2018100614211640.png);
+}

@@ -24,9 +24,7 @@
             <meta property="og:image" content="@ViewBag.ImageUrl" />
        
         }
-        @section canonical{
-            <link rel="canonical" href="@ViewBag.WebsiteUrl" />
-        }
+        
         <div id="page">
             <div class="page-heading">
                 <div class="breadcrumbs">
@@ -46,7 +44,7 @@
                                     else
                                     {
                                     <li class="category1599">
-                                        <a href="@Anpero.StringHelpper.GetCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
+                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
                                             @productList.Item[0].ParentCatName
                                         </a>
                                         <span>—› </span>
@@ -103,52 +101,103 @@
                                         <ol class="products-list" id="products-list">
                                             @foreach (AnperoFrontend.WebService.ProductItem item in productList.Item)
                                             {
-                                                <li class="item first">
-                                                    <div class="product-image">
-                                                        <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="@item.PrName">
-                                                            <img class="small-image" src="@item.Images" alt="@item.PrName">
-                                                        </a>
-                                                    </div>
-                                                    <div class="product-shop">
-                                                        <h2 class="product-name">
-                                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="@item.PrName">@item.PrName</a>
-                                                        </h2>
-                                                        <div class="ratings">
-                                                            <div class="rating-box">
-                                                                <div style="width:50%" class="rating"></div>
+                                                if (productList.Item.First() == item)
+                                                { 
+                                                    <li class="item first">
+                                                        <div class="product-image">
+                                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="@item.PrName">
+                                                                <img class="small-image" src="@item.Images" alt="@item.PrName">
+                                                            </a>
+                                                        </div>
+                                                        <div class="product-shop">
+                                                            <h2 class="product-name">
+                                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="@item.PrName">@item.PrName</a>
+                                                            </h2>
+                                                            <div class="ratings">
+                                                                <div class="rating-box">
+                                                                    <div style="width:50%" class="rating"></div>
+                                                                </div>
+                                                                <p class="rating-links"> <a href="#/review/product/list/id/167/category/35/">1 Nhận xét</a> <span class="separator">|</span> <a href="#review-form">Thêm nhận xét</a> </p>
                                                             </div>
-                                                            <p class="rating-links"> <a href="#/review/product/list/id/167/category/35/">1 Nhận xét</a> <span class="separator">|</span> <a href="#review-form">Thêm nhận xét</a> </p>
-                                                        </div>
-                                                        <div class="desc std">
-                                                            <p>
-                                                                @item.ShortDesc
-                                                            </p>
-                                                            <p>
-                                                                <a class="link-learn" title="" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">Chi tiết</a>
-                                                            </p>
-                                                        </div>
-                                                        <div class="price-box">
-                                                            @if (item.IsSale)
-                                                            {
-                                                                <p class="old-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
-                                                                <p class="special-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span> </p>
-                                                            }
-                                                            else
-                                                            {
-                                                                <p><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                                            <div class="desc std">
+                                                                <p>
+                                                                    @item.ShortDesc
+                                                                </p>
+                                                                <p>
+                                                                    <a class="link-learn" title="" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">Chi tiết</a>
+                                                                </p>
+                                                            </div>
+                                                            <div class="price-box">
+                                                                @if (item.IsSale)
+                                                                {
+                                                                    <p class="old-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                                                    <p class="special-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span> </p>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <p><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
 
-                                                            }
+                                                                }
 
-                                                        </div>
-                                                        <div class="actions">
-                                                            <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Mua ngay</span></button>
-                                                            <span class="add-to-links">
-                                                                <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct3(@item.Id,@item.Price,'@item.Images','@item.PrName');"><span>Thêm vào giỏ hàng</span></button>
+                                                            </div>
+                                                            <div class="actions">
+                                                                <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@item.PrName');"><span>Mua ngay</span></button>
+                                                                <span class="add-to-links">
+                                                                    <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct3(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@item.PrName');"><span>Thêm vào giỏ hàng</span></button>
 
-                                                            </span>
+                                                                </span>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </li>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li class="item even">
+                                                        <div class="product-image">
+                                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="@item.PrName">
+                                                                <img class="small-image" src="@item.Images" alt="@item.PrName">
+                                                            </a>
+                                                        </div>
+                                                        <div class="product-shop">
+                                                            <h2 class="product-name">
+                                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="@item.PrName">@item.PrName</a>
+                                                            </h2>
+                                                            <div class="ratings">
+                                                                <div class="rating-box">
+                                                                    <div style="width:50%" class="rating"></div>
+                                                                </div>
+                                                                <p class="rating-links"> <a href="#/review/product/list/id/167/category/35/">1 Nhận xét</a> <span class="separator">|</span> <a href="#review-form">Thêm nhận xét</a> </p>
+                                                            </div>
+                                                            <div class="desc std">
+                                                                <p>
+                                                                    @item.ShortDesc
+                                                                </p>
+                                                                <p>
+                                                                    <a class="link-learn" title="" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">Chi tiết</a>
+                                                                </p>
+                                                            </div>
+                                                            <div class="price-box">
+                                                                @if (item.IsSale)
+                                                                {
+                                                                    <p class="old-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+                                                                    <p class="special-price"><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span> </p>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <p><span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span> </p>
+
+                                                                }
+                                                            </div>
+                                                            <div class="actions">
+                                                                <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.Price),'@item.Images','@item.PrName');"><span>Mua ngay</span></button>
+                                                                <span class="add-to-links">
+                                                                    <button class="button btn-cart ajx-cart" title="Mua ngay" type="button" onclick="Cart.addProduct3(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@item.PrName');"><span>Thêm vào giỏ hàng</span></button>
+
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                }
                                             }
                                         </ol>
                                     </div>
@@ -188,7 +237,7 @@
                                     <div class="block-title"> Đang khuyến mãi </div>
                                     <div class="box-content box-category">
                                         <ul>
-                                            @if (saleProduct != null && saleProduct.Length > 1)
+                                            @if (saleProduct != null && saleProduct.Length > 0)
                                             {
 
                                                 foreach (var item in saleProduct)
@@ -200,7 +249,7 @@
                                                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">
                                                                     <img class="img-responsive" alt="product" src="@item.Images" />
                                                                 </a>
-                                                                <div class="price-percent-reduction2">giảm @itemPecentDow.ToString() %</div>
+                                                                <div class="price-percent-reduction2">Giảm @itemPecentDow.ToString() %</div>
                                                             </div>
                                                             <div class="right-block">
                                                                 <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">@item.PrName</a></h5>

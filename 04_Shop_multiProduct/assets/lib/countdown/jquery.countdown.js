@@ -1,4 +1,4 @@
-/* http://keith-wood.name/countdown.html
+﻿/* http://keith-wood.name/countdown.html
    Countdown for jQuery v2.0.2.
    Written by Keith Wood (kbwood{at}iinet.com.au) January 2008.
    Available under the MIT (http://keith-wood.name/licence.html) license. 
@@ -28,76 +28,7 @@
 	$.JQPlugin.createPlugin({
 	
 		/** The name of the plugin. */
-		name: pluginName,
-
-		/** Countdown expiry callback.
-			Triggered when the countdown expires.
-			@callback expiryCallback */
-
-		/** Countdown server synchronisation callback.
-			Triggered when the countdown is initialised.
-			@callback serverSyncCallback
-			@return {Date} The current date/time on the server as expressed in the local timezone. */
-			
-		/** Countdown tick callback.
-			Triggered on every <code>tickInterval</code> ticks of the countdown.
-			@callback tickCallback
-			@param periods {number[]} The breakdown by period (years, months, weeks, days,
-					hours, minutes, seconds) of the time remaining/passed. */
-
-		/** Countdown which labels callback.
-			Triggered when the countdown is being display to determine which set of labels
-			(<code>labels</code>, <code>labels1</code>, ...) are to be used for the current period value.
-			@callback whichLabelsCallback
-			@param num {number} The current period value.
-			@return {number} The suffix for the label set to use. */
-			
-		/** Default settings for the plugin.
-			@property until {Date|number|string} The date/time to count down to, or number of seconds
-						offset from now, or string of amounts and units for offset(s) from now:
-						'Y' years, 'O' months, 'W' weeks, 'D' days, 'H' hours, 'M' minutes, 'S' seconds.
-			@example until: new Date(2013, 12-1, 25, 13, 30)
- until: +300
- until: '+1O -2D'
-			@property [since] {Date|number|string} The date/time to count up from, or
-						number of seconds offset from now, or string for unit offset(s):
-						'Y' years, 'O' months, 'W' weeks, 'D' days, 'H' hours, 'M' minutes, 'S' seconds.
-			@example since: new Date(2013, 1-1, 1)
- since: -300
- since: '-1O +2D'
-			@property [timezone=null] {number} The timezone (hours or minutes from GMT) for the target times,
-						or null for client local timezone.
-			@example timezone: +10
- timezone: -60
-			@property [serverSync=null] {serverSyncCallback} A function to retrieve the current server time
-						for synchronisation.
-			@property [format='dHMS'] {string} The format for display - upper case for always, lower case only if non-zero,
-						'Y' years, 'O' months, 'W' weeks, 'D' days, 'H' hours, 'M' minutes, 'S' seconds.
-			@property [layout=''] {string} Build your own layout for the countdown.
-			@example layout: '{d<}{dn} {dl}{d>} {hnn}:{mnn}:{snn}'
-			@property [compact=false] {boolean} True to display in a compact format, false for an expanded one.
-			@property [padZeroes=false] {boolean} True to add leading zeroes
-			@property [significant=0] {number} The number of periods with non-zero values to show, zero for all.
-			@property [description=''] {string} The description displayed for the countdown.
-			@property [expiryUrl=''] {string} A URL to load upon expiry, replacing the current page.
-			@property [expiryText=''] {string} Text to display upon expiry, replacing the countdown. This may be HTML.
-			@property [alwaysExpire=false] {boolean} True to trigger <code>onExpiry</code> even if target time has passed.
-			@property [onExpiry=null] {expiryCallback} Callback when the countdown expires -
-						receives no parameters and <code>this</code> is the containing division.
-			@example onExpiry: function() {
-	...
- }
-			@property [onTick=null] {tickCallback} Callback when the countdown is updated -
-						receives <code>number[7]</code> being the breakdown by period
-						(years, months, weeks, days, hours, minutes, seconds - based on
-						<code>format</code>) and <code>this</code> is the containing division.
-			@example onTick: function(periods) {
- 	var secs = $.countdown.periodsToSeconds(periods);
- 	if (secs < 300) { // Last five minutes
-		...
- 	}
- }
-			@property [tickInterval=1] {number} The interval (seconds) between <code>onTick</code> callbacks. */
+		name: pluginName,	
 		defaultOptions: {
 			until: null,
 			since: null,
@@ -137,8 +68,8 @@
 			@property [isRTL=false] {boolean} True for right-to-left languages, false for left-to-right. */
 		regionalOptions: { // Available regional settings, indexed by language/country code
 			'': { // Default regional settings - English/US
-				labels: ['Years', 'Months', 'Weeks', 'Days', 'Hours', 'Minutes', 'Seconds'],
-				labels1: ['Year', 'Month', 'Week', 'Day', 'Hour', 'Minute', 'Second'],
+				labels: ['Năm', 'Tháng', 'Tuần', 'Ngày', 'giờ', 'Phút', 'Giây'],
+				labels1: ['Năm', 'Tháng', 'Tuần', 'Ngày', 'giờ', 'Phút', 'Giây'],
 				compactLabels: ['y', 'm', 'w', 'd'],
 				whichLabels: null,
 				digits: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],

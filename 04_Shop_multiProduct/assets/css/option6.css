@@ -40,13 +40,11 @@
   right: 80px;
 }
 .latest-deals-product .product-list li{
-  border: 1px solid #eaeaea;
+
   overflow: hidden;
   padding-bottom: 5px;
 }
-.latest-deals-product .product-list li:hover{
-  border: 1px solid #007176;
-}
+
 .latest-deals-product .owl-next{
   top: -40px;
 }
@@ -86,22 +84,22 @@
 /*
 [3. Products list]
 */
-.option6 .product-list li .quick-view{
+.product-list li .quick-view{
 	right: 10px;
 }
-.option6 .product-list li .quick-view a:hover{
+.product-list li .quick-view a:hover{
 	background: #007176;
 }
-.option6 .product-list li .quick-view a:hover{
+.product-list li .quick-view a:hover{
 	background: #007176;
 }
-.option6 .product-list li .quick-view a:hover {
+.product-list li .quick-view a:hover {
 	background: #007176;
 }
-.option6 .product-list li .add-to-cart:hover{
+.product-list li .add-to-cart:hover{
 	background: #007176;
 }
-.option6 .product-list li .product-price {
+.product-list li .product-price {
 	color: #f96d10;
 }
 
@@ -109,14 +107,14 @@
 /*
 [4. Header ]
 */
-.option6 .header{
-	background:rgba(43, 23, 13, 0.8);
-    background-image: url(/assets/images/headerBg.jpg);
+.header{
+	
+
     background-size: cover;
     background-position: left top;
 }
-.option6 .nav-top-menu{
-	background: transparent;
+.option6 .nav-top-menu {
+    background: #50b748;
 }
 .option6 .top-header img {
 	margin-top: -5px;
@@ -124,10 +122,11 @@
 .option6 .top-header a.current-open:after{
 	font-size: 13px;
 }
-.option6 .top-header{
-	background: rgba(43, 23, 13, 0.8);
+.top-header{
+	/*background: rgba(43, 23, 13, 0.8);*/
 	font-size: 12px;
 	color: #fff;
+    background: #50b748;
 }
 .option6 .top-header a{
 	color: #fff;
@@ -157,13 +156,15 @@
 	padding: 0 15px;
 	padding-left: 40px;
 }
-.option6 .main-header .header-search-box .form-inline .form-category{
+.main-header .header-search-box .form-inline .form-category{
     float: right;
     margin-right: 40px;
     border-left: 1px solid #21940c;
     height: 41px;
-    background: rgba(43, 23, 13, 0.8);
+    background-color:#50b748;
+    border-left: 1px solid #f7931d;
     color: #fff;
+    
 }
 .option6 .main-header .header-search-box .form-inline .btn-search{
 	top: 0;
@@ -178,23 +179,25 @@
 .option6 .header-search-box form .input-serach input::-webkit-input-placeholder { color:#fff;  }
 .option6 .header-search-box form .input-serach input::-webkit-input-placeholder { color:#fff; }
 
-.option6 .main-header .header-search-box .form-inline .btn-search{
+.main-header .header-search-box .form-inline .btn-search{
 	color: #fff;
 	font-size: 16px;
-	background-color:rgba(43, 23, 13, 0.8);
+	background-color:rgb(80, 183, 72);
+    border-left: 1px solid #f7931d;
 }
 .option6 .select2-container--default .select2-selection--single .select2-selection__rendered{
 	color: #fff;
 }
 .option6 .select2-container--default .select2-selection--single .select2-selection__arrow b{
 	border-color: #fff transparent transparent transparent;
+   
 }
-.option6 .main-header .header-search-box .form-inline{
+.main-header .header-search-box .form-inline{
 	border: none;
-	background: rgba(43, 23, 13, 0.8);
 	color: #fff;
 	display: inline-block;
-	min-width: 470px;
+	min-width: 520px;
+    background-color:#50b748;
 }
 .option6 .main-header .header-search-box .keyword{
 	display: inline-block;
@@ -222,18 +225,10 @@
 .option6 .main-header .header-search-box .form-inline .btn-search .fa{
 	line-height: inherit;
 }
-.option6 .group-button-header .btn-cart{
-	background: url("/assets/images/icon-cart-round6.png") no-repeat center center;
-}
-.option6 .group-button-header .btn-heart{
-	  background: url("/assets/images/icon-heart-round6.png") no-repeat center center;
-}
-.option6 .group-button-header .btn-compare{
-	background: url("/assets/images/icon-compare-round6.png") no-repeat center center;
-}
 
-.option6 .nav-top-menu.nav-ontop{
-	background: rgba(43, 23, 13, 0.8);
+
+.nav-top-menu.nav-ontop{
+	background:#50b748;
 	height: 51px;
 }
 .option6 .nav-top-menu.nav-ontop .navbar-right{
@@ -247,9 +242,9 @@
 	padding: 0;
 }
 
-.option6 #main-menu .navbar{
+#main-menu .navbar{
 	border-radius: 0;
-	background: rgba(43, 23, 13, 0.8);
+	background: #50b748;
 }
 .option6 #main-menu .navbar-default .navbar-nav>li>a{
 	color: #fff;
@@ -267,7 +262,13 @@
 .option6 #main-menu .navbar .navbar-nav>li.active a{
 	background: none;
 }
-.option6 #main-menu li.dropdown>a:after{
+.option6 #main-menu li.dropdown > a:after {
+    position: absolute;    
+    -ms-transform: translateX(-50%);    
+    transform: translateX(-50%);
+    right: 0px;
+}
+/*.option6 #main-menu li.dropdown>a:after{
 	position: absolute;
 	left: 46%;
 	-ms-transform: translateX(-50%);
@@ -275,7 +276,7 @@
   	transform: translateX(-50%);
 	top: 15px;
 	font-size: 12px;
-}
+}*/
 .option6 #main-menu li.dropdown:hover:before{
 	display: none;
 }
@@ -824,9 +825,6 @@
 .option6 .product-list li .add-to-cart:hover{
 	opacity: 1;
 }
-.option6 .product-list li .add-to-cart a {
-	  background: url("/assets/images/icon-cart-option2.png") no-repeat left center;
-}
 .option6 .product-list li .quick-view a.compare:before{
 	  content: "\f066";
 }
@@ -1165,6 +1163,7 @@
 */
 .option6 #footer{
 	margin-top: 60px;
+    padding-bottom:30px;
 }
 .option6 #mail-box .btn{
 	background: #007176;
@@ -1389,9 +1388,9 @@
 	.option6 #main-menu .navbar{
 		background: none;
 	}
-	.option6 #main-menu .navbar-header{
-		background: #007176;
-	}
+    .option6 #main-menu .navbar-header {
+        background: #50b748;
+    }
 	.option6 #main-menu .navbar-default .navbar-nav>li>a{
 		background: none;
 		color: #999;
@@ -1506,8 +1505,9 @@
 */
 @media (max-width: 480px) {
 	.group-button-header{
-		width: 100%;
-		margin-top: 30px;
+		/*width: 100%;
+		margin-top: 30px;*/
+        display:none;
 	}
 	.option6 .logo{
 		width: 100%;
@@ -1523,12 +1523,12 @@
 	.option6 #main-menu .navbar{
 		background: none;
 	}
-	.option6 #main-menu .navbar-header{
-		background: #007176;
-	}
+    .option6 #main-menu .navbar-header {
+        background: #50b748;
+    }
 	.option6 #main-menu .navbar-default .navbar-nav>li>a{
 		background: none;
-		color: #999;
+		color: white;
 	}
 	.option6 #main-menu li.dropdown>a:after {
 	  position: absolute;
@@ -1639,10 +1639,6 @@
 }
 #footer a {
     color:white;
-}
-.rct{    
-    padding-right: 0px;
-    padding-left: 15px;
 }
 .lct #left_column{
     padding-right: 0px;

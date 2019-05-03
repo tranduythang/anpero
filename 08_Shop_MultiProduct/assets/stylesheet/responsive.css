@@ -25,7 +25,9 @@ website:   	http://www.themesmart.net/
     background-color: #fff;
 	clear: both;
 }
-
+.toolbar .pager{
+    width:100%!important;
+}
 #thm-mart-slideshow {margin:0px}
 #thm-mart-slideshow:before {left: -500px;}
 #top {margin-top:0px}
@@ -958,7 +960,9 @@ footer .newsletter-row {
     padding-left: 15px;
     padding-right: 15px;
 }
-
+.toolbar .pager{
+    width:100%!important;
+}
 .header-container .fl-header-right {
     top: 20px;
     z-index: 100;
@@ -1764,7 +1768,9 @@ footer .newsletter-row {
 @media (min-width: 768px) and (max-width: 991px) {
 	
 #nav li.drop-menu:hover ul {top:50px}	
-	
+	.toolbar .pager{
+    width:100%!important;
+}
 .header-container .fl-nav-menu {display: block;
      border-radius: 0px; 
     /* overflow: hidden; */

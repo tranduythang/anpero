@@ -10,7 +10,15 @@ namespace Anpero
     {
         public StringHelpper()
         {
-          
+
+        }
+        public static int GetDiscountPersen(int oldPrice,int newPrive)
+        {
+            return  (oldPrice - newPrive)/ oldPrice*100;
+        }
+        public static int GetDiscountPersen(decimal oldPrice, decimal newPrive)
+        {
+            return Convert.ToInt32((oldPrice - newPrive) / oldPrice * 100);
         }
         public static Boolean isUrl(String url)
         {
@@ -263,25 +271,30 @@ namespace Anpero
         }
         public static String ToPhoneNumberFormat(String s)
         {
-            int dotIndex = s.LastIndexOf(".");
-            if (s != null && !DBNull.Value.Equals(s))
+            if (!string.IsNullOrEmpty(s))
             {
-                if (s == "0" || s == "0.00")
+
+                int dotIndex = s.LastIndexOf(".");
+                if (s != null && !DBNull.Value.Equals(s))
+                {
+                    if (s == "0" || s == "0.00")
+                    {
+                        return "0";
+                    }
+                    if (s.Length > (dotIndex + 3) && dotIndex != -1)
+                    {
+                        s = s.Substring(0, dotIndex + 2);
+
+                    }
+                    return string.Format("{0:###-###-####}", s);
+
+                }
+                else
                 {
                     return "0";
                 }
-                if (s.Length > (dotIndex + 3) && dotIndex != -1)
-                {
-                    s = s.Substring(0, dotIndex + 2);
-
-                }
-                return string.Format("{0:###-###-####}",s);
-
             }
-            else
-            {
-                return "0";
-            }
+            else { return ""; }
         }
         public static String ConVertToMoneyFormatInt(String s)
         {
@@ -302,9 +315,10 @@ namespace Anpero
             }
             else
             {
-                return "0";
+                return "Liên hệ";
             }
         }
+       
         public static String ConVertToMoneyFormatInt(int input)
         {
             return ConVertToMoneyFormatInt(input.ToString());
@@ -312,6 +326,61 @@ namespace Anpero
         public static String ConVertToMoneyFormatInt(decimal input)
         {
             return ConVertToMoneyFormatInt(input.ToString());
+        }
+       public static string FormatPhoneNumber(string phoneNumber)
+        {
+
+            if (String.IsNullOrEmpty(phoneNumber))
+                return phoneNumber;
+
+            Regex phoneParser = null;
+            string format = "";
+
+            switch (phoneNumber.Length)
+            {
+
+                case 5:
+                    phoneParser = new Regex(@"(\d{3})(\d{2})");
+                    format = "$1 $2";
+                    break;
+
+                case 6:
+                    phoneParser = new Regex(@"(\d{2})(\d{2})(\d{2})");
+                    format = "$1 $2 $3";
+                    break;
+
+                case 7:
+                    phoneParser = new Regex(@"(\d{3})(\d{2})(\d{2})");
+                    format = "$1 $2 $3";
+                    break;
+
+                case 8:
+                    phoneParser = new Regex(@"(\d{4})(\d{2})(\d{2})");
+                    format = "$1 $2 $3";
+                    break;
+
+                case 9:
+                    phoneParser = new Regex(@"(\d{4})(\d{3})(\d{2})(\d{2})");
+                    format = "$1 $2 $3 $4";
+                    break;
+
+                case 10:
+                    phoneParser = new Regex(@"(\d{4})(\d{3})(\d{3})");
+                    format = "$1 $2 $3";
+                    break;
+
+                case 11:
+                    phoneParser = new Regex(@"(\d{4})(\d{4})(\d{3})");
+                    format = "$1 $2 $3";
+                    break;
+
+                default:
+                    return phoneNumber;
+
+            }//switch
+
+            return phoneParser.Replace(phoneNumber, format);
+
         }
         public static String ConVertToMoneyFormat(String s)
         {
@@ -353,7 +422,7 @@ namespace Anpero
             return System.Web.HttpUtility.UrlEncode(title).Replace(@"%0", "").Replace(@"%1", "").Replace(@"%2c", ",").Replace(@"%3a", String.Empty).ToLower();
         }
         /// <summary>
-        /// Chuyển dạng số dang dạng chứ đọc tiếng vie
+        /// Chuyển dạng số dang dạng chứ đọc tiếng viet
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
@@ -525,6 +594,17 @@ namespace Anpero
                 return "/";
             }
         }
+        public static string GetProductGroupLink(string productName, int productId)
+        {
+            if (!string.IsNullOrEmpty(productName) && productId > 0)
+            {
+                return "/" + toURLgach(productName) + "-g" + productId;
+            }
+            else
+            {
+                return "/";
+            }
+        }
         public static string GetProductLink(string parentCatName, string productName, int productId)
         {
             if (!string.IsNullOrEmpty(parentCatName) && !string.IsNullOrEmpty(productName) && productId > 0)
@@ -585,7 +665,7 @@ namespace Anpero
             }
 
         }
-        public static String ConvertTimeVN(String YYYYMMddhhmmss)
+        public static string ConvertTimeVN(string YYYYMMddhhmmss)
         {
             try
             {
@@ -609,6 +689,31 @@ namespace Anpero
 
 
         }
+        public static DateTime ConvertDateTime(string YYYYMMddhhmmss)
+        {
+            try
+            {
+                if (YYYYMMddhhmmss.Length >= 8) { 
+
+                    string year = YYYYMMddhhmmss.Substring(0, 4);
+                    string month = YYYYMMddhhmmss.Substring(4, 2);
+                    string day = YYYYMMddhhmmss.Substring(6, 2);
+                    return new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day));
+                }
+                else
+                {
+                    return DateTime.Now;
+                }
+            }
+            catch (Exception)
+            {
+
+                return DateTime.Now;
+            }
+
+
+        }
+
         /// <summary>
     }
 }

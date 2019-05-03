@@ -1,25 +1,22 @@
-﻿
-
-
-@if (ViewData["prDetail"] != null)
+﻿@if (ViewData["prDetail"] != null)
 {
     AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewData["prDetail"];
-    <div class="page-top">
+    <div class="page-top section-padding">
         <div class="container">
             <!-- breadcrumb -->
             <div class="breadcrumb clearfix">
                 <a class="home" href="/" title="Return to Home">Home</a>
-                <span class="navigation-pipe">&nbsp;</span>
-                <a href="/" title="Return to Home">@item.ParentCatName</a>
-                <span class="navigation-pipe">&nbsp;</span>
+                <span class="fa fa-caret-right">&nbsp;</span>
+                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName,item.ParentId)" title="Return to Home">@item.ParentCatName</a>
+                <span class="fa fa-caret-right">&nbsp;</span>
                 <a href="/" title="Return to Home">@item.CatName</a>
             </div>
-            <!-- ./breadcrumb -->            
-            <div class="row">              
+            <!-- ./breadcrumb -->
+            <div class="row">
                 @if (Request.Browser.IsMobileDevice)
                 {
-                
-                    @Html.Partial("product/_productDetail")                
+
+                    @Html.Partial("product/_productDetail")
                     @Html.Partial("product/_MenuAndAdsPartial")
                 }
                 else
@@ -29,7 +26,7 @@
                 }
 
             </div>
-            
+
 
 
         </div>
@@ -37,16 +34,18 @@
     @section health{
         <meta name="description" content="@Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc)" />
         <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(item.KeyWord)" />
+        <link href="//media.anpero.com/cdn/plugins/fancybox-3/src/css/core.css" rel="stylesheet" />
+        <link href="//media.anpero.com/cdn/plugins/fancybox-3/src/css/fullscreen.css" rel="stylesheet" />
+
     }
     @section  scripts{
-        <link rel="stylesheet" type="text/css" href="/assets/lib/fancyBox/jquery.fancybox.css">
-        <script type="text/javascript" src="/assets/lib/jquery.elevatezoom.js"></script>
-        <script type="text/javascript" src="/assets/lib/fancyBox/jquery.fancybox.js"></script>
-        <script type="text/javascript" src="/assets/lib/countdown/jquery.plugin.js"></script>
-        <script type="text/javascript" src="/assets/lib/countdown/jquery.countdown.js"></script>
-        @item.Script
+        <script src="/Scripts/jquery.cokie.min.js"></script>
+        <script src="/Scripts/ShoppingCart.js"></script>
+        <script type="text/javascript" src="//media.anpero.com/cdn/plugins/fancybox-3/jquery.fancybox.min.js"></script>
+        <script src="/assets/js/countdown/jquery.plugin.js"></script>
+        <script type="text/javascript" src="/assets/js/countdown/jquery.countdown.js"></script>
         <script>
-            /** COUNT DOWN **/
+
             $('[data-countdown]').each(function () {
                 var $this = $(this), finalDate = $(this).data('countdown');
                 $this.countdown(finalDate, function (event) {
@@ -67,6 +66,6 @@
                 });
             }
         </script>
-
+        @item.Script
     }
 }

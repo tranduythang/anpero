@@ -1,0 +1,371 @@
+﻿@using AnperoFrontend.WebService;
+
+@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+        ViewBag.Title = commonInfo.Name;
+        ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau(commonInfo.Desc);
+        ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+    }
+
+}
+@section health{
+    <meta name="description" content="@commonInfo.Desc" />
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    <meta property="og:description" content="@commonInfo.Desc" />
+    <meta property="og:title" content="@ViewBag.Title" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="@ViewBag.WebsiteUrl" />
+    <meta property="og:image" content="@commonInfo.Logo" />
+    <link rel="canonical" href="@ViewBag.WebsiteUrl" />
+}
+@if (!Request.Browser.IsMobileDevice)
+{
+    <div class="content">
+
+        @Html.Partial("_partial/_HomeSlide_1")
+    </div>
+}
+<div class="content">
+    <div class="best-pro featured-pro container">
+        <section class="wow bounceInUp animated">
+            <div class="slider-items-products">
+                <div class="new_title">
+                    <h2>Loại Sản phẩm</h2>
+                </div>
+                <div id="top-categories" class="product-flexslider hidden-buttons">
+                    <div class="slider-items slider-width-col4 products-grid">
+                        @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                        {
+
+                            foreach (var item in commonInfo.ProductCategoryList)
+                            {
+                                <div class="item">
+                                    <div class="pro-img">
+                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id)">
+                                            <img src="@item.Images" class="img-responsive"/>
+                                            <div class="pro-info">@item.Name</div>
+                                        </a>
+                                    </div>
+                                </div>
+                                if (item.ChildCategory != null && item.ChildCategory.Length > 0)
+                                {
+                                    foreach (var childItem in item.ChildCategory)
+                                    {
+                                        <div class="item">
+                                            <a href="@Anpero.StringHelpper.GetCategoryLink(childItem.Name, childItem.Id)">
+                                                <amp-img src="@childItem.Images" @childItem.Name height="200" width="200" class="img-rounded"></amp-img>
+                                                <div class="pro-info">@childItem.Name</div>
+                                            </a>
+                                        </div>
+                                    }
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    @*<section class="wow bounceInUp animated">
+            <div class="best-pro slider-items-products container" style="margin-top: 50px;">
+                <div class="new_title">
+                    <h2>Sản phẩm mới</h2>
+                </div>
+                <div class="category-products">
+                    <ul class="products-grid small-grid">
+                        @if (ViewData["newestProduct"] != null)
+                        {
+                            AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["newestProduct"];
+                            if (bestSaleList != null && bestSaleList.Item.Length > 0)
+                            {
+                                foreach (ProductItem item in bestSaleList.Item)
+                                {
+                                    <li class="item col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                        <div class="item-inner">
+                                            <div class="item-img">
+                                                <div class="item-img-info">
+                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">
+                                                        <amp-img src="@item.Images" alt="@item.PrName" height="405" width="270"></amp-img>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="item-info">
+                                                <div class="info-inner">
+                                                    <div class="item-title">
+                                                        <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">@item.PrName</a>
+                                                    </div>
+                                                    <div class="hTag">@item.ParentCatName</div>
+                                                    <div class="Specifications"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">@item.Specifications</a></div>
+                                                    <div class="item-content">
+                                                        <div class="item-price">
+                                                            <div class="price-box">
+                                                                <span class="regular-price">
+                                                                    @if (item.IsSale)
+                                                                    {
+                                                                        <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
+                                                                        <span class="special-price price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <span class="price">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
+                                                                    }
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="add_cart">
+                                                            <a class="button btn-cart" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">Xem thêm</a>
+                                                            <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName.Replace(@"'",string.Empty)');"><span>Mua hàng</span></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </section>*@
+
+    <section class="wow bounceInUp animated">
+        <div class="best-pro slider-items-products container" style="margin-top: 50px;">
+            <div class="new_title">
+                <h2>Khuyến mãi đặc biệt</h2>
+            </div>
+            <!--Xoa row-->
+            <div class="category-products">
+                <ul class="products-grid small-grid">
+                    @if (ViewData["BestsaleProduct"] != null)
+                    {
+                        AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["BestsaleProduct"];
+                        if (bestSaleList != null && bestSaleList.Item.Length > 0)
+                        {
+                            foreach (ProductItem item in bestSaleList.Item)
+                            {
+                                <li class="item col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="item-inner">
+                                        <div class="item-img">
+                                            <div class="item-img-info">
+                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="product-image">                                                    
+                                                    <img src="@item.Images" class="img-responsive" alt="@item.PrName"/>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                        <div class="item-info">
+                                            <div class="info-inner">
+                                                <div class="item-title">
+                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">@item.PrName</a>
+                                                </div>
+                                                <div class="item-content">
+                                                    <div class="hTag">@item.ParentCatName</div>
+                                                    <div class="Specifications"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">@item.Specifications</a></div>
+                                                    <div class="item-price">
+                                                        <div class="price-box">
+                                                            <span class="regular-price" id="product-price-1">
+                                                                @if (item.IsSale)
+                                                                {
+                                                                    <span class="price old-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
+                                                                    <span class="special-price price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <span class="price">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price) + " đ")</span>
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="add_cart">
+                                                        <a class="button btn-cart" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">Xem thêm</a>
+                                                        @if (item.IsInstock)
+                                                        {
+                                                            <button class="button btn-cart" type="button" onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName.Replace(@"'",string.Empty)');"><span>Mua hàng</span></button>
+                                                        }
+                                                        else
+                                                        {
+                                                            <button class="button btn-cart" type="button" onclick="javascript:void(0);"><span>Hết Hàng</span></button>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="wow bounceInUp animated">
+        <div class="best-pro slider-items-products container">
+            <div class="new_title">
+                <h2>NỔI BẬT</h2>
+            </div>
+            <div class="slider-items">
+                @if (ViewData["ads1"] != null)
+                {
+                    Ads[] slide = (Ads[])ViewData["ads1"];
+                    if (slide.Length > 0)
+                    {
+                        for (int i = 0; i < slide.Length; i++)
+                        {
+                            <div class="item">
+                                <a href="@slide[i].ClickUrl" target="_blank">
+                                    @*<amp-img media="(min-width: 650px)" width="949" height="470" src="@slide[i].ImagesUrl" alt="@slide[i].Description" layout="responsive" >
+                                            <noscript>
+                                                <img src="@slide[i].ImagesUrl" />
+                                            </noscript>
+                                        </amp-img>*@
+                                    <img src="@slide[i].ImagesUrl" alt="@slide[i].Description">
+
+                                </a>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="item">
+                            <a href="//media.anpero.com/images/38/52018/12018051519591544.jpg" target="_blank"><img src="//media.anpero.com/images/38/52018/12018051519591544.jpg" alt="ads1"></a>
+                        </div>
+                        <div class="item">
+                            <a href="//media.anpero.com/images/38/52018/22018051520060323.jpg" target="_blank"><img src="//media.anpero.com/images/38/52018/22018051520060323.jpg" alt="ads1"></a>
+                        </div>
+                        <div class="item">
+                            <a href="//media.anpero.com/images/38/52018/22018051520060323.jpg" target="_blank"><img src="//media.anpero.com/images/38/52018/22018051520060323.jpg" alt="ads1"></a>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="item">
+                        <a href="//media.anpero.com/images/38/52018/12018051519591544.jpg" target="_blank"><img src="//media.anpero.com/images/38/52018/12018051519591544.jpg" alt="ads1"></a>
+                    </div>
+                    <div class="item">
+                        <a href="//media.anpero.com/images/38/52018/22018051520021518.jpg" target="_blank"><img src="//media.anpero.com/images/38/52018/22018051520021518.jpg" alt="ads1"></a>
+                    </div>
+                    <div class="item">
+                        <a href="http://media.anpero.com/images/38/52018/22018051520021518.jpg" target="_blank"><img src="http://media.anpero.com/images/38/52018/22018051520021518.jpg" alt="ads1"></a>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+    @if (ViewData["FeatureArticle"] != null)
+    {
+        SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
+        <div class="latest-blog wow bounceInUp animated animated container">
+            <div class="new_title">
+                <h2>Bài viết mới nhất</h2>
+            </div>
+            @foreach (BlogItem item in FeatureArticle.ItemList)
+            {
+                <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
+                    <div class="blog_inner">
+                        <div class="blog-img">
+                            <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
+                                <amp-img src="@item.Thumb" alt="@item.ShotDesc" height="256" width="393"></amp-img>
+                            </a>
+                            <div class="mask"> <a class="info" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Chi tiết</a> </div>
+                        </div>
+                        <div class="blog-info">
+                            <div class="post-date">
+                                <time class="entry-date" datetime="@item.CreateDate">mới đăng</time>
+                            </div>
+                            <h3><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h3>
+                            <p>@Anpero.StringHelpper.SubString(150, item.ShotDesc)</p>
+                            <a class="readmore" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+</div>
+@section scripts{
+    @if (!Request.Browser.IsMobileDevice)
+    {
+    <script type="text/javascript" src="/assets/js/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src="/assets/js/revslider.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery('#thm-rev-slider').show().revolution({
+                dottedOverlay: 'none',
+                delay: 5000,
+                startwidth: 0,
+                startheight: 900,
+                hideThumbs: 200,
+                thumbWidth: 200,
+                thumbHeight: 50,
+                thumbAmount: 2,
+                navigationType: 'thumb',
+                navigationArrows: 'solo',
+                navigationStyle: 'round',
+                touchenabled: 'on',
+                onHoverStop: 'on',
+                swipe_velocity: 0.7,
+                swipe_min_touches: 1,
+                swipe_max_touches: 1,
+                drag_block_vertical: false,
+                spinner: 'spinner0',
+                keyboardNavigation: 'off',
+
+                navigationHAlign: 'center',
+                navigationVAlign: 'bottom',
+                navigationHOffset: 0,
+                navigationVOffset: 20,
+
+                soloArrowLeftHalign: 'left',
+                soloArrowLeftValign: 'center',
+                soloArrowLeftHOffset: 20,
+                soloArrowLeftVOffset: 0,
+
+                soloArrowRightHalign: 'right',
+                soloArrowRightValign: 'center',
+                soloArrowRightHOffset: 20,
+                soloArrowRightVOffset: 0,
+
+                shadow: 0,
+                fullWidth: 'on',
+                fullScreen: 'on',
+
+                stopLoop: 'off',
+                stopAfterLoops: -1,
+                stopAtSlide: -1,
+
+                shuffle: 'off',
+
+                autoHeight: 'on',
+                forceFullWidth: 'off',
+                fullScreenAlignForce: 'off',
+                minFullScreenHeight: 0,
+                hideNavDelayOnMobile: 1500,
+
+                hideThumbsOnMobile: 'off',
+                hideBulletsOnMobile: 'off',
+                hideArrowsOnMobile: 'off',
+                hideThumbsUnderResolution: 0,
+
+                hideSliderAtLimit: 0,
+                hideCaptionAtLimit: 0,
+                hideAllCaptionAtLilmit: 0,
+                startWithSlide: 0,
+                fullScreenOffsetContainer: ''
+            });
+        });
+    </script>
+    }
+}
+
+
+
+
+

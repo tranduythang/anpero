@@ -22,6 +22,7 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,10 +46,6 @@
     <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Anpero, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Anpero\bin\Debug\Anpero.dll</HintPath>
-    </Reference>
     <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
@@ -731,6 +728,7 @@
     <Content Include="assets\images\grid-view-bg.png" />
     <Content Include="assets\images\heart-icon.png" />
     <Content Include="assets\images\heart.png" />
+    <Content Include="assets\images\home.png" />
     <Content Include="assets\images\icon-angle-right.png" />
     <Content Include="assets\images\icon-cart-option2.png" />
     <Content Include="assets\images\icon-cart-round.png" />
@@ -782,6 +780,67 @@
     <Content Include="assets\lib\bootstrap\js\bootstrap.js" />
     <Content Include="assets\lib\bootstrap\js\bootstrap.min.js" />
     <Content Include="assets\lib\bootstrap\js\npm.js" />
+    <Content Include="assets\lib\Content-Slider\dist\css\images\blank.gif" />
+    <Content Include="assets\lib\Content-Slider\dist\css\images\closedhand.cur" />
+    <Content Include="assets\lib\Content-Slider\dist\css\images\openhand.cur" />
+    <Content Include="assets\lib\Content-Slider\dist\css\slider-pro.css" />
+    <Content Include="assets\lib\Content-Slider\dist\css\slider-pro.min.css" />
+    <Content Include="assets\lib\Content-Slider\dist\js\jquery.sliderPro.js" />
+    <Content Include="assets\lib\Content-Slider\dist\js\jquery.sliderPro.min.js" />
+    <Content Include="assets\lib\Content-Slider\examples\css\examples.css" />
+    <Content Include="assets\lib\Content-Slider\examples\example1.html" />
+    <Content Include="assets\lib\Content-Slider\examples\example2.html" />
+    <Content Include="assets\lib\Content-Slider\examples\example3.html" />
+    <Content Include="assets\lib\Content-Slider\examples\example4.html" />
+    <Content Include="assets\lib\Content-Slider\examples\example5.html" />
+    <Content Include="assets\lib\Content-Slider\libs\fancybox\blank.gif" />
+    <Content Include="assets\lib\Content-Slider\libs\fancybox\fancybox_loading%402x.gif" />
+    <Content Include="assets\lib\Content-Slider\libs\fancybox\fancybox_loading.gif" />
+    <Content Include="assets\lib\Content-Slider\libs\fancybox\fancybox_overlay.png" />
+    <Content Include="assets\lib\Content-Slider\libs\fancybox\fancybox_sprite%402x.png" />
+    <Content Include="assets\lib\Content-Slider\libs\fancybox\fancybox_sprite.png" />
+    <Content Include="assets\lib\Content-Slider\libs\fancybox\helpers\fancybox_buttons.png" />
+    <Content Include="assets\lib\Content-Slider\libs\fancybox\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="assets\lib\Content-Slider\libs\fancybox\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="assets\lib\Content-Slider\libs\fancybox\helpers\jquery.fancybox-media.js" />
+    <Content Include="assets\lib\Content-Slider\libs\fancybox\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="assets\lib\Content-Slider\libs\fancybox\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="assets\lib\Content-Slider\libs\fancybox\jquery.fancybox.css" />
+    <Content Include="assets\lib\Content-Slider\libs\fancybox\jquery.fancybox.js" />
+    <Content Include="assets\lib\Content-Slider\libs\fancybox\jquery.fancybox.pack.js" />
+    <Content Include="assets\lib\Content-Slider\libs\jquery-1.11.0.min.js" />
+    <Content Include="assets\lib\Content-Slider\src\css\images\blank.gif" />
+    <Content Include="assets\lib\Content-Slider\src\css\images\closedhand.cur" />
+    <Content Include="assets\lib\Content-Slider\src\css\images\openhand.cur" />
+    <Content Include="assets\lib\Content-Slider\src\css\slider-pro.arrows.css" />
+    <Content Include="assets\lib\Content-Slider\src\css\slider-pro.buttons.css" />
+    <Content Include="assets\lib\Content-Slider\src\css\slider-pro.caption.css" />
+    <Content Include="assets\lib\Content-Slider\src\css\slider-pro.core.css" />
+    <Content Include="assets\lib\Content-Slider\src\css\slider-pro.full-screen.css" />
+    <Content Include="assets\lib\Content-Slider\src\css\slider-pro.layers.css" />
+    <Content Include="assets\lib\Content-Slider\src\css\slider-pro.thumbnail-arrows.css" />
+    <Content Include="assets\lib\Content-Slider\src\css\slider-pro.thumbnails.css" />
+    <Content Include="assets\lib\Content-Slider\src\css\slider-pro.touch-swipe.css" />
+    <Content Include="assets\lib\Content-Slider\src\css\slider-pro.video.css" />
+    <Content Include="assets\lib\Content-Slider\src\css\slider-pro.wp.css" />
+    <Content Include="assets\lib\Content-Slider\src\js\jquery.sliderPro.arrows.js" />
+    <Content Include="assets\lib\Content-Slider\src\js\jquery.sliderPro.autoplay.js" />
+    <Content Include="assets\lib\Content-Slider\src\js\jquery.sliderPro.buttons.js" />
+    <Content Include="assets\lib\Content-Slider\src\js\jquery.sliderPro.caption.js" />
+    <Content Include="assets\lib\Content-Slider\src\js\jquery.sliderPro.conditionalImages.js" />
+    <Content Include="assets\lib\Content-Slider\src\js\jquery.sliderPro.core.js" />
+    <Content Include="assets\lib\Content-Slider\src\js\jquery.sliderPro.deepLinking.js" />
+    <Content Include="assets\lib\Content-Slider\src\js\jquery.sliderPro.fade.js" />
+    <Content Include="assets\lib\Content-Slider\src\js\jquery.sliderPro.fullScreen.js" />
+    <Content Include="assets\lib\Content-Slider\src\js\jquery.sliderPro.keyboard.js" />
+    <Content Include="assets\lib\Content-Slider\src\js\jquery.sliderPro.layers.js" />
+    <Content Include="assets\lib\Content-Slider\src\js\jquery.sliderPro.lazyLoading.js" />
+    <Content Include="assets\lib\Content-Slider\src\js\jquery.sliderPro.retina.js" />
+    <Content Include="assets\lib\Content-Slider\src\js\jquery.sliderPro.thumbnailArrows.js" />
+    <Content Include="assets\lib\Content-Slider\src\js\jquery.sliderPro.thumbnails.js" />
+    <Content Include="assets\lib\Content-Slider\src\js\jquery.sliderPro.thumbnailTouchSwipe.js" />
+    <Content Include="assets\lib\Content-Slider\src\js\jquery.sliderPro.touchSwipe.js" />
+    <Content Include="assets\lib\Content-Slider\src\js\jquery.sliderPro.video.js" />
     <Content Include="assets\lib\countdown\countdownBasic.html" />
     <Content Include="assets\lib\countdown\countdownGlowing.gif" />
     <Content Include="assets\lib\countdown\countdownLED.png" />
@@ -876,7 +935,6 @@
     <Content Include="assets\lib\select2\js\select2.js" />
     <Content Include="assets\lib\select2\js\select2.min.js" />
     <Content Include="favicon.ico" />
-    <Content Include="Global.asax" />
     <Content Include="assets\fonts\fontello.eot" />
     <Content Include="assets\fonts\fontello.ttf" />
     <Content Include="assets\fonts\fontello.woff" />
@@ -919,6 +977,7 @@
     <Content Include="assets\lib\font-awesome\scss\font-awesome.scss" />
     <Content Include="assets\lib\jquery-bxslider\bower.json" />
     <Content Include="assets\lib\jquery-bxslider\readme.md" />
+    <Content Include="Global.asax" />
     <Content Include="handler\ProductHandler.ashx" />
     <Content Include="handler\LocationHandler.ashx" />
     <None Include="Properties\Settings.settings">
@@ -995,6 +1054,9 @@
     <Content Include="Web References\WebService\Location.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
+    <Content Include="Web References\WebService\PaymentConfig.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
     <None Include="Web References\WebService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -1040,6 +1102,12 @@
       <CachedSettingsPropName>AnperoFrontend_AnperoService_AnperoService</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Anpero\Anpero.csproj">
+      <Project>{b88546ac-d123-448f-bd9b-7287e7ce1b38}</Project>
+      <Name>Anpero</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -1054,16 +1122,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>32561</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:5678</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
