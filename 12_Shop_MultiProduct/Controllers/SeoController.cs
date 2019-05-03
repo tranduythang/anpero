@@ -42,43 +42,82 @@ namespace AnperoFrontend.Controllers
         public ActionResult SitemapXml()
         {
             
-            string baseUrl =Request.Url.Authority;
+            //string baseUrl =Request.Url.Authority;
 
-
+            string baseUrl = Request.Url.Scheme + "://" + Request.Url.Host;
             var sitemapNodes = GetSitemapNodes(baseUrl);
             string xml = GetSitemapDocument(sitemapNodes);
             return this.Content(xml, System.Net.Mime.MediaTypeNames.Text.Xml, Encoding.UTF8);
         }
+     
         public IReadOnlyCollection<SitemapNode> GetSitemapNodes(string baseUrl)
         {
-            
+            AnperoFrontend.WebService.Webconfig commontData = new AnperoFrontend.WebService.Webconfig();
             List<SitemapNode> nodes = new List<SitemapNode>();
             if (HttpRuntime.Cache["commonInfo"] != null)
             {
-                AnperoFrontend.WebService.Webconfig  commontData= (AnperoFrontend.WebService.Webconfig)HttpRuntime.Cache["commonInfo"];
+                commontData= (AnperoFrontend.WebService.Webconfig)HttpRuntime.Cache["commonInfo"];
             }
             else
             {
                 WebService.AnperoService service = new WebService.AnperoService();
-                var rs = service.GetCommonConfig(CommonConfig.StoreID, CommonConfig.TokenKey);
-                if (rs != null)
+                commontData = service.GetCommonConfig(CommonConfig.StoreID, CommonConfig.TokenKey);
+                if (commontData != null)
                 {
-                    HttpRuntime.Cache.Insert("commonInfo", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                    HttpRuntime.Cache.Insert("commonInfo", commontData, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
             }
-            nodes.Add(
-                new SitemapNode()
+            nodes.Add(new SitemapNode()
                 {
                     Url = baseUrl,
                     Priority = 1
                 });
-            //nodes.Add(
-            //   new SitemapNode()
-            //   {
-            //       Url = urlHelper.AbsoluteRouteUrl("HomeGetAbout"),
-            //       Priority = 0.9
-            //   });
+            if(commontData.ProductCategoryList!=null && commontData.ProductCategoryList.Length > 0)
+            {
+                foreach (var item in commontData.ProductCategoryList)
+                {
+                    nodes.Add(new SitemapNode()
+                    {
+                        Url = baseUrl + "/" + Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id),
+                        Priority = 1
+                    });
+                    if (item.ChildCategory != null && item.ChildCategory.Length > 0)
+                    {
+                        foreach (var childItem in item.ChildCategory)
+                        {
+                            nodes.Add(new SitemapNode()
+                            {
+                                Url = baseUrl+"/"+ Anpero.StringHelpper.GetCategoryLink(childItem.Name, childItem.Id),
+                                Priority = 1
+                            });
+                        }
+                    }
+                }
+            }
+            if (commontData.ProductGroupList != null && commontData.ProductGroupList.Length > 0)
+            {
+                foreach (var item in commontData.ProductGroupList)
+                {
+                    nodes.Add(new SitemapNode()
+                    {
+                        Url = baseUrl + "/" + Anpero.StringHelpper.GetProductGroupLink(item.Name, item.Id),
+                        Priority = 1
+                    });
+                    
+                }
+            }
+            if (commontData.ProductProperties != null && commontData.ProductProperties.Length > 0)
+            {
+                foreach (var item in commontData.ProductProperties)
+                {
+                    nodes.Add(new SitemapNode()
+                    {
+                        Url = baseUrl + "/search?property=" + item.Id,
+                        Priority = 0.9
+                    });
 
+                }
+            }
             return nodes;
         }
         public string GetSitemapDocument(IEnumerable<SitemapNode> sitemapNodes)
