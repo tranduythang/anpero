@@ -78,7 +78,7 @@ namespace AnperoFrontend.Controllers
                 {
                     nodes.Add(new SitemapNode()
                     {
-                        Url = baseUrl + "/" + Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id),
+                        Url = baseUrl + Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id),
                         Priority = 1
                     });
                     if (item.ChildCategory != null && item.ChildCategory.Length > 0)
@@ -87,7 +87,7 @@ namespace AnperoFrontend.Controllers
                         {
                             nodes.Add(new SitemapNode()
                             {
-                                Url = baseUrl+"/"+ Anpero.StringHelpper.GetCategoryLink(childItem.Name, childItem.Id),
+                                Url = baseUrl+ Anpero.StringHelpper.GetCategoryLink(childItem.Name, childItem.Id),
                                 Priority = 1
                             });
                         }
@@ -100,7 +100,7 @@ namespace AnperoFrontend.Controllers
                 {
                     nodes.Add(new SitemapNode()
                     {
-                        Url = baseUrl + "/" + Anpero.StringHelpper.GetProductGroupLink(item.Name, item.Id),
+                        Url = baseUrl +  Anpero.StringHelpper.GetProductGroupLink(item.Name, item.Id),
                         Priority = 1
                     });
                     
@@ -118,6 +118,22 @@ namespace AnperoFrontend.Controllers
 
                 }
             }
+            nodes.Add(new SitemapNode()
+            {
+                Url = baseUrl + "/Blog",
+                Priority = 1
+            });
+            nodes.Add(new SitemapNode()
+            {
+                Url = baseUrl + "/home/contact",
+                Priority = 1
+            });
+            nodes.Add(new SitemapNode()
+            {
+                Url = baseUrl + "/about",
+                Priority = 1
+            });
+            
             return nodes;
         }
         public string GetSitemapDocument(IEnumerable<SitemapNode> sitemapNodes)
