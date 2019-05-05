@@ -31,7 +31,7 @@
                 }
                 @if (!string.IsNullOrEmpty(item.CatName))
                 {
-                    <li><a href="@Anpero.StringHelpper.GetCategoryLink(item.CatName, item.CatID)" title="">@item.CatName</a> </li>
+                    <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.CatName, item.CatID)" title="">@item.CatName</a> </li>
                 }
 
                 <li><span>@item.PrName</span></li>

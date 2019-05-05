@@ -74,9 +74,10 @@ namespace AnperoFrontend.Controllers
             if (rs!=null && rs.Item.Length > 0)
             {
                 ViewBag.Title = rs.Item[0].CatName;
+                ViewBag.isParent = string.IsNullOrEmpty(rs.Item[0].ParentCatName)?"0":"1";
             }
-            
-            
+         
+
             SetUpSeo(2, id);
             return View("List");
         }
@@ -122,8 +123,18 @@ namespace AnperoFrontend.Controllers
             ViewData["productList"] = rs;
             ViewBag.pageName = "ParentCategory";
             ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+
             
-            ViewBag.isParent = "1";
+            if (rs != null && rs.Item.Length > 0)
+            {
+                ViewBag.isParent = string.IsNullOrEmpty(rs.Item[0].ParentCatName) ? "0" : "1";
+            }
+            else
+            {
+                ViewBag.isParent = "1";
+            }
+
+            
             SetUpSeo(1,id);
             return View("List");
         }

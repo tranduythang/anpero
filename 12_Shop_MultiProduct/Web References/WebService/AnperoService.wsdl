@@ -298,6 +298,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="ThemeOption" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="ProductProperties" type="tns:ArrayOfProductProperties" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServerName1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Favicon" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfMenu">

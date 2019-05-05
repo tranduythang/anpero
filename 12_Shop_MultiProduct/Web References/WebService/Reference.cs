@@ -2099,6 +2099,10 @@ namespace AnperoFrontend.WebService {
         
         private ProductProperties[] productPropertiesField;
         
+        private string serverName1Field;
+        
+        private string faviconField;
+        
         /// <remarks/>
         public string ServerName {
             get {
@@ -2286,6 +2290,26 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.productPropertiesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ServerName1 {
+            get {
+                return this.serverName1Field;
+            }
+            set {
+                this.serverName1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Favicon {
+            get {
+                return this.faviconField;
+            }
+            set {
+                this.faviconField = value;
             }
         }
     }
