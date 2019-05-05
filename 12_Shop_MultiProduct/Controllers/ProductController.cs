@@ -124,10 +124,11 @@ namespace AnperoFrontend.Controllers
             ViewBag.pageName = "ParentCategory";
             ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
 
-            
+
             if (rs != null && rs.Item.Length > 0)
             {
-                ViewBag.isParent = string.IsNullOrEmpty(rs.Item[0].ParentCatName) ? "0" : "1";
+
+                ViewBag.isParent = (rs.Item[0].ParentId == id|| rs.Item[0].ParentId==0) ? "1" : "0";
             }
             else
             {
