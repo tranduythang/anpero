@@ -29,7 +29,7 @@
                 {
                     <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName, item.ParentId)" title="">@item.ParentCatName</a></li>
                 }
-                @if (!string.IsNullOrEmpty(item.CatName))
+                @if (!string.IsNullOrEmpty(item.CatName) && item.CatID>0)
                 {
                     <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.CatName, item.CatID)" title="">@item.CatName</a> </li>
                 }
@@ -65,7 +65,9 @@
                                             <div class="swiper-slide">
                                                 <img src="@slideItem" alt="@item.PrName">
                                             </div>
-                                        }                                    
+                                        } 
+
+                                    
                                 </div>
                             </div>
                             <div id="prev_template-product" class="swiper_btn swiper_btn__prev swiper-button-disabled"></div>
@@ -84,10 +86,16 @@
                                         <b>SKU:</b>
                                         <span id="single_product__sku-template-product">@item.Id</span>
                                     </p>
-
+                                    @if (!string.IsNullOrEmpty(item.OriginName))
+                                    {
+                                        <p class="single_product__collections">
+                                            <b>Thương hiệu:</b>
+                                            <a href="/search?brands=@item.OriginID"> <span id="single_product__sku-template-product">@item.OriginName</span></a>
+                                        </p>
+                                    }
                                     <p class="single_product__collections">
                                         <b>Collections:</b>
-                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName,item.ParentId)">@item.CatName</a>
+                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName,item.ParentId)">@(string.IsNullOrEmpty(item.CatName)?item.ParentCatName:item.CatName)</a>
                                     </p>
                                     @if (item.Warranty > 0)
                                     {

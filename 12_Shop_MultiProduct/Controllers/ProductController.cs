@@ -145,14 +145,15 @@ namespace AnperoFrontend.Controllers
             string title = "";
             string pageQuery = Request.QueryString["page"];
             string property = Request.QueryString["property"];
-            
+            string brands = Request.QueryString["brands"] ==null?"": Request.QueryString["brands"];
+
             int page = 1;
             if (!string.IsNullOrEmpty(pageQuery))
             {
                 page = Convert.ToInt32(pageQuery);
             }
             WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, category, "", "", 0, 999999999, page, 14, keyword, SearchOrder.NameDesc, 0, property);
+            WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, category, "", brands, 0, 999999999, page, 14, keyword, SearchOrder.NameDesc, 0, property);
             ViewData["productList"] = rs;
             
             ViewBag.pageName = "Search";

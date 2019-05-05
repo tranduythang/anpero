@@ -113,11 +113,12 @@
 
                                                 @foreach (var item in commonInfo.ProductGroupList)
                                                 {
-                                                    <div class="megamenu_col__item align_center">
-                                                        <a href="@Anpero.StringHelpper.GetProductGroupLink(item.Name,item.Id)">
-                                                            <h4>@item.Name</h4>
-                                                        </a>
-                                                    </div>
+                                                <div class="megamenu_col__item align_center">
+                                                    @*<a href="@Anpero.StringHelpper.GetProductGroupLink(item.Name,item.Id)">*@
+                                                    <a href="/search?brands=@item.Id">
+                                                        <h4>@item.Name</h4>
+                                                    </a>
+                                                </div>
                                                 }
                                             </li>
                                         </ul>
@@ -180,7 +181,7 @@
                                                                 <span class="article_day">Ngày @Anpero.StringHelpper.ConvertDateTime(item.CreateDate).Day</span>
                                                                 Tháng @Anpero.StringHelpper.ConvertDateTime(item.CreateDate).Month
                                                             </p>
-                                                            <h3 class="blog_title"><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Title,item.Id)">@Anpero.StringHelpper.SubString(40, item.Title)</a></h3>
+                                                            <h3 class="blog_title"><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@Anpero.StringHelpper.SubString(40, item.Title)</a></h3>
                                                         </div>
                                                     </div>
                                                 }
