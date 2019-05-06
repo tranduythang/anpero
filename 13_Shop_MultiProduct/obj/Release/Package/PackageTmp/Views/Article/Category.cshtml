@@ -1,0 +1,75 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    SearchArticleResults articleList = (SearchArticleResults)ViewData["ArticleList"];
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+    string currentUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+}
+@section health{
+    <meta name="description" content="@ViewBag.Description" />
+    <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(ViewBag.Keywords)" />
+    <meta property="og:description" content="@ViewBag.Description" />
+    <meta property="og:title" content="@ViewBag.Title" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="@currentUrl" />
+    <meta property="og:image" content="@commonInfo.Logo" />
+    <link rel="canonical" href="@ViewBag.WebsiteUrl" />
+    
+}
+<div class="breadcrumbs">
+    <div class="container">
+        <ul>
+            <li><a href="/">Trang chủ</a></li>
+            <li><span>Blog</span></li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="main_content sidebar_on col-sm-9  col-sm-push-3">
+            <div id="shopify-section-template-blog" class="shopify-section section_template section_template__blog">
+                <div class="blog_listing__main blog_listing__list">
+                    <div class="row">
+                        @foreach (var item in articleList.ItemList)
+                        {
+                            <div class="col-sm-6 col-md-4 item_2_1 item_3_1">
+                                <article class="article_item flexibleblock flexible_block__normal ">
+                                    <div class="layer_1">
+                                        <img src="@item.Thumb" alt="@item.Title">
+                                    </div>
+                                    <div class="layer_2">
+                                        <div>
+                                            <h3 class="article_title">
+                                                <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@Anpero.StringHelpper.SubString(45, item.Title)</a>
+                                            </h3>
+
+                                            <div class="rte article_content">
+                                                @Html.Raw(item.ShotDesc)
+                                            </div>
+                                            <div class="rte article_content_big">@Html.Raw(item.ShotDesc)</div>
+
+                                            <p class="article_info">
+                                                <span>
+                                                    <time class="article_time" datetime="2019-01-24T03:31">@Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</time>
+                                                </span>
+                                            </p>
+                                            <a class="btn article_btn" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Chi tiết</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div id="pagination" class="pagination blog_pagination">
+                    @Html.Raw(ViewBag.page)
+                </div>
+            </div>
+
+        </div>
+        @Html.Partial("article/_MenuAndAdsPartial")
+    </div>
+</div>

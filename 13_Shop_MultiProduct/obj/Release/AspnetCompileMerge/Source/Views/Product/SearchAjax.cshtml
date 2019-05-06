@@ -1,0 +1,68 @@
+﻿@if (ViewData["productList"] != null)
+{
+    string currentUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+    AnperoFrontend.WebService.SearchResult productList = (AnperoFrontend.WebService.SearchResult)ViewData["productList"];
+    foreach (AnperoFrontend.WebService.ProductItem item in productList.Item)
+    {
+        <div class="col-xs-4 item_4_1 item_2_1">
+            <div class="product_item">
+                <div class="product_img">
+                    <a class="img_change" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
+                        <img class="img__1" src="@item.Images" alt="@item.PrName">
+                        @if (item.ImagesSlide != null && item.ImagesSlide.Count() > 0)
+                        {
+                            <img class="img__2" src="@item.ImagesSlide[0]" alt="@item.PrName">
+                        }
+                        <span class="product_badge new">mới</span>
+                        @if (item.IsSale)
+                        {
+                            <span class="product_badge sale">sale</span>
+                        }
+
+                    </a>
+                </div>
+                <div class="product_info">
+                    <p class="product_name">
+                        <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
+                    </p>
+                    <p class="product_desc product_desc__short">
+                        @item.ShortDesc
+                    </p>
+                    <p class="product_desc product_desc__long">
+                        @item.ShortDesc
+                    </p>
+                    <div class="product_prop">
+                        <p class="product_price">
+                            @if (item.IsSale)
+                            {
+                                <span class="money money_sale" data-currency-usd="$33.00">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
+                            }
+                            <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
+                        </p>
+                        <p class="product_color"></p>
+                    </div>
+                    <div class="product_links">
+                        <div class="add_to_cart_form">
+                            @if (item.IsInstock)
+                            {
+                                <button onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@item.PrName') @Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="btn-cart">Mua hàng</button>
+                            }
+                            else
+                            {
+                                <button disabled onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@item.PrName') @Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="btn-cart">Mua hàng</button>
+                            }
+                        </div>
+                        <a class="wishlist_btn" href="https://www.facebook.com/sharer/sharer.php?u=@currentUrl" target="_blank" title="Chia sẻ với bạn bè"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                        <a class="quick_view_btn_1" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="Quick view"><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    }
+   
+}
+else
+{
+    <div>Không tìm thấy sản phẩm</div>
+}

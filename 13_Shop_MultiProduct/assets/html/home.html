@@ -1,0 +1,2675 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0' >
+    <title>Bich</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="../css/font-awesome.min.css"/>
+    <meta name="description" content=""/>
+</head>
+<body>
+    <header class="header">
+        <div class="header-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12 header-logo">
+                        <div class="visible-xs visible-sm toggle-menu translateY-50">
+                            <a href="javascript:void(0)" class="btnMBToggleNav"><img src="../images/icons/icon-menu.png" alt=""></a>
+                        </div>
+                        <div class="logo">
+                            <a href="/"><img src="../images/logo.png" alt="Beauty style"></a>
+                        </div>
+                        <h1 class="hide">
+                            Beauty style
+                        </h1>
+                        <div class="visible-xs visible-sm box-cart-mobile translateY-50">
+                            <a href="#">
+                                <div class="icon">
+                                    <i class="fa fa-shopping-bag"></i>
+                                </div>
+                                <span class="numberCart">0</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12 header-search">
+                        <div class="form-search">
+                            <form>
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                                <input type="hidden" name="type" value="product">
+                                <input type="text" placeholder="Điện thoại, Ipad, Samsung, Iphone...">
+                                <button type="submit" class="btn-search">Tìm kiếm</button>
+                            </form>
+                        </div>
+                        <ul class="search-notice">
+                            <li class="title"><strong>Gợi ý từ khóa:</strong></li>
+                            <li><span>Thời trang nam, Thời trang nữ, Balo, túi xách, Mè và bé...</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 hidden-sm hidden-xs header-user">
+                        <div class="box-user pull-left relative">
+                            <a href="#">
+                                <div class="box">
+                                    <div class="icon">
+                                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="text">
+                                        <span>Tài khoản</span>
+                                        <span class="sub">Đơn hàng</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="box-cart pull-right relative">
+                            <a href="#">
+                                <div class="box">
+                                    <div class="box">
+                                        <div class="icon">
+                                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="text">
+                                            <span>Giỏ hàng (<span id="cartCount" class="numberCart">0</span>)</span>
+                                            <span id="cartPrice" class="sub">0₫</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="overlayMenu"></div>
+                </div>
+            </div>
+        </div>
+        <!--header-page-->
+
+        <nav class="header-menu">
+            <div class="container">
+                <div class="login-mobile visible-xs visible-sm">
+                    <div class="login clearfix">
+                        <div class="icon">
+                            <img src="../images/icons/icon_avatar.png" alt=" ">
+                        </div>
+                        <div class="user">
+                            <a class="log-only" href="#" title="Đăng nhập">Đăng nhập</a>
+                            <h3>Thông tin tài khoản</h3>
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav-navbar">
+                    <li class="active">
+                        <a href="#" class=" current" title="Trang chủ">
+                            <span>Trang chủ</span>
+                        </a>
+                    </li>
+                    <li class="li-child">
+                        <a href="#" title="" class="">
+                            <span>Sản phẩm</span> <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </a>
+                        <ul class="main-child level-2">
+                            <li class="li-child">
+                                <a href="#" class="" title="">
+                                    <span>Thời trang & Phụ kiện</span>
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                </a>
+                                <ul class="main-child level-3">
+                                    <li class="">
+                                        <a href="#" title=""><span>Áo khoát nam/nữ</span></a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#" title=""><span>Áo thun nam/nữ</span></a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#" title=""><span>Áo sơ mi nam/nữ</span></a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#" title=""><span>Giày thể thao</span></a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#" title=""><span>Balo nam/nữ</span></a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#" title=""><span>Túi xách nam/nữ</span></a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#" title=""><span>Phụ kiện</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="">
+                                <a href="#" title=""><span>Làm đẹp & Sức khỏe</span></a>
+                            </li>
+                            <li class="">
+                                <a href="#" title=""><span>Gia dụng & Điện lạnh</span></a>
+                            </li>
+                            <li class="">
+                                <a href="#" title=""><span>Điện thoại & Tablet</span></a>
+                            </li>
+                            <li class="li-child">
+                                <a href="#" class="" title="">
+                                    <span>Phụ kiện công nghệ</span>
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                </a>
+                                <ul class="main-child level-3">
+                                    <li class="">
+                                        <a href="#" title=""><span>Tai nghe laptop</span></a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#" title=""><span>USB</span></a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#" title=""><span>Sạt dự phòng</span></a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#" title=""><span>Gậy tự sướng</span></a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#" title=""><span>Chuột máy tính</span></a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#" title=""><span>Phụ kiện khác</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="">
+                                <a href="#" title=""><span>Laptop & Thiết bị IT</span></a>
+                            </li>
+                            <li class="">
+                                <a href="#" title=""><span>Sách & VPP</span></a>
+                            </li>
+                            <li class="">
+                                <a href="#" title=""><span>Mẹ & Bé</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="#" class="" title="">
+                            <span>Khuyến mãi HOT</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="" title="">
+                            <span>Sản phẩm mới</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="" title="">
+                            <span>Thương hiệu</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="" title="">
+                            <span>Tin tức</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="" title="">
+                            <span>Giới thiệu</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="" title="">
+                            <span>Liên hệ</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="visible-xs visible-sm close-menu-mobile text-center">
+                    <a href="javascript:void(0)" class="close-nav view-all">Đóng</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--header-->
+    <div class="main-page">
+        <div class="box-slide-home">
+            <div class="container">
+                <div class="main-slide-home">
+                    <div class="banner-slider">
+                        <div class="box-slide-1">
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img class="d-block w-100" src="../images/img-1.jpg" alt="First slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="../images/img-2.jpg" alt="Second slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="../images/img-3.jpg" alt="Third slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="../images/img-4.jpg" alt="Third slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="../images/img-5.jpg" alt="Third slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="../images/img-6.jpg" alt="Third slide">
+                                    </div>
+                                </div>
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+                                        <a href="javascript:void(0)" title="">Ví cầm tay cao cấp, sành điệu</a>
+                                    </li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="1">
+                                        <a href="javascript:void(0)" title="">OPPO F3 - Giá ngon, quà HOT</a>
+                                    </li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="2">
+                                        <a href="javascript:void(0)" title="">Sinh viên trả góp đến S.A.M Shop</a>
+                                    </li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="3">
+                                        <a href="javascript:void(0)" title="">Galaxy A5 A7 2017 Giảm 1 </a>
+                                    </li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="4">
+                                        <a href="javascript:void(0)" title="">Balo nam thời trang cá tính</a>
+                                    </li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="5">
+                                        <a href="javascript:void(0)" title="">iPhone HOT nhất đã trở lại</a>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!--bannerSlider-->
+
+                    <div class="banner-right">
+                        <ul>
+                            <li>
+                                <a href="/"><img class="" alt="" src="../images/img-7.jpg"></a>
+                            </li>
+                            <li>
+                                <a href="/"><img class="" alt="" src="../images/img-8.jpg"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--box-slide-home-->
+
+        <div class="box-slide-ads hidden-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-6 item-slide">
+                        <div class="image-hover">
+                            <a href="#"><img class="" alt="" src="../images/img-9.jpg" width="" height=""></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xs-6 item-slide">
+                        <div class="image-hover">
+                            <a href="#"><img class="" alt="" src="../images/img-10.jpg" width="" height=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--box-slide-ads-->
+
+        <div class="box-top-products box-slide">
+            <div class="container">
+                <div class="box-title">
+                    <h2 class="title">Top bán chạy trong tuần</h2>
+                    <a href="#" class="view-all top-all hidden-xs translateY-50 transition-3">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                </div>
+
+                <div class="owl-carousel owl-carousel-6" id="">
+                    <div class="item box-product">
+                        <div class="icon icon-top">1</div>
+                        <div class="main">
+                            <a href="#" title="" class="images">
+                                <img src="../images/img-20.jpg" class="" alt="">
+                            </a>
+                            <div class="detail text-center clearfix">
+                                <h3 class="name">
+                                    <a class="" href="#" title="">iPhone 6s Plus 16GB </a>
+                                </h3>
+                                <div class="box-prince">
+                                    <span class="prince-new">14,000,000₫</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item box-product">
+                        <div class="icon icon-top">2</div>
+                        <div class="main">
+                            <a href="#" title="" class="images">
+                                <img src="../images/img-19.jpg" class="imgLoopItem" alt="">
+                            </a>
+                            <div class="detail text-center clearfix">
+                                <h3 class="name">
+                                    <a class="" href="#" title="">Máy Hút Bụi Electrolux ZLUX1811 - Tím  </a>
+                                </h3>
+                                <div class="box-prince">
+                                    <span class="prince-new">14,000,000₫</span>
+                                    <span class="prince-old">2,080,000₫</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item box-product">
+                        <div class="icon icon-top">3</div>
+                        <div class="main">
+                            <a href="#" title="" class="images">
+                                <img src="../images/img-18.jpg" class="imgLoopItem" alt="">
+                            </a>
+                            <div class="detail text-center clearfix">
+                                <h3 class="name">
+                                    <a class="" href="#" title="">Bộ Sản Phẩm Dưỡng Da Purederm </a>
+                                </h3>
+                                <div class="box-prince">
+                                    <span class="prince-new">870,000₫</span>
+                                    <span class="prince-old">1,050,000₫</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item box-product">
+                        <div class="icon icon-top">4</div>
+                        <div class="main">
+                            <a href="#" title="" class="images">
+                                <img src="../images/img-17.jpg" class="imgLoopItem" alt="">
+                            </a>
+                            <div class="detail text-center clearfix">
+                                <h3 class="name">
+                                    <a class="" href="#" title="">Son màu nước L'oreal Color Riche L’Extraordinaire  </a>
+                                </h3>
+                                <div class="box-prince">
+                                    <span class="prince-new">298,000₫</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item box-product">
+                        <div class="icon icon-top">5</div>
+                        <div class="main">
+                            <a href="#" title="" class="images">
+                                <img src="../images/img-11.jpg" class="imgLoopItem" alt="">
+                            </a>
+                            <div class="detail text-center clearfix">
+                                <h3 class="name">
+                                    <a class="" href="#" title="">Quạt Hộp Lifan HV-138 - Nâu </a>
+                                </h3>
+                                <div class="box-prince">
+                                    <span class="prince-new">319,000₫</span>
+                                    <span class="prince-old">400,000₫</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item box-product">
+                        <div class="icon icon-top">6</div>
+                        <div class="main">
+                            <a href="#" title="" class="images">
+                                <img src="../images/img-12.jpg" class="imgLoopItem" alt="">
+                            </a>
+                            <div class="detail text-center clearfix">
+                                <h3 class="name">
+                                    <a class="" href="#" title="">HTC U11  </a>
+                                </h3>
+                                <div class="box-prince">
+                                    <span class="prince-new">8,000,000₫</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item box-product">
+                        <div class="icon icon-top">7</div>
+                        <div class="main">
+                            <a href="#" title="" class="images">
+                                <img src="../images/img-13.jpg" class="imgLoopItem" alt="">
+                            </a>
+                            <div class="detail text-center clearfix">
+                                <h3 class="name">
+                                    <a class="" href="#" title="">Chuột Không Dây Logitech M545 </a>
+                                </h3>
+                                <div class="box-prince">
+                                    <span class="prince-new">510,000₫</span>
+                                    <span class="prince-old">670,000₫</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item box-product">
+                        <div class="icon icon-top">8</div>
+                        <div class="main">
+                            <a href="#" title="" class="images">
+                                <img src="../images/img-14.jpg" class="imgLoopItem" alt="">
+                            </a>
+                            <div class="detail text-center clearfix">
+                                <h3 class="name">
+                                    <a class="" href="#" title="">Asus Memo Pad 8 ME581CL </a>
+                                </h3>
+                                <div class="box-prince">
+                                    <span class="prince-new">5,500,000₫</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item box-product">
+                        <div class="icon icon-top">9</div>
+                        <div class="main">
+                            <a href="#" title="" class="images">
+                                <img src="../images/img-15.jpg" class="imgLoopItem" alt="">
+                            </a>
+                            <div class="detail text-center clearfix">
+                                <h3 class="name">
+                                    <a class="" href="#" title="">Tinh Chất Dưỡng Lông Mi Shiseido Full Lash Serum  </a>
+                                </h3>
+                                <div class="box-prince">
+                                    <span class="prince-new">1,000,000₫</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item box-product">
+                        <div class="icon icon-top">10</div>
+                        <div class="main">
+                            <a href="#" title="" class="images">
+                                <img src="../images/img-16.jpg" class="imgLoopItem" alt="">
+                            </a>
+                            <div class="detail text-center clearfix">
+                                <h3 class="name">
+                                    <a class="" href="#" title="">Sữa Dưỡng Da Za Perfect Solution Moisturizer  </a>
+                                </h3>
+                                <div class="box-prince">
+                                    <span class="prince-new">315,000₫</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--box-top-products-->
+
+        <div class="box-item-product">
+            <div class="container">
+                <div class="box-title">
+                    <h2 class="title">
+                        <a href="#">Điện thoại & Tablet</a>
+                    </h2>
+                    <ul class="nav-list">
+                        <li><a href="#">Thời trang & Phụ kiện</a></li>
+                        <li><a href="#">Làm đẹp & Sức khỏe</a></li>
+                        <li><a href="#">Gia dụng & Điện lạnh</a></li>
+                        <li><a href="#">Điện thoại & Tablet</a></li>
+                        <li><a href="#">Phụ kiện công nghệ</a></li>
+                        <li><a href="#">Laptop & Thiết bị IT</a></li>
+                        <li><a href="#">Sách & VPP</a></li>
+                    </ul>
+                    <div class="visible-xs visible-sm open-menu">
+                        <a href="javascript:void(0);">
+                            <img src="../images/icons/icon-menu-right.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="box-item-product-content">
+                    <div class="row">
+                        <div class="col-md-9 col-sm-12 col-xs-12 left-item-product-content">
+                            <div class="item-slide">
+                                <div class="image-hover">
+                                    <a href="#"><img class="" alt="" src="../images/img-21.jpg" width="" height=""></a>
+                                </div>
+                            </div>
+                            <div class="box-top-products box-slide">
+                                <div class="owl-carousel owl-carousel-4" id="">
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-22.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title="" data-toggle="modal" data-target="#quick-view-modal"><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">HTC U11</a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">8,000,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-23.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Huawei Gr5 2017</a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">5,900,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-24.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Huawei GR5 2017 Pro</a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">6,900,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-20.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">iPhone 6s Plus 16GB</a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">14,000,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-25.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">iPhone 7 Plus 128GB </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">22,900,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-25.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">iPhone 7 Plus 256GB </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">25,900,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-27.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Nokia 5  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">4,200,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-28.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Nokia 6 </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">5,500,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-29.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">OPPO A39 (Neo 9s) </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">4,200,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-30.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">OPPO F1s </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">5,400,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 hidden-sm hidden-xs right-item-product-content">
+                            <div class="main-content">
+                                <div class="box-title-heading">
+                                    <h3 class="title">Gợi ý cho bạn</h3>
+                                </div>
+                                <div class="box-list-suggest">
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-14.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Asus Memo Pad 8 ME581CL </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">5,500,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-32.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Asus ZenPad Z170CG 1A022A/1B014A </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">2,700,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-33.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">iPad Pro 12.9 inch Wi-Fi 32GB  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">19,000,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-34.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">iPad Pro 9.7 Wi-Fi 32GB  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">13,000,000₫</span>
+                                                <span class="prince-old">14,500,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-35.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">iPad Wi-Fi 32GB (2017)  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">8,900,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="more-all text-center">
+                                        <a href="#" class="view-all">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--box-item-product-->
+
+        <div class="box-item-product">
+            <div class="container">
+                <div class="box-title">
+                    <h2 class="title">
+                        <a href="#">Máy tính & Laptop</a>
+                    </h2>
+                    <ul class="nav-list">
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Sản phẩm</a></li>
+                        <li><a href="#">Khuyến mãi HOT</a></li>
+                        <li><a href="#">Sản phẩm mới</a></li>
+                        <li><a href="#">Thương hiệu</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                    </ul>
+                    <div class="visible-xs visible-sm open-menu">
+                        <a href="javascript:void(0);">
+                            <img src="../images/icons/icon-menu-right.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="box-item-product-content">
+                    <div class="row">
+                        <div class="col-md-9 col-sm-12 col-xs-12 left-item-product-content">
+                            <div class="item-slide">
+                                <div class="image-hover">
+                                    <a href="#"><img class="" alt="" src="../images/img-36.jpg" width="" height=""></a>
+                                </div>
+                            </div>
+                            <div class="box-top-products box-slide">
+                                <div class="owl-carousel owl-carousel-4" id="">
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-41.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">ACER AS E5-575G-39M3  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">8,000,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-41.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Acer F5-573-39Q0  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">8,900,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-43.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Asus UX410UA-GV064  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">16,000,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-44.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Asus Vivobook S15 S510UA-BQ203  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">14,200,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-45.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Asus X541UJ-DM143  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">15,000,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-46.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Dell Inspiron N5567/i5-7200U/VGA 2GB  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">16,000,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-47.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Dell Inspiron N5567/i5-7200U/VGA 2GB  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">Liên hệ</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-48.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Dell N5378  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">Liên hệ</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-49.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Dell Vostro V5468A  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">17,000,000₫</span>
+                                                    <span class="prince-old">19,000,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <span class="lable-sale">Giảm 11%</span>
+                                                <img src="../images/img-50.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">HP Envy 13 </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">18,000,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 hidden-sm hidden-xs right-item-product-content">
+                            <div class="main-content">
+                                <div class="box-title-heading">
+                                    <h3 class="title">Gợi ý cho bạn</h3>
+                                </div>
+                                <div class="box-list-suggest">
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-37.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Macbook Pro 13 inch Touch Bar 512GB (2017)  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">35,000,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-38.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Macbook Air 13 256GB MJVG2ZP/A  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">26,000,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-39.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Macbook Pro 13 Touch Bar 256GB  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">45,000,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-40.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Macbook Air 13 256GB MMGG2ZP/A  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">25,000,000₫</span>
+                                                <span class="prince-old">27,500,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-40.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Macbook Air 13 128GB MMGF2ZP/A  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">20,000,000₫</span>
+                                                <span class="prince-old">23,000,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="more-all text-center">
+                                        <a href="#" class="view-all">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--box-item-product-->
+
+        <div class="box-item-product">
+            <div class="container">
+                <div class="box-title">
+                    <h2 class="title">
+                        <a href="#">Phụ kiện công nghệ</a>
+                    </h2>
+                    <ul class="nav-list">
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Sản phẩm</a></li>
+                        <li><a href="#">Khuyến mãi HOT</a></li>
+                        <li><a href="#">Sản phẩm mới</a></li>
+                        <li><a href="#">Thương hiệu</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                    </ul>
+                    <div class="visible-xs visible-sm open-menu">
+                        <a href="javascript:void(0);">
+                            <img src="../images/icons/icon-menu-right.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="box-item-product-content">
+                    <div class="row">
+                        <div class="col-md-9 col-sm-12 col-xs-12 left-item-product-content">
+                            <div class="item-slide">
+                                <div class="image-hover">
+                                    <a href="#"><img class="" alt="" src="../images/img-51.jpg" width="" height=""></a>
+                                </div>
+                            </div>
+                            <div class="box-top-products box-slide">
+                                <div class="owl-carousel owl-carousel-4" id="">
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <span class="lable-sale">Giảm 33%</span>
+                                                <img src="../images/img-57.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Chuột Không Dây Konig KN515  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">80,000₫</span>
+                                                    <span class="prince-old">120,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <span class="lable-sale">Giảm 24%</span>
+                                                <img src="../images/img-58.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Chuột Không Dây Logitech M545  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">510,000₫</span>
+                                                    <span class="prince-old">670,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <span class="lable-sale">Giảm 26%</span>
+                                                <img src="../images/img-59.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a href="#">Chuột Không Dây Logitech M545</a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">310,000₫</span>
+                                                    <span class="prince-old">420,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <span class="lable-sale">Giảm 23%</span>
+                                                <img src="../images/img-60.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Gậy Chụp Hình Macaron M2 </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">50,000₫</span>
+                                                    <span class="prince-new">60,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <span class="lable-sale">Giảm 17%</span>
+                                                <img src="../images/img-61.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Gậy Chụp Hình Selfie Stick Màu Đen Xanh Dương  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">65,000₫</span>
+                                                    <span class="prince-new">78,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-62.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Gậy Tự Sướng Rock Kêt Nối Dây Có Gương Lớn </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">275,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 hidden-sm hidden-xs right-item-product-content">
+                            <div class="main-content">
+                                <div class="box-title-heading">
+                                    <h3 class="title">Gợi ý cho bạn</h3>
+                                </div>
+                                <div class="box-list-suggest">
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-52.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Samsung Tab S2 9.7 inch  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">10,500,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-53.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Samsung Galaxy Tab E  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">4,900,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-54.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Samsung Galaxy Tab A 7" 2016  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">5,500,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-55.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">iPad Wi-Fi 32GB (2017)  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">8,900,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-56.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">iPad Pro 9.7 Wi-Fi 32GB  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">13,000,000₫</span>
+                                                <span class="prince-old">14,500,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="more-all text-center">
+                                        <a href="#" class="view-all">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--box-item-product-->
+
+        <div class="box-item-product">
+            <div class="container">
+                <div class="box-title">
+                    <h2 class="title">
+                        <a href="#">Thời trang & sắc đẹp</a>
+                    </h2>
+                    <ul class="nav-list">
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Sản phẩm</a></li>
+                        <li><a href="#">Khuyến mãi HOT</a></li>
+                        <li><a href="#">Sản phẩm mới</a></li>
+                        <li><a href="#">Thương hiệu</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                    </ul>
+                    <div class="visible-xs visible-sm open-menu">
+                        <a href="javascript:void(0);">
+                            <img src="../images/icons/icon-menu-right.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="box-item-product-content">
+                    <div class="row">
+                        <div class="col-md-9 col-sm-12 col-xs-12 left-item-product-content">
+                            <div class="item-slide">
+                                <div class="image-hover">
+                                    <a href="#"><img class="" alt="" src="../images/img-63.jpg" width="" height=""></a>
+                                </div>
+                            </div>
+                            <div class="box-top-products box-slide">
+                                <div class="owl-carousel owl-carousel-4" id="">
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-69.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Áo Khoác Nữ Phối Màu Phúc An 4019 - Trắng Xanh Dương  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">149,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-70.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Áo Khoác Nữ Xỏ Ngón Phúc An XN0002_xam - Xám (Freesize)  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">149,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-71.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Áo Kiểu Nữ Ren Cổ Jazzy FA83 - Đen  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">229,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-72.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Áo Thun Nữ Coffee T&D D132 - Trắng (FreeSize)  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">250,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <span class="lable-sale">Giảm 22%</span>
+                                                <img src="../images/img-73.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Áo Thun Sát Nách Labelle TN20 - Hồng </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">160,000₫</span>
+                                                    <span class="prince-old">200,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-74.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Áo Thun Trơn Cổ Tròn Tay Ngắn Vạt Áo Ngang Labelle TS11 - Hồng Nhạt  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">189,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-75.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Đầm Trễ Vai Nani DN2 - Đỏ Tím  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">169,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-76.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Jacket Ticke Tay Dài Nút Hai Bên Labelle JK1 - Vàng  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">349,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-77.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Set Chân Váy + Áo Croptop La Belle DP7 - Hoa Hồng  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">450,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-78.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Wrapskirt Họa Tiết Labelle SK12_3_Xanh </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">355,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 hidden-sm hidden-xs right-item-product-content">
+                            <div class="main-content">
+                                <div class="box-title-heading">
+                                    <h3 class="title">Gợi ý cho bạn</h3>
+                                </div>
+                                <div class="box-list-suggest">
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-64.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Bộ Sản Phẩm Dưỡng Da Purederm  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">870,000₫</span>
+                                                <span class="prince-old">1050,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-65.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Phấn Má Hồng Asami Blusher (7g)  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">140,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-66.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Serum dưỡng lông mày RevitaBrow EyeBrow Conditioner  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">1800,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-65.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Son dưỡng môi chống khô nứt nẻ SPF15 ( Hương Cacao) Lip Balm  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">89,000₫</span>
+                                                <span class="prince-old">99,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-66.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Son dưỡng môi chống khô nứt nẻ SPF15 ( Hương Cherry ) Lip Balm Dark Chocolate & Cherry </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">89,000₫</span>
+                                                <span class="prince-old">100,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="more-all text-center">
+                                        <a href="#" class="view-all">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--box-item-product-->
+
+        <div class="box-item-product">
+            <div class="container">
+                <div class="box-title">
+                    <h2 class="title">
+                        <a href="#">Gia dụng & điện lạnh</a>
+                    </h2>
+                    <ul class="nav-list">
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Sản phẩm</a></li>
+                        <li><a href="#">Khuyến mãi HOT</a></li>
+                        <li><a href="#">Sản phẩm mới</a></li>
+                        <li><a href="#">Thương hiệu</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                    </ul>
+                    <div class="visible-xs visible-sm open-menu">
+                        <a href="javascript:void(0);">
+                            <img src="../images/icons/icon-menu-right.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="box-item-product-content">
+                    <div class="row">
+                        <div class="col-md-9 col-sm-12 col-xs-12 left-item-product-content">
+                            <div class="item-slide">
+                                <div class="image-hover">
+                                    <a href="#"><img class="" alt="" src="../images/img-79.jpg" width="" height=""></a>
+                                </div>
+                            </div>
+                            <div class="box-top-products box-slide">
+                                <div class="owl-carousel owl-carousel-4" id="">
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <span class="lable-sale">Giảm 22%</span>
+                                                <img src="../images/img-85.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Cây Nước Nóng Lạnh Sanaky VH-449HP1 </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">3,456,000₫</span>
+                                                    <span class="prince-old">3,850,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-86.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Máy Hút Bụi Electrolux ZLUX1811 - Tím  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">1,455,000₫</span>
+                                                    <span class="prince-old">2,050,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-87.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Máy Lọc Nước Nóng Lạnh COWAY CHP-260L  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">14,900,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-88.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Máy Nước Nóng Trực Tiếp Không Bơm Ferroli Divo SDN 4.5S (4500W)  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">1,990,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-89.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Máy Nước Nóng Trực Tiếp Không Bơm Ferroli Divo SSN 4.5S (BM01) (4500W)  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">4,900,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-90.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Máy Nước Nóng Trực Tiếp Không Bơm Panasonic 4MS1VW (4500W)  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">2,500,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 hidden-sm hidden-xs right-item-product-content">
+                            <div class="main-content">
+                                <div class="box-title-heading">
+                                    <h3 class="title">Gợi ý cho bạn</h3>
+                                </div>
+                                <div class="box-list-suggest">
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-80.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Quạt Hộp Lifan HV-138 - Nâu  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">320,000₫</span>
+                                                <span class="prince-old">380,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-81.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Nồi Cơm Điện Tử Electrolux ERC6503W - 1.2L (Trắng) </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">130,000₫</span>
+                                                <span class="prince-new">170,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-82.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Nồi Chiên Không Dầu Perfect FP-109B (3 lít) </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">880,000₫</span>
+                                                <span class="prince-old">1,080,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-83.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Máy Xay Thực Phẩm Hai Lưỡi Kép Iruka I-09  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">370,000₫</span>
+                                                <span class="prince-old">480,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-84.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Máy Sấy Cửa Ngang Bosch WTE84105GB (7.0 Kg) </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">3,500,000₫</span>
+                                                <span class="prince-old">4,000,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="more-all text-center">
+                                        <a href="#" class="view-all">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--box-item-product-->
+
+        <div class="box-item-product">
+            <div class="container">
+                <div class="box-title">
+                    <h2 class="title">
+                        <a href="#">Mẹ và bé</a>
+                    </h2>
+                    <ul class="nav-list">
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Sản phẩm</a></li>
+                        <li><a href="#">Khuyến mãi HOT</a></li>
+                        <li><a href="#">Sản phẩm mới</a></li>
+                        <li><a href="#">Thương hiệu</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                    </ul>
+                    <div class="visible-xs visible-sm open-menu">
+                        <a href="javascript:void(0);">
+                            <img src="../images/icons/icon-menu-right.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="box-item-product-content">
+                    <div class="row">
+                        <div class="col-md-9 col-sm-12 col-xs-12 left-item-product-content">
+                            <div class="item-slide">
+                                <div class="image-hover">
+                                    <a href="#"><img class="" alt="" src="../images/img-91.jpg" width="" height=""></a>
+                                </div>
+                            </div>
+                            <div class="box-top-products box-slide">
+                                <div class="owl-carousel owl-carousel-4" id="">
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <span class="lable-sale">Giảm 52%</span>
+                                                <img src="../images/img-97.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Balo Thời Trang Phuc's Shop PSK2VCT61-XK Hình Sakura (40 x 30 x 14 cm)  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">80,000₫</span>
+                                                    <span class="prince-old">180,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <span class="lable-sale">Giảm 32%</span>
+                                                <img src="../images/img-98.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Bánh Ăn Dặm Nestlé CERELAC Nutripuffs Vị Chuối Cam - Gói 50g  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">40,000₫</span>
+                                                    <span class="prince-new">50,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-99.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Bao Tay Bé Sơ Sinh Simba S1010 </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">60,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <span class="lable-sale">Giảm 32%</span>
+                                                <img src="../images/img-100.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Bộ Gối Cho Bé BabyTop Hình Dấu Chân </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">150,000₫</span>
+                                                    <span class="prince-new">210,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 hidden-sm hidden-xs right-item-product-content">
+                            <div class="main-content">
+                                <div class="box-title-heading">
+                                    <h3 class="title">Gợi ý cho bạn</h3>
+                                </div>
+                                <div class="box-list-suggest">
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-92.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Tã Dán Goo.n Slim Gói Cực Đại L56 (56 Miếng) + Tặng Kèm Bình Nước Lock&Lock Cho Bé </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">280,000₫</span>
+                                                <span class="prince-old">380,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-93.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Sữa Bột Dành Cho Mẹ Bầu Anmum Materna Hương Vanilla 400g  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">200,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-94.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Miếng Lót Đầu Gối Cho Bé Simba S7010  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">90,000₫</span>
+                                                <span class="prince-old">120,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-95.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Đồng Hồ Trẻ Em Dây Da Kezzi TIKI-00 Hình Minion </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">98,000₫</span>
+                                                <span class="prince-old">200,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-96.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Đồ Chơi Gỗ Mô Hình Vietoys Xe Cũi Thả Hình VT3P-0109 </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">90,000₫</span>
+                                                <span class="prince-old">130,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="more-all text-center">
+                                        <a href="#" class="view-all">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--box-item-product-->
+
+        <div class="box-item-product">
+            <div class="container">
+                <div class="box-title">
+                    <h2 class="title">
+                        <a href="#">Sách</a>
+                    </h2>
+                    <ul class="nav-list">
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Sản phẩm</a></li>
+                        <li><a href="#">Khuyến mãi HOT</a></li>
+                        <li><a href="#">Sản phẩm mới</a></li>
+                        <li><a href="#">Thương hiệu</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                    </ul>
+                    <div class="visible-xs visible-sm open-menu">
+                        <a href="javascript:void(0);">
+                            <img src="../images/icons/icon-menu-right.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="box-item-product-content">
+                    <div class="row">
+                        <div class="col-md-9 col-sm-12 col-xs-12 left-item-product-content">
+                            <div class="item-slide">
+                                <div class="image-hover">
+                                    <a href="#"><img class="" alt="" src="../images/img-104.jpg" width="" height=""></a>
+                                </div>
+                            </div>
+                            <div class="box-top-products box-slide">
+                                <div class="owl-carousel owl-carousel-4" id="">
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <span class="lable-sale">Giảm 22%</span>
+                                                <img src="../images/img-110.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Á Ba </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">70,000₫</span>
+                                                    <span class="prince-old">95,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <span class="lable-sale">Giảm 25%</span>
+                                                <img src="../images/img-111.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Anh Yêu Và Em Yêu </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">90,000₫</span>
+                                                    <span class="prince-old">140,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <span class="lable-sale">Giảm 29%</span>
+                                                <img src="../images/img-112.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Em Là Định Mệnh Đời Anh  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">60,000₫</span>
+                                                    <span class="prince-old">90,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <img src="../images/img-113.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Fujiko F. Fujio Đại Tuyển Tập - Doraemon Truyện Dài - Tập 1 (Ấn Bản Kỉ Niệm 60 Năm NXB Kim Đồng) </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">130,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <span class="lable-sale">Giảm 30%</span>
+                                                <img src="../images/img-114.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Giấc Mơ Mỹ - Đường Đến Stanford  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">70,000₫</span>
+                                                    <span class="prince-old">90,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <span class="lable-sale">Giảm 22%</span>
+                                                <img src="../images/img-115.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Mình Sinh Ra Đâu Phải Để Buồn  </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">55,000₫</span>
+                                                    <span class="prince-old">90,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 hidden-sm hidden-xs right-item-product-content">
+                            <div class="main-content">
+                                <div class="box-title-heading">
+                                    <h3 class="title">Gợi ý cho bạn</h3>
+                                </div>
+                                <div class="box-list-suggest">
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-105.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Trời Xanh Của Táo  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">65,000₫</span>
+                                                <span class="prince-old">100,000đ</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-106.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Tro Tàn Sắc Đỏ </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">70,000₫</span>
+                                                <span class="prince-old">100,000đ</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-107.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">The King's Curse  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">140,000₫</span>
+                                                <span class="prince-old">180,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-108.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Ngục Thất Giữa Rừng Già (Tủ Sách Tuổi Hoa - Hoa Đỏ) </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">650,000₫</span>
+                                                <span class="prince-old">80,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-suggest clearfix">
+                                        <a href="#" class="images pull-left">
+                                            <img src="../images/img-109.jpg" alt="" width="" height="">
+                                        </a>
+                                        <div class="detail overflow">
+                                            <h3 class="name"><a class="" href="#" title="">Mình Sinh Ra Đâu Phải Để Buồn  </a></h3>
+                                            <div class="box-prince">
+                                                <span class="prince-new">55,000₫</span>
+                                                <span class="prince-old">90,000₫</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="more-all text-center">
+                                        <a href="#" class="view-all">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--box-item-product-->
+
+        <div class="box-news">
+            <div class="container">
+                <div class="box-title-new">
+                    <div class="title-top">
+                        <h2 class="title">Tin tức mới</h2>
+                    </div>
+                    <p class="des">Tin công nghệ, cập nhật tin tức nhanh nhất và mới nhất</p>
+                </div>
+
+                <div class="box-top-products box-slide">
+                    <div class="owl-carousel owl-carousel-3" id="">
+                        <div class="item item-new">
+                            <div class="item-slide">
+                                <div class="image-hover">
+                                    <a href="#" class="">
+                                        <img class="" src="../images/img-116.jpg" alt="">
+                                    </a>
+                                </div>
+                                <ul class="info-new">
+                                    <li class="time"><i class="fa fa-calendar" aria-hidden="true"></i> <time>09/08/2017</time></li>
+                                    <li class="comment"><i class="fa fa-comments-o" aria-hidden="true"></i> <span>0</span></li>
+                                    <li class="post"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Beauty style</span></li>
+                                </ul>
+                            </div>
+                            <div class="detail clearfix">
+                                <h3 class="title"><a href="#" title="">Mời tải về trọn bộ sưu tập 40 ảnh nền siêu nét dành cho các smartphone</a></h3>
+                                <p class="des">Sau một thời gian sưu tầm, mới đây Phonearena vừa chia sẻ một bộ sưu tập các hình nền dành cho smartphone và tablet.Tất cả các hình ảnh đều được...</p>
+                                <a href="#" class="view" title="">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="item item-new">
+                            <div class="item-slide">
+                                <div class="image-hover">
+                                    <a href="#" class="">
+                                        <img class="" src="../images/img-117.jpg" alt="">
+                                    </a>
+                                </div>
+                                <ul class="info-new">
+                                    <li class="time"><i class="fa fa-calendar" aria-hidden="true"></i> <time>09/08/2017</time></li>
+                                    <li class="comment"><i class="fa fa-comments-o" aria-hidden="true"></i> <span>0</span></li>
+                                    <li class="post"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Beauty style</span></li>
+                                </ul>
+                            </div>
+                            <div class="detail clearfix">
+                                <h3 class="title"><a href="#" title="">Sony Xperia XA1 Ultra giá 9 triệu: 5 lý do bạn nên mua ngay và luôn!</a></h3>
+                                <p class="des">Hiện bạn có khoảng 9 triệu đồng và đang tìm một chiếc smartphone có thương hiệu đáng tin cậy, thiết kế đẹp và hiệu năng tốt? Hãy xem thử Xperia...</p>
+                                <a href="#" class="view" title="">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="item item-new">
+                            <div class="item-slide">
+                                <div class="image-hover">
+                                    <a href="#" class="">
+                                        <img class="" src="../images/img-118.jpg" alt="">
+                                    </a>
+                                </div>
+                                <ul class="info-new">
+                                    <li class="time"><i class="fa fa-calendar" aria-hidden="true"></i> <time>09/08/2017</time></li>
+                                    <li class="comment"><i class="fa fa-comments-o" aria-hidden="true"></i> <span>0</span></li>
+                                    <li class="post"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Beauty style</span></li>
+                                </ul>
+                            </div>
+                            <div class="detail clearfix">
+                                <h3 class="title"><a href="#" title="">Đây là chiếc điện thoại có RAM 4 GB và ROM 64 GB rẻ nhất thị trường</a></h3>
+                                <p class="des">Vừa qua, sau đợt điều chỉnh giá chủ tịch Xiaomi đã mạnh mẽ tuyên bố rằng Redmi 4X là chiếc smartphone có 4 GB RAM và 64 GB bộ nhớ...</p>
+                                <a href="#" class="view" title="">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="item item-new">
+                            <div class="item-slide">
+                                <div class="image-hover">
+                                    <a href="#" class="">
+                                        <img class="" src="../images/img-119.jpg" alt="">
+                                    </a>
+                                </div>
+                                <ul class="info-new">
+                                    <li class="time"><i class="fa fa-calendar" aria-hidden="true"></i> <time>09/08/2017</time></li>
+                                    <li class="comment"><i class="fa fa-comments-o" aria-hidden="true"></i> <span>0</span></li>
+                                    <li class="post"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Beauty style</span></li>
+                                </ul>
+                            </div>
+                            <div class="detail clearfix">
+                                <h3 class="title"><a href="#" title="">Galaxy Note FE bản quốc tế chip Snapdragon 821 sẽ có mặt trên thị trường từ tháng sau</a></h3>
+                                <p class="des">Đây có thể là tin vui đối với những ai đang mong đợi chiếc Galaxy Note FE. Theo đó, báo cáo mới nhất từ Hàn Quốc cho biết Galaxy Note...</p>
+                                <a href="#" class="view" title="">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="item item-new">
+                            <div class="item-slide">
+                                <div class="image-hover">
+                                    <a href="#" class="">
+                                        <img class="" src="../images/img-120.jpg" alt="">
+                                    </a>
+                                </div>
+                                <ul class="info-new">
+                                    <li class="time"><i class="fa fa-calendar" aria-hidden="true"></i> <time>09/08/2017</time></li>
+                                    <li class="comment"><i class="fa fa-comments-o" aria-hidden="true"></i> <span>0</span></li>
+                                    <li class="post"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Beauty style</span></li>
+                                </ul>
+                            </div>
+                            <div class="detail clearfix">
+                                <h3 class="title"><a href="#" title="">Mở hộp Galaxy Note FE phiên bản màu xanh san hô</a></h3>
+                                <p class="des">Sau khi Galaxy Note 7 chính thức quay trở lại thị trường Hàn Quốc với tên gọi Galaxy Note FE, những video mở hộp đầu tiên của phiên bản đặc...</p>
+                                <a href="#" class="view" title="">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--main-page-->
+
+    <footer>
+        <div class="box-top-footer">
+            <div class="container">
+                <div class="main-footer">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-xs-12 left-footer">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12 left-top">
+                                    <h4 class="title">CHÚNG TÔI Ở ĐÂY </h4>
+                                    <div class="info clearfix">
+                                        <p>56 Vân Côi, P.7, Q. Tân Bình, Tp. Hồ Chí Minh <a target="_blank" href="#">Xem bản đồ</a></p>
+                                        <p>Tư Vấn Bán Hàng (8h - 20h hằng ngày)<span>1900 636 099</span></p>
+                                        <p class="col50">Tư Vấn Đổi Trả (8h - 20h hằng ngày)<span>1900 636 099</span></p>
+                                        <p class="col50">Bảo hành (8h - 20h hằng ngày)<span>1900 636 099</span></p>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-xs-12 left-social">
+                                    <h4 class="title">LIÊN KẾT </h4>
+                                    <ul class="box-social clearfix">
+                                        <li class="pull-left">
+                                            <a href="#" target="_blank" title="">
+                                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li class="pull-left">
+                                            <a href="#" target="_blank" title="">
+                                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li class="pull-left">
+                                            <a href="#" target="_blank" title="">
+                                                <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li class="pull-left">
+                                            <a href="#" target="_blank" title="">
+                                                <i class="fa fa-youtube" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li class="pull-left">
+                                            <a href="#" target="_blank" title="">
+                                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-sm-6 col-xs-12 left-pay">
+                                    <h4 class="title">THANH TOÁN </h4>
+                                    <div class="content-pay">
+                                        <img src="../images/img-119.png" alt="" width="" height="">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12 right-footer">
+                            <div class="row">
+                                <div class="col-sm-4 col-xs-12 right-links">
+                                    <h4 class="title">VỀ S.A.M SHOP</h4>
+                                    <ul class="list-links">
+                                        <li><a href="#"><span>Tìm kiếm</span></a></li>
+                                        <li><a href="#"><span>Giới thiệu</span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-4 col-xs-12 right-links">
+                                    <h4 class="title">CHÍNH SÁCH</h4>
+                                    <ul class="list-links">
+                                        <li><a href="#"><span>Sản phẩm khuyến mãi</span></a></li>
+                                        <li><a href="#"><span>Sản phẩm nổi bật</span></a></li>
+                                        <li><a href="#"><span>Tất cả sản phẩm</span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-4 col-xs-12 right-links">
+                                    <h4 class="title">HỖ TRỢ</h4>
+                                    <ul class="list-links">
+                                        <li><a href="#"><span>Tìm kiếm</span></a></li>
+                                        <li><a href="#"><span>Giới thiệu</span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-12 col-xs-12 right-newsletter">
+                                    <h4 class="title">HÃY ĐỂ LẠI MAIL NHẬN NHIỀU ƯU ĐÃI HƠN</h4>
+                                    <div class="form-footer">
+                                        <form accept-charset="UTF-8" action="" class="contact-form" method="post">
+                                            <input name="form_type" type="hidden" value="customer">
+                                            <input name="utf8" type="hidden" value="✓">
+                                            <div class="main-footer-form clearfix">
+                                                <input type="hidden" id="" name="" value="">
+                                                <input class="txt-form" name="" type="email" placeholder="Đăng ký email" required="required">
+                                                <button class="button">Đăng ký</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <p class="note">* Hãy để lại email để nhận được những khuyến mãi mới nhất</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer">
+            <div class="container">
+                <div class="main-bottom-footer clearfix">
+                    <div class="logo pull-left">
+                        <a href="/"><img class="insImageload" data-load="true" alt="Beauty style" src="//theme.hstatic.net/1000204910/1000273076/14/dtb.png?v=399"></a>
+                    </div>
+
+                    <div class="copy pull-left">
+                        <p>
+                            Công ty cổ phần Pro Ins - 56 Vân Côi, P. 7, Q. Tân Bình, TP.HCM
+                            <br>
+                            Mã số thuế: 0311465876 do Sở Kế hoạch đầu tư TP HCM cấp ngày 20/011/2015
+                            <br>
+                            ĐT:  1900 636 099 - Fax: 08.38666237 - Email: hi@haravan.com
+                        </p>
+                    </div>
+
+                    <div class="logo pull-right">
+                        <div class="fi-title1 insScroll">
+                            <a href="#" title="">
+                                <img class="" data-load="true" src="../images/logo_ft.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <p class="copyright text-center">
+                        © Bản quyền thuộc về
+                        <a href="#" target="_blank">Inspired themes</a> | <a target="_blank" href="#" class="">Powered by Haravan</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--footer-->
+
+    <div class="box-temp-fixed item-fix">
+        <div class="box-back-top item-fix">
+            <a href="javascript:void(0)">
+                <img src="../images/to-top.png" alt="">
+            </a>
+        </div>
+
+        <div class="box-cart-fixed item-fix">
+            <a href="#"><i class="fa fa-shopping-basket" aria-hidden="true"></i> <span class="numberCart hide">0</span></a>
+        </div>
+
+        <div class="box-hotline item-fix">
+            <label>
+                <a href="tel:01675678192" title="">
+                    <span></span>
+                    <p>Tư vấn miễn phí(24/7)<span>1900 636 099</span></p>
+                </a>
+                <i class="close-hotline"></i>
+            </label>
+        </div>
+    </div>
+    <div class="modal fade" id="quick-view-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="false">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="">Thông tin sản phẩm</h4>
+                    <button type="button" class="close-modal" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form method="post" action="">
+                            <div class="row">
+                                <div class="col-lg-5 col-md-6">
+                                    <div class="image-zoom">
+                                        <img class="" src="../images/img-20.jpg" alt="" width="" height="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 col-md-6">
+                                    <div class="form-input">
+                                        <div class="product-title p-title"><h1>HTC U11</h1></div>
+                                        <div class="product-price">
+                                            <span class="p-price ">8,000,000₫</span>
+                                            <del></del>
+                                        </div>
+                                    </div>
+                                    <div class="form-des">Thông số kỹ thuậtThông số cơ bảnMàn hình : 5.5 inch (2560 x 1440 pixels)Camera : Chính: 12.0 MP, Phụ: 16.0 MPRAM : 6 GBBộ nhớ trong : 128 GBHệ điều hành : Android 7.1.1 (Nougat)Chipset : Qualcomm Snapdragon 835CPU : 64 bit octa-core, lên đến 2.45 GhzKích thước : 153.9 x 75.9 x 7.9 mmMàn hìnhCông nghệ màn hình :  Super LCDChuẩn màn hình : 2KĐộ phân giải màn hình : 1440 x 2560 pixelsMặt kính màn hình : Corning Gorilla Glass 5Camera SauĐộ phân giải : 12.0 MP (f/1.7)Quay phim : Quay phim 4K 2160p@30fpsĐèn Flash : CóChụp ảnh nâng cao : Lấy nét tự động siêu tốc độ UltraSpeed,BSI,OIS,hẹn giờ chụp,Nhận diện khuôn mặt,HDR,PanoramaCamera TrướcVideo Call : CóĐộ phân giải : 16.0 MP (f/2.0)Thông tin khác : Chế độ make up trực tiếp,selfie tự động,selfie bằng giọng nói,hẹn giờ chụp selfie,HDR,PanoramaCấu hình phần cứngTốc độ CPU : Lên đến 2.45 GhzSố nhân : 8 NhânChipset : Qualcomm Snapdragon 835RAM : 6 GBCảm biến : Cảm biến cạnh viền, ánh sáng, tiệm cận, chuyển động, la bàn, con quay hồi chuyển, từ trường, vân tayBộ nhớ &amp; Lưu trữDanh bạ lưu trữ : Không giới hạnROM : 128 GBBộ nhớ còn lại : Đang cập nhậtThẻ nhớ ngoài :  MicroSDHỗ trợ thẻ nhớ tối đa : 2TBThiết kế &amp; Trọng lượngKiểu dáng : Thanh (thẳng) + Cảm ứng Kích thước : 153.9 x 75.9 x 7.9 mmTrọng lượng : 169gKhả năng chống nước : Chuẩn IP67Thông tin pinDung lượng pin : 3000 mAhChế độ sạc nhanh :  Quick Charge 3.0Kết nối &amp; Cổng giao tiếpBăng tần 2G :  GSM 850 / 900 / 1800 / 1900Băng tần 3G : HSDPA 850/900/1900/2100Băng tần 4G : CóHỗ trợ SIM :  Nano SimKhe cắm sim :  2 SIM Nano (SIM 2 chung khe thẻ nhớ)Wifi : 802.11 a/b/g/n/ac (2.4 &amp; 5 GHz)GPS : A-GPS, GLONASS, BeiDouBluetooth : Bluetooth 4.2GPRS/EDGE :  CóNFC : CóKết nối USB :  USB Type-CCổng kết nối khác : DLNA, AirPlay, MiracastCổng sạc :  USB Type-CJack (Input &amp; Output) : USB Type-CGiải trí &amp; Ứng dụngXem phim : 3GP, MP4, AVI, WMV, H.263, H.264(MPEG4-AVC), DivX, WMV9, XvidNghe nhạc : Midi, Lossless, MP3, WAV, WMA9, WMA, AAC, AAC+, AAC++, eAAC+Ghi âm :  CóFM radio :  CóChức năng khác : Kích hoạt thông minh, tắt chuông khi bắt máy, chế độ trong túi, úp xuống để tắt tiếng, tùy biến màu sắcBảo hànhThời gian bảo hành : 12 Tháng ...</div>
+                                    <div class="clearfix"></div>
+                                    <div class="form-input vid ">
+                                        <div class="m-vendor"><span>Nhà cung cấp: </span>HTC</div>
+                                        <div class="m-sku"><span>Mã sản phẩm: </span>HTC-U01</div>
+                                        <div class="m-tt">
+                                        </div>
+                                    </div>
+                                    <div class="p-option-wrapper">
+                                        <div class="selector-wrapper"><label>Màu sắc</label><span class="custom-dropdown custom-dropdown--white"><select class="single-option-selector custom-dropdown__select custom-dropdown__select--white" data-option="option1" id="p-select-option-0"><option value="Đen">Đen</option><option value="Xanh">Xanh</option></select></span></div><select name="id" class="" id="p-select" style="display: none;"><option value="1014687228">Đen - 800000000</option><option value="1014687229">Xanh - 800000000</option></select>
+                                    </div>
+
+                                    <div class="form-input ">
+                                        <label>Số lượng</label>
+                                        <input name="quantity" type="number" min="1" value="1">
+                                    </div>
+
+                                    <div class="form-input">
+                                        <button type="button" class="btn-addcart">Thêm vào giỏ</button>
+                                        <button disabled="" class="btn-detail addtocart btn-color-add btn-min-width btn-mgt btn-soldout" style="display: none">Hết hàng</button>
+                                        <div class="box-readmore">
+                                            <span> hoặc </span><a class="read-more p-url" href="#" role="button">Xem chi tiết</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/javascript.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+</body>
+
+
+</html>
