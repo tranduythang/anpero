@@ -42,9 +42,7 @@ namespace AnperoFrontend.Controllers
         public ActionResult SitemapXml()
         {
             
-            string baseUrl =Request.Url.Authority;
-
-
+            string baseUrl = Request.Url.Authority;
             var sitemapNodes = GetSitemapNodes(baseUrl);
             string xml = GetSitemapDocument(sitemapNodes);
             return this.Content(xml, System.Net.Mime.MediaTypeNames.Text.Xml, Encoding.UTF8);

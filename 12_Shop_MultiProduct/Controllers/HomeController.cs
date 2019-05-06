@@ -2,85 +2,63 @@
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
+using Utilities.Caching;
+
 namespace AnperoFrontend.Controllers
 {
     public class HomeController : BaseController
     {
         [BuildCommonHtml]
-        
         public ActionResult Index()
         {
             Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
             Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
 
-            WebService.AnperoService service = new WebService.AnperoService();
             GetNewestProduct();
             SetUpSlideAds();
+
             return View();
         }
         private void SetUpSlideAds()
         {
-           
             int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
             WebService.AnperoService service = new WebService.AnperoService();
 
-            WebService.Ads[] Slide = null;
-            if (HttpRuntime.Cache["Slide"] != null)
+            WebService.Ads[] Slide;
+            WebService.Ads[] ads1;
+            WebService.Ads[] ads2;
+            WebService.Ads[] ads3;
+
+            ICacheService cache = new CacheService();
+
+            if (!cache.TryGet(SlideCache, out Slide))
             {
-                ViewData["slide"] = (WebService.Ads[])HttpRuntime.Cache["Slide"];
-            }
-            else
-            {             
                 Slide = service.GetAdsSlide(StoreID, TokenKey, PageContent.Slide);
-                ViewData["slide"] = Slide;
-                if (Slide != null)
-                {
-                    HttpRuntime.Cache.Insert("Slide", Slide, null, DateTime.Now.AddMinutes(shortCacheTime+3), TimeSpan.Zero);
-                }
+                cache.AddOrUpdate(SlideCache, Slide, DateTime.Now.AddMinutes(shortCacheTime));
             }
 
-            WebService.Ads[] ads1 = null;
-            if (HttpRuntime.Cache["ads1"] != null)
-            {
-                ViewData["ads1"] = (WebService.Ads[])HttpRuntime.Cache["ads1"];
-            }
-            else
+            ViewData["slide"] = Slide;
+
+            if (!cache.TryGet(Ads1Cache, out ads1))
             {
                 ads1 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads1);
-                ViewData["ads1"] = ads1;
-                if (Slide != null)
-                {
-                    HttpRuntime.Cache.Insert("ads1", ads1, null, DateTime.Now.AddMinutes(shortCacheTime + 3), TimeSpan.Zero);
-                }
+                cache.AddOrUpdate(Ads1Cache, ads1, DateTime.Now.AddMinutes(shortCacheTime));
             }
-            WebService.Ads[] Ads2 = null;
-            if (HttpRuntime.Cache["ads2"] != null)
+            ViewData["ads1"] = ads1;
+
+            if (!cache.TryGet(Ads2Cache, out ads2))
             {
-                ViewData["ads2"] = (WebService.Ads[])HttpRuntime.Cache["ads2"];
+                ads1 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads2);
+                cache.AddOrUpdate(Ads2Cache, ads2, DateTime.Now.AddMinutes(shortCacheTime));
             }
-            else
-            {
-                Ads2 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads2);
-                ViewData["Ads2"] = Ads2;
-                if (Slide != null)
-                {
-                    HttpRuntime.Cache.Insert("Ads2", Ads2, null, DateTime.Now.AddMinutes(shortCacheTime + 3), TimeSpan.Zero);
-                }
-            }
-            WebService.Ads[] ads3 = null;
-            if (HttpRuntime.Cache["ads3"] != null)
-            {
-                ViewData["ads3"] = (WebService.Ads[])HttpRuntime.Cache["ads3"];
-            }
-            else
+            ViewData["ads2"] = ads2;
+
+            if (!cache.TryGet(Ads3Cache, out ads3))
             {
                 ads3 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads3);
-                ViewData["ads3"] = ads3;
-                if (Slide != null)
-                {
-                    HttpRuntime.Cache.Insert("Ads2", ads3, null, DateTime.Now.AddMinutes(shortCacheTime + 3), TimeSpan.Zero);
-                }
+                cache.AddOrUpdate(Ads3Cache, ads3, DateTime.Now.AddMinutes(shortCacheTime));
             }
+            ViewData["ads3"] = ads3;
             
             Response.Cache.SetCacheability(HttpCacheability.Public);
         }
@@ -89,41 +67,18 @@ namespace AnperoFrontend.Controllers
             WebService.AnperoService service = new WebService.AnperoService();
             WebService.SearchResult searchResult = new WebService.SearchResult();
             int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
-            if (HttpRuntime.Cache["newestProduct"] != null)
-            {
-                searchResult = (WebService.SearchResult)HttpRuntime.Cache["newestProduct"];
-            }
-            else
+
+            ICacheService cache = new CacheService();
+
+            if (!cache.TryGet(NewestProductCache, out searchResult))
             {
                 searchResult = service.SearchProduct(StoreID, TokenKey, "", "", "", 1, 999999999, 1, 7, "", SearchOrder.TimeDesc, 0);
-                if (searchResult != null)
-                {
-                    HttpRuntime.Cache.Insert("newestProduct", searchResult, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
-                }
-               
+                cache.AddOrUpdate(NewestProductCache, searchResult, DateTime.Now.AddMinutes(shortCacheTime));
             }
            
             ViewData["newestProduct"] = searchResult;
-                        
-            //WebService.SearchResult searchResult2 = new WebService.SearchResult();
-            
-            //if (HttpRuntime.Cache["customProduct"] != null)
-            //{
-            //    searchResult = (WebService.SearchResult)HttpRuntime.Cache["customProduct"];
-            //}
-            //else
-            //{
-            //    searchResult = service.GetProductByParentCategory(StoreID, TokenKey, 178, 1, 8, 0);
-            //    if (searchResult != null)
-            //    {
-            //        HttpRuntime.Cache.Insert("customProduct", searchResult, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
-            //    }
-
-            //}
-
-            //ViewData["customProduct"] = searchResult;
-
         }
+
         [BuildCommonHtml]
         public ActionResult Policy(int type)
         {
@@ -139,12 +94,13 @@ namespace AnperoFrontend.Controllers
             }
             return View();
         }
+
         [BuildCommonHtml]
         public ActionResult Contact()
         {
-            
             return View();
         }
+
         public string PolicyAjax(int type)
         {
             try
