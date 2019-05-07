@@ -24,9 +24,6 @@
 }
 @section Styles{
     <style>
-        .box-slide-home .main-slide-home .banner-slider {
-            width: 100%;
-        }
     </style>
 }
 @if (ViewBag.Slide != null)
@@ -60,6 +57,21 @@
                             </ol>
                         </div>
                     </div>
+                </div>
+                <div class="banner-right">
+                    @if (ViewBag.Ads1 != null)
+                    {
+                        Ads[] ads1 = (Ads[])ViewBag.Ads1;
+                        <ul>
+                            @foreach (var item in ads1)
+                            {
+                                <li>
+                                    <a href="@item.ClickUrl"><img class="" alt="@item.Description" src="@item.ImagesUrl"></a>
+                                </li>
+                            }
+                        </ul>
+                    }
+
                 </div>
                 <!--bannerSlider-->
             </div>
@@ -109,7 +121,7 @@
             <div class="container">
                 <div class="box-title">
                     <h2 class="title">Top bán chạy</h2>
-                    @*<a href="#" class="view-all top-all hidden-xs translateY-50 transition-3">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>*@
+                    <a href="/search" class="view-all top-all hidden-xs translateY-50 transition-3">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                 </div>
 
                 <div class="owl-carousel owl-carousel-6" id="">
@@ -183,7 +195,16 @@
             <div class="container">
                 <div class="box-title">
                     <h2 class="title">Sản phẩm mới</h2>
-                    @*<a href="#" class="view-all top-all hidden-xs translateY-50 transition-3">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>*@
+                    @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                    {
+                        <ul class="nav-list">
+                            @foreach (var item in commonInfo.ProductCategoryList)
+                            {
+                                <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">@item.Name</a></li>
+                            }
+
+                        </ul>
+                    }
                 </div>
 
                 <div class="owl-carousel owl-carousel-6" id="">

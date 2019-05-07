@@ -11,8 +11,8 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult Index()
         {
-            Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
-            Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
+            //Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
+            //Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
 
             GetNewestProduct();
             SetUpSlideAds();
@@ -56,8 +56,8 @@ namespace AnperoFrontend.Controllers
             }
             ViewBag.Slide = Slide;
             ViewBag.Ads1 = ads1;
-            ViewBag.Ads2 = ads1;
-            ViewBag.Ads3 = ads1;
+            ViewBag.Ads2 = ads2;
+            ViewBag.Ads3 = ads3;
            
             Response.Cache.SetCacheability(HttpCacheability.Public);
         }
