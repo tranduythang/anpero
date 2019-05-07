@@ -15,7 +15,6 @@ namespace AnperoFrontend
                 //"~/Html/js/bootstrap-datetimepicker.js",
                 "~/Scripts/jquery.cokie.min.js",
                 "~/Scripts/Anpero.Common.js",
-                
                 "~/Scripts/ShoppingCart.js"
             ));
 

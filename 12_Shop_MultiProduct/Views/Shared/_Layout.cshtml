@@ -34,11 +34,11 @@
     <!--main-page-->
 
     @Html.Partial("_partial/_FooterPartial")
+    @Scripts.Render("~/bundle/js")
 
 
     @Html.Raw(commonInfo.AnperoPlugin)
     @Html.Raw(commonInfo.PageScript)
-
 
     @RenderSection("scripts", required: false)
     <script type="text/javascript">
