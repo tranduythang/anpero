@@ -115,38 +115,37 @@
                                 </li>
                             }
                         }
-                        @if (commonInfo.MenuList != null && commonInfo.MenuList.Length > 0)
-                        {
-                            foreach (var item in commonInfo.MenuList)
-                            {
-                                <li class="li-child">
-                                    <a href="@item.Link" class="" title="@item.Tittle">
-                                        <span>@item.Tittle</span>
-                                        @if (item.ChidMenu != null && item.ChidMenu.Length > 0)
-                                        {
-                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                        }
-
-                                    </a>
-                                    @if (item.ChidMenu != null)
-                                    {
-                                        <ul class="main-child level-3">
-                                            @foreach (var childItem in item.ChidMenu)
-                                            {
-                                                <li class="">
-                                                    <a href="@childItem.Link" title=""><span>@childItem.Tittle</span></a>
-                                                </li>
-                                            }
-
-                                        </ul>
-                                    }
-
-                                </li>
-                            }
-                        }
-
                     </ul>
                 </li>
+                @if (commonInfo.MenuList != null && commonInfo.MenuList.Length > 0)
+                {
+                    foreach (var item in commonInfo.MenuList)
+                    {
+                        <li class="li-child">
+                            <a href="@item.Link" class="" title="@item.Tittle">
+                                <span>@item.Tittle</span>
+                                @if (item.ChidMenu != null && item.ChidMenu.Length > 0)
+                                {
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                }
+
+                            </a>
+                            @if (item.ChidMenu != null)
+                            {
+                                <ul class="main-child level-3">
+                                    @foreach (var childItem in item.ChidMenu)
+                                    {
+                                        <li class="">
+                                            <a href="@childItem.Link" title=""><span>@childItem.Tittle</span></a>
+                                        </li>
+                                    }
+
+                                </ul>
+                            }
+
+                        </li>
+                    }
+                }
             </ul>
             <div class="visible-xs visible-sm close-menu-mobile text-center">
                 <a href="javascript:void(0)" class="close-nav view-all">Đóng</a>
