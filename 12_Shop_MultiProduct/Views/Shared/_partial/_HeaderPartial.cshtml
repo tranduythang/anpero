@@ -126,7 +126,7 @@
                                 <span>@item.Tittle</span>
                                 @if (item.ChidMenu != null && item.ChidMenu.Length > 0)
                                 {
-                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 }
 
                             </a>
@@ -136,7 +136,7 @@
                                     @foreach (var childItem in item.ChidMenu)
                                     {
                                         <li class="">
-                                            <a href="@childItem.Link" title=""><span>@childItem.Tittle</span></a>
+                                            <a href="@childItem.Link" title="@childItem.Tittle"><span>@childItem.Tittle</span></a>
                                         </li>
                                     }
 
