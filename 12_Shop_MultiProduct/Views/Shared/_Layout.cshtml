@@ -33,14 +33,13 @@
     <!--main-page-->
 
     @Html.Partial("_partial/_FooterPartial")
+    @Scripts.Render("~/bundle/js")
 
     @RenderSection("scripts", required: false)
     @Html.Raw(commonInfo.AnperoPlugin)
     @Html.Raw(commonInfo.PageScript)
 
-    @Scripts.Render("~/bundle/js")
-
-    <script type="text/javascript">        
+    <script type="text/javascript">
         jQuery(window).load(function () {
             Cart.bindCart();
         });
