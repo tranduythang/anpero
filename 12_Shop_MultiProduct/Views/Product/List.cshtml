@@ -88,7 +88,7 @@
 
         <div class="box-slide box-list-product">
             <div class="container">
-                <div class="main-list-product row">
+                <div class="main-list-product row" id="product_listing__sorted">
                     @foreach (var item in productList.Item)
                     {
                         <div class="col-md-3 col-sm-3 col-xs-6 item-product">
@@ -141,19 +141,7 @@
 
                 <div class="box-pagination clearfix">
                     <div class="pull-right">
-                        <ul class="clearfix">
-                            <li class="previous disabled pull-left">
-                                <a href="#"><i class="fa fa-chevron-left"></i></a>
-                            </li>
-                            <li class="active pull-left"><a href="#">1</a></li>
-                            <li class="pull-left"><a href="#" title="">2</a></li>
-                            <li class="pull-left"><a href="#" title="">3</a></li>
-                            <li class="pull-left"><span>…</span></li>
-                            <li class="pull-left"><a href="#" title="">7</a></li>
-                            <li class="next pull-left">
-                                <a href="#" title=""><i class="fa fa-chevron-right"></i></a>
-                            </li>
-                        </ul>
+                        @Html.Raw(ViewBag.page)
                     </div>
                 </div>
             </div>

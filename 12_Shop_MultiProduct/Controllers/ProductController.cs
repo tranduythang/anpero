@@ -146,7 +146,7 @@ namespace AnperoFrontend.Controllers
 
             ViewData["productList"] = rs;
             ViewBag.pageName = "Search";
-            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 2, rs.ResultCount, 10, "?page=");
 
             if (rs != null && rs.Item.Length > 0)
             {
