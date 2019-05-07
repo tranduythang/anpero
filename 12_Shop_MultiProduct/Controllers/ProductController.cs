@@ -142,11 +142,11 @@ namespace AnperoFrontend.Controllers
                 page = Convert.ToInt32(pageQuery);
             }
             WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, category, "", "", 0, 999999999, page, 14, keyword, SearchOrder.NameDesc, 0, string.Empty);
+            WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, category, "", "", 0, 999999999, page, 15, keyword, SearchOrder.NameDesc, 0, string.Empty);
 
             ViewData["productList"] = rs;
             ViewBag.pageName = "Search";
-            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 2, rs.ResultCount, 10, "?page=");
+            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 15, rs.ResultCount, 10, "?page=");
 
             if (rs != null && rs.Item.Length > 0)
             {

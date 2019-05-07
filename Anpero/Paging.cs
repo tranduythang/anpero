@@ -92,10 +92,10 @@ namespace Anpero
         {
             String pagedString = "";
 
-            int totallPaed = itemCount / pageSite;
+            int totalPage = itemCount / pageSite;
             if (itemCount % pageSite > 0)
             {
-                totallPaed += 1;
+                totalPage += 1;
             }
             //int totalPageSpit = 0;
             //if (totallPaed < pageSite)
@@ -138,21 +138,21 @@ namespace Anpero
                 }
                 else
                 {
-                    pagedString += @"<li class='pull-left'><a href='" + pageaspx + query + (curentPage - 1) + "'>&laquo;</a></li>";
+                    pagedString += @"<li class='previous pull-left'><a href='" + pageaspx + query + (curentPage - 1) + "'>&laquo;</a></li>";
                 }
 
-                if (curentPage <= totallPaed)
+                if (curentPage <= totalPage)
                 {
                     //gioi han hien tai cua phan trang
                     int j = curentPage + MaxPage;
                     int k = MaxPage;
-                    if (k <= totallPaed)
+                    if (k <= totalPage)
                     {
-                        k = totallPaed;
+                        k = totalPage;
                     }
                     if (j >= k)
                     {
-                        j = totallPaed;
+                        j = totalPage;
                     }
                     int currenttag;
                     if (curentPage == 1 || curentPage == 2 || curentPage == 3)
@@ -168,7 +168,7 @@ namespace Anpero
                     {
                         if (i == curentPage)
                         {
-                            pagedString += @"<li class='active pull-left'><a href='javascript:void(0);' tittle='đang ở trang này'>" + (i) + "</a><li>";
+                            pagedString += @"<li class='active pull-left'><a href='javascript:void(0);' tittle='đang ở trang này'>" + (i) + "</a></li>";
 
                         }
                         else
@@ -178,13 +178,13 @@ namespace Anpero
 
                     }
                 }
-                if (curentPage == totallPaed)
+                if (curentPage == totalPage)
                 {
                     pagedString += @"<li class='active pull-left'><a href='javascript:void(0);' tittle='bạn đang ở trang cuôi'>&raquo;</a><li>";
                 }
                 else
                 {
-                    pagedString += @"<li class='pull-left'><a href='" + pageaspx + query + totallPaed + @"'> . " + totallPaed + @"</a></li>";
+                    pagedString += @"<li class='pull-left'><a href='" + pageaspx + query + totalPage + @"'>" + totalPage + @"</a></li>";
                     pagedString += @"<li class='next pull-left'><a href='" + pageaspx + query + (curentPage + 1) + "'>&raquo;</a></li>";
                 }
                 pagedString += @"</ul>";
