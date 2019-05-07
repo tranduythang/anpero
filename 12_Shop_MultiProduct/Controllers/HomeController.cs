@@ -37,29 +37,28 @@ namespace AnperoFrontend.Controllers
                 cache.AddOrUpdate(SlideCache, Slide, DateTime.Now.AddMinutes(shortCacheTime));
             }
 
-            ViewData["slide"] = Slide;
-
             if (!cache.TryGet(Ads1Cache, out ads1))
             {
                 ads1 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads1);
                 cache.AddOrUpdate(Ads1Cache, ads1, DateTime.Now.AddMinutes(shortCacheTime));
             }
-            ViewData["ads1"] = ads1;
 
             if (!cache.TryGet(Ads2Cache, out ads2))
             {
                 ads1 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads2);
                 cache.AddOrUpdate(Ads2Cache, ads2, DateTime.Now.AddMinutes(shortCacheTime));
             }
-            ViewData["ads2"] = ads2;
 
             if (!cache.TryGet(Ads3Cache, out ads3))
             {
                 ads3 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads3);
                 cache.AddOrUpdate(Ads3Cache, ads3, DateTime.Now.AddMinutes(shortCacheTime));
             }
-            ViewData["ads3"] = ads3;
-            
+            ViewBag.Slide = Slide;
+            ViewBag.Ads1 = ads1;
+            ViewBag.Ads2 = ads1;
+            ViewBag.Ads3 = ads1;
+           
             Response.Cache.SetCacheability(HttpCacheability.Public);
         }
         private void GetNewestProduct()
