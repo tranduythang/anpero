@@ -3,31 +3,25 @@
     if (ViewData["commonInfo"] != null)
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
-    }
-    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+    }    
 }
 <!DOCTYPE html>
 <html lang="vi" class="color_scheme">
 <head>
     <meta charset="utf-8">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com/">
+    <link rel="dns-prefetch" href="https://www.facebook.com/">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="shortcut icon" href="@(string.IsNullOrEmpty(commonInfo.Favicon)?commonInfo.Logo:commonInfo.Favicon)" type="image/x-icon">
     <meta name="description" content="@commonInfo.Desc" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="Refresh" content="3600" />
     <!-- Apple iOS and Android stuff -->
-    <meta name="apple-mobile-web-app-capable" content="no" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
+    <meta name="robots" content="*">
     <title>@ViewBag.Title</title>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
-    <link rel="dns-prefetch" href="https://www.facebook.com/">
-
     @Styles.Render("~/bundle/css")
-    
-    <link rel="icon" href="@commonInfo.Logo" type="image/x-icon">
-    <link rel="shortcut icon" href="@commonInfo.Logo" type="image/x-icon">
-
     @RenderSection("health", required: false)
     @RenderSection("Styles", required: false)
 </head>
@@ -42,43 +36,13 @@
 
     @Html.Partial("_partial/_FooterPartial")
 
-    <div class="box-temp-fixed item-fix">
-        <div class="box-back-top item-fix">
-            <a href="javascript:void(0)">
-                <img src="~/html/images/to-top.png" alt="">
-            </a>
-        </div>
-
-        <div class="box-cart-fixed item-fix">
-            <a href="javascript:void(0);">
-                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                <span class="js-cart-count numberCart">99</span>
-            </a>
-        </div>
-
-        <div class="box-hotline item-fix">
-            <label>
-                <a href="tel:@commonInfo.HotLine" title="Hot line @commonInfo.HotLine">
-                    <span></span>
-                    <p>Tư vấn miễn phí (24/7)<span>@commonInfo.HotLine</span></p>
-                </a>
-                <i class="close-hotline"></i>
-            </label>
-        </div>
-    </div>
-
     @RenderSection("scripts", required: false)
-
     @Html.Raw(commonInfo.AnperoPlugin)
     @Html.Raw(commonInfo.PageScript)
 
     @Scripts.Render("~/bundle/js")
 
-    <script type="text/javascript">
-        var theme = {
-            moneyFormat: "${{amount}}",
-        };
-
+    <script type="text/javascript">        
         jQuery(window).load(function () {
             Cart.bindCart();
         });
