@@ -1,0 +1,409 @@
+﻿@if (ViewData["prDetail"] != null)
+{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+    string thisUrl = HttpContext.Current.Request.Url.AbsolutePath;
+    AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewData["prDetail"];
+    ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
+        Anpero.StringHelpper.GetProductLink(item.PrName, item.Id);
+    string currentUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+
+    @section health{
+        <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+        <meta name="description" content="@Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc)" />
+        <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(item.KeyWord)" />
+        <meta property="og:description" content="@item.ShortDesc" />
+        <meta property="og:title" content="@item.PrName" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="@ViewBag.WebsiteUrl" />
+        <meta property="og:image" content="@item.Images" />
+        <link rel="canonical" href="@ViewBag.WebsiteUrl" />
+    }
+    @section Styles {
+        <style>
+            .box-social li {
+                display: inline-block;
+                margin-right: 10px;
+            }
+
+                .box-social li a {
+                    color: #eaeaea;
+                    display: block;
+                    width: 30px;
+                    height: 30px;
+                    line-height: 30px;
+                    text-align: center;
+                    background: #3b5998;
+                    margin-top: 10px;
+                }
+
+                .box-social li:nth-child(2) a {
+                    background: #28aae1;
+                }
+
+                .box-social li a i {
+                    line-height: 30px;
+                }
+        </style>
+    }
+    <div class="box-breadcrumb">
+        <div class="container">
+            <ul class="hidden-sm hidden-xs">
+                <li><a href="/" title="Trang chủ">Trang chủ</a></li>
+                <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName, item.ParentId)" title="">@item.ParentCatName</a></li>
+                <li><a href="@Anpero.StringHelpper.GetCategoryLink(item.CatName, item.CatID)" title="">@item.CatName</a> </li>
+                <li><span>@item.PrName</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="page-detail">
+        <div class="box-detail">
+            <div class="container">
+                <div class="top-detail">
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12 left-top-detail">
+                            <div class="banner-slider">
+                                <div class="box-slide-1">
+                                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                        <div class="carousel-inner">
+                                            @{
+                                                <div class="carousel-item active">
+                                                    <img class="d-block w-100" src="@item.Images" alt="@item.PrName">
+                                                </div>
+                                                var slide = (string[])item.ImagesSlide;
+                                                for (var i = 0; i < slide.Length; i++)
+                                                {
+                                                    <div class="carousel-item">
+                                                        <img class="d-block w-100" src="@slide[i]" alt="@item.PrName">
+                                                    </div>
+                                                }
+                                            }
+                                        </div>
+                                        <ol class="carousel-indicators">
+                                            @{
+                                                for (var i = 0; i <= slide.Length; i++)
+                                                {
+                                                    <li data-target="#carouselExampleIndicators" class="@(i == 0 ? "active" : "")" data-slide-to="@(i)">
+                                                        <a href="javascript:void(0)" title="@item.PrName">@item.PrName</a>
+                                                    </li>
+                                                }
+                                            }
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 right-top-detail">
+                            <div class="box-info">
+                                <h1 class="title">@item.PrName</h1>
+                                <div class="box-list-info">
+                                    <ul>
+                                        <li class="type"><i class="fa fa-tags" aria-hidden="true"></i> Collections:  <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName,item.ParentId)">@item.CatName</a> </li>
+                                        <li class="sku"><i class="fa fa-codepen" aria-hidden="true"></i> SKU: <span>@item.Id</span> </li>
+                                    </ul>
+                                </div>
+                                <div class="box-price-info">
+                                    <div class="row">
+                                        <div class="col-sm-7 col-xs-12 left-price-info">
+                                            <div class="content-left-price-info">
+                                                <div class="box-price-detail">
+
+                                                    @if (item.IsSale)
+                                                    {
+                                                        <p class="item">
+                                                            <span class="lable-price">Tại @commonInfo.Name: </span>
+                                                            <span class="number-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
+                                                        </p>
+                                                        <p class="item">
+                                                            <span class="lable-price">Giá thị trường: </span>
+                                                            <span class="number-compare-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
+                                                        </p>
+                                                        <p class="item">
+                                                            <span class="lable-price">Tiết kiệm: </span>
+                                                            <span class="number-sale-price">-1,000,000₫ </span>
+                                                            <span class="number-saleoff">– @Convert.ToInt32(item.SalePrice / item.Price * 100)%</span>
+                                                        </p>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p class="item">
+                                                            <span class="lable-price">Tại @commonInfo.Name: </span>
+                                                            <span class="number-price">@(item.Price == 0 ? "Đang cập nhật giá" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
+                                                        </p>
+                                                    }
+                                                </div>
+
+                                                <div class="short-desc">
+                                                    <p>@item.ShortDesc</p>
+                                                </div>
+
+                                                <div class="action-cart">
+                                                    <div class="group-qty">
+                                                        <button type="button" class="qtyControl minus">-</button>
+                                                        <input type="number" maxlength="12" min="1" class="input-text qty" title="Số lượng" size="2" value="1" name="Lines" id="pdQuantity">
+                                                        <button type="button" class="qtyControl plus">+</button>
+                                                    </div>
+
+                                                    <div class="listAction">
+                                                        <button type="button" class="button btn-outline btn-addCart" id="single_product__addtocart">
+                                                            <span>Mua hàng</span>
+                                                            <small>Xem hàng không thích có thể trả lại</small>
+                                                        </button>
+                                                        @if (!item.IsInstock)
+                                                        {
+                                                            <a href="javascript:void(0)" class="button btn-Soldout ">Hết hàng</a>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-5 col-xs-12 right-price-info">
+                                            <div class="content-right-price-info">
+                                                <ul class="list-policy">
+                                                    @*<li class="item">
+                                                            <div class="box">
+                                                                <div class="icon">
+                                                                    <img src="/html/images/icons/product_policy_1.png" alt="" width="" height="">
+                                                                </div>
+                                                                <div class="detail">
+                                                                    <h5 class="title-policy">Giao hàng</h5>
+                                                                    <span class="text-policy">Miễn phí giao hàng nội thành Tp. HCM</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="item">
+                                                            <div class="box">
+                                                                <div class="icon">
+                                                                    <img src="/html/images/icons/product_policy_2.png" alt="" width="" height="">
+                                                                </div>
+                                                                <div class="detail">
+                                                                    <h5 class="title-policy">Sản phẩm</h5>
+                                                                    <span class="text-policy">Cam kết chính hãng 100% <br> Phát hiện hàng giả đền 200%</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>*@
+                                                    @if (item.Warranty > 0)
+                                                    {
+                                                        <li class="item">
+                                                            <div class="box">
+                                                                <div class="icon">
+                                                                    <img src="/html/images/icons/product_policy_3.png" alt="" width="" height="">
+                                                                </div>
+                                                                <div class="detail">
+                                                                    <h5 class="title-policy">Bảo hành</h5>
+                                                                    <span class="text-policy">@item.Warranty tháng</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    }
+                                                    <li class="item">
+                                                        <div class="box">
+                                                            <div class="icon">
+                                                                <img src="/html/images/icons/product_policy_4.png" alt="" width="" height="">
+                                                            </div>
+                                                            <div class="detail">
+                                                                <h5 class="title-policy">Hỗ trợ</h5>
+                                                                <span class="text-policy">Hotline: @commonInfo.HotLine <br> Thứ 2 - 7: 08:00 - 19:00 <br> Chủ nhật: 09:00 - 17:00</span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="socaial">
+                                                <h4 class="title-socaial">Chia sẻ ngay</h4>
+                                                <ul class="box-social clearfix">
+                                                    <li class="pull-left">
+                                                        <a href="http://www.facebook.com/sharer.php?u=@ViewBag.WebsiteUrl" target="_blank" title="">
+                                                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="pull-left">
+                                                        <a href="http://twitter.com/share?text=@item.PrName&amp;url=@ViewBag.WebsiteUrl" target="_blank" title="">
+                                                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--top-detail-->
+
+                <div class="content-detail">
+                    <div class="list-tabs">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="">
+                                <a href="#tabDescription" aria-controls="tabDescription" role="tab" data-toggle="tab" aria-expanded="true" class="active show">Chi tiết sản phẩm</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a id="paymentTab" href="#tabFbComment" aria-controls="tabFbComment" role="tab" data-toggle="tab" aria-expanded="false">Hướng dẫn thanh toán</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade in active show" id="tabDescription">
+                                <div class="content">
+                                    @Html.Raw(item.Detail)
+                                </div>
+
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="tabFbComment">
+                                <div class="accordion active" id="paymentDetail"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!--content-detail-->
+            </div>
+        </div>
+
+        <div class="box-item-product">
+            <div class="container">
+                <div class="box-title">
+                    <h2 class="title">
+                        <a href="javascript:void(0);">Bạn cũng có thể thích những sản phẩm này</a>
+                    </h2>
+                </div>
+                <div class="box-item-product-content">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 left-item-product-content">
+                            <div class="box-top-products box-slide" style="margin: 0">
+                                <div class="owl-carousel owl-carousel-5" id="">
+                                    <div class="item box-product">
+                                        <div class="main">
+                                            <a href="#" title="" class="images">
+                                                <span class="lable-sale">Giảm 22%</span>
+                                                <img src="../images/img-110.jpg" class="" alt="">
+                                            </a>
+                                            <div class="list-action">
+                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="detail text-center clearfix">
+                                                <h3 class="name">
+                                                    <a class="" href="#" title="">Á Ba </a>
+                                                </h3>
+                                                <div class="box-prince">
+                                                    <span class="prince-new">70,000₫</span>
+                                                    <span class="prince-old">95,000₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @if (ViewData["relateProduct"] != null)
+                                    {
+                                        AnperoFrontend.WebService.SearchResult relateProduct = (AnperoFrontend.WebService.SearchResult)ViewData["relateProduct"];
+
+                                        if (relateProduct.Item != null && relateProduct.Item.Length > 0)
+                                        {
+                                            // relateProduct.Item= relateProduct.Item.Where(x => x.Id != item.Id);
+                                            foreach (var relatedProduct in relateProduct.Item.Where(x => x.Id != item.Id))
+                                            {
+                                                <div class="item box-product">
+                                                    <div class="main">
+                                                        <a href="@Anpero.StringHelpper.GetProductLink(relatedProduct.PrName,relatedProduct.Id)" title="@relatedProduct.PrName" class="images">
+                                                            @if (relatedProduct.IsInstock)
+                                                            {
+                                                                <span class="lable-sale"> mới</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span class="lable-sold">Hết hàng</span>
+                                                            }
+                                                            <img src="@relatedProduct.Images" alt="@relatedProduct.PrName">
+                                                        </a>
+                                                        <div class="list-action">
+                                                            <a href="https://www.facebook.com/sharer/sharer.php?u=@currentUrl" target="_blank" title="Chia sẻ với bạn bè" class="btn-quickview-1"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                                            <a href="@Anpero.StringHelpper.GetProductLink(relatedProduct.PrName,relatedProduct.Id)" title="@relatedProduct.PrName" class="view-product"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                            @if (item.IsInstock)
+                                                            {
+                                                                <a href="javascript:Cart.addProduct(@relatedProduct.Id,@Convert.ToInt32(relatedProduct.IsSale?item.SalePrice:item.Price),'@relatedProduct.Images','@relatedProduct.PrName') @Anpero.StringHelpper.GetProductLink(relatedProduct.PrName,relatedProduct.Id)" class="add-cart" title="Mua hàng">
+                                                                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                                                                </a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a href="javascript:void(0);" class="add-cart" title="Mua hàng">
+                                                                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                                                                </a>
+                                                            }
+                                                        </div>
+                                                        <div class="detail text-center clearfix">
+                                                            <h3 class="name">
+                                                                <a class="" ref="@Anpero.StringHelpper.GetProductLink(relatedProduct.PrName,relatedProduct.Id)" title="@relatedProduct.PrName">
+                                                                    @relatedProduct.PrName
+                                                                </a>
+                                                            </h3>
+                                                            <div class="box-prince">
+                                                                <span class="prince-new">@Anpero.StringHelpper.ConVertToMoneyFormatInt(relatedProduct.SalePrice) ₫</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--box-item-product-->
+    </div>
+
+    @section scripts{
+        <script>
+            var producText = {
+                available: "Available",
+                unavailable: "Unavailable",
+                items: "items",
+            };
+
+        </script>
+        <script>
+            $(document).ready(function () {
+                resizeVideo();
+                $(window).resize(function () {
+                    resizeVideo();
+                });
+                $("#paymentTab").click(function () {
+                    $.ajax({
+                        type: "post",
+                        url: "/home/PolicyAjax",
+                        data: { type: 6 },
+                        success: function (rs) {
+                            $("#paymentDetail").html(rs);
+                        }
+                    });
+                });
+            });
+            $("#single_product__addtocart").click(function () {
+                Cart.quantity = $("#pdQuantity").val();
+                Cart.addProduct(@item.Id, '@Convert.ToInt32(item.SalePrice)','@item.Images', escape('@item.PrName'));
+            });
+
+            function resizeVideo() {
+                var contentW = $('#product_tabs_description').width();
+                var iframe = $('#product_tabs_description iframe');
+                var iframeW = iframe.css('width', contentW - 20);
+                iframe.css('width', iframeW);
+                var iframeH = contentW / 16 * 9;
+                iframe.css('height', iframeH);
+            }
+        </script>
+    }
+}
+
