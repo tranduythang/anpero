@@ -65,7 +65,35 @@
             <div class="container">
                 <div class="top-detail">
                     <div class="row">
-                        <div class="col-sm-6 col-xs-12 left-top-detail"></div>
+                        <div class="col-sm-6 col-xs-12 left-top-detail">
+                            <div class="banner-slider">
+                                <div class="box-slide-1">
+                                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                        <div class="carousel-inner">
+                                            @{
+                                                var slide = (string[])item.ImagesSlide;
+                                                for (var i = 0; i < slide.Length; i++)
+                                                {
+                                                    <div class="carousel-item @(i == 0 ? "active" : "")">
+                                                        <img class="d-block w-100" src="@slide[i]" alt="@item.PrName">
+                                                    </div>
+                                                }
+                                            }
+                                        </div>
+                                        <ol class="carousel-indicators">
+                                            @{
+                                                for (var i = 0; i < slide.Length; i++)
+                                                {
+                                                    <li data-target="#carouselExampleIndicators" data-slide-to="@(i)" class="@(i == 0 ? "active" : "")">
+                                                        <a href="javascript:void(0)" title="@item.PrName">@item.PrName</a>
+                                                    </li>
+                                                }
+                                            }
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-sm-6 col-xs-12 right-top-detail">
                             <div class="box-info">
                                 <h1 class="title">@item.PrName</h1>
