@@ -12,7 +12,7 @@
     string currentUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
 
     @section health{
-        <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="~/html/css/owl.carousel.min.css">
         <meta name="description" content="@Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc)" />
         <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(item.KeyWord)" />
         <meta property="og:description" content="@item.ShortDesc" />
@@ -24,6 +24,9 @@
     }
     @section Styles {
         <style>
+            .qtyControl{
+                cursor:pointer;
+            }
             .box-social li {
                 display: inline-block;
                 margin-right: 10px;
@@ -115,7 +118,7 @@
                                                     @if (item.IsSale)
                                                     {
                                                         <p class="item">
-                                                            <span class="lable-price">Tại @commonInfo.Name: </span>
+                                                            <span class="lable-price">Giá: </span>
                                                             <span class="number-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
                                                         </p>
                                                         <p class="item">
@@ -131,7 +134,7 @@
                                                     else
                                                     {
                                                         <p class="item">
-                                                            <span class="lable-price">Tại @commonInfo.Name: </span>
+                                                            <span class="lable-price">Giá: </span>
                                                             <span class="number-price">@(item.Price == 0 ? "Đang cập nhật giá" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
                                                         </p>
                                                     }
@@ -372,8 +375,7 @@
                 items: "items",
             };
 
-        </script>
-        <script>
+   
             $(document).ready(function () {
                 resizeVideo();
                 $(window).resize(function () {
@@ -392,9 +394,15 @@
             });
             $("#single_product__addtocart").click(function () {
                 Cart.quantity = $("#pdQuantity").val();
-                Cart.addProduct(@item.Id, '@Convert.ToInt32(item.SalePrice)','@item.Images', escape('@item.PrName'));
+                Cart.addProduct(@item.Id, '@Convert.ToInt32(item.SalePrice)', '@item.Images', escape('@item.PrName'));
             });
-
+            $(".group-qty .plus").click(function () {
+                $("#pdQuantity").val(parseInt($("#pdQuantity").val())+1);
+            });
+            $(".group-qty .minus").click(function () {
+                var newQty = (parseInt($("#pdQuantity").val()) - 1);
+                $("#pdQuantity").val(newQty<0?0:newQty);
+            });
             function resizeVideo() {
                 var contentW = $('#product_tabs_description').width();
                 var iframe = $('#product_tabs_description iframe');
