@@ -402,7 +402,7 @@
             });
             $(".group-qty .minus").click(function () {
                 var newQty = (parseInt($("#pdQuantity").val()) - 1);
-                $("#pdQuantity").val(newQty<0?0:newQty);
+                $("#pdQuantity").val(newQty < 1 ? 1 : newQty);
             });
             function resizeVideo() {
                 var contentW = $('#product_tabs_description').width();
