@@ -41,11 +41,32 @@
     @Html.Raw(commonInfo.PageScript)
 
     @RenderSection("scripts", required: false)
+
     <script type="text/javascript">
         jQuery(window).load(function () {
             Cart.bindCart();
         });
     </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "https://schema.org",
+        "@@type": "WebSite",
+        "url": "@Url.Content("~", true)",
+        "potentialAction": {
+        "@@type": "SearchAction",
+        "target": "@(Url.Content("~").TrimEnd('/') + Url.RouteUrl("search") + "?keyword={keyword}")",
+        "query-input": "required name=keyword"
+        }
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "https://schema.org",
+        "@@type": "Organization",
+        "url": "@Url.Content("~", true).TrimEnd('/')",
+        "logo": "@commonInfo.Logo"
+        }
 
+    </script>
 </body>
 </html>

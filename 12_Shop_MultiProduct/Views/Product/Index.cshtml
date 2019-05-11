@@ -24,9 +24,10 @@
     }
     @section Styles {
         <style>
-            .qtyControl{
-                cursor:pointer;
+            .qtyControl {
+                cursor: pointer;
             }
+
             .box-social li {
                 display: inline-block;
                 margin-right: 10px;
@@ -375,7 +376,7 @@
                 items: "items",
             };
 
-   
+
             $(document).ready(function () {
                 resizeVideo();
                 $(window).resize(function () {
@@ -410,6 +411,59 @@
                 iframe.css('width', iframeW);
                 var iframeH = contentW / 16 * 9;
                 iframe.css('height', iframeH);
+            }
+        </script>
+        <script type="application/ld+json">
+            {
+            "@@context": "http://schema.org",
+            "@@type": "BreadcrumbList",
+            "itemListElement": [{
+            "@@type": "ListItem",
+            "position": 1,
+            "item": {
+            "@@id": "@currentUrl",
+            "name": "Trang chủ"
+            }
+            },{
+            "@@type": "ListItem",
+            "position": 2,
+            "item": {
+            "@@id": "@(currentUrl + Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName, item.ParentId))",
+            "name": "@(string.IsNullOrEmpty(item.ParentCatName) ? "Sản phẩm" : item.ParentCatName)"
+            }
+            },{
+            "@@type": "ListItem",
+            "position": 3,
+            "item": {
+            "@@id": "@(currentUrl + Anpero.StringHelpper.GetCategoryLink(item.CatName, item.CatID))",
+            "name": "@(string.IsNullOrEmpty(item.CatName) ? "Sản phẩm" : item.CatName)"
+            }
+            },{
+            "@@type": "ListItem",
+            "position": 4,
+            "item": {
+            "@@id": "@Request.Url.AbsoluteUri",
+            "name": "@item.PrName"
+            }
+            }
+            ]
+            }
+        </script>
+        @{ 
+            List<string> images = new List<string>();
+            images.Add(item.Images);
+            images.AddRange(item.ImagesSlide);
+            images = images.Select(x => "\"" + x + "\"").ToList();
+            var imagesText = string.Join(",", images);
+        }
+        <script type="application/ld+json">
+            {
+            "@@context":"http://schema.org/",
+            "@@type":"Product",
+            "name":"@item.PrName",
+            "image":[@Html.Raw(imagesText)],
+            "description":"@item.ShortDesc",
+            "sku": "@item.Id"
             }
         </script>
     }
