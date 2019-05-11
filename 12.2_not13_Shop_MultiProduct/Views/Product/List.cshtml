@@ -43,7 +43,7 @@
                             </span>
                         </li>
                     }
-                    else if (ViewBag.isParent != null && ViewBag.isParent=="1")
+                    else if (ViewBag.isParent != null && ViewBag.isParent == "1")
                     {
                         <li>
                             <span>
@@ -236,9 +236,9 @@
 
             </div>
             <div class="sidebar_small col-sm-3  col-sm-pull-9">
-                <div id="shopify-section-sidebar" class="shopify-section page_sidebar">
+                <div id="shopify-section-sidebar" class="shopify-section page_sidebar" style="margin-top:30px;">
                     <div class="sidebar">
-                        <div class="sidebar_widget sidebar_widget__linklist">
+                        <div class="sidebar_widget sidebar_widget__products">
                             <h3 class="widget_header">Danh mục sản phẩm</h3>
                             <div class="widget_content">
                                 <ul class="list_links">
@@ -252,7 +252,24 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="sidebar_widget sidebar_widget__linklist">
+                        <div class="sidebar_widget sidebar_widget__products">
+                            <h3 class="widget_header">Thương hiệu</h3>
+
+                            <div class="widget_content">
+                                <ul class="list_links">
+                                    <li class="level_1__item">
+                                        @foreach (var item in commonInfo.ProductGroupList)
+                                        {
+                                            <div class="radio">
+                                                <label><input type="radio" name="brands" value="@item.Id" /> @item.Name</label>
+                                            </div>
+                                        }
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="sidebar_widget sidebar_widget__products">
                             @foreach (var item in commonInfo.ProductProperties)
                             {
                                 if (item.Values != null && item.Values.Length > 0)
@@ -378,30 +395,8 @@
     <script>
             var categoryId = @productList.Item[0].CatID;
             var ParentCatId = @productList.Item[0].ParentId;
-            var property = "@ViewBag.property";
-            $(document).ready(function () {
-                $("input[type=checkbox][name=properties]").click(function () {
-                    var attributeIdList = "";
-                    $("input[type=checkbox][name=properties]:checked").each(function () {
-                        attributeIdList += $(this).val() + ",";
-                    });
-                    window.location.href = "/search?property=" + attributeIdList;
-                })
-                if (property != "") {
-                    var propertyList = property.split(",")
-                    $("li.property-item").removeClass("active");
-                    for (var i = 0; i < propertyList.length; i++) {
-                        try {
-                            $("li.property-item[data-id=" + propertyList[i] + "]").addClass("active");
-                            $("input[type=checkbox][name=properties][value=" + propertyList[i] + "]").prop("checked", true);
-                        } catch (e) {
-
-                        }
 
 
-                    }
-                }
-            });
     </script>
 }
 else
@@ -412,14 +407,64 @@ else
     </script>
 }
 
-
+<style>
+    .sidebar .sidebar_widget__products {
+        margin-top: 15px !important;
+    }
+</style>
 
 @section  scripts{
     <script>
-        $(document).ready(function () {
-            $("#sort_by_select").change(function () {
-                Search.setOrder($(this).val());
-            });
+    var property = "@ViewBag.property";
+    var brands = "@ViewBag.brands";
+        //$(document).ready(function () {
+        //    $("#sort_by_select").change(function () {
+        //        Search.setOrder($(this).val());
+        //    });
+        //});
+    $(document).ready(function () {
+                var param = "?";
+                var conditon = "";
+            $("input[type=checkbox][name=properties],input[name=brands]").click(function () {
+
+
+                var properties = $("input[type=checkbox][name=properties]:checked");
+                 var branch = $("input[name=brands]:checked");
+                if (properties.length > 0) {
+
+                    var attributeIdList = "";
+                    properties.each(function () {
+                        attributeIdList += $(this).val() + ",";
+                    });
+                    conditon += param + "property=" + attributeIdList.substring(0, attributeIdList.length - 1);
+                    param = "&";
+                }  
+                if (branch.length > 0) {
+                    var branchList = "";
+                    branch.each(function () {
+                    branchList += $(this).val() + ",";
+                    });
+                    conditon += param + "brands=" + branchList.substring(0, branchList.length - 1)
+                    param = "&";
+                }
+               window.location.href = "/search" + conditon;
+            })
+
+            if (property != "") {
+                var propertyList = property.split(",")
+                $("li.property-item").removeClass("active");
+                for (var i = 0; i < propertyList.length; i++) {
+                    try {
+                        $("li.property-item[data-id=" + propertyList[i] + "]").addClass("active");
+                        $("input[type=checkbox][name=properties][value=" + propertyList[i] + "]").prop("checked", true);
+                    } catch (e) {
+
+                    }
+                }
+            }
+            if (brands != "") {
+                   $("input[type=radio][name=brands][value=" + brands+ "]").prop("checked", true);
+              }
         });
     </script>
     @*<script src="/assets/js/countdown/jquery.plugin.js"></script>

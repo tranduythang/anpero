@@ -163,6 +163,7 @@ namespace AnperoFrontend.Controllers
                 title += keyword;
             }
             ViewBag.property = property;
+            ViewBag.brands = brands;
             ViewBag.Title = title;
             SetUpSeo(0,0);
             return View("List");

@@ -1,0 +1,183 @@
+footer {
+  background: #E6E6E6; margin-top: 30px;
+  .box-top-footer {
+    background: #000; color: #f1f1f1; padding: 30px 0;
+    .left-top {
+      margin-bottom: 20px;
+    }
+  }
+  .bottom-footer {
+    background: #222; color: #f1f1f1;
+  }
+  .title {
+    background: transparent; color: #eaeaea; border-bottom: 1px solid #e1e1e1; text-transform: uppercase; font-size: 17px; margin-bottom: 10px; padding-bottom: 5px; width: 100%;
+  }
+  p {
+    margin-bottom: 10px; line-height: 24px;
+    span {
+      display: block;
+    }
+    &.col50 {
+      width: 50%; float: left;
+    }
+  }
+  a {
+    color: $color-999;
+    &:hover {
+      color: $color-white; text-decoration: underline;
+    }
+  }
+
+  .box-social {
+    li {
+      display: inline-block; margin-right: 10px;
+      a {
+        color: #eaeaea; display: block; width: 30px; height: 30px; line-height: 30px; text-align: center; background: #3b5998; margin-top: 10px;
+        i {
+          line-height: 30px;
+        }
+      }
+      &:nth-child(2) a {
+        background: #28aae1;
+      }
+      &:nth-child(3) a {
+        background: #dd4b38;
+      }
+      &:nth-child(4) a {
+        background: #dc2925;
+      }
+      &:nth-child(5) a {
+        background: #5d4942;
+      }
+    }
+  }
+
+  .content-pay {
+    img {
+      max-height: 30px; margin-top: 10px;
+    }
+  }
+
+  .right-links {
+    margin-bottom: 20px;
+    .list-links {
+      li a {
+        line-height: 25px; display: block;
+      }
+    }
+  }
+
+  .right-newsletter {
+    margin-top: 20px;
+    .main-footer-form {
+      margin-bottom: 10px;
+      .txt-form {
+        width: 280px; height: 33px; display: block; border: 1px #928b8b solid; float: left; font-size: 13px; background: none; color: #9a9b9e; padding: 0 10px;
+      }
+      .button {
+        height: 33px; background: #9a9b9e; width: 100px; cursor: pointer; color: #f1f1f1; text-transform: none; border: 1px #928b8b solid; border-left: none; outline: none;
+      }
+    }
+    .title {
+      display: inline-block; width: auto; padding-right: 20px; line-height: 1.5;
+    }
+  }
+
+  .main-bottom-footer {
+    padding: 20px 0px;
+    .logo {
+      &.pull-left {
+        margin: 5px 20px 0px 0px;
+        img {
+          max-width: 200px;
+        }
+      }
+    }
+    .copy p {
+      margin: 0;
+    }
+
+    .copyright {
+      margin: 0; text-align: center; display: block; margin-top: 10px;
+      a {
+        color: #9a9b9e;
+        &:hover {
+          color: $color-white;
+        }
+      }
+    }
+  }
+}
+
+.box-temp-fixed {
+  .item-fix {
+    margin-top: 10px;
+    -webkit-transition: all .25s ease-in-out;
+    -moz-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 10;
+    &:not(.box-hotline) {
+      transform: translate(50px, 20px);
+      -ms-transform: translate(50px, 20px);
+      -webkit-transform: translate(50px, 20px);
+      visibility: hidden;
+      filter: alpha(opacity=0);
+      -khtml-opacity: 0;
+      -moz-opacity: 0;
+      opacity: 0;
+    }
+    &.trans {
+      transform: translate(0px, 0px);
+      -ms-transform: translate(0px, 0px);
+      -webkit-transform: translate(0px, 0px);
+      visibility: visible;
+      filter: alpha(opacity=10);
+      -khtml-opacity: 1;
+      -moz-opacity: 1;
+      opacity: 1;
+    }
+  }
+
+  .box-cart-fixed {
+    display: inline-block; width: 35px; height: 35px; line-height: 33px;
+    background: $color-main; border-radius: 50%; text-align: center; color: $color-white; box-shadow: 1px 2px 2px rgba(0, 0, 0, .3); bottom: 60px;
+    a {
+      color: #fff; display: block;
+    }
+    .numberCart {
+      position: absolute; width: 20px; height: 20px; line-height: 20px; top: -5px; right: -5px; background: $color-white;
+      border-radius: 50%; overflow: hidden; color: $color-main; box-shadow: 1px 2px 2px rgba(0, 0, 0, .3); text-align: center; font-size: 12px; z-index: 5;
+    }
+  }
+  .box-back-top {
+    width: 35px; height: 35px; bottom: 100px; text-align: center;
+    -webkit-transition-delay: 300ms;
+    -moz-transition-delay: 300ms;
+    -o-transition-delay: 300ms;
+    transition-delay: 300ms;
+  }
+  .box-hotline {
+    height: 50px; width: 210px; background: #424242; right: 0; bottom: 0;
+    label {
+      display: block; position: relative;
+      a {
+        > span {
+          margin: 0 5px 0 -25px; display: inline-block; vertical-align: middle; width: 50px; height: 50px; background: url(../images/call.png) top left no-repeat;
+        }
+      }
+      p {
+        display: inline-block; vertical-align: middle; color: $color-white; font-size: 13px; margin: 0; font-weight: normal;
+        span {
+          display: block;
+        }
+      }
+      .close-hotline {
+        z-index: 1; position: absolute; top: 14px; right: 10px; display: inline-block; width: 21px; height: 21px; background: url(../images/close.png) no-repeat; cursor: pointer;
+      }
+    }
+  }
+}

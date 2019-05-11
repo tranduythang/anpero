@@ -17,7 +17,7 @@
     <meta property="og:url" content="@currentUrl" />
     <meta property="og:image" content="@commonInfo.Logo" />
     <link rel="canonical" href="@ViewBag.WebsiteUrl" />
-
+    
 }
 <div class="breadcrumbs">
     <div class="container">
@@ -73,30 +73,3 @@
         @Html.Partial("article/_MenuAndAdsPartial")
     </div>
 </div>
-
-<style>
-    .breadcrumbs {
-        padding: 0 0 26px 0;
-    }
-
-        .breadcrumbs ul {
-            font-size: 0;
-            line-height: 0;
-        }
-
-        .breadcrumbs li {
-            display: inline-block;
-            padding: 27px 10px 0 0;
-        }
-
-        .breadcrumbs a, .breadcrumbs span {
-            font-size: 14px;
-            line-height: 1em;
-        }
-
-        .breadcrumbs li ~ li:before {
-            content: '\f105';
-            margin: 0 10px 0 0;
-            font: 14px/1em "FontAwesome";
-        }
-</style>

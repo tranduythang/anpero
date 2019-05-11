@@ -91,8 +91,6 @@
                 $(".mini-products-list").show();
                 $(".cart-buttons").show();                
                 $("#lpr").html(Util.toMoneyFormat(ttSC) + " đ");
-                $("#cartPrice").html(Util.toMoneyFormat(ttSC) + " đ");
-                
                 $("#sendOrder").show();
                 htmlCat += '<div class="box_footer">';
                 htmlCat += '<p class="cart_total"><b>Tổng giá: </b><span class="money">' + Util.toMoneyFormat(ttSC) + ' đ</span></p>';
