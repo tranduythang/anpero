@@ -17,7 +17,8 @@
     <link rel="dns-prefetch" href="https://www.facebook.com/">
     <title>@ViewBag.Title</title>
 
-    @Styles.Render("~/Content/css")    
+    @Styles.Render("~/Content/css")
+    @RenderSection("Styles", required: false)
     <link rel="shortcut icon" href="@(string.IsNullOrEmpty(commonInfo.Favicon)?commonInfo.Logo:commonInfo.Favicon)" type="image/x-icon">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="Refresh" content="3600" />

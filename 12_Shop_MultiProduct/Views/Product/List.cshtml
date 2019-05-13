@@ -29,7 +29,9 @@
 
         @section Styles{
             <style>
-            .box-pagination ul li.previous a:before { content: "Trước" }
+                .box-pagination ul li.previous a:before {
+                    content: "Trước"
+                }
             </style>
         }
 
@@ -155,6 +157,74 @@
         <script>
             var categoryId = @productList.Item[0].CatID;
             var ParentCatId = @productList.Item[0].ParentId;
+        </script>
+        <script type="application/ld+json">
+            {
+            "@@context": "http://schema.org",
+            "@@type": "BreadcrumbList",
+            "itemListElement": [{
+            "@@type": "ListItem",
+            "position": 1,
+            "item": {
+            "@@id": "@currentUrl",
+            "name": "Trang chủ"
+            }
+            },{
+            "@@type": "ListItem",
+            "position": 2,
+            "item": {
+            "@@id": "@(currentUrl)/search",
+            "name": "Sản phẩm"
+            }
+            },
+            @if (pageName.ToLower().Equals("search"))
+            {
+                <text>
+                    {
+                    "@@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                    "@@id": "@Request.Url.AbsoluteUri",
+                    "name": "Tất cả sản phẩm"
+                    }
+                    }
+                </text>
+            }
+            else if (ViewBag.isParent != null)
+            {
+                <text>
+                    {
+                    "@@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                    "@@id": "@currentUrl/@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)",
+                    "name": "@productList.Item[0].ParentCatName"
+                    }
+                    }
+                </text>
+            }
+            else
+            {
+                <text>
+                    {
+                    "@@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                    "@@id": "@currentUrl/@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)",
+                    "name": "@productList.Item[0].ParentCatName"
+                    }
+                    }, {
+                    "@@type": "ListItem",
+                    "position": 4,
+                    "item": {
+                    "@@id": "@Request.Url.AbsoluteUri",
+                    "name": "@productList.Item[0].CatName"
+                    }
+                    }
+                </text>
+            }
+            ]
+            }
         </script>
     }
     else
