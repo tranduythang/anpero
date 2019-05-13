@@ -46,79 +46,12 @@ jQuery(function ($) {
         });
 
     });
-
-
-
-
-    // FORM VALIDATION //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    $.fn.formValidation = function () {
-        this.find('input[type=text], input[type=email], input[type=password], textarea').after('<p class="alert-inline" style="display: none;"></p>');
-
-        this.on('submit', function (event) {
-            $(this).find('input[type=text], input[type=email], input[type=password], textarea').each(function () {
-
-                if ($(this).val() == '') {
-                    $(this).addClass('alert-inline').next().html('Field can\'t be blank').slideDown();
-
-                    $(this).on('focus', function () {
-                        $(this).removeClass('alert-inline').next().slideUp();
-                    });
-
-                    event.preventDefault();
-
-                };
-
-            });
-
-            if ($(this).find('input[type=email]').length) {
-                var inputEmail = $(this).find('input[type=email]');
-
-                if (inputEmail.val().length > 0 && (inputEmail.val().length < 6 || inputEmail.val().indexOf("@") == -1 || inputEmail.val().indexOf(".") == -1)) {
-                    inputEmail.addClass('alert-inline').next().html('Incorrect email').slideDown();
-
-                    inputEmail.on('focus', function () {
-                        $(this).removeClass('alert-inline').next().slideUp();
-                    });
-
-                    event.preventDefault();
-
-                };
-
-            };
-
-            if ($(this).find('input[type=password]').length == 2) {
-                var pwd1 = $(this).find('input[type=password]:eq(0)');
-                var pwd2 = $(this).find('input[type=password]:eq(1)');
-
-                if (pwd1.val() != pwd2.val()) {
-                    pwd1.addClass('alert-inline');
-                    pwd2.addClass('alert-inline').next().html('Passwords do not match').slideDown();
-
-                    pwd1.on('focus', function () {
-                        pwd1.removeClass('alert-inline');
-                        pwd2.removeClass('alert-inline').next().slideUp();
-                    });
-
-                    pwd2.on('focus', function () {
-                        pwd1.removeClass('alert-inline');
-                        pwd2.removeClass('alert-inline').next().slideUp();
-                    });
-
-                    event.preventDefault();
-
-                };
-
-            };
-
-        });
-
-    };
-
+    
 
 
     // MAIN PRODUCT LISTING IMAGE CHANGE
     $('.product_item').each(function () {
-        var self = $(this)
+        var self = $(this);
         if (device.desktop() && self.find(".img__2").length > 0) {
             self.on({
                 mouseenter: function () {
@@ -281,41 +214,7 @@ jQuery(function ($) {
             e.preventDefault();
         };
     });
-
-
-
-
-    // AJAX CART  ////////////////////////////////////////////////////////////////////////////////
-    function ajaxCartRender() {
-        $('.cart_content_preloader').removeClass('off');
-        jQuery.getJSON('/cart.js', function (data) {
-            var newHtml = '';
-
-            if (data.items.length == 0) {
-                newHtml += '<p class="alert alert-warning">' + theme.cartAjaxTextEmpty + '</p>';
-            } else {
-                data.items.forEach(function (item, i) {
-                    var image_url = item.image.replace('.png', '_90x90.png').replace('.jpg', '_90x90.jpg');
-                    newHtml += '<li class="cart_items"><img class="item_img" src="' + image_url + '"  alt="' + item.title + '" /><div class="item_desc"><a class="product_title" href="' + item.url + '">' + item.title.slice(0, 50) + '</a><span class="money">' + Shopify.formatMoney(item.price, theme.moneyFormat) + '</span><p class="product_quantity">x' + item.quantity + '</p><a class="item_remove_btn" href="#" item-id="' + item.id + '"><i class="fa fa-trash"></i></a></div></li>';
-                });
-
-                newHtml += '<div class="box_footer"><p class="cart_total"><b>' + theme.cartAjaxTextTotalPrice + ': </b><span class="money">' + Shopify.formatMoney(data.total_price, theme.moneyFormat) + '</span></p><a id="clear_cart_all_items" class="cart_clear" href="/cart/clear"><i class="fa fa-refresh" title="' + theme.cartAjaxTextClearCart + '"></i></a><a class="btn cart_url" href="/cart">' + theme.cartAjaxTextGoCart + '</a></div>';
-
-            }
-
-            $('#cart_content_box').html(newHtml);
-            $('.header_cart #cart_items').html(data.item_count);
-            $('.cart_content_preloader').addClass('off');
-        });
-    };
-
-    // JQUERY.AJAX-CART.JS MINI
-    jQuery(document).ready(function (t) { var e = { TOTAL_ITEMS: ".cart-total-items", TOTAL_PRICE: ".cart-total-price", SUBMIT_ADD_TO_CART: "input[type=image], input.submit-add-to-cart", FORM_UPDATE_CART: "form[name=cartform]", FORM_UPDATE_CART_BUTTON: "form[name=cartform] input[name=update]", FORM_UPDATE_CART_BUTTONS: "input[type=image], input.button-update-cart", LINE_ITEM_ROW: ".cart-line-item", LINE_ITEM_QUANTITY_PREFIX: "input#updates_", LINE_ITEM_PRICE_PREFIX: ".cart-line-item-price-", LINE_ITEM_REMOVE: ".remove a", EMPTY_CART_MESSAGE: "#empty" }, a = function (t) { return Shopify.formatMoney(t, "${{ amount }}") }; t(document).on("submit", 'form[action*="/cart/add"]', function (e) { e.preventDefault(), t(e.target).find(".btn-cart").attr("disabled", !0).addClass("disabled"), Shopify.addItemFromForm(e.target) }), t(document).on("click", ".btn-cart", function () { t.fancybox.showLoading(), t.fancybox.helpers.overlay.open({ parent: t("body") }) }), t(e.FORM_UPDATE_CART_BUTTON).click(function (a) { a.preventDefault(), t(a.target.form).find(e.FORM_UPDATE_CART_BUTTONS).attr("disabled", !0).addClass("disabled"), Shopify.updateCartFromForm(a.target.form) }), t(e.FORM_UPDATE_CART).delegate(e.LINE_ITEM_REMOVE, "click", function (a) { a.preventDefault(); var i = this.href.split("/").pop().split("?").shift(); Shopify.removeItem(i), t(this).parents(e.LINE_ITEM_ROW).remove() }), Shopify.onItemAdded = function (e, a) { t(a).find(".btn-cart").attr("disabled", !1).removeClass("disabled"), Shopify.getCart() }, Shopify.onCartUpdate = function (i, n) { t("#cart_items").html(i.item_count); if (theme.cartAjaxOn) { ajaxCartRender(); } var r = a(i.total_price); t(e.TOTAL_PRICE).html(r), t(e.EMPTY_CART_MESSAGE).length > 0 && 0 == i.item_count && (t(e.FORM_UPDATE_CART).hide(), t(e.EMPTY_CART_MESSAGE).show()), n = n || !1, n && i.item_count > 0 && (t.each(i.items, function (i, n) { t(e.LINE_ITEM_PRICE_PREFIX + n.id).html(a(n.line_price)), t(e.LINE_ITEM_QUANTITY_PREFIX + n.id).val(n.quantity) }), t(n).find("input[value=0]").parents(e.LINE_ITEM_ROW).remove(), t(n).find(e.FORM_UPDATE_CART_BUTTONS).attr("disabled", !1).removeClass("disabled")) }, Shopify.onError = function () { t("form").find(".btn-cart").attr("disabled", !1).removeClass("disabled") } });
-
-
-
-
-
+  
     // JQUERY.API.JS MINI
     function floatToString(t, a) { var e = t.toFixed(a).toString(); return e.match(/^\.\d+/) ? "0" + e : e } function attributeToString(t) { return "string" != typeof t && (t += "", "undefined" === t && (t = "")), jQuery.trim(t) } "undefined" == typeof Shopify && (Shopify = {}), Shopify.money_format = "$ ", Shopify.onError = function (XMLHttpRequest, textStatus) { var data = eval("(" + XMLHttpRequest.responseText + ")"); alert(data.message + "(" + data.status + "): " + data.description) }, Shopify.onCartUpdate = function (t) { alert("There are now " + t.item_count + " items in the cart.") }, Shopify.onItemAdded = function (t) { alert(t.title + " was added to your shopping cart.") }, Shopify.onProduct = function (t) { alert("Received everything we ever wanted to know about " + t.title) }, Shopify.formatMoney = function (t, a) { var e = "", r = /\{\{\s*(\w+)\s*\}\}/, o = a || this.money_format; switch (o.match(r)[1]) { case "amount": e = floatToString(t / 100, 2).replace(/(\d+)(\d{3}[\.,]?)/, "$1 $2"); break; case "amount_no_decimals": e = floatToString(t / 100, 0).replace(/(\d+)(\d{3}[\.,]?)/, "$1 $2"); break; case "amount_with_comma_separator": e = floatToString(t / 100, 2).replace(/\./, ",").replace(/(\d+)(\d{3}[\.,]?)/, "$1.$2") }return o.replace(r, e) }, Shopify.resizeImage = function (t, a) { try { if ("original" == a) return t; var e = t.match(/(.*\/[\w\-\_\.]+)\.(\w{2,4})/); return e[1] + "_" + a + "." + e[2] } catch (r) { return t } }, Shopify.addItem = function (t, a, e) { a = a || 1; var r = { type: "POST", url: "/cart/add.js", data: "quantity=" + a + "&id=" + t, dataType: "json", success: function (t) { "function" == typeof e ? e(t) : Shopify.onItemAdded(t) }, error: function (t, a) { Shopify.onError(t, a) } }; jQuery.ajax(r) }, Shopify.addItemFromForm = function (t, o) { var r = { type: "POST", url: "/cart/add.js", data: jQuery(t).serialize(), dataType: "json", success: function (r) { "function" == typeof o ? o(r, t) : Shopify.onItemAdded(r, t); $('body').append('<div id="cart_added"><h4>Product added to cart</h4><div class="cart_added__row"><div class="cart_added__1" id="cart_added__img"><img src="" alt="" /></div><div class="cart_added__2"><span id="cart_added__name" class="product_name"></span><p id="cart_added__quantity">Quantity: <span></span></p><a class="btn" href="/cart">Go to cart</a><a class="btn btn-alt" id="cart_added__close" href="#">Continue shopping</a></div></div></div>'); if (r.title.length < 60) { var productTitle = r.title } else { var productTitle = $.trim(r.title).substring(0, 60) + '...' }; $('#cart_added__name').html(productTitle); $('#cart_added__quantity span').html(r.quantity); $('#cart_added__close').on('click', function (e) { e.preventDefault(); $('.fancybox-close').trigger('click') }); if (r.image) { $('#cart_added__img img').attr('src', r.image).load(function () { $.fancybox.open($('#cart_added'), { 'openSpeed': 500, 'closeSpeed': 300, 'afterClose': function () { $('#cart_added').remove() } }) }) } else { $('#cart_added__img').hide(); $.fancybox.open($('#cart_added'), { 'openSpeed': 500, 'closeSpeed': 300, 'afterClose': function () { $('#cart_added').remove() } }) } }, error: function (t, o) { Shopify.onError(t, o); var errorData = eval('(' + t.responseText + ')'); $('body').append('<div id="cart_added" class="cart_error"><h4></h4><p class="alert alert-error"></p></div>'); $('#cart_added h4').html(errorData.message); $('#cart_added p').html(errorData.description); $.fancybox.open($('#cart_added'), { 'openSpeed': 500, 'closeSpeed': 300, 'afterClose': function () { $('#cart_added').remove() } }) } }; jQuery.ajax(r) }, Shopify.getCart = function (t) { jQuery.getJSON("/cart.js", function (a) { "function" == typeof t ? t(a) : Shopify.onCartUpdate(a) }) }, Shopify.getProduct = function (t, a) { jQuery.getJSON("/products/" + t + ".js", function (t) { "function" == typeof a ? a(t) : Shopify.onProduct(t) }) }, Shopify.changeItem = function (t, a, e) { var r = { type: "POST", url: "/cart/change.js", data: "quantity=" + a + "&id=" + t, dataType: "json", success: function (t) { "function" == typeof e ? e(t) : Shopify.onCartUpdate(t) }, error: function (t, a) { Shopify.onError(t, a) } }; jQuery.ajax(r) }, Shopify.removeItem = function (t, a) { var e = { type: "POST", url: "/cart/change.js", data: "quantity=0&id=" + t, dataType: "json", success: function (t) { "function" == typeof a ? a(t) : Shopify.onCartUpdate(t) }, error: function (t, a) { Shopify.onError(t, a) } }; jQuery.ajax(e) }, Shopify.clear = function (t) { var a = { type: "POST", url: "/cart/clear.js", data: "", dataType: "json", success: function (a) { "function" == typeof t ? t(a) : Shopify.onCartUpdate(a) }, error: function (t, a) { Shopify.onError(t, a) } }; jQuery.ajax(a) }, Shopify.updateCartFromForm = function (t, a) { var e = { type: "POST", url: "/cart/update.js", data: jQuery(t).serialize(), dataType: "json", success: function (e) { "function" == typeof a ? a(e, t) : Shopify.onCartUpdate(e, t) }, error: function (t, a) { Shopify.onError(t, a) } }; jQuery.ajax(e) }, Shopify.updateCartAttributes = function (t, a) { var e = ""; jQuery.isArray(t) ? jQuery.each(t, function (t, a) { var r = attributeToString(a.key); "" !== r && (e += "attributes[" + r + "]=" + attributeToString(a.value) + "&") }) : "object" == typeof t && null !== t && jQuery.each(t, function (t, a) { e += "attributes[" + attributeToString(t) + "]=" + attributeToString(a) + "&" }); var r = { type: "POST", url: "/cart/update.js", data: e, dataType: "json", success: function (t) { "function" == typeof a ? a(t) : Shopify.onCartUpdate(t) }, error: function (t, a) { Shopify.onError(t, a) } }; jQuery.ajax(r) }, Shopify.updateCartNote = function (t, a) { var e = { type: "POST", url: "/cart/update.js", data: "note=" + attributeToString(t), dataType: "json", success: function (t) { "function" == typeof a ? a(t) : Shopify.onCartUpdate(t) }, error: function (t, a) { Shopify.onError(t, a) } }; jQuery.ajax(e) };
     // WISHLIST ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -346,13 +245,6 @@ jQuery(function ($) {
         });
 
     });
-
-
-
-
-
-
-
 
     // COUNTDOWN TIMER //////////////////////////////////////////////////////////////////////////////////////////////////////////
     $.fn.ccountdown = function (_yr, _m, _d, _t, callback) {
@@ -403,10 +295,6 @@ jQuery(function ($) {
 
         interval = setInterval(_changeTime, 1000);
     };
-
-
-
-
 
     // INSTAGRAM /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     $.fn.homeSections = function () {
@@ -498,7 +386,7 @@ jQuery(function ($) {
             $('.banner_menu_item').each(function (i) {
                 var item = $(this);
                 var trigger = item.find('.menu_trigger');
-                var menu = item.find('ul')
+                var menu = item.find('ul');
                 menu.hide(0);
 
                 trigger.on('click', function (e) {
@@ -513,7 +401,6 @@ jQuery(function ($) {
             });
         };
     });
-
 
     // MOBILE MENU SLIDESHOW 
     $(window).on('load', function () {
@@ -537,13 +424,10 @@ jQuery(function ($) {
         };
     });
 
-
-
-
     // TABS //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     $('.tab_content_wrapper').each(function (i) {
         var navItem = $(this).find('.tab_nav');
-        var tabItem = $(this).find('.tab_item')
+        var tabItem = $(this).find('.tab_item');
         navItem.on('click', function (e) {
             navItem.removeClass('active');
             $(this).addClass('active');
@@ -551,9 +435,6 @@ jQuery(function ($) {
             tabItem.eq($(this).data('tab')).addClass('active');
         });
     });
-
-
-
 
     // TITLE ANIMATION
     titleAnimationScrollTrack = function (id, effect) {
@@ -566,7 +447,7 @@ jQuery(function ($) {
                         $(id).textillate({
                             in: {
                                 effect: effect,
-                                initialDelay: 0,
+                                initialDelay: 0
                             }
                         });
                         $(id).removeAttr("id");
@@ -575,7 +456,6 @@ jQuery(function ($) {
             }
         });
     };
-
 
     // SHOW TITLE ANIMATION
     $(window).on('load', function () {

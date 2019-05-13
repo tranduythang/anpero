@@ -1,29 +1,45 @@
 ﻿@{
-    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
-    if (ViewData["commonInfo"] != null)
-    {
-        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
-    }    
+                /**/
+
+                AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+                if (ViewData["commonInfo"] != null)
+                {
+                    commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+                }
+                string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
 }
 <!DOCTYPE html>
 <html lang="vi" class="color_scheme">
 <head>
     <meta charset="utf-8">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com/">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com/">    
     <link rel="dns-prefetch" href="https://www.facebook.com/">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/Content/css")    
     <link rel="shortcut icon" href="@(string.IsNullOrEmpty(commonInfo.Favicon)?commonInfo.Logo:commonInfo.Favicon)" type="image/x-icon">
-    <meta name="description" content="@commonInfo.Desc" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="Refresh" content="3600" />
-    <!-- Apple iOS and Android stuff -->
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <meta name="robots" content="*">
-    <title>@ViewBag.Title</title>
-    @Styles.Render("~/bundle/css")
+    <!-- Apple iOS and Android stuff -->
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheet/font-awesome.css" media="all">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
     @RenderSection("health", required: false)
-    @RenderSection("Styles", required: false)
+
+    <link href='/static/css' rel='stylesheet' type='text/css'>
+    <script src="//media.anpero.com/cdn/assets/plugins/jquery-1.10.2.min.js"></script>
+    <script>
+			var theme = {
+				moneyFormat: "${{amount}}",
+			};
+    </script>
+    <link href="~/assets/stylesheet/font-awesome.css" rel="stylesheet" />
 </head>
 <body>
     @Html.Partial("_partial/_HeaderPartial")
@@ -56,10 +72,24 @@
     </div>
     @Scripts.Render("~/bundle/js")
 
+    <link href="/assets/animate.css" rel="stylesheet" />
+    <link href="/assets/style.css" rel="stylesheet" type="text/css" media="all" />
+    <noscript id="deferred_styles">
+        <link href="/assets/responsive.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&amp;subset=cyrillic" rel="stylesheet" type="text/css">S
+    </noscript>
+    <script defer="defer" src="/assets/js/express_buttons.js" crossorigin="anonymous"></script>
+    <script src="/assets/js/features.js" defer="defer" crossorigin="anonymous"></script>
+    <script id="sections-script" data-sections="index-slideshow-full-width,index-banners-countdown-custom,index-logo-list,header,footer" defer="defer" src="/assets/shop.js"></script>
+    <h1 id="heading1" style="display:none;">
+        @commonInfo.Desc
+    </h1>
+    @Scripts.Render("~/bundles/scripts")
 
     @Html.Raw(commonInfo.AnperoPlugin)
     @Html.Raw(commonInfo.PageScript)
 
+    @Html.Partial("_partial/_MainFooter_1")
     @RenderSection("scripts", required: false)
     <script type="text/javascript">
         jQuery(window).load(function () {
