@@ -24,8 +24,6 @@ jQuery(document).ready(function($) {
 		$('.footer_newsletter_form .alert-success').show();
 	}
 
-	$('.footer_newsletter_form').formValidation();
-
 
 });
 
@@ -346,11 +344,6 @@ jQuery(document).ready(function($) {
 		$('.section_communication .newsletter_form .alert-success').show();
 	}
 
-	$('.newsletter_form').formValidation();
-
-
-
-
 });
 
   } catch(e) { console.error(e); }
@@ -647,10 +640,7 @@ jQuery(document).ready(function($) {
 		$('#newsletter_form .alert-success').show();
 	};
 
-	// FORM VALIDATION
-	$(document).ready(function() {
-		$('#newsletter_form').formValidation();
-	});
+	
 
 });
 
@@ -1059,9 +1049,6 @@ jQuery(document).ready(function($) {
 		$('.sidebar_newsletter_form .form_text').hide();
 		$('.sidebar_newsletter_form .alert-success').show();
 	}
-
-	$('.sidebar_newsletter_form').formValidation();
-
 
 });
 
@@ -1557,20 +1544,9 @@ jQuery(document).ready(function($) {
 	};
 
 
-	$('#create_customer').formValidation();
-
 	$('#create_customer').on('submit', function() {
 		$('#password_confirmed').val( $('#password_1').val() );
 	});
-
-
-	$('#customer_login').formValidation();
-
-
-	$('#account_section__activation form').formValidation();
-
-
-	$('#account_section__reset-account form').formValidation();
 
 });
 

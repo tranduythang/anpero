@@ -47,7 +47,7 @@ namespace AnperoFrontend.Controllers
             //}
             //else
             //{
-                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), model.ParentCategory, model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0,string.Empty);
+                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), model.ParentCategory, model.Brands, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0,string.Empty);
             //}
             ViewData["productList"] = rs;
             if (rs != null)
@@ -140,30 +140,29 @@ namespace AnperoFrontend.Controllers
             return View("List");
         }
         [BuildCommonHtml]
-        public ActionResult Search(string category, string keyword)
+        public ActionResult Search(SearchModel model)
         {
             string title = "";
             string pageQuery = Request.QueryString["page"];
             string property = Request.QueryString["property"];
-            string brands = Request.QueryString["brands"] ==null?"": Request.QueryString["brands"];
-
             int page = 1;
             if (!string.IsNullOrEmpty(pageQuery))
             {
                 page = Convert.ToInt32(pageQuery);
             }
             WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, category, "", brands, 0, 999999999, page, 14, keyword, SearchOrder.NameDesc, 0, property);
+            WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, model.Category, "", model.Brands, 0, 999999999, page, 14,model.KeyWord, model.SortBy, 0, property);
             ViewData["productList"] = rs;
             
             ViewBag.pageName = "Search";
             ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
-            if (!string.IsNullOrEmpty(keyword))
+            if (!string.IsNullOrEmpty(model.KeyWord))
             {
-                title += keyword;
+                title += model.KeyWord;
             }
-            ViewBag.property = property;
-            ViewBag.brands = brands;
+            ViewBag.property = model.Property;
+            ViewBag.category = model.Category;            
+            ViewBag.brands = model.Brands;
             ViewBag.Title = title;
             SetUpSeo(0,0);
             return View("List");

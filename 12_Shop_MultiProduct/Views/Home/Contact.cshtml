@@ -1,58 +1,14 @@
 ﻿@using AnperoFrontend.WebService;
 @{
-    ViewBag.Title = "Liên hệ với chúng tôi | VinFish";
+
     AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
     if (ViewData["commonInfo"] != null)
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
         ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
-
+        ViewBag.Title = "Liên hệ với chúng tôi | " + commonInfo.Name;
     }
 }
-@section Styles{
-    <style type="text/css">
-        iframe {
-            width: 100%;
-        }
-
-        .item_title {
-            font-size: 18px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 0 0 16px 0;
-        }
-
-        .template_contact .item_address h3 {
-            margin-bottom: 9px;
-        }
-
-        .template_contact .contact_element {
-            padding: 27px 0 26px 70px;
-            border-bottom: 1px solid rgba(240,240,240,0.5);
-            position: relative;
-        }
-
-        .template_contact .section_template__contact {
-            margin-top: 30px;
-        }
-
-        .template_contact .contact_element svg {
-            fill: #acdbb4;
-            position: absolute;
-            top: 27px;
-            left: 20px;
-        }
-
-        .template_contact .contact_element h4 {
-            font-size: 14px;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 6px;
-        }
-    </style>
-}
-
 @section health{
     <meta name="description" content="@commonInfo.Desc" />
     <meta name="keywords" content="@ViewBag.Keywords" />
@@ -62,17 +18,18 @@
     <meta property="og:url" content="@ViewBag.WebsiteUrl" />
     <meta property="og:image" content="@commonInfo.Logo" />
 }
-
 <div class="box-breadcrumb">
     <div class="container">
         <ul class="hidden-sm hidden-xs">
-            <li><a href="/" title="Trang chủ">Trang chủ</a></li>
+            <li><a href="/" title="Trang chủ @commonInfo.Name">Trang chủ</a></li>
             <li><span>Liên hệ</span></li>
+
         </ul>
     </div>
 </div>
 <div class="template_contact">
     <div class="container">
+
         <div>
             @Html.Raw(commonInfo.Footer)
         </div>
@@ -202,25 +159,45 @@
             $("#btn-send-contact").prop('disabled', false);
         }
     </script>
-    <script type="application/ld+json">
-        {
-        "@@context": "http://schema.org",
-        "@@type": "BreadcrumbList",
-        "itemListElement": [{
-        "@@type": "ListItem",
-        "position": 1,
-        "item": {
-        "@@id": "@Url.Content("~", true).TrimEnd("/")",
-        "name": "Trang chủ"
-        }
-        },{
-        "@@type": "ListItem",
-        "position": 2,
-        "item": {
-        "@@id": "@Request.Url.AbsoluteUri",
-        "name": "Liên hệ"
-        }
-        }]
-        }
-    </script>
 }
+<style type="text/css">
+    iframe {
+        width: 100%;
+    }
+
+    .item_title {
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        padding: 0 0 16px 0;
+    }
+
+    .template_contact .item_address h3 {
+        margin-bottom: 9px;
+    }
+
+    .template_contact .contact_element {
+        padding: 27px 0 26px 70px;
+        border-bottom: 1px solid rgba(240,240,240,0.5);
+        position: relative;
+    }
+
+    .template_contact .section_template__contact {
+        margin-top: 30px;
+    }
+
+    .template_contact .contact_element svg {
+        fill: #acdbb4;
+        position: absolute;
+        top: 27px;
+        left: 20px;
+    }
+
+    .template_contact .contact_element h4 {
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+    }
+</style>

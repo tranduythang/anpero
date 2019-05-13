@@ -170,27 +170,27 @@
                                             <div class="content-right-price-info">
                                                 <ul class="list-policy">
                                                     @*<li class="item">
-                                                            <div class="box">
-                                                                <div class="icon">
-                                                                    <img src="/html/images/icons/product_policy_1.png" alt="" width="" height="">
-                                                                </div>
-                                                                <div class="detail">
-                                                                    <h5 class="title-policy">Giao hàng</h5>
-                                                                    <span class="text-policy">Miễn phí giao hàng nội thành Tp. HCM</span>
-                                                                </div>
+                                                        <div class="box">
+                                                            <div class="icon">
+                                                                <img src="/html/images/icons/product_policy_1.png" alt="" width="" height="">
                                                             </div>
-                                                        </li>
-                                                        <li class="item">
-                                                            <div class="box">
-                                                                <div class="icon">
-                                                                    <img src="/html/images/icons/product_policy_2.png" alt="" width="" height="">
-                                                                </div>
-                                                                <div class="detail">
-                                                                    <h5 class="title-policy">Sản phẩm</h5>
-                                                                    <span class="text-policy">Cam kết chính hãng 100% <br> Phát hiện hàng giả đền 200%</span>
-                                                                </div>
+                                                            <div class="detail">
+                                                                <h5 class="title-policy">Giao hàng</h5>
+                                                                <span class="text-policy">Miễn phí giao hàng nội thành Tp. HCM</span>
                                                             </div>
-                                                        </li>*@
+                                                        </div>
+                                                    </li>
+                                                    <li class="item">
+                                                        <div class="box">
+                                                            <div class="icon">
+                                                                <img src="/html/images/icons/product_policy_2.png" alt="" width="" height="">
+                                                            </div>
+                                                            <div class="detail">
+                                                                <h5 class="title-policy">Sản phẩm</h5>
+                                                                <span class="text-policy">Cam kết chính hãng 100% <br> Phát hiện hàng giả đền 200%</span>
+                                                            </div>
+                                                        </div>
+                                                    </li>*@
                                                     @if (item.Warranty > 0)
                                                     {
                                                         <li class="item">
@@ -283,32 +283,9 @@
                         <div class="col-md-12 col-sm-12 col-xs-12 left-item-product-content">
                             <div class="box-top-products box-slide" style="margin: 0">
                                 <div class="owl-carousel owl-carousel-5" id="">
-                                    <div class="item box-product">
-                                        <div class="main">
-                                            <a href="#" title="" class="images">
-                                                <span class="lable-sale">Giảm 22%</span>
-                                                <img src="../images/img-110.jpg" class="" alt="">
-                                            </a>
-                                            <div class="list-action">
-                                                <a href="javascript:void(0)" class="btn-quickview-1" title=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
-                                                <a href="#" class="view-product" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
-                                                <a href="javascript:void(0)" class="add-cart" title=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                            </div>
-                                            <div class="detail text-center clearfix">
-                                                <h3 class="name">
-                                                    <a class="" href="#" title="">Á Ba </a>
-                                                </h3>
-                                                <div class="box-prince">
-                                                    <span class="prince-new">70,000₫</span>
-                                                    <span class="prince-old">95,000₫</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                     @if (ViewData["relateProduct"] != null)
                                     {
                                         AnperoFrontend.WebService.SearchResult relateProduct = (AnperoFrontend.WebService.SearchResult)ViewData["relateProduct"];
-
                                         if (relateProduct.Item != null && relateProduct.Item.Length > 0)
                                         {
                                             // relateProduct.Item= relateProduct.Item.Where(x => x.Id != item.Id);
@@ -332,7 +309,7 @@
                                                             <a href="@Anpero.StringHelpper.GetProductLink(relatedProduct.PrName,relatedProduct.Id)" title="@relatedProduct.PrName" class="view-product"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                                                             @if (item.IsInstock)
                                                             {
-                                                                <a href="javascript:Cart.addProduct(@relatedProduct.Id,@Convert.ToInt32(relatedProduct.IsSale?item.SalePrice:item.Price),'@relatedProduct.Images','@relatedProduct.PrName') @Anpero.StringHelpper.GetProductLink(relatedProduct.PrName,relatedProduct.Id)" class="add-cart" title="Mua hàng">
+                                                                <a href="javascript:Cart.addProduct(@relatedProduct.Id,'@Convert.ToInt32(relatedProduct.IsSale?item.SalePrice:item.Price)','@relatedProduct.Images','@relatedProduct.PrName')" class="add-cart" title="Mua hàng">
                                                                     <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                                                                 </a>
                                                             }
@@ -366,6 +343,7 @@
             </div>
         </div>
         <!--box-item-product-->
+      
     </div>
 
     @section scripts{
@@ -395,7 +373,7 @@
             });
             $("#single_product__addtocart").click(function () {
                 Cart.quantity = $("#pdQuantity").val();
-                Cart.addProduct(@item.Id, '@Convert.ToInt32(item.SalePrice)', '@item.Images', escape('@item.PrName'));
+                Cart.addProduct(@item.Id, '@Convert.ToInt32(item.SalePrice)', '@item.Images', $("h1.title").html());
             });
             $(".group-qty .plus").click(function () {
                 $("#pdQuantity").val(parseInt($("#pdQuantity").val())+1);
