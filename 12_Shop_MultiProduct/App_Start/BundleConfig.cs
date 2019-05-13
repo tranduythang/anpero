@@ -10,12 +10,13 @@ namespace AnperoFrontend
             bundles.Add(new ScriptBundle("~/bundle/js").Include(
                 "~/Html/js/jquery-1.10.2.min.js",
                 "~/Html/js/bootstrap.min.js",
-                "~/Html/js/javascript.js",
+                
                 "~/Html/js/owl.carousel.min.js",
                 //"~/Html/js/bootstrap-datetimepicker.js",
                 "~/Scripts/jquery.cokie.min.js",
                 "~/Scripts/Anpero.Common.js",
-                "~/Scripts/ShoppingCart.js"
+                "~/Scripts/ShoppingCart.js",
+                "~/Html/js/javascript.js"
             ));
 
             bundles.Add(new StyleBundle("~/bundle/css").Include(
@@ -24,7 +25,7 @@ namespace AnperoFrontend
                 "~/Html/css/font-awesome.min.css"
             ));
 
-            BundleTable.EnableOptimizations = false;
+            BundleTable.EnableOptimizations = true;
         }
     }
 }

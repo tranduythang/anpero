@@ -1,15 +1,19 @@
 function updateCatg() {
-    var windowWidth = jQuery(window).width();
+    var windowWidth = $(window).width();
     var courseHeight = $('.box-course-search .main-course .course').height();
-    if (windowWidth > 813){
+
+    if (windowWidth > 813) {
         $('header .nav-navbar .li-child').click(function () {
-            $(this).addClass('open-nav');
+            $(this).toggleClass('open-nav');
             $(this).find('.level-2').addClass('open-nav');
         });
         $('header .nav-navbar .level-2 .li-child').click(function () {
             $(this).find('.level-3').toggleClass('open-nav');
         });
-    } else  if (windowWidth < 812) {
+    } else if (windowWidth < 812) {
+        $("a.m-nav").click(function (event) {
+            event.preventDefault();
+        });
         $('header .nav-navbar .li-child').click(function () {
             $(this).toggleClass('open-nav');
             //$(this).find('.level-2').toggleClass('open-nav');
@@ -23,6 +27,7 @@ function updateCatg() {
 
 
 $(document).ready(function () {
+    updateCatg();
     $('.toggle-filter').click(function () {
         $('body').addClass('open-filter');
         $('.overlay-filter').show();
@@ -57,7 +62,7 @@ $(document).ready(function () {
     });
 
 
-    updateCatg();
+
     jQuery(window).resize(function () {
         updateCatg();
     });
@@ -111,10 +116,10 @@ $(document).ready(function () {
     });
 
     $(window).scroll(function () {
-        $(window).scrollTop() > 300 ? $(".item-fix").addClass("trans") : $(".item-fix").removeClass("trans")
+        $(window).scrollTop() > 300 ? $(".item-fix").addClass("trans") : $(".item-fix").removeClass("trans");
     });
 
-    $('.box-back-top').click(function(){
+    $('.box-back-top').click(function () {
         $("html, body").animate({ scrollTop: 0 }, 600);
         return false;
     });

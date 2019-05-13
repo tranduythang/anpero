@@ -13,7 +13,7 @@
     <header id="page_header">
         <div class="page_container">
             <div class="top_pannel ">
-                <div class="container"  itemscope itemtype="http://schema.org/LocalBusiness">
+                <div class="container" itemscope itemtype="http://schema.org/LocalBusiness">
                     <div class="top_pannel_text">Hotline đặt hàng <a href="tel:@commonInfo.HotLine" title="Điện thoại" itemprop="telephone">@commonInfo.HotLine</a></div>
                     <div class="top_pannel_menu">
                         <div class="header_search">
@@ -101,29 +101,34 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="level_1__item level_2__links">
-                                    <a class="level_1__link " href="/Brands">
-                                        Thương hiệu
+                                <li class="level_1__item level_2__small">
+                                    <a class="level_1__link " href="/search">
+                                        Thương hiệu mỹ phẩm
                                         <i class="level_1__trigger megamenu_trigger" data-submenu="menu_3"></i>
                                     </a>
                                     @if (commonInfo.ProductGroupList != null)
                                     {
-                                        <ul class="level_2" id="menu_3">
-                                            <li class="container">
+                                        <ul class="level_2">
+                                            <li>
+                                                <div>
+                                                    <ul class="level_3">                                                     
+                                                        @foreach (var item in commonInfo.ProductGroupList)
+                                                        {
+                                                            <li class="level_3__item ">
+                                                                
+                                                                <a class="level_3__link" href="/search?brands=@item.Id">
+                                                                    @item.Name
+                                                                </a>
+                                                            </li>
 
-                                                @foreach (var item in commonInfo.ProductGroupList)
-                                                {
-                                                <div class="megamenu_col__item align_center">
-                                                    @*<a href="@Anpero.StringHelpper.GetProductGroupLink(item.Name,item.Id)">*@
-                                                    <a href="/search?brands=@item.Id">
-                                                        <h4>@item.Name</h4>
-                                                    </a>
+                                                        }
+                                                    </ul>
                                                 </div>
-                                                }
                                             </li>
                                         </ul>
+                                    
                                     }
-                                   
+
                                 </li>
                                 <li class="level_1__item level_2__products">
                                     <a class="level_1__link " href="/">
@@ -213,7 +218,7 @@
                                 </div>
                                 <div id="cart_content_box">
                                     <p class="alert alert-warning">Bạn chưa có sản phẩm nào</p>
-                                    
+
                                 </div>
                             </div>
 

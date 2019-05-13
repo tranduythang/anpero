@@ -85,7 +85,7 @@
                         <div class="button-group">
                             @if (item.IsInstock)
                             {
-                                <a class="btn-add-cart" href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.Price),'@item.Images','@item.PrName.Replace(@"'",string.Empty)')">Đặt mua</a>
+                                <a class="btn-add-cart" href="javascript:Cart.addProduct(@item.Id,'@Convert.ToInt32(item.Price)','@item.Images','@item.PrName.Replace(@"'",string.Empty)')">Đặt mua</a>
 
                             }
                             else

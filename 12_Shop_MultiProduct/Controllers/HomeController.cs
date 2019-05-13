@@ -16,7 +16,7 @@ namespace AnperoFrontend.Controllers
 
             GetNewestProduct();
             SetUpSlideAds();
-
+            
             return View();
         }
         private void SetUpSlideAds()
@@ -45,7 +45,7 @@ namespace AnperoFrontend.Controllers
 
             if (!cache.TryGet(Ads2Cache, out ads2))
             {
-                ads1 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads2);
+                ads2 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads2);
                 cache.AddOrUpdate(Ads2Cache, ads2, DateTime.Now.AddMinutes(shortCacheTime));
             }
 

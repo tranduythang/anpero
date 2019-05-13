@@ -80,34 +80,26 @@
     <!--box-slide-home-->
 }
 
-@if (ViewBag.Ads1 != null)
+@if (ViewBag.Ads2 != null)
 {
-    Ads[] ads1 = (Ads[])ViewBag.Ads1;
+    Ads[] Ads2 = (Ads[])ViewBag.Ads2;
     <div class="box-slide-ads hidden-xs">
         <div class="container">
-            @for (var i = 0; i < ads1.Length; i += 2)
-            {
-                <div class="row">
+            <div class="row">
+                @for (var i = 0; i < Ads2.Length; i++)
+                {
+
                     <div class="col-sm-6 col-xs-6 item-slide">
                         <div class="image-hover">
-                            <a href="@ads1[i].ClickUrl">
-                                <img alt="@ads1[i].Description" src="@ads1[i].ImagesUrl">
+                            <a href="@Ads2[i].ClickUrl">
+                                <img alt="@Ads2[i].Description" src="@Ads2[i].ImagesUrl">
                             </a>
                         </div>
                     </div>
-                    @if (i + 1 < ads1.Length)
-                    {
-                        <div class="col-sm-6 col-xs-6 item-slide">
-                            <div class="image-hover">
-                                <a href="@ads1[i+1].ClickUrl">
-                                    <img alt="@ads1[i+1].Description" src="@ads1[i+1].ImagesUrl">
-                                </a>
-                            </div>
-                        </div>
-                    }
-                </div>
-            }
-        </div>
+
+                }
+            </div>
+            </div>
     </div>
     <!--box-slide-ads-->
 }
@@ -154,38 +146,6 @@
     }
 }
 
-@if (ViewBag.Ads2 != null)
-{
-    Ads[] ads2 = (Ads[])ViewBag.Ads2;
-    <div class="box-slide-ads hidden-xs">
-        <div class="container">
-            @for (var i = 0; i < ads2.Length; i += 2)
-            {
-                <div class="row">
-                    <div class="col-sm-6 col-xs-6 item-slide">
-                        <div class="image-hover">
-                            <a href="@ads2[i].ClickUrl">
-                                <img alt="@ads2[i].Description" src="@ads2[i].ImagesUrl">
-                            </a>
-                        </div>
-                    </div>
-                    @if (i + 1 < ads2.Length)
-                    {
-                        <div class="col-sm-6 col-xs-6 item-slide">
-                            <div class="image-hover">
-                                <a href="@ads2[i+1].ClickUrl">
-                                    <img alt="@ads2[i+1].Description" src="@ads2[i+1].ImagesUrl">
-                                </a>
-                            </div>
-                        </div>
-                    }
-                </div>
-            }
-        </div>
-    </div>
-    <!--box-slide-ads-->
-}
-
 @if (ViewData["newestProduct"] != null)
 {
     var newestProduct = (AnperoFrontend.WebService.SearchResult)ViewData["newestProduct"];
@@ -229,7 +189,7 @@
                                     <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="view-product"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                                     @if (item.IsInstock)
                                     {
-                                        <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@item.PrName') @Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="add-cart" title="Mua hàng">
+                                        <a href="javascript:Cart.addProduct(@item.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName')" class="add-cart" title="Mua hàng">
                                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                                         </a>
                                     }
@@ -290,4 +250,46 @@
         </div>
     </div>
     <!--box-slide-ads-->
+}
+@if (ViewData["FeatureArticle"] != null)
+{
+     SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
+    <div class="box-news">
+        <div class="container">
+            <div class="box-title-new">
+                <div class="title-top">
+                    <h2 class="title">Tin tức mới</h2>
+                </div>
+                <p class="des">Tin @commonInfo.Name, cập nhật tin tức nhanh nhất và mới nhất</p>
+            </div>
+
+            <div class="box-top-products box-slide">
+                <div class="owl-carousel owl-carousel-3">
+                    @foreach (var item in FeatureArticle.ItemList)
+                    {
+                        <div class="item item-new">
+                            <div class="item-slide">
+                                <div class="image-hover">
+                                    <a href="#" class="">
+                                        <img class="" src="@item.Thumb" alt="@item.Title">
+                                    </a>
+                                </div>
+                                <ul class="info-new">
+                                    <li class="time"><i class="fa fa-calendar" aria-hidden="true"></i> <time>@Anpero.StringHelpper.ConvertDateTime(item.CreateDate).ToString("dd/mm/yyyy")</time></li>
+                                    
+                                    <li class="post"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>@item.CategoryName</span></li>
+                                </ul>
+                            </div>
+                            <div class="detail clearfix">
+                                <h3 class="title"><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" title="@item.Title">@item.Title</a></h3>
+                                <p class="des">@item.ShotDesc</p>
+                                <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="view" title="">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
 }

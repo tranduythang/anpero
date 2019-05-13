@@ -69,165 +69,154 @@
             <div class="main_content sidebar_on col-sm-9  col-sm-push-3">
                 @if (productList.Item.Length > 0)
                 {
-                    <div id="shopify-section-template-collection" class="shopify-section section_template section_template__collection">
-                        <h1 class="page_heading">@ViewBag.Title</h1>
-                        @if (!pageName.ToLower().Equals("search"))
+                <div id="shopify-section-template-collection" class="shopify-section section_template section_template__collection">
+                    <h1 class="page_heading">@ViewBag.Title</h1>
+                
+                    @if (!pageName.ToLower().Equals("search"))
+                    {
+
+                        if (productList.PropertiesValue != null && productList.PropertiesValue.Length > 0)
                         {
-
-                            if (productList.PropertiesValue != null && productList.PropertiesValue.Length > 0)
-                            {
-                                <div class="button_filters">
-                                    <ul>
-                                        @foreach (var item in productList.PropertiesValue)
-                                        {
-                                            @*<li class="active">
-                                                    <a href="/search?property=">@item.Values</a>
-                                                </li>*@
-                                            <li data-id="@item.Id" class="property-item">
-                                                <a href="/search?property=@item.Id">@item.Values</a>
-                                            </li>
-                                        }
-                                    </ul>
-                                </div>
-                            }
-                        }
-                        else
-                        {
-                            if (commonInfo.ProductProperties != null && commonInfo.ProductProperties.Length > 0)
-                            {
-                                <div class="button_filters">
-
-                                    @foreach (var item in commonInfo.ProductProperties)
-                                    {
-                                        if (item.Values != null && item.Values.Length > 0)
-                                        {
-
-                                            <ul>
-                                                <li class="active property-item"><a href="/search?property=@string.Join(",", item.Values.Select(x => x.Id.ToString()).ToList())">Tất cả @item.Name</a></li>
-                                                @foreach (var valueItem in item.Values)
-                                                {
-                                                    <li data-id="@valueItem.Id" class="property-item"><a href="/search?property=@valueItem.Id">@valueItem.Values</a></li>
-                                                }
-                                            </ul>
-                                        }
+                            <div class="button_filters">
+                                <ul>
+                                    @foreach (var item in productList.PropertiesValue)
+                                    {                                   
+                                        <li data-id="@item.Id" class="property-item">
+                                            <a href="/search?property=@item.Id&brands=@ViewBag.brands&category=@ViewBag.category">@item.Values</a>
+                                        </li>
                                     }
-                                </div>
-                            }
-                        }
-                        <div class="product_options">
-                            @*<ul class="product_view">
-                                    <li id="view_grid" data-view="grid" class="active">
-                                        <i class="fa fa-th" aria-hidden="true"></i>
-                                    </li>
-                                    <li id="view_list" data-view="list">
-                                        <i class="fa fa-th-list" aria-hidden="true"></i>
-                                    </li>
-                                </ul>*@
-                            <div class="product_options__sort">
-                                <label for="sort_by_select">Sắp xếp theo:</label>
-
-                                <select id="sort_by_select">
-                                    <option value="nameDesc">Tên: A – Z</option>
-                                    <option value="pricedesc">Giá: giảm dần</option>
-                                    <option value="priceAsc">Giá: tăng dần</option>
-                                    <option value="timeDesc">Mới nhất</option>
-                                </select>
+                                </ul>
                             </div>
-                            @*<div class="product_options__number">
-                                    <label for="products_number_select">Show:</label>
-                                    <select id="products_number_select">
-                                        <option value="6">6</option>
-                                        <option value="9">9</option>
-                                        <option value="12">12</option>
-                                    </select>
-                                </div>
+                        }
+                    }
+                    else
+                    {
+                        if (commonInfo.ProductProperties != null && commonInfo.ProductProperties.Length > 0)
+                        {
+                            <div class="button_filters">
 
-                                <div class="product_count">20 items</div>*@
-                            <div class="clearfix"></div>
-                        </div>
-                        <script>
-                            theme.paginationTypeLoad = false;
-                            theme.paginationCurrent = 1;
-                            theme.paginatePages = 1;
-                            theme.productNumber = 9;
-                            theme.collectionName = 'collection-all';
-
-/**/</script>
-
-                        <div class="row product_listing__main layout__medium_sb" id="product_listing__sorted">
-                            @foreach (AnperoFrontend.WebService.ProductItem item in productList.Item)
-                            {
-                                <div class="col-xs-4 item_4_1 item_2_1">
-                                    <div class="product_item">
-                                        <div class="product_img">
-                                            <a class="img_change" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">
-                                                <img class="img__1" src="@item.Images" alt="@item.PrName">
-                                                @if (item.ImagesSlide != null && item.ImagesSlide.Count() > 0)
-                                                {
-                                                    <img class="img__2" src="@item.ImagesSlide[0]" alt="@item.PrName">
-                                                }
-                                                <span class="product_badge new">mới</span>
-                                                @if (item.IsSale)
-                                                {
-                                                    <span class="product_badge sale">sale</span>
-                                                }
-
-                                            </a>
-                                        </div>
-                                        <div class="product_info">
-                                            <p class="product_name">
-                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">@item.PrName</a>
-                                            </p>
-                                            <p class="product_desc product_desc__short">
-                                                @item.ShortDesc
-                                            </p>
-                                            <p class="product_desc product_desc__long">
-                                                @item.ShortDesc
-                                            </p>
-                                            <div class="product_prop">
-                                                <p class="product_price">
-                                                    @if (item.IsSale)
-                                                    {
-                                                        <span class="money money_sale" data-currency-usd="$33.00">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
-                                                    }
-                                                    <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
-                                                </p>
-                                                <p class="product_color"></p>
-                                            </div>
-                                            <div class="product_links">
-                                                <div class="add_to_cart_form">
-                                                    @if (item.IsInstock)
-                                                    {
-                                                        <button onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale ? item.SalePrice : item.Price),'@item.Images','@item.PrName') @Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" class="btn-cart">Mua hàng</button>
-                                                    }
-                                                    else
-                                                    {
-                                                        <button disabled onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale ? item.SalePrice : item.Price),'@item.Images','@item.PrName') @Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" class="btn-cart">Mua hàng</button>
-                                                    }
-                                                </div>
-                                                <a class="wishlist_btn" href="https://www.facebook.com/sharer/sharer.php?u=@currentUrl" target="_blank" title="Chia sẻ với bạn bè"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                                <a class="quick_view_btn_1" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="Quick view"><i class="fa fa-search-plus" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            }
-
-                            <div class="toolbar">
-                                @if (!string.IsNullOrEmpty(ViewBag.page))
+                                @foreach (var item in commonInfo.ProductProperties)
                                 {
-                                    <div class="pager">
-                                        <div class="pages">
-                                            <label>Trang:</label>
-                                            @Html.Raw(ViewBag.page)
-                                        </div>
+                                    if (item.Values != null && item.Values.Length > 0)
+                                    {
 
-                                    </div>
+                                        <ul>
+                                            <li class="active property-item"><a href="/search?property=@string.Join(",", item.Values.Select(x => x.Id.ToString()).ToList())">Tất cả @item.Name</a></li>
+                                            @foreach (var valueItem in item.Values)
+                                            {
+                                                <li data-id="@valueItem.Id" class="property-item"><a href="/search?property=@valueItem.Id&brands=@ViewBag.brands&category=@ViewBag.category">@valueItem.Values</a></li>
+                                            }
+                                        </ul>
+                                    }
                                 }
                             </div>
+                        }
+                    }
+                    <div class="product_options">
+                        @*<ul class="product_view">
+                <li id="view_grid" data-view="grid" class="active">
+                    <i class="fa fa-th" aria-hidden="true"></i>
+                </li>
+                <li id="view_list" data-view="list">
+                    <i class="fa fa-th-list" aria-hidden="true"></i>
+                </li>
+            </ul>*@
+                        <div class="product_options__sort">
+                            <label for="sort_by_select">Sắp xếp theo:</label>
+
+                            <select id="sort_by_select">
+                                <option value="nameDesc">Tên: A – Z</option>
+                                <option value="pricedesc">Giá: giảm dần</option>
+                                <option value="priceAsc">Giá: tăng dần</option>
+                                <option value="timeDesc">Mới nhất</option>
+                            </select>
+                        </div>
+                        @*<div class="product_options__number">
+                <label for="products_number_select">Show:</label>
+                <select id="products_number_select">
+                    <option value="6">6</option>
+                    <option value="9">9</option>
+                    <option value="12">12</option>
+                </select>
+            </div>
+
+            <div class="product_count">20 items</div>*@
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="row product_listing__main layout__medium_sb" id="product_listing__sorted">
+                        @foreach (AnperoFrontend.WebService.ProductItem item in productList.Item)
+                        {
+                            <div class="col-xs-4 item_4_1 item_2_1">
+                                <div class="product_item">
+                                    <div class="product_img">
+                                        <a class="img_change" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">
+                                            <img class="img__1" src="@item.Images" alt="@item.PrName">
+                                            @if (item.ImagesSlide != null && item.ImagesSlide.Count() > 0)
+                                            {
+                                                <img class="img__2" src="@item.ImagesSlide[0]" alt="@item.PrName">
+                                            }
+                                            <span class="product_badge new">mới</span>
+                                            @if (item.IsSale)
+                                            {
+                                                <span class="product_badge sale">sale</span>
+                                            }
+
+                                        </a>
+                                    </div>
+                                    <div class="product_info">
+                                        <p class="product_name">
+                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">@item.PrName</a>
+                                        </p>
+                                        <p class="product_desc product_desc__short">
+                                            @item.ShortDesc
+                                        </p>
+                                        <p class="product_desc product_desc__long">
+                                            @item.ShortDesc
+                                        </p>
+                                        <div class="product_prop">
+                                            <p class="product_price">
+                                                @if (item.IsSale)
+                                                {
+                                                    <span class="money money_sale" data-currency-usd="$33.00">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
+                                                }
+                                                <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
+                                            </p>
+                                            <p class="product_color"></p>
+                                        </div>
+                                        <div class="product_links">
+                                            <div class="add_to_cart_form">
+                                                @if (item.IsInstock)
+                                                {
+                                                    <button onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale ? item.SalePrice : item.Price),'@item.Images','@item.PrName') @Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" class="btn-cart">Mua hàng</button>
+                                                }
+                                                else
+                                                {
+                                                    <button disabled onclick="Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale ? item.SalePrice : item.Price),'@item.Images','@item.PrName') @Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" class="btn-cart">Mua hàng</button>
+                                                }
+                                            </div>
+                                            <a class="wishlist_btn" href="https://www.facebook.com/sharer/sharer.php?u=@currentUrl" target="_blank" title="Chia sẻ với bạn bè"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                            <a class="quick_view_btn_1" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" title="Quick view"><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        }
+
+                        <div class="toolbar">
+                            @if (!string.IsNullOrEmpty(ViewBag.page))
+                            {
+                                <div class="pager">
+                                    <div class="pages">
+                                        <label>Trang:</label>
+                                        @Html.Raw(ViewBag.page)
+                                    </div>
+
+                                </div>
+                            }
                         </div>
                     </div>
+                </div>
                 }
                 else
                 {
@@ -236,40 +225,42 @@
 
             </div>
             <div class="sidebar_small col-sm-3  col-sm-pull-9">
+                <div class="sidebar_widget sidebar_widget__products">
+                    <h3 class="widget_header">Thương hiệu</h3>
+                    <div class="widget_content">
+                        <ul class="list_links">
+                            <li class="level_1__item">
+                                @foreach (var item in commonInfo.ProductGroupList)
+                                {
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" name="brands" value="@item.Id" /> @item.Name</label>
+                                    </div>
+                                }
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <div id="shopify-section-sidebar" class="shopify-section page_sidebar" style="margin-top:30px;">
                     <div class="sidebar">
                         <div class="sidebar_widget sidebar_widget__products">
                             <h3 class="widget_header">Danh mục sản phẩm</h3>
                             <div class="widget_content">
                                 <ul class="list_links">
-                                    @foreach (var item in commonInfo.ProductCategoryList)
-                                    {
-
-                                        <li class="level_1__item ">
-                                            <a class="level_1__link" href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">@item.Name</a>
-                                        </li>
-                                    }
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="sidebar_widget sidebar_widget__products">
-                            <h3 class="widget_header">Thương hiệu</h3>
-
-                            <div class="widget_content">
-                                <ul class="list_links">
-                                    <li class="level_1__item">
-                                        @foreach (var item in commonInfo.ProductGroupList)
+                                    <li class="level_1__item ">
+                                        @foreach (var item in commonInfo.ProductCategoryList)
                                         {
-                                            <div class="radio">
-                                                <label><input type="radio" name="brands" value="@item.Id" /> @item.Name</label>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="category" value="@item.Id" /> @item.Name</label>
                                             </div>
                                         }
                                     </li>
                                 </ul>
-
                             </div>
                         </div>
-                        <div class="sidebar_widget sidebar_widget__products">
+                        <div class="center-block" style="margin-top:15px;">
+                            <button class="btn btn-add" onclick="Search.doSearch();">Tìm kiếm</button>
+                        </div>
+                        @*<div class="sidebar_widget sidebar_widget__products">
                             @foreach (var item in commonInfo.ProductProperties)
                             {
                                 if (item.Values != null && item.Values.Length > 0)
@@ -284,15 +275,12 @@
                                                         <label><input type="checkbox" name="properties" value="@valueItem.Id" /> @valueItem.Values</label>
                                                     </div>
                                                 }
-
-
                                             </li>
                                         </ul>
                                     </div>
                                 }
-
                             }
-                        </div>
+                        </div>*@
                     </div>
                 </div>
                 <div id="shopify-section-sidebar-sort" class="shopify-section page_sidebar_sort sidebar_widget">
@@ -414,58 +402,15 @@ else
 </style>
 
 @section  scripts{
-    <script>
-    var property = "@ViewBag.property";
-    var brands = "@ViewBag.brands";
-        //$(document).ready(function () {
-        //    $("#sort_by_select").change(function () {
-        //        Search.setOrder($(this).val());
-        //    });
-        //});
-    $(document).ready(function () {
-                var param = "?";
-                var conditon = "";
-            $("input[type=checkbox][name=properties],input[name=brands]").click(function () {
-
-
-                var properties = $("input[type=checkbox][name=properties]:checked");
-                 var branch = $("input[name=brands]:checked");
-                if (properties.length > 0) {
-
-                    var attributeIdList = "";
-                    properties.each(function () {
-                        attributeIdList += $(this).val() + ",";
-                    });
-                    conditon += param + "property=" + attributeIdList.substring(0, attributeIdList.length - 1);
-                    param = "&";
-                }  
-                if (branch.length > 0) {
-                    var branchList = "";
-                    branch.each(function () {
-                    branchList += $(this).val() + ",";
-                    });
-                    conditon += param + "brands=" + branchList.substring(0, branchList.length - 1)
-                    param = "&";
-                }
-               window.location.href = "/search" + conditon;
-            })
-
-            if (property != "") {
-                var propertyList = property.split(",")
-                $("li.property-item").removeClass("active");
-                for (var i = 0; i < propertyList.length; i++) {
-                    try {
-                        $("li.property-item[data-id=" + propertyList[i] + "]").addClass("active");
-                        $("input[type=checkbox][name=properties][value=" + propertyList[i] + "]").prop("checked", true);
-                    } catch (e) {
-
-                    }
-                }
-            }
-            if (brands != "") {
-                   $("input[type=radio][name=brands][value=" + brands+ "]").prop("checked", true);
-              }
+    <script src="/Scripts/SearchControl.js"></script>
+    <script>                
+    $(document).ready(function () {        
+        Search.init({
+            property: "@ViewBag.property",
+            brands: "@ViewBag.brands",
+            category: "@ViewBag.category"
         });
+    });
     </script>
     @*<script src="/assets/js/countdown/jquery.plugin.js"></script>
         <script type="text/javascript" src="/assets/js/countdown/jquery.countdown.js"></script>

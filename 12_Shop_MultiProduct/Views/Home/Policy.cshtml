@@ -16,6 +16,15 @@
     <meta property="og:url" content="@ViewBag.WebsiteUrl" />
     <meta property="og:image" content="@commonInfo.Logo" />
 }
+<div class="box-breadcrumb">
+    <div class="container">
+        <ul class="hidden-sm hidden-xs">
+            <li><a href="/" target="_self" title="Trang chủ">Trang chủ</a></li>
+            <li><a href="/blog">Các chính sách</a></li>
+            <li><span>@ViewBag.Title</span></li>
+        </ul>
+    </div>
+</div>
 <div class="page-heading">
     <div class="container">
         <div class="row">

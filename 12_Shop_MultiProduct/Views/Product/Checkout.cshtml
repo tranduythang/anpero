@@ -22,14 +22,19 @@
     <meta property="og:image" content="@commonInfo.Logo" />
     <link href="~/assets/stylesheet/NganLuongBankList.css" rel="stylesheet" />
 }
-<div class="breadcrumbs">
+<div class="box-breadcrumb">
     <div class="container">
-        <ul>
-            <li><a href="/">Trang chủ</a></li>
-            <li><span>Giỏ hàng</span></li>
+        <ul class="hidden-sm hidden-xs">
+            <li><a href="/" target="_self">Trang chủ</a></li>           
+            <li class="active">
+                <span>
+                    Giỏ hàng
+                </span>
+            </li>
         </ul>
     </div>
 </div>
+
 
 <div class="container bg-white">
     
@@ -271,7 +276,7 @@
                 <div class="col-md-12">
                     <h3 class="checkout-sep mt-25">4. Kiểm tra lại thông tin sản phẩm</h3>
                     <div class="box-border">
-                        <table class="table table-bordered table-responsive add-to-cart" id="shopping-cart-table">
+                        <table class="table table-bordered add-to-cart" id="shopping-cart-table">
                             <thead>
                                 <tr>
                                     <th class="cart_product">Ảnh</th>
@@ -305,7 +310,6 @@
 
                             <button type="submit" name="update_cart_action" value="update_qty" title="Update Cart" class="btn btn_alt button btn-update pull-right" id="orderBtn" style="margin-top:15px;">
                                 <span>
-
                                     <span>Gửi đơn hàng</span>
                                 </span>
                             </button>
@@ -414,5 +418,6 @@
     margin: 0 10px 0 0;
     font: 14px/1em "FontAwesome";
 }
+    .table{width:100%;}
 
 </style>
