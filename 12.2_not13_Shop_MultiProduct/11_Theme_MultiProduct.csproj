@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8E604AC8-3A0C-430A-B8CA-D465368F6F19}</ProjectGuid>
+    <ProjectGuid>{C4B1B4DC-691D-411E-B110-C3E4A1C1F02E}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -54,9 +54,6 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
-      <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -334,6 +331,7 @@
     <Content Include="Scripts\Bootrap.notify.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Scripts\jquery.cokie.min.js" />
+    <Content Include="Scripts\SearchControl.js" />
     <Content Include="Scripts\ShoppingCart.js" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Shared\product\_MenuAndAdsPartial.cshtml" />

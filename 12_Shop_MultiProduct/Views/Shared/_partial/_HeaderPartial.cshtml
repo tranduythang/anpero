@@ -90,29 +90,32 @@
                         {
                             foreach (var item in commonInfo.ProductCategoryList)
                             {
-                                <li class="li-child">
-                                    <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" class="" title="@item.Name">
-                                        <span>@item.Name</span>
-                                        @if (item.ChildCategory != null && item.ChildCategory.Length > 0)
-                                        {
-                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                        }
+                        <li class="li-child">
 
-                                    </a>
-                                    @if (item.ChildCategory != null)
+                            @if (item.ChildCategory != null && item.ChildCategory.Length > 0)
+                            {
+                                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" class="m-nav" title="@item.Name">
+                                    <span>@item.Name</span>                                    
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>                                    
+                                </a>
+                                <ul class="main-child level-3">
+                                    @foreach (var childItem in item.ChildCategory)
                                     {
-                                        <ul class="main-child level-3">
-                                            @foreach (var childItem in item.ChildCategory)
-                                            {
-                                                <li class="">
-                                                    <a href="@Anpero.StringHelpper.GetParentCategoryLink(childItem.Name,childItem.Id)" title=""><span>@childItem.Name</span></a>
-                                                </li>
-                                            }
-
-                                        </ul>
+                                        <li class="">
+                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(childItem.Name,childItem.Id)" title=""><span>@childItem.Name</span></a>
+                                        </li>
                                     }
 
-                                </li>
+                                </ul>
+                            }
+                            else
+                            {
+                                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" class="" title="@item.Name">
+                                    <span>@item.Name</span>                                  
+                                </a>
+                            }
+
+                        </li>
                             }
                         }
                     </ul>
@@ -122,26 +125,30 @@
                     foreach (var item in commonInfo.MenuList)
                     {
                         <li class="li-child">
-                            <a href="@item.Link" class="" title="@item.Tittle">
-                                <span>@item.Tittle</span>
-                                @if (item.ChidMenu != null && item.ChidMenu.Length > 0)
-                                {
-                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                }
 
-                            </a>
-                            @if (item.ChidMenu != null)
+                            @if (item.ChidMenu != null && item.ChidMenu.Length > 0)
                             {
-                                <ul class="main-child level-3">
+                                <a href="@item.Link"  class="m-nav" title="@item.Tittle">
+                                    <span>@item.Tittle</span>
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                </a>
+                                <ul class="main-child level-2">
                                     @foreach (var childItem in item.ChidMenu)
                                     {
                                         <li class="">
                                             <a href="@childItem.Link" title="@childItem.Tittle"><span>@childItem.Tittle</span></a>
                                         </li>
                                     }
-
                                 </ul>
+
                             }
+                            else
+                            {
+                                <a href="@item.Link" title="@item.Tittle">
+                                    <span>@item.Tittle</span>
+                                </a>
+                            }
+
 
                         </li>
                     }
