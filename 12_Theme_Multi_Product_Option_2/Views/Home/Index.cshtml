@@ -29,77 +29,54 @@
 @if (ViewBag.Slide != null)
 {
     <div class="box-slide-home">
-        <div class="container">
-            <div class="main-slide-home">
-                <div class="banner-slider">
-                    <div class="box-slide-1">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                @{
-                                    Ads[] slide = (Ads[])ViewBag.Slide;
-                                    for (var i = 0; i < slide.Length; i++)
-                                    {
-                                        <div class="carousel-item @(i == 0 ? "active" : "")">
-                                            <img class="d-block w-100" src="@slide[i].ImagesUrl" alt="@slide[i].Description">
-                                        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="main-slide-home">                    
+                        <div class="box-slide-1">
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    @{
+                                        Ads[] slide = (Ads[])ViewBag.Slide;
+                                        for (var i = 0; i < slide.Length; i++)
+                                        {
+                                            <div class="carousel-item @(i == 0 ? "active" : "")">
+                                                <img class="d-block w-100" src="@slide[i].ImagesUrl" alt="@slide[i].Description" style="width:2000px;">
+                                            </div>
+                                        }
                                     }
-                                }
-                            </div>
-                            <ol class="carousel-indicators">
-                                @{
-                                    for (var i = 0; i < slide.Length; i++)
-                                    {
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="@(i)" class="@(i == 0 ? "active" : "")">
-                                            <a href="javascript:void(0)" title="@slide[i].Description">@slide[i].Description</a>
-                                        </li>
-                                    }
-                                }
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-                <div class="banner-right">
-                    @if (ViewBag.Ads1 != null)
-                    {
-                        Ads[] ads1 = (Ads[])ViewBag.Ads1;
-                        <ul>
-                            @foreach (var item in ads1)
-                            {
-                                <li>
-                                    <a href="@item.ClickUrl"><img class="" alt="@item.Description" src="@item.ImagesUrl"></a>
-                                </li>
-                            }
-                        </ul>
-                    }
+                                </div>
 
+                            </div>
+                        </div>
+                    
+                    <!--bannerSlider-->
                 </div>
-                <!--bannerSlider-->
             </div>
         </div>
     </div>
     <!--box-slide-home-->
 }
 
-@if (ViewBag.Ads2 != null)
+@if (ViewBag.Ads1 != null)
 {
-    Ads[] Ads2 = (Ads[])ViewBag.Ads2;
+    Ads[] Ads1 = (Ads[])ViewBag.Ads1;
     <div class="box-slide-ads hidden-xs">
         <div class="container">
             <div class="row">
-                @for (var i = 0; i < Ads2.Length; i++)
+                @for (var i = 0; i < Ads1.Length; i++)
                 {
 
                     <div class="col-sm-6 col-xs-6 item-slide">
                         <div class="image-hover">
-                            <a href="@Ads2[i].ClickUrl">
-                                <img alt="@Ads2[i].Description" src="@Ads2[i].ImagesUrl">
+                            <a href="@Ads1[i].ClickUrl">
+                                <img alt="@Ads1[i].Description" src="@Ads1[i].ImagesUrl">
                             </a>
                         </div>
                     </div>
 
                 }
             </div>
-            </div>
+        </div>
     </div>
     <!--box-slide-ads-->
 }
@@ -253,7 +230,7 @@
 }
 @if (ViewData["FeatureArticle"] != null)
 {
-     SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
+    SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
     <div class="box-news">
         <div class="container">
             <div class="box-title-new">
@@ -276,7 +253,7 @@
                                 </div>
                                 <ul class="info-new">
                                     <li class="time"><i class="fa fa-calendar" aria-hidden="true"></i> <time>@Anpero.StringHelpper.ConvertDateTime(item.CreateDate).ToString("dd/mm/yyyy")</time></li>
-                                    
+
                                     <li class="post"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>@item.CategoryName</span></li>
                                 </ul>
                             </div>
