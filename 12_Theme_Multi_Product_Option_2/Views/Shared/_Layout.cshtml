@@ -1,0 +1,107 @@
+﻿@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+}
+<!DOCTYPE html>
+<html lang="vi" class="color_scheme">
+<head>
+    <meta charset="utf-8">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com/">    
+    <link rel="dns-prefetch" href="https://www.facebook.com/">
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/bundle/css")
+    @RenderSection("Styles", required: false)
+    <link rel="shortcut icon" href="@(string.IsNullOrEmpty(commonInfo.Favicon)?commonInfo.Logo:commonInfo.Favicon)" type="image/x-icon">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Refresh" content="3600" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="robots" content="*">
+    <!-- Apple iOS and Android stuff -->
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    @RenderSection("health", required: false)
+    <script src="//media.anpero.com/cdn/assets/plugins/jquery-1.10.2.min.js"></script>
+    <script>
+			var theme = {
+				moneyFormat: "${{amount}}",
+			};
+    </script>
+</head>
+<body>
+    @Html.Partial("_partial/_HeaderPartial")
+    <div class="main-page">
+        @RenderBody()
+    </div>
+
+    <!--main-page-->
+    @Html.Partial("_partial/_FooterPartial")
+    <div class="box-temp-fixed item-fix trans">
+        <div class="box-back-top item-fix trans">
+            <a href="javascript:void(0)">
+                <img src="/content/theme/images/to-top.png" alt="">
+            </a>
+        </div>
+
+        <div class="box-cart-fixed item-fix trans small-cart" style="display:none;">
+            <a href="/product/checkout"><i class="fa fa-shopping-basket" aria-hidden="true"></i> <span class="numberCart spN ">0</span></a>
+        </div>
+
+        @*<div class="box-hotline item-fix trans">
+            <label>
+                <a href="tel:01675678192" title="">
+                    <span></span>
+                    <p>Tư vấn miễn phí(24/7)<span>1900 636 099</span></p>
+                </a>
+                <i class="close-hotline"></i>
+            </label>
+        </div>*@
+    </div>
+    @Scripts.Render("~/bundle/js")
+
+    <noscript id="deferred_styles">
+        <link href="http://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&amp;subset=cyrillic" rel="stylesheet" type="text/css">S
+    </noscript>
+
+    @Html.Raw(commonInfo.AnperoPlugin)
+    @Html.Raw(commonInfo.PageScript)
+
+    @Html.Partial("_partial/_MainFooter_1")
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+        jQuery(window).load(function () {
+            Cart.bindCart();
+        });
+    </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "https://schema.org",
+        "@@type": "WebSite",
+        "url": "@Url.Content("~", true)",
+        "potentialAction": {
+        "@@type": "SearchAction",
+        "target": "@(Url.Content("~").TrimEnd('/') + Url.RouteUrl("search") + "?keyword={keyword}")",
+        "query-input": "required name=keyword"
+        }
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "https://schema.org",
+        "@@type": "Organization",
+        "url": "@Url.Content("~", true).TrimEnd('/')",
+        "logo": "@commonInfo.Logo"
+        }
+
+    </script>
+</body>
+</html>
