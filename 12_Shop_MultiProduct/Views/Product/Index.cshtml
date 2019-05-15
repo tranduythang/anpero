@@ -91,7 +91,7 @@
                                                 {
                                                     <div class="carousel-item @(i==0?"active":"")">
                                                         <a href="@slide[i]" class="fancybox" data-fancybox="gallery" rel="gallery" data-type="image">
-                                                            <img  data-original="@slide[i]" class="d-block w-100" src="@slide[i]" alt="@item.PrName">
+                                                            <img data-original="@slide[i]" class="d-block w-100" src="@slide[i]" alt="@item.PrName">
                                                         </a>
                                                     </div>
                                                 }
@@ -417,6 +417,23 @@
                 iframe.css('width', iframeW);
                 var iframeH = contentW / 16 * 9;
                 iframe.css('height', iframeH);
+            }
+        </script>
+        @{
+            List<string> images = new List<string>();
+            images.Add(item.Images);
+            images.AddRange(item.ImagesSlide);
+            images = images.Select(x => "\"" + x + "\"").ToList();
+            var imagesText = string.Join(",", images);
+        }
+        <script type="application/ld+json">
+            {
+            "@@context":"http://schema.org/",
+            "@@type":"Product",
+            "name":"@item.PrName",
+            "image":[@Html.Raw(imagesText)],
+            "description":"@item.ShortDesc",
+            "sku": "@item.Id"
             }
         </script>
     }
