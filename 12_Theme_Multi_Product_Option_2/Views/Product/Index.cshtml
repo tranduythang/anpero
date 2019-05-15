@@ -10,7 +10,6 @@
     ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
         Anpero.StringHelpper.GetProductLink(item.PrName, item.Id);
     string currentUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
-
     @section health{
         <link rel="stylesheet" href="~/Content/theme/css/owl.carousel.min.css">
         <meta name="description" content="@Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc)" />
@@ -307,7 +306,7 @@
                                                         <div class="list-action">
                                                             <a href="https://www.facebook.com/sharer/sharer.php?u=@currentUrl" target="_blank" title="Chia sẻ với bạn bè" class="btn-quickview-1"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
                                                             <a href="@Anpero.StringHelpper.GetProductLink(relatedProduct.PrName,relatedProduct.Id)" title="@relatedProduct.PrName" class="view-product"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
-                                                            @if (item.IsInstock)
+                                                            @if (item.IsInstock && item.Price>0)
                                                             {
                                                                 <a href="javascript:Cart.addProduct(@relatedProduct.Id,'@Convert.ToInt32(relatedProduct.IsSale?item.SalePrice:item.Price)','@relatedProduct.Images','@relatedProduct.PrName')" class="add-cart" title="Mua hàng">
                                                                     <i class="fa fa-shopping-bag" aria-hidden="true"></i>
@@ -327,7 +326,7 @@
                                                                 </a>
                                                             </h3>
                                                             <div class="box-prince">
-                                                                <span class="prince-new">@Anpero.StringHelpper.ConVertToMoneyFormatInt(relatedProduct.SalePrice) ₫</span>
+                                                                <span class="prince-new">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
                                                             </div>
                                                         </div>
                                                     </div>

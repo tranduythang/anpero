@@ -110,7 +110,7 @@
                                         </a>
                                     </h3>
                                     <div class="box-prince">
-                                        <span class="prince-new">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) ₫</span>
+                                        <span class="prince-new">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
                                     </div>
                                 </div>
                             </div>
@@ -184,7 +184,7 @@
                                         </a>
                                     </h3>
                                     <div class="box-prince">
-                                        <span class="prince-new">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) ₫</span>
+                                        <span class="prince-new">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
                                     </div>
                                 </div>
                             </div>
