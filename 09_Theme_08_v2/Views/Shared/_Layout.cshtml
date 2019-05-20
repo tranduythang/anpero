@@ -13,9 +13,12 @@
     <title>@ViewBag.Title</title>
 
     @Styles.Render("~/Content/css")
-
+    <link rel="dns-prefetch" href="https://v2.zopim.com/">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com/">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+    <link rel="dns-prefetch" href="https://www.facebook.com/">
     <link rel="icon" href="@commonInfo.Logo" type="image/x-icon">
-    <link rel="shortcut icon" href="@commonInfo.Logo" type="image/x-icon">
+    <link rel="shortcut icon" href="@(string.IsNullOrEmpty(commonInfo.Favicon)?commonInfo.Logo:commonInfo.Favicon)" type="image/x-icon">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="Refresh" content="3600" />
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
@@ -23,7 +26,7 @@
     <!-- Apple iOS and Android stuff -->
     <meta name="apple-mobile-web-app-capable" content="no" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<meta name="google-site-verification" content="MLrz3kB0o305th5xcLC59DsjVdKfictiXbflXiJRzsM" />  
+    <meta name="google-site-verification" content="MLrz3kB0o305th5xcLC59DsjVdKfictiXbflXiJRzsM" />
 
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet/responsive.css" media="all">
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet/font-awesome.css" media="all">
@@ -31,10 +34,7 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
     @RenderSection("health", required: false)
-    <link rel="dns-prefetch" href="https://v2.zopim.com/">
-    <link rel="dns-prefetch" href="https://www.google-analytics.com/">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
-    <link rel="dns-prefetch" href="https://www.facebook.com/">
+
     <link href='/static/css' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -71,7 +71,12 @@ hs.src = ('//s10.histats.com/js15_as.js');
             Cart.bindCart();
         });
     </script>
-    
+    <style>
+        .zalo-chat-widget{
+            bottom:84px!important;
+            right: 21px!important;
+        }
+    </style>
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b7a515bc8da872d"></script>
 </body>
 </html>

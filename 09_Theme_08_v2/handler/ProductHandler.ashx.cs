@@ -34,7 +34,7 @@ namespace AnperoFrontend.handler
                             string order = context.Request["order"];
                             string category = context.Request["cat"];
                             string parentCategory = context.Request["ParentCat"];
-                            WebService.SearchResult relateProduct = sv.SearchProduct(st, TokenKey, "", parentCategory, "", 0, 9999999, 1, 15, "", order, 0);
+                            WebService.SearchResult relateProduct = sv.SearchProduct(st, TokenKey, "", parentCategory, "", 0, 9999999, 1, 15, "", order, 0, string.Empty);
                             if (relateProduct.Item.Length > 0)
                             {
                                 foreach (var item in relateProduct.Item)
@@ -98,10 +98,16 @@ namespace AnperoFrontend.handler
                             {
                             }
                             WebService.AnperoService sv = new WebService.AnperoService();
+                            
                             int rs2 = sv.AddOrder(st, TokenKey, captcha, name, email, phone, address, ProductList, shipingFee, shippingMethod, paymentMethod, detail);
                             if (rs2 > 0)
                             {
                                 rs = rs2.ToString();
+                                var commontData= sv.GetCommonConfig(st, TokenKey);
+                                Anpero.SMSApi sms = new Anpero.SMSApi();
+                                string timeNow = String.Format("{0:g}", DateTime.Now);
+                                //sms.SendJson(commontData.HotLine.Trim(), "Vào lúc " + timeNow + " khach hang da thanh toan Online thanh cong cho don hang : " + rs2);
+                                sms.SendJson(commontData.HotLine.Trim(), "Sum37.vn Vào lúc " + timeNow + " khach hang da dat hang Online thanh cong cho don hang : " + rs2);
                             }
                             if (rs2 == -1)
                             {

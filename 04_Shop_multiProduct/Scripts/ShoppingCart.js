@@ -1,7 +1,7 @@
 ﻿var Cart = {
     list: [],
     addProduct: function (_id, _price, _thumb, _title) {
-        debugger
+        
         var checkExited = false;
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
@@ -26,7 +26,7 @@
         window.location.href = "/product/checkout";
     },
     addProduct3: function (_id, _price, _thumb, _title) {
-        debugger
+        
         var checkExited = false;
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
@@ -257,7 +257,7 @@
                 datatype: "text/plain",
                 data: { op: "CreateOrder", detail: _detail, PayMentType: _paymentType, shippingMethod: _shipingType, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, ProductList: $.cookie("CartList"), shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee) },
                 success: function (rs) {
-                    debugger
+                    
                     $("#ajax_loader").hide();
                     if (!isNaN(rs)) {
                         $.removeCookie('CartList', { path: '/' });
@@ -266,7 +266,7 @@
                             try {
                                 Util.notify("", "Đơn hàng đang được chuyển sang cổng thanh toán. ");
                             } catch (e) {
-
+                                //
                             }
                             
                             var _totalPrice = $("#ttOdCt").html().replace("đ", "").replace(/\,/g, '');

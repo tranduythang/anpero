@@ -35,6 +35,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="Isdefault" type="s:boolean" />
           <s:element minOccurs="1" maxOccurs="1" name="St1" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="PaymentFee" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="UpdateOrderStatus">
@@ -241,6 +242,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="ClickUrl" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="ImagesUrl" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Prioty" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:element name="GetAdsSlide">
@@ -276,6 +279,8 @@
       </s:element>
       <s:complexType name="Webconfig">
         <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ServerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="MenuList" type="tns:ArrayOfMenu" />
           <s:element minOccurs="0" maxOccurs="1" name="FaceBookLink" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Skype" type="s:string" />
@@ -292,6 +297,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="AnperoPlugin" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="ThemeOption" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductProperties" type="tns:ArrayOfProductProperties" />
+          <s:element minOccurs="0" maxOccurs="1" name="Favicon" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfMenu">
@@ -316,6 +323,8 @@
       </s:complexType>
       <s:complexType name="ProductCategory">
         <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Rank" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DefaultLink" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="ChildCategory" type="tns:ArrayOfProductCategory" />
@@ -333,6 +342,42 @@
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Desc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Images" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="St" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProductProperties">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProductProperties" nillable="true" type="tns:ProductProperties" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProductProperties">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Images" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rank" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Keywords" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductPropertiesValueJson" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Values" type="tns:ArrayOfProductPropertiesValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProductPropertiesValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProductPropertiesValue" nillable="true" type="tns:ProductPropertiesValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProductPropertiesValue">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PropertiesId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PropertiesName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rank" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Values" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Images" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SmallThumb" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="GetBlogCategory">
@@ -362,7 +407,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="Thumb" type="s:string" />
         </s:sequence>
       </s:complexType>
-      <s:element name="SearchProduct">
+      <s:element name="SearchProductFullData">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
@@ -377,18 +422,20 @@
             <s:element minOccurs="0" maxOccurs="1" name="keyWord" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="order" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="minPrioty" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="getFullData" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="SearchProductResponse">
+      <s:element name="SearchProductFullDataResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="SearchProductResult" type="tns:SearchResult" />
+            <s:element minOccurs="0" maxOccurs="1" name="SearchProductFullDataResult" type="tns:SearchResult" />
           </s:sequence>
         </s:complexType>
       </s:element>
       <s:complexType name="SearchResult">
         <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PropertiesValue" type="tns:ArrayOfProductPropertiesValue" />
           <s:element minOccurs="0" maxOccurs="1" name="Item" type="tns:ArrayOfProductItem" />
           <s:element minOccurs="1" maxOccurs="1" name="ResultCount" type="s:int" />
         </s:sequence>
@@ -432,6 +479,32 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:element name="SearchProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CategoryId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parentCategoryId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="priceFrom" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="priceTo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="curentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSite" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="keyWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="order" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="minPrioty" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="propertyList" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchProductResult" type="tns:SearchResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="SearchProductByLocation">
         <s:complexType>
           <s:sequence>
@@ -652,6 +725,12 @@
   <wsdl:message name="GetBlogCategorySoapOut">
     <wsdl:part name="parameters" element="tns:GetBlogCategoryResponse" />
   </wsdl:message>
+  <wsdl:message name="SearchProductFullDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchProductFullData" />
+  </wsdl:message>
+  <wsdl:message name="SearchProductFullDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchProductFullDataResponse" />
+  </wsdl:message>
   <wsdl:message name="SearchProductSoapIn">
     <wsdl:part name="parameters" element="tns:SearchProduct" />
   </wsdl:message>
@@ -754,6 +833,10 @@
     <wsdl:operation name="GetBlogCategory">
       <wsdl:input message="tns:GetBlogCategorySoapIn" />
       <wsdl:output message="tns:GetBlogCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchProductFullData">
+      <wsdl:input message="tns:SearchProductFullDataSoapIn" />
+      <wsdl:output message="tns:SearchProductFullDataSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="SearchProduct">
       <wsdl:input message="tns:SearchProductSoapIn" />
@@ -895,6 +978,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetBlogCategory">
       <soap:operation soapAction="http://tempuri.org/GetBlogCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchProductFullData">
+      <soap:operation soapAction="http://tempuri.org/SearchProductFullData" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1087,6 +1179,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetBlogCategory">
       <soap12:operation soapAction="http://tempuri.org/GetBlogCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchProductFullData">
+      <soap12:operation soapAction="http://tempuri.org/SearchProductFullData" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
