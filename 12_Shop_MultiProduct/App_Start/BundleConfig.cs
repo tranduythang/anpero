@@ -9,8 +9,7 @@ namespace AnperoFrontend
         {
             bundles.Add(new ScriptBundle("~/bundle/js").Include(
                 "~/Html/js/jquery-1.10.2.min.js",
-                "~/Html/js/bootstrap.min.js",
-                
+                "~/Html/js/bootstrap.min.js",                
                 "~/Html/js/owl.carousel.min.js",
                 //"~/Html/js/bootstrap-datetimepicker.js",
                 "~/Scripts/jquery.cokie.min.js",

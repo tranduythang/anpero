@@ -88,10 +88,13 @@
     {
         <div class="box-top-products box-slide">
             <div class="container">
-                <div class="box-title">
-                    <h2 class="title">Top bán chạy</h2>
-                    <a href="/search" class="view-all top-all hidden-xs translateY-50 transition-3">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                <div class="box-title-new">
+                    <div class="title-top">
+                        <h2 class="title">Top bán chạy</h2>
+                    </div>
+
                 </div>
+                
 
                 <div class="owl-carousel owl-carousel-4" id="">
                     @for (var i = 0; i < bestSaleList.Item.Length; i++)
@@ -130,8 +133,13 @@
     {
         <div class="box-top-products box-slide">
             <div class="container">
-                <div class="box-title">
-                    <h2 class="title">Sản phẩm mới</h2>
+                <div class="box-title-new">
+                    <div class="title-top">
+                        <h2 class="title">Sản phẩm mới</h2>
+                    </div>
+                    
+                </div>
+                <div class="box-title">                    
                     @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                     {
                         <ul class="nav-list">
@@ -247,7 +255,7 @@
                         <div class="item item-new">
                             <div class="item-slide">
                                 <div class="image-hover">
-                                    <a href="#" class="">
+                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" title="@item.Title">
                                         <img class="" src="@item.Thumb" alt="@item.Title">
                                     </a>
                                 </div>

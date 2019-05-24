@@ -153,6 +153,7 @@
     <Content Include="Content\theme\css\bootstrap.min.css" />
     <Content Include="Content\theme\css\font-awesome.min.css" />
     <Content Include="Content\theme\css\owl.carousel.min.css" />
+    <Content Include="Content\theme\css\Color-Gray.css" />
     <Content Include="Content\theme\css\style.css" />
     <Content Include="Content\theme\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\theme\fonts\glyphicons-halflings-regular.svg" />
@@ -312,7 +313,6 @@
     <Content Include="Content\theme\js\jquery-1.10.2.min.js" />
     <Content Include="Content\theme\js\owl.carousel.min.js" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Anpero.Common.js" />
     <Content Include="Scripts\Bootrap.notify.js" />
@@ -332,6 +332,7 @@
     <Content Include="Content\theme\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="handler\PaymentHandler.ashx" />
     <Content Include="handler\ProductHandler.ashx" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -425,13 +426,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="fonts\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

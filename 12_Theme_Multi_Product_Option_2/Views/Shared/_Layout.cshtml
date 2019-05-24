@@ -16,6 +16,7 @@
     <title>@ViewBag.Title</title>
 
     @Styles.Render("~/bundle/css")
+    <link href="/Content/theme/css/Color-Gray.css" rel="stylesheet" />
     @RenderSection("Styles", required: false)
     <link rel="shortcut icon" href="@(string.IsNullOrEmpty(commonInfo.Favicon)?commonInfo.Logo:commonInfo.Favicon)" type="image/x-icon">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -30,11 +31,7 @@
 
     @RenderSection("health", required: false)
     <script src="//media.anpero.com/cdn/assets/plugins/jquery-1.10.2.min.js"></script>
-    <script>
-			var theme = {
-				moneyFormat: "${{amount}}",
-			};
-    </script>
+    
 </head>
 <body>
     @Html.Partial("_partial/_HeaderPartial")
