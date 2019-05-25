@@ -150,7 +150,7 @@
                                                         </p>
                                                         <p class="item">
                                                             <span class="lable-price">Tiết kiệm: </span>
-                                                            <span class="number-sale-price">-1,000,000₫ </span>
+                                                            <span class="number-sale-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice-item.Price)đ </span>
                                                             <span class="number-saleoff">– @Convert.ToInt32(item.SalePrice / item.Price * 100)%</span>
                                                         </p>
                                                     }
@@ -173,7 +173,7 @@
                                                             <span id="attr-@itemAttr.Id">@itemAttr.Name: </span> 
                                                                 foreach (var attr in itemAttr.Values)
                                                                 {
-                                                                    <button class="btn btn-sm btn-outline" data-propertyId="@itemAttr.Id" @(attr.IsInStock?"":"disabled")>@attr.Values</button>                                                                                                                                   
+                                                                    <button class="btn btn-sm btn-outline" data-attrId="@attr.Id" data-propertyId="@itemAttr.Id" @(attr.IsInStock?"":"disabled") data-price="@attr.Price" data-attrName="@attr.Values">@attr.Values</button>                                                                                                                                   
                                                                 }
 
                                                             }
@@ -392,6 +392,9 @@
         <script src="//media.anpero.com/cdn/plugins/jquery.lazyload.min.js"></script>
         <script src="//media.anpero.com/cdn/plugins/fancybox-3/dist/jquery.fancybox.min.js"></script>
         <script>
+            var price =@Convert.ToInt32(item.SalePrice);
+            var title = "";
+            var _attrId = 0;
             var producText = {
                 available: "Available",
                 unavailable: "Unavailable",
@@ -424,13 +427,17 @@
                 });
             });
             $(".atribute button").click(function () {
-                $("button[data-propertyId=" + $(this).attr("data-propertyId") + "]").removeClass("btn-success");
+                var propertyId = $(this).attr("data-propertyId");
+                $("button[data-propertyId=" + propertyId + "]").removeClass("btn-success");
                 $(this).toggleClass("btn-success");
-                alert($(this).text());
+                price = $(this).attr("data-price");
+                $(".number-price").html(Util.toMoneyFormat(parseInt(price))+" đ");
+                title = $("#attr-" + propertyId).html() + " " + $(this).attr("data-attrName");
+                _attrId=$(this).attr("data-attrId");
             });
             $("#single_product__addtocart").click(function () {
                 Cart.quantity = $("#pdQuantity").val();
-                Cart.addProduct(@item.Id, '@Convert.ToInt32(item.SalePrice)', '@item.Images', $("h1.title").html());
+                Cart.addProduct(@item.Id,parseInt(price), '@item.Images', $("h1.title").html()+" "+title,_attrId);
             });
             $(".group-qty .plus").click(function () {
                 $("#pdQuantity").val(parseInt($("#pdQuantity").val())+1);

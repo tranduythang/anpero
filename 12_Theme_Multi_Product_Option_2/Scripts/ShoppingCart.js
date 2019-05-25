@@ -1,8 +1,8 @@
 ﻿var Cart = {
     list: [],
     quantity: 1,
-    addProduct: function (_id, _price, _thumb, _title) {
-
+    addProduct: function (_id, _price, _thumb, _title, _attrId = 0) {        
+        
         var checkExited = false;
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
@@ -10,18 +10,18 @@
         var quantity = Cart.quantity;
         if (Cart.list.length == 0) {
           
-            Cart.list.push({ id: _id, quantity, price: _price, thumb: _thumb, title: _title });
+            Cart.list.push({ id: _id, quantity, price: _price, thumb: _thumb, title: _title, attrId: _attrId });
         } else {
             for (var i = 0; i < Cart.list.length; i++) {
-                if (Cart.list[i].id == _id) {
+                if (Cart.list[i].id == _id && Cart.list[i].attrId == _attrId) {
                     Cart.list[i].price = parseInt(_price);
                     Cart.list[i].quantity = parseInt(Cart.list[i].quantity) + parseInt(quantity);
                     checkExited = true;
                 }
             }
-            // if this product no in cart list
+            // if this product not in cart list
             if (!checkExited) {
-                Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });
+                Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title, attrId: _attrId });
             }
         }
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
@@ -51,13 +51,13 @@
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
         Cart.bindCart();
     },
-    addProduct2: function (_id, _price) {
+    addProduct2: function (_id, _price, _attrId) {
 
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
         }
         for (var i = 0; i < Cart.list.length; i++) {
-            if (Cart.list[i].id == _id) {
+            if (Cart.list[i].id == _id && Cart.list[i].attrId == _attrId) {
                 Cart.list[i].price = parseInt(Cart.list[i].price);
                 Cart.list[i].quantity = parseInt(Cart.list[i].quantity) + 1;
                 $("#prQuantity_" + _id).val(Cart.list[i].quantity);
@@ -146,15 +146,15 @@
                         htmlCat += '<td class="cart_avail"><span class="label label-success">Còn hàng</span></td>';
                         htmlCat += '<td class="price"><span>' + Util.toMoneyFormat(Cart.list[i].price) + '</span></td>';
                         htmlCat += '<td class="qty">';
-                        htmlCat += '<a href="javascript:Cart.remove3(' + Cart.list[i].id + ',' + Cart.list[i].price + ');" class="btn">-</a>';
+                        htmlCat += '<a href="javascript:Cart.remove3(' + Cart.list[i].id + ',' + Cart.list[i].price + ',' + Cart.list[i].attrId  + ');" class="btn">-</a>';
                         htmlCat += '<input class="input-text qty2" type="text" value="' + Cart.list[i].quantity + '" id="prQuantity_' + Cart.list[i].id + '">';
-                        htmlCat += '<a href="javascript:Cart.addProduct2(' + Cart.list[i].id + ',' + Cart.list[i].price + ');" class="btn">+</a>';
+                        htmlCat += '<a href="javascript:Cart.addProduct2(' + Cart.list[i].id + ',' + Cart.list[i].price + ',' + Cart.list[i].attrId + ');" class="btn">+</a>';
                         htmlCat += '</td>';
                         htmlCat += '<td class="price">';
                         htmlCat += '<span>' + Util.toMoneyFormat(parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity)) + ' đ</span>';
                         htmlCat += '</td>';
                         htmlCat += '<td class="a-center last">';
-                        htmlCat += '<a href="javascript:Cart.remove2(' + Cart.list[i].id + ')" class="button remove-item">Xóa</a>';
+                        htmlCat += '<a href="javascript:Cart.remove2(' + Cart.list[i].id + ',' + Cart.list[i].attrId+ ')" class="button remove-item">Xóa</a>';
                         htmlCat += '</td>';
                         htmlCat += '</tr>';
                     }
@@ -190,10 +190,10 @@
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
         Cart.bindCart();
     },
-    remove2: function (prId) {
+    remove2: function (prId, _attrId) {
         Cart.list = jQuery.parseJSON($.cookie("CartList"));
         for (var i = 0; i < Cart.list.length; i++) {
-            if (Cart.list[i].id == prId) {
+            if (Cart.list[i].id == prId && Cart.list[i].attrId == _attrId) {
                 Cart.list.splice(i, 1);
             }
         }
