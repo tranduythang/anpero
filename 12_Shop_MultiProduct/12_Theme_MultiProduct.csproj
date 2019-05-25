@@ -318,6 +318,7 @@
     <Content Include="assets\stylesheet\revslider.css" />
     <Content Include="assets\stylesheet\style.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="handler\ProductHandler.ashx" />
     <Content Include="assets\fonts\clhLqOv7MXn459PTh0gXYHW1xglZCgocDnD_teV2lMU.woff" />
@@ -360,6 +361,9 @@
     <Content Include="Html\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Html\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Html\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
