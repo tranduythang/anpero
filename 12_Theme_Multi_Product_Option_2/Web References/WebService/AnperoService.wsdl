@@ -378,6 +378,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="Values" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Images" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="SmallThumb" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsInStock" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:decimal" />
         </s:sequence>
       </s:complexType>
       <s:element name="GetBlogCategory">
@@ -447,6 +449,7 @@
       </s:complexType>
       <s:complexType name="ProductItem">
         <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Properties" type="tns:ArrayOfProductProperties" />
           <s:element minOccurs="1" maxOccurs="1" name="OriginID" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="CatName" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="ParentId" type="s:int" />

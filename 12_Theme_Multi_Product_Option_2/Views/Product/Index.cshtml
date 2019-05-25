@@ -12,7 +12,8 @@
     string currentUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
 
     @section health{
-        <link rel="stylesheet" href="~/html/css/owl.carousel.min.css">
+        <link href="/Content/theme/css/owl.carousel.min.css" rel="stylesheet" />
+
         <meta name="description" content="@Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc)" />
         <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(item.KeyWord)" />
         <meta property="og:description" content="@item.ShortDesc" />
@@ -52,6 +53,9 @@
 
                 .box-social li a i {
                     line-height: 30px;
+                }
+                .atribute p{
+                    margin-top:15px;
                 }
         </style>
     }
@@ -124,7 +128,7 @@
                                 <h1 class="title">@item.PrName</h1>
                                 <div class="box-list-info">
                                     <ul>
-                                        <li class="type"><i class="fa fa-tags" aria-hidden="true"></i> Collections:  <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName,item.ParentId)">@item.CatName</a> </li>
+                                        <li class="type"><i class="fa fa-tags" aria-hidden="true"></i> Collections:  <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName,item.ParentId)" title="@item.ParentCatName">@item.ParentCatName</a> </li>
                                         <li class="sku"><i class="fa fa-codepen" aria-hidden="true"></i> SKU: <span>@item.Id</span> </li>
                                     </ul>
                                 </div>
@@ -158,6 +162,25 @@
                                                         </p>
                                                     }
                                                 </div>
+                                                @if (item.Properties != null && item.Properties.Count() > 0)
+                                                {
+                                                    <div class="atribute">
+                                                        @foreach (var itemAttr in item.Properties)
+                                                        {
+                                                        <p>
+                                                            @if (itemAttr.Values.Count() > 0)
+                                                            {
+                                                            <span id="attr-@itemAttr.Id">@itemAttr.Name: </span> 
+                                                                foreach (var attr in itemAttr.Values)
+                                                                {
+                                                                    <button class="btn btn-sm btn-outline" data-propertyId="@itemAttr.Id" @(attr.IsInStock?"":"disabled")>@attr.Values</button>                                                                                                                                   
+                                                                }
+
+                                                            }
+                                                        </p>
+                                                        }
+                                                    </div>
+                                                }
 
                                                 <div class="short-desc">
                                                     <p>@item.ShortDesc</p>
@@ -214,7 +237,7 @@
                                                         <li class="item">
                                                             <div class="box">
                                                                 <div class="icon">
-                                                                    <img src="/html/images/icons/product_policy_3.png" alt="" width="" height="">
+                                                                    <img src="/html/images/icons/product_policy_3.png">
                                                                 </div>
                                                                 <div class="detail">
                                                                     <h5 class="title-policy">Bảo hành</h5>
@@ -226,11 +249,12 @@
                                                     <li class="item">
                                                         <div class="box">
                                                             <div class="icon">
-                                                                <img src="/html/images/icons/product_policy_4.png" alt="" width="" height="">
+                                                                <img src="/Content/theme/images/icons/product_policy_4.png" />
+
                                                             </div>
                                                             <div class="detail">
                                                                 <h5 class="title-policy">Hỗ trợ</h5>
-                                                                <span class="text-policy">Hotline: @commonInfo.HotLine <br> Thứ 2 - 7: 08:00 - 19:00 <br> Chủ nhật: 09:00 - 17:00</span>
+                                                                <span class="text-policy">Hotline: <a href="tel:@commonInfo.HotLine">@commonInfo.HotLine</a> <br> Thứ 2 - 7: 08:00 - 19:00 <br> Chủ nhật: 09:00 - 17:00</span>
                                                             </div>
                                                         </div>
                                                     </li>
@@ -398,6 +422,11 @@
                         }
                     });
                 });
+            });
+            $(".atribute button").click(function () {
+                $("button[data-propertyId=" + $(this).attr("data-propertyId") + "]").removeClass("btn-success");
+                $(this).toggleClass("btn-success");
+                alert($(this).text());
             });
             $("#single_product__addtocart").click(function () {
                 Cart.quantity = $("#pdQuantity").val();

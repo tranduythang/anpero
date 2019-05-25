@@ -1209,6 +1209,8 @@ namespace AnperoFrontend.WebService {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class ProductItem {
         
+        private ProductProperties[] propertiesField;
+        
         private int originIDField;
         
         private string catNameField;
@@ -1258,6 +1260,16 @@ namespace AnperoFrontend.WebService {
         private string tagLinkField;
         
         private string specificationsField;
+        
+        /// <remarks/>
+        public ProductProperties[] Properties {
+            get {
+                return this.propertiesField;
+            }
+            set {
+                this.propertiesField = value;
+            }
+        }
         
         /// <remarks/>
         public int OriginID {
@@ -1516,189 +1528,6 @@ namespace AnperoFrontend.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class SearchResult {
-        
-        private ProductPropertiesValue[] propertiesValueField;
-        
-        private ProductItem[] itemField;
-        
-        private int resultCountField;
-        
-        /// <remarks/>
-        public ProductPropertiesValue[] PropertiesValue {
-            get {
-                return this.propertiesValueField;
-            }
-            set {
-                this.propertiesValueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public ProductItem[] Item {
-            get {
-                return this.itemField;
-            }
-            set {
-                this.itemField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ResultCount {
-            get {
-                return this.resultCountField;
-            }
-            set {
-                this.resultCountField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ProductPropertiesValue {
-        
-        private int idField;
-        
-        private int propertiesIdField;
-        
-        private string propertiesNameField;
-        
-        private int rankField;
-        
-        private string valuesField;
-        
-        private string imagesField;
-        
-        private string smallThumbField;
-        
-        /// <remarks/>
-        public int Id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PropertiesId {
-            get {
-                return this.propertiesIdField;
-            }
-            set {
-                this.propertiesIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string PropertiesName {
-            get {
-                return this.propertiesNameField;
-            }
-            set {
-                this.propertiesNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int Rank {
-            get {
-                return this.rankField;
-            }
-            set {
-                this.rankField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Values {
-            get {
-                return this.valuesField;
-            }
-            set {
-                this.valuesField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Images {
-            get {
-                return this.imagesField;
-            }
-            set {
-                this.imagesField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string SmallThumb {
-            get {
-                return this.smallThumbField;
-            }
-            set {
-                this.smallThumbField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class BlogCategory {
-        
-        private int idField;
-        
-        private string nameField;
-        
-        private string thumbField;
-        
-        /// <remarks/>
-        public int Id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Thumb {
-            get {
-                return this.thumbField;
-            }
-            set {
-                this.thumbField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class ProductProperties {
         
         private int idField;
@@ -1794,6 +1623,213 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.valuesField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ProductPropertiesValue {
+        
+        private int idField;
+        
+        private int propertiesIdField;
+        
+        private string propertiesNameField;
+        
+        private int rankField;
+        
+        private string valuesField;
+        
+        private string imagesField;
+        
+        private string smallThumbField;
+        
+        private bool isInStockField;
+        
+        private decimal priceField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PropertiesId {
+            get {
+                return this.propertiesIdField;
+            }
+            set {
+                this.propertiesIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string PropertiesName {
+            get {
+                return this.propertiesNameField;
+            }
+            set {
+                this.propertiesNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Rank {
+            get {
+                return this.rankField;
+            }
+            set {
+                this.rankField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Values {
+            get {
+                return this.valuesField;
+            }
+            set {
+                this.valuesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Images {
+            get {
+                return this.imagesField;
+            }
+            set {
+                this.imagesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SmallThumb {
+            get {
+                return this.smallThumbField;
+            }
+            set {
+                this.smallThumbField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsInStock {
+            get {
+                return this.isInStockField;
+            }
+            set {
+                this.isInStockField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal Price {
+            get {
+                return this.priceField;
+            }
+            set {
+                this.priceField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class SearchResult {
+        
+        private ProductPropertiesValue[] propertiesValueField;
+        
+        private ProductItem[] itemField;
+        
+        private int resultCountField;
+        
+        /// <remarks/>
+        public ProductPropertiesValue[] PropertiesValue {
+            get {
+                return this.propertiesValueField;
+            }
+            set {
+                this.propertiesValueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public ProductItem[] Item {
+            get {
+                return this.itemField;
+            }
+            set {
+                this.itemField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ResultCount {
+            get {
+                return this.resultCountField;
+            }
+            set {
+                this.resultCountField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class BlogCategory {
+        
+        private int idField;
+        
+        private string nameField;
+        
+        private string thumbField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Thumb {
+            get {
+                return this.thumbField;
+            }
+            set {
+                this.thumbField = value;
             }
         }
     }

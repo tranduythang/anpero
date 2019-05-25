@@ -343,6 +343,7 @@
     <Content Include="Web References\WebService\Ads.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
+    <Content Include="Views\Home\Policy.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
