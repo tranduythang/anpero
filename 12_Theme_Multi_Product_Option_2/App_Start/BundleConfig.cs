@@ -19,7 +19,8 @@ namespace _12_Theme_Multi_Product_Option_2
             bundles.Add(new StyleBundle("~/bundle/css").Include(
                 "~/Content/theme/css/bootstrap.min.css",
                 "~/Content/theme/css/font-awesome.min.css",
-                "~/Content/theme/css/style.css"
+                "~/Content/theme/css/style.css",
+                "~/Content/css/dev-style.css"
             ));
         }
     }

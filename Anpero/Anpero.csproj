@@ -54,6 +54,7 @@
     <Compile Include="Caching\ICacheService.cs" />
     <Compile Include="Constant.cs" />
     <Compile Include="HttpHelper.cs" />
+    <Compile Include="Model\SearchModel.cs" />
     <Compile Include="Paging.cs" />
     <Compile Include="PaymentApi\NganLuong\APICheckoutV3.cs" />
     <Compile Include="PaymentMethod\PaymentMethod.cs" />

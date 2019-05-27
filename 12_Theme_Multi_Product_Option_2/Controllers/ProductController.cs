@@ -137,27 +137,35 @@ namespace AnperoFrontend.Controllers
         }
 
         [BuildCommonHtml]
-        public ActionResult Search(string category, string keyword)
-        {            
+        public ActionResult Search(Anpero.Model.SearchModel model)
+        {
+            string title = "";
             string pageQuery = Request.QueryString["page"];
+            string property = Request.QueryString["property"];
             int page = 1;
             if (!string.IsNullOrEmpty(pageQuery))
             {
                 page = Convert.ToInt32(pageQuery);
             }
             WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, category, "", "", 0, 999999999, page, 15, keyword, SearchOrder.NameDesc, 0, string.Empty);
-
+            WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, model.Category, "", model.Brands, 0,int.MaxValue, page, 14, model.KeyWord, model.SortBy, 0, property);
             ViewData["productList"] = rs;
+
             ViewBag.pageName = "Search";
-            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 15, rs.ResultCount, 10, "?page=");
-
-            if (rs != null && rs.Item.Length > 0)
+            if(rs!=null && rs.ResultCount > 0)
             {
-                ViewBag.Title = rs.Item[0].CatName;
+                ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
             }
-
-            SetUpSeo(0,0);
+            
+            if (!string.IsNullOrEmpty(model.KeyWord))
+            {
+                title += model.KeyWord;
+            }
+            ViewBag.property = model.Property;
+            ViewBag.category = model.Category;
+            ViewBag.brands = model.Brands;
+            ViewBag.Title = title;
+            SetUpSeo(0, 0);
             return View("List");
         }
 
@@ -216,8 +224,8 @@ namespace AnperoFrontend.Controllers
                             {
                                 ViewBag.Keywords = item.Keywords;
                                 ViewBag.Description = item.Description;
-                                ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
-                                 Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id);
+                                ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + Anpero.StringHelpper.GetParentCategoryLink(item.Name, item.Id);
+                                ViewBag.Title = item.Name;
                                 ViewBag.ImageUrl = item.Images;
                                 break;
                             }
@@ -232,8 +240,8 @@ namespace AnperoFrontend.Controllers
                                 {
                                     ViewBag.Keywords = item.Keywords;
                                     ViewBag.Description = item.Description;
-                                    ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
-                                     Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id);
+                                    ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + Anpero.StringHelpper.GetCategoryLink(chidItem.Name, chidItem.Id);
+                                    ViewBag.Title = item.Name;
                                     ViewBag.ImageUrl = item.Images;
                                     break;
                                 }
@@ -245,6 +253,7 @@ namespace AnperoFrontend.Controllers
                         ViewBag.Keywords = "Tìm kiếm " + commonInfo.Name + "| " + commonInfo.Desc;
                         ViewBag.Description = "Tìm kiếm trên " + commonInfo.Name + "| " + commonInfo.Desc;
                         ViewBag.WebsiteUrl = Request.Url.AbsoluteUri;
+                        ViewBag.Title ="";
                         ViewBag.ImageUrl = commonInfo.Logo;
                         break;
                 }

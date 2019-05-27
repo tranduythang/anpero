@@ -195,7 +195,7 @@
 
                                                     <div class="listAction">
                                                         <button type="button" class="button btn-outline btn-addCart" id="single_product__addtocart">
-                                                            <span>Mua hàng</span>
+                                                            <span>Thêm vào giỏ hàng</span>
                                                             <small>Xem hàng không thích có thể trả lại</small>
                                                         </button>
                                                         @if (!item.IsInstock)
@@ -392,7 +392,8 @@
         <script src="//media.anpero.com/cdn/plugins/jquery.lazyload.min.js"></script>
         <script src="//media.anpero.com/cdn/plugins/fancybox-3/dist/jquery.fancybox.min.js"></script>
         <script>
-            var price =@Convert.ToInt32(item.SalePrice);
+            var price =0;
+            var defaultPrice =@Convert.ToInt32(item.SalePrice);
             var title = "";
             var _attrId = 0;
             var producText = {
@@ -430,14 +431,14 @@
                 var propertyId = $(this).attr("data-propertyId");
                 $("button[data-propertyId=" + propertyId + "]").removeClass("btn-success");
                 $(this).toggleClass("btn-success");
-                price = $(this).attr("data-price");
-                $(".number-price").html(Util.toMoneyFormat(parseInt(price))+" đ");
+                price = parseInt($(this).attr("data-price"));
+                $(".number-price").html(Util.toMoneyFormat(parseInt(defaultPrice)+parseInt(price))+" đ");
                 title = $("#attr-" + propertyId).html() + " " + $(this).attr("data-attrName");
                 _attrId=$(this).attr("data-attrId");
             });
             $("#single_product__addtocart").click(function () {
                 Cart.quantity = $("#pdQuantity").val();
-                Cart.addProduct(@item.Id,parseInt(price), '@item.Images', $("h1.title").html()+" "+title,_attrId);
+                Cart.addProduct(@item.Id,parseInt(defaultPrice) + parseInt(price), '@item.Images', $("h1.title").html()+" "+title,_attrId);
             });
             $(".group-qty .plus").click(function () {
                 $("#pdQuantity").val(parseInt($("#pdQuantity").val())+1);

@@ -148,6 +148,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\dev-style.css" />
     <Content Include="Content\css\ngan-luong.css" />
     <Content Include="Content\theme\css\bootstrap-datetimepicker.css" />
     <Content Include="Content\theme\css\bootstrap.min.css" />
@@ -339,6 +340,7 @@
     </None>
     <Content Include="Scripts\jquery.cokie.min.js" />
     <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Scripts\SearchControl.js" />
     <Content Include="Scripts\ShoppingCart.js" />
     <Content Include="Web References\WebService\Ads.datasource">
       <DependentUpon>Reference.map</DependentUpon>

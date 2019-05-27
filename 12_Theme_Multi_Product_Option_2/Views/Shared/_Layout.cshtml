@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com/">    
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com/">
     <link rel="dns-prefetch" href="https://www.facebook.com/">
     <title>@ViewBag.Title</title>
 
@@ -31,10 +31,13 @@
 
     @RenderSection("health", required: false)
     <script src="//media.anpero.com/cdn/assets/plugins/jquery-1.10.2.min.js"></script>
-    
+
 </head>
 <body>
+   
+
     @Html.Partial("_partial/_HeaderPartial")
+
     <div class="main-page">
         @RenderBody()
     </div>
@@ -48,7 +51,7 @@
             </a>
         </div>
 
-        <div class="box-cart-fixed item-fix trans small-cart" style="display:none;">
+        <div class="box-cart-fixed item-fix trans small-cart" style="        display: none;">
             <a href="/product/checkout"><i class="fa fa-shopping-basket" aria-hidden="true"></i> <span class="numberCart spN ">0</span></a>
         </div>
 
@@ -71,7 +74,7 @@
     @Html.Raw(commonInfo.AnperoPlugin)
     @Html.Raw(commonInfo.PageScript)
 
-    
+
     @RenderSection("scripts", required: false)
 
     <script type="text/javascript">
