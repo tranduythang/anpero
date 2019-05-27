@@ -1,0 +1,95 @@
+﻿@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+}
+<footer>
+    <div class="box-top-footer">
+        <div class="container">
+            <div class="main-footer">
+                <div class="row">
+                    <div class="col-sm-4 col-xs-12 right-links">
+                        <h4 class="title">
+                            Danh mục sản phẩm
+                        </h4>
+                        <ul class="list-links">
+                            @foreach (var item in commonInfo.ProductCategoryList)
+                            {
+                                <li>
+                                    <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">@item.Name</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-4 col-xs-12 right-links">
+                        <h4 class="title">Thông tin</h4>
+                        <ul class="list-links">
+                            <li>
+                                <a href="/about">Giới thiệu</a>
+                            </li>
+                            <li>
+                                <a href="/shippolicy">Chính sách vận chuyển</a>
+                            </li>
+                            <li>
+                                <a href="/ProductReturnPolicy">Chính sách đổi trả</a>
+                            </li>
+                            <li>
+                                <a href="/WarrantyPolicy">Chính sách bảo hành</a>
+                            </li>
+                            <li>
+                                <a href="/PaymentInfo">Hướng dẫn thanh toán</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-4 col-xs-12 right-links">
+                        <h4 class="title">Tin tức</h4>
+                        <ul class="list-links">
+                            <li>
+                                <a href="/Blog">Blogs</a>
+                            </li>
+
+                            <li>
+                                <a href="/home/contact">Liên hệ</a>
+                            </li>
+                            @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                            {
+                                <li>
+                                    <a href="@commonInfo.FaceBookLink" target="_blank">Fanpage</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-footer">
+        <div class="container">
+            <div class="main-bottom-footer clearfix">
+                <div class="logo pull-left">
+                    <a href="#" title="">
+                        <img class="insImageload" data-load="true" src="@commonInfo.Logo" alt="@commonInfo.Name">
+                    </a>
+                </div>
+
+                <div class="copy pull-left">
+                    <p>@commonInfo.Name - @commonInfo.Desc</p>
+                    <p>Địa chỉ: @commonInfo.Address</p>
+                    <p>HotLine: @commonInfo.HotLine</p>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <p class="copyright text-center">
+                    Copyrights © @DateTime.Today.Year @commonInfo.Name. <a target="_blank" href="https://anpero.com">Powered by Anpero</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--footer-->

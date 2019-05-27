@@ -1,0 +1,98 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    SearchArticleResults articleList = (SearchArticleResults)ViewData["ArticleList"];
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+    string currentUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+}
+@section health{
+    <meta name="description" content="@ViewBag.Description" />
+    <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(ViewBag.Keywords)" />
+    <meta property="og:description" content="@ViewBag.Description" />
+    <meta property="og:title" content="@ViewBag.Title" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="@currentUrl" />
+    <meta property="og:image" content="@commonInfo.Logo" />
+    <link rel="canonical" href="@ViewBag.WebsiteUrl" />
+
+}
+<div class="box-breadcrumb">
+    <div class="container">
+        <ul class="hidden-sm hidden-xs">
+            <li><a href="/" target="_self" title="Trang chủ @commonInfo.Name">Trang chủ</a></li>
+            <li><a href="/blog">blogs</a></li>
+            <li>
+                <span>
+                    @ViewBag.Keywords
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="box-news">
+    <div class="container">
+        <div class="box-title-new">
+            <div class="title-top">
+                <h2 class="title">@ViewBag.Title</h2>
+            </div>
+            
+        </div>        
+        <div class="box-top-products box-slide">
+            <div class="owl-carousel owl-carousel-3">
+                @foreach (var item in articleList.ItemList)
+                {
+                    <div class="item item-new">
+                        <div class="item-slide">
+                            <div class="image-hover">
+                                <a href="#" class="">
+                                    <img class="" src="@item.Thumb" alt="@item.Title">
+                                </a>
+                            </div>
+                            <ul class="info-new">
+                                <li class="time"><i class="fa fa-calendar" aria-hidden="true"></i> <time>@Anpero.StringHelpper.ConvertDateTime(item.CreateDate).ToString("dd/mm/yyyy")</time></li>
+
+                                <li class="post"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>@item.CategoryName</span></li>
+                            </ul>
+                        </div>
+                        <div class="detail clearfix">
+                            <h3 class="title"><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" title="@item.Title">@item.Title</a></h3>
+                            <p class="des">@item.ShotDesc</p>
+                            <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="view" title="">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .breadcrumbs {
+        padding: 0 0 26px 0;
+    }
+
+        .breadcrumbs ul {
+            font-size: 0;
+            line-height: 0;
+        }
+
+        .breadcrumbs li {
+            display: inline-block;
+            padding: 27px 10px 0 0;
+        }
+
+        .breadcrumbs a, .breadcrumbs span {
+            font-size: 14px;
+            line-height: 1em;
+        }
+
+        .breadcrumbs li ~ li:before {
+            content: '\f105';
+            margin: 0 10px 0 0;
+            font: 14px/1em "FontAwesome";
+        }
+</style>
