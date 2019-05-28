@@ -75,10 +75,6 @@
                 </ul>
             </div>
         </div>
-
-
-
-
         <div class="box-slide box-list-product">
             <div class="container">
                 <div class="row">
@@ -189,7 +185,7 @@
                                                 @foreach (var item in commonInfo.ProductCategoryList)
                                                 {
                                                     <div class="checkbox">
-                                                        <label><input type="checkbox" name="category" value="@item.Id" /> @item.Name</label>
+                                                        <label><input type="radio" name="category" value="@item.Id" /> @item.Name</label>
                                                     </div>
                                                 }
                                             </li>
@@ -217,56 +213,7 @@
                                         }
                                     }
                                 </div>
-                                <div class="center-block" style="margin-top:15px;">
-                                    <button class="btn btn-add btn-success" onclick="Search.doSearch();">Tìm kiếm</button>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="sidebar_widget">
-                            <div class="section_filter_block"></div>
-                        </div>
-                        <div class="page_sidebar">
-                            <div class="sidebar">
-                                <div class="sidebar_widget sidebar_widget__banner">
-                                    <div class="img_placeholder__wrap img_placeholder__large" style="background-image: url(http://media.anpero.com/images/53/32019/12019030406264126.jpg)"></div>
-                                    <div class="sidebar_banner_caption">
-                                        <a href="/search">
-                                            <h3>NEW COLLECTION</h3>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="sidebar_widget sidebar_widget__products">
-                                    <div class="widget_content">
-                                        <ul class="list_products">
-                                            @if (ViewData["saleProduct"] != null)
-                                            {
-                                                AnperoFrontend.WebService.ProductItem[] saleProduct = (AnperoFrontend.WebService.ProductItem[])ViewData["saleProduct"];
-
-                                                if (saleProduct != null && saleProduct.Length > 0)
-                                                {
-
-                                                    foreach (var item in saleProduct)
-                                                    {
-                                                        <li class="product item-slide">
-                                                            <div class="product_img image-hover img-fluid">
-                                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">
-                                                                    <img src="@item.Images" alt="@item.PrName">
-                                                                </a>
-                                                            </div>
-                                                            <div class="product_info">
-                                                                <div class="product_name">
-                                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">@item.PrName</a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                    }
-                                                }
-                                            }
-                                        </ul>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>

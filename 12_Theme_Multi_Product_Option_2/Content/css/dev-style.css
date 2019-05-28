@@ -23,6 +23,8 @@
 
 .sidebar_widget__products .widget_header {
     color: #000;
+    border-bottom: 1px solid #e4dfdf;
+    padding-bottom: 8px;
 }
 
 .checkboxlabel {

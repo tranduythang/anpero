@@ -83,7 +83,7 @@
             var categoryList = config.category.split(",");      
             for (var i = 0; i < categoryList.length; i++) {
                 try {
-                    $("input[type=checkbox][name=category][value=" + categoryList[i] + "]").prop("checked", true);
+                    $("input[name=category][value=" + categoryList[i] + "]").prop("checked", true);
                 } catch (e) {
                     // do nothing
                 }
