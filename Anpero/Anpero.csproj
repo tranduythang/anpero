@@ -60,6 +60,7 @@
     <Compile Include="PaymentMethod\PaymentMethod.cs" />
     <Compile Include="PaymentMethod\PaymentMethodControl.cs" />
     <Compile Include="SearchResult.cs" />
+    <Compile Include="SMSApi.cs" />
     <Compile Include="StringHelpper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UrlHelper.cs" />
