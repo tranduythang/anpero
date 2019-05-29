@@ -14,7 +14,7 @@ namespace Anpero
     {
         public SMSApi()
         {
-            APIKey =  ConfigurationManager.AppSettings["SmsAPIKey"];
+            APIKey = ConfigurationManager.AppSettings["SmsAPIKey"];
             SecretKey =  ConfigurationManager.AppSettings["SmsSecretKey"];
             SmsType =  ConfigurationManager.AppSettings["SmsType"];
 

@@ -102,42 +102,7 @@
                 <li class="active  li-child">
                     <a href="#" class="current" title="Trang chủ">
                         <span>TRANG CHỦ</span>
-                    </a>
-                    <ul class="main-child level-2">
-
-                        @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
-                        {
-                            foreach (var item in commonInfo.ProductCategoryList)
-                            {
-                                <li class="li-child">
-
-                                    @if (item.ChildCategory != null && item.ChildCategory.Length > 0)
-                                    {
-                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" class="m-nav" title="@item.Name">
-                                            <span>@item.Name</span>
-                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                        </a>
-                                        <ul class="main-child level-3">
-                                            @foreach (var childItem in item.ChildCategory)
-                                            {
-                                                <li class="">
-                                                    <a href="@Anpero.StringHelpper.GetParentCategoryLink(childItem.Name,childItem.Id)" title=""><span>@childItem.Name</span></a>
-                                                </li>
-                                            }
-
-                                        </ul>
-                                    }
-                                    else
-                                    {
-                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" class="" title="@item.Name">
-                                            <span>@item.Name</span>
-                                        </a>
-                                    }
-
-                                </li>
-                            }
-                        }
-                    </ul>
+                    </a>   
                 </li>         
                 @if (commonInfo.MenuList != null && commonInfo.MenuList.Length > 0)
                 {
