@@ -69,7 +69,7 @@ $(document).ready(function () {
 
     $('.owl-carousel-6').owlCarousel({
         itemsCustom: [
-            [320, 1],
+            [320, 2],
             [480, 2],
             [768, 4],
             [1024, 5],

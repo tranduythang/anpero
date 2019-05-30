@@ -40,7 +40,9 @@
                                     for (var i = 0; i < slide.Length; i++)
                                     {
                                         <div class="carousel-item @(i == 0 ? "active" : "")">
-                                            <img class="d-block w-100" src="@slide[i].ImagesUrl" alt="@slide[i].Description">
+                                            <a href="@slide[i].ClickUrl">
+                                                <img class="d-block w-100" src="@slide[i].ImagesUrl" alt="@slide[i].Description">
+                                            </a>
                                         </div>
                                     }
                                 }
@@ -99,7 +101,7 @@
 
                 }
             </div>
-            </div>
+        </div>
     </div>
     <!--box-slide-ads-->
 }
@@ -133,7 +135,7 @@
                                         </a>
                                     </h3>
                                     <div class="box-prince">
-                                        <span class="prince-new">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) ₫</span>
+                                        <span class="prince-new">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
                                     </div>
                                 </div>
                             </div>
@@ -155,7 +157,7 @@
             <div class="container">
                 <div class="box-title">
                     <h2 class="title">Sản phẩm mới</h2>
-                    @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                    @*@if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                     {
                         <ul class="nav-list">
                             @foreach (var item in commonInfo.ProductCategoryList)
@@ -164,7 +166,7 @@
                             }
 
                         </ul>
-                    }
+                    }*@
                 </div>
 
                 <div class="owl-carousel owl-carousel-6" id="">
@@ -207,7 +209,7 @@
                                         </a>
                                     </h3>
                                     <div class="box-prince">
-                                        <span class="prince-new">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) ₫</span>
+                                        <span class="prince-new">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
                                     </div>
                                 </div>
                             </div>
@@ -253,7 +255,7 @@
 }
 @if (ViewData["FeatureArticle"] != null)
 {
-     SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
+    SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
     <div class="box-news">
         <div class="container">
             <div class="box-title-new">
@@ -276,7 +278,7 @@
                                 </div>
                                 <ul class="info-new">
                                     <li class="time"><i class="fa fa-calendar" aria-hidden="true"></i> <time>@Anpero.StringHelpper.ConvertDateTime(item.CreateDate).ToString("dd/mm/yyyy")</time></li>
-                                    
+
                                     <li class="post"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>@item.CategoryName</span></li>
                                 </ul>
                             </div>

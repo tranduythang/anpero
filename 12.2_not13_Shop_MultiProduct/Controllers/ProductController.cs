@@ -110,6 +110,7 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult ParentCategory(int id)
         {
+            ViewBag.category = id;
             //Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
             //Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
             string pageQuery = Request.QueryString["page"];

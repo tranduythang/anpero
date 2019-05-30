@@ -1,0 +1,201 @@
+/*
+------------------------------------  WARNING  ------------------------------------
+This file will be overwritten and should not be edited directly.
+In order to edit custom CSS for Bold Product Options you should:
+- Log into your Shopify Admin Panel
+- Go to Apps --> Installed --> Product Options
+- Go to Display Settings
+------------------------------------  WARNING  ------------------------------------
+*/
+
+
+.bold_options {
+margin-bottom: 20px;
+}
+
+.bold_option_product_info {
+text-align: center;
+margin: 0 0 25px;
+}
+
+.bold_option_product_info_title {
+font-size: 18px;
+font-weight: bold;
+}
+
+.bold_option_product_info_description {
+text-align: left;
+}
+
+.bold_option_product_info_image img {
+max-height: 150px;
+}
+
+.bold_option_set {
+}
+
+.bold_option:not(:empty) {
+}
+
+.bold_option_product_title {
+margin-bottom: 20px;
+}
+
+.bold_option_title,
+.bold_option_value_price {
+font-weight: normal;
+display: block;
+}
+
+.bold_option_value {
+display: block;
+margin-right: 15px;
+}
+
+.bold_option_value_price,
+.bold_out_of_stock_message {
+display: inline;
+font-size: 80%;
+}
+
+.bold_option_out_of_stock .bold_option_title,
+.bold_option_out_of_stock .bold_option_value_title,
+.bold_option_out_of_stock .bold_option_value_price,
+.bold_option_dropdown_out_of_stock {
+opacity: .5;
+}
+
+.bold_option_checkbox .bold_option_title {
+display: inline;
+}
+
+.bold_option_radio .bold_option_title,
+.bold_option_checkboxmulti .bold_option_title,
+.bold_option_dropdownmulti .bold_option_title,
+.bold_option_textarea .bold_option_title {
+display: block;
+}
+
+.bold_option_textboxmulti .bold_option_value {
+display: block;
+margin-left: 0;
+}
+
+.bold_option_displaytext p:last-child {
+margin-bottom: 0;
+}
+
+.bold_option_element,
+.bold_option_element input,
+.bold_option_element select,
+.bold_option_element textarea {
+height: auto;
+}
+
+.bold_option_element input[type=radio] {
+-webkit-appearance: radio;
+width: auto;
+}
+
+.bold_help_text {
+font-style: italic;
+color: #848484;
+display: block;
+}
+
+.bold_option label {
+display: inline;
+}
+
+.bold_option input[name="qty[]"] {
+width: 50px;
+padding: 5px;
+height: auto;
+}
+
+.bold_option input[type="color"] {
+box-sizing:initial;
+width:50px;
+padding: 5px;
+height: 25px;
+}
+
+/* default styles for the priced options total */
+.bold_option_total > div {
+padding: 5px 12px;
+background: #fff;
+text-align: center;
+}
+
+.bold_option_total span {
+color: #AD0000;
+font-weight: bold;
+display: inline-block;
+margin: 0 5px;
+}
+
+/* custom styles for the priced options total */
+.bold_option_total > div {
+}
+
+.bold_option_total span {
+}
+
+
+
+/* errors */
+.bold_option_error,
+.bold_option_error .bold_option_title,
+.bold_error_message {
+color: red;
+}
+
+.bold_error_message {
+display: block;
+}
+
+/* utility classes */
+.bold_hidden {
+display:none !important;
+}
+
+
+
+
+/* ajax loading animation */
+.bold_spinner {
+margin: 0 auto;
+width: 90px;
+text-align: center;
+}
+.bold_spinner > div {
+width: 15px;
+height: 15px;
+margin:0 5px;
+background-color: rgba(0,0,0,.25);
+border-radius: 100%;
+display: inline-block;
+-webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+.bold_spinner :nth-child(1) {
+-webkit-animation-delay: -0.32s;
+animation-delay: -0.32s;
+}
+.bold_spinner :nth-child(2) {
+-webkit-animation-delay: -0.16s;
+animation-delay: -0.16s;
+}
+@-webkit-keyframes sk-bouncedelay {
+0%, 80%, 100% { -webkit-transform: scale(0) }
+40% { -webkit-transform: scale(1.0) }
+}
+@keyframes sk-bouncedelay {
+0%, 80%, 100% {
+-webkit-transform: scale(0);
+transform: scale(0);
+} 40% {
+-webkit-transform: scale(1.0);
+transform: scale(1.0);
+}
+}
