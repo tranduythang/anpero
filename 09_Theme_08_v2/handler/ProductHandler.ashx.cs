@@ -106,8 +106,10 @@ namespace AnperoFrontend.handler
                                 var commontData= sv.GetCommonConfig(st, TokenKey);
                                 Anpero.SMSApi sms = new Anpero.SMSApi();
                                 string timeNow = String.Format("{0:g}", DateTime.Now);
-                                //sms.SendJson(commontData.HotLine.Trim(), "Vào lúc " + timeNow + " khach hang da thanh toan Online thanh cong cho don hang : " + rs2);
-                                sms.SendJson(commontData.HotLine.Trim(), "Sum37.vn Vào lúc " + timeNow + " khach hang da dat hang Online thanh cong cho don hang : " + rs2);
+                                //sms.SendJson(commontData.HotLine.Trim(), "Sum37.vn Vào lúc " + timeNow + " khach hang da dat hang Online thanh cong cho don hang : " + rs2);
+                                
+                                sms.SendBrandnameJson(commontData.HotLine.Trim(), "Sum37.vn Vào lúc " + timeNow + " khach hang da dat hang Online thanh cong cho don hang : " + rs2,string.Empty);
+                                
                             }
                             if (rs2 == -1)
                             {

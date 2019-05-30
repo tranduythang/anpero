@@ -17,13 +17,26 @@ namespace Anpero
             APIKey =  ConfigurationManager.AppSettings["SmsAPIKey"];
             SecretKey =  ConfigurationManager.AppSettings["SmsSecretKey"];
             SmsType =  ConfigurationManager.AppSettings["SmsType"];
+            BranchName = ConfigurationManager.AppSettings["brandName"];
 
 
         }
         string smsType;
         String aPIKey;
         string secretKey;
+        string branchName;
+        public string BranchName
+        {
+            get
+            {
+                return branchName;
+            }
 
+            set
+            {
+                branchName = value;
+            }
+        }
         public string APIKey
         {
             get
@@ -116,8 +129,13 @@ namespace Anpero
         }
 
         //Send SMS with Alpha Sender
-        public string SendBrandnameJson(string phone, string message, string brandname)
+        public string SendBrandnameJson(string phone, string message, string brandname="")
         {
+            if (string.IsNullOrEmpty(brandname))
+            {
+                brandname = BranchName;
+            }
+            
             //http://rest.esms.vn/MainService.svc/json/SendMultipleMessage_V4_get?Phone={Phone}&Content={Content}&BrandnameCode={BrandnameCode}&ApiKey={ApiKey}&SecretKey={SecretKey}&SmsType={SmsType}&SendDate={SendDate}&SandBox={SandBox}
             //url vi du
             // sử dụng cách 1:
