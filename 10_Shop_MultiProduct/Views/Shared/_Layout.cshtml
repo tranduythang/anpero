@@ -95,7 +95,7 @@
         {
         "@@context": "https://schema.org",
         "@@type": "WebSite",
-        "url": "@Url.Content("~", true)",
+        "url": "@Url.Content("~")",
         "potentialAction": {
         "@@type": "SearchAction",
         "target": "@(Url.Content("~").TrimEnd('/') + Url.RouteUrl("search") + "?keyword={keyword}")",
@@ -107,7 +107,7 @@
         {
         "@@context": "https://schema.org",
         "@@type": "Organization",
-        "url": "@Url.Content("~", true).TrimEnd('/')",
+        "url": "@Url.Content("~")",
         "logo": "@commonInfo.Logo"
         }
 

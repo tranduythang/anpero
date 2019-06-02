@@ -198,7 +198,7 @@
 
                                                 if (relateProduct.Item != null && relateProduct.Item.Length > 0)
                                                 {
-                                                   // relateProduct.Item= relateProduct.Item.Where(x => x.Id != item.Id);
+                                                    // relateProduct.Item= relateProduct.Item.Where(x => x.Id != item.Id);
                                                     foreach (var items in relateProduct.Item)
                                                     {
                                                         <div class="item">
@@ -240,7 +240,7 @@
                                                             </div>
                                                         </div>
                                                     }
-                                            }
+                                                }
                                             }
                                         </div>
                                     </div>
@@ -281,6 +281,23 @@
                 iframe.css('width', iframeW);
                 var iframeH = contentW / 16 * 9;
                 iframe.css('height', iframeH);
+            }
+        </script>
+        @{
+            List<string> images = new List<string>();
+            images.Add(item.Images);
+            images.AddRange(item.ImagesSlide);
+            images = images.Select(x => "\"" + x + "\"").ToList();
+            var imagesText = string.Join(",", images);
+        }
+        <script type="application/ld+json">
+            {
+            "@@context":"http://schema.org/",
+            "@@type":"Product",
+            "name":"@item.PrName",
+            "image":[@Html.Raw(imagesText)],
+            "description":"@item.ShortDesc",
+            "sku": "@item.Id"
             }
         </script>
     }
