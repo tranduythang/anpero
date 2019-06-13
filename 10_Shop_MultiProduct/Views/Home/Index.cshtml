@@ -24,8 +24,8 @@
 }
 <div class="page_container">
     <div class="main_content ">
-        <div id="shopify-section-1547051873685" class="shopify-section index-section">
-            <div class="section section_homepage section_slideshow_full_width section_slideshow__large swiper-container" id="slideshow_1547051873685" data-autoplay="true" data-speed="3000">
+        <div class="shopify-section index-section">
+            <div class="section section_homepage section_slideshow_full_width section_slideshow__large swiper-container"  data-autoplay="true" data-speed="3000">
                 <div class="swiper-wrapper">
                     @if (ViewData["Slide"] != null)
                     {
@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <div id="shopify-section-1546967416042" class="shopify-section section section_homepage section_custom-content">
+        <div class="shopify-section section section_homepage section_custom-content">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col_item item_2_1">
@@ -67,7 +67,7 @@
                 </div>
             </div>
         </div>
-        <div id="shopify-section-1546967523308" class="shopify-section section section_homepage section_featured-products">
+        <div class="shopify-section section section_homepage section_featured-products">
             <div class="container">
                 <h2 class="section_heading">Sản phẩm</h2>
                 <div class="row product_listing__main">
@@ -103,7 +103,7 @@
             </div>
 
         </div>
-        <div id="shopify-section-1547136044015" class="shopify-section section section_divider">
+        <div class="shopify-section section section_divider">
             <div class="divider_item container" style="padding-top: 50px;"></div>
             <div class="divider_item tablet_show container" style="padding-top: 50px;"></div>
         </div>
@@ -134,7 +134,7 @@
                                 <div class="col-sm-6 ads1-1" id="content-video">
                                     <h2 class="title">Video</h2>
                                     <div class="caption_text" data-close-btn-text="ads1">
-                                        @Html.Raw(ads1[1].Description)
+                                        <iframe width="560" height="315" src="@Html.Raw(ads1[1].Description)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                                        
                                     </div>
                                 </div>
                             }
@@ -143,11 +143,11 @@
                 </div>
             </div>
         </div>
-        <div id="shopify-section-1547200797889" class="shopify-section  section section_divider">
+        <div  class="shopify-section  section section_divider">
             <div class="divider_item container" style="padding-top: 22px;"></div>
             <div class="divider_item tablet_show container" style="padding-top: 22px;"></div>
         </div>
-        <div id="shopify-section-1547217564453" class="shopify-section section section_homepage section_banners_countdown_custom">
+        <div class="shopify-section section section_homepage section_banners_countdown_custom">
             <div class="row">
 
                 @if (ViewData["ads2"] != null)

@@ -678,7 +678,7 @@ namespace AnperoFrontend.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SearchProduct", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public SearchResult SearchProduct(int storeId, string tokenKey, string CategoryId, string parentCategoryId, string groupId, int priceFrom, int priceTo, int curentPage, int pageSite, string keyWord, string order, int minPrioty) {
+        public SearchResult SearchProduct(int storeId, string tokenKey, string CategoryId, string parentCategoryId, string groupId, int priceFrom, int priceTo, int curentPage, int pageSite, string keyWord, string order, int minPrioty, string propertyList) {
             object[] results = this.Invoke("SearchProduct", new object[] {
                         storeId,
                         tokenKey,
@@ -691,17 +691,18 @@ namespace AnperoFrontend.WebService {
                         pageSite,
                         keyWord,
                         order,
-                        minPrioty});
+                        minPrioty,
+                        propertyList});
             return ((SearchResult)(results[0]));
         }
         
         /// <remarks/>
-        public void SearchProductAsync(int storeId, string tokenKey, string CategoryId, string parentCategoryId, string groupId, int priceFrom, int priceTo, int curentPage, int pageSite, string keyWord, string order, int minPrioty) {
-            this.SearchProductAsync(storeId, tokenKey, CategoryId, parentCategoryId, groupId, priceFrom, priceTo, curentPage, pageSite, keyWord, order, minPrioty, null);
+        public void SearchProductAsync(int storeId, string tokenKey, string CategoryId, string parentCategoryId, string groupId, int priceFrom, int priceTo, int curentPage, int pageSite, string keyWord, string order, int minPrioty, string propertyList) {
+            this.SearchProductAsync(storeId, tokenKey, CategoryId, parentCategoryId, groupId, priceFrom, priceTo, curentPage, pageSite, keyWord, order, minPrioty, propertyList, null);
         }
         
         /// <remarks/>
-        public void SearchProductAsync(int storeId, string tokenKey, string CategoryId, string parentCategoryId, string groupId, int priceFrom, int priceTo, int curentPage, int pageSite, string keyWord, string order, int minPrioty, object userState) {
+        public void SearchProductAsync(int storeId, string tokenKey, string CategoryId, string parentCategoryId, string groupId, int priceFrom, int priceTo, int curentPage, int pageSite, string keyWord, string order, int minPrioty, string propertyList, object userState) {
             if ((this.SearchProductOperationCompleted == null)) {
                 this.SearchProductOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSearchProductOperationCompleted);
             }
@@ -717,7 +718,8 @@ namespace AnperoFrontend.WebService {
                         pageSite,
                         keyWord,
                         order,
-                        minPrioty}, this.SearchProductOperationCompleted, userState);
+                        minPrioty,
+                        propertyList}, this.SearchProductOperationCompleted, userState);
         }
         
         private void OnSearchProductOperationCompleted(object arg) {
@@ -1076,6 +1078,8 @@ namespace AnperoFrontend.WebService {
         
         private int paymentFeeField;
         
+        private string currencyField;
+        
         /// <remarks/>
         public int St {
             get {
@@ -1185,6 +1189,16 @@ namespace AnperoFrontend.WebService {
                 this.paymentFeeField = value;
             }
         }
+        
+        /// <remarks/>
+        public string Currency {
+            get {
+                return this.currencyField;
+            }
+            set {
+                this.currencyField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -1194,6 +1208,8 @@ namespace AnperoFrontend.WebService {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class ProductItem {
+        
+        private ProductProperties[] propertiesField;
         
         private int originIDField;
         
@@ -1244,6 +1260,16 @@ namespace AnperoFrontend.WebService {
         private string tagLinkField;
         
         private string specificationsField;
+        
+        /// <remarks/>
+        public ProductProperties[] Properties {
+            get {
+                return this.propertiesField;
+            }
+            set {
+                this.propertiesField = value;
+            }
+        }
         
         /// <remarks/>
         public int OriginID {
@@ -1502,11 +1528,245 @@ namespace AnperoFrontend.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ProductProperties {
+        
+        private int idField;
+        
+        private string nameField;
+        
+        private string imagesField;
+        
+        private int rankField;
+        
+        private string descriptionField;
+        
+        private string keywordsField;
+        
+        private string productPropertiesValueJsonField;
+        
+        private ProductPropertiesValue[] valuesField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Images {
+            get {
+                return this.imagesField;
+            }
+            set {
+                this.imagesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Rank {
+            get {
+                return this.rankField;
+            }
+            set {
+                this.rankField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Keywords {
+            get {
+                return this.keywordsField;
+            }
+            set {
+                this.keywordsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ProductPropertiesValueJson {
+            get {
+                return this.productPropertiesValueJsonField;
+            }
+            set {
+                this.productPropertiesValueJsonField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public ProductPropertiesValue[] Values {
+            get {
+                return this.valuesField;
+            }
+            set {
+                this.valuesField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ProductPropertiesValue {
+        
+        private int idField;
+        
+        private int propertiesIdField;
+        
+        private string propertiesNameField;
+        
+        private int rankField;
+        
+        private string valuesField;
+        
+        private string imagesField;
+        
+        private string smallThumbField;
+        
+        private bool isInStockField;
+        
+        private decimal priceField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PropertiesId {
+            get {
+                return this.propertiesIdField;
+            }
+            set {
+                this.propertiesIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string PropertiesName {
+            get {
+                return this.propertiesNameField;
+            }
+            set {
+                this.propertiesNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Rank {
+            get {
+                return this.rankField;
+            }
+            set {
+                this.rankField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Values {
+            get {
+                return this.valuesField;
+            }
+            set {
+                this.valuesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Images {
+            get {
+                return this.imagesField;
+            }
+            set {
+                this.imagesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SmallThumb {
+            get {
+                return this.smallThumbField;
+            }
+            set {
+                this.smallThumbField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsInStock {
+            get {
+                return this.isInStockField;
+            }
+            set {
+                this.isInStockField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal Price {
+            get {
+                return this.priceField;
+            }
+            set {
+                this.priceField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class SearchResult {
+        
+        private ProductPropertiesValue[] propertiesValueField;
         
         private ProductItem[] itemField;
         
         private int resultCountField;
+        
+        /// <remarks/>
+        public ProductPropertiesValue[] PropertiesValue {
+            get {
+                return this.propertiesValueField;
+            }
+            set {
+                this.propertiesValueField = value;
+            }
+        }
         
         /// <remarks/>
         public ProductItem[] Item {
@@ -1586,6 +1846,12 @@ namespace AnperoFrontend.WebService {
         
         private string nameField;
         
+        private string descField;
+        
+        private string imagesField;
+        
+        private int stField;
+        
         /// <remarks/>
         public int Id {
             get {
@@ -1603,6 +1869,36 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Desc {
+            get {
+                return this.descField;
+            }
+            set {
+                this.descField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Images {
+            get {
+                return this.imagesField;
+            }
+            set {
+                this.imagesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int St {
+            get {
+                return this.stField;
+            }
+            set {
+                this.stField = value;
             }
         }
     }
@@ -1837,6 +2133,10 @@ namespace AnperoFrontend.WebService {
         
         private int themeOptionField;
         
+        private ProductProperties[] productPropertiesField;
+        
+        private string faviconField;
+        
         /// <remarks/>
         public string ServerName {
             get {
@@ -2016,6 +2316,26 @@ namespace AnperoFrontend.WebService {
                 this.themeOptionField = value;
             }
         }
+        
+        /// <remarks/>
+        public ProductProperties[] ProductProperties {
+            get {
+                return this.productPropertiesField;
+            }
+            set {
+                this.productPropertiesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Favicon {
+            get {
+                return this.faviconField;
+            }
+            set {
+                this.faviconField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -2031,6 +2351,10 @@ namespace AnperoFrontend.WebService {
         private string descriptionField;
         
         private string imagesUrlField;
+        
+        private int idField;
+        
+        private int priotyField;
         
         /// <remarks/>
         public string ClickUrl {
@@ -2059,6 +2383,26 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.imagesUrlField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Prioty {
+            get {
+                return this.priotyField;
+            }
+            set {
+                this.priotyField = value;
             }
         }
     }

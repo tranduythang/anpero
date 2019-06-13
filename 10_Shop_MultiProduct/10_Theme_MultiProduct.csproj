@@ -321,55 +321,15 @@
     <Content Include="assets\fonts\SFUFuturaBook.TTF" />
     <Content Include="assets\fonts\SFUFuturaBold.TTF" />
     <Content Include="handler\PaymentHandler.ashx" />
-    <Content Include="Html\blogs\news.atom" />
-    <Content Include="Html\blogs\news\tagged\anti-ageing.atom" />
-    <Content Include="Html\blogs\news\tagged\combination.atom" />
-    <Content Include="Html\blogs\news\tagged\dark-circles.atom" />
-    <Content Include="Html\blogs\news\tagged\eyes.atom" />
-    <Content Include="Html\blogs\news\tagged\nails.atom" />
-    <Content Include="Html\blogs\news\tagged\tools-accessories.atom" />
-    <Content Include="Html\cdn.shopify.com\s\assets\shop_events_listener-acf771159f9849ef6e5265782c99efe8b99406214c96a4373224ecafe285d7bb.js" />
-    <Content Include="Html\cdn.shopify.com\s\assets\storefront\features-e87392afe29fe307282f4e6aad12cb4bcc2afefd6b7febf0b70edfd315f9684c.js" />
-    <Content Include="Html\cdn.shopify.com\s\files\1\0079\6649\0720\articles\blog_1_290x290_crop_center3ce7.jpg" />
-    <Content Include="Html\cdn.shopify.com\s\files\1\0079\6649\0720\articles\blog_1_350x308_crop_center3ce7.jpg" />
-    <Content Include="Html\cdn.shopify.com\s\files\1\0079\6649\0720\articles\blog_2_290x290_crop_centerb3a6.jpg" />
-    <Content Include="Html\cdn.shopify.com\s\files\1\0079\6649\0720\articles\blog_2_350x308_crop_centerb3a6.jpg" />
-    <Content Include="Html\cdn.shopify.com\s\files\1\0079\6649\0720\articles\blog_3_290x290_crop_center5214.jpg" />
-    <Content Include="Html\cdn.shopify.com\s\files\1\0079\6649\0720\articles\blog_3_350x308_crop_center5214.jpg" />
     <Content Include="assets\assets.js" />
-    <Content Include="Html\cdn.shopify.com\s\files\1\0079\6649\0720\t\2\assets\blank.html" />
-    <Content Include="Html\cdn.shopify.com\s\files\1\0079\6649\0720\t\2\assets\currency-toolsf18a.js" />
-    <Content Include="Html\cdn.shopify.com\s\files\1\0079\6649\0720\t\2\assets\fancybox_loading.gif" />
     <Content Include="assets\responsive.css" />
     <Content Include="assets\shop.js" />
     <Content Include="assets\loadingLogo.gif" />
-    <Content Include="Html\cdn.shopify.com\s\files\1\0079\6649\0720\t\2\assets\style.scssf18a.css" />
     <Content Include="assets\scripts.js" />
-    <Content Include="Html\cdn.shopify.com\s\files\1\0079\6649\0720\t\2\assets\fontawesome-webfont9e99.eot" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="Html\blogs\news.html" />
-    <Content Include="Html\blogs\news\also-you-can-always-contact-our-consultants.html" />
-    <Content Include="Html\blogs\news\our-company-advocates-the-postulate-that-the-health-is-the-biggest-value-in-our-lives.html" />
-    <Content Include="Html\blogs\news\our-goal-is-to-help-you-stay-healthy-as-well-as-gorgeous-at-the-same-time.html" />
-    <Content Include="Html\blogs\news\tagged\anti-ageing.html" />
-    <Content Include="Html\blogs\news\tagged\combination.html" />
-    <Content Include="Html\blogs\news\tagged\dark-circles.html" />
-    <Content Include="Html\blogs\news\tagged\eyes.html" />
-    <Content Include="Html\blogs\news\tagged\nails.html" />
-    <Content Include="Html\blogs\news\tagged\tools-accessories.html" />
-    <Content Include="Html\cart.html" />
-    <Content Include="Html\collections.html" />
-    <Content Include="Html\index.html" />
-    <Content Include="Html\pages\about-us.html" />
-    <Content Include="Html\pages\contact-us.html" />
-    <Content Include="Html\pages\faq.html" />
-    <Content Include="Html\pages\password-page.html" />
-    <Content Include="Html\pages\privacy-policy.html" />
-    <Content Include="Html\pages\services.html" />
-    <Content Include="Html\pages\wishlist.html" />
     <Content Include="Scripts\Anpero.Common.js" />
     <Content Include="Scripts\Bootrap.notify.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -460,10 +420,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Html\cdn.shopify.com\s\assets\themes_support\" />
-    <Folder Include="Html\cdn.shopify.com\s\files\1\0079\6649\0720\t\2\compiled_assets\" />
-    <Folder Include="Html\cdn.shopify.com\s\javascripts\tricorder\" />
-    <Folder Include="Html\products\products\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

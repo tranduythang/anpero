@@ -35,6 +35,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="Isdefault" type="s:boolean" />
           <s:element minOccurs="1" maxOccurs="1" name="St1" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="PaymentFee" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="UpdateOrderStatus">
@@ -241,6 +242,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="ClickUrl" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="ImagesUrl" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Prioty" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:element name="GetAdsSlide">
@@ -294,6 +297,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="AnperoPlugin" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="ThemeOption" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductProperties" type="tns:ArrayOfProductProperties" />
+          <s:element minOccurs="0" maxOccurs="1" name="Favicon" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfMenu">
@@ -337,6 +342,44 @@
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Desc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Images" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="St" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProductProperties">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProductProperties" nillable="true" type="tns:ProductProperties" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProductProperties">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Images" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rank" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Keywords" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductPropertiesValueJson" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Values" type="tns:ArrayOfProductPropertiesValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProductPropertiesValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProductPropertiesValue" nillable="true" type="tns:ProductPropertiesValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProductPropertiesValue">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PropertiesId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PropertiesName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rank" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Values" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Images" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SmallThumb" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsInStock" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:decimal" />
         </s:sequence>
       </s:complexType>
       <s:element name="GetBlogCategory">
@@ -394,6 +437,7 @@
       </s:element>
       <s:complexType name="SearchResult">
         <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PropertiesValue" type="tns:ArrayOfProductPropertiesValue" />
           <s:element minOccurs="0" maxOccurs="1" name="Item" type="tns:ArrayOfProductItem" />
           <s:element minOccurs="1" maxOccurs="1" name="ResultCount" type="s:int" />
         </s:sequence>
@@ -405,6 +449,7 @@
       </s:complexType>
       <s:complexType name="ProductItem">
         <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Properties" type="tns:ArrayOfProductProperties" />
           <s:element minOccurs="1" maxOccurs="1" name="OriginID" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="CatName" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="ParentId" type="s:int" />
@@ -452,6 +497,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="keyWord" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="order" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="minPrioty" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="propertyList" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>

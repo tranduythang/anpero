@@ -14,8 +14,8 @@
 
     @Styles.Render("~/Content/css")
 
-    <link rel="icon" href="@commonInfo.Logo" type="image/x-icon">
-    <link rel="shortcut icon" href="@commonInfo.Logo" type="image/x-icon">
+    <link rel="icon" href="@(string.IsNullOrEmpty(commonInfo.Favicon)?commonInfo.Logo:commonInfo.Favicon)" type="image/x-icon">
+    <link rel="shortcut icon" href="@(string.IsNullOrEmpty(commonInfo.Favicon)?commonInfo.Logo:commonInfo.Favicon)" type="image/x-icon">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="Refresh" content="3600" />
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">

@@ -145,7 +145,7 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                searchResult = service.SearchProduct(StoreID, TokenKey, "", "", "", 1, 999999999, 1, 7, "", SearchOrder.TimeDesc, 0);
+                searchResult = service.SearchProduct(StoreID, TokenKey, "", "", "", 1, 999999999, 1, 7, "", SearchOrder.TimeDesc, 0,String.Empty);
                 if (searchResult != null)
                 {
                     HttpRuntime.Cache.Insert("newestProduct", searchResult, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
