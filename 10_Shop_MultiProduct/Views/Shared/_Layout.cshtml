@@ -13,7 +13,11 @@
     <title>@ViewBag.Title</title>
 
     @Styles.Render("~/Content/css")
-
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com/">
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://www.facebook.com/">
+    <link rel="dns-prefetch" href="https://www.youtube.com/">
     <link rel="icon" href="@(string.IsNullOrEmpty(commonInfo.Favicon)?commonInfo.Logo:commonInfo.Favicon)" type="image/x-icon">
     <link rel="shortcut icon" href="@(string.IsNullOrEmpty(commonInfo.Favicon)?commonInfo.Logo:commonInfo.Favicon)" type="image/x-icon">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,11 +32,7 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
     @RenderSection("health", required: false)
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com/">
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
-    <link rel="dns-prefetch" href="https://www.facebook.com/">
-    <link rel="dns-prefetch" href="https://www.youtube.com/">
+
     <link href='/static/css' rel='stylesheet' type='text/css'>
     <script src="/Scripts/jquery-1-10.js"></script>
     <script>

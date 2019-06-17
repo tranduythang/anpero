@@ -17,9 +17,17 @@
             <div class="container">
                 <div class="row footer_main">
                     <div class="col-sm-3 footer_block footer_block__2_1">
-                        <div class="footer_item footer_item__about ">
-                            <h3>Về chúng tôi</h3>
-                            <div class="about_text"><p> @commonInfo.Desc</p></div>
+                        <div class="footer_item footer_item__about footer_item__links">
+                            <h3>@commonInfo.Name</h3>
+                            <ul>
+                                <li>
+                                    <i class="fa fa-map-marker"></i> <strong> Địa chỉ:</strong> @commonInfo.Address
+                                </li>
+                                <li>
+                                    <i class="fa fa-phone"></i> <strong> Điện thoại:</strong> <a href="tel:@commonInfo.HotLine">@commonInfo.HotLine</a> 
+                                </li>
+                              
+                            </ul>
                         </div>
                     </div>
                     <div class="col-sm-3 footer_block ">

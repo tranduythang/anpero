@@ -25,7 +25,7 @@
 <div class="page_container">
     <div class="main_content ">
         <div class="shopify-section index-section">
-            <div class="section section_homepage section_slideshow_full_width section_slideshow__large swiper-container"  data-autoplay="true" data-speed="3000">
+            <div class="section section_homepage section_slideshow_full_width section_slideshow__large swiper-container" data-autoplay="true" data-speed="3000">
                 <div class="swiper-wrapper">
                     @if (ViewData["Slide"] != null)
                     {
@@ -44,26 +44,7 @@
 
                         }
                     }
-                   
-                </div>
-            </div>
-        </div>
-        <div class="shopify-section section section_homepage section_custom-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col_item item_2_1">
-                        <div class="custom_content__item item_text button_position__">
-                            <div class="item_text item_text__center">
-                                <h4 class="item_text__title">Chào mừng tới @commonInfo.Name</h4>
-                                <div class="item_text__content"><p>@commonInfo.Desc</p></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col_item ">
-                        <div class="custom_content__item item_button button_position__center">
-                            <a class="btn custom_button button_position__center" href="/search">Xem tất cả sản phẩm</a>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -134,7 +115,7 @@
                                 <div class="col-sm-6 ads1-1" id="content-video">
                                     <h2 class="title">Video</h2>
                                     <div class="caption_text" data-close-btn-text="ads1">
-                                        <iframe width="560" height="315" src="@Html.Raw(ads1[1].Description)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                                        
+                                        @Html.Raw(ads1[1].Description)
                                     </div>
                                 </div>
                             }
@@ -143,13 +124,12 @@
                 </div>
             </div>
         </div>
-        <div  class="shopify-section  section section_divider">
+        <div class="shopify-section  section section_divider">
             <div class="divider_item container" style="padding-top: 22px;"></div>
             <div class="divider_item tablet_show container" style="padding-top: 22px;"></div>
         </div>
         <div class="shopify-section section section_homepage section_banners_countdown_custom">
             <div class="row">
-
                 @if (ViewData["ads2"] != null)
                 {
                     Ads[] ads2 = (Ads[])ViewData["ads2"];
@@ -190,29 +170,36 @@
             <div class="container">
                 <h2 class="section_heading ads3">Công trình tiêu biểu</h2>
                 <div class="row">
-                    @if (ViewData["ads3"] != null)
-                    {
-                        Ads[] ads3 = (Ads[])ViewData["ads3"];
-                        foreach (var item in ads3)
-                        {
-                            <div class="col-xs-4 col-sm-2">
-                                <div class="logo_item item_image">
-                                    <a href="@item.ClickUrl" class="logo-bar__link">
-                                        <img src="@item.ImagesUrl" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        }
-
-                    }
-
-
+                    
+                        <div class="owl-carousel owl-theme owl-carousel-6">
+                            @if (ViewData["ads3"] != null)
+                            {
+                                Ads[] ads3 = (Ads[])ViewData["ads3"];
+                                foreach (var item in ads3)
+                                {
+                                    <div class="item">
+                                        <div class="logo_item item_image">
+                                            <a href="@item.ClickUrl" class="logo-bar__link">
+                                                <img src="@item.ImagesUrl" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    
                 </div>
             </div>
         </div><!-- END content_for_index -->
     </div>
 </div>
 <style>
+    .product_name a {
+        font-weight: bold;
+    }
+    .owl-carousel .owl-item img{
+  padding: 10px;
+}
     .about-news .title {
         margin-bottom: 5px;
         line-height: 38px;
@@ -226,21 +213,37 @@
         text-transform: uppercase;
         border-bottom: solid 2px #0e47b0;
     }
-    @@media (max-width: 767px){
+
+    @@media (max-width: 767px) {
         .color_scheme .product_listing__main .product_img, .color_scheme .product_listing__main .product_name, .color_scheme .product_listing__main .product_info {
             width: 100%;
         }
-        
     }
+
     @@media (max-width: 479px) {
         .color_scheme .product_listing__main .product_img, .color_scheme .product_listing__main .product_name, .color_scheme .product_listing__main .product_info {
             width: 100%;
         }
     }
 </style>
+<link href="/assets/owl-carousel.css" rel="stylesheet" />
 @section scripts{
+    <script src="/assets/owl.carousel.min.js"></script>
     <script>
         $(document).ready(function () {
+    
+            $('.owl-carousel-6').owlCarousel({
+                stagePadding: 10,
+                margin:10,
+                itemsCustom: [
+                    [320, 1],
+                    [480, 2],
+                    [768, 4],
+                    [1024, 5],
+                    [1200, 5]
+                ],                
+                autoPlay: true
+            });
             resizeVideo();
         });
         function resizeVideo() {
@@ -252,5 +255,5 @@
             iframe.css('height', iframeH);
         }
     </script>
-    
+
 }

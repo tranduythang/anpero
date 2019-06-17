@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2047
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anpero", "Anpero\Anpero.csproj", "{B88546AC-D123-448F-BD9B-7287E7CE1B38}"
 EndProject
@@ -34,6 +34,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_company_Info", "01_Company_Info\01_company_Info.csproj", "{0F8911EA-0E81-4B8A-8F5B-380B4C2EA139}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10_Theme_MultiProduct", "10_Shop_MultiProduct\10_Theme_MultiProduct.csproj", "{7BD6C00D-C94D-4198-9C16-D6EB902ACD1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12_Theme_08_v2", "12_Theme_Multi_Product_Option_2\12_Theme_08_v2.csproj", "{547734B9-8444-4F9E-9BA1-0DC8A9244B3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +87,10 @@ Global
 		{7BD6C00D-C94D-4198-9C16-D6EB902ACD1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BD6C00D-C94D-4198-9C16-D6EB902ACD1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BD6C00D-C94D-4198-9C16-D6EB902ACD1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{547734B9-8444-4F9E-9BA1-0DC8A9244B3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{547734B9-8444-4F9E-9BA1-0DC8A9244B3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{547734B9-8444-4F9E-9BA1-0DC8A9244B3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{547734B9-8444-4F9E-9BA1-0DC8A9244B3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -101,6 +107,7 @@ Global
 		{E3E699CA-ADD6-470D-8FB1-076E134EEE46} = {4A209C7A-D091-451E-A034-CF95432C6834}
 		{0F8911EA-0E81-4B8A-8F5B-380B4C2EA139} = {310BA208-71D5-4381-8A50-5F78017A2012}
 		{7BD6C00D-C94D-4198-9C16-D6EB902ACD1E} = {4A209C7A-D091-451E-A034-CF95432C6834}
+		{547734B9-8444-4F9E-9BA1-0DC8A9244B3D} = {4A209C7A-D091-451E-A034-CF95432C6834}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F458C0BB-F83B-4833-A3E1-EC94B22EC8A5}

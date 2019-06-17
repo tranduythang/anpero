@@ -61,7 +61,7 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="main_content sidebar_on col-sm-9  col-sm-push-3">
+                    <div class="main_content sidebar_on col-sm-12">
                         <div id="shopify-section-template-collection" class="shopify-section section_template section_template__collection">
                             <h1 class="page_heading">Sản phẩm</h1>
                             @if (!pageName.ToLower().Equals("search"))
@@ -191,81 +191,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="sidebar_small col-sm-3  col-sm-pull-9">
-                        <div id="shopify-section-sidebar" class="shopify-section page_sidebar">
-                            <div class="sidebar">
-                                <div class="sidebar_widget sidebar_widget__linklist">
-                                    <h3 class="widget_header">Danh mục sản phẩm</h3>
-                                    <div class="widget_content">
-                                        <ul class="list_links">
-                                            @foreach (var item in commonInfo.ProductCategoryList)
-                                            {
-
-                                                <li class="level_1__item ">
-                                                    <a class="level_1__link" href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">@item.Name</a>
-                                                </li>
-                                            }
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="shopify-section-sidebar-sort" class="shopify-section page_sidebar_sort sidebar_widget">
-                            <div class="section_filter_block"></div>
-                        </div>
-                        <div id="shopify-section-sidebar-ensuing" class="shopify-section page_sidebar">
-                            <div class="sidebar">
-                               
-                                <div class="sidebar_widget sidebar_widget__products">
-                                    <h3 class="widget_header">Products</h3>
-                                    <div class="widget_content">
-                                        <ul class="list_products">
-                                            @if (ViewData["saleProduct"] != null)
-                                            {
-                                                AnperoFrontend.WebService.ProductItem[] saleProduct = (AnperoFrontend.WebService.ProductItem[])ViewData["saleProduct"];
-
-                                                if (saleProduct != null && saleProduct.Length > 0)
-                                                {
-
-                                                    foreach (var item in saleProduct)
-                                                    {
-                                                        <li class="product">
-                                                            <div class="product_img">
-                                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">
-                                                                    <img src="@item.Images" alt="@item.PrName">
-                                                                </a>
-                                                            </div>
-
-                                                            <div class="product_info">
-                                                                <div class="product_name">
-                                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">@item.PrName</a>
-                                                                </div>
-                                                                <div class="product_price">
-                                                                    @if (item.IsSale)
-                                                                    {
-                                                                        <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
-
-
-                                                                    }
-
-                                                                    <span class="money compare-at-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
-
-                                                                </div>
-                                                                <div class="product_links">
-                                                                    <a class="btn" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">View</a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                    }
-                                                }
-                                            }
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+     
                 </div>
             </div>
         </div>
