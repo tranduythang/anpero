@@ -26,23 +26,20 @@
     <div class="main_content ">
         <div class="shopify-section index-section">
             <div class="section section_homepage section_slideshow_full_width section_slideshow__large swiper-container" data-autoplay="true" data-speed="3000">
-                <div class="swiper-wrapper">
+                <div class="owl-carousel-1">
                     @if (ViewData["Slide"] != null)
                     {
                         Ads[] slide = (Ads[])ViewData["Slide"];
                         foreach (var item in slide)
                         {
-
-                            <div class="swiper-slide image_slide">
-                                <a href="@item.ClickUrl">
-                                    <div class="img_placeholder__wrap img_placeholder__large" style="background-image: url(@item.ImagesUrl);"></div>
+                            <div class="item">                        
+                                    <div class="img_placeholder__wrap img_placeholder__large" style="background-image: url(@item.ImagesUrl);"></div>                        
                                     <div class="slide_caption container">
                                         <div class="slide_caption_text"></div>
-                                    </div>
-                                </a>
+                                    </div>                        
                             </div>
+                        }                      
 
-                        }
                     }
 
                 </div>
@@ -61,6 +58,7 @@
                                     <div class="product_img">
                                         <a class="img_change" href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">
                                             <img class="img__1" src="@item.Images" alt="@item.Name">
+                                            <img class="img__2" src="@item.Images" alt="@item.Name">
                                         </a>
                                     </div>
                                     <div class="product_info">
@@ -241,6 +239,17 @@
                     [768, 4],
                     [1024, 5],
                     [1200, 5]
+                ],                
+                autoPlay: true
+            });
+            
+            $('.owl-carousel-1').owlCarousel({                                
+                itemsCustom: [
+                    [320, 1],
+                    [480, 1],
+                    [768, 1],
+                    [1024, 1],
+                    [1200, 1]
                 ],                
                 autoPlay: true
             });
