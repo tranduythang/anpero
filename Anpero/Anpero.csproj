@@ -54,6 +54,7 @@
     <Compile Include="Caching\CacheService.cs" />
     <Compile Include="Caching\ICacheService.cs" />
     <Compile Include="Constant.cs" />
+    <Compile Include="Enum\SearchOrder.cs" />
     <Compile Include="HttpHelper.cs" />
     <Compile Include="Model\SearchModel.cs" />
     <Compile Include="Paging.cs" />

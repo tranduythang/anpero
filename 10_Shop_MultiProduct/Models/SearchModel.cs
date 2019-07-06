@@ -10,14 +10,19 @@ namespace AnperoFrontend.Models
         public int StoreId { get; set; }
         public string KeyWord { get; set; }
         public string SortBy { get; set; }
+        public string Property { get; set; }
+        
         public string GroupId { get; set; }
         public string Category { get; set; }
         public string ParentCategory { get; set; }
+        public string Brands { get; set; }
+        
         public int PriceFrom { get; set; }
         public int PriceTo { get; set; }
         public int CurentPage { get; set; }
         public int PageSize { get; set; }
         public int MinPrioty { get; set; }
+        
         public int Page { get; set; }
         
         public string PriceRank
@@ -64,7 +69,7 @@ namespace AnperoFrontend.Models
 
         public SearchModel()
         {
-            SortBy="timeDesc";
+            SortBy = "nameDesc";// "timeDesc";
             Page = 1;
             StoreId = 0;
             KeyWord = string.Empty;
@@ -75,6 +80,8 @@ namespace AnperoFrontend.Models
             PageSize = 18;
             GroupId = "";
             ParentCategory = "0";
+            Brands = "";
+            Property = "";
         }
 
     }

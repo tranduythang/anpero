@@ -39,6 +39,15 @@
                     <div class="col-sm-3 footer_block footer_block__2_1">
 
                         <div class="footer_item footer_item__links ">
+                            <h3>Thương hiệu</h3>
+                            <ul style="margin-bottom:30px;">
+                                @foreach (var item in commonInfo.ProductGroupList)
+                                {
+                                    <li>
+                                        <a href="/search?brands=@item.Id">@item.Name</a>
+                                    </li>
+                                }
+                            </ul>
                             <h3>Thông tin</h3>
                             <ul>
                                 <li>

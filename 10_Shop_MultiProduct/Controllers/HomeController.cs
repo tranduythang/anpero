@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Anpero.Constant;
+using Anpero.Enum;
+using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
@@ -31,7 +33,7 @@ namespace AnperoFrontend.Controllers
             }
             else
             {             
-                Slide = service.GetAdsSlide(StoreID, TokenKey, PageContent.Slide);
+                Slide = service.GetAdsSlide(StoreID, TokenKey,  PageContent.Slide);
                 ViewData["slide"] = Slide;
                 if (Slide != null)
                 {

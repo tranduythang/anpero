@@ -24,8 +24,6 @@ jQuery(document).ready(function($) {
 		$('.footer_newsletter_form .alert-success').show();
 	}
 
-	$('.footer_newsletter_form').formValidation();
-
 
 });
 
@@ -346,11 +344,6 @@ jQuery(document).ready(function($) {
 		$('.section_communication .newsletter_form .alert-success').show();
 	}
 
-	$('.newsletter_form').formValidation();
-
-
-
-
 });
 
   } catch(e) { console.error(e); }
@@ -647,10 +640,7 @@ jQuery(document).ready(function($) {
 		$('#newsletter_form .alert-success').show();
 	};
 
-	// FORM VALIDATION
-	$(document).ready(function() {
-		$('#newsletter_form').formValidation();
-	});
+	
 
 });
 
@@ -1060,9 +1050,6 @@ jQuery(document).ready(function($) {
 		$('.sidebar_newsletter_form .alert-success').show();
 	}
 
-	$('.sidebar_newsletter_form').formValidation();
-
-
 });
 
   } catch(e) { console.error(e); }
@@ -1322,43 +1309,6 @@ jQuery(document).ready(function($) {
 	// PRODUCTS NUMBER
 	$('#products_number_select option[value=' + theme.productNumber + ']').prop('selected', 'true');
 
-	$('#products_number_select').on('change', function() {
-		if (document.location.pathname.indexOf('types') > 0 || document.location.pathname.indexOf('vendors') > 0 && document.location.search.indexOf('page') < 0) {
-			var productSortQuery = document.location.origin + document.location.pathname + document.location.search + '&page=1&sort_by=' + $('#sort_by_select').val() + '&view=' + $(this).val();
-		} else if (document.location.pathname.indexOf('types') > 0 || document.location.pathname.indexOf('vendors') > 0 && document.location.search.indexOf('page') > 0) {
-			var productSortQuery = document.location.origin + document.location.pathname + document.location.search.slice(0, document.location.search.indexOf('&') + 1) + '?page=1&sort_by=' + $('#sort_by_select').val() + '&view=' + $(this).val();
-		} else {
-			var productSortQuery = document.location.origin + document.location.pathname + '?page=1&sort_by=' + $('#sort_by_select').val() + '&view=' + $(this).val();
-		}
-		document.location.href = productSortQuery;
-	});
-
-
-	// PRODUCTS SORTING
-	$('#sort_by_select option').each(function() {
-		if ( document.location.href.indexOf( $(this).prop('value') ) != -1 ) {
-			$(this).prop('selected', 'selected');
-		};
-
-	});
-
-
-	$('#sort_by_select').on('change', function() {
-		if (document.location.pathname.indexOf('types') > 0 || document.location.pathname.indexOf('vendors') > 0 && document.location.search.indexOf('page') < 0) {
-			var productSortQuery = document.location.origin + document.location.pathname + document.location.search + '?page=1&sort_by=' + $(this).val() + '&view=' + theme.productNumber;
-		} else if (document.location.pathname.indexOf('types') > 0 || document.location.pathname.indexOf('vendors') > 0 && document.location.search.indexOf('page') > 0) {
-			var productSortQuery = document.location.origin + document.location.pathname + document.location.search.slice(0, document.location.search.indexOf('&') + 1) + '?page=1&sort_by=' + $(this).val() + '&view=' + theme.productNumber;
-		} else {
-			var productSortQuery = document.location.origin + document.location.pathname  + '?page=1&sort_by=' + $(this).val() + '&view=' + theme.productNumber;
-		}
-		
-		document.location.href = productSortQuery;
-	});
-
-
-	
-
-
 
 	// LOAD MORE STYLE PAGINATION
 	if( theme.paginationTypeLoad ){
@@ -1457,7 +1407,6 @@ jQuery(document).ready(function($) {
 			$.cookie(theme.collectionName, '?page=1', {path: '/'});
 			document.location.href = newPageUrl;
 		});
-
 		pageLastArrow.on('click', function(e) {
 			if ( document.location.search.indexOf('page=') != -1 ){
 				var newPageUrl = document.location.href.replace(/\?page=\d{1,3}/, '?page=' + theme.paginatePages);
@@ -1557,20 +1506,9 @@ jQuery(document).ready(function($) {
 	};
 
 
-	$('#create_customer').formValidation();
-
 	$('#create_customer').on('submit', function() {
 		$('#password_confirmed').val( $('#password_1').val() );
 	});
-
-
-	$('#customer_login').formValidation();
-
-
-	$('#account_section__activation form').formValidation();
-
-
-	$('#account_section__reset-account form').formValidation();
 
 });
 

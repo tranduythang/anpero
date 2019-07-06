@@ -254,7 +254,7 @@
             <div class="divider_item container" style="padding-top: 22px;"></div>
             <div class="divider_item tablet_show container" style="padding-top: 22px;"></div>
         </div>
-        <div id="shopify-section-1547217564453" class="shopify-section section section_homepage section_banners_countdown_custom">
+        <div  class="shopify-section section section_homepage section_banners_countdown_custom">
             <div class="row">
                 @if (ViewData["ads2"] != null)
                 {
@@ -267,7 +267,7 @@
                                 </div>
                                 <div class="banner_caption align_center text_align_center ">
                                     <div class="banner_text">
-                                        @ads2[0].Description
+                                        @Html.Raw(ads2[0].Description)
                                     </div>
                                 </div>
                             </div>

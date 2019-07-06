@@ -7,6 +7,7 @@ using AnperoFrontend.WebService;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
+using Anpero.Enum;
 
 namespace AnperoFrontend.Controllers
 {
@@ -146,24 +147,6 @@ namespace AnperoFrontend.Controllers
         public static int StoreID = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["storeID"]);
         public static string TokenKey = System.Configuration.ConfigurationManager.AppSettings["storeTokenKey"];
     }
-    public static class SearchOrder
-    {
-
-        public static string PriceDesc = "pricedesc";
-        public static string PricedAsc = "pricedasc";
-        public static string TimeDesc = "timeDesc";
-        public static string NameDesc = "nameDesc";
-        public static string NameAsc = "nameAsc";
-    }
-    public static class PageContent
-    {
-        public static string Slide = "slide";
-        public static string Ads1 = "ads1";
-        public static string Ads2 = "ads2";
-        public static string Ads3 = "ads3";
-        public static string Ads4 = "ads4";
-        public static string Ads5 = "ads5";
-        public static string Ads6 = "ads6";
-
-    }
+   
+   
 }

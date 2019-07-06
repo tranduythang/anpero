@@ -22,11 +22,12 @@
     <meta property="og:image" content="@commonInfo.Logo" />
     <link href="~/assets/stylesheet/NganLuongBankList.css" rel="stylesheet" />
 }
-<div class="breadcrumbs">
+<div class="box-breadcrumb">
     <div class="container">
-        <ul>
-            <li><a href="/">Trang chủ</a></li>
+        <ul class="hidden-sm hidden-xs">
+            <li><a href="/" title="Trang chủ @commonInfo.Name">Trang chủ</a></li>
             <li><span>Giỏ hàng</span></li>
+
         </ul>
     </div>
 </div>
@@ -315,7 +316,7 @@
             </div>
             <div class="page-content checkout-page" id="cartContent2" style="display:none;"></div>
             <div id='ajax_loader' style="position: fixed; left: 45%; top: 50%; display: none;">
-                <img src="//media.anpero.com/images/38/102017/loading2017102517124312.gif" />
+                <img src="//cdn.anpero.com/images/38/102017/loading2017102517124312.gif" />
             </div>
         </div>
     </div>
@@ -329,7 +330,16 @@
         .mt-25 {
             margin-top: 25px;
         }
-
+        .qty input{
+            width: 30px;
+            float: left;
+        }
+        .cart_product img{
+            max-height:105px;
+        }
+        .qty .btn {
+            float: left;
+        }
         .form-list label {
             line-height: 25px !important;
         }
