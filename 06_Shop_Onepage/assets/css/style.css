@@ -1674,10 +1674,10 @@ a{color:black;}
     height: 16px;
     padding: 2px;
 }
-.box-category .subDropdown.plus {
-    background-image: url(//media.anpero.com/images/38/102018/plus-blue2018100613560299.png);
-}
+    .box-category .subDropdown.plus {
+        background-image: url(//cdn.anpero.com/images/38/102018/plus-blue2018100613560299.png);
+    }
 
-.box-category .subDropdown.minus {
-    background-image: url(//media.anpero.com/images/38/102018/minus-blue2018100614211640.png);
-}
+    .box-category .subDropdown.minus {
+        background-image: url(//cdn.anpero.com/images/38/102018/minus-blue2018100614211640.png);
+    }

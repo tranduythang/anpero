@@ -21,7 +21,7 @@
             }
             // if this product no in cart list
             if (!checkExited) {
-                Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });
+                Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });                
             }
         }
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
@@ -123,7 +123,7 @@
         var ttSC = 0;
 
         var _paymentFee = $('input[name=radio_4]:checked').attr("data-ship");
-        var htmlCat = ""; debugger
+        var htmlCat = ""; 
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined") {
 
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
@@ -267,13 +267,14 @@
             $("#cartContent2").show();
             $("#cartContent2").html("<h4>Đơn hàng đang được gửi ...</h4>");
             $("#ajax_loader").show();
+          //  Cart.list = JSON.stringify($.cookie("CartList"));
             $.ajax({
                 method: "post",
                 url: "/handler/ProductHandler.ashx",
                 datatype: "text/plain",
-                data: { op: "CreateOrder", detail: _detail, PayMentType: _paymentType, shippingMethod: _shipingType, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, ProductList: $.cookie("CartList"), shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee) },
+                data: { op: "CreateOrder", detail: unescape(_detail), PayMentType: _paymentType, shippingMethod: _shipingType, captcha: captchaResponse, name:unescape(_name), email: _email, phone: _phone, address: _address, ProductList: $.cookie("CartList"), shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee) },
                 success: function (rs) {
-                    debugger
+                    
                     $("#ajax_loader").hide();
                     if (!isNaN(rs)) {
                         $.removeCookie('CartList', { path: '/' });

@@ -141,6 +141,9 @@ namespace AnperoFrontend.Controllers
             {
                 page = Convert.ToInt32(pageQuery);
             }
+            //ViewBag.property
+            //ViewBag.brands
+            //ViewBag.category
             WebService.AnperoService sv = new WebService.AnperoService();
             WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, category, "", "", 0, 999999999, page, 14, keyword, SearchOrder.NameDesc, 0, string.Empty);
             ViewData["productList"] = rs;

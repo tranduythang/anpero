@@ -1,11 +1,12 @@
 ﻿@using AnperoFrontend.WebService;
 @{
-    ViewBag.Title = "Liên hệ với chúng tôi | VinFish";
+    
     AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
     if (ViewData["commonInfo"] != null)
     {
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
         ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+          ViewBag.Title = "Liên hệ với chúng tôi | "+commonInfo.Name;
 
     }
 }
