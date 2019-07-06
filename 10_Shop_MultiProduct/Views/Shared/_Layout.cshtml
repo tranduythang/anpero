@@ -93,6 +93,26 @@
             Cart.bindCart();
         });
     </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "https://schema.org",
+        "@@type": "WebSite",
+        "url": "@Url.Content("~")",
+        "potentialAction": {
+        "@@type": "SearchAction",
+        "target": "@(Url.Content("~").TrimEnd('/') + Url.RouteUrl("search") + "?keyword={keyword}")",
+        "query-input": "required name=keyword"
+        }
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "https://schema.org",
+        "@@type": "Organization",
+        "url": "@Url.Content("~").TrimEnd('/')",
+        "logo": "@commonInfo.Logo"
+        }
 
+    </script>
 </body>
 </html>
