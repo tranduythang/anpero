@@ -34,9 +34,7 @@ namespace AnperoFrontend.handler
                             string order = context.Request["order"];
                             string category = context.Request["cat"];
                             string parentCategory = context.Request["ParentCat"];
-                            string property = context.Request["property"];
-                            
-                            WebService.SearchResult relateProduct = sv.SearchProduct(st, TokenKey, "", parentCategory, "", 0, 9999999, 1, 15, "", order, 0, property);
+                            WebService.SearchResult relateProduct = sv.SearchProduct(st, TokenKey, "", parentCategory, "", 0, 9999999, 1, 15, "", order, 0, string.Empty);
                             if (relateProduct.Item.Length > 0)
                             {
                                 foreach (var item in relateProduct.Item)

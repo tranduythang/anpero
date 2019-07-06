@@ -1,0 +1,13 @@
+﻿@using AnperoFrontend.WebService;
+
+@{
+
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+
+    }
+    ViewBag.Title = "Các thương hiệu được phân với bởi " + commonInfo.Name;
+    string currentUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+}

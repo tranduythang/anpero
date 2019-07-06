@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace AnperoFrontend
 {
@@ -8,31 +7,24 @@ namespace AnperoFrontend
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
+            bundles.Add(new ScriptBundle("~/bundle/js").Include(
+                "~/Html/js/jquery-1.10.2.min.js",
+                "~/Html/js/bootstrap.min.js",                
+                "~/Html/js/owl.carousel.min.js",
+                //"~/Html/js/bootstrap-datetimepicker.js",
+                "~/Scripts/jquery.cokie.min.js",
+                "~/Scripts/Anpero.Common.js",
+                "~/Scripts/ShoppingCart.js",
+                "~/Html/js/javascript.js"
+            ));
 
-                       "~/Scripts/jquery.cokie.min.js",
-                       "~/assets/js/bootstrap.min.js",
-                       "~/Scripts/Anpero.Common.js",
-                       "~/assets/js/common.js",
-                       "~/assets/assets.js",
-                       "~/assets/shop.js",
-                       "~/assets/scripts.js",
-                       "~/assets/animate.js",
-                       "~/Scripts/ShoppingCart.js"                         
-                       ));
+            bundles.Add(new StyleBundle("~/bundle/css").Include(
+                "~/Html/css/bootstrap.min.css",
+                "~/Html/css/style.css",
+                "~/Html/css/font-awesome.min.css"
+            ));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                       "~/Scripts/jquery.cokie.min.js",
-                         "~/Scripts/Anpero.Common.js"
-                      ));
-
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                  "~/assets/stylesheet/style.css"
-                  
-
-
-           ));
-            BundleTable.EnableOptimizations = false;
+            BundleTable.EnableOptimizations = true;
         }
     }
 }

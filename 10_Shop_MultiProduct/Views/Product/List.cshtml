@@ -95,7 +95,7 @@
                                                         {
                                                             activeClass = "active";
                                                         }
-                                                        <li class="@activeClass" ><a href="@Anpero.StringHelpper.GetCategoryLink(subItem.Name, subItem.Id)" title="@subItem.Name">@subItem.Name</a></li>
+                                                        <li class="@activeClass"><a href="@Anpero.StringHelpper.GetCategoryLink(subItem.Name, subItem.Id)" title="@subItem.Name">@subItem.Name</a></li>
 
 
                                                     }
@@ -144,7 +144,8 @@
                                 theme.paginatePages = 1;
                                 theme.productNumber = 9;
                                 theme.collectionName = 'collection-all';
-                            </script>
+
+/**/</script>
 
                             <div class="row product_listing__main layout__medium_sb" id="product_listing__sorted">
                                 @foreach (AnperoFrontend.WebService.ProductItem item in productList.Item)
@@ -249,7 +250,7 @@
                                     <div class="img_placeholder__wrap img_placeholder__large" style="background-image: url(http://media.anpero.com/images/53/32019/12019030406264126.jpg)"></div>
                                     <div class="sidebar_banner_caption">
                                         <a href="/search">
-                                            <h3>NEW COLLECTION</h3>
+                                            <h3>Sản phẩm mới</h3>
                                         </a>
                                     </div>
                                 </div>
@@ -337,6 +338,74 @@
         <script>
             var categoryId = @productList.Item[0].CatID;
             var ParentCatId = @productList.Item[0].ParentId;
+        </script>
+        <script type="application/ld+json">
+            {
+            "@@context": "http://schema.org",
+            "@@type": "BreadcrumbList",
+            "itemListElement": [{
+            "@@type": "ListItem",
+            "position": 1,
+            "item": {
+            "@@id": "@currentUrl",
+            "name": "Trang chủ"
+            }
+            },{
+            "@@type": "ListItem",
+            "position": 2,
+            "item": {
+            "@@id": "@(currentUrl)/search",
+            "name": "Sản phẩm"
+            }
+            },
+            @if (pageName.ToLower().Equals("search"))
+            {
+                <text>
+                    {
+                    "@@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                    "@@id": "@Request.Url.AbsoluteUri",
+                    "name": "Tất cả sản phẩm"
+                    }
+                    }
+                </text>
+            }
+            else if (ViewBag.isParent != null)
+            {
+                <text>
+                    {
+                    "@@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                    "@@id": "@currentUrl/@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)",
+                    "name": "@productList.Item[0].ParentCatName"
+                    }
+                    }
+                </text>
+            }
+            else
+            {
+                <text>
+                    {
+                    "@@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                    "@@id": "@currentUrl/@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)",
+                    "name": "@productList.Item[0].ParentCatName"
+                    }
+                    }, {
+                    "@@type": "ListItem",
+                    "position": 4,
+                    "item": {
+                    "@@id": "@Request.Url.AbsoluteUri",
+                    "name": "@productList.Item[0].CatName"
+                    }
+                    }
+                </text>
+            }
+            ]
+            }
         </script>
     }
     else

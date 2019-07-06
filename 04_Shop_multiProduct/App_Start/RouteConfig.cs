@@ -18,6 +18,16 @@ namespace AnperoFrontend
                 defaults: new { controller = "product", action = "checkout" }
             );
             routes.MapRoute(
+              name: "robot",
+               url: "robots.txt",
+               defaults: new { controller = "Seo", action = "RobotsText" }
+            );
+            routes.MapRoute(
+                name: "siteMapRouter",
+                url: "sitemap.xml",
+                defaults: new { controller = "Seo", action = "SitemapXml" }
+            );
+            routes.MapRoute(
             name: "blogList3",
             url: "blog",
             defaults: new { controller = "Article", action = "Category", id = 0 }

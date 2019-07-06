@@ -58,7 +58,7 @@
         }
         for (var i = 0; i < Cart.list.length; i++) {
             if (Cart.list[i].id == _id) {
-                Cart.list[i].price = parseInt(Cart.list[i].price)
+                Cart.list[i].price = parseInt(Cart.list[i].price);
                 Cart.list[i].quantity = parseInt(Cart.list[i].quantity) + 1;
                 $("#prQuantity_" + _id).val(Cart.list[i].quantity);
             }
@@ -72,17 +72,21 @@
         if ($.cookie("CartList") != 'null' && $.cookie("CartList") != "undefined" && $.cookie("CartList") != undefined) {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
             $(".spN").html(Cart.list.length);
+            if (Cart.list.length > 0) {
+                $(".small-cart").show();
+            }
+            
             for (var i = 0; i < Cart.list.length; i++) {
                 ttSC += parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity);
-                htmlCat += '<li class="cart_items">';
-                htmlCat += '<img src="' + Cart.list[i].thumb + '" class="item_img cart-img">';
-                htmlCat += '<div class="item_desc">';
-                    htmlCat += '<span class="product_title">' +unescape(Cart.list[i].title) + '</span>';                    
-                    htmlCat += '<span class="money" data-currency-usd="$22.00">' + Util.toMoneyFormat(Cart.list[i].price) + '</span>';
-                    htmlCat += ' <p class="product_quantity">x' + Cart.list[i].quantity + '</p>';
-                    htmlCat += '<a class="item_remove_btn" href="javascript:Cart.remove(' + Cart.list[i].id + ')">Xóa</a>';                    
-                htmlCat += '</div>';
-                htmlCat += '</li>';
+                //htmlCat += '<li class="cart_items">';
+                //htmlCat += '<img src="' + Cart.list[i].thumb + '" class="item_img cart-img">';
+                //htmlCat += '<div class="item_desc">';
+                //    htmlCat += '<span class="product_title">' +unescape(Cart.list[i].title) + '</span>';                    
+                //    htmlCat += '<span class="money" data-currency-usd="$22.00">' + Util.toMoneyFormat(Cart.list[i].price) + '</span>';
+                //    htmlCat += ' <p class="product_quantity">x' + Cart.list[i].quantity + '</p>';
+                //    htmlCat += '<a class="item_remove_btn" href="javascript:Cart.remove(' + Cart.list[i].id + ')">Xóa</a>';                    
+                //htmlCat += '</div>';
+                //htmlCat += '</li>';
             }
             htmlCat += "</ul>";
             if (Cart.list.length > 0) {
@@ -91,6 +95,8 @@
                 $(".mini-products-list").show();
                 $(".cart-buttons").show();                
                 $("#lpr").html(Util.toMoneyFormat(ttSC) + " đ");
+                $("#cartPrice").html(Util.toMoneyFormat(ttSC) + " đ");
+                
                 $("#sendOrder").show();
                 htmlCat += '<div class="box_footer">';
                 htmlCat += '<p class="cart_total"><b>Tổng giá: </b><span class="money">' + Util.toMoneyFormat(ttSC) + ' đ</span></p>';
@@ -119,40 +125,43 @@
         Cart.bindCartTable();
     },
     bindCartTable: function () {
-
         var ttSC = 0;
-
+        
         var _paymentFee = $('input[name=radio_4]:checked').attr("data-ship");
-        var htmlCat = ""; debugger
+        var htmlCat = ""; 
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined") {
-
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
             try {
-                $(".spN").html(Cart.list.length);
-                for (var i = 0; i < Cart.list.length; i++) {
-                    ttSC += parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity);
-                    htmlCat += '<tr>';
-                    htmlCat += '<td class="cart_product">';
-                    htmlCat += '<a href="#"><img src="' + Cart.list[i].thumb + '" alt="' + unescape(Cart.list[i].title) + '"></a>';
-                    htmlCat += '</td>';
-                    htmlCat += '<td class="cart_description">';
-                    htmlCat += '<p class="product-name"><a href="#">' +unescape(Cart.list[i].title) + ' </a></p>';
-                    htmlCat += '</td>';
-                    htmlCat += '<td class="cart_avail"><span class="label label-success">Còn hàng</span></td>';
-                    htmlCat += '<td class="price"><span>' + Util.toMoneyFormat(Cart.list[i].price) + '</span></td>';
-                    htmlCat += '<td class="qty">';
-                    htmlCat += '<a href="javascript:Cart.remove3(' + Cart.list[i].id + ',' + Cart.list[i].price + ');" class="btn">-</a>';
-                    htmlCat += '<input class="input-text qty2" type="text" value="' + Cart.list[i].quantity + '" id="prQuantity_' + Cart.list[i].id + '">';
-                    htmlCat += '<a href="javascript:Cart.addProduct2(' + Cart.list[i].id + ',' + Cart.list[i].price + ');" class="btn">+</a>';
-                    htmlCat += '</td>';
-                    htmlCat += '<td class="price">';
-                    htmlCat += '<span>' + Util.toMoneyFormat(parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity)) + ' đ</span>';
-                    htmlCat += '</td>';
-                    htmlCat += '<td class="a-center last">';
-                    htmlCat += '<a href="javascript:Cart.remove2(' + Cart.list[i].id + ')" class="button remove-item">Xóa</a>';
-                    htmlCat += '</td>';
-                    htmlCat += '</tr>';
+                $(".spN").html(Cart.list.length);                
+                if (Cart.list.length > 0) {
+                    for (var i = 0; i < Cart.list.length; i++) {
+                        ttSC += parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity);
+                        htmlCat += '<tr>';
+                        htmlCat += '<td class="cart_product">';
+                        htmlCat += '<a href="#"><img src="' + Cart.list[i].thumb + '" alt="' + unescape(Cart.list[i].title) + '"></a>';
+                        htmlCat += '</td>';
+                        htmlCat += '<td class="cart_description">';
+                        htmlCat += '<p class="product-name"><a href="#">' + unescape(Cart.list[i].title) + ' </a></p>';
+                        htmlCat += '</td>';
+                        htmlCat += '<td class="cart_avail"><span class="label label-success">Còn hàng</span></td>';
+                        htmlCat += '<td class="price"><span>' + Util.toMoneyFormat(Cart.list[i].price) + '</span></td>';
+                        htmlCat += '<td class="qty">';
+                        htmlCat += '<a href="javascript:Cart.remove3(' + Cart.list[i].id + ',' + Cart.list[i].price + ');" class="btn">-</a>';
+                        htmlCat += '<input class="input-text qty2" type="text" value="' + Cart.list[i].quantity + '" id="prQuantity_' + Cart.list[i].id + '">';
+                        htmlCat += '<a href="javascript:Cart.addProduct2(' + Cart.list[i].id + ',' + Cart.list[i].price + ');" class="btn">+</a>';
+                        htmlCat += '</td>';
+                        htmlCat += '<td class="price">';
+                        htmlCat += '<span>' + Util.toMoneyFormat(parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity)) + ' đ</span>';
+                        htmlCat += '</td>';
+                        htmlCat += '<td class="a-center last">';
+                        htmlCat += '<a href="javascript:Cart.remove2(' + Cart.list[i].id + ')" class="button remove-item">Xóa</a>';
+                        htmlCat += '</td>';
+                        htmlCat += '</tr>';
+                    }
+                } else {
+                    $("#cartContent1").html("Bạn chưa có sản phẩm nào trong giỏ hàng.");
                 }
+                
                 var shipingFee = $('input[name=radio_3]:checked').attr("data-ship");
                 $("#ttPrCt").html(Util.toMoneyFormat(ttSC) + " đ");
                 $("#ttOdCt").html(Util.toMoneyFormat(parseInt(ttSC) + parseInt(shipingFee) + parseInt(_paymentFee)) + " đ");
@@ -164,6 +173,8 @@
             } catch (e) {
                 $(".spN").html("0");
             }
+        } else {
+            $("#cartContent1").html("Bạn chưa có sản phẩm nào trong giỏ hàng.");
         }
     },
     remove: function (prId) {
@@ -262,6 +273,7 @@
             valid = false;
             Util.notify("Lỗi: ", "Email không đúng định dạng, Thanh toán Online yêu cầu nhập Email.");
         }
+       
         if (valid) {
             $("#cartContent1").hide();
             $("#cartContent2").show();
@@ -273,7 +285,7 @@
                 datatype: "text/plain",
                 data: { op: "CreateOrder", detail: _detail, PayMentType: _paymentType, shippingMethod: _shipingType, captcha: captchaResponse, name: _name, email: _email, phone: _phone, address: _address, ProductList: $.cookie("CartList"), shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee) },
                 success: function (rs) {
-                    debugger
+
                     $("#ajax_loader").hide();
                     if (!isNaN(rs)) {
                         $.removeCookie('CartList', { path: '/' });
@@ -302,7 +314,6 @@
                             $("#cartContent2").html("<h4>Đơn hàng số #" + rs + " đã được gửi thành công tới bộ phận bán hàng. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</h4><h5>Với thông tin chuyển khoản vui lòng click vào <a href='' style='color: blue;'>link này</a> để được hướng dẫn chuyển khoản</h5>");
                             Util.notify("", "Đơn hàng đã được gửi tới bộ phận bán hàng. ");
                         }
-
 
                     } else {
                         Util.notify("", rs);

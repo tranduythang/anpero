@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27703.2047
+VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anpero", "Anpero\Anpero.csproj", "{B88546AC-D123-448F-BD9B-7287E7CE1B38}"
 EndProject
@@ -35,7 +35,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_company_Info", "01_Compa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10_Theme_MultiProduct", "10_Shop_MultiProduct\10_Theme_MultiProduct.csproj", "{7BD6C00D-C94D-4198-9C16-D6EB902ACD1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11_Theme_MultiProduct", "12_Shop_MultiProduct\11_Theme_MultiProduct.csproj", "{8E604AC8-3A0C-430A-B8CA-D465368F6F19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12_Theme_MultiProduct", "12_Shop_MultiProduct\12_Theme_MultiProduct.csproj", "{8E604AC8-3A0C-430A-B8CA-D465368F6F19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11_Theme_MultiProduct", "12.2_not13_Shop_MultiProduct\11_Theme_MultiProduct.csproj", "{C4B1B4DC-691D-411E-B110-C3E4A1C1F02E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12_Theme_Multi_Product_Option_2", "12_Theme_Multi_Product_Option_2\12_Theme_Multi_Product_Option_2.csproj", "{02CB283D-F6FB-447B-BABD-EC793C464215}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +95,14 @@ Global
 		{8E604AC8-3A0C-430A-B8CA-D465368F6F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E604AC8-3A0C-430A-B8CA-D465368F6F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E604AC8-3A0C-430A-B8CA-D465368F6F19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4B1B4DC-691D-411E-B110-C3E4A1C1F02E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4B1B4DC-691D-411E-B110-C3E4A1C1F02E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4B1B4DC-691D-411E-B110-C3E4A1C1F02E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4B1B4DC-691D-411E-B110-C3E4A1C1F02E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02CB283D-F6FB-447B-BABD-EC793C464215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02CB283D-F6FB-447B-BABD-EC793C464215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02CB283D-F6FB-447B-BABD-EC793C464215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02CB283D-F6FB-447B-BABD-EC793C464215}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +120,8 @@ Global
 		{0F8911EA-0E81-4B8A-8F5B-380B4C2EA139} = {310BA208-71D5-4381-8A50-5F78017A2012}
 		{7BD6C00D-C94D-4198-9C16-D6EB902ACD1E} = {4A209C7A-D091-451E-A034-CF95432C6834}
 		{8E604AC8-3A0C-430A-B8CA-D465368F6F19} = {4A209C7A-D091-451E-A034-CF95432C6834}
+		{C4B1B4DC-691D-411E-B110-C3E4A1C1F02E} = {4A209C7A-D091-451E-A034-CF95432C6834}
+		{02CB283D-F6FB-447B-BABD-EC793C464215} = {4A209C7A-D091-451E-A034-CF95432C6834}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F458C0BB-F83B-4833-A3E1-EC94B22EC8A5}

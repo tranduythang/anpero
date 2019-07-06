@@ -12,9 +12,9 @@ namespace Anpero
         {
 
         }
-        public static int GetDiscountPersen(int oldPrice,int newPrive)
+        public static int GetDiscountPersen(int oldPrice, int newPrive)
         {
-            return  (oldPrice - newPrive)/ oldPrice*100;
+            return (oldPrice - newPrive) / oldPrice * 100;
         }
         public static int GetDiscountPersen(decimal oldPrice, decimal newPrive)
         {
@@ -199,7 +199,7 @@ namespace Anpero
                         retVal += s[i];
                 }
             }
-            
+
             return retVal;
         }
         public static string toURLgach(String inputtring)
@@ -252,11 +252,13 @@ namespace Anpero
             {
                 outPut = input / 1000000000;
                 donvi = "tỷ";
-            }else if (input > 1000000)
+            }
+            else if (input > 1000000)
             {
                 outPut = input / 1000000;
                 donvi = "triệu";
-            }else if (input > 1000)
+            }
+            else if (input > 1000)
             {
                 outPut = input / 1000000;
                 donvi = "nghìn";
@@ -264,35 +266,28 @@ namespace Anpero
             if (outPut > 0)
             {
                 return String.Format("{0:0}", outPut) + " " + donvi;
-            }else
+            }
+            else
             {
                 return "liên hệ";
-            }            
+            }
         }
-        public static String ToPhoneNumberFormat(String s)
+        public static String ToPhoneNumberFormat(string phone)
         {
-            if (!string.IsNullOrEmpty(s))
+            if (!string.IsNullOrEmpty(phone))
             {
-
-                int dotIndex = s.LastIndexOf(".");
-                if (s != null && !DBNull.Value.Equals(s))
+                try
                 {
-                    if (s == "0" || s == "0.00")
-                    {
-                        return "0";
-                    }
-                    if (s.Length > (dotIndex + 3) && dotIndex != -1)
-                    {
-                        s = s.Substring(0, dotIndex + 2);
-
-                    }
-                    return string.Format("{0:###-###-####}", s);
-
+                    string area = phone.Substring(0, 3);
+                    string major = phone.Substring(3, 3);
+                    string minor = phone.Substring(6);
+                    return string.Format("{0}.{1}.{2}", area, major, minor);
                 }
-                else
+                catch (Exception)
                 {
-                    return "0";
-                }
+
+                    return "";
+                }                
             }
             else { return ""; }
         }
@@ -318,7 +313,7 @@ namespace Anpero
                 return "Liên hệ";
             }
         }
-       
+
         public static String ConVertToMoneyFormatInt(int input)
         {
             return ConVertToMoneyFormatInt(input.ToString());
@@ -327,7 +322,7 @@ namespace Anpero
         {
             return ConVertToMoneyFormatInt(input.ToString());
         }
-       public static string FormatPhoneNumber(string phoneNumber)
+        public static string FormatPhoneNumber(string phoneNumber)
         {
 
             if (String.IsNullOrEmpty(phoneNumber))
@@ -693,7 +688,8 @@ namespace Anpero
         {
             try
             {
-                if (YYYYMMddhhmmss.Length >= 8) { 
+                if (YYYYMMddhhmmss.Length >= 8)
+                {
 
                     string year = YYYYMMddhhmmss.Substring(0, 4);
                     string month = YYYYMMddhhmmss.Substring(4, 2);
