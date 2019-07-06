@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="AnperoFrontend_AnperoService_AnperoService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://wsv.anpero.com/AnperoService.asmx</Value>
+      <Value Profile="(Default)">https://wsv.anpero.com/AnperoService.asmx</Value>
     </Setting>
   </Settings>
 </SettingsFile>
