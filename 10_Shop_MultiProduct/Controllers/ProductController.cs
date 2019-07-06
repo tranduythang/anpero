@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AnperoFrontend.Models;
-
+using Anpero.Enum;
 
 namespace AnperoFrontend.Controllers
 {
@@ -133,7 +133,7 @@ namespace AnperoFrontend.Controllers
             return View("List");
         }
         [BuildCommonHtml]
-        public ActionResult Search(string category, string keyword)
+        public ActionResult Search(SearchModel model)
         {            
             string pageQuery = Request.QueryString["page"];
             int page = 1;
@@ -141,11 +141,11 @@ namespace AnperoFrontend.Controllers
             {
                 page = Convert.ToInt32(pageQuery);
             }
-            //ViewBag.property
-            //ViewBag.brands
-            //ViewBag.category
+            ViewBag.property = model.Property;
+            ViewBag.brands = model.Brands;
+            ViewBag.category = model.Category;
             WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, category, "", "", 0, 999999999, page, 14, keyword, SearchOrder.NameDesc, 0, string.Empty);
+            WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, model.Category, "", "", 0, int.MaxValue, page, 14, model.KeyWord, model.SortBy, 0,model.Property);
             ViewData["productList"] = rs;
             ViewBag.pageName = "Search";
             ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");            
