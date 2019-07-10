@@ -67,82 +67,83 @@
     <div class="container">
         <div class="row">
             <div class="main_content sidebar_on col-sm-9  col-sm-push-3">
-                @if (productList.Item.Length > 0)
-                {
-                    <div id="shopify-section-template-collection" class="shopify-section section_template section_template__collection">
-                        <h1 class="page_heading">@ViewBag.Title</h1>
 
-                        @if (!pageName.ToLower().Equals("search"))
+                <div id="shopify-section-template-collection" class="shopify-section section_template section_template__collection">
+                    <h1 class="page_heading">@ViewBag.Title</h1>
+
+                    @if (!pageName.ToLower().Equals("search"))
+                    {
+
+                        if (productList.PropertiesValue != null && productList.PropertiesValue.Length > 0)
                         {
-
-                            if (productList.PropertiesValue != null && productList.PropertiesValue.Length > 0)
-                            {
-                                <div class="button_filters">
-                                    <ul>
-                                        @foreach (var item in productList.PropertiesValue)
-                                        {
-                                            <li data-id="@item.Id" class="property-item">
-                                                <a href="/search?property=@item.Id&brands=@ViewBag.brands&category=@ViewBag.category">@item.Values</a>
-                                            </li>
-                                        }
-                                    </ul>
-                                </div>
-                            }
-                        }
-                        else
-                        {
-                            if (commonInfo.ProductProperties != null && commonInfo.ProductProperties.Length > 0)
-                            {
-                                <div class="button_filters">
-
-                                    @foreach (var item in commonInfo.ProductProperties)
+                            <div class="button_filters">
+                                <ul>
+                                    @foreach (var item in productList.PropertiesValue)
                                     {
-                                        if (item.Values != null && item.Values.Length > 0)
-                                        {
-
-                                            <ul>
-                                                <li class="active property-item"><a href="/search?property=@string.Join(",", item.Values.Select(x => x.Id.ToString()).ToList())">Tất cả @item.Name</a></li>
-                                                @foreach (var valueItem in item.Values)
-                                                {
-                                                    <li data-id="@valueItem.Id" class="property-item"><a href="/search?property=@valueItem.Id&brands=@ViewBag.brands&category=@ViewBag.category">@valueItem.Values</a></li>
-                                                }
-                                            </ul>
-                                        }
+                                        <li data-id="@item.Id" class="property-item">
+                                            <a href="/search?property=@item.Id&brands=@ViewBag.brands&category=@ViewBag.category">@item.Values</a>
+                                        </li>
                                     }
-                                </div>
-                            }
+                                </ul>
+                            </div>
                         }
-                        <div class="product_options">
-                            @*<ul class="product_view">
-                                    <li id="view_grid" data-view="grid" class="active">
-                                        <i class="fa fa-th" aria-hidden="true"></i>
-                                    </li>
-                                    <li id="view_list" data-view="list">
-                                        <i class="fa fa-th-list" aria-hidden="true"></i>
-                                    </li>
-                                </ul>*@
-                            <div class="product_options__sort">
-                                <label for="sort_by_select">Sắp xếp theo:</label>
+                    }
+                    else
+                    {
+                        if (commonInfo.ProductProperties != null && commonInfo.ProductProperties.Length > 0)
+                        {
+                            <div class="button_filters">
 
-                                <select id="sort_by_select">
-                                    <option value="nameDesc">Tên: A – Z</option>
-                                    <option value="pricedesc">Giá: giảm dần</option>
-                                    <option value="priceAsc">Giá: tăng dần</option>
-                                    <option value="timeDesc">Mới nhất</option>
+                                @foreach (var item in commonInfo.ProductProperties)
+                                {
+                                    if (item.Values != null && item.Values.Length > 0)
+                                    {
+
+                                        <ul>
+                                            <li class="active property-item"><a href="/search?property=@string.Join(",", item.Values.Select(x => x.Id.ToString()).ToList())">Tất cả @item.Name</a></li>
+                                            @foreach (var valueItem in item.Values)
+                                            {
+                                                <li data-id="@valueItem.Id" class="property-item"><a href="/search?property=@valueItem.Id&brands=@ViewBag.brands&category=@ViewBag.category">@valueItem.Values</a></li>
+                                            }
+                                        </ul>
+                                    }
+                                }
+                            </div>
+                        }
+                    }
+                    <div class="product_options">
+                        @*<ul class="product_view">
+                                <li id="view_grid" data-view="grid" class="active">
+                                    <i class="fa fa-th" aria-hidden="true"></i>
+                                </li>
+                                <li id="view_list" data-view="list">
+                                    <i class="fa fa-th-list" aria-hidden="true"></i>
+                                </li>
+                            </ul>*@
+                        <div class="product_options__sort">
+                            <label for="sort_by_select">Sắp xếp theo:</label>
+
+                            <select id="sort_by_select">
+                                <option value="nameDesc">Tên: A – Z</option>
+                                <option value="pricedesc">Giá: giảm dần</option>
+                                <option value="priceAsc">Giá: tăng dần</option>
+                                <option value="timeDesc">Mới nhất</option>
+                            </select>
+                        </div>
+                        @*<div class="product_options__number">
+                                <label for="products_number_select">Show:</label>
+                                <select id="products_number_select">
+                                    <option value="6">6</option>
+                                    <option value="9">9</option>
+                                    <option value="12">12</option>
                                 </select>
                             </div>
-                            @*<div class="product_options__number">
-                                    <label for="products_number_select">Show:</label>
-                                    <select id="products_number_select">
-                                        <option value="6">6</option>
-                                        <option value="9">9</option>
-                                        <option value="12">12</option>
-                                    </select>
-                                </div>
 
-                                <div class="product_count">20 items</div>*@
-                            <div class="clearfix"></div>
-                        </div>
+                            <div class="product_count">20 items</div>*@
+                        <div class="clearfix"></div>
+                    </div>
+                    @if (productList.Item.Length > 0)
+                    {
                         <div class="row product_listing__main layout__medium_sb" id="product_listing__sorted">
                             @foreach (AnperoFrontend.WebService.ProductItem item in productList.Item)
                             {
@@ -219,12 +220,13 @@
                                 }
                             </div>
                         </div>
-                    </div>
-                }
-                else
-                {
-                    <p>Sản phẩm đang được cập nhật. Vui lòng quay lại sau</p>
-                }
+                    }
+                    else
+                    {
+                        <p>Sản phẩm đang được cập nhật. Vui lòng quay lại sau</p>
+                    }
+                </div>
+
 
             </div>
             <div class="sidebar_small col-sm-3  col-sm-pull-9">
