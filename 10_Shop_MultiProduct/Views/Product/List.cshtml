@@ -158,7 +158,10 @@
                                                 <span class="product_badge new">mới</span>
                                                 @if (item.IsSale)
                                                 {
-                                                    <span class="product_badge sale">sale</span>
+                                                    <span class="product_badge sale" style="width:75px;background:none;">
+                                                        <img src="//cdn.anpero.com/images/38/72019/q2019071010422463.jpg" alt="sale" style="background:none;" />
+                                                    </span>
+                                                    @*<span class="product_badge sale">sale</span>*@
                                                 }
 
                                             </a>
@@ -288,16 +291,40 @@
                 </div>
                 <div id="shopify-section-sidebar-ensuing" class="shopify-section page_sidebar">
                     <div class="sidebar">
-                        <div class="sidebar_widget sidebar_widget__banner">
-                            <div class="img_placeholder__wrap img_placeholder__large" style="background-image: url(http://cdn.anpero.com/images/53/32019/12019030406264126.jpg)"></div>
-                            <div class="sidebar_banner_caption">
-                                <a href="/search">
-                                    <h3>NEW COLLECTION</h3>
-                                </a>
+                        @if (ViewData["ads4"] != null)
+                        {
+                            Ads[] ads4 = (Ads[])ViewData["ads4"];
+                            if (ads4.Count() > 0)
+                            {
+                                foreach (var item in ads4)
+                                {
+                                    <div class="sidebar_widget sidebar_widget__banner">
+                                        <div class="img_placeholder__wrap img_placeholder__large" style="background-image: url(@item.ImagesUrl)"></div>
+                                        <div class="sidebar_banner_caption">
+                                            <a href="@item.ClickUrl">
+                                                <h3>@item.Description</h3>
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+
+                            }
+                        }
+                        else
+                        {
+                            <div class="sidebar_widget sidebar_widget__banner">
+                                <div class="img_placeholder__wrap img_placeholder__large" style="background-image: url(http://cdn.anpero.com/images/53/32019/12019030406264126.jpg)"></div>
+                                <div class="sidebar_banner_caption">
+                                    <a href="/search">
+                                        <h3>NEW COLLECTION</h3>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        }
+
+
                         <div class="sidebar_widget sidebar_widget__products">
-                            <h3 class="widget_header">Products</h3>
+                            <h3 class="widget_header">Sản phẩm nổi bật</h3>
                             <div class="widget_content">
                                 <ul class="list_products">
                                     @if (ViewData["saleProduct"] != null)

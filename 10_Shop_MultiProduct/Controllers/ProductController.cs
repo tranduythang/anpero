@@ -6,17 +6,18 @@ using System.Web;
 using System.Web.Mvc;
 using AnperoFrontend.Models;
 using Anpero.Enum;
+using Anpero.Constant;
 
 namespace AnperoFrontend.Controllers
 {
     public class ProductController : BaseController
     {
-
+        WebService.AnperoService sv = new WebService.AnperoService();
         // GET: Product
         [BuildCommonHtml]
         public ActionResult Index(int id)
         {
-            WebService.AnperoService sv = new WebService.AnperoService();
+            
             WebService.ProductItem item = sv.GetProductDetail(StoreID, TokenKey, id);
             WebService.SearchResult relateProduct = sv.SearchProduct(StoreID, TokenKey, item.CatID.ToString(), "0", "0", 0, int.MaxValue, 1, 5, "", SearchOrder.TimeDesc, 0, string.Empty);
             ViewData["relateProduct"] = relateProduct;
@@ -25,7 +26,23 @@ namespace AnperoFrontend.Controllers
             
             return View();
         }
-        
+        private void SetUpAds()
+        {
+            WebService.Ads[] ads4 = null;
+            if (HttpRuntime.Cache["ads4"] != null)
+            {
+                ViewData["ads4"] = (WebService.Ads[])HttpRuntime.Cache["ads4"];
+            }
+            else
+            {
+                ads4 = sv.GetAdsSlide(StoreID, TokenKey, PageContent.Ads4);
+                ViewData["ads4"] = ads4;
+                if (ads4 != null)
+                {
+                    HttpRuntime.Cache.Insert("ads4", ads4, null, DateTime.Now.AddMinutes(shortCacheTime + 3), TimeSpan.Zero);
+                }
+            }
+        }
         public ActionResult SearchAjax(SearchModel model)
         {
             model.StoreId = StoreID;
@@ -36,7 +53,7 @@ namespace AnperoFrontend.Controllers
             {
                 page = Convert.ToInt32(pageQuery);
             }
-            WebService.AnperoService sv = new WebService.AnperoService();
+            
             //if (!string.IsNullOrEmpty(model.ParentCategory) && model.ParentCategory!="0")
             //{
             //    rs = sv.GetProductByParentCategory(StoreID, TokenKey, Convert.ToInt32(model.ParentCategory), model.Page, model.PageSize, 0);
@@ -59,14 +76,14 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult Category(int id)
         {
-     
+            
             string pageQuery = Request.QueryString["page"];
             int page = 1;
             if (!string.IsNullOrEmpty(pageQuery))
             {
                 page = Convert.ToInt32(pageQuery);
             }
-            WebService.AnperoService sv = new WebService.AnperoService();
+            
             WebService.SearchResult rs   = sv.GetProductByCategory(StoreID, TokenKey, id, page, 14, 0);
             ViewData["productList"] = rs;
             ViewBag.page =Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
@@ -75,8 +92,8 @@ namespace AnperoFrontend.Controllers
             {
                 ViewBag.Title = rs.Item[0].CatName;
             }
-            
-            
+
+            SetUpAds();
             SetUpSeo(2, id);
             return View("List");
         }
@@ -91,7 +108,7 @@ namespace AnperoFrontend.Controllers
             {
                 page = Convert.ToInt32(pageQuery);
             }
-            WebService.AnperoService sv = new WebService.AnperoService();
+            
             WebService.SearchResult rs = sv.GetProductByGroup(StoreID, TokenKey, id, page, 14, 0);
             ViewData["productList"] = rs;
             ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs == null?0: rs.ResultCount, 10, "?page=");
@@ -102,7 +119,7 @@ namespace AnperoFrontend.Controllers
             {
                 ViewBag.Title = rs.Item[0].ParentCatName;
             }
-            
+            SetUpAds();
             SetUpSeo(1, id);
             return View("List");
         }
@@ -117,7 +134,7 @@ namespace AnperoFrontend.Controllers
             {
                 page = Convert.ToInt32(pageQuery);
             }
-            WebService.AnperoService sv = new WebService.AnperoService();
+            
             WebService.SearchResult rs = sv.GetProductByParentCategory(StoreID, TokenKey, id, page, 14, 0);
             ViewData["productList"] = rs;
             ViewBag.pageName = "ParentCategory";
@@ -128,7 +145,7 @@ namespace AnperoFrontend.Controllers
             {
                 ViewBag.Title = rs.Item[0].ParentCatName;
             }
-            
+            SetUpAds();
             SetUpSeo(1,id);
             return View("List");
         }
@@ -144,7 +161,7 @@ namespace AnperoFrontend.Controllers
             ViewBag.property = model.Property;
             ViewBag.brands = model.Brands;
             ViewBag.category = model.Category;
-            WebService.AnperoService sv = new WebService.AnperoService();
+            
             WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, model.Category, "", "", 0, int.MaxValue, page, 14, model.KeyWord, model.SortBy, 0,model.Property);
             ViewData["productList"] = rs;
             ViewBag.pageName = "Search";
@@ -153,6 +170,7 @@ namespace AnperoFrontend.Controllers
             {
                 ViewBag.Title = rs.Item[0].CatName;
             }
+            SetUpAds();
             SetUpSeo(0,0);
             return View("List");
         }
@@ -185,8 +203,8 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                WebService.AnperoService service = new WebService.AnperoService();
-                var rs = service.GetCommonConfig(CommonConfig.StoreID, CommonConfig.TokenKey);
+                
+                var rs = sv.GetCommonConfig(CommonConfig.StoreID, CommonConfig.TokenKey);
                 ViewData["commonInfo"] = rs;
                 commonInfo = rs;
                 if (rs != null)

@@ -114,7 +114,7 @@
                                             {
                                                 <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
                                                 <span class="money money_sale">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
-                                                <span class="money_sale_percent">– @Convert.ToInt32(item.SalePrice / item.Price * 100)%</span>
+                                                <span class="money_sale_percent">– @Convert.ToInt32(100-(item.SalePrice / item.Price) * 100)%</span>
 
                                             }
                                             else
