@@ -1,23 +1,23 @@
 ﻿@{
-                /**/
+    /**/
 
-                AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
-                if (ViewData["commonInfo"] != null)
-                {
-                    commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
-                }
-                string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
 }
 <!DOCTYPE html>
 <html lang="vi" class="color_scheme">
 <head>
     <meta charset="utf-8">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com/">    
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com/">
     <link rel="dns-prefetch" href="https://www.facebook.com/">
     <title>@ViewBag.Title</title>
 
-    @Styles.Render("~/Content/css")    
+    @Styles.Render("~/Content/css")
     <link rel="shortcut icon" href="@(string.IsNullOrEmpty(commonInfo.Favicon)?commonInfo.Logo:commonInfo.Favicon)" type="image/x-icon">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="Refresh" content="3600" />
@@ -50,12 +50,10 @@
         <script>
             preloaderBg = document.getElementById('page_preloader__bg');
             preloaderImg = document.getElementById('page_preloader__img');
-
-            window.addEventListener('load', function () {
+            $(document).ready(function () {
                 preloaderBg.classList.add("off");
                 preloaderImg.classList.add("off");
             });
-
         </script>
         @Html.Partial("_partial/_MainHeader_1")
         <div class="page_container">

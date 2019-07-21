@@ -149,9 +149,11 @@ jQuery(document).ready(function($) {
 
 	stickyHeader();
 
-
-	$(window).on('load resize', function() {
-		megamenuToggle();
+    $(document).ready(function () {
+        megamenuToggle();
+    });
+	$(window).on('resize', function() {
+        megamenuToggle();
 	});
 
 
