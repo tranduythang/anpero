@@ -59,7 +59,7 @@
             //    preloaderBg.classList.add("off");
             //    preloaderImg.classList.add("off");
             //});
-           
+
 
         </script>
         @Html.Partial("_partial/_MainHeader_1")
@@ -71,8 +71,8 @@
         <a id="back_top" href="#">
             <i class="fa fa-angle-up" aria-hidden="true"></i>
         </a>
-        
-     
+
+
     </div>
 
     <link href="/assets/animate.css" rel="stylesheet" />
@@ -104,6 +104,26 @@
             Cart.bindCart();
         });
     </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "https://schema.org",
+        "@@type": "WebSite",
+        "url": "@Url.Content("~")",
+        "potentialAction": {
+        "@@type": "SearchAction",
+        "target": "@(Url.Content("~").TrimEnd('/') + Url.RouteUrl("search") + "?keyword={keyword}")",
+        "query-input": "required name=keyword"
+        }
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "https://schema.org",
+        "@@type": "Organization",
+        "url": "@Url.Content("~").TrimEnd('/')",
+        "logo": "@commonInfo.Logo"
+        }
 
+    </script>
 </body>
 </html>

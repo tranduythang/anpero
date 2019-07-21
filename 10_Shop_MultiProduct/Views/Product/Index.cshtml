@@ -10,7 +10,7 @@
     ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
         Anpero.StringHelpper.GetProductLink(item.PrName, item.Id);
     @section health{
-        <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="/assets/owl.carousel.min.css">
         <meta name="description" content="@Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc)" />
         <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(item.KeyWord)" />
         <meta property="og:description" content="@item.ShortDesc" />
@@ -19,6 +19,8 @@
         <meta property="og:url" content="@ViewBag.WebsiteUrl" />
         <meta property="og:image" content="@item.Images" />
         <link rel="canonical" href="@ViewBag.WebsiteUrl" />
+        <link href="//media.anpero.com/cdn/plugins/fancybox-3/src/css/core.css" rel="stylesheet" />
+        <link href="//media.anpero.com/cdn/plugins/fancybox-3/src/css/fullscreen.css" rel="stylesheet" />
     }
     <div class="breadcrumbs">
         <div class="container">
@@ -42,9 +44,9 @@
                             <div class="swiper-wrapper">
                                 @foreach (var slideItem in item.ImagesSlide)
                                 {
-                                    <div class="swiper-slide swiper-slide-active">
-                                        <img src="@slideItem" alt="@item.Price">
-                                    </div>
+                                <div class="swiper-slide swiper-slide-active">
+                                    <a href="@slideItem" class="fancybox"  data-fancybox="gallery" rel="gallery" data-type="image">><img src="@slideItem" alt="@item.Price"></a>
+                                </div>
                                 }
                                 <div class="swiper-slide swiper-slide-active">
                                     <img src="@item.Images" alt="@item.Price">
@@ -52,18 +54,14 @@
                             </div>
                         </div>
 
-                        <div id="gallery_big-template-product" class="gallery_big swiper-container swiper-container-horizontal swiper-container-fade">
+                        <div id="gallery_big-template-product" class="gallery_big swiper-container swiper-container2">
                             <div class="swiper-wrapper">
-
                                 @foreach (var slideItem in item.ImagesSlide)
                                 {
-                                    <div class="swiper-slide swiper-slide-active">
-                                        <img src="@slideItem" alt="@item.Price">
+                                    <div class="swiper-slide">
+                                        <a href="@slideItem" class="fancybox" data-fancybox="gallery" rel="gallery" data-type="image"> <img src="@slideItem" alt="@item.PrName"></a>
                                     </div>
                                 }
-                                <div class="swiper-slide swiper-slide-active">
-                                    <img src="@item.Images" alt="@item.Price">
-                                </div>
                             </div>
                         </div>
 
@@ -74,32 +72,32 @@
                     <div class="single_product__info col-sm-5">
                         <h2 itemprop="name" class="single_product__title">@item.PrName</h2>
                         <div class="single_product__details">
-                                <div class="details_wrapper">
-                                    <p class="single_product__availability">
-                                        <b>Tình trạng:</b>
-                                        <span id="single_product__availability-template-product" class="notify_success">@(item.IsInstock ? "Còn hàng" : "Hết Hàng")</span>
-                                    </p>
-                               
+                            <div class="details_wrapper">
+                                <p class="single_product__availability">
+                                    <b>Tình trạng:</b>
+                                    <span id="single_product__availability-template-product" class="notify_success">@(item.IsInstock ? "Còn hàng" : "Hết Hàng")</span>
+                                </p>
 
-                                    <p class="single_product__collections">
-                                        <b>Collections:</b>
-                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName,item.ParentId)">@item.CatName</a>
+
+                                <p class="single_product__collections">
+                                    <b>Collections:</b>
+                                    <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName,item.ParentId)">@item.CatName</a>
+                                </p>
+                                @if (item.Warranty > 0)
+                                {
+                                    <p class="single_product__type">
+                                        <b>Bảo hành:</b>
+                                        <span>
+                                            @item.Warranty tháng
+                                        </span>
                                     </p>
-                                    @if (item.Warranty > 0)
-                                    {
-                                        <p class="single_product__type">
-                                            <b>Bảo hành:</b>
-                                            <span>
-                                                @item.Warranty tháng
-                                            </span>
-                                        </p>
-                                    }
-                                    <div class="clearfix"></div>
-                                 
-                                    <div class="button_block">                                        
-                                        <p class="wishlist_section"><a href="http://www.facebook.com/sharer.php?u=@ViewBag.WebsiteUrl" class="wishlist_form"><i class="fa fa-heart" aria-hidden="true"></i> Chia sẻ sản phẩm này</a></p>
-                                    </div>
-                                </div>                            
+                                }
+                                <div class="clearfix"></div>
+
+                                <div class="button_block">
+                                    <p class="wishlist_section"><a href="http://www.facebook.com/sharer.php?u=@ViewBag.WebsiteUrl" class="wishlist_form"><i class="fa fa-heart" aria-hidden="true"></i> Chia sẻ sản phẩm này</a></p>
+                                </div>
+                            </div>
                             <div class="social_sharing_block">
                                 <a target="_blank" href="http://www.facebook.com/sharer.php?u=@ViewBag.WebsiteUrl" title="Share">
                                     <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -145,13 +143,13 @@
                                         <div class="product_item">
                                             <div class="product_img">
                                                 <a class="img_change" href="@Anpero.StringHelpper.GetProductLink(relateItem.PrName,relateItem.Id)">
-                                                    <img class="img__1" src="@relateItem.Images" alt="@relateItem.PrName">                                                    
+                                                    <img class="img__1" src="@relateItem.Images" alt="@relateItem.PrName">
                                                     <span class="product_badge new">new</span>
                                                 </a>
                                             </div>
                                             <div class="product_info">
                                                 <p class="product_name">
-                                                    <a href="@Anpero.StringHelpper.GetProductLink(relateItem.PrName,relateItem.Id)">@Anpero.StringHelpper.SubString(40,relateItem.PrName)</a>
+                                                    <a href="@Anpero.StringHelpper.GetProductLink(relateItem.PrName,relateItem.Id)">@Anpero.StringHelpper.SubString(40, relateItem.PrName)</a>
                                                 </p>
                                                 <p class="product_desc product_desc__short">
                                                     @relateItem.ShortDesc
@@ -159,13 +157,13 @@
                                                 <p class="product_desc product_desc__long">
                                                     @relateItem.ShortDesc
                                                 </p>
-                                              
-                                                
+
+
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>
-                                 
+
                                 }
                             }
                         }
@@ -183,9 +181,14 @@
         </div>
     </div>
     @section scripts{
+        <script src="//media.anpero.com/cdn/plugins/fancybox-3/dist/jquery.fancybox.min.js"></script>
         <script>
             $(document).ready(function () {
                 resizeVideo();
+                  $(".fancybox").fancybox({
+                    openEffect: 'none',
+                    closeEffect: 'none'
+                });
                 var swiper = new Swiper('#gallery_thumbs-template-product', {
                     direction: 'vertical',
                     slidesPerView: 4,
@@ -197,12 +200,6 @@
                         clickable: true,
                     }
                 });
-                $("#gallery_thumbs-template-product img").click(function () {
-                    var imgLink = $(this).attr("src");
-                    $("#gallery_big-template-product img").attr("src", imgLink);
-                });
-
-
                 $(window).resize(function () {
                     resizeVideo();
                 });
@@ -217,11 +214,24 @@
                     });
                 });
             });
+              var quickViewGallery = new Swiper('.swiper-container1', {
+                    direction: 'vertical',
+
+                    speed: 500,
+                    slidesPerView: 3,
+                    spaceBetween: 15,
+                    prevButton: '#prev_template-product',
+                    nextButton: '#next_template-product',
+                });             var bigSlide= new Swiper('.swiper-container2', {
+                   prevButton: '#prev_template-product',
+                   nextButton: '.swiper-container1 .swiper-slide'
+
+                });
             $("#single_product__addtocart").click(function () {
                 Cart.quantity = $("#single_product__quantity-template-product").val();
                 Cart.addProduct(@item.Id, '@Convert.ToInt32(item.SalePrice)','@item.Images', escape('@item.PrName'));
             });
-            
+
             function resizeVideo() {
                 var contentW = $('#product_tabs_description').width();
                 var iframe = $('#product_tabs_description iframe');
@@ -229,6 +239,23 @@
                 iframe.css('width', iframeW);
                 var iframeH = contentW / 16 * 9;
                 iframe.css('height', iframeH);
+            }
+        </script>
+        @{
+            List<string> images = new List<string>();
+            images.Add(item.Images);
+            images.AddRange(item.ImagesSlide);
+            images = images.Select(x => "\"" + x + "\"").ToList();
+            var imagesText = string.Join(",", images);
+        }
+        <script type="application/ld+json">
+            {
+            "@@context":"http://schema.org/",
+            "@@type":"Product",
+            "name":"@item.PrName",
+            "image":[@Html.Raw(imagesText)],
+            "description":"@item.ShortDesc",
+            "sku": "@item.Id"
             }
         </script>
     }
