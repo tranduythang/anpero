@@ -20,6 +20,8 @@
         <meta property="og:url" content="@ViewBag.WebsiteUrl" />
         <meta property="og:image" content="@item.Images" />
         <link rel="canonical" href="@ViewBag.WebsiteUrl" />
+        <link href="//media.anpero.com/cdn/plugins/fancybox-3/src/css/core.css" rel="stylesheet" />
+        <link href="//media.anpero.com/cdn/plugins/fancybox-3/src/css/fullscreen.css" rel="stylesheet" />
     }
     <div class="breadcrumbs">
         <div class="container">
@@ -63,11 +65,9 @@
                                 @foreach (var slideItem in item.ImagesSlide)
                                 {
                                     <div class="swiper-slide">
-                                        <img src="@slideItem" alt="@item.PrName">
+                                        <a href="@slideItem" class="fancybox" data-fancybox="gallery" rel="gallery" data-type="image"> <img src="@slideItem" alt="@item.PrName"></a>
                                     </div>
                                 }
-
-
                             </div>
                         </div>
                         <div id="prev_template-product" class="swiper_btn swiper_btn__prev swiper-button-disabled"></div>
@@ -114,7 +114,7 @@
                                             {
                                                 <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
                                                 <span class="money money_sale">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
-                                                <span class="money_sale_percent">– @Convert.ToInt32(100-(item.SalePrice / item.Price) * 100)%</span>
+                                                <span class="money_sale_percent">– @Convert.ToInt32(100 - (item.SalePrice / item.Price) * 100)%</span>
 
                                             }
                                             else
@@ -226,9 +226,16 @@
         </div>
     </div>
     @section scripts{
+        <script src="//media.anpero.com/cdn/plugins/fancybox-3/dist/jquery.fancybox.min.js"></script>
+
         <script>
             $(document).ready(function () {
                 resizeVideo();
+                 $(".fancybox").fancybox({
+                    openEffect: 'none',
+                    closeEffect: 'none'
+                });
+
                 var quickViewGallery = new Swiper('.swiper-container1', {
                     direction: 'vertical',
 
