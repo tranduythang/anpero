@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Caching;
 using System.Threading.Tasks;
 
-namespace Utilities.Caching
+namespace Anpero
 {
     /// <summary>
     /// A cached collection of key value pairs. This can be used to cache objects internally on the server.

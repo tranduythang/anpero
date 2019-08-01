@@ -12,24 +12,33 @@ namespace AnperoFrontend.Controllers
         public static int StoreID = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["storeID"]);
         public static string TokenKey = System.Configuration.ConfigurationManager.AppSettings["storeTokenKey"];
         public static int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
+        public Anpero.ICacheService cache = new Anpero.CacheService();
         public void GetTopArticle()
         {
-            WebService.SearchArticleResults rs = new WebService.SearchArticleResults();
+            WebService.SearchArticleResults featureArticle = new WebService.SearchArticleResults();
+            WebService.SearchArticleResults topArticle = new WebService.SearchArticleResults();
             WebService.AnperoService service = new WebService.AnperoService();
-            if (HttpRuntime.Cache["TopArticle"] != null)
+          
+          
+            if (!cache.TryGet("FeatureArticle", out featureArticle))
             {
-                rs = (WebService.SearchArticleResults)HttpRuntime.Cache["TopArticle"];
-            }
-            else
-            {
-                rs = service.SearchArticle(StoreID, TokenKey, 0, 1, 4, 2);
-                if (rs != null)
+                featureArticle = service.SearchArticle(StoreID, TokenKey, 0, 1, 4, 2);
+                if (featureArticle != null)
                 {
-                    HttpRuntime.Cache.Insert("TopArticle", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                    cache.AddOrUpdate("FeatureArticle", featureArticle, new TimeSpan(0, 10, 0));
                 }
-
             }
-            ViewData["FeatureArticle"] = rs;
+            if (!cache.TryGet("topArticle",out topArticle))
+            {
+                topArticle = service.SearchArticle(StoreID, TokenKey, 0, 1, 8, 3);
+                if (topArticle != null)
+                {
+                    cache.AddOrUpdate("topArticle", topArticle, new TimeSpan(0, 5, 0));
+                    
+                }
+            }
+            ViewData["FeatureArticle"] = featureArticle;
+            ViewData["topArticle"] = topArticle;
         }
         public void SetupCommonProduct()
         {

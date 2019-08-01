@@ -24,21 +24,23 @@ namespace AnperoFrontend.Controllers
             WebService.AnperoService service = new WebService.AnperoService();
 
             WebService.Ads[] Slide = null;
+            WebService.Ads[] Ads3 = null;
             //slide home back-ground
-            if (HttpRuntime.Cache["Slide"] != null)
+            if (!base.cache.TryGet(PageContent.Slide, out Slide))
             {
-                ViewData["slide"] = (WebService.Ads[])HttpRuntime.Cache["Slide"];
-            }
-            else
-            {             
                 Slide = service.GetAdsSlide(StoreID, TokenKey, PageContent.Slide);
-                ViewData["slide"] = Slide;
-                if (Slide != null)
-                {
-                    HttpRuntime.Cache.Insert("Slide", Slide, null, DateTime.Now.AddMinutes(shortCacheTime+3), TimeSpan.Zero);
-                }
+                cache.AddOrUpdate(PageContent.Slide, Slide, new TimeSpan(0, shortCacheTime, 0));
             }
-         
+            if (!base.cache.TryGet(PageContent.Ads3, out Ads3))
+            {
+                Ads3 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads3);
+                cache.AddOrUpdate(PageContent.Ads3, Ads3, new TimeSpan(0, shortCacheTime, 0));
+            }
+            ViewData["slide"] = Slide;
+            ViewData["Ads3"] = Ads3;
+            
+
+
             Response.Cache.SetCacheability(HttpCacheability.Public);
         }
         private void GetNewestProduct()
