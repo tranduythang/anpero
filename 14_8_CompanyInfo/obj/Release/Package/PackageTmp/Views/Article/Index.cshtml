@@ -41,14 +41,14 @@
 
                     <div id="primary" class="site-content">
                         <div id="content" role="main">
-                            <article id="post-29" class="blog_entry clearfix">
-                                <header class="blog_entry-header clearfix">
+                            <article id="post-@item.Id" class="blog_entry clearfix">
+                                <div class="blog_entry-header clearfix">
                                     <div class="blog_entry-header-inner">
                                         <h2 class="blog_entry-title">
                                             @item.Title - @Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)
                                         </h2>
                                     </div>
-                                </header>
+                                </div>
                                 <div class="entry-content">
                                     @Html.Raw(item.Content)
                                 </div>

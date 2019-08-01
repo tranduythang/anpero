@@ -49,16 +49,16 @@
                                 {
                                     <div class="col-md-12 blog_entry">
                                         <article lass="wow bounceInUp animated animated ">
-                                            <header class="blog_entry-header clearfix">
+                                            <div class="blog_entry-header clearfix">
                                                 <div class="blog_entry-header-inner">
                                                     <h2 class="blog_entry-title"> <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" rel="bookmark">@item.Title</a> </h2>
                                                     <div class="entry-meta">
-                                                        <time class="entry-date">@Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</time>
+                                                        <time class="entry-date">  @item.CategoryName @*@Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)*@</time>
                                                         .
                                                     </div>
                                                 </div>
 
-                                            </header>
+                                            </div>
                                             <div class="entry-content">
                                                 <div class="featured-thumb col-md-5">
                                                     <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">

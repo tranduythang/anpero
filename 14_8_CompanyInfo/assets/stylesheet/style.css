@@ -5473,7 +5473,7 @@ text-transform: uppercase
 
     .blog-wrapper .entry-date {
         background: #fff;
-        color: #88be4c;
+        color: #0c859f;
         padding: 10px 15px;
         font-family: 'Montserrat', sans-serif;
         text-transform: uppercase;
@@ -5506,7 +5506,7 @@ text-transform: uppercase
         font-family: 'Montserrat', sans-serif;
         letter-spacing: 0.5px;
         text-transform: uppercase;
-        background: #ed6663;
+        background: #07a5c8;
         margin-top: 0px;
         margin-left: -10px;
     }
@@ -5628,7 +5628,7 @@ text-transform: uppercase
     position: absolute;
     bottom: -10px;
     left: 0;
-    border-color: #d95451 #d95451 transparent transparent;
+    border-color: #0c859f #0c859f transparent transparent;
 }
 
 .popular-posts {
@@ -10438,7 +10438,7 @@ button.button.submit:before {
             font-family: 'Montserrat', sans-serif;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            background: #ed6663;
+            background: #07a5c8;
             margin-top: 0px;
         }
 
@@ -10451,7 +10451,7 @@ button.button.submit:before {
                 position: absolute;
                 bottom: -10px;
                 left: 0;
-                border-color: #d95451 #d95451 transparent transparent;
+                border-color: #0c859f #0c859f transparent transparent;
             }
 
     .related-pro .owl-item .item {
