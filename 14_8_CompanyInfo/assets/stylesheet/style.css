@@ -14111,7 +14111,7 @@ select#shipping-address-select {
     border-bottom: none;
     text-align: center;
     background-repeat: no-repeat;
-    background-image: url(/assets/images/category-bg.jpg);
+    background-image: url(//cdn.anpero.com/images/43/72019/22019073123510416.jpg);
     margin-top: -80px;
 }
 
@@ -14346,6 +14346,7 @@ h2, h3 {
 .section-relative {
     position: relative;
 }
+/*CONTACT FORM*/
 .contact-area .section-bg {
     background-image: url(//cdn.anpero.com/images/38/82019/12019080101554755.jpg);
 }
@@ -14361,6 +14362,20 @@ h2, h3 {
     height: 100%;
     z-index: -1;
 }
+    .section-bg:after {
+        background-color: #000;
+        content: "";
+        height: 100%;
+        left: 0;
+        opacity: 0.4;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: -1;
+    }
+.contact-area .section-bg::after {
+    background-color: rgb(24, 89, 142);
+}
 .contact-area .page-title {
     color: #ffffff;
 }
@@ -14371,20 +14386,8 @@ h2, h3 {
 .contact-area .page-title h2 {
     color: #ffffff;
 }
-.contact-area .section-bg::after {
-    background-color: rgb(24, 89, 142);
-}
-.section-bg:after {
-    background-color: #000;
-    content: "";
-    height: 100%;
-    left: 0;
-    opacity: 0.4;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: -1;
-}
+
+
 .contact-area input.form-control {
     height: 45px;
 }
@@ -14412,4 +14415,8 @@ h2, h3 {
     transition: 0.3s;
     border-radius: 2px;
     letter-spacing: 1.2px;
+}
+/*END CONTACT FORM*/
+.about .section-bg {
+    background-image: url(//cdn.anpero.com/images/43/72019/22019073123510416.jpg);
 }
