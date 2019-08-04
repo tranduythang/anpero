@@ -1,0 +1,96 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    BlogItem item = new BlogItem();
+    if (ViewData["blogdeltail"] != null)
+    {
+        item = (BlogItem)ViewData["blogdeltail"];
+    }
+}
+<div class="columns-container">
+    <div class="container" id="columns">
+        <!-- breadcrumb -->
+        <div class="breadcrumb clearfix">
+            <a class="home" href="#" title="Return to Home">Home</a>
+            <span class="navigation-pipe">&nbsp;</span>
+            <a class="home" href="#" title="Blog">Blog</a>
+            <span class="navigation-pipe">&nbsp;</span>
+            <span><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.CategoryName, item.CategoryId)" title="@item.CategoryName">@item.CategoryName</a> </span>
+        </div>
+        <!-- ./breadcrumb -->
+        <!-- row -->
+        <div class="row">
+            <!-- Left colunm -->
+            @Html.Partial("article/_MenuAndAdsPartial")
+            <!-- ./left colunm -->
+            <!-- Center colunm-->
+            <div class="center_column col-xs-12 col-sm-9" id="center_column">
+                <h1 class="page-heading">
+                    <span class="page-heading-title2">@item.Title</span>
+                </h1>
+                <article class="entry-detail">
+                    <div class="entry-meta-data">
+                     
+                       
+                        <span class="comment-count">
+                            <i class="fa fa-comment-o"></i> @item.ViewTime
+                        </span>
+                        <span class="date"><i class="fa fa-calendar"></i> @Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</span>
+                      
+                    </div>
+                   
+                    <div class="content-text clearfix">
+                      @Html.Raw(item.Content)
+                    </div>
+                    <div class="entry-tags">
+                        <span>Tags:</span>
+                        @item.Tag
+                    </div>
+                </article>
+                <!-- Related Posts -->
+                @if (ViewData["ArticleList"] != null)
+                {
+                    SearchArticleResults articleList = (SearchArticleResults)ViewData["ArticleList"];
+                    if (articleList.ResultsCount > 0)
+                    {
+                        <div class="single-box">
+                            <h2>Bài liên quan</h2>
+                            <ul class="related-posts owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":2},"1000":{"items":3}}'>
+                                @foreach (var articleItem in articleList.ItemList)
+                                {
+                                    <li class="post-item">
+                                        <article class="entry">
+                                            <div class="entry-thumb image-hover2">
+                                                <a href="#">
+                                                    <img src="@articleItem.Thumb" alt="@articleItem.Title">
+                                                </a>
+                                            </div>
+                                            <div class="entry-ci">
+                                                <h3 class="entry-title"><a href="@Anpero.StringHelpper.GetArticleLink(articleItem.Title, articleItem.Id)">@articleItem.Title</a></h3>
+                                                <div class="entry-meta-data">
+                                                   
+                                                    <span class="date">
+                                                        <i class="fa fa-calendar"></i> @Anpero.StringHelpper.ConvertTimeVN(articleItem.CreateDate)
+                                                    </span>
+                                                </div>
+                                                <div class="entry-more">
+                                                    <a href="@Anpero.StringHelpper.GetArticleLink(articleItem.Title, articleItem.Id)">Xem thêm</a>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </li>
+                                }
+                            </ul>
+                            </div>
+                    }
+
+                }
+
+         
+            </div>
+            <!-- ./ Center colunm -->
+        </div>
+        <!-- ./row-->
+    </div>
+</div>
+    
+
