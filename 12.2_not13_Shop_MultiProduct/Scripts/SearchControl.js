@@ -1,10 +1,10 @@
 ﻿Search = (function () {
-    
+
     var config = {
         property: "",
         brands: "",
         category: "",
-        sortBy:"nameDesc"
+        sortBy: "nameDesc"
     };
     function doSearch() {
         var conditon = "";
@@ -20,7 +20,7 @@
             //});
             //conditon += param + "property=" + attributeIdList.substring(0, attributeIdList.length - 1);
             conditon += param + "property=" + properties;
-            
+
             param = "&";
         }
         if (branch.length > 0) {
@@ -42,22 +42,22 @@
         if (config.sortBy != "") {
             conditon += param + "SortBy=" + config.sortBy;
         }
-        
+
         window.location.href = "/search" + conditon;
     }
-    function init(param) {      
-        var sortBy =getParameterByName("SortBy");
-        if (typeof sortBy != 'undefined' && sortBy != null && sortBy !="") {
+    function init(param) {
+        var sortBy = getParameterByName("SortBy");
+        if (typeof sortBy != 'undefined' && sortBy != null && sortBy != "") {
             $("#sort_by_select").val(sortBy);
         }
-        
-        config = $.extend(config, param);        
+
+        config = $.extend(config, param);
         $("input[type=checkbox][name=properties],input[name=brands],input[name=category]").click(function () {
-            doSearch();           
+            doSearch();
         });
         $("#sort_by_select").change(function () {
             config.sortBy = $(this).val();
-            doSearch();           
+            doSearch();
         });
         if (config.property != "") {
             var propertyList = config.property.split(",");
@@ -72,17 +72,17 @@
             }
         }
         if (config.brands != "") {
-            var brandsList = config.brands.split(",");            
+            var brandsList = config.brands.split(",");
             for (var i = 0; i < brandsList.length; i++) {
                 try {
                     $("input[type=checkbox][name=brands][value=" + brandsList[i] + "]").prop("checked", true);
                 } catch (e) {
                     // do nothing
                 }
-            }            
+            }
         }
         if (this.config.category != "" && this.config.category != "%") {
-            var categoryList = config.category.split(",");      
+            var categoryList = config.category.split(",");
             for (var i = 0; i < categoryList.length; i++) {
                 try {
                     $("input[type=checkbox][name=category][value=" + categoryList[i] + "]").prop("checked", true);
@@ -97,6 +97,6 @@
         init: init,
         config: config,
         doSearch: doSearch
-       
+
     };
 })();

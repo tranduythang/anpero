@@ -18,7 +18,8 @@
                                     {
                                         for (int j = 0; j < commonInfo.ProductCategoryList[i].ChildCategory.Length; j++)
                                         {
-                                            <li><span></span><a href="@Anpero.StringHelpper.GetCategoryLink(commonInfo.ProductCategoryList[i].ChildCategory[j].Name,commonInfo.ProductCategoryList[i].ChildCategory[j].Id)">@commonInfo.ProductCategoryList[i].ChildCategory[j].Name</a></li>
+                                            <li><span></span>
+                                                <a href="@Anpero.StringHelpper.GetCategoryLink(commonInfo.ProductCategoryList[i].ChildCategory[j].Name,commonInfo.ProductCategoryList[i].ChildCategory[j].Id)">@commonInfo.ProductCategoryList[i].ChildCategory[j].Name</a></li>
                                         }
 
                                     }

@@ -90,10 +90,13 @@
                                                 <span class="product_badge new">mới</span>
                                                 @if (item.IsSale)
                                                 {
-                                                    <span class="product_badge sale">sale</span>
-                                                }
+                                                    @*<span class="product_badge sale">*@
+                                                        <span class="product_badge sale" style="width:75px;background:none;">
+                                                            <img src="//cdn.anpero.com/images/38/72019/q2019071010422463.jpg" alt="sale" style="background:none;"/>
+                                                        </span>
+                                                        }
 
-                                            </a>
+                                                </a>
                                         </div>
                                         <div class="product_info">
                                             <p class="product_name">
@@ -109,7 +112,7 @@
                                                 <p class="product_price">
                                                     @if (item.IsSale)
                                                     {
-                                                    <span class="money money_sale" data-currency-usd="$33.00">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
+                                                        <span class="money money_sale" data-currency-usd="$33.00">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
                                                     }
                                                     <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
                                                 </p>
@@ -200,7 +203,10 @@
                                                 <span class="product_badge new">mới</span>
                                                 @if (item.IsSale)
                                                 {
-                                                    <span class="product_badge sale">sale</span>
+
+                                                    <span class="product_badge sale" style="width:75px;background:none;">
+                                                        <img src="//cdn.anpero.com/images/38/72019/q2019071010422463.jpg" alt="sale" style="background:none;" />
+                                                    </span>
                                                 }
 
                                             </a>
@@ -254,7 +260,7 @@
             <div class="divider_item container" style="padding-top: 22px;"></div>
             <div class="divider_item tablet_show container" style="padding-top: 22px;"></div>
         </div>
-        <div  class="shopify-section section section_homepage section_banners_countdown_custom">
+        <div class="shopify-section section section_homepage section_banners_countdown_custom">
             <div class="row">
                 @if (ViewData["ads2"] != null)
                 {
