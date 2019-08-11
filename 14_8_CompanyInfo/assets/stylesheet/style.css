@@ -120,7 +120,7 @@ header {
 
 .header-container {
     position: relative;
-    background: rgba(255,255,255, 0.2);
+    
 }
 
 .logo {
@@ -133,8 +133,7 @@ header {
     padding-top: 13px;
     padding-right: 25px;
     padding-left: 20px;
-    margin-top: -41px;
-    background: #07a5c8;
+    margin-top: -12px;    
     height: 116px;
     margin-right: 15px;
 }
@@ -147,7 +146,7 @@ header {
 .header-container .fl-header-right {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 16px;
 }
 
 .search-bar {
@@ -227,21 +226,21 @@ header {
     text-transform: none;
     border: none;
     outline: none;
-    width: 70px;
-    height: 75px;
+    width: 30px;
+    height: 30px;
     display: block;
     right: 0;
     top: 0;
     padding: 0;
     margin: 0;
-    line-height: 42px !important;
+    line-height: 30px !important;
     text-align: center;
     cursor: pointer;
     border-radius: 0;
 }
 
     .navbar-form .search-btn .glyphicon {
-        line-height: 45px !important;
+        line-height: 35px !important;
         vertical-align: middle;
     }
 
@@ -252,12 +251,10 @@ header {
     }
 
 .navbar-collapse form[role="search"] input {
-    font-size: 18pt;
-    opacity: 0;
-    display: none;
-    height: 48px;
+    font-size: 12pt;
+    height: 30px;
     position: relative;
-    z-index: 2;
+    z-index: 9999;
     float: left;
 }
 
@@ -1006,7 +1003,7 @@ background-color: #fff;
         #nav > li > a {
             display: block;
             padding: 0px 0px;
-            line-height: 75px;
+            line-height: 55px;
         }
 
             #nav > li > a > span {
@@ -1695,7 +1692,7 @@ ul.level1 {
 
 #nav li.drop-menu:hover ul {
     position: absolute;
-    top: 75px;
+    top: 54px;
     background: #fff;
     padding: 6px 0;
     border-top: none;
@@ -11625,7 +11622,6 @@ footer .footer-inner {
 
 footer .co-info {
     margin-right: 0px !important;
-    background: #88be4c;
     padding: 35px 30px;
     text-align: center;
     margin-top: 35px;
@@ -14112,7 +14108,7 @@ select#shipping-address-select {
     text-align: center;
     background-repeat: no-repeat;
     background-image: url(//cdn.anpero.com/images/43/72019/22019073123510416.jpg);
-    margin-top: -80px;
+    margin-top: -103px;
 }
 
     .page-heading .page-title h2 {
@@ -14419,4 +14415,11 @@ h2, h3 {
 /*END CONTACT FORM*/
 .about .section-bg {
     background-image: url(//cdn.anpero.com/images/43/72019/22019073123510416.jpg);
+}
+#h-info a {
+    color: white;
+    margin: 19px 0px 0 13px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
 }

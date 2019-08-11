@@ -30,7 +30,7 @@ namespace AnperoFrontend
                   "~/assets/stylesheet/jquery.mobile-menu.css"
 
            ));
-            BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = false;
         }
     }
 }

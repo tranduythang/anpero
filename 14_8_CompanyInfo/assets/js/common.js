@@ -15,26 +15,26 @@ jQuery(document).ready(function() {
     }, function() {
         jQuery(this).find(".level0-wrapper").stop(true, true).delay(300).fadeOut(300, "easeInCubic")
     });
-    jQuery("#nav li.level0.drop-menu").mouseover(function() {
-            return jQuery(window).width() >= 740 && jQuery(this).children("ul.level1").fadeIn(100), !1
-        }).mouseleave(function() {
-            return jQuery(window).width() >= 740 && jQuery(this).children("ul.level1").fadeOut(100), !1
-        }), jQuery("#nav li.level0.drop-menu li").mouseover(function() {
-            if (jQuery(window).width() >= 740) {
-                jQuery(this).children("ul").css({
-                    top: 0,
-                    left: "165px"
-                });
-                var e = jQuery(this).offset();
-                e && jQuery(window).width() < e.left + 325 ? (jQuery(this).children("ul").removeClass("right-sub"), jQuery(this).children("ul").addClass("left-sub"), jQuery(this).children("ul").css({
-                    top: 0,
-                    left: "-167px"
-                })) : (jQuery(this).children("ul").removeClass("left-sub"), jQuery(this).children("ul").addClass("right-sub")), jQuery(this).children("ul").fadeIn(100)
-            }
-        }).mouseleave(function() {
-            jQuery(window).width() >= 740 && jQuery(this).children("ul").fadeOut(100)
-        }),
-				
+    jQuery("#nav li.level0.drop-menu").mouseover(function () {
+        return jQuery(window).width() >= 740 && jQuery(this).children("ul.level1").fadeIn(100), !1
+    }).mouseleave(function () {
+        return jQuery(window).width() >= 740 && jQuery(this).children("ul.level1").fadeOut(100), !1
+    }), jQuery("#nav li.level0.drop-menu li").mouseover(function () {
+        if (jQuery(window).width() >= 740) {
+            jQuery(this).children("ul").css({
+                top: 0,
+                left: "165px"
+            });
+            var e = jQuery(this).offset();
+            e && jQuery(window).width() < e.left + 325 ? (jQuery(this).children("ul").removeClass("right-sub"), jQuery(this).children("ul").addClass("left-sub"), jQuery(this).children("ul").css({
+                top: 0,
+                left: "-167px"
+            })) : (jQuery(this).children("ul").removeClass("left-sub"), jQuery(this).children("ul").addClass("right-sub")), jQuery(this).children("ul").fadeIn(100)
+        }
+    }).mouseleave(function () {
+        jQuery(window).width() >= 740 && jQuery(this).children("ul").fadeOut(100)
+    }),
+
         /*  Best Seller Slider */
         jQuery("#top-categories .slider-items").owlCarousel({
             items: 8,
@@ -59,22 +59,22 @@ jQuery(document).ready(function() {
             slideSpeed: 500,
             pagination: !1
         }),
-       
+
         jQuery("#brand-slider .slider-items").owlCarousel({
-          autoplay : true,
-	      items : 3, //10 items above 1000px browser width
-	      itemsDesktop : [1024,3], //5 items between 1024px and 901px
-	      itemsDesktopSmall : [900,3], // 3 items betweem 900px and 601px
-	      itemsTablet: [600,2], //2 items between 600 and 0;
-	      itemsMobile : [320,1],
-	      navigation : true,
-	      navigationText : ["<a class=\"flex-prev\"></a>","<a class=\"flex-next\"></a>"],
-	      slideSpeed : 500,
-	      pagination : false			
+            autoplay: true,
+            items: 3, //10 items above 1000px browser width
+            itemsDesktop: [1024, 3], //5 items between 1024px and 901px
+            itemsDesktopSmall: [900, 3], // 3 items betweem 900px and 601px
+            itemsTablet: [600, 2], //2 items between 600 and 0;
+            itemsMobile: [320, 1],
+            navigation: true,
+            navigationText: ["<a class=\"flex-prev\"></a>", "<a class=\"flex-next\"></a>"],
+            slideSpeed: 500,
+            pagination: false
         }),
-        
-       
-        
+
+
+
         /*  More Views Slider */
         jQuery("#more-views-slider .slider-items").owlCarousel({
             autoplay: !0,
@@ -100,8 +100,8 @@ jQuery(document).ready(function() {
             slideSpeed: 500,
             pagination: !1
         }),
-       
- 
+
+
         /*  More Views Slider */
         jQuery("#more-views-slider .slider-items").owlCarousel({
             autoplay: !0,
@@ -115,7 +115,7 @@ jQuery(document).ready(function() {
             slideSpeed: 500,
             pagination: !1
         }),
-		/* Mobile Menu */	
+        /* Mobile Menu */
 
         jQuery("#mobile-menu").mobileMenu({
             MenuWidth: 250,
@@ -126,7 +126,7 @@ jQuery(document).ready(function() {
             Overlay: !0,
             CollapseMenu: !0,
             ClassName: "mobile-menu"
-        })
+        });
 		
         /* Top Offer slider */
 	    jQuery("#slideshow > p:gt(0)").hide();

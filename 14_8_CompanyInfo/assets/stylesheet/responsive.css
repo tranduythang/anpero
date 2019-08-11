@@ -16,15 +16,13 @@ website:   	http://www.themesmart.net/
 /* body RobotoSlab,Arial,sans-serif /*/
 
 @media only screen and (min-width: 320px) and (max-width: 479px) {
-.header-container .fl-nav-menu {
-    display: block;
-    border-radius: 3px;
-    /* overflow: hidden; */
-    /* top: 150px; */
-    margin-top: 85px;
-    background-color: #fff;
-	clear: both;
-}
+    .header-container .fl-nav-menu {
+        display: block;        
+        margin-top: 47px;        
+        float: right;
+        width: 99px;
+        z-index: 99999;
+    }
 .toolbar .pager{
     width:100%!important;
 }
@@ -969,15 +967,12 @@ footer .newsletter-row {
     right: 15px;
 }
 
-.header-container .fl-nav-menu {
-    display: block;
-    border-radius: 0px;
-    /* overflow: hidden; */
-    /* top: 150px; */
-    margin-top: 85px;
-    background-color: #fff;
-	clear: both;
-}
+    .header-container .fl-nav-menu {
+        display: block;
+        border-radius: 0px;        
+        margin-top: 45px;        
+        float: right;
+    }
 
 #thm-mart-slideshow {margin:0px}
 .tp-caption.ExtraLargeTitle span {border:none}
