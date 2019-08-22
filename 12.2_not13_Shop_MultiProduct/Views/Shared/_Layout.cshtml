@@ -86,6 +86,11 @@
 
     @Html.Partial("_partial/_MainFooter_1")
     @RenderSection("scripts", required: false)
+    <style>
+        .megamenu_desktop .level_2__small .level_3__item{
+            line-height:30px;
+        }
+    </style>
     <script type="text/javascript">
         jQuery(window).load(function () {
             Cart.bindCart();

@@ -48,6 +48,7 @@ namespace AnperoFrontend.Controllers
             
             
         }
+        Utilities.Caching.ICacheService cache = new Utilities.Caching.CacheService();
         public void SetupCommonData(ActionExecutedContext filterContext)
         {
             int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
@@ -57,18 +58,17 @@ namespace AnperoFrontend.Controllers
             WebService.SearchResult BestsaleProduct;
             WebService.AnperoService sv = new WebService.AnperoService();
            
-            if (HttpRuntime.Cache["saleProduct"] != null)
-            {
-                saleProduct = (WebService.ProductItem[])   HttpRuntime.Cache["saleProduct"];
-            }
-            else
+            if(!cache.TryGet("saleProduct",out saleProduct))
             {
                 saleProduct = sv.GetSaleProduct(StoreID, TokenKey);
                 if (saleProduct != null)
                 {
-                    HttpRuntime.Cache.Insert("saleProduct", saleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                    cache.AddOrUpdate("saleProduct", saleProduct, new TimeSpan(0,shortCacheTime,0));                    
                 }
             }
+            
+                
+            
             filterContext.Controller.ViewData["saleProduct"] = saleProduct;
             if (HttpRuntime.Cache["BestsaleProduct"] != null)
             {

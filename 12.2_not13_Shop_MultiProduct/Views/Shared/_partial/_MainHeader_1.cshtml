@@ -94,38 +94,27 @@
                                                     @foreach (var item in commonInfo.ProductCategoryList)
                                                     {
                                                         <li class="level_3__item">
-                                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">
+                                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" class="level_3__link">
                                                                 @item.Name
                                                             </a>
-
-                                                            @*<div class="megamenu_col__item align_center">
-                                                                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">
-                                                                    @if (!string.IsNullOrEmpty(item.Images))
-                                                                    {
-                                                                        <img src="@item.Images" alt="@item.Name">
-
-                                                                    }
-                                                                    <h4>@item.Name</h4>
-                                                                </a>
-                                                            </div>*@
                                                         </li>
                                                     }
                                                 </ul>
 
                                             </div>
                                         </li>
-                                       
+
 
                                     </ul>
                                 </li>
                                 <li class="level_1__item level_2__small">
                                     <a class="level_1__link " href="/search">
                                         Thương hiệu mỹ phẩm
-                                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_3"></i>
+                                        <i class="level_1__trigger megamenu_trigger" data-submenu="menu_4"></i>
                                     </a>
                                     @if (commonInfo.ProductGroupList != null)
                                     {
-                                        <ul class="level_2">
+                                        <ul C class="level_2" id="menu_4">
                                             <li>
                                                 <div>
                                                     <ul class="level_3">
@@ -143,78 +132,62 @@
                                                 </div>
                                             </li>
                                         </ul>
-
-
                                     }
 
                                 </li>
-                                <li class="level_1__item level_2__products">
-                                    <a class="level_1__link " href="/">
+                                <li class="level_1__item level_2__small">
+                                    <a class="level_1__link " href="/product/sales">
                                         Khuyến mãi
                                         <i class="level_1__trigger megamenu_trigger" data-submenu="menu_6"></i>
                                     </a>
                                     <ul class="level_2" id="menu_6">
-                                        <li class="container">
-                                            @if (ViewData["saleProduct"] != null)
-                                            {
-                                                ProductItem[] saleList = (ProductItem[])ViewData["saleProduct"];
-                                                foreach (var item in saleList)
-                                                {
-                                                    <div class="megamenu_col__item">
-                                                        <div class="product">
-                                                            <div class="product_img">
-                                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
-                                                                    <img src="@item.Images" alt="@item.PrName" />
-                                                                </a>
-                                                            </div>
-                                                            <div class="product_info">
-                                                                <p class="product_name">
-                                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
-                                                                </p>
-                                                                <p class="product_price">
-                                                                    <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span>
-                                                                    <span class="money money_sale">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)</span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                }
-                                            }
+                                        <li>
+                                            <div>
+                                                <ul class="level_3">
+                                                    @if (ViewData["saleProduct"] != null)
+                                                    {
+                                                        ProductItem[] saleList = (ProductItem[])ViewData["saleProduct"];
+                                                        if (saleList.Length > 3)
+                                                        {
+                                                            saleList = saleList.Take(3).ToArray();
+                                                        }
+                                                        foreach (var item in saleList)
+                                                        {
+                                                            <li class="level_3__item">
+                                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="level_3__link">@item.PrName</a>
+                                                            </li>
+                                                        }
+                                                    }
+                                                </ul>
+                                            </div>
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="level_1__item level_2__blog">
+
+                                <li class="level_1__item level_2__small">
                                     <a class="level_1__link " href="/blog">
                                         Blog
                                         <i class="level_1__trigger megamenu_trigger" data-submenu="menu_1479747008568"></i>
                                     </a>
                                     <ul class="level_2" id="menu_1479747008568">
-                                        <li class="container">
-                                            @if (ViewData["FeatureArticle"] != null)
-                                            {
-                                                SearchArticleResults articleList = (SearchArticleResults)ViewData["FeatureArticle"];
-                                                foreach (BlogItem item in articleList.ItemList)
-                                                {
-                                                    <div class="megamenu_col__item">
-                                                        <div class="blog_img">
-                                                            <img src="@item.Thumb" alt="@item.Title">
-                                                        </div>
-                                                        <div class="blog_info">
-                                                            <p class="blog_date">
-                                                                <span class="article_day">Ngày @Anpero.StringHelpper.ConvertDateTime(item.CreateDate).Day</span>
-                                                                Tháng @Anpero.StringHelpper.ConvertDateTime(item.CreateDate).Month
-                                                            </p>
-                                                            <h3 class="blog_title"><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@Anpero.StringHelpper.SubString(40, item.Title)</a></h3>
-                                                        </div>
-                                                    </div>
-                                                }
+                                        <li>
+                                            <div>
+                                                <ul class="level_3">
+                                                    @if (ViewData["FeatureArticle"] != null)
+                                                    {
+                                                        SearchArticleResults articleList = (SearchArticleResults)ViewData["FeatureArticle"];
+                                                        foreach (BlogItem item in articleList.ItemList)
+                                                        {
+                                                            <li class="level_3__item">
+                                                                <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="level_3__link">@Anpero.StringHelpper.SubString(40, item.Title)</a>
+                                                            </li>
+                                                        }
+                                                    }
 
-                                            }
-
-
-
+                                                </ul>
+                                            </div>
                                         </li>
-                                    </ul>
+                                    </ul>                                
                                 </li>
                                 <li class="level_1__item ">
                                     <a class="level_1__link " href="/home/contact">
