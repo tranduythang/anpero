@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web.Mvc;
-using Utilities.Caching;
+
 
 namespace AnperoFrontend.Controllers
 {
@@ -44,7 +44,7 @@ namespace AnperoFrontend.Controllers
 
             WebService.AnperoService sv = new WebService.AnperoService();
 
-            ICacheService cache = new CacheService();
+            Anpero.ICacheService cache = new Anpero.CacheService();
 
             if (!cache.TryGet(BaseController.SaleProductCache, out saleProduct))
             {

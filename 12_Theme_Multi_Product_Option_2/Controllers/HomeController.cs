@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
-using Utilities.Caching;
+
 
 namespace AnperoFrontend.Controllers
 {
@@ -31,7 +31,7 @@ namespace AnperoFrontend.Controllers
             WebService.Ads[] ads2;
             WebService.Ads[] ads3;
 
-            ICacheService cache = new CacheService();
+            Anpero.ICacheService cache = new Anpero.CacheService();
 
             if (!cache.TryGet(SlideCache, out Slide))
             {
@@ -69,7 +69,7 @@ namespace AnperoFrontend.Controllers
             WebService.SearchResult searchResult = new WebService.SearchResult();
             int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
 
-            ICacheService cache = new CacheService();
+            Anpero.ICacheService cache = new Anpero.CacheService();
 
             if (!cache.TryGet(NewestProductCache, out searchResult))
             {

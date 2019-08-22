@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AnperoFrontend.Models;
-using Utilities.Caching;
+
 
 namespace AnperoFrontend.Controllers
 {
@@ -191,7 +191,7 @@ namespace AnperoFrontend.Controllers
         private void SetUpSeo(int type, int categoryId)
         {
             AnperoFrontend.WebService.Webconfig commonInfo;
-            ICacheService cache = new CacheService();
+            Anpero.ICacheService cache = new Anpero.CacheService();
 
             if (!cache.TryGet(CommonInfoCache, out commonInfo))
             {
