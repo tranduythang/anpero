@@ -46,7 +46,7 @@
                                     }
                                 }
                                 <li class="level0 parent drop-menu pull-right">
-                                    <a href="tel:234"><i class="glyphicon glyphicon-phone-alt"></i> @commonInfo.HotLine</a>
+                                    <a href="tel:@commonInfo.HotLine"><i class="glyphicon glyphicon-phone-alt"></i> @commonInfo.HotLine @(string.IsNullOrEmpty(commonInfo.OtherPhone)?"":"- "+ @commonInfo.OtherPhone)</a>
                                 </li>
                             </ul>
                         </div>
