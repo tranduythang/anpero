@@ -45,9 +45,9 @@
                                         </li>
                                     }
                                 }
-                                <li class="level0 parent drop-menu pull-right">
-                                    <a href="tel:@commonInfo.HotLine"><i class="glyphicon glyphicon-phone-alt"></i> @commonInfo.HotLine @(string.IsNullOrEmpty(commonInfo.OtherPhone)?"":"- "+ @commonInfo.OtherPhone)</a>
-                                </li>
+                            <li class="level0 parent drop-menu pull-right">
+                                <a href="tel:@commonInfo.HotLine"><i class="glyphicon glyphicon-phone-alt"></i> @Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.HotLine) @(string.IsNullOrEmpty(commonInfo.OtherPhone) ? "" : "- " + @Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.OtherPhone))</a>                                
+                            </li>
                             </ul>
                         </div>
                     </nav>
