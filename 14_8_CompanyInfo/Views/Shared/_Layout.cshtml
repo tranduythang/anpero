@@ -20,8 +20,9 @@
     <meta name="apple-mobile-web-app-capable" content="no" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <!-- Apple iOS and Android stuff - don't remove! -->
-    <link rel="icon" href="#" type="image/x-icon">
-    <link rel="shortcut icon" href="@commonInfo.Logo" type="image/x-icon">
+    <link rel="icon" href="@(string.IsNullOrEmpty(commonInfo.Favicon)?commonInfo.Logo:commonInfo.Favicon)" type="image/x-icon">
+    <link rel="shortcut icon" href="@(string.IsNullOrEmpty(commonInfo.Favicon)?commonInfo.Logo:commonInfo.Favicon)" type="image/x-icon">
+    <meta name="description" content="@commonInfo.Desc" />
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet/jquery.bxslider.css">
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet/style.css" media="all">
@@ -55,7 +56,7 @@
                     <div class="page-title">
                         <h2 style="border:none;">Đăng ký và liên hệ</h2>
                         <p>Hãy để lại thông tin liên hệ của bạn để nhận thông tin miễn phí từ chúng tôi !</p>
-                        <p>Hotline :  @commonInfo.HotLine</p>
+                        <p>Hotline :  @Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.HotLine) @(string.IsNullOrEmpty(commonInfo.OtherPhone) ? "" : "- " + @Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.OtherPhone))</p>
                     </div>
                 </div>
             </div>
@@ -107,26 +108,6 @@
         });
 
     </script>
-    <script type="application/ld+json">
-        {
-        "@@context": "https://schema.org",
-        "@@type": "WebSite",
-        "url": "@Url.Content("~")",
-        "potentialAction": {
-        "@@type": "SearchAction",
-        "target": "/search?keyword={keyword}")",
-        "query-input": "required name=keyword"
-        }
-        }
-    </script>
-    <script type="application/ld+json">
-        {
-        "@@context": "https://schema.org",
-        "@@type": "Organization",
-        "url": "@Url.Content("~").TrimEnd('/')",
-        "logo": "@commonInfo.Logo"
-        }
-
-    </script>
+   
 </body>
 </html>
