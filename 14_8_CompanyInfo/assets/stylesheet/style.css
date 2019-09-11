@@ -1693,7 +1693,7 @@ ul.level1 {
 #nav li.drop-menu:hover ul {
     position: absolute;
     top: 54px;
-    background: #fff;
+    background: rgba(255, 184, 3, 0.84);
     padding: 6px 0;
     border-top: none;
     box-shadow: 0 0 20px -5px;
@@ -1734,7 +1734,7 @@ ul.level1 {
 }
 
     #nav li.drop-menu ul li a {
-        color: #333;
+        color: #fff;
         line-height: 30px;
         font-size: 13px;
         padding: 0 12px;
@@ -1746,12 +1746,13 @@ ul.level1 {
     }
 
     #nav li.drop-menu ul li:hover > a {
-        color: #ed6663;
+        color: #fff;
         padding-left: 18px;
         -webkit-transition: all 0.5s;
         -moz-transition: all 0.5s;
         -o-transition: all 0.5s;
-        transition: all 0.5s;
+        /*transition: all 0.5s;*/
+        transition: 0.4s ease;
     }
 
     #nav li.drop-menu ul li span.plus {
