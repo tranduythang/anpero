@@ -29,7 +29,7 @@ website:   	http://www.themesmart.net/
     width:100%!important;
 }
 #thm-mart-slideshow {margin:0px}
-#thm-mart-slideshow:before {left: -500px;}
+
 #top {margin-top:0px}
 #top ul li {width:50%}
 #top ul li:nth-child(2) {margin-top: -4%;}
@@ -981,7 +981,7 @@ footer .newsletter-row {
 
 #thm-mart-slideshow {margin:0px}
 .tp-caption.ExtraLargeTitle span {border:none}
-#thm-mart-slideshow:before {left: -500px;}
+
 #top {margin-top:0px}
 #top ul li {width:50%}
 #top ul li:nth-child(2) {margin-top: -4%;}
@@ -1786,7 +1786,7 @@ footer .newsletter-row {
 .logo-item img {width:100%}
 .logo-brand {min-height: 345px;}
 
-#thm-mart-slideshow {margin-top:-125px}
+#thm-mart-slideshow {margin-top:-75px}
 #top {margin-top:-90px}
 .forcefullwidth_wrapper_tp_banner, .fullwidthbanner-container {height:480px!important}
 .tp-caption.ExtraLargeTitle {left:0px!important}
