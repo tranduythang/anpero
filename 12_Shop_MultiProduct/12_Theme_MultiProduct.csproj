@@ -154,25 +154,6 @@
   <ItemGroup>
     <Content Include="assets\animate.css" />
     <Content Include="assets\animate.js" />
-    <Content Include="assets\html\404error.html" />
-    <Content Include="assets\html\about-us.html" />
-    <Content Include="assets\html\blog-detail.html" />
-    <Content Include="assets\html\blog.html" />
-    <Content Include="assets\html\checkout-billing-info.html" />
-    <Content Include="assets\html\checkout-method.html" />
-    <Content Include="assets\html\checkout.html" />
-    <Content Include="assets\html\contact-us.html" />
-    <Content Include="assets\html\dashboard.html" />
-    <Content Include="assets\html\grid.html" />
-    <Content Include="assets\html\index.html" />
-    <Content Include="assets\html\list.html" />
-    <Content Include="assets\html\login.html" />
-    <Content Include="assets\html\multiple-addresses.html" />
-    <Content Include="assets\html\newsletter.html" />
-    <Content Include="assets\html\product-detail.html" />
-    <Content Include="assets\html\quickview.html" />
-    <Content Include="assets\html\shopping-cart.html" />
-    <Content Include="assets\html\wishlist.html" />
     <Content Include="assets\images\bg-menu.png" />
     <Content Include="assets\images\gachmenu.png" />
     <Content Include="assets\images\loading.gif" />
@@ -838,7 +819,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>32561</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:32562</IISUrl>
+          <IISUrl>http://localhost:32564</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

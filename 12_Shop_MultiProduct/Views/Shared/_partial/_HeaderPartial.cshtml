@@ -74,6 +74,17 @@
 
     <nav class="header-menu">
         <div class="container">
+            <div class="login-mobile visible-xs visible-sm">
+                <div class="login clearfix">
+                    @*<div class="icon">
+                        <img src="../images/icons/icon_avatar.png" alt=" ">
+                    </div>*@
+                    @*<div class="user">
+                        <a class="log-only" href="#" title="Đăng nhập">Đăng nhập</a>
+                        <h3>Thông tin tài khoản</h3>
+                    </div>*@
+                </div>
+            </div>
             <ul class="nav-navbar">
                 <li class="active">
                     <a href="#" class=" current" title="Trang chủ">
@@ -81,45 +92,45 @@
                     </a>
                 </li>
                 @*<li class="li-child">
-                    <a href="#" title="" class="">
-                        <span>Sản phẩm</span> <i class="fa fa-angle-down" aria-hidden="true"></i>
-                    </a>
-                    <ul class="main-child level-2">
+                <a href="#" title="" class="">
+                    <span>Sản phẩm</span> <i class="fa fa-angle-down" aria-hidden="true"></i>
+                </a>
+                <ul class="main-child level-2">
 
-                        @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                    @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                    {
+                        foreach (var item in commonInfo.ProductCategoryList)
                         {
-                            foreach (var item in commonInfo.ProductCategoryList)
-                            {
-                        <li class="li-child">
+                    <li class="li-child">
 
-                            @if (item.ChildCategory != null && item.ChildCategory.Length > 0)
-                            {
-                                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" class="m-nav" title="@item.Name">
-                                    <span>@item.Name</span>                                    
-                                    <i class="fa fa-angle-right" aria-hidden="true"></i>                                    
-                                </a>
-                                <ul class="main-child level-3">
-                                    @foreach (var childItem in item.ChildCategory)
-                                    {
-                                        <li class="">
-                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(childItem.Name,childItem.Id)" title=""><span>@childItem.Name</span></a>
-                                        </li>
-                                    }
+                        @if (item.ChildCategory != null && item.ChildCategory.Length > 0)
+                        {
+                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" class="m-nav" title="@item.Name">
+                                <span>@item.Name</span>
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </a>
+                            <ul class="main-child level-3">
+                                @foreach (var childItem in item.ChildCategory)
+                                {
+                                    <li class="">
+                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(childItem.Name,childItem.Id)" title=""><span>@childItem.Name</span></a>
+                                    </li>
+                                }
 
-                                </ul>
-                            }
-                            else
-                            {
-                                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" class="" title="@item.Name">
-                                    <span>@item.Name</span>                                  
-                                </a>
-                            }
-
-                        </li>
-                            }
+                            </ul>
                         }
-                    </ul>
-                </li>*@
+                        else
+                        {
+                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" class="" title="@item.Name">
+                                <span>@item.Name</span>
+                            </a>
+                        }
+
+                    </li>
+                        }
+                    }
+                </ul>
+            </li>*@
                 @if (commonInfo.MenuList != null && commonInfo.MenuList.Length > 0)
                 {
                     foreach (var item in commonInfo.MenuList)
@@ -128,7 +139,7 @@
 
                             @if (item.ChidMenu != null && item.ChidMenu.Length > 0)
                             {
-                                <a href="@item.Link"  class="m-nav" title="@item.Tittle">
+                                <a href="@item.Link" class="m-nav" title="@item.Tittle">
                                     <span>@item.Tittle</span>
                                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </a>
