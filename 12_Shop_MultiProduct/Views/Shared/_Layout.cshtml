@@ -30,7 +30,43 @@
     @Html.Partial("_partial/_HeaderPartial")
     <div class="main-page">
         @RenderBody()
+
+        <section class="contact-area section-padding section-relative" id="contact">
+            <div class="section-bg"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                        <div class="page-title">
+                            <h2 style="border:none;">Đăng ký và liên hệ</h2>
+                            <p>Hãy để lại thông tin liên hệ của bạn để nhận thông tin miễn phí từ chúng tôi !</p>
+                            <p>Hotline :  097.925.0696  - 097.544.1818</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                        <input type="text" class="form-control" id="name" placeholder="Tên *" required="">
+                        <input class="form-control" id="email" placeholder="Email">
+                        <input type="text" class="form-control" id="phone" placeholder="Số điện thoại *" required="">
+                        <input type="text" class="form-control" id="address" placeholder="Địa chỉ *" required="">
+                        <textarea class="form-control" rows="6" id="message" placeholder="Để lại lời nhắn" required=""></textarea>
+                        <div class="form-selector mbt15">
+                            <div id="g-recaptcha"></div>
+                        </div>
+                        <div class="text-center mb-25">
+                            <button class="battn" id="btn-send-contact">Gửi thông tin</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
     </div>
+  
+
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 
     <!--main-page-->
     @Html.Partial("_partial/_FooterPartial")
@@ -46,26 +82,32 @@
         </div>
 
         <div class="box-hotline item-fix trans">
-                <label>
-                    <a href="tel:@commonInfo.HotLine" title="">
-                        <span></span>
-                        <p>Tư vấn miễn phí(24/7)<span>@commonInfo.HotLine</span></p>
-                    </a>
-                    <i class="close-hotline"></i>
-                </label>
-            </div>
+            <label>
+                <a href="tel:@commonInfo.HotLine" title="">
+                    <span></span>
+                    <p>Tư vấn miễn phí(24/7)<span>@commonInfo.HotLine</span></p>
+                </a>
+                <i class="close-hotline"></i>
+            </label>
+        </div>
     </div>
     @Scripts.Render("~/bundle/js")
-
-
+    <script src="/Scripts/Bootrap.notify.js"></script>
     @Html.Raw(commonInfo.AnperoPlugin)
     @Html.Raw(commonInfo.PageScript)
 
     @RenderSection("scripts", required: false)
     <script type="text/javascript">
-        jQuery(window).load(function () {
+        var googleCatcha;
+        $(window).load(function () {
             Cart.bindCart();
+            googleCatcha = grecaptcha.render('g-recaptcha', {
+                'sitekey': googleCapchaSitekey,
+                'theme': 'light',
+                'hl': 'vi'
+            });
         });
+
     </script>
 
 </body>

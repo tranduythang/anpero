@@ -26,8 +26,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet/style.css" media="all">
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet/responsive.css" media="all">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700,800' rel='stylesheet' type='text/css'>    
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
     @RenderSection("canonical", required: false)
 </head>
@@ -46,16 +45,18 @@
     @Html.Raw(commonInfo.PageScript)
 
     @Html.Partial("_partial/_MainFooter_1")
-    <script type="text/javascript" src="/assets/js/parallax.js"></script>    
+    <script type="text/javascript" src="/assets/js/parallax.js"></script>
     <script type="text/javascript" src="/assets/js/common.js"></script>
-    
+
     <script type="text/javascript" src="/assets/js/owl.carousel.min.js"></script>
     <script type="text/javascript" src="/assets/js/jquery.mobile-menu.min.js"></script>
-    @RenderSection("scripts", required: false)   
+   
+    
+    @RenderSection("scripts", required: false)
     <script type="text/javascript">
         jQuery(window).load(function () {
             Cart.bindCart();
-           
+
         });
     </script>
 </body>
