@@ -12,7 +12,7 @@
     <meta name="description" content="@commonInfo.Desc" />
     <meta name="keywords" content="@commonInfo.Desc" />
     <link href="/assets/lib/Content-Slider/dist/css/slider-pro.min.css" rel="stylesheet" />
-    <link href="/assets/lib/Content-Slider/examples/css/examples.css" rel="stylesheet" />
+
 }
 <div class="page-top ">
     <div class="container">
@@ -129,9 +129,9 @@ else
                                                         <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></h5>
                                                         @if (item.Price > 0)
                                                         {
-                                                    <div class="content_price">
-                                                        <span class="price product-price">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ") </span>
-                                                    </div>
+                                                            <div class="content_price">
+                                                                <span class="price product-price">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ") </span>
+                                                            </div>
                                                         }
                                                         @if (item.Warranty > 0)
                                                         {
@@ -194,7 +194,7 @@ else
                                             </div>
                                             <div class="right-block">
                                                 <h4 class="product-name"><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h4>
-                                                <div>@item.ShotDesc</div>
+                                                <div class="product-desc">@item.ShotDesc</div>
                                             </div>
                                         </div>
                                     }
@@ -245,7 +245,9 @@ else
         </div>
     </div>
 }
+
 @section scripts{
+    <link href="/assets/lib/Content-Slider/examples/css/examples.css" rel="stylesheet" />
     <script src="/assets/lib/Content-Slider/dist/js/jquery.sliderPro.min.js"></script>
     <script src="/assets/js/jquery-slimscroll-min.js"></script>
     <script>
@@ -265,6 +267,7 @@ else
                 autoplayTimeout: 2000,
                 autoplayHoverPause: true
             });
+
             $('#example5').sliderPro({
                 width: 760,
                 height: 350,
@@ -274,8 +277,8 @@ else
                 thumbnailWidth: 100,
                 thumbnailHeight: 70,
                 thumbnailPointer: true,
-                autoplay: false,
-                autoScaleLayers: false,
+                autoplay: true,
+                autoScaleLayers: true,
                 breakpoints: {
                     500: {
                         thumbnailWidth: 120,
@@ -283,10 +286,17 @@ else
                     }
                 }
             });
-            
+
         });
         Location.Init();
         Category.Init();
     </script>
-
+    <style>
+        .product-desc {
+            font-size: 12px;
+            font-style: italic;
+        }
+    </style>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    @Html.Partial("_partial/_contact")
 }

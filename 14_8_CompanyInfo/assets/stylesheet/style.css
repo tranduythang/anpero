@@ -14334,19 +14334,23 @@ h2, h3 {
 .bg-w{
     background-color:white;
 }
-.mt-24{
-    margin-top:24px;
+
+
+/*CONTACT FORM*/
+.mt-24 {
+    margin-top: 24px;
 }
-.mb-25{
-    margin-bottom:25px;
+
+.mb-25 {
+    margin-bottom: 25px;
 }
+
 .pt-24 {
     padding-top: 24px;
 }
 .section-relative {
     position: relative;
 }
-/*CONTACT FORM*/
 .contact-area .section-bg {
     background-image: url(//cdn.anpero.com/images/38/82019/12019080101554755.jpg);
 }

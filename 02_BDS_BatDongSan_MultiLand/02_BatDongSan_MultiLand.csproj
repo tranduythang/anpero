@@ -154,6 +154,7 @@
     <Content Include="assets\css\option6.css" />
     <Content Include="assets\css\reset.css" />
     <Content Include="assets\css\responsive.css" />
+    <Content Include="assets\css\style-contact.css" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\data\01_blue-dress.jpg" />
     <Content Include="assets\data\02_yellow-dress.jpg" />
@@ -771,6 +772,7 @@
     <Content Include="assets\js\jquery.actual.min.js" />
     <Content Include="assets\js\jquery-slimscroll-min.js" />
     <Content Include="assets\js\option4.js" />
+    <Content Include="assets\js\contact.js" />
     <Content Include="assets\js\theme-script.js" />
     <Content Include="assets\lib\bootstrap\css\bootstrap-theme.css" />
     <Content Include="assets\lib\bootstrap\css\bootstrap-theme.min.css" />
@@ -1006,6 +1008,7 @@
     <Content Include="Views\Shared\product\_productDetail.cshtml" />
     <Content Include="Views\Shared\_partial\_HomeSlide_2.cshtml" />
     <Content Include="Views\Shared\_partial\_searchBox.cshtml" />
+    <Content Include="Views\Shared\_partial\_contact.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

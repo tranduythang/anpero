@@ -102,12 +102,7 @@
         <!-- tab product -->
         @if (!string.IsNullOrEmpty(item.Detail))
         {
-            <div class="product-tab">
-                <ul class="nav-tab">
-                    <li class="active">
-                        <a aria-expanded="false" data-toggle="tab" href="#product-detail">Thông tin chi tiết</a>
-                    </li>
-                </ul>
+            <div class="product-tab">                
                 <div class="tab-container">
                     <div id="product-detail" class="tab-panel active">
                         @Html.Raw(item.Detail)
