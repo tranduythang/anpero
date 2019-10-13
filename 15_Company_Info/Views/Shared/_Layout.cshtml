@@ -1,0 +1,247 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>@ViewBag.Title</title>
+    <meta property="og:title" content="@ViewBag.Title" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:type" content="website" />
+    <meta name="distribution" content="Global" />
+    <meta name="revisit-after" content="1 days" />
+    <meta http-equiv="REFRESH" content="1800" />
+    <meta name="robots" content="index,follow,all" />
+
+    <link rel="shortcut icon" href="@(string.IsNullOrEmpty(commonInfo.Favicon)?commonInfo.Logo:commonInfo.Favicon)" type="image/x-icon">
+
+
+    <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+    <link rel='dns-prefetch' href='http://s.w.org/' />
+    <link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min2513.css?ver=5.2.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='archi-fonts-css' href='https://fonts.googleapis.com/css?family=Dosis%3A400%2C200%2C300%2C500%2C600%2C700%2C800%2C900%7COpen+Sans%3A300%2C500%2C600%2C700%2C900%2C400%7CRaleway%3A400%2C200%2C200italic%2C300%2C300italic%2C400italic%2C500italic%2C500%2C600%2C600italic%2C700%2C700italic%7CAllura&amp;subset=latin%2Clatin-ext' type='text/css' media='all' />
+    <link rel='stylesheet' id='archi-bootstrap-css' href='/wp-content/themes/archi-3.0.1/css/bootstrap2513.css?ver=5.2.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='archi-animate-css' href='/wp-content/themes/archi-3.0.1/css/animate2513.css?ver=5.2.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='archi-owl-carousel-css' href='/wp-content/themes/archi-3.0.1/css/owl.carousel2513.css?ver=5.2.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='archi-owl-theme-css' href='/wp-content/themes/archi-3.0.1/css/owl.theme2513.css?ver=5.2.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='archi-owl-transitions-css' href='/wp-content/themes/archi-3.0.1/css/owl.transitions2513.css?ver=5.2.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='archi-css-font-awesome-css' href='/wp-content/themes/archi-3.0.1/fonts/font-awesome/css/font-awesome2513.css?ver=5.2.3' type='text/css' media='all' />
+
+
+    <link rel='stylesheet' id='archi-YTPlayer-css' href='/wp-content/themes/archi-3.0.1/css/jquery.mb.YTPlayer.min2513.css?ver=5.2.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='archi-style-css' href='/wp-content/themes/archi-3.0.1/styleba8c.css?ver=25-10-2016' type='text/css' media='all' />
+    <link rel='stylesheet' id='archi-style-light-css' href='/wp-content/themes/archi-3.0.1/css/light2513.css?ver=5.2.3' type='text/css' media='all' />
+
+    <link rel='stylesheet' id='archi-css-bg-css' href='/wp-content/themes/archi-3.0.1/css/bg2513.css?ver=5.2.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='archi-rev-settings-css' href='/wp-content/themes/archi-3.0.1/css/rev-settings2513.css?ver=5.2.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='archi-color-css' href='/wp-content/themes/archi-3.0.1/framework/color2513.css?ver=5.2.3' type='text/css' media='all' />
+    <!--[if lt IE 9]>
+    <link rel='stylesheet' id='vc_lte_ie9-css'  href='/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css?ver=6.0.3' type='text/css' media='screen' />
+    <![endif]-->
+    <link rel='stylesheet' id='js_composer_front-css' href='/wp-content/plugins/js_composer/assets/css/js_composer.min1eb7.css?ver=6.0.3' type='text/css' media='all' />
+    <script type='text/javascript' src='/wp-includes/js/jquery/jquery4a5f.js?ver=1.12.4-wp'></script>
+    <script type='text/javascript' src='/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min7923.js?ver=5.3.1'></script>
+    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/fonts/elegant_font/HTML_CSS/lte-ie72513.js?ver=5.2.3'></script>
+    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/jquery.malihu.PageScroll2id2513.js?ver=5.2.3'></script>
+    <style type="text/css" title="dynamic-css" class="options-output">
+        h3 {
+            color: #000000;
+        }
+
+        body {
+            line-height: 20px;
+            font-size: 14px;
+        }
+    </style>
+    @Styles.Render("~/Content/css")
+
+    @RenderSection("health", required: false)
+
+</head>
+<body class="home page-template page-template-page-templates page-template-template-canvas page-template-page-templatestemplate-canvas-php page page-id-668 de_light  wpb-js-composer js-comp-ver-6.0.3 vc_responsive">
+    <div id="wrapper">
+        <!-- header begin -->
+        <header class="header-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="logo">
+                            <a href="/">
+                                <img src="@commonInfo.Logo" alt="@commonInfo.Desc">
+                            </a>
+                        </div>
+                        <span id="menu-btn"></span>
+                        <!-- mainmenu begin -->
+                        <nav>
+                            <ul id="mainmenu">
+                                @if (commonInfo.MenuList != null)
+                                {
+                                    for (int i = 0; i < commonInfo.MenuList.Length; i++)
+                                    {
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item  current_page_item">
+                                            <a href="@commonInfo.MenuList[i].Link">@commonInfo.MenuList[i].Tittle</a>
+                                            @if (commonInfo.MenuList[i].ChidMenu.Length > 0)
+                                            {
+                                                <ul role="menu" class=" dropdown-menu">
+                                                    @foreach (var item in commonInfo.MenuList[i].ChidMenu)
+                                                    {
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Thiết kế biệt thự" href="@item.Link">@item.Tittle</a></li>
+                                                    }
+
+                                                </ul>
+                                            }
+
+                                        </li>
+
+                                    }
+                                }
+
+
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- mainmenu close -->
+                </div>
+            </div>
+        </header>
+        <!-- header close -->
+
+
+
+
+        @RenderBody()
+        <footer style="background: #111111;">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-4 col-sm-4">
+                        <div id="text-2" class="widget widget_text">
+                            <div class="textwidget">
+                                <img src="@commonInfo.Logo" alt="" style="width: 60%"><br /><br />
+                                @commonInfo.Desc
+                            </div>
+                        </div>
+                    </div><!-- end col-lg-3 -->
+
+                    <div class="col-md-4 col-sm-4">
+                        <div id="recent-posts-4" class="widget widget_recent_entries">
+                            <h3>TIN MỚI NHẤT</h3>		
+                            <ul>
+                                @if (ViewData["newestProduct"] != null)
+                                {
+                                    AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["newestProduct"];
+                                    if (bestSaleList != null && bestSaleList.Item.Length > 0)
+                                    {
+                                        foreach (var item in bestSaleList.Item)
+                                        {
+                                            <li>
+                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
+                                            </li>                                            
+                                        }
+                                    }
+                                }
+
+
+                            </ul>
+                        </div>
+                    </div><!-- end col-lg-3 -->
+
+                    <div class="col-md-4 col-sm-4">
+                        <div id="text-3" class="widget widget_text">
+                            <h3>Liên hệ</h3>			<div class="textwidget">
+                                <address>
+                                    <span>Tầng 3 Trung tâm thương mại – Hòa Bình Green City, Hai Bà Trưng, Hà Nội</span>
+                                    <span><strong>Phone:</strong>024.3555.8555</span>
+                                    <span><strong>hotline:</strong>098.331.4688</span>
+                                    <span><strong>Email:</strong><a href="mailto:contact@beehome.vn">contact@beehome.vn</a></span>
+                                    <span><strong>Web:</strong><a target="_blank" href="beehome.html" rel="noopener noreferrer">beehome.vn</a></span>
+                                </address>
+                            </div>
+                        </div>
+                    </div><!-- end col-lg-3 -->
+
+
+
+
+                </div>
+            </div>
+            <div class="subfooter">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            © Copyright 2017 - Beehome Vietnam
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <div class="social-icons">
+
+                                <a target="_blank" href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+
+
+                                <a target="_blank" href="https://twitter.com/NBeehome"><i class="fa fa-twitter"></i></a>
+
+
+                                <a target="_blank" href="https://plus.google.com/"><i class="fa fa-google-plus"></i></a>
+
+
+                                <a target="_blank" href="https://www.youtube.com/channel/UCbJ0hLcKHZQLSf22GxK0q-w"><i class="fa fa-youtube"></i></a>
+
+
+                                <a target="_blank" href="#"><i class="fa fa-rss"></i></a>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a id="back-to-top" href="#" class="show"></a>
+        </footer>
+        @Html.Raw(commonInfo.AnperoPlugin)
+        @RenderSection("scripts", required: false)
+    </div>
+    <script type="text/javascript">
+        window.jQuery = window.$ = jQuery;
+        (function ($) {
+            "use strict";
+            /* Page Scroll to id fn call */
+            jQuery("#mainmenu li a,a[href='#'], a.scroll-to").mPageScroll2id({
+                highlightSelector: "#mainmenu li a",
+                offset: 68,
+                scrollSpeed: 750,
+                scrollEasing: "easeInOutCubic"
+            });
+
+        })(jQuery);
+    </script>
+
+
+    <link rel='stylesheet' id='vc_animate-css-css' href='/wp-content/plugins/js_composer/assets/lib/bower/animate-css/animate.min1eb7.css?ver=6.0.3' type='text/css' media='all' />
+
+    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/bootstrap.min2513.js?ver=5.2.3'></script>
+
+    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/total12513.js?ver=5.2.3'></script>
+    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/classie2513.js?ver=5.2.3'></script>
+
+    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/wow.min2513.js?ver=5.2.3'></script>
+    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/jquery.magnific-popup.min2513.js?ver=5.2.3'></script>
+    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/enquire.min2513.js?ver=5.2.3'></script>
+    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/jquery.mb.YTPlayer.min2513.js?ver=5.2.3'></script>
+    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/typed2513.js?ver=5.2.3'></script>
+    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/designesia2513.js?ver=5.2.3'></script>
+    <script type='text/javascript' src='/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min1eb7.js?ver=6.0.3'></script>
+    <script type='text/javascript' src='/wp-content/plugins/js_composer/assets/lib/vc_waypoints/vc-waypoints.min1eb7.js?ver=6.0.3'></script>
+
+    @Html.Raw(commonInfo.PageScript)
+
+</body>
+</html>

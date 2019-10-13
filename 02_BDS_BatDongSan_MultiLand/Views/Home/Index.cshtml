@@ -249,47 +249,34 @@ else
 @section scripts{
     <link href="/assets/lib/Content-Slider/examples/css/examples.css" rel="stylesheet" />
     <script src="/assets/lib/Content-Slider/dist/js/jquery.sliderPro.min.js"></script>
-    <script src="/assets/js/jquery-slimscroll-min.js"></script>
     <script>
         $(document).ready(function () {
-            $('.scl').slimscroll({
-                height: 'auto'
-            });
-            $('.scl2').slimscroll({
-                height: 'auto'
-            });
-            var owl = $('.owl-carousel2');
-            owl.owlCarousel({
-                items: 1,
-                loop: true,
-                margin: 10,
-                autoplay: true,
-                autoplayTimeout: 2000,
-                autoplayHoverPause: true
-            });
-
-            $('#example5').sliderPro({
+            $('#example1').sliderPro({
                 width: 760,
                 height: 350,
+                loop: false,
                 arrows: true,
                 buttons: false,
-                waitForLayers: true,
-                thumbnailWidth: 100,
-                thumbnailHeight: 70,
                 thumbnailPointer: true,
-                autoplay: true,
-                autoScaleLayers: true,
+                thumbnailWidth: 120,
                 breakpoints: {
+                    800: {
+                        thumbnailsPosition: 'bottom',
+                        thumbnailWidth: 120,
+                        thumbnailHeight: 50
+                    },
                     500: {
+                        thumbnailsPosition: 'bottom',
                         thumbnailWidth: 120,
                         thumbnailHeight: 50
                     }
                 }
             });
-
+           
+            Location.Init();
+            Category.Init();
         });
-        Location.Init();
-        Category.Init();
+
     </script>
     <style>
         .product-desc {
