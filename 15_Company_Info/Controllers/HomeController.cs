@@ -16,7 +16,7 @@ namespace AnperoFrontend.Controllers
             WebService.SearchResult featureleProduct;
             WebService.AnperoService sv = new WebService.AnperoService();
             Anpero.ICacheService cache = new Anpero.CacheService();
-            if (!cache.TryGet("featureleProduct",out featureleProduct){
+            if (!cache.TryGet("featureleProduct",out featureleProduct)){
                 featureleProduct = sv.SearchProduct(StoreID, TokenKey, "", "", "", 0, 1999999990, 1, 8, "", SearchOrder.TimeDesc, 2, string.Empty);
                 if (featureleProduct != null)
                 {
@@ -88,13 +88,14 @@ namespace AnperoFrontend.Controllers
             WebService.AnperoService service = new WebService.AnperoService();
             WebService.SearchResult searchResult = new WebService.SearchResult();
             int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
+            
             if (HttpRuntime.Cache["newestProduct"] != null)
             {
                 searchResult = (WebService.SearchResult)HttpRuntime.Cache["newestProduct"];
             }
             else
             {
-                searchResult = service.SearchProduct(StoreID, TokenKey, "", "", "", 0, 1999999999, 1, 16, "", SearchOrder.TimeDesc, 0, string.Empty);
+                searchResult = service.SearchProduct(StoreID, TokenKey, "", "", "", 0, 1999999999, 1, 5, "", SearchOrder.TimeDesc, 0, string.Empty);
                 if (searchResult != null)
                 {
                     HttpRuntime.Cache.Insert("newestProduct", searchResult, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);

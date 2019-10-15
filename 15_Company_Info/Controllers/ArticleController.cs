@@ -70,7 +70,7 @@ namespace AnperoFrontend.Controllers
                
             }
 
-            GetTopArticle();
+            
         }
     }
 }

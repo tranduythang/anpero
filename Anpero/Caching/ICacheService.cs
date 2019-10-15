@@ -12,12 +12,12 @@ namespace Anpero
         
         long Count { get; }
 
-     
-        void AddOrUpdate<T>(
-            string key,
-            T value,
-            Action<string, T> afterItemRemoved = null,
-            Action<string, T> beforeItemRemoved = null) where T : class;
+
+        //void AddOrUpdate<T>(
+        //    string key,
+        //    T value,
+        //    Action<string, T> afterItemRemoved = null,
+        //    Action<string, T> beforeItemRemoved = null) where T : class;
 
         /// <summary>
         /// Inserts a cache entry into the cache by using a key, a value and absolute expiration.

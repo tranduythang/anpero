@@ -12,31 +12,8 @@ namespace AnperoFrontend.Controllers
         public static int StoreID = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["storeID"]);
         public static string TokenKey = System.Configuration.ConfigurationManager.AppSettings["storeTokenKey"];
         public static int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
-        public void GetTopArticle()
-        {
-            WebService.SearchArticleResults rs = new WebService.SearchArticleResults();
-            WebService.SearchArticleResults TopNewArticle = new WebService.SearchArticleResults();
-            WebService.SearchArticleResults customArticle = new WebService.SearchArticleResults();
-            
-            WebService.AnperoService service = new WebService.AnperoService();
-            if (HttpRuntime.Cache["TopArticle"] != null)
-            {
-                rs = (WebService.SearchArticleResults)HttpRuntime.Cache["TopArticle"];
-            }
-            else
-            {
-                rs = service.SearchArticle(StoreID, TokenKey, 0, 1, 5, 2);
-                if (rs != null)
-                {
-                    HttpRuntime.Cache.Insert("TopArticle", rs, null, DateTime.Now.AddMinutes(shortCacheTime+6), TimeSpan.Zero);
-                }
-
-            }
-        
-
-            ViewData["FeatureArticle"] = rs;
-            ViewData["TopNewArticle"] = TopNewArticle;
-        }
+        public Anpero.ICacheService cacheService = new Anpero.CacheService();
+       
         public void SetupCommonProduct()
         {
           
@@ -66,56 +43,41 @@ namespace AnperoFrontend.Controllers
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             WebService.AnperoService service = new WebService.AnperoService();
-
-            var rs = service.GetCommonConfig(CommonConfig.StoreID, CommonConfig.TokenKey);
-            int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
-            if (HttpRuntime.Cache["commonInfo"] != null)
-            {
-                filterContext.Controller.ViewData["commonInfo"] = HttpRuntime.Cache["commonInfo"];
-            }
-            else
-            {
-                filterContext.Controller.ViewData["commonInfo"] = rs;
-                if (rs != null)
-                {
-                    HttpRuntime.Cache.Insert("commonInfo", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
-                }
-            }
+            Anpero.ICacheService cacheService = new Anpero.CacheService();
+            Webconfig config =  new Webconfig();
             WebService.Ads[] Slide = null;
             WebService.Ads[] AdsSlide = null;
-            
-            if (HttpRuntime.Cache["Slide"] != null)
+            WebService.SearchArticleResults FeatureArticle = new WebService.SearchArticleResults();
+            int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
+            if (!cacheService.TryGet("commonInfo", out config))
             {
-                filterContext.Controller.ViewData["slide"] = (WebService.Ads[])HttpRuntime.Cache["Slide"];
+                config = service.GetCommonConfig(CommonConfig.StoreID, CommonConfig.TokenKey);
+                cacheService.AddOrUpdate("commonInfo", config, new TimeSpan(0, 6, 0));
             }
-            else
+            if (!cacheService.TryGet("Slide", out Slide))
             {
-                Slide = service.GetRandomAdsSlide(CommonConfig.StoreID, CommonConfig.TokenKey, PageContent.Slide, 1);
-
-                filterContext.Controller.ViewData["slide"] = Slide;
-                if (Slide != null)
-                {
-                    HttpRuntime.Cache.Insert("Slide", Slide, null, DateTime.Now.AddMinutes(shortCacheTime + 3), TimeSpan.Zero);
-                }
+                Slide = service.GetRandomAdsSlide(CommonConfig.StoreID, CommonConfig.TokenKey, PageContent.Slide, 1);                
+                cacheService.AddOrUpdate("Slide", Slide, new TimeSpan(0, 6, 0));
             }
-            if (HttpRuntime.Cache["AdsSlide"] != null)
-            {
-                filterContext.Controller.ViewData["AdsSlide"] = (WebService.Ads[])HttpRuntime.Cache["AdsSlide"];
-            }
-            else
+            if (!cacheService.TryGet("AdsSlide", out AdsSlide))
             {
                 AdsSlide = service.GetAdsSlide(CommonConfig.StoreID, CommonConfig.TokenKey, PageContent.Ads1);
-                filterContext.Controller.ViewData["AdsSlide"] = AdsSlide;
-                if (AdsSlide != null)
-                {
-                    HttpRuntime.Cache.Insert("AdsSlide", AdsSlide, null, DateTime.Now.AddMinutes(shortCacheTime + 1), TimeSpan.Zero);
-                }
+                cacheService.AddOrUpdate("AdsSlide", AdsSlide, new TimeSpan(0, 6, 0));
+            }
+            if (!cacheService.TryGet("FeatureArticle", out AdsSlide))
+            {
+                FeatureArticle = service.SearchArticle(CommonConfig.StoreID, CommonConfig.TokenKey, 0, 1, 5, 2);
+                cacheService.AddOrUpdate("AdsSlide", FeatureArticle, new TimeSpan(0, 6, 0));
             }
 
 
+            filterContext.Controller.ViewData["slide"] = Slide;
+            filterContext.Controller.ViewData["FeatureArticle"] = FeatureArticle;
+            filterContext.Controller.ViewData["AdsSlide"] = AdsSlide;
+            filterContext.Controller.ViewData["commonInfo"] = config;
         }
     }
-
+   
     public partial class CommonConfig
     {
         public static int StoreID = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["storeID"]);

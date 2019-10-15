@@ -118,6 +118,31 @@
 
 
         @RenderBody()
+        <section class="wpb_row vc_row-fluid text-light vc_custom_1503992894148 vc_row-has-fill">
+            <div class="container">
+                <div class="row">
+                    <div class="wpb_column vc_column_container vc_col-sm-4">
+                        <div class="vc_column-inner ">
+                            <div class="wpb_wrapper ">
+                                <h2 class="mt20" style="text-align: left;"> Nhận tư vấn miễn phí.</h2>
+                            </div>
+                        </div>
+                    </div><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner "><div class="wpb_wrapper "></div></div></div><div class="wpb_column vc_column_container vc_col-sm-4">
+                        <div class="vc_column-inner ">
+                            <div class="wpb_wrapper ">
+                                <div class="wpb_text_column wpb_content_element  mt20">
+                                    <div class="wpb_wrapper">
+                                        <p><img class="wp-image-901 alignleft" style="margin-top: -10px;" src="wp-content/uploads/2019/07/callgif.gif" alt="" width="62" height="62" /></p>
+                                        <h1>@Anpero.StringHelpper.FormatPhoneNumber(commonInfo.HotLine)</h1>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <footer style="background: #111111;">
             <div class="container">
                 <div class="row">
@@ -133,7 +158,7 @@
 
                     <div class="col-md-4 col-sm-4">
                         <div id="recent-posts-4" class="widget widget_recent_entries">
-                            <h3>TIN MỚI NHẤT</h3>		
+                            <h3>TIN MỚI NHẤT</h3>
                             <ul>
                                 @if (ViewData["newestProduct"] != null)
                                 {
@@ -144,7 +169,7 @@
                                         {
                                             <li>
                                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
-                                            </li>                                            
+                                            </li>
                                         }
                                     }
                                 }
@@ -156,48 +181,36 @@
 
                     <div class="col-md-4 col-sm-4">
                         <div id="text-3" class="widget widget_text">
-                            <h3>Liên hệ</h3>			<div class="textwidget">
+                            <h3>Liên hệ</h3>
+                            <div class="textwidget">
                                 <address>
-                                    <span>Tầng 3 Trung tâm thương mại – Hòa Bình Green City, Hai Bà Trưng, Hà Nội</span>
-                                    <span><strong>Phone:</strong>024.3555.8555</span>
-                                    <span><strong>hotline:</strong>098.331.4688</span>
-                                    <span><strong>Email:</strong><a href="mailto:contact@beehome.vn">contact@beehome.vn</a></span>
+                                    <span>@commonInfo.Address</span>
+                                    <span><strong>Phone:</strong>@Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.OtherPhone)</span>
+                                    <span><strong>hotline:</strong>@Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.HotLine)</span>
+                                    <span><strong>Email:</strong><a href="mailto:@commonInfo.Email">@commonInfo.Email</a></span>
                                     <span><strong>Web:</strong><a target="_blank" href="beehome.html" rel="noopener noreferrer">beehome.vn</a></span>
                                 </address>
                             </div>
                         </div>
                     </div><!-- end col-lg-3 -->
-
-
-
-
                 </div>
             </div>
             <div class="subfooter">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6">
-                            © Copyright 2017 - Beehome Vietnam
+                            © Copyright 2017 - @commonInfo.Name
                         </div>
                         <div class="col-md-6 text-right">
                             <div class="social-icons">
-
-                                <a target="_blank" href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
-
-
-                                <a target="_blank" href="https://twitter.com/NBeehome"><i class="fa fa-twitter"></i></a>
-
-
-                                <a target="_blank" href="https://plus.google.com/"><i class="fa fa-google-plus"></i></a>
-
-
-                                <a target="_blank" href="https://www.youtube.com/channel/UCbJ0hLcKHZQLSf22GxK0q-w"><i class="fa fa-youtube"></i></a>
-
-
-                                <a target="_blank" href="#"><i class="fa fa-rss"></i></a>
-
-
-
+                                @{
+                                    string thisUrl = Request.Url.AbsoluteUri;
+                                    <a target="_blank" href="@commonInfo.FaceBookLink"><i class="fa fa-facebook"></i></a>
+                                    <a target="_blank" href="//www.twitter.com/share?url=@thisUrl"><i class="fa fa-twitter"></i></a>
+                                    <a target="_blank" href="//plus.google.com/share?url=@thisUrl"><i class="fa fa-google-plus"></i></a>
+                                    <a target="_blank" href="https://www.youtube.com/channel/UCbJ0hLcKHZQLSf22GxK0q-w"><i class="fa fa-youtube"></i></a>
+                                    <a href="//pinterest.com/pinthis?url=@thisUrl" target="_blank"><i class="fa fa-pinterest-p"></i></a>
+                                }
 
                             </div>
                         </div>
@@ -225,22 +238,18 @@
     </script>
 
 
-    <link rel='stylesheet' id='vc_animate-css-css' href='/wp-content/plugins/js_composer/assets/lib/bower/animate-css/animate.min1eb7.css?ver=6.0.3' type='text/css' media='all' />
-
+    <link rel='stylesheet' href='/wp-content/plugins/js_composer/assets/lib/bower/animate-css/animate.min1eb7.css?ver=6.0.3' type='text/css' media='all' />
     <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/bootstrap.min2513.js?ver=5.2.3'></script>
-
     <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/total12513.js?ver=5.2.3'></script>
     <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/classie2513.js?ver=5.2.3'></script>
-
     <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/wow.min2513.js?ver=5.2.3'></script>
-    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/jquery.magnific-popup.min2513.js?ver=5.2.3'></script>
+    
     <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/enquire.min2513.js?ver=5.2.3'></script>
     <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/jquery.mb.YTPlayer.min2513.js?ver=5.2.3'></script>
     <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/typed2513.js?ver=5.2.3'></script>
     <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/designesia2513.js?ver=5.2.3'></script>
     <script type='text/javascript' src='/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min1eb7.js?ver=6.0.3'></script>
     <script type='text/javascript' src='/wp-content/plugins/js_composer/assets/lib/vc_waypoints/vc-waypoints.min1eb7.js?ver=6.0.3'></script>
-
     @Html.Raw(commonInfo.PageScript)
 
 </body>
