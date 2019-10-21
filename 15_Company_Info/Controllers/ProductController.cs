@@ -42,7 +42,11 @@ namespace AnperoFrontend.Controllers
             SetupCommonProduct();
             return View();
         }
-       
+        [BuildCommonHtml]
+        public ActionResult CategoryList()
+        {  
+            return View();
+        }
         [BuildCommonHtml]
         public ActionResult ParentCategory(int id)
         {

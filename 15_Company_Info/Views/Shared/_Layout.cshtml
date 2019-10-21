@@ -188,7 +188,7 @@
                                     <span><strong>Phone:</strong>@Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.OtherPhone)</span>
                                     <span><strong>hotline:</strong>@Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.HotLine)</span>
                                     <span><strong>Email:</strong><a href="mailto:@commonInfo.Email">@commonInfo.Email</a></span>
-                                    <span><strong>Web:</strong><a target="_blank" href="beehome.html" rel="noopener noreferrer">beehome.vn</a></span>
+                                    <span><strong>Web:</strong><a target="_blank" href="/" rel="noopener noreferrer">beehome.vn</a></span>
                                 </address>
                             </div>
                         </div>
@@ -220,7 +220,7 @@
             <a id="back-to-top" href="#" class="show"></a>
         </footer>
         @Html.Raw(commonInfo.AnperoPlugin)
-        @RenderSection("scripts", required: false)
+
     </div>
     <script type="text/javascript">
         window.jQuery = window.$ = jQuery;
@@ -237,19 +237,21 @@
         })(jQuery);
     </script>
 
-
+    <link href="/assets/css/style.css" rel="stylesheet" />
     <link rel='stylesheet' href='/wp-content/plugins/js_composer/assets/lib/bower/animate-css/animate.min1eb7.css?ver=6.0.3' type='text/css' media='all' />
     <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/bootstrap.min2513.js?ver=5.2.3'></script>
     <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/total12513.js?ver=5.2.3'></script>
     <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/classie2513.js?ver=5.2.3'></script>
     <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/wow.min2513.js?ver=5.2.3'></script>
-    
+
     <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/enquire.min2513.js?ver=5.2.3'></script>
     <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/jquery.mb.YTPlayer.min2513.js?ver=5.2.3'></script>
     <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/typed2513.js?ver=5.2.3'></script>
     <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/designesia2513.js?ver=5.2.3'></script>
     <script type='text/javascript' src='/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min1eb7.js?ver=6.0.3'></script>
     <script type='text/javascript' src='/wp-content/plugins/js_composer/assets/lib/vc_waypoints/vc-waypoints.min1eb7.js?ver=6.0.3'></script>
+    <script src="/Scripts/Anpero.Common.js"></script>
+    @RenderSection("scripts", required: false)
     @Html.Raw(commonInfo.PageScript)
 
 </body>

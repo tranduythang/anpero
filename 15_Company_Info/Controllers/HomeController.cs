@@ -26,6 +26,21 @@ namespace AnperoFrontend.Controllers
             ViewData["featureleProduct"] = featureleProduct;
             return View();
         }
+        [BuildCommonHtml]
+        public ActionResult Policy(int type)
+        {
+            try
+            {
+                WebService.AnperoService service = new WebService.AnperoService();
+                ViewBag.HtmlContent = service.GetWebContent(StoreID, TokenKey, type);
+                ViewBag.Title = Anpero.Constant.WebContentTitle.GetTitle(type);
+            }
+            catch (Exception)
+            {
+                ViewBag.HtmlContent = "Nội dung đang được cập nhật";
+            }
+            return View();
+        }
         private void SetUpSlideAds()
         {
            

@@ -1,0 +1,41 @@
+﻿@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();    
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+        ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau(commonInfo.Desc);
+        ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+    }
+}
+@section health{
+    <meta name="description" content="@commonInfo.Desc" />
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    <meta property="og:description" content="@commonInfo.Desc" />
+    <meta property="og:title" content="@ViewBag.Title" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="@ViewBag.WebsiteUrl" />
+    <meta property="og:image" content="@commonInfo.Logo" />
+}
+<section id="subheader" data-speed="8" data-type="background" style="background-image: url('https://cdn.anpero.com/images/38/102019/12019102201193291.jpg'); background-position: 50% 0px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>@ViewBag.Title</h1>
+                <ul class="crumb"><li><a rel="v:url" property="v:title" href="/">Trang chủ</a></li> <b>/</b> <li class="active">@ViewBag.Title</li></ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="wpb_row vc_row-fluid side-bg no-padding vc_custom_1474447018555 vc_row-has-fill no-padding">
+    <div class="row">
+        <div class="wpb_column vc_column_container vc_col-sm-12">
+            <div class="vc_column-inner ">
+                <div class="wpb_wrapper ">
+                    @Html.Raw(ViewBag.HtmlContent)
+                   
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
