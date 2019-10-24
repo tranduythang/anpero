@@ -326,13 +326,7 @@ jQuery(document).ready(function() {
         itemsMobile : [479, 1]
     });
 	
-	jQuery("#contact-carousel").owlCarousel({
-	    items : 1,
-		singleItem:true,	
-	    navigation : false,
-		pagination : false,
-		autoPlay : true
-    });
+	
 	
 	jQuery(".text-slider").owlCarousel({
 	    items : 1,

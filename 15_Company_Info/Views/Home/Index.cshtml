@@ -12,14 +12,13 @@
     <meta name="description" content="@commonInfo.Desc" />
     <meta name="keywords" content="@commonInfo.Desc" />
     <style id='js_composer_front-inline-css' type='text/css'>
-       
     </style>
 }
 <div id="wrapper">
 
-    
-        @Html.Partial("_partial/_HomeSlide")        
-    
+
+    @Html.Partial("_partial/_HomeSlide")
+
     <section class="wpb_row vc_row-fluid mt-sm-0 text-light wpb_animate_when_almost_visible wpb_fadeInDown fadeInDown vc_custom_1563035993904 vc_row-has-fill side-bg">
         <div class="image-container col-md-6 col-md-offset-6 pull-right right0"><div class="background-image" style="background-image: url(wp-content/uploads/2019/07/v2-min.jpg);"></div></div><div class="container">
             <div class="row">
@@ -123,7 +122,8 @@
                             </div>
                         </div>
                     </div>
-                </div><div class="wpb_column vc_column_container vc_col-sm-8">
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-8" style="margin-top:-50px;">
                     <div class="vc_column-inner ">
                         <div class="wpb_wrapper ">
                             <div class="vc_row wpb_row vc_inner vc_row-fluid text-light">
@@ -221,15 +221,35 @@
             </div>
         </div>
     </section>
-    
-
-
     <!-- footer begin -->
-
 </div><!-- #wrapper -->
+@if (ViewData["featureleProduct"] != null)
+{
+    SearchResult product = (SearchResult)ViewData["featureleProduct"];
+    if (product.Item.Count() > 0)
+    {
+        <div id="gallery" class="gallery full-gallery de-gallery pf_full_width pf_3_cols wow fadeInUp" data-wow-delay=".3s">
 
-
-
+            @foreach (var item in product.Item)
+            {
+                <!-- gallery item -->
+                <div class="item thiet-ke-chung-cu-vi ">
+                    <div class="picframe">
+                        <a class="simple-ajax-popup-align-top" href="https://beehome.vn/portfolio/thiet-ke-phong-cach-hien-dai-chi-yen-vnimation/">
+                            <span class="overlay">
+                                <span class="pf_text">
+                                    <span class="project-name">Thiết kế &#8211; Phong cách hiện đại – Chị Yến- Vnimation</span>
+                                </span>
+                            </span>
+                        </a>
+                        <img width="700" height="466" src="https://beehome.vn/wp-content/uploads/2019/07/Phong-cách-hiện-đại-–-Chị-Ly-–-Hà-Đông.jpg" class="attachment-thumb-portfolio size-thumb-portfolio wp-post-image" alt="" srcset="https://beehome.vn/wp-content/uploads/2019/07/Phong-cách-hiện-đại-–-Chị-Ly-–-Hà-Đông.jpg 700w, https://beehome.vn/wp-content/uploads/2019/07/Phong-cách-hiện-đại-–-Chị-Ly-–-Hà-Đông-300x200.jpg 300w, https://beehome.vn/wp-content/uploads/2019/07/Phong-cách-hiện-đại-–-Chị-Ly-–-Hà-Đông-600x399.jpg 600w" sizes="(max-width: 700px) 100vw, 700px" />
+                    </div>
+                </div>
+                <!-- close gallery item -->
+            }
+        </div>
+    }
+}
 @section scripts{
 
 
