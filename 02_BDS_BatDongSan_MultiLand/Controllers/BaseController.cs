@@ -77,7 +77,7 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                BestsaleProduct = sv.SearchProduct(StoreID, TokenKey, "", "", "", 0, 1999999990, 1, 6, "", SearchOrder.TimeDesc, 2);
+                BestsaleProduct = sv.SearchProduct(StoreID, TokenKey, "", "", "", 0, 1999999990, 1, 6, "", SearchOrder.TimeDesc, 2,string.Empty);
                
                 if (BestsaleProduct != null)
                 {

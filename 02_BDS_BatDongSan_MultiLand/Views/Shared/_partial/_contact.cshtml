@@ -1,4 +1,12 @@
-﻿<section class="contact-area section-padding section-relative" id="contact" style="margin-bottom: -60px;">
+﻿@using AnperoFrontend.WebService;
+@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+}
+<section class="contact-area section-padding section-relative" id="contact" style="margin-bottom: -60px;">
     <div class="section-bg"></div>
     <div class="container">
         <div class="row">
@@ -6,7 +14,7 @@
                 <div class="page-title">
                     <h2 style="border:none;">Đăng ký và liên hệ</h2>
                     <p>Hãy để lại thông tin liên hệ của bạn để nhận thông tin miễn phí từ chúng tôi !</p>
-                    <p>Hotline :  0979250696 </p>
+                    <p>Hotline :  <a href="tel:@commonInfo.HotLine"></a> @(string.IsNullOrEmpty(commonInfo.OtherPhone)?(" - " +commonInfo.OtherPhone):"") </p>
                 </div>
             </div>
         </div>
