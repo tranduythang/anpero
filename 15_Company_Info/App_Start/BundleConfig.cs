@@ -16,25 +16,34 @@ namespace AnperoFrontend
 
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/assets/lib/bootstrap/js/bootstrap.min.js",
-                      "~/assets/lib/select2/js/select2.min.js",
-                       "~/assets/lib/owl-carousel/owl-carousel.min.js",
-                       "~/assets/js/jquery.actual.min.js",
-                       "~/assets/js/theme-script.js",
-                       "~/Scripts/jquery.cokie.min.js",
-                       "~/Scripts/ShoppingCart.js",
-                       "~/Scripts/Bootrap-notify.js",
-                         "~/Scripts/Anpero.Common.js"
+                      "~/wp-content/themes/archi-3.0.1/js/total12513.js",
+                      "~/wp-content/themes/archi-3.0.1/js/classie2513.js",
+                      "~/wp-content/themes/archi-3.0.1/js/wow.min2513.js",
+                      "~/wp-content/themes/archi-3.0.1/js/enquire.min2513.js",
+                      "~/wp-content/themes/archi-3.0.1/js/jquery.mb.YTPlayer.min2513.js",
+                      "~/wp-content/themes/archi-3.0.1/js/typed2513.js",
+                      "~/wp-content/themes/archi-3.0.1/js/designesia2513.js",
+                      "~/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min1eb7.js",
+                      "~/wp-content/plugins/js_composer/assets/lib/vc_waypoints/vc-waypoints.min1eb7.js",
+                       "~/Scripts/Anpero.Common.js"
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-             "~/assets/lib/bootstrap/css/bootstrap.min.css",
-              "~/assets/lib/font-awesome/css/font-awesome.min.css",
-              "~/assets/lib/select2/css/select2.min.css",
-              "~/assets/lib/owl-carousel/owl-carousel.css",
-              "~/assets/lib/jquery-ui/jquery-ui.css",
-              "~/assets/css/animate.css",
-              "~/assets/css/reset.css"
+             "~/wp-includes/css/dist/block-library/style.min2513.css",
+              "~/wp-content/themes/archi-3.0.1/css/bootstrap2513.css",
+              "~/wp-content/themes/archi-3.0.1/css/animate2513.css",
+              "~/wp-content/themes/archi-3.0.1/css/owl.carousel2513.css",
+              "~/wp-content/themes/archi-3.0.1/css/owl.theme2513.css",
+              "~/wp-content/themes/archi-3.0.1/css/owl.transitions2513.css",
+              "~/wp-content/themes/archi-3.0.1/fonts/font-awesome/css/font-awesome2513.css",
+              "~/wp-content/themes/archi-3.0.1/css/jquery.mb.YTPlayer.min2513.css",
+              "~/wp-content/themes/archi-3.0.1/styleba8c.css",
+              "~/wp-content/themes/archi-3.0.1/css/light2513.css",
+              "~/wp-content/themes/archi-3.0.1/css/bg2513.css",
+              "~/wp-content/themes/archi-3.0.1/css/rev-settings2513.css",
+              "~/wp-content/themes/archi-3.0.1/framework/color2513.css",
+              "~/wp-content/plugins/js_composer/assets/css/js_composer.min1eb7.css"
+              
            ));
             BundleTable.EnableOptimizations = true;
         }

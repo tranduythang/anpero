@@ -26,27 +26,9 @@
 
     <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
     <link rel='dns-prefetch' href='http://s.w.org/' />
-    <link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min2513.css?ver=5.2.3' type='text/css' media='all' />
-    <link rel='stylesheet' id='archi-fonts-css' href='https://fonts.googleapis.com/css?family=Dosis%3A400%2C200%2C300%2C500%2C600%2C700%2C800%2C900%7COpen+Sans%3A300%2C500%2C600%2C700%2C900%2C400%7CRaleway%3A400%2C200%2C200italic%2C300%2C300italic%2C400italic%2C500italic%2C500%2C600%2C600italic%2C700%2C700italic%7CAllura&amp;subset=latin%2Clatin-ext' type='text/css' media='all' />
-    <link rel='stylesheet' id='archi-bootstrap-css' href='/wp-content/themes/archi-3.0.1/css/bootstrap2513.css?ver=5.2.3' type='text/css' media='all' />
-    <link rel='stylesheet' id='archi-animate-css' href='/wp-content/themes/archi-3.0.1/css/animate2513.css?ver=5.2.3' type='text/css' media='all' />
-    <link rel='stylesheet' id='archi-owl-carousel-css' href='/wp-content/themes/archi-3.0.1/css/owl.carousel2513.css?ver=5.2.3' type='text/css' media='all' />
-    <link rel='stylesheet' id='archi-owl-theme-css' href='/wp-content/themes/archi-3.0.1/css/owl.theme2513.css?ver=5.2.3' type='text/css' media='all' />
-    <link rel='stylesheet' id='archi-owl-transitions-css' href='/wp-content/themes/archi-3.0.1/css/owl.transitions2513.css?ver=5.2.3' type='text/css' media='all' />
-    <link rel='stylesheet' id='archi-css-font-awesome-css' href='/wp-content/themes/archi-3.0.1/fonts/font-awesome/css/font-awesome2513.css?ver=5.2.3' type='text/css' media='all' />
-
-
-    <link rel='stylesheet' id='archi-YTPlayer-css' href='/wp-content/themes/archi-3.0.1/css/jquery.mb.YTPlayer.min2513.css?ver=5.2.3' type='text/css' media='all' />
-    <link rel='stylesheet' id='archi-style-css' href='/wp-content/themes/archi-3.0.1/styleba8c.css?ver=25-10-2016' type='text/css' media='all' />
-    <link rel='stylesheet' id='archi-style-light-css' href='/wp-content/themes/archi-3.0.1/css/light2513.css?ver=5.2.3' type='text/css' media='all' />
-
-    <link rel='stylesheet' id='archi-css-bg-css' href='/wp-content/themes/archi-3.0.1/css/bg2513.css?ver=5.2.3' type='text/css' media='all' />
-    <link rel='stylesheet' id='archi-rev-settings-css' href='/wp-content/themes/archi-3.0.1/css/rev-settings2513.css?ver=5.2.3' type='text/css' media='all' />
-    <link rel='stylesheet' id='archi-color-css' href='/wp-content/themes/archi-3.0.1/framework/color2513.css?ver=5.2.3' type='text/css' media='all' />
-    <!--[if lt IE 9]>
-    <link rel='stylesheet' id='vc_lte_ie9-css'  href='/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css?ver=6.0.3' type='text/css' media='screen' />
-    <![endif]-->
-    <link rel='stylesheet' id='js_composer_front-css' href='/wp-content/plugins/js_composer/assets/css/js_composer.min1eb7.css?ver=6.0.3' type='text/css' media='all' />
+    @Styles.Render("~/Content/css")
+    
+    <link rel='stylesheet' id='archi-fonts-css' href='https://fonts.googleapis.com/css?family=Dosis%3A400%2C200%2C300%2C500%2C600%2C700%2C800%2C900%7COpen+Sans%3A300%2C500%2C600%2C700%2C900%2C400%7CRaleway%3A400%2C200%2C200italic%2C300%2C300italic%2C400italic%2C500italic%2C500%2C600%2C600italic%2C700%2C700italic%7CAllura&amp;subset=latin%2Clatin-ext' type='text/css' media='all' />    
     <script type='text/javascript' src='/wp-includes/js/jquery/jquery4a5f.js?ver=1.12.4-wp'></script>
     <script type='text/javascript' src='/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min7923.js?ver=5.3.1'></script>
     <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/fonts/elegant_font/HTML_CSS/lte-ie72513.js?ver=5.2.3'></script>
@@ -57,14 +39,12 @@
         }
 
         body {
+
             line-height: 20px;
             font-size: 14px;
         }
     </style>
-    @Styles.Render("~/Content/css")
-
     @RenderSection("health", required: false)
-
 </head>
 <body class="home page-template page-template-page-templates page-template-template-canvas page-template-page-templatestemplate-canvas-php page page-id-668 de_light  wpb-js-composer js-comp-ver-6.0.3 vc_responsive">
     <div id="wrapper">
@@ -240,17 +220,7 @@
     <link href="/assets/css/style.css" rel="stylesheet" />
     <link rel='stylesheet' href='/wp-content/plugins/js_composer/assets/lib/bower/animate-css/animate.min1eb7.css?ver=6.0.3' type='text/css' media='all' />
     <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/bootstrap.min2513.js?ver=5.2.3'></script>
-    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/total12513.js?ver=5.2.3'></script>
-    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/classie2513.js?ver=5.2.3'></script>
-    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/wow.min2513.js?ver=5.2.3'></script>
-
-    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/enquire.min2513.js?ver=5.2.3'></script>
-    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/jquery.mb.YTPlayer.min2513.js?ver=5.2.3'></script>
-    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/typed2513.js?ver=5.2.3'></script>
-    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/designesia2513.js?ver=5.2.3'></script>
-    <script type='text/javascript' src='/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min1eb7.js?ver=6.0.3'></script>
-    <script type='text/javascript' src='/wp-content/plugins/js_composer/assets/lib/vc_waypoints/vc-waypoints.min1eb7.js?ver=6.0.3'></script>
-    <script src="/Scripts/Anpero.Common.js"></script>
+    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     @Html.Raw(commonInfo.PageScript)
 

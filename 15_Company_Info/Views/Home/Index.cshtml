@@ -164,7 +164,8 @@
                 </div>
             </div>
         </div>
-    </section><section class="wpb_row vc_row-fluid no-padding">
+    </section>
+    <section class="wpb_row vc_row-fluid no-padding">
         <div class="row">
             <div class="wpb_column vc_column_container vc_col-sm-12">
                 <div class="vc_column-inner ">
@@ -223,34 +224,40 @@
     </section>
     <!-- footer begin -->
 </div><!-- #wrapper -->
+
 @if (ViewData["featureleProduct"] != null)
 {
     SearchResult product = (SearchResult)ViewData["featureleProduct"];
     if (product.Item.Count() > 0)
     {
-        <div id="gallery" class="gallery full-gallery de-gallery pf_full_width pf_3_cols wow fadeInUp" data-wow-delay=".3s">
+      
+            <div id="gallery" class="gallery full-gallery de-gallery pf_full_width pf_3_cols wow fadeInUp" data-wow-delay=".3s">
 
-            @foreach (var item in product.Item)
-            {
-                <!-- gallery item -->
-                <div class="item thiet-ke-chung-cu-vi ">
-                    <div class="picframe">
-                        <a class="simple-ajax-popup-align-top" href="https://beehome.vn/portfolio/thiet-ke-phong-cach-hien-dai-chi-yen-vnimation/">
-                            <span class="overlay">
-                                <span class="pf_text">
-                                    <span class="project-name">Thiết kế &#8211; Phong cách hiện đại – Chị Yến- Vnimation</span>
+                @foreach (var item in product.Item)
+                {
+                    <!-- gallery item -->
+                    <div class="item thiet-ke-chung-cu-vi ">
+                        <div class="picframe">
+                            <a class="simple-ajax-popup-align-top" href="@Anpero.StringHelpper.GetParentCategoryLink(item.CatName,item.Id)">
+                                <span class="overlay">
+                                    <span class="pf_text">
+                                        <span class="project-name">@item.CatName</span>
+                                    </span>
                                 </span>
-                            </span>
-                        </a>
-                        <img width="700" height="466" src="https://beehome.vn/wp-content/uploads/2019/07/Phong-cách-hiện-đại-–-Chị-Ly-–-Hà-Đông.jpg" class="attachment-thumb-portfolio size-thumb-portfolio wp-post-image" alt="" srcset="https://beehome.vn/wp-content/uploads/2019/07/Phong-cách-hiện-đại-–-Chị-Ly-–-Hà-Đông.jpg 700w, https://beehome.vn/wp-content/uploads/2019/07/Phong-cách-hiện-đại-–-Chị-Ly-–-Hà-Đông-300x200.jpg 300w, https://beehome.vn/wp-content/uploads/2019/07/Phong-cách-hiện-đại-–-Chị-Ly-–-Hà-Đông-600x399.jpg 600w" sizes="(max-width: 700px) 100vw, 700px" />
+                            </a>
+                            <img width="700" height="466" src="@item.Images" class="attachment-thumb-portfolio size-thumb-portfolio wp-post-image" alt="" srcset="https://beehome.vn/wp-content/uploads/2019/07/Phong-cách-hiện-đại-–-Chị-Ly-–-Hà-Đông.jpg 700w, https://beehome.vn/wp-content/uploads/2019/07/Phong-cách-hiện-đại-–-Chị-Ly-–-Hà-Đông-300x200.jpg 300w, https://beehome.vn/wp-content/uploads/2019/07/Phong-cách-hiện-đại-–-Chị-Ly-–-Hà-Đông-600x399.jpg 600w" sizes="(max-width: 700px) 100vw, 700px" />
+                        </div>
                     </div>
-                </div>
-                <!-- close gallery item -->
-            }
-        </div>
+                    <!-- close gallery item -->
+                }
+            </div>
+      
     }
 }
+<script src="https://www.google.com/recaptcha/api.js"></script>
+@Html.Partial("_partial/_contact")
 @section scripts{
-
+    <script src="/assets/js/contact.js"></script>
+    <script src="/Scripts/Bootrap-notify.js"></script>
 
 }
