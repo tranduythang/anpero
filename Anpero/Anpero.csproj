@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constant.cs" />
+    <Compile Include="ConvertHelper.cs" />
     <Compile Include="Paging.cs" />
     <Compile Include="PaymentApi\NganLuong\APICheckoutV3.cs" />
     <Compile Include="PaymentMethod\PaymentMethod.cs" />
