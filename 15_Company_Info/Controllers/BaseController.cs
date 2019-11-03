@@ -64,10 +64,10 @@ namespace AnperoFrontend.Controllers
                 AdsSlide = service.GetAdsSlide(CommonConfig.StoreID, CommonConfig.TokenKey, PageContent.Ads1);
                 cacheService.AddOrUpdate("AdsSlide", AdsSlide, new TimeSpan(0, 6, 0));
             }
-            if (!cacheService.TryGet("FeatureArticle", out AdsSlide))
+            if (!cacheService.TryGet("FeatureArticle", out FeatureArticle))
             {
-                FeatureArticle = service.SearchArticle(CommonConfig.StoreID, CommonConfig.TokenKey, 0, 1, 5, 2);
-                cacheService.AddOrUpdate("AdsSlide", FeatureArticle, new TimeSpan(0, 6, 0));
+                FeatureArticle = service.SearchArticle(CommonConfig.StoreID, CommonConfig.TokenKey, 0, 1, 5, 1);
+                cacheService.AddOrUpdate("FeatureArticle", FeatureArticle, new TimeSpan(0, 6, 0));
             }
 
 

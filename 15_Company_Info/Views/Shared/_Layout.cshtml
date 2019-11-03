@@ -20,10 +20,7 @@
     <meta name="revisit-after" content="1 days" />
     <meta http-equiv="REFRESH" content="1800" />
     <meta name="robots" content="index,follow,all" />
-
     <link rel="shortcut icon" href="@(string.IsNullOrEmpty(commonInfo.Favicon)?commonInfo.Logo:commonInfo.Favicon)" type="image/x-icon">
-
-
     <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
     <link rel='dns-prefetch' href='http://s.w.org/' />
     @Styles.Render("~/Content/css")
@@ -73,18 +70,13 @@
                                                 <ul role="menu" class=" dropdown-menu">
                                                     @foreach (var item in commonInfo.MenuList[i].ChidMenu)
                                                     {
-                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Thiết kế biệt thự" href="@item.Link">@item.Tittle</a></li>
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page"><a title="@item.Tittle" href="@item.Link.ToLower()">@item.Tittle</a></li>
                                                     }
-
                                                 </ul>
                                             }
-
                                         </li>
-
                                     }
                                 }
-
-
                             </ul>
                         </nav>
                     </div>
@@ -93,9 +85,6 @@
             </div>
         </header>
         <!-- header close -->
-
-
-
 
         @RenderBody()
         <section class="wpb_row vc_row-fluid text-light vc_custom_1503992894148 vc_row-has-fill">
@@ -112,7 +101,7 @@
                             <div class="wpb_wrapper ">
                                 <div class="wpb_text_column wpb_content_element  mt20">
                                     <div class="wpb_wrapper">
-                                        <p><img class="wp-image-901 alignleft" style="margin-top: -10px;" src="wp-content/uploads/2019/07/callgif.gif" alt="" width="62" height="62" /></p>
+                                        <p><img class="wp-image-901 alignleft" style="margin-top: -10px;" src="/wp-content/uploads/2019/07/callgif.gif" alt="" width="62" height="62" /></p>
                                         <h1>@Anpero.StringHelpper.FormatPhoneNumber(commonInfo.HotLine)</h1>
 
                                     </div>

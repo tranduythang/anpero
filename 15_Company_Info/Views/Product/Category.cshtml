@@ -1,103 +1,101 @@
-﻿<div class="page-top">
-    <div class="container">
-     
-        <div class="row">
-           
-            <!-- Left colunm -->
-            @Html.Partial("product/_MenuAndAdsPartial")
-            <!-- ./left colunm -->
-            <!-- Center colunm-->
-            <div class="center_column col-xs-12 col-sm-9 bw" id="center_column">
-                <!-- view-product-list-->
-                @if (ViewData["productList"] != null)
-                {
-                    AnperoFrontend.WebService.SearchResult productList = (AnperoFrontend.WebService.SearchResult)ViewData["productList"];
-                    if (productList.Item.Length > 0)
-                    {
-                        <div id="view-product-list" class="view-product-list">
+﻿@if (ViewData["productList"] != null)
+{
+    AnperoFrontend.WebService.SearchResult productList = (AnperoFrontend.WebService.SearchResult)ViewData["productList"];
+    if (productList.Item.Length > 0)
+    {
+        <section id="subheader" data-speed="8" data-type="background" style="background-image: url('https://cdn.anpero.com/images/38/102019/12019102201193291.jpg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
 
-                            <h2 class="page-heading">
-                                @if (ViewBag.isParent != null)
-                                {
-                                    <span class="page-heading-title">@productList.Item[0].ParentCatName</span>
-                                }
-                                else
-                                {
-                                    <span class="page-heading-title">@productList.Item[0].CatName</span>
-                                }
-                                
-                            </h2>
-                            <ul class="display-product-option">
-                                <li class="view-as-grid selected">
-                                    <span>grid</span>
+                        @if (ViewBag.isParent != null)
+                        {
+                            <h1>
+                                @productList.Item[0].ParentCatName
+                            </h1>
+                        }
+                        else
+                        {
+                            <h1>@productList.Item[0].CatName</h1>
+                        }
+
+                        <ul class="crumb">
+                            <li><a rel="v:url" property="v:title" href="https://beehome.vn/">Trang chủ</a></li>
+                            <b>/</b>
+                            @if (ViewBag.isParent != null)
+                            {
+                                <li class="active">
+                                    @productList.Item[0].ParentCatName
                                 </li>
-                                <li class="view-as-list">
-                                    <span>list</span>
+                            }
+                            else
+                            {
+                                <li class="active">
+                                    @productList.Item[0].CatName
                                 </li>
-                            </ul>
-                            <ul class="row product-list list">
-                                @foreach (AnperoFrontend.WebService.ProductItem item in productList.Item)
-                                {
-                                    <li class="col-sx-12 col-sm-4">
-                                        <div class="product-container">
-                                            <div class="left-block">
-                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">
-                                                    <img class="img-responsive" alt="@item.PrName" src="@item.Images" />
-                                                    @if (item.Rank > 1)
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+           
+    }
+        <div id="content">
+            <div class="container">
+                <div class="row">
+                    @Html.Partial("product/_MenuAndAdsPartial")
+                    <div class="col-md-9">
+                        <section class="wpb_row vc_row-fluid vc_custom_1453975735934">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="wpb_column vc_column_container vc_col-sm-12">
+                                        <div class="vc_column-inner ">
+                                            <div class="wpb_wrapper ">
+                                                <div id="services-masonry" class="masonry row" style="position: relative; height: 891.056px;">
+                                                    @if (productList.Item.Length > 0)
                                                     {
-                                                        <div class="featured-text"><span>Bán chạy</span></div>
+                                                        foreach (AnperoFrontend.WebService.ProductItem item in productList.Item)
+                                                        {
+                                                            <div class="col-md-4 item">
+                                                                <h3>@item.PrName</h3>
+                                                                <p>@Html.Raw(Anpero.StringHelpper.SubString(140, item.ShortDesc))</p>
+
+                                                                <div class="spacer-single-10"></div>
+                                                                <img width="700" height="337" src="@item.Images" class="img-responsive wp-post-image" alt="item.PrName">
+                                                                <div class="spacer-single"></div>
+                                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)" class="btn-line btn-fullwidth">Xem mẫu thiết kế</a>
+
+                                                            </div>
+                                                        }
                                                     }
-                                                </a>
-                                                @if (item.Price>0)
-                                                {
-                                                    <div class="price-percent-reduction2">giảm @Anpero.StringHelpper.ConvertToVndMoney((item.Price))</div>
-                                                }
-                                                <div class="quick-view">
-                                                    <a title="Quick view" class="search" href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)"></a>
-                                                </div>                                                
-                                            </div>
-                                            <div class="right-block">
-                                                <h5 class="product-name"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName, item.Id)">@item.PrName</a></h5>
-                                                @if (item.Rank > 1)
-                                                {
-                                                    <div class="product-star">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                    </div>
-                                                }                                           
-                                                <div class="info-orther">                                                                                                   
-                                                    <div class="product-desc">
-                                                        @Html.Raw(item.ShortDesc)
-                                                    </div>
+                                                    else
+                                                    {
+                                                        <p>Nội dung đang được cập nhật. Vui lòng quay lại sau</p>
+                                                    }
+
                                                 </div>
                                             </div>
                                         </div>
-                                    </li>
-                                }
-                            </ul>
-                          
-                        </div>
-                        <div class="sortPagiBar">
-                            <div class="bottom-pagination">
-                                <nav>
-                                    @Html.Raw(ViewBag.page)
-                                </nav>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    }
-                }
-        </div>
+                        </section>
+                    </div>
 
-    </div>
-</div>
-</div>
-@section  scripts{    
-    <script type="text/javascript" src="/assets/lib/countdown/jquery.plugin.js"></script>
-    <script type="text/javascript" src="/assets/lib/countdown/jquery.countdown.js"></script>
-<script>
-    Category.Init();
-</script>
+                </div>
+            </div>
+        </div>
+   
+}
+
+
+
+@section  scripts{
+    <script>
+        $(document).ready(function () {
+            $("#services-list a[href='" + window.location.pathname.toLowerCase() + "']").parents("li").addClass("active");            
+        });
+        
+    </script>
 }

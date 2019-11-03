@@ -49,7 +49,9 @@
 		header.header-bg{
             background: ;
         }
-        #mainmenu li a, #mainmenu li li a{color: #ffffff;}
+        #mainmenu li a, #mainmenu li li a {
+            color: #222327;
+        }
 	}
 
 	/* Content Colors */	
