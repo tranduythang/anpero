@@ -30,7 +30,7 @@
                 <div class="wpb_column vc_column_container vc_col-sm-12">
                     <div class="vc_column-inner ">
                         <div class="wpb_wrapper ">
-                            <div id="services-masonry" class="masonry row" style="position: relative; height: 891.056px;">
+                            <div id="services-masonry" class="masonry row">
                                 @foreach (var item in commonInfo.ProductCategoryList)
                                 {
                                     foreach (var childItem in item.ChildCategory)
@@ -40,7 +40,7 @@
                                             <p>@childItem.Description</p>
 
                                             <div class="spacer-single-10"></div>
-                                            <img width="700" height="337" src="@childItem.Images" class="img-responsive wp-post-image" alt="" srcset="https://beehome.vn/wp-content/uploads/2015/08/pic_3-1.jpg 700w, https://beehome.vn/wp-content/uploads/2015/08/pic_3-1-300x144.jpg 300w, https://beehome.vn/wp-content/uploads/2015/08/pic_3-1-600x289.jpg 600w" sizes="(max-width: 700px) 100vw, 700px">
+                                            <img width="700" height="337" src="@childItem.Images" class="img-responsive wp-post-image" alt="">
                                             <div class="spacer-single"></div>
                                             <a href="@childItem.DefaultLink" class="btn-line btn-fullwidth">Xem mẫu thiết kế</a>
 

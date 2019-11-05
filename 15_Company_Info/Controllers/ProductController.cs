@@ -17,10 +17,9 @@ namespace AnperoFrontend.Controllers
             WebService.ProductItem item = sv.GetProductDetail(StoreID, TokenKey, id);
             WebService.SearchResult relateProduct = sv.SearchProduct(StoreID, TokenKey, item.CatID.ToString(), "", "", 0, 999999, 1, 5, "", SearchOrder.TimeDesc, 0, string.Empty);
             ViewData["relateProduct"] = relateProduct;
-            ViewData["prDetail"] = item;
             ViewBag.Title = item.PrName;
             SetupCommonProduct();
-            return View();
+            return View(item);
         }
         [BuildCommonHtml]
         public ActionResult Category(int id)

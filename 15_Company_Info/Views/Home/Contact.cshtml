@@ -22,145 +22,147 @@
             </div>
         </div>
     </section>
-<div class="columns-container">
-    <div class="container" id="columns">
-        <div id="contact" class="page-content page-contact">
-            <div id="message-box-conact"></div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <h3 class="page-subheading">Gửi tin nhắn cho @commonInfo.Name</h3>
-                    <div class="contact-form-box">
-                        <div class="form-selector">
-                            <label>Tên liên hệ </label>
-                            <input type="text" class="form-control input-sm" id="name" />
-                        </div>
-                        <div class="form-selector">
-                            <label>Email </label>
-                            <input type="text" class="form-control input-sm" id="email" />
-                        </div>
-                        <div class="form-selector">
-                            <label>Số điện thoại (*)</label>
-                            <input type="text" class="form-control input-sm" id="phone" />
-                        </div>
-                        <div class="form-selector">
-                            <label>Địa chỉ (*)</label>
-                            <input type="text" class="form-control input-sm" id="address" />
-                        </div>
-                        <div class="form-selector">
-                            <label>Tin nhắn (*)</label>
-                            <textarea class="form-control input-sm" rows="10" id="message"></textarea>
-                        </div>
-                        <div class="form-selector">
-                            <div id="g-recaptcha"></div>
-                        </div>
-                        <div class="form-selector">
-                            <button id="btn-send-contact" class="btn">Gửi  </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="wpb_column vc_column_container vc_col-sm-4">
-                    <div class="vc_column-inner ">
-                        <div class="wpb_wrapper wow fadeInRight animated" style="visibility: visible; animation-name: fadeInRight; opacity: 0;">
-                            <h3 style=""> THÔNG TIN LIÊN HỆ</h3>
-
-                            <div class="wpb_text_column wpb_content_element ">
-                                <div class="wpb_wrapper">
-                                    <address>
-                                        <div>@commonInfo.Name</div>
-
-                                        <div>@commonInfo.Address</div>
-                                        <div><strong>Phone:</strong><a href="tell:@commonInfo.HotLine">@commonInfo.HotLine</a></div>
-
-                                        <div><strong>Email:</strong><a href="mailto:contact@beehome.vn">contact@beehome.vn</a></div>
-                                        <div><strong>Web:</strong><a href="mailto:@commonInfo.Email">@commonInfo.Email</a></div>
-                                        
-                                        @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
-                                        {
-                                            <div><strong>Web:</strong><a href="@commonInfo.FaceBookLink">@commonInfo.FaceBookLink</a></div>                                            
-                                        }
-                                        <div><strong>Mở cửa</strong>Thứ 2- Thứ 6 08:00 – 18:00</div>
-                                        <div>@commonInfo.Desc</div>
-                                    </address>
-
+    <section class="wpb_row vc_row-fluid vc_custom_1438577300524" style="padding-top:30px;">
+        <div class="columns-container">
+            <div class="container" id="columns">
+                <div id="contact" class="page-content page-contact">
+                    <div id="message-box-conact"></div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3 class="page-subheading">Gửi tin nhắn cho @commonInfo.Name</h3>
+                            <div class="contact-form-box">
+                                <div class="form-selector">
+                                    <label>Tên liên hệ </label>
+                                    <input type="text" class="form-control input-sm" id="name" />
+                                </div>
+                                <div class="form-selector">
+                                    <label>Email </label>
+                                    <input type="text" class="form-control input-sm" id="email" />
+                                </div>
+                                <div class="form-selector">
+                                    <label>Số điện thoại (*)</label>
+                                    <input type="text" class="form-control input-sm" id="phone" />
+                                </div>
+                                <div class="form-selector">
+                                    <label>Địa chỉ (*)</label>
+                                    <input type="text" class="form-control input-sm" id="address" />
+                                </div>
+                                <div class="form-selector">
+                                    <label>Tin nhắn (*)</label>
+                                    <textarea class="form-control input-sm" rows="10" id="message"></textarea>
+                                </div>
+                                <div class="form-selector">
+                                    <div id="g-recaptcha"></div>
+                                </div>
+                                <div class="form-selector">
+                                    <button id="btn-send-contact" class="btn wpcf7-form-control wpcf7-submit btn btn-line">Gửi  </button>
                                 </div>
                             </div>
                         </div>
+                        <div class="wpb_column vc_column_container vc_col-sm-4">
+                            <div class="vc_column-inner ">
+                                <div class="wpb_wrapper wow fadeInRight animated" style="visibility: visible; animation-name: fadeInRight; opacity: 0;">
+                                    <h3 style=""> THÔNG TIN LIÊN HỆ</h3>
+
+                                    <div class="wpb_text_column wpb_content_element ">
+                                        <div class="wpb_wrapper">
+                                            <address>
+                                                <div>@commonInfo.Name</div>
+
+                                                <div>@commonInfo.Address</div>
+                                                <div><strong>Phone:</strong><a href="tell:@commonInfo.HotLine">@commonInfo.HotLine</a></div>
+
+                                                <div><strong>Email:</strong><a href="mailto:@commonInfo.Email">@commonInfo.Email</a></div>
+                                                @if (!string.IsNullOrEmpty(commonInfo.Skype)){
+                                                    <div><strong>Skype:</strong><a href="skype:@commonInfo.Email">@commonInfo.Skype</a></div>
+                                                }                                                
+                                                @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                                                {
+                                                    <div><strong>Web:</strong><a href="@commonInfo.FaceBookLink">@commonInfo.FaceBookLink</a></div>
+                                                }
+                                                <div><strong>Mở cửa</strong>Thứ 2- Thứ 6 08:00 – 18:00</div>
+                                                <div>@commonInfo.Desc</div>
+                                            </address>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id='ajax_loader' style="position: fixed; left: 45%; top: 50%; display: none;">
+                        <img src="~/assets/images/loading.gif" />
                     </div>
                 </div>
-                
-            </div>
-            <div id='ajax_loader' style="position: fixed; left: 45%; top: 50%; display: none;">
-                <img src="~/assets/images/loading.gif" />
             </div>
         </div>
-    </div>
-</div>
+    </section>
+        @section scripts{
+            <script src="~/Scripts/Bootrap.notify.js"></script>
+            <script src="https://www.google.com/recaptcha/api.js"></script>
+            <script>
 
-@section scripts{
-    <script src="~/Scripts/Bootrap.notify.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-    <script>
-        
-        var googleCatcha;
-        $(window).load(function () {
-            googleCatcha = grecaptcha.render('g-recaptcha', {
-                'sitekey': googleCapchaSitekey,
-                'theme': 'light',
-                'hl': 'vi'
-            });
+                var googleCatcha;
+                $(window).load(function () {
+                    googleCatcha = grecaptcha.render('g-recaptcha', {
+                        'sitekey': googleCapchaSitekey,
+                        'theme': 'light',
+                        'hl': 'vi'
+                    });
 
-            $("#btn-send-contact").click(function () {
-                $("#btn-send-contact").removeAttr('disabled');
-                var valid = true;
-                var captchaResponse = grecaptcha.getResponse(googleCatcha);
-                var _name = $("#name").val();
-                var _email = $("#email").val();
-                var _phone = $("#phone").val();
-                var _address = $("#address").val();
-                var _message = $("#message").val();
-                if (_phone == null || _phone == "" || !Util.isVnFone(_phone)) {
-                    Util.notify("", "Vui lòng nhập số điện thoại. ");
-                    valid = false;
-                }
-                if (_name == null || _name == "") {
-                    Util.notify("", "Vui lòng nhập tên liên hệ. ");
-                    valid = false;
-                }
-                if (_message == null || _message == "") {
-                    Util.notify("", "Vui lòng nhập nội dung tin nhắn. ");
-                    valid = false;
-                }
-                if (captchaResponse == null || captchaResponse=="") {
-                    Util.notify("", "Vui lòng click vào ô kiểm tra bảo mật. ");
-                    valid = false;
-                }
-                if (valid) {
-                    $("#ajax_loader").show();
-                    $.ajax({
-                        method: "post",
-                        url: "/handler/ProductHandler.ashx",
-                        datatype: "text/plain",
-                        data: { op: "sendContact", name: _name, email: _email, phone: _phone, address: _address, message: _message, captcha: captchaResponse },
-                        success: function (rs) {
-                            $("#ajax_loader").hide();
-                            if (!isNaN(rs)) {                                                      
-                                Util.notify("", "Tin nhắn liên hệ đã được gửi, cảm ơn bạn đã đóng góp!");
-                            }
-                            resetContactForm();
-                           
+                    $("#btn-send-contact").click(function () {
+                        $("#btn-send-contact").removeAttr('disabled');
+                        var valid = true;
+                        var captchaResponse = grecaptcha.getResponse(googleCatcha);
+                        var _name = $("#name").val();
+                        var _email = $("#email").val();
+                        var _phone = $("#phone").val();
+                        var _address = $("#address").val();
+                        var _message = $("#message").val();
+                        if (_phone == null || _phone == "" || !Util.isVnFone(_phone)) {
+                            Util.notify("", "Vui lòng nhập số điện thoại. ");
+                            valid = false;
+                        }
+                        if (_name == null || _name == "") {
+                            Util.notify("", "Vui lòng nhập tên liên hệ. ");
+                            valid = false;
+                        }
+                        if (_message == null || _message == "") {
+                            Util.notify("", "Vui lòng nhập nội dung tin nhắn. ");
+                            valid = false;
+                        }
+                        if (captchaResponse == null || captchaResponse == "") {
+                            Util.notify("", "Vui lòng click vào ô kiểm tra bảo mật. ");
+                            valid = false;
+                        }
+                        if (valid) {
+                            $("#ajax_loader").show();
+                            $.ajax({
+                                method: "post",
+                                url: "/handler/ProductHandler.ashx",
+                                datatype: "text/plain",
+                                data: { op: "sendContact", name: _name, email: _email, phone: _phone, address: _address, message: _message, captcha: captchaResponse },
+                                success: function (rs) {
+                                    $("#ajax_loader").hide();
+                                    if (!isNaN(rs)) {
+                                        Util.notify("", "Tin nhắn liên hệ đã được gửi, cảm ơn bạn đã đóng góp!");
+                                    }
+                                    resetContactForm();
+
+                                }
+                            });
                         }
                     });
+                });
+                function resetContactForm() {
+                    $("#name").val("");
+                    $("#email").val("");
+                    $("#phone").val("");
+                    $("#address").val("");
+                    $("#message").val("");
+                    grecaptcha.reset();
+                    $("#btn-send-contact").prop('disabled', false);
                 }
-            });
-        });
-        function resetContactForm() {
-            $("#name").val("");
-            $("#email").val("");
-            $("#phone").val("");
-            $("#address").val("");
-            $("#message").val("");
-            grecaptcha.reset();
-            $("#btn-send-contact").prop('disabled', false);
+            </script>
         }
-    </script>
-}

@@ -9,7 +9,7 @@
                 {
                     foreach (var item in commonInfo.ProductCategoryList)
                     {
-                        <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">@item.Name</a></li>
+                        <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">Tất cả - @item.Name</a></li>
                         if (item.ChildCategory != null && item.ChildCategory.Length > 0)
                         {
                             foreach (var subItem in item.ChildCategory)

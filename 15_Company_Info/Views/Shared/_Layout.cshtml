@@ -129,15 +129,15 @@
                         <div id="recent-posts-4" class="widget widget_recent_entries">
                             <h3>TIN MỚI NHẤT</h3>
                             <ul>
-                                @if (ViewData["newestProduct"] != null)
+                                @if (ViewData["FeatureArticle"] != null)
                                 {
-                                    AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["newestProduct"];
-                                    if (bestSaleList != null && bestSaleList.Item.Length > 0)
+                                    AnperoFrontend.WebService.SearchArticleResults bestSaleList = (AnperoFrontend.WebService.SearchArticleResults)ViewData["FeatureArticle"];
+                                    if (bestSaleList != null && bestSaleList.ItemList.Length > 0)
                                     {
-                                        foreach (var item in bestSaleList.Item)
+                                        foreach (var item in bestSaleList.ItemList)
                                         {
                                             <li>
-                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
+                                                <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a>
                                             </li>
                                         }
                                     }
