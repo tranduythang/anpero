@@ -15,7 +15,7 @@ namespace AnperoFrontend
 
 
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+            bundles.Add(new ScriptBundle("~/bundles/global.js").Include(
                       "~/wp-content/themes/archi-3.0.1/js/total12513.js",
                       "~/wp-content/themes/archi-3.0.1/js/classie2513.js",
                       "~/wp-content/themes/archi-3.0.1/js/wow.min2513.js",
