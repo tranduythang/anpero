@@ -29,8 +29,9 @@
     <link rel='stylesheet' href='/theme/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/style.css' type='text/css' media='all' />
     <link rel='stylesheet' href='/theme/wp-content/plugins/ovic-toolkit/includes/frontend/assets/css/animate.min.css' type='text/css' media='all' />
     <link rel='stylesheet' href='/theme/wp-content/plugins/ovic-toolkit/assets/css/magnific-popup.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='/theme/wp-content/plugins/ovic-toolkit/includes/frontend/assets/css/bootstrap.min.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='/theme/wp-content/plugins/js_composer/assets/lib/bower/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+    
+    <link rel='stylesheet' href='//cdn.anpero.com/cdn/Bootstrap/bootstrap3.7.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='//cdn.anpero.com/cdn/font/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
 
     <link rel='stylesheet' href='/theme/wp-content/plugins/ovic-toolkit/includes/frontend/assets/css/slick.min.css' type='text/css' media='all' />
     <link rel='stylesheet' href='/theme/wp-content/plugins/ovic-toolkit/includes/frontend/assets/css/chosen.min.css' type='text/css' media='all' />
@@ -53,9 +54,9 @@
     <script type='text/javascript' src='//cdn.anpero.com/cdn/plugins/jquery-2.2.4.js'></script>
     <script type='text/javascript' src='/theme/wp-includes/js/jquery/jquery-migrate.min.js'></script>
     @*<script type='text/javascript' src='/theme/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.min.js' defer='defer'></script>
-    <script type='text/javascript' src='/theme/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min.js' defer='defer'></script>*@
+        <script type='text/javascript' src='/theme/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min.js' defer='defer'></script>*@
     <link href="/theme/style.red.css?v=3" rel="stylesheet" />
-    @RenderBody()
+
     <noscript>
         <style>
             .woocommerce-product-gallery {
@@ -75,7 +76,8 @@
     @RenderSection("health", required: false)
 
 </head>
-<body class="home page-template page-template-templates page-template-fullwidth page-template-templatesfullwidth-php page wp-embed-responsive theme-gokko ovic-toolkit-1.4.0 woocommerce-no-js  wpb-js-composer vc_responsive">
+<body class="page-template-fullwidth page wp-embed-responsive  woocommerce-no-js  wpb-js-composer vc_responsive">
+    @RenderBody()
     <a href="javascript:void(0)" class="overlay-body"></a>
     <div class="header-mobile-wapper">
         <div class="header-mobile">
@@ -708,7 +710,7 @@
                                     </li>
                                     <li id="menu-item-208" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-208"><a href="#" class="disable-link">Car Electronic &#038; Hardware</a></li>
                                     <li id="menu-item-209" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-209"><a href="#" class="disable-link">Printer &#038; Ink</a></li>
-                                    
+
                                 </ul>
                             </div>
                         </div>
@@ -956,7 +958,7 @@
         <div>
             <img src="/theme/wp-content/uploads/2019/01/s8-01.jpg" width="100%" style="
     margin-bottom: 30px;
-"/>
+" />
             <div class="vc_row-full-width vc_clearfix"></div>
         </div>
         <div class="container">
@@ -2183,7 +2185,7 @@
             </div>
         </div>
     </div>
-    
+
     <a href="#" class="backtotop">
         <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
     </a>
@@ -2336,8 +2338,10 @@
                         <div class="wpb_wrapper">
                             <div class="wpb_text_column wpb_content_element ovic_custom_5c8ef79e0336f ">
                                 <div class="wpb_wrapper">
-                                    <div style="color: #fff; font-size: 14px;">Copyright © 2019 <a style="color: #fff;" href="#">Tên cửa hàng.</a> <br>
-									Trang web thương mại điện tử được phát triển bởi Concat Group - Ccg</div>
+                                    <div style="color: #fff; font-size: 14px;">
+                                        Copyright © 2019 <a style="color: #fff;" href="#">Tên cửa hàng.</a> <br>
+                                        Trang web thương mại điện tử được phát triển bởi Concat Group - Ccg
+                                    </div>
 
                                 </div>
                             </div>
@@ -2454,15 +2458,15 @@
     <script type='text/javascript'>
         /* <![CDATA[ */
         var ovic_megamenu_frontend = { "title": "MAIN MENU" };
-                /* ]]> */
+                    /* ]]> */
     </script>
     <script type='text/javascript' src='/theme/wp-content/plugins/ovic-toolkit/includes/extends/megamenu/assets/js/megamenu-frontend.js'></script>
 
     <script type='text/javascript' src='/theme/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'></script>
 
     <script type='text/javascript' src='/theme/wp-content/plugins/woocommerce/assets/js/zoom/jquery.zoom.min.js'></script>
-    <script type='text/javascript' src='/theme/wp-content/plugins/woocommerce/assets/js/photoswipe/photoswipe.min.js'></script>
-    <script type='text/javascript' src='/theme/wp-content/plugins/woocommerce/assets/js/photoswipe/photoswipe-ui-default.min.js'></script>
+    @*<script type='text/javascript' src='/theme/wp-content/plugins/woocommerce/assets/js/photoswipe/photoswipe.min.js'></script>
+    <script type='text/javascript' src='/theme/wp-content/plugins/woocommerce/assets/js/photoswipe/photoswipe-ui-default.min.js'></script>*@
 
     <script type='text/javascript' src='/theme/wp-content/plugins/woocommerce/assets/js/frontend/single-product.min.js'></script>
     <script src="/Scripts/Anpero.Common.js"></script>
