@@ -1,0 +1,147 @@
+﻿@using AnperoFrontend.WebService;
+
+
+
+@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+    string baseUrl = Url.Content("~", true).TrimEnd('/');
+}
+<header class="header">
+    <div class="header-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-12 col-xs-12 header-logo">
+                    <div class="visible-xs visible-sm toggle-menu translateY-50">
+                        <a href="javascript:void(0)" class="btnMBToggleNav"><img src="/content/theme/images/icons/icon-menu.png" alt=""></a>
+                    </div>
+                    <div class="logo">
+                        <a href="/"><img src="@commonInfo.Logo" alt="@commonInfo.Name"></a>
+                    </div>
+                    <h1 class="hide">
+                        @commonInfo.Name
+                    </h1>
+                    <div class="visible-xs visible-sm box-cart-mobile translateY-50">
+                        <a href="#">
+                            <div class="icon">
+                                <i class="fa fa-shopping-bag"></i>
+                            </div>
+                            <span class="numberCart">0</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-sm-12 col-xs-12 header-search">
+                        <div class="form-search">
+                            <form action="@baseUrl/search" method="get" role="search">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                                <input type="text" name="keyword" placeholder="Tìm kiếm" aria-label="Search" itemprop="query-input">
+                                <button type="submit" class="btn-search">Tìm kiếm</button>
+                            </form>
+                        </div>
+                        <ul class="search-notice">
+                            <li class="title"><strong>Gợi ý từ khóa:</strong></li>
+                            <li><span>gõ Tiếng Việt có dấu hoặc không dấu đều được</span></li>
+                        </ul>
+                    </div>
+                <div class="col-md-3 hidden-sm hidden-xs header-user">
+
+                    <div class="box-cart pull-right relative">
+                        <a href="/product/checkout">
+                            <div class="box">
+                                <div class="box">
+                                    <div class="icon">
+                                        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="text">
+                                        <span>Giỏ hàng (<span id="cartCount" class="numberCart spN">0</span>)</span>
+                                        <span id="cartPrice" class="sub">0₫</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="pull-right hidden-xs">
+                        <a href="/product/checkout">
+                            <div class="box">
+                                <div class="box">
+                                    <div class="icon">
+                                        <i class="fa fa-youtube" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                    <div class="pull-right hidden-xs">
+                        <a href="@commonInfo.FaceBookLink">
+                            <div class="box">
+                                <div class="box">
+                                    <div class="icon">
+                                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                
+                <div class="overlayMenu"></div>
+            </div>
+        </div>
+    </div>
+    <!--header-page-->
+
+    <nav class="header-menu">
+        <div class="container">
+            <ul class="nav-navbar">
+                <li class="active  li-child">
+                    <a href="#" class="current" title="Trang chủ">
+                        <span>TRANG CHỦ</span>
+                    </a>   
+                </li>         
+                @if (commonInfo.MenuList != null && commonInfo.MenuList.Length > 0)
+                {
+                    foreach (var item in commonInfo.MenuList)
+                    {
+                        <li class="li-child">
+
+                            @if (item.ChidMenu != null && item.ChidMenu.Length > 0)
+                            {
+                                <a href="@item.Link"  class="m-nav" title="@item.Tittle">
+                                    <span>@item.Tittle</span>
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                </a>
+                                <ul class="main-child level-2">
+                                    @foreach (var childItem in item.ChidMenu)
+                                    {
+                                        <li class="">
+                                            <a href="@childItem.Link" title="@childItem.Tittle"><span>@childItem.Tittle</span></a>
+                                        </li>
+                                    }
+                                </ul>
+
+                            }
+                            else
+                            {
+                                <a href="@item.Link" title="@item.Tittle">
+                                    <span>@item.Tittle</span>
+                                </a>
+                            }
+
+
+                        </li>
+                    }
+                }
+            </ul>
+            <div class="visible-xs visible-sm close-menu-mobile text-center">
+                <a href="javascript:void(0)" class="close-nav view-all">Đóng</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
