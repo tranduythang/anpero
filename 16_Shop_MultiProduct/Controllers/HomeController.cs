@@ -24,18 +24,11 @@ namespace AnperoFrontend.Controllers
             WebService.AnperoService service = new WebService.AnperoService();
 
             WebService.Ads[] Slide = null;
-            if (HttpRuntime.Cache["Slide"] != null)
+            if(base.cacheService.TryGet("Slide",out Slide))          
             {
-                ViewData["slide"] = (WebService.Ads[])HttpRuntime.Cache["Slide"];
-            }
-            else
-            {             
                 Slide = service.GetAdsSlide(StoreID, TokenKey, PageContent.Slide);
                 ViewData["slide"] = Slide;
-                if (Slide != null)
-                {
-                    HttpRuntime.Cache.Insert("Slide", Slide, null, DateTime.Now.AddMinutes(shortCacheTime+3), TimeSpan.Zero);
-                }
+                cacheService.AddOrUpdate("Slide", Slide,new TimeSpan(0,0,10,0,0));
             }
 
             WebService.Ads[] ads1 = null;
