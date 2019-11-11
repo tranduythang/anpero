@@ -49,8 +49,7 @@
         content_loaded:function(){
             this.gokko_countdown_init();
         },
-        init: function () {
-            this.gokko_popup_video_init();
+        init: function () {      
             this.gokko_custom_scrollbar();
             if($(".product-item.style-10 .variation-images .js-select-variation.selected").length >0){
                 $(".product-item.style-10 .variation-images .js-select-variation.selected").each(function () {
@@ -59,18 +58,7 @@
                 });
             }
         },
-        gokko_popup_video_init: function () {
-            if ( $(".js-popup-video").length > 0 ) {
-                $('.js-popup-video').magnificPopup({
-                    disableOn: 700,
-                    type: 'iframe',
-                    mainClass: 'mfp-fade',
-                    removalDelay: 160,
-                    preloader: false,
-                    fixedContentPos: false,
-                });
-            }
-        },
+      
         gokko_countdown_init: function () {
             if ( $('.gokko-countdown').length > 0 ) {
                 $('.gokko-countdown').each(function () {

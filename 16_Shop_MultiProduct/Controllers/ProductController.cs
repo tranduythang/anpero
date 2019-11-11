@@ -26,7 +26,7 @@ namespace AnperoFrontend.Controllers
             return View();
         }
         
-        public ActionResult SearchAjax(SearchModel model)
+        public ActionResult SearchAjax(WebService.SearchModel model)
         {
             model.StoreId = StoreID;
             string pageQuery = Request.QueryString["page"];
@@ -47,7 +47,8 @@ namespace AnperoFrontend.Controllers
             //}
             //else
             //{
-                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), model.ParentCategory, model.Brands, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0,string.Empty);
+            sv.SearchProducts(StoreID, TokenKey, model);
+                //rs = sv.SearchProduct(StoreID, TokenKey, model);
             //}
             ViewData["productList"] = rs;
             if (rs != null)
@@ -141,7 +142,7 @@ namespace AnperoFrontend.Controllers
             return View("List");
         }
         [BuildCommonHtml]
-        public ActionResult Search(SearchModel model)
+        public ActionResult Search(WebService.SearchModel model)
         {
             string title = "";
             string pageQuery = Request.QueryString["page"];
@@ -152,7 +153,7 @@ namespace AnperoFrontend.Controllers
                 page = Convert.ToInt32(pageQuery);
             }
             WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.SearchResult rs = sv.SearchProduct(StoreID, TokenKey, model.Category, "", model.Brands, 0, 999999999, page, 14,model.KeyWord, model.SortBy, 0, property);
+            WebService.SearchResult rs = sv.SearchProducts(StoreID, TokenKey, model);
             ViewData["productList"] = rs;
             
             ViewBag.pageName = "Search";
@@ -161,7 +162,7 @@ namespace AnperoFrontend.Controllers
             {
                 title += model.KeyWord;
             }
-            ViewBag.property = model.Property;
+            ViewBag.property = model.AtributeList;
             ViewBag.category = model.Category;            
             ViewBag.brands = model.Brands;
             ViewBag.Title = title;

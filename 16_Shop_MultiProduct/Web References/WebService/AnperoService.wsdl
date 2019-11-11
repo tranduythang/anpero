@@ -282,6 +282,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="ServerName" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="MenuList" type="tns:ArrayOfMenu" />
+          <s:element minOccurs="0" maxOccurs="1" name="FooterMenuList" type="tns:ArrayOfMenu" />
           <s:element minOccurs="0" maxOccurs="1" name="FaceBookLink" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Skype" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="OtherPhone" type="s:string" />
@@ -497,7 +498,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="keyWord" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="order" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="minPrioty" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="propertyList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="atribute" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -505,6 +506,41 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="SearchProductResult" type="tns:SearchResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchProducts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="model" type="tns:SearchModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SearchModel">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StoreId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="KeyWord" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SortBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Brands" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParentCategory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AtributeList" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PriceFrom" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PriceTo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurentPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinPrioty" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Page" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaPropertyge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PriceRank" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchProductsResult" type="tns:SearchResult" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -740,6 +776,12 @@
   <wsdl:message name="SearchProductSoapOut">
     <wsdl:part name="parameters" element="tns:SearchProductResponse" />
   </wsdl:message>
+  <wsdl:message name="SearchProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchProducts" />
+  </wsdl:message>
+  <wsdl:message name="SearchProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchProductsResponse" />
+  </wsdl:message>
   <wsdl:message name="SearchProductByLocationSoapIn">
     <wsdl:part name="parameters" element="tns:SearchProductByLocation" />
   </wsdl:message>
@@ -844,6 +886,10 @@
     <wsdl:operation name="SearchProduct">
       <wsdl:input message="tns:SearchProductSoapIn" />
       <wsdl:output message="tns:SearchProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchProducts">
+      <wsdl:input message="tns:SearchProductsSoapIn" />
+      <wsdl:output message="tns:SearchProductsSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="SearchProductByLocation">
       <wsdl:input message="tns:SearchProductByLocationSoapIn" />
@@ -999,6 +1045,15 @@
     </wsdl:operation>
     <wsdl:operation name="SearchProduct">
       <soap:operation soapAction="http://tempuri.org/SearchProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchProducts">
+      <soap:operation soapAction="http://tempuri.org/SearchProducts" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1200,6 +1255,15 @@
     </wsdl:operation>
     <wsdl:operation name="SearchProduct">
       <soap12:operation soapAction="http://tempuri.org/SearchProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchProducts">
+      <soap12:operation soapAction="http://tempuri.org/SearchProducts" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
