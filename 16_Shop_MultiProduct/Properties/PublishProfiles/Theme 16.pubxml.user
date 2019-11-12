@@ -150,14 +150,557 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="assets/loadingLogo.gif">
       <publishTime>11/08/2019 11:41:13</publishTime>
     </File>
+    <File Include="assets/owl.carousel/owl.carousel.css">
+      <publishTime>11/11/2019 16:25:34</publishTime>
+    </File>
+    <File Include="assets/owl.carousel/owl.carousel.js">
+      <publishTime>11/11/2019 16:25:34</publishTime>
+    </File>
+    <File Include="assets/owl.carousel/owl.carousel.min.js">
+      <publishTime>11/11/2019 16:25:34</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/css/.DS_Store">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/css/extralayers.css">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/css/navstylechange.css">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/css/noneed.css">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/css/style.css">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/.DS_Store">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/3dbg.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/3dlayer_1.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/3dlayer_2.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/3dlayer_3.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/3dlayer_4.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/3dlayer_5.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/3dlayer_6.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/apple.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/bg1.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/bg2.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/bg3.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/bg4.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/boat.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/check.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/city.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/citybg.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/clock.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/clock2.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/cloud1.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/cloud2.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/cloud3.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/cloud4.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/coconuts.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/cycle1.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/darkblurbg.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/doublearrow2.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/dummy.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/forest1.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/fullslide1-320x200.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/fullslide1.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/fullslide2-320x200.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/fullslide2.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/fullslide6-320x200.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/fullslide6.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/fullslide7-320x200.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/fullslide7.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/fullslide8-320x200.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/fullslide8.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/glare.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/graph.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/greenbg.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/greyline.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/guy1.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/guy2.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/guy3.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/guy4.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/guy5.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/hand1.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/hill1.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/hill2.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/hill3.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/hill4.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/homeslider_thumb1.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/homeslider_thumb2.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/homeslider_thumb3.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/homeslider_thumb4.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/homeslider_thumb5.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/homeslider_thumb6.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/huge.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/icon_photo.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/imac1.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/images/transparent.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/ipad2.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/ipad_dark.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/iphone.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/island.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/kenburns1.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/kenburns2.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/kenburns3.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/kenburns4.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/kenburns5.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/laptopmockup_sliderdy.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/largegreen.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/logo.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/lupe_imac.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/lupe_macbook.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/macbook2.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/newslide2014_1.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/newwave1.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/newwave2.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/newwave32.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/newwave4.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/palm1.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/palm2.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/parallax_thumb1.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/parallax_thumb2.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/parallax_thumb3.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/parallax_thumb4.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/people.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/plate1.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/plate2.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/prebg.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/pulse1.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/redbg.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/redbg.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/redbg_big.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/seabg1.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/slidebg1.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/slidebg1.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/slidebg2.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/star.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/stuff.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/sun.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/transparent.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/trans_tile2.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/tree.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/videobg1.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/videoshadow.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/video_forest.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/woman.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/images/woman1.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/.DS_Store">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/arrowleft.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/arrowright.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/arrows.psd">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/arrow_large_left.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/arrow_large_right.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/arrow_left.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/arrow_left2.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/arrow_right.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/arrow_right2.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/black50.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/boxed_bgtile.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/bullet.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/bullets.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/bullets.psd">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/bullets2.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/bullet_boxed.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/coloredbg.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/grain.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/gridtile.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/gridtile_3x3.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/gridtile_3x3_white.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/gridtile_white.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/large_left.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/large_right.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/loader.gif">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/loader2.gif">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/navigdots.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/navigdots_bgtile.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/shadow1.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/shadow2.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/shadow3.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/small_arrows.psd">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/small_left.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/small_left_boxed.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/small_right.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/small_right_boxed.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/timer.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/timerdot.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/transparent.jpg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/assets/white50.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/css/.DS_Store">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/css/settings-ie8.css">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/css/settings.css">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/font/revicons.eot">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/font/revicons.svg">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/font/revicons.ttf">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/font/revicons.woff">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/images/.DS_Store">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/images/decor_inside.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/images/decor_inside_white.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/images/decor_testimonial.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/images/gradient/g30.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/images/gradient/g40.png">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/js/.DS_Store">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/js/jquery.themepunch.enablelog.js">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/js/jquery.themepunch.revolution.js">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
+    <File Include="assets/Plugin/slider-revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js">
+      <publishTime>11/12/2019 09:24:58</publishTime>
+    </File>
     <File Include="assets/responsive.css">
       <publishTime>11/08/2019 11:41:13</publishTime>
+    </File>
+    <File Include="assets/revo-slider-init.js">
+      <publishTime>11/12/2019 09:24:58</publishTime>
     </File>
     <File Include="assets/scripts.js">
       <publishTime>11/08/2019 11:41:13</publishTime>
     </File>
     <File Include="assets/shop.js">
       <publishTime>11/08/2019 11:41:13</publishTime>
+    </File>
+    <File Include="assets/style-revolution-slider.css">
+      <publishTime>11/12/2019 09:24:58</publishTime>
     </File>
     <File Include="assets/style.css">
       <publishTime>11/11/2019 15:52:17</publishTime>
@@ -205,13 +748,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2019 15:53:31</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.dll">
-      <publishTime>11/11/2019 15:53:32</publishTime>
+      <publishTime>11/12/2019 09:27:19</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.pdb">
-      <publishTime>11/11/2019 15:53:32</publishTime>
+      <publishTime>11/12/2019 09:27:19</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.XmlSerializers.dll">
-      <publishTime>11/11/2019 15:53:32</publishTime>
+      <publishTime>11/12/2019 09:27:19</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>02/22/2013 08:43:40</publishTime>
@@ -331,7 +874,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/08/2019 16:30:32</publishTime>
     </File>
     <File Include="theme/digital/index.html">
-      <publishTime>11/08/2019 17:26:48</publishTime>
+      <publishTime>11/11/2019 16:36:17</publishTime>
     </File>
     <File Include="theme/furniture/index.html">
       <publishTime>11/08/2019 16:30:32</publishTime>
@@ -3373,7 +3916,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/08/2019 16:30:18</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>11/08/2019 16:44:21</publishTime>
+      <publishTime>11/12/2019 09:26:14</publishTime>
     </File>
     <File Include="Views/Home/Policy.cshtml">
       <publishTime>11/08/2019 16:30:18</publishTime>
@@ -3421,7 +3964,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/08/2019 16:30:18</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/11/2019 15:58:19</publishTime>
+      <publishTime>11/12/2019 09:26:25</publishTime>
     </File>
     <File Include="Views/Shared/_partial/_FooterPartial.cshtml">
       <publishTime>11/08/2019 16:30:18</publishTime>
@@ -3472,7 +4015,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/08/2019 16:31:54</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/11/2019 15:52:17</publishTime>
+      <publishTime>11/11/2019 16:02:38</publishTime>
     </File>
   </ItemGroup>
 </Project>
