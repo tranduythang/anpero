@@ -28,6 +28,7 @@
     <link rel='stylesheet' href='//cdn.anpero.com/cdn/Bootstrap/bootstrap3.7.min.css' type='text/css' media='all' />
     <link rel='stylesheet' href='//cdn.anpero.com/cdn/font/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
     <script type='text/javascript' src='//cdn.anpero.com/cdn/plugins/jquery-2.2.4.js'></script>
+    <link href="/assets/owl.carousel/owl.carousel.css" rel="stylesheet" />
     <link href="/theme/style.red.css?v=3" rel="stylesheet" />
     <noscript>
         <style>
@@ -48,7 +49,7 @@
 
 </head>
 <body class="page-template-fullwidth page wp-embed-responsive  woocommerce-no-js  wpb-js-composer vc_responsive">
-    @RenderBody()
+    
     <a href="javascript:void(0)" class="overlay-body"></a>
     <div class="header-mobile-wapper">
         <div class="header-mobile">
@@ -74,7 +75,7 @@
                     <div class="form-search-mobile">
                         <a href="#"><i class="gokko-icon icon-search"></i></a>
                         <div class="block-search">
-                            <form role="search" method="get" action="@currentUrl" class="form-search block-search ovic-live-search-form" role="search">
+                            <form role="search" method="get" action="@currentUrl" class="form-search block-search ovic-live-search-form">
                                 <a href="#" class="close-block-search"><span class="fa fa-times"></span></a>
                                 <div class="form-content search-box results-search is-woocommerce">
                                     <div class="inner">
@@ -116,6 +117,7 @@
     </div>
     <div class="header-sticky">
         <div class="container">
+         
             <div class="header-nav-inner header-responsive">
                 <div class="box-header-nav main-menu-wapper">
                     <div class=" ovic-menu-wapper horizontal">
@@ -352,8 +354,8 @@
                                         foreach (var item in commonInfo.ProductCategoryList)
                                         {
                                             <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-203 menu-item-has-mega-menu menu-item-has-children item-megamenu">
-                                                <a href="#" class="disable-link">Laptop &#038; Computer</a>
-                                                <div class="sub-menu megamenu lazy" data-responsive="" style="width:720px;background-size: cover;background-position: center;" data-src="/theme/wp-content/uploads/2018/08/h31.jpg">
+                                                <a href="@item.DefaultLink" class="disable-link">@item.Name</a>
+                                                <div class="sub-menu megamenu lazy" data-responsive="" style="width:720px;background-size: cover;background-position: center;" data-src="@item.Images">
                                                     <p>
                                                         <div class="vc_row wpb_row vc_row-fluid ovic_custom_5b768530ccd86 vc_custom_1533638258332">
                                                             <div class="wpb_column vc_column_container vc_col-sm-4">
@@ -363,14 +365,13 @@
                                                                             <div class="widget widget_nav_menu">
                                                                                 <h2 class="widgettitle">Electronics</h2><div class=" ovic-menu-wapper horizontal">
                                                                                     <ul id="menu-d-electronics" class="menu ovic-menu">
-
                                                                                         @if (item.ChildCategory != null && item.ChildCategory.Count() > 0)
                                                                                         {
                                                                                             foreach (var childItem in item.ChildCategory)
                                                                                             {
-                                                                                                <li id="menu-item-2188" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2188"><a href="#" class="disable-link">@childItem.Name</a></li>
-                                                                                                <option class="level-2" value="@childItem.Id">@childItem.Name</option>
-                                                                                           }
+                                                                                                <li id="menu-item-2188" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="@childItem.DefaultLink" class="disable-link">@childItem.Name</a></li>
+
+                                                                                            }
                                                                                         }
                                                                                     </ul>
                                                                                 </div>
@@ -634,13 +635,11 @@
     </header>
     <div class="fullwidth-template">
         <div>
-            <img src="/theme/wp-content/uploads/2019/01/s8-01.jpg" width="100%" style="
-    margin-bottom: 30px;
-" />
+            <img src="/theme/wp-content/uploads/2019/01/s8-01.jpg" width="100%" style="margin-bottom: 30px;" />
             <div class="vc_row-full-width vc_clearfix"></div>
         </div>
         <div class="container">
-
+            @RenderBody()
             <div class="vc_row-full-width vc_clearfix"></div>
             <div class="vc_row-full-width vc_clearfix"></div><div class="vc_row wpb_row vc_row-fluid ovic_custom_5c92fe3eaf6d1 vc_custom_1544605855380 vc_custom_1544605855411 vc_custom_1544605855425">
                 <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-4 vc_col-md-4 ovic_custom_5c92fe3eaf6d2 vc_custom_1536912601750">
@@ -2108,6 +2107,7 @@
     <script type='text/javascript' src='/theme/wp-content/plugins/ovic-toolkit/includes/extends/megamenu/assets/js/megamenu-frontend.js'></script>
     <script type='text/javascript' src='/theme/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'></script>
     <script type='text/javascript' src='/theme/wp-content/plugins/woocommerce/assets/js/zoom/jquery.zoom.min.js'></script>
+    <script src="/assets/owl.carousel/owl.carousel.min.js"></script>
     <script src="/Scripts/Anpero.Common.js"></script>
 
     @RenderSection("scripts", required: false)
