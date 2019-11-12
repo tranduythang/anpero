@@ -47,7 +47,7 @@
     @RenderSection("health", required: false)
 
 </head>
-<body class="page-template-fullwidth page wp-embed-responsive  woocommerce-no-js  wpb-js-composer vc_responsive">    
+<body class="page-template-fullwidth page wp-embed-responsive  woocommerce-no-js  wpb-js-composer vc_responsive">
     <a href="javascript:void(0)" class="overlay-body"></a>
     <div class="header-mobile-wapper">
         <div class="header-mobile">
@@ -223,14 +223,11 @@
                 <div class="header-control">
 
                     <div class="block-minicart ovic-mini-cart ovic-dropdown">
-                        <a class="link-dropdown block-cart-link" href="cart/index.html" data-ovic="ovic-dropdown">
+                        <a class="link-dropdown block-cart-link" href="/product/checkout" data-ovic="ovic-dropdown">
                             <span class="gokko-icon icon-basket">
-                                <span class="count">0</span>
+                                <span class="count spN">0</span>
                             </span>
-                            <span class="gokko-group">
-                                <span class="text">Giỏ hàng</span>
-                                <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>0.00</span>
-                            </span>
+
                         </a>
                         <div class="widget woocommerce widget_shopping_cart"><div class="widget_shopping_cart_content"></div></div>
                     </div>
@@ -253,16 +250,16 @@
                     <div class="col-md-6 col-sm-12 header-digital-top-right">
                         <div class="top-right-menu-container ovic-menu-wapper horizontal">
                             <ul id="menu-top-right-menu" class="gokko-nav top-bar-menu top-right-menu ovic-menu">
-                                <li id="menu-item-195" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-195"><a href="#" class="disable-link"><span class="icon icon-font gokko-icon icon-envelope"></span>Newsletter</a></li>
-                                <li id="menu-item-2568" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2568"><a href="/home/contact">Contact Us</a></li>
-                                <li id="menu-item-197" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-197"><a href="#" class="disable-link">FAQ’s</a></li>
+
+                                <li id="menu-item-2568" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2568"><a href="/home/contact">Liên hệ</a></li>
+                                <li id="menu-item-197" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-197"><a href="/blog" class="disable-link">FAQ’s</a></li>
                             </ul>
                         </div><div class="top-middle-menu-container ovic-menu-wapper horizontal">
                             <ul id="menu-social-menu" class="gokko-nav top-bar-menu top-middle-menu ovic-menu">
-                                <li id="menu-item-1571" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1571"><a href="https://www.facebook.com/"><span class="icon icon-font fa fa-facebook-f"></span></a></li>
-                                <li id="menu-item-1573" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1573"><a href="https://twitter.com/"><span class="icon icon-font fa fa-twitter"></span></a></li>
-                                <li id="menu-item-1574" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1574"><a href="https://www.pinterest.com/"><span class="icon icon-font fa fa-pinterest"></span></a></li>
-                                <li id="menu-item-1575" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1575"><a href="https://www.instagram.com/"><span class="icon icon-font fa fa-instagram"></span></a></li>
+                                <li id="menu-item-1571" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.facebook.com/share.php?u=@currentUrl"><span class="icon icon-font fa fa-facebook-f"></span></a></li>
+                                <li id="menu-item-1573" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://twitter.com/intent/tweet?url=@currentUrl"><span class="icon icon-font fa fa-twitter"></span></a></li>
+                                <li id="menu-item-1574" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.pinterest.com/pinthis/?url=@currentUrl"><span class="icon icon-font fa fa-pinterest"></span></a></li>
+                                <li id="menu-item-1575" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.instagram.com?url=@currentUrl"><span class="icon icon-font fa fa-instagram"></span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -311,7 +308,12 @@
                         </div>
                     </div>
                     <div class="header-control">
-
+                        <div class="block-wishlist">
+                            <a class="woo-wishlist-link" href="https://www.facebook.com/share.php?u=@currentUrl" target="_blank">
+                                <i class="gokko-icon icon-wishlist icon-heart"></i>
+                                <span class="text">Yêu thích</span>
+                            </a>
+                        </div>
                         <div class="block-minicart ovic-mini-cart ovic-dropdown">
                             <a class="link-dropdown block-cart-link" href="/product/checkout" data-ovic="ovic-dropdown">
                                 <span class="gokko-icon icon-basket">
@@ -334,7 +336,7 @@
                 <div class="header-nav-inner header-responsive">
                     <!-- block category -->
                     <div data-items="11"
-                         class="vertical-wrapper block-nav-category has-vertical-menu always-open">
+                         class="vertical-wrapper block-nav-category has-vertical-menu">
                         <div class="block-title">
                             <span class="before">
                                 <span></span>
@@ -350,7 +352,7 @@
                                     {
                                         foreach (var item in commonInfo.ProductCategoryList)
                                         {
-                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-203 menu-item-has-mega-menu menu-item-has-children item-megamenu">
+                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-mega-menu menu-item-has-children item-megamenu">
                                                 <a href="@item.DefaultLink" class="disable-link">@item.Name</a>
                                                 <div class="sub-menu megamenu lazy" data-responsive="" style="width:720px;background-size: cover;background-position: center;" data-src="@item.Images">
                                                     <p>
@@ -367,7 +369,7 @@
                                                                                         {
                                                                                             foreach (var childItem in item.ChildCategory)
                                                                                             {
-                                                                                                <li id="menu-item-2188" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2188"><a href="@childItem.DefaultLink" class="disable-link">@childItem.Name</a></li>
+                                                                                                <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="@childItem.DefaultLink" class="disable-link">@childItem.Name</a></li>
 
                                                                                             }
                                                                                         }
@@ -396,7 +398,12 @@
                             <ul id="menu-primary-menu-1" class="clone-main-menu gokko-nav main-menu ovic-menu ovic-clone-mobile-menu">
                                 @foreach (var item in commonInfo.MenuList)
                                 {
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                                    var hasChildren = false;
+                                    if (item.ChidMenu != null && item.ChidMenu.Count() > 0)
+                                    {
+                                        hasChildren = true;
+                                    }
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom @(hasChildren?"menu-item-has-children":"")">
                                         <a href="@item.Link" class="disable-link">@item.Tittle</a>
                                         @if (item.ChidMenu != null && item.ChidMenu.Count() > 0)
                                         {
@@ -419,7 +426,7 @@
         </div>
     </header>
     <div class="fullwidth-template">
-      @RenderBody()
+        @RenderBody()
     </div>
 
     <a href="#" class="backtotop">
@@ -441,15 +448,9 @@
                 </a>
             </div>
             <div class="mobile-block block-minicart">
-                <a class="link-dropdown" href="cart/index.html">
+                <a class="link-dropdown" href="/product/checkout">
                     <span class="gokko-icon icon-basket"></span>
-                    <span class="text">Cart</span>
-                </a>
-            </div>
-            <div class="mobile-block mobile-block-global">
-                <a class="menu-bar myaccount-toggle" href="javascript:void(0)">
-                    <span class="fa fa-globe"></span>
-                    <span class="text">Global</span>
+                    <span class="text">Giỏ hàng</span>
                 </a>
             </div>
         </div>
@@ -463,18 +464,22 @@
                             <div class="wpb_single_image wpb_content_element vc_align_left ovic_custom_5c8ef79e03362 vc_custom_1531127631320">
 
                                 <figure class="wpb_wrapper vc_figure">
-                                    <div class="vc_single_image-wrapper   vc_box_border_grey"><img class="vc_single_image-img lazy attachment-full" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2084%2024%27%2F%3E" data-src="https://gokko.kutethemes.net/wp-content/uploads/2018/07/logo.png" width="84" height="24" alt="Footer 08" /></div>
+                                    <div class="vc_single_image-wrapper">
+                                        <img class="vc_single_image-img lazy attachment-full" src="@commonInfo.Logo" width="84" height="24" alt="@commonInfo.Name" />
+                                    </div>
                                 </figure>
                             </div>
-                            <div style="font-size: 14px;color: #888888;line-height: 20px;text-align: left" class="vc_custom_heading ovic_custom_5c8ef79e03363 vc_custom_1531127910430 vc_custom_1531127910448">Est erat faucibus purus, eget viverra nulla sem vitae Quisque id sodales libero. In nec enim nisi, in ultricies quam Sed lacinia</div>                            <div class="ovic-iconbox default `{`object Object`}`   ovic_custom_5c8ef79e03364 vc_custom_1533092033076 ">
+                            <div style="font-size: 14px;color: #888888;line-height: 20px;text-align: left" class="vc_custom_heading ovic_custom_5c8ef79e03363 vc_custom_1531127910430 vc_custom_1531127910448">
+                                @Html.Raw(commonInfo.Desc)
+                            </div>
+                            <div class="ovic-iconbox default  ovic_custom_5c8ef79e03364 vc_custom_1533092033076 ">
                                 <div class="iconbox-inner">
                                     <div class="icon">
                                         <span class="gokko-icon icon-location"></span>
                                     </div>
                                     <div class="content">
                                         <p class="text">
-                                            Market Technologies, 2686 Mil Road,<br />
-                                            Deltona,FL 332865. US
+                                            @Html.Raw(commonInfo.Address)
                                         </p>
                                     </div>
                                 </div>
@@ -486,80 +491,18 @@
                                         <span class="gokko-icon icon-envelope"></span>
                                     </div>
                                     <div class="content">
-                                        <p class="text">support@example.com</p>
+                                        <p class="text"><a href="mailto:@commonInfo.Email"> @commonInfo.Email</a></p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="ovic-iconbox default `{`object Object`}`   ovic_custom_5c8ef79e03366 ">
+                            <div class="ovic-iconbox default  ovic_custom_5c8ef79e03366 ">
                                 <div class="iconbox-inner">
                                     <div class="icon">
                                         <span class="gokko-icon icon-phone"></span>
                                     </div>
                                     <div class="content">
-                                        <p class="text">(+066) 123 456 7899</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div><div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-2 vc_col-md-2 vc_col-xs-12 ovic_custom_5c8ef79e03367 vc_custom_1534379485905 vc_custom_1534379485941 vc_custom_1534379485953">
-                    <div class="vc_column-inner">
-                        <div class="wpb_wrapper">
-                            <div class="ovic-custommenu vc_wp_custommenu wpb_content_element    ovic_custom_5c8ef79e03368 " data-show_count_items="0" data-text_more="All Categories">
-                                <div class="widget widget_nav_menu">
-                                    <h2 class="widgettitle">Shop</h2><div class=" ovic-menu-wapper horizontal">
-                                        <ul id="menu-footer-shop" class="menu ovic-menu">
-                                            <li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6"><a href="#" class="disable-link">Laptop & computer</a></li>
-                                            <li id="menu-item-7" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7"><a href="#" class="disable-link">Mac computer</a></li>
-                                            <li id="menu-item-8" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8"><a href="#" class="disable-link">Video & Console</a></li>
-                                            <li id="menu-item-9" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9"><a href="#" class="disable-link">Accessories</a></li>
-                                            <li id="menu-item-10" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10"><a href="#" class="disable-link">Smartphone & Tablet</a></li>
-                                            <li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11"><a href="#" class="disable-link">Game & Consoles</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-2 vc_col-md-3 vc_col-xs-12 ovic_custom_5c8ef79e03369 vc_custom_1534379398015">
-                    <div class="vc_column-inner">
-                        <div class="wpb_wrapper">
-                            <div class="ovic-custommenu vc_wp_custommenu wpb_content_element default   ovic_custom_5c8ef79e0336a " data-show_count_items="0" data-text_more="All Categories">
-                                <div class="widget widget_nav_menu">
-                                    <h2 class="widgettitle">Why Buy From Us</h2><div class=" ovic-menu-wapper horizontal">
-                                        <ul id="menu-footer-from-us" class="menu ovic-menu">
-                                            <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12"><a href="#" class="disable-link">Shipping & Returns</a></li>
-                                            <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13"><a href="#" class="disable-link">Secure Shopping</a></li>
-                                            <li id="menu-item-14" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14"><a href="#" class="disable-link">International Shipping</a></li>
-                                            <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15"><a href="#" class="disable-link">Affiliates</a></li>
-                                            <li id="menu-item-16" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16"><a href="#" class="disable-link">Group Sales</a></li>
-                                            <li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17"><a href="#" class="disable-link">Our Sitemap</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-2 vc_col-md-3 vc_col-xs-12 ovic_custom_5c8ef79e03369 vc_custom_1534379398015">
-                    <div class="vc_column-inner">
-                        <div class="wpb_wrapper">
-                            <div class="ovic-custommenu vc_wp_custommenu wpb_content_element default   ovic_custom_5c8ef79e0336a " data-show_count_items="0" data-text_more="All Categories">
-                                <div class="widget widget_nav_menu">
-                                    <h2 class="widgettitle">Why Buy From Us</h2><div class=" ovic-menu-wapper horizontal">
-                                        <ul id="menu-footer-from-us" class="menu ovic-menu">
-                                            <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12"><a href="#" class="disable-link">Shipping & Returns</a></li>
-                                            <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13"><a href="#" class="disable-link">Secure Shopping</a></li>
-                                            <li id="menu-item-14" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14"><a href="#" class="disable-link">International Shipping</a></li>
-                                            <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15"><a href="#" class="disable-link">Affiliates</a></li>
-                                            <li id="menu-item-16" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16"><a href="#" class="disable-link">Group Sales</a></li>
-                                            <li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17"><a href="#" class="disable-link">Our Sitemap</a></li>
-                                        </ul>
+                                        <p class="text"><a href="tel:commonInfo.HotLine"> @Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.HotLine) </a></p>
                                     </div>
                                 </div>
                             </div>
@@ -568,14 +511,44 @@
                     </div>
                 </div>
 
-            </div><div class="vc_row-full-width vc_clearfix"></div><div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid ovic_custom_5c8ef79e0336d vc_custom_1536225683628 vc_custom_1536225683675">
+                @if (commonInfo.FooterMenuList != null && commonInfo.FooterMenuList.Length > 0)
+                {
+                    foreach (var item in commonInfo.FooterMenuList)
+                    {<div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-2 vc_col-md-2 vc_col-xs-12 ovic_custom_5c8ef79e03367 vc_custom_1534379485905 vc_custom_1534379485941 vc_custom_1534379485953">
+                            <div class="vc_column-inner">
+                                <div class="wpb_wrapper">
+                                    <div class="ovic-custommenu vc_wp_custommenu wpb_content_element    ovic_custom_5c8ef79e03368 " data-show_count_items="0" data-text_more="All Categories">
+                                        <div class="widget widget_nav_menu">
+                                            <h2 class="widgettitle">@item.Tittle</h2>
+                                            <div class=" ovic-menu-wapper horizontal">
+                                                <ul id="menu-footer-shop" class="menu ovic-menu">
+                                                    @if (item.ChidMenu != null && item.ChidMenu.Length > 0)
+                                                    {
+                                                        foreach (var chidlItem in item.ChidMenu)
+                                                        {
+                                                            <li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6"><a href="@chidlItem.Link" class="disable-link">@chidlItem.Tittle</a></li>
+                                                        }
+                                                    }
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+            </div>
+            <div class="vc_row-full-width vc_clearfix"></div>
+            <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid ovic_custom_5c8ef79e0336d vc_custom_1536225683628 vc_custom_1536225683675">
                 <div class="wpb_column vc_column_container vc_col-sm-6 ovic_custom_5c8ef79e0336e vc_custom_1530841990163">
                     <div class="vc_column-inner">
                         <div class="wpb_wrapper">
                             <div class="wpb_text_column wpb_content_element ovic_custom_5c8ef79e0336f ">
                                 <div class="wpb_wrapper">
                                     <div style="color: #fff; font-size: 14px;">
-                                        Copyright © 2019 <a style="color: #fff;" href="#">Tên cửa hàng.</a> <br>
+                                        Copyright © 2019 <a style="color: #fff;" href="/">@commonInfo.Name.</a> <br>
                                         Trang web thương mại điện tử được phát triển bởi Concat Group - Ccg
                                     </div>
 
@@ -583,11 +556,11 @@
                             </div>
                         </div>
                     </div>
-                </div><div class="wpb_column vc_column_container vc_col-sm-6 ovic_custom_5c8ef79e03370">
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-6 ovic_custom_5c8ef79e03370">
                     <div class="vc_column-inner">
                         <div class="wpb_wrapper">
                             <div class="wpb_single_image wpb_content_element vc_align_right ovic_custom_5c8ef79e03371">
-
                                 <figure class="wpb_wrapper vc_figure">
                                     <div class="vc_single_image-wrapper   vc_box_border_grey"><img class="vc_single_image-img lazy attachment-full" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20266%2024%27%2F%3E" data-src="https://gokko.kutethemes.net/wp-content/uploads/2018/09/payment-3.png" width="266" height="24" alt="Footer 08" /></div>
                                 </figure>
@@ -595,68 +568,12 @@
                         </div>
                     </div>
                 </div>
-            </div><div class="vc_row-full-width vc_clearfix"></div>
+            </div>
+            <div class="vc_row-full-width vc_clearfix"></div>
         </div>
     </footer>
-
-    <div id="yith-quick-view-modal">
-
-        <div class="yith-quick-view-overlay"></div>
-
-        <div class="yith-wcqv-wrapper">
-
-            <div class="yith-wcqv-main">
-
-                <div class="yith-wcqv-head">
-                    <a href="#" id="yith-quick-view-close" class="yith-wcqv-close">X</a>
-                </div>
-
-                <div id="yith-quick-view-content" class="woocommerce single-product"></div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="pswp__bg"></div>
-        <div class="pswp__scroll-wrap">
-            <div class="pswp__container">
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-            </div>
-            <div class="pswp__ui pswp__ui--hidden">
-                <div class="pswp__top-bar">
-                    <div class="pswp__counter"></div>
-                    <button class="pswp__button pswp__button--close" aria-label="Close (Esc)"></button>
-                    <button class="pswp__button pswp__button--share" aria-label="Share"></button>
-                    <button class="pswp__button pswp__button--fs" aria-label="Toggle fullscreen"></button>
-                    <button class="pswp__button pswp__button--zoom" aria-label="Zoom in/out"></button>
-                    <div class="pswp__preloader">
-                        <div class="pswp__preloader__icn">
-                            <div class="pswp__preloader__cut">
-                                <div class="pswp__preloader__donut"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                    <div class="pswp__share-tooltip"></div>
-                </div>
-                <button class="pswp__button pswp__button--arrow--left" aria-label="Previous (arrow left)"></button>
-                <button class="pswp__button pswp__button--arrow--right" aria-label="Next (arrow right)"></button>
-                <div class="pswp__caption">
-                    <div class="pswp__caption__center"></div>
-                </div>
-            </div>
-        </div>
-    </div>
     <link rel='stylesheet' href='/theme/wp-content/plugins/woocommerce/assets/css/photoswipe/photoswipe.css' type='text/css' media='all' />
     <link rel='stylesheet' href='/theme/wp-content/plugins/woocommerce/assets/css/photoswipe/default-skin/default-skin.css' type='text/css' media='all' />
-
     @Scripts.Render("~/bundles/global.js")
     <script type='text/javascript' src='/theme/wp-content/plugins/ovic-toolkit/includes/frontend/assets/js/libs/countdown.min.js'></script>
     <script type='text/javascript' src='/theme/wp-content/themes/gokko/assets/js/functions.js'></script>
@@ -667,9 +584,10 @@
     <script type='text/javascript' src='/theme/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'></script>
     <script type='text/javascript' src='/theme/wp-content/plugins/woocommerce/assets/js/zoom/jquery.zoom.min.js'></script>
     <script src="/Scripts/Anpero.Common.js"></script>
-
+    <script src="/Scripts/ShoppingCart.js"></script>
     @RenderSection("scripts", required: false)
     @Html.Raw(commonInfo.PageScript)
+    @Html.Raw(commonInfo.AnperoPlugin)
     <script type="application/ld+json">
         {
         "@@context": "https://schema.org",

@@ -170,7 +170,7 @@ namespace AnperoFrontend.Controllers
             return View("List");
         }
         [BuildCommonHtml]
-        public ActionResult Checkout()
+        public ActionResult Checkout() 
         {
             AnperoService ws = new AnperoService();
             PaymentConfig[] pa = ws.GetPaymentAPIConfig(StoreID, TokenKey);

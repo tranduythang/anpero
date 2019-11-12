@@ -81,39 +81,18 @@ namespace AnperoFrontend.Controllers
             WebService.AnperoService service = new WebService.AnperoService();
             WebService.SearchResult searchResult = new WebService.SearchResult();
             int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
-            if (HttpRuntime.Cache["newestProduct"] != null)
+            if(!cacheService.TryGet("newestProduct",out searchResult))
             {
-                searchResult = (WebService.SearchResult)HttpRuntime.Cache["newestProduct"];
-            }
-            else
-            {
-                searchResult = service.SearchProduct(StoreID, TokenKey, "", "", "", 1, 999999999, 1, 7, "", SearchOrder.TimeDesc, 0,string.Empty);
+                searchResult = service.SearchProduct(StoreID, TokenKey, "", "", "", 1, 999999999, 1, 7, "", SearchOrder.TimeDesc, 2,string.Empty);
                 if (searchResult != null)
                 {
-                    HttpRuntime.Cache.Insert("newestProduct", searchResult, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                    cacheService.AddOrUpdate("newestProduct", searchResult, new TimeSpan(0, 10, 0));
                 }
-               
             }
            
             ViewData["newestProduct"] = searchResult;
                         
-            //WebService.SearchResult searchResult2 = new WebService.SearchResult();
-            
-            //if (HttpRuntime.Cache["customProduct"] != null)
-            //{
-            //    searchResult = (WebService.SearchResult)HttpRuntime.Cache["customProduct"];
-            //}
-            //else
-            //{
-            //    searchResult = service.GetProductByParentCategory(StoreID, TokenKey, 178, 1, 8, 0);
-            //    if (searchResult != null)
-            //    {
-            //        HttpRuntime.Cache.Insert("customProduct", searchResult, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
-            //    }
-
-            //}
-
-            //ViewData["customProduct"] = searchResult;
+          
 
         }
         [BuildCommonHtml]

@@ -381,10 +381,7 @@
         e.preventDefault();
     });
     
-    // Open vartical menu
-    $(document).on('click', '.block-title', function () {
-        $(this).closest('.vertical-wrapper').find('.ovic-menu-wapper.vertical').ovic_auto_width_vertical_menu();
-    });
+    
     /* ---------------------------------------------
      Scripts load
      --------------------------------------------- */

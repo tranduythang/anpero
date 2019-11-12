@@ -1,4 +1,6 @@
-﻿@{
+﻿@using AnperoFrontend.WebService;
+@{
+
     AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
     if (ViewData["commonInfo"] != null)
     {
@@ -152,336 +154,160 @@
 <div class="container">
 
     <div class="vc_row-full-width vc_clearfix"></div>
-    <div class="vc_row-full-width vc_clearfix"></div><div class="vc_row wpb_row vc_row-fluid ovic_custom_5c92fe3eaf6d1 vc_custom_1544605855380 vc_custom_1544605855411 vc_custom_1544605855425">
-        <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-4 vc_col-md-4 ovic_custom_5c92fe3eaf6d2 vc_custom_1536912601750">
-            <div class="vc_column-inner">
-                <div class="wpb_wrapper">
-                    <div class="ovic-products      style-4   ovic_custom_5c92fe3eaf6d3  item_is_margin owl-ls-1 owl-lg-1 owl-md-1 owl-sm-2 owl-xs-2 owl-ts-1 ovic_products_style27">
-                        <div class="box-title">
-                            <strong>Deal of the days</strong>
-                            <span class="text-sale"><span>Khuyến mại 60%</span></span>
-                        </div>
-                        <div class="product-list-owl owl-slick equal-container better-height " data-slick={&quot;arrows&quot;:false,&quot;slidesMargin&quot;:30,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:1,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:1}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:1}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:1}}]>
-                            <div class="product-item products style-4 rows-space-0 product type-product post-380 status-publish instock product_cat-camera-photo product_tag-appliances product_tag-digital product_tag-fashion product_tag-glass has-post-thumbnail sale shipping-taxable purchasable product-type-simple">
-                                <div class="product-inner">
-                                    <div class="product-thumb">
-                                        <a href="#" class="button yith-wcqv-button" data-product_id="380">Quick View</a>        <a class="thumb-link woocommerce-product-gallery__image" href="product/samseen-gear-s2-smart-watch/index.html">
-                                            <figure>
-                                                <img width="300" height="300" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22300%22%20viewBox%3D%220%200%20300%20300%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0004s_0003s_0000_11a" data-src="/theme/wp-content/uploads/2018/07/org_0004s_0003s_0000_11a-300x300.jpg" />
-                                            </figure>
-                                        </a>
-                                        <div class="flash">
+    <div class="vc_row-full-width vc_clearfix"></div>
 
-                                            <span class="onsale"><span class="text">-19%</span></span>
+    @if (ViewData["newestProduct"] != null)
+    {
+        SearchResult searchResult = (SearchResult)ViewData["newestProduct"];
+        if (searchResult.Item.Length > 0)
+        {
+            var item1 = searchResult.Item[0];
+            <div class="vc_row wpb_row vc_row-fluid ovic_custom_5c92fe3eaf6d1 vc_custom_1544605855380 vc_custom_1544605855411 vc_custom_1544605855425">
+                <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-4 vc_col-md-4 ovic_custom_5c92fe3eaf6d2 vc_custom_1536912601750">
+
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div class="ovic-products  style-4 ovic_custom_5c92fe3eaf6d3  item_is_margin owl-ls-1 owl-lg-1 owl-md-1 owl-sm-2 owl-xs-2 owl-ts-1">
+                                @if (item1.IsSale)
+                                {
+                                    <div class="box-title">
+                                        <span class="text-sale"><span>Khuyến mại @Anpero.StringHelpper.GetDiscountPersen(item1.Price, item1.SalePrice)%</span></span>
+                                    </div>
+                                }
+
+                                <div class="product-list-owl owl-slick equal-container better-height">
+                                    <div class="product-item products style-4 rows-space-0 product type-product post-380 status-publish instock product_cat-camera-photo product_tag-appliances product_tag-digital product_tag-fashion product_tag-glass has-post-thumbnail sale shipping-taxable purchasable product-type-simple">
+                                        <div class="product-inner">
+                                            <div class="product-thumb">
+                                                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item1.CatName,item1.Id)" class="button yith-wcqv-button">Chi tiết</a>
+                                                <a class="thumb-link woocommerce-product-gallery__image" href="">
+                                                    <figure>
+                                                        <img width="300" height="300" src="@item1.Images" class="wp-post-image attachment-300x300 size-300x300 lazy" data-src="@item1.Images" />
+                                                    </figure>
+                                                </a>
+                                            </div>
+                                            <div class="product-info">
+                                                <h3 class="product-name product_title">
+                                                    <a href="@Anpero.StringHelpper.GetParentCategoryLink(item1.CatName,item1.Id)">@item1.PrName</a>
+                                                </h3>
+                                                <p>@item1.Warranty tháng</p>
+                                                <span class="price">
+                                                    @if (item1.IsSale)
+                                                    {
+                                                        <del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>@Anpero.StringHelpper.ConVertToMoneyFormatInt(item1.Price)</span></del>
+                                                    }
+                                                    <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>@Anpero.StringHelpper.ConVertToMoneyFormatInt(item1.IsSale ? item1.SalePrice : item1.Price)đ</span></ins>
+                                                </span>
+                                                <p>@item1.Warranty tháng</p>
+                                                <p>Xuất xứ : @item1.OriginName</p>
+                                                <p>Thông số:  @item1.Specifications</p>
+                                                <div class="add-to-cart">
+                                                    <a href="Cart.addProduct(@item1.Id,@(item1.IsSale?item1.SalePrice:item1.Price),'@item1.Images','@HttpUtility.UrlEncode(item1.PrName)'" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ hàng</a>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name product_title">
-                                            <a href="product/samseen-gear-s2-smart-watch/index.html">Samseen Gear S2 &#8211; Smart Watch</a>
-                                        </h3>
-                                        <div>1 tháng</div>
-                                        <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>149.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>120.00</span></ins></span>
-                                        <div>Bảo hành : 12 tháng</div>
-                                        <div>Xuất xứ : Nhật bản</div>
-                                        <div>Thông số:  xxxxxxxx</div>
-
-                                        <div class="add-to-cart">
-                                            <a href="index2210.html?add-to-cart=380" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="380" data-product_sku="DG1239" aria-label="Add &ldquo;Samseen Gear S2 - Smart Watch&rdquo; to your cart" rel="nofollow">Thêm vào giỏ hàng</a>
-                                        </div>
-
-                                    </div>
-
                                 </div>
                             </div>
-                            <div class="product-item products style-4 rows-space-0 product type-product post-382 status-publish last instock product_cat-camera-photo product_tag-furniture product_tag-handmade product_tag-men product_tag-women has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                <div class="product-inner">
-                                    <div class="product-thumb">
-                                        <a href="#" class="button yith-wcqv-button" data-product_id="382">Quick View</a>        <a class="thumb-link woocommerce-product-gallery__image" href="product/aseen-vivabook-s15-s510un/index.html">
-                                            <figure>
-                                                <img width="300" height="300" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22300%22%20viewBox%3D%220%200%20300%20300%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0004s_0006s_0000_8a" data-src="/theme/wp-content/uploads/2018/07/org_0004s_0006s_0000_8a-300x300.jpg" />
-                                            </figure>
-                                        </a>
-                                        <div class="flash">
-                                        </div>
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name product_title">
-                                            <a href="product/aseen-vivabook-s15-s510un/index.html">Aseen Vivabook S15 S510un</a>
-                                        </h3>
-                                        <div>1 tháng</div>
-                                        <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>149.00</span></span>
 
-                                        <div class="add-to-cart">
-                                            <a href="indexd1d4.html?add-to-cart=382" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="382" data-product_sku="DG1236" aria-label="Add &ldquo;Aseen Vivabook S15 S510un&rdquo; to your cart" rel="nofollow">Thêm vào giỏ hàng</a>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="product-item products style-4 rows-space-0 product type-product post-3426 status-publish first instock product_cat-gadgets-accessories product_tag-appliances product_tag-bass product_tag-furniture has-post-thumbnail sale featured shipping-taxable purchasable product-type-variable has-default-attributes">
-                                <div class="product-inner">
-                                    <div class="product-thumb">
-                                        <a href="#" class="button yith-wcqv-button" data-product_id="3426">Quick View</a>        <a class="thumb-link woocommerce-product-gallery__image" href="product/camen-powershot-sx620-compact/index.html">
-                                            <figure>
-                                                <img width="300" height="300" src="/theme/wp-content/uploads/2018/12/org_0000s_0000s_0000_24c-300x300.jpg" class="wp-post-image attachment-300x300 size-300x300" alt="org_0000s_0000s_0000_24c" />
-                                            </figure>
-                                        </a>
-                                        <div class="flash">
-
-                                            <span class="onsale"><span class="text">-41%</span></span>
-                                        </div>
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name product_title">
-                                            <a href="product/camen-powershot-sx620-compact/index.html">Camen powershot sx620 compact</a>
-                                        </h3>
-                                        <div>1 tháng</div>
-                                        <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>419.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>249.00</span></ins></span>
-
-                                        <div class="countdown-container">
-                                            <div class="gokko-countdown" data-datetime="09/30/2020 11:59:59"
-                                                 data-txt_day="Days"
-                                                 data-txt_hour="Hrs"
-                                                 data-txt_min="Mins"
-                                                 data-txt_sec="Secs" data-value_first="1"></div>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <a href="product/camen-powershot-sx620-compact/index.html" data-quantity="1" class="button product_type_variable add_to_cart_button" data-product_id="3426" data-product_sku="SE1260" aria-label="Select options for &ldquo;Camen powershot sx620 compact&rdquo;" rel="nofollow">Select options</a>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
                         </div>
                     </div>
-
                 </div>
-            </div>
-        </div><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-8 vc_col-md-8 ovic_custom_5c92fe3eaf6d4">
-            <div class="vc_column-inner">
-                <div class="wpb_wrapper">
-                    <div class="ovic-tabs style1 style7   ovic_custom_5c92fe3eaf6df ">
-                        <div class="tab-head ovic-dropdown">
-                            <h3 class="ovic-title"><span class="text">Bán chạy</span></h3>
-                            <ul class="tab-link">
-                                <li class="">
-                                    <a class="loaded" data-ajax="1" data-animate="" data-section="1536660094089-030a170f-4d09" data-id="2719" href="#1536660094089-030a170f-4d09-5dad9982aece9">
-                                        <span>All Products</span>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a class="" data-ajax="1" data-animate="" data-section="1536713769535-2a988d85-3c68" data-id="2719" href="#1536713769535-2a988d85-3c68-5dad9982aece9">
-                                        <span>Audio &amp; Video</span>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a class="" data-ajax="1" data-animate="" data-section="1536713769281-42f1576b-5d50" data-id="2719" href="#1536713769281-42f1576b-5d50-5dad9982aece9">
-                                        <span>Camera &amp; Photo</span>
-                                    </a>
-                                </li>
-                                <li class="active">
-                                    <a class="" data-ajax="1" data-animate="" data-section="1537320877808-0a375649-6af6" data-id="2719" href="#1537320877808-0a375649-6af6-5dad9982aece9">
-                                        <span>Smartphone &amp; Tablets</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-
-                        <div class="tab-container">
-                            <div class="tab-panel active" id="1536648399962-4fabbe53-23a7-5dad9982a5959">
-                                <div class="ovic-products   review_hided   style-2   ovic_custom_5c92fe3eaf6d6  owl-ls-3 owl-lg-3 owl-md-3 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_owl_default">
-                                    <div class="product-list-owl owl-slick equal-container better-height " data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:3,&quot;rows&quot;:2} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
-                                        <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-3426 status-publish instock product_cat-gadgets-accessories product_tag-appliances product_tag-bass product_tag-furniture has-post-thumbnail sale featured shipping-taxable purchasable product-type-variable has-default-attributes">
-                                            <div class="product-inner">
-                                                <div class="product-thumb">
-                                                    <a href="#" class="button yith-wcqv-button" data-product_id="3426">Quick View</a>        <a class="thumb-link woocommerce-product-gallery__image" href="product/camen-powershot-sx620-compact/index.html">
-                                                        <figure>
-                                                            <img width="300" height="300" src="/theme/wp-content/uploads/2018/12/org_0000s_0000s_0000_24c-300x300.jpg" class="wp-post-image attachment-300x300 size-300x300" alt="org_0000s_0000s_0000_24c" />
-                                                        </figure>
-                                                    </a>
-                                                    <div class="flash">
-
-                                                        <span class="onsale"><span class="text">-41%</span></span>
-                                                    </div>
-                                                </div>
-                                                <div class="product-info">
-                                                    <h3 class="product-name product_title">
-                                                        <a href="product/camen-powershot-sx620-compact/index.html">Camen powershot sx620 compact</a>
-                                                    </h3>
-                                                    <div>12 tháng</div>
-                                                    <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>419.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>249.00</span></ins></span>
-                                                </div>
-                                                <div class="group-button">
-                                                    <div class="inner">
-                                                        <div class="add-to-cart">
-                                                            <a href="product/camen-powershot-sx620-compact/index.html" data-quantity="1" class="button product_type_variable add_to_cart_button" data-product_id="3426" data-product_sku="SE1260" aria-label="Select options for &ldquo;Camen powershot sx620 compact&rdquo;" rel="nofollow">Select options</a>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-3425 status-publish instock product_cat-gadgets-accessories product_tag-appliances product_tag-furniture product_tag-glass has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                            <div class="product-inner">
-                                                <div class="product-thumb">
-                                                    <a href="#" class="button yith-wcqv-button" data-product_id="3425">Quick View</a>        <a class="thumb-link woocommerce-product-gallery__image" href="product/smart-tivi-samsin-4k-65-inch-ua65m/index.html">
-                                                        <figure>
-                                                            <img width="300" height="300" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22300%22%20viewBox%3D%220%200%20300%20300%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0000s_0002s_0000_22a" data-src="/theme/wp-content/uploads/2018/12/org_0000s_0002s_0000_22a-300x300.jpg" />
-                                                        </figure>
-                                                    </a>
-                                                    <div class="flash">
-                                                    </div>
-                                                </div>
-                                                <div class="product-info">
-                                                    <h3 class="product-name product_title">
-                                                        <a href="product/smart-tivi-samsin-4k-65-inch-ua65m/index.html">Smart Tivi Samsin 4K 65 inch UA65M</a>
-                                                    </h3>
-                                                    <div>12 tháng</div>
-                                                    <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>326.00</span></span>
-                                                </div>
-                                                <div class="group-button">
-                                                    <div class="inner">
-                                                        <div class="add-to-cart">
-                                                            <a href="index6367.html?add-to-cart=3425" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="3425" data-product_sku="SE1258" aria-label="Add &ldquo;Smart Tivi Samsin 4K 65 inch UA65M&rdquo; to your cart" rel="nofollow">Thêm vào giỏ hàng</a>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-3424 status-publish last instock product_cat-video-games-consoles product_tag-fashion product_tag-men product_tag-women has-post-thumbnail featured shipping-taxable purchasable product-type-simple">
-                                            <div class="product-inner">
-                                                <div class="product-thumb">
-                                                    <a href="#" class="button yith-wcqv-button" data-product_id="3424">Quick View</a>        <a class="thumb-link woocommerce-product-gallery__image" href="product/da-spark-fly-sunriseen-yellow/index.html">
-                                                        <figure>
-                                                            <img width="300" height="300" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22300%22%20viewBox%3D%220%200%20300%20300%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0000s_0001s_0000_23b" data-src="/theme/wp-content/uploads/2018/12/org_0000s_0001s_0000_23b-300x300.jpg" />
-                                                        </figure>
-                                                    </a>
-                                                    <div class="flash">
-                                                    </div>
-                                                </div>
-                                                <div class="product-info">
-                                                    <h3 class="product-name product_title">
-                                                        <a href="product/da-spark-fly-sunriseen-yellow/index.html">DA Spark Fly Sunriseen Yellow</a>
-                                                    </h3>
-                                                    <div>12 tháng</div>
-                                                    <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>248.00</span></span>
-                                                </div>
-                                                <div class="group-button">
-                                                    <div class="inner">
-                                                        <div class="add-to-cart">
-                                                            <a href="index283c.html?add-to-cart=3424" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="3424" data-product_sku="SE1259" aria-label="Add &ldquo;DA Spark Fly Sunriseen Yellow&rdquo; to your cart" rel="nofollow">Thêm vào giỏ hàng</a>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-3423 status-publish first instock product_cat-printer-ink product_tag-fashion product_tag-furniture product_tag-phone has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                            <div class="product-inner">
-                                                <div class="product-thumb">
-                                                    <a href="#" class="button yith-wcqv-button" data-product_id="3423">Quick View</a>        <a class="thumb-link woocommerce-product-gallery__image" href="product/sound-link-color-bluetooth-ii/index.html">
-                                                        <figure>
-                                                            <img width="300" height="300" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22300%22%20viewBox%3D%220%200%20300%20300%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0000s_0003s_0000_21a" data-src="/theme/wp-content/uploads/2018/12/org_0000s_0003s_0000_21a-300x300.jpg" />
-                                                        </figure>
-                                                    </a>
-                                                    <div class="flash">
-                                                    </div>
-                                                </div>
-                                                <div class="product-info">
-                                                    <h3 class="product-name product_title">
-                                                        <a href="product/sound-link-color-bluetooth-ii/index.html">Sound Link Color Bluetooth II</a>
-                                                    </h3>
-                                                    <div>12 tháng</div>
-                                                    <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>245.00</span></span>
-                                                </div>
-                                                <div class="group-button">
-                                                    <div class="inner">
-                                                        <div class="add-to-cart">
-                                                            <a href="indexafb6.html?add-to-cart=3423" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="3423" data-product_sku="SE1257" aria-label="Add &ldquo;Sound Link Color Bluetooth II&rdquo; to your cart" rel="nofollow">Thêm vào giỏ hàng</a>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-3422 status-publish instock product_cat-vitural-reality product_tag-appliances product_tag-fashion product_tag-handmade has-post-thumbnail sale featured shipping-taxable purchasable product-type-variable">
-                                            <div class="product-inner">
-                                                <div class="product-thumb">
-                                                    <a href="#" class="button yith-wcqv-button" data-product_id="3422">Quick View</a>
-                                                    <a class="thumb-link woocommerce-product-gallery__image" href="product/lenuye-laptop-windows-10/index.html">
-                                                        <figure>
-                                                            <img width="300" height="300" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22300%22%20viewBox%3D%220%200%20300%20300%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0000s_0010s_0000_14a" data-src="/theme/wp-content/uploads/2018/12/org_0000s_0010s_0000_14a-300x300.jpg" />
-                                                        </figure>
-                                                    </a>
-                                                    <div class="flash">
-
-                                                        <span class="onsale"><span class="text">-30%</span></span>
-                                                    </div>
-                                                </div>
-                                                <div class="product-info">
-                                                    <h3 class="product-name product_title">
-                                                        <a href="product/lenuye-laptop-windows-10/index.html">Lenuye laptop windows 10</a>
-                                                    </h3>
-                                                    <div>12 tháng</div>
-                                                    <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>512.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>356.00</span></ins></span>
-                                                </div>
-                                                <div class="group-button">
-                                                    <div class="inner">
-                                                        <div class="add-to-cart">
-                                                            <a href="product/lenuye-laptop-windows-10/index.html" data-quantity="1" class="button product_type_variable add_to_cart_button" data-product_id="3422" data-product_sku="SE1256" aria-label="Select options for &ldquo;Lenuye laptop windows 10&rdquo;" rel="nofollow">Select options</a>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-3421 status-publish instock product_cat-laptop-computer has-post-thumbnail featured shipping-taxable purchasable product-type-simple">
-                                            <div class="product-inner">
-                                                <div class="product-thumb">
-                                                    <a href="#" class="button yith-wcqv-button" data-product_id="3421">Quick View</a>        <a class="thumb-link woocommerce-product-gallery__image" href="product/laptop-games-for-2016-mobilel/index.html">
-                                                        <figure>
-                                                            <img width="300" height="300" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22300%22%20viewBox%3D%220%200%20300%20300%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0000s_0008s_0000_16a" data-src="/theme/wp-content/uploads/2018/12/org_0000s_0008s_0000_16a-300x300.jpg" />
-                                                        </figure>
-                                                    </a>
-                                                    <div class="flash">
-                                                    </div>
-                                                </div>
-                                                <div class="product-info">
-                                                    <h3 class="product-name product_title">
-                                                        <a href="product/laptop-games-for-2016-mobilel/index.html">Laptop Games For 2016 Mobilel</a>
-                                                    </h3>
-                                                    <div>12 tháng</div>
-                                                    <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>324.00</span></span>
-                                                </div>
-                                                <div class="group-button">
-                                                    <div class="inner">
-                                                        <div class="add-to-cart">
-                                                            <a href="indexeb2f.html?add-to-cart=3421" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="3421" data-product_sku="SE1251" aria-label="Add &ldquo;Laptop Games For 2016 Mobilel&rdquo; to your cart" rel="nofollow">Thêm vào giỏ hàng</a>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-8 vc_col-md-8 ovic_custom_5c92fe3eaf6d4">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div class="ovic-tabs style1 style7   ovic_custom_5c92fe3eaf6df ">
+                                <div class="tab-head ovic-dropdown">
+                                    <h3 class="ovic-title"><span class="text">Bán chạy</span></h3>
+                                    <ul class="tab-link">
+                                        <li class="">
+                                            <a class="loaded" data-ajax="1" data-animate="" data-section="1536660094089-030a170f-4d09" data-id="2719" href="#1536660094089-030a170f-4d09-5dad9982aece9">
+                                                <span>All Products</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a class="" data-ajax="1" data-animate="" data-section="1536713769535-2a988d85-3c68" data-id="2719" href="#1536713769535-2a988d85-3c68-5dad9982aece9">
+                                                <span>Audio &amp; Video</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a class="" data-ajax="1" data-animate="" data-section="1536713769281-42f1576b-5d50" data-id="2719" href="#1536713769281-42f1576b-5d50-5dad9982aece9">
+                                                <span>Camera &amp; Photo</span>
+                                            </a>
+                                        </li>
+                                        <li class="active">
+                                            <a class="" data-ajax="1" data-animate="" data-section="1537320877808-0a375649-6af6" data-id="2719" href="#1537320877808-0a375649-6af6-5dad9982aece9">
+                                                <span>Smartphone &amp; Tablets</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
                                 </div>
 
+                                <div class="tab-container">
+                                    <div class="tab-panel active" id="1536648399962-4fabbe53-23a7-5dad9982a5959">
+                                        <div class="ovic-products   review_hided   style-2   ovic_custom_5c92fe3eaf6d6  owl-ls-3 owl-lg-3 owl-md-3 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_owl_default">
+                                            <div class="product-list-owl owl-slick equal-container better-height " data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:3,&quot;rows&quot;:2} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
+                                                @if (searchResult.Item.Length > 1)
+                                                {
+                                                    for (int i = 1; i < searchResult.Item.Length; i++)
+                                                    {
+                                                        var item = searchResult.Item[i];
+                                                        <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-3426 status-publish instock product_cat-gadgets-accessories product_tag-appliances product_tag-bass product_tag-furniture has-post-thumbnail sale featured shipping-taxable purchasable product-type-variable has-default-attributes">
+                                                            <div class="product-inner">
+                                                                <div class="product-thumb">
+                                                                    <a href="#" class="button yith-wcqv-button" data-product_id="3426">Quick View</a>        <a class="thumb-link woocommerce-product-gallery__image" href="product/camen-powershot-sx620-compact/index.html">
+                                                                        <figure>
+                                                                            <img width="300" height="300" src="/theme/wp-content/uploads/2018/12/org_0000s_0000s_0000_24c-300x300.jpg" class="wp-post-image attachment-300x300 size-300x300" alt="org_0000s_0000s_0000_24c" />
+                                                                        </figure>
+                                                                    </a>
+                                                                    @if (item.IsSale)
+                                                                    {
+                                                                        <div class="flash">
+                                                                            <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item1.Price, item1.SalePrice)%</span></span>
+                                                                        </div>
+                                                                    }
+
+                                                                </div>
+                                                                <div class="product-info">
+                                                                    <h3 class="product-name product_title">
+                                                                        <a href="product/camen-powershot-sx620-compact/index.html">@item.PrName</a>
+                                                                    </h3>
+                                                                    <div>12 tháng</div>
+                                                                    <span class="price"><del><span class="woocommerce-Price-amount amount">419.00đ</span></del> 
+                                                                    <ins><span class="woocommerce-Price-amount amount">249.00</span></ins></span>
+                                                                </div>
+                                                                <div class="group-button">
+                                                                    <div class="inner">
+                                                                        <div class="add-to-cart">
+                                                                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.PrName,item.Id)" class="button product_type_variable add_to_cart_button" rel="nofollow">Xem chi tiết</a>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                }
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>                                   
+                                </div>
                             </div>
-                            <div class="tab-panel" id="1536649172230-523f06f0-d4d3-5dad9982a5959">
-                            </div>
-                            <div class="tab-panel" id="1536649171923-1f9abe3c-d7b9-5dad9982a5959">
-                            </div>
+
                         </div>
                     </div>
-
                 </div>
             </div>
-        </div>
-    </div>
+        }
+
+    }
+
+
 
 
     <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid ovic_custom_5c92fe3eaf719 vc_custom_1536911229630 vc_custom_1536911229658 vc_custom_1536911229670">
@@ -571,8 +397,8 @@
                             <img width="498" height="493" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22498%22%20height%3D%22493%22%20viewBox%3D%220%200%20498%20493%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-498x493 size-498x493 lazy" alt="h49" data-src="/theme/wp-content/uploads/2018/09/h49.png" />
                         </div>
                         <div class="content">
-                            <h2 class="product-name">
-                                <a href="product/broccoli-natures-perfect-food-3/index.html">
+                            <h2 class="product-name" style="min-width:400px;">
+                                <a href="product/broccoli-natures-perfect-food-3/index.html" style="color:white;">
                                     Show your color
                                 </a>
                             </h2>
@@ -1381,6 +1207,8 @@
             $(".nimg").height($(".nimg").width() * 2 / 3);
             $(".pri").height($(".pri").width() * 2 / 3);
             RevosliderInit.initRevoSlider();
+            $(".has-vertical-menu").addClass("has-open");
+
         });
 
     </script>

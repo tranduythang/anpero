@@ -1737,7 +1737,7 @@ BODY DATAS
 @font-face {
     font-family: 'Glacial Indifference';
     font-display: auto;
-    src: url('/assets/fonts/GlacialIndifference-Bold.woff') format('woff');
+    src:  url('/assets/fonts/GlacialIndifference-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
@@ -1751,7 +1751,7 @@ BODY DATAS
 @font-face {
     font-family: 'Glacial Indifference';
     font-display: auto;
-    src:  url('/assets/fonts/GlacialIndifference-Italic.woff') format('woff');
+    src:   url('/assets/fonts/GlacialIndifference-Italic.woff') format('woff');
     font-weight: normal;
     font-style: italic;
 }
@@ -5748,16 +5748,40 @@ ul.products .product-item.style-2 .rating-wapper{
 /*==========================================================================
 PRODUCT ITEM
 ===========================================================================*/
-/*----- QUICK VIEW -----*/
-html.yith-quick-view-is-open,
-html.yith-quick-view-is-open body {
-    overflow: hidden;
-}
 
-.yith-wcwl-add-to-wishlist .feedback{
-    display: none !important;
+@media (max-width: 640px) {
+    #yith-quick-view-modal #yith-quick-view-content label {
+        color: inherit;
+    }
+    #yith-quick-view-content div.images,
+    #yith-quick-view-content div.summary {
+        margin: 0 auto;
+        width: 100%;
+        float: none !important;
+    }
+    #yith-quick-view-content div.images {
+        max-width: 380px;
+    }
+    #yith-quick-view-modal .yith-wcqv-wrapper {
+        height: 80vh !important;
+    }
+    #yith-quick-view-modal #yith-quick-view-content {
+        overflow-y: auto;
+    }
+    #yith-quick-view-modal #yith-quick-view-content > .product,
+    #yith-quick-view-modal #yith-quick-view-content > * > .product {
+        position: relative;
+    }
+    #yith-quick-view-modal div.entry-summary {
+        z-index: 1;
+        position: static;
+    }
 }
-
+@media (max-width: 600px) {
+    body.admin-bar #yith-quick-view-modal {
+        top: 0;
+    }
+}
 @media (max-width: 479px) {
     #yith-quick-view-modal .yith-wcqv-wrapper {
         height: 60vh !important;

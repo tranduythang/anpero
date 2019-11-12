@@ -360,6 +360,7 @@
     <Content Include="assets\stylesheet\responsive.css" />
     <Content Include="assets\stylesheet\revslider.css" />
     <Content Include="assets\stylesheet\style.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="handler\ProductHandler.ashx" />
     <Content Include="assets\fonts\clhLqOv7MXn459PTh0gXYHW1xglZCgocDnD_teV2lMU.woff" />
@@ -397,6 +398,11 @@
     <Content Include="assets\Plugin\slider-revolution-slider\rs-plugin\font\revicons.woff" />
     <Content Include="assets\Plugin\slider-revolution-slider\rs-plugin\images\.DS_Store" />
     <Content Include="assets\Plugin\slider-revolution-slider\rs-plugin\js\.DS_Store" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\GlacialIndifference-Regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <None Include="Properties\PublishProfiles\Theme 16.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -60,7 +60,7 @@ namespace AnperoFrontend.Controllers
 
             }
             ViewData["saleProduct"] = saleProduct;
-
+              nameof 
 
             if (HttpRuntime.Cache["BestsaleProduct"] != null)
             {
