@@ -39,7 +39,7 @@ namespace AnperoFrontend
                   "~/theme/wp-content/themes/gokko/style.css"
 
            ));
-            BundleTable.EnableOptimizations = false;
+            BundleTable.EnableOptimizations = true;
         }
     }
 }
