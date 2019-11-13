@@ -508,7 +508,7 @@
                                                 </span>
                                                 <p>Bảo hành:@item1.Warranty tháng</p>
                                                 <div class="countdown-container">
-                                                    <div class="gokko-countdown" data-datetime="@item1.SaleEndTime.ToString()"
+                                                    <div class="gokko-countdown" data-datetime="@Anpero.StringHelpper.ConvertDateTime(item1.SaleEndTime.ToString()).ToString()"
                                                          data-txt_day="Ngày"
                                                          data-txt_hour="Giờ"
                                                          data-txt_min="Phút"
@@ -536,7 +536,7 @@
                                     <h3 class="ovic-title"><span class="text">Khuyến mại</span></h3>
                                     <ul class="tab-link">
                                         <li class="">
-                                            <a data-id="0" href="#" data-ajax="1" data-type="feature">
+                                            <a data-id="0" href="#" data-ajax="1" data-type="sale">
                                                 <span>Tất cả sản phẩm</span>
                                             </a>
                                         </li>

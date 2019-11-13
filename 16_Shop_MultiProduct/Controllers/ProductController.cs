@@ -261,10 +261,27 @@ namespace AnperoFrontend.Controllers
             }
 
         }
-        public PartialViewResult GetByCategory(string id)
+        public PartialViewResult GetByCategory(int id,string type= "feature")
         {
-            WebService.AnperoService sv = new WebService.AnperoService();
-            WebService.SearchResult relateProduct = sv.SearchProduct(StoreID, TokenKey, id, "0", "0", 0, 999999, 1, 6, "", SearchOrder.TimeDesc, 2, string.Empty);
+            AnperoService sv = new WebService.AnperoService();
+            SearchResult relateProduct = new SearchResult();
+            switch (type)
+            {
+                case "sale":
+                    var rs = sv.GetSaleProduct(StoreID, TokenKey);
+                    if (id > 0)
+                    {
+                        rs = rs.Where(x => x.CatID == id || x.ParentId == id).ToArray();
+                    }
+                    relateProduct.Item = rs;
+                    break;
+                default:
+                    relateProduct = sv.SearchProduct(StoreID, TokenKey, id.ToString(), "0", "0", 0, 999999, 1, 6, "", SearchOrder.TimeDesc, 2, string.Empty);
+                    break;
+
+            }
+            
+            
             return PartialView(relateProduct);
         }
     }
