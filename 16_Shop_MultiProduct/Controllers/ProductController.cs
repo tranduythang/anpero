@@ -11,7 +11,7 @@ namespace AnperoFrontend.Controllers
 {
     public class ProductController : BaseController
     {
-
+      
         // GET: Product
         [BuildCommonHtml]
         public ActionResult Index(int id)
@@ -260,6 +260,12 @@ namespace AnperoFrontend.Controllers
 
             }
 
+        }
+        public PartialViewResult GetByCategory(string id)
+        {
+            WebService.AnperoService sv = new WebService.AnperoService();
+            WebService.SearchResult relateProduct = sv.SearchProduct(StoreID, TokenKey, id, "0", "0", 0, 999999, 1, 6, "", SearchOrder.TimeDesc, 2, string.Empty);
+            return PartialView(relateProduct);
         }
     }
 }

@@ -222,7 +222,7 @@
 
     $('body').on('wc_fragments_loaded', function () {
         GOKKO_THEME.gokko_custom_scrollbar();
-    })
+    });
 
     $('body').on('added_to_wishlist', function (e, el, el_wrap) {
         el.closest('.ovic-wishlist').addClass('added');
@@ -232,7 +232,7 @@
         $(".ovic-menu-clone-wrap").find('.lazy:not(.lazyed)').each(function () {
             var _img = $(this).attr('data-src');
             if ( _img !== undefined ) {
-                $(this).attr('src', _img)
+                $(this).attr('src', _img);
             }
             $(this).addClass('lazyed');
         });
