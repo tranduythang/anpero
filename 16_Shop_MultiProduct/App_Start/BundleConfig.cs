@@ -34,7 +34,7 @@ namespace AnperoFrontend
                   "~/theme/wp-content/plugins/ovic-toolkit/includes/extends/megamenu/assets/css/megamenu-frontend.css",
                   "~/theme/wp-content/themes/gokko/style.css"
            ));
-            BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = false;
         }
     }
 }

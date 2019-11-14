@@ -346,6 +346,7 @@
     <Content Include="assets\Plugin\slider-revolution-slider\rs-plugin\js\jquery.themepunch.revolution.js" />
     <Content Include="assets\Plugin\slider-revolution-slider\rs-plugin\js\jquery.themepunch.revolution.min.js" />
     <Content Include="assets\Plugin\slider-revolution-slider\rs-plugin\js\jquery.themepunch.tools.min.js" />
+    <Content Include="assets\home-init.js" />
     <Content Include="assets\revo-slider-init.js" />
     <Content Include="assets\style-revolution-slider.css" />
     <Content Include="assets\style.css" />
@@ -403,6 +404,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\fonts\GlacialIndifference-Bold.woff" />
     <None Include="Properties\PublishProfiles\Theme 16.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1448,6 +1450,7 @@
     <Content Include="theme\wp-content\themes\gokko\assets\fonts\gokko\fonts\Gokko-Icon05fa.eot" />
     <Content Include="theme\wp-content\themes\gokko\assets\fonts\gokko\fonts\Gokko-Icon05fa.ttf" />
     <Content Include="theme\wp-content\themes\gokko\assets\fonts\gokko\fonts\Gokko-Icon05fa.woff" />
+    <Content Include="Views\Product\GetByCategory.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
