@@ -79,21 +79,18 @@ namespace AnperoFrontend.Controllers
         private void GetNewestProduct()
         {
             WebService.AnperoService service = new WebService.AnperoService();
-            WebService.SearchResult searchResult = new WebService.SearchResult();
-            int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
-            if(!cacheService.TryGet("newestProduct",out searchResult))
+             WebService.SearchResult searchResult = new WebService.SearchResult();            
+            if (!cacheService.TryGet("topViewProduct", out searchResult))
             {
-                searchResult = service.SearchProduct(StoreID, TokenKey, "", "", "", 1, 999999999, 1, 7, "", SearchOrder.TimeDesc, 2,string.Empty);
+                searchResult = service.SearchProduct(StoreID, TokenKey, "", "", "", 1, 999999999, 1, 7, "", SearchOrder.ViewTime, 0, string.Empty);
                 if (searchResult != null)
                 {
-                    cacheService.AddOrUpdate("newestProduct", searchResult, new TimeSpan(0, 10, 0));
+                    cacheService.AddOrUpdate("topViewProduct", searchResult, new TimeSpan(0, 10, 0));
                 }
             }
-           
-            ViewData["newestProduct"] = searchResult;
-                        
-          
 
+            ViewData["topViewProduct"] = searchResult;
+            //ViewData["saleProduct"] = saleProduct;
         }
         [BuildCommonHtml]
         public ActionResult Policy(int type)

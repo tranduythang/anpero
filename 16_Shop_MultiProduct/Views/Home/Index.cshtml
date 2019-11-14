@@ -155,9 +155,9 @@
 
     <div class="vc_row-full-width vc_clearfix"></div>
     <div class="vc_row-full-width vc_clearfix"></div>
-    @if (ViewData["newestProduct"] != null)
+    @if (ViewData["BestsaleProduct"] != null)
     {
-        SearchResult searchResult = (SearchResult)ViewData["newestProduct"];
+        SearchResult searchResult = (SearchResult)ViewData["BestsaleProduct"];
         if (searchResult.Item.Length > 0)
         {
             var item1 = searchResult.Item[0];
@@ -458,13 +458,13 @@
         </div>
     </div>
     <div class="vc_row-full-width vc_clearfix"></div>
-  
-    @if (ViewData["newestProduct"] != null)
+
+    @if (ViewData["saleProduct"] != null)
     {
-        SearchResult searchResult = (SearchResult)ViewData["newestProduct"];
-        if (searchResult.Item.Length > 0)
+        ProductItem[] searchResult = (ProductItem[])ViewData["saleProduct"];
+        if (searchResult.Length > 0)
         {
-            var item1 = searchResult.Item[0];
+            var item1 = searchResult[0];
             <div class="vc_row wpb_row vc_row-fluid ovic_custom_5c92fe3eaf6d1 vc_custom_1544605855380 vc_custom_1544605855411 vc_custom_1544605855425">
                 <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-4 vc_col-md-4 ovic_custom_5c92fe3eaf6d2 vc_custom_1536912601750">
                     <div class="vc_column-inner">
@@ -478,13 +478,13 @@
                                         <span class="text-sale"><span>Khuyến mại @Anpero.StringHelpper.GetDiscountPersen(item1.Price, item1.SalePrice)%</span></span>
                                     </div>
                                 }
-                             
+
                                 <div class="product-list-owl owl-slick equal-container better-height " data-slick={&quot;arrows&quot;:false,&quot;slidesMargin&quot;:30,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:1,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:1}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:1}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:1}}]>
                                     <div class="product-item products style-4 rows-space-0 product type-product post-380 status-publish instock product_cat-camera-photo product_tag-appliances product_tag-digital product_tag-fashion product_tag-glass has-post-thumbnail sale shipping-taxable purchasable product-type-simple">
                                         <div class="product-inner">
                                             <div class="product-thumb">
-                                                <a href="@Anpero.StringHelpper.GetProductLink(item1.PrName,item1.Id)" class="button yith-wcqv-button" data-product_id="380">Quick View</a>        
-                                                <a class="thumb-link woocommerce-product-gallery__image" href="product/samseen-gear-s2-smart-watch/index.html">
+                                                <a href="@Anpero.StringHelpper.GetProductLink(item1.PrName,item1.Id)" class="button yith-wcqv-button" data-product_id="380">Quick View</a>
+                                                <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetProductLink(item1.PrName,item1.Id)">
                                                     <figure>
                                                         <img width="300" height="300" src="@item1.Images" data-src="@item1.Images" />
                                                     </figure>
@@ -498,7 +498,7 @@
                                                 <h3 class="product-name product_title">
                                                     <a href="@Anpero.StringHelpper.GetProductLink(item1.PrName,item1.Id)">@item1.PrName</a>
                                                 </h3>
-                                                
+
                                                 <span class="price">
                                                     @if (item1.IsSale)
                                                     {
@@ -558,11 +558,11 @@
                                     <div class="tab-panel active">
                                         <div class="ovic-products   review_hided   style-2 ovic_custom_5c92fe3eaf6d6  owl-ls-3 owl-lg-3 owl-md-3 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_owl_default">
                                             <div id="sale-pr-content" class="product-list-owl owl-slick equal-container better-height" data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:3,&quot;rows&quot;:2} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
-                                                @if (searchResult.Item.Length > 1)
+                                                @if (searchResult.Length > 1)
                                                 {
-                                                    for (int i = 1; i < searchResult.Item.Length; i++)
+                                                    for (int i = 1; i < searchResult.Length; i++)
                                                     {
-                                                        var item = searchResult.Item[i];
+                                                        var item = searchResult[i];
                                                         <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product status-publish instock product_cat-gadgets-accessories product_tag-appliances product_tag-bass product_tag-furniture has-post-thumbnail sale featured shipping-taxable purchasable product-type-variable has-default-attributes">
                                                             <div class="product-inner">
                                                                 <div class="product-thumb">
@@ -635,6 +635,7 @@
             </div>
         </div>
     </div>
+
     <div class="vc_row wpb_row vc_row-fluid">
         <div class="wpb_column vc_column_container vc_col-sm-12">
             <div class="vc_column-inner">
@@ -642,206 +643,45 @@
                     <div class="ovic-products only-icon label_hided review_hided   style-2   ovic_custom_5c92fe3eaf732 vc_custom_1547457855172 vc_custom_1547457855217  owl-ls-6 owl-lg-6 owl-md-5 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_style20">
                         <h3 class="ovic-title"><span class="text">Sản phẩm được xem nhiều</span></h3>
                         <div class="product-list-owl owl-slick equal-container better-height " data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:6,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:6}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:5}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
-                            <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-971 status-publish instock product_cat-trees-vegetables product_tag-blompot product_tag-bonsai product_tag-cactus product_tag-men product_tag-pot product_tag-women has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                <div class="product-inner">
-                                    <div class="product-thumb">
-                                        <a href="#" class="button yith-wcqv-button" data-product_id="971">Quick View</a>
-                                        <a class="thumb-link woocommerce-product-gallery__image" href="product/cactus-plant-in-a-pot/index.html">
-                                            <figure>
-                                                <img width="300" height="300" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22300%22%20viewBox%3D%220%200%20300%20300%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0002s_0003s_0000_4a" data-src="/theme/wp-content/uploads/2018/07/org_0002s_0003s_0000_4a-300x300.jpg" />
-                                            </figure>
-                                        </a>
-                                        <div class="flash">
-                                        </div>
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name product_title">
-                                            <a href="product/cactus-plant-in-a-pot/index.html">Cactus Plant in a Pot</a>
-                                        </h3>
-                                        <div>1 tháng</div>
-                                        <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>260.00</span></span>
-                                    </div>
-                                    <div class="group-button">
-                                        <div class="inner">
-                                            <div class="add-to-cart">
-                                                <a href="index3237.html?add-to-cart=971" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="971" data-product_sku="NA1119" aria-label="Add &ldquo;Cactus Plant in a Pot&rdquo; to your cart" rel="nofollow">Thêm vào giỏ hàng</a>
+                            @if (ViewData["topViewProduct"] != null)
+                            {
+                                SearchResult topViewProduct = (SearchResult)ViewData["topViewProduct"];
+                                foreach (var item in topViewProduct.Item)
+                                {
+                                    <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-971 status-publish instock product_cat-trees-vegetables product_tag-blompot product_tag-bonsai product_tag-cactus product_tag-men product_tag-pot product_tag-women has-post-thumbnail shipping-taxable purchasable product-type-simple">
+                                        <div class="product-inner">
+                                            <div class="product-thumb">
+                                                <a href="#" class="button yith-wcqv-button" data-product_id="971">Quick View</a>
+                                                <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
+                                                    <figure>
+                                                        <img width="300" height="300" src="@item.Images" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0002s_0003s_0000_4a" data-src="@item.Images" />
+                                                    </figure>
+                                                </a>
+                                                <div class="flash">
+                                                </div>
                                             </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-3399 status-publish instock product_cat-computer-sets-accessories product_tag-bass product_tag-fashion product_tag-men has-post-thumbnail sale featured shipping-taxable purchasable product-type-variable">
-                                <div class="product-inner">
-                                    <div class="product-thumb">
-                                        <a href="#" class="button yith-wcqv-button" data-product_id="3399">Quick View</a>
-                                        <a class="thumb-link woocommerce-product-gallery__image" href="product/macbook-pro-retina-display-2200/index.html">
-                                            <figure>
-                                                <img width="300" height="300" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22300%22%20viewBox%3D%220%200%20300%20300%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0000s_0014s_0000_10a" data-src="/theme/wp-content/uploads/2018/12/org_0000s_0014s_0000_10a-300x300.jpg" />
-                                            </figure>
-                                        </a>
-                                        <div class="flash">
-
-                                            <span class="onsale"><span class="text">-(25-40)%</span></span>
-                                        </div>
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name product_title">
-                                            <a href="product/macbook-pro-retina-display-2200/index.html">Macbook pro retina Display 2200</a>
-                                        </h3>
-                                        <div>1 tháng</div>
-                                        <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>300.00</span> &ndash; <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>450.00</span></span>
-                                    </div>
-                                    <div class="group-button">
-                                        <div class="inner">
-                                            <div class="add-to-cart">
-                                                <a href="product/macbook-pro-retina-display-2200/index.html" data-quantity="1" class="button product_type_variable add_to_cart_button" data-product_id="3399" data-product_sku="SE1245" aria-label="Select options for &ldquo;Macbook pro retina Display 2200&rdquo;" rel="nofollow">Select options</a>
+                                            <div class="product-info">
+                                                <h3 class="product-name product_title">
+                                                    <a href="product/cactus-plant-in-a-pot/index.html">@item.PrName</a>
+                                                </h3>
+                                                <div>1 tháng</div>
+                                                <span class="price"><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale?item.SalePrice:item.Price)đ</span></span>
                                             </div>
+                                            <div class="group-button">
+                                                <div class="inner">
+                                                    <div class="add-to-cart">
+                                                        <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="button product_type_simple add_to_cart_button" aria-label="@item.PrName" rel="nofollow">Thêm vào giỏ hàng</a>
+                                                    </div>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-474 status-publish last instock product_cat-camera-photo product_tag-digital product_tag-fashion product_tag-furniture product_tag-handmade has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                <div class="product-inner">
-                                    <div class="product-thumb">
-                                        <a href="#" class="button yith-wcqv-button" data-product_id="474">Quick View</a>        <a class="thumb-link woocommerce-product-gallery__image" href="product/anlen-beats-2-on-ear-headphones/index.html">
-                                            <figure>
-                                                <img width="300" height="300" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22300%22%20viewBox%3D%220%200%20300%20300%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0004s_0013s_0000_1a" data-src="/theme/wp-content/uploads/2018/07/org_0004s_0013s_0000_1a-300x300.jpg" />
-                                            </figure>
-                                        </a>
-                                        <div class="flash">
-                                        </div>
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name product_title">
-                                            <a href="product/anlen-beats-2-on-ear-headphones/index.html">Anlen Beats 2 On-Ear Headphones</a>
-                                        </h3>
-                                        <div>1 tháng</div>
-                                        <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>189.00</span></span>
-                                    </div>
-                                    <div class="group-button">
-                                        <div class="inner">
-                                            <div class="add-to-cart">
-                                                <a href="index8d59.html?add-to-cart=474" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="474" data-product_sku="DG1247" aria-label="Add &ldquo;Anlen Beats 2 On-Ear Headphones&rdquo; to your cart" rel="nofollow">Thêm vào giỏ hàng</a>
+                                                </div>
                                             </div>
+                                        </div>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-867 status-publish first instock product_cat-trees-vegetables product_tag-blompot product_tag-bonsai product_tag-cactus product_tag-plant product_tag-pot has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                <div class="product-inner">
-                                    <div class="product-thumb">
-                                        <a href="#" class="button yith-wcqv-button" data-product_id="867">Quick View</a>        <a class="thumb-link woocommerce-product-gallery__image" href="product/bonsai-artist-tree/index.html">
-                                            <figure>
-                                                <img width="300" height="300" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22300%22%20viewBox%3D%220%200%20300%20300%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0002s_0011s_0000_12a" data-src="/theme/wp-content/uploads/2018/07/org_0002s_0011s_0000_12a-300x300.jpg" />
-                                            </figure>
-                                        </a>
-                                        <div class="flash">
-                                        </div>
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name product_title">
-                                            <a href="product/bonsai-artist-tree/index.html">Bonsai Artist Tree</a>
-                                        </h3>
-                                        <div>1 tháng</div>
-                                        <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>260.00</span></span>
-                                    </div>
-                                    <div class="group-button">
-                                        <div class="inner">
-                                            <div class="add-to-cart">
-                                                <a href="index3cf5.html?add-to-cart=867" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="867" data-product_sku="NA1111" aria-label="Add &ldquo;Bonsai Artist Tree&rdquo; to your cart" rel="nofollow">Thêm vào giỏ hàng</a>
-                                            </div>
 
-                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-3421 status-publish instock product_cat-laptop-computer has-post-thumbnail featured shipping-taxable purchasable product-type-simple">
-                                <div class="product-inner">
-                                    <div class="product-thumb">
-                                        <a href="#" class="button yith-wcqv-button" data-product_id="3421">Quick View</a>        <a class="thumb-link woocommerce-product-gallery__image" href="product/laptop-games-for-2016-mobilel/index.html">
-                                            <figure>
-                                                <img width="300" height="300" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22300%22%20viewBox%3D%220%200%20300%20300%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0000s_0008s_0000_16a" data-src="/theme/wp-content/uploads/2018/12/org_0000s_0008s_0000_16a-300x300.jpg" />
-                                            </figure>
-                                        </a>
-                                        <div class="flash">
-                                        </div>
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name product_title">
-                                            <a href="product/laptop-games-for-2016-mobilel/index.html">Laptop Games For 2016 Mobilel</a>
-                                        </h3>
-                                        <div>1 tháng</div>
-                                        <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>324.00</span></span>
-                                    </div>
-                                    <div class="group-button">
-                                        <div class="inner">
-                                            <div class="add-to-cart">
-                                                <a href="indexeb2f.html?add-to-cart=3421" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="3421" data-product_sku="SE1251" aria-label="Add &ldquo;Laptop Games For 2016 Mobilel&rdquo; to your cart" rel="nofollow">Thêm vào giỏ hàng</a>
-                                            </div>
+                                }
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-490 status-publish instock product_cat-smartphone-tablets product_tag-appliances product_tag-digital product_tag-fashion product_tag-organic has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                <div class="product-inner">
-                                    <div class="product-thumb">
-                                        <a href="#" class="button yith-wcqv-button" data-product_id="490">Quick View</a>        <a class="thumb-link woocommerce-product-gallery__image" href="product/brabantia-newicon-prullenbak/index.html">
-                                            <figure>
-                                                <img width="300" height="300" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22300%22%20viewBox%3D%220%200%20300%20300%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0003s_0013s_0000_3a" data-src="/theme/wp-content/uploads/2018/07/org_0003s_0013s_0000_3a-300x300.jpg" />
-                                            </figure>
-                                        </a>
-                                        <div class="flash">
-                                        </div>
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name product_title">
-                                            <a href="product/brabantia-newicon-prullenbak/index.html">Brabantia NewIcon Prullenbak</a>
-                                        </h3>
-                                        <div>1 tháng</div>
-                                        <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>124.00</span></span>
-                                    </div>
-                                    <div class="group-button">
-                                        <div class="inner">
-                                            <div class="add-to-cart">
-                                                <a href="indexa94f.html?add-to-cart=490" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="490" data-product_sku="FU1239" aria-label="Add &ldquo;Brabantia NewIcon Prullenbak&rdquo; to your cart" rel="nofollow">Thêm vào giỏ hàng</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-496 status-publish last instock product_cat-smartphone-tablets product_tag-glass product_tag-handmade product_tag-men product_tag-organic has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                <div class="product-inner">
-                                    <div class="product-thumb">
-                                        <a href="#" class="button yith-wcqv-button" data-product_id="496">Quick View</a>        <a class="thumb-link woocommerce-product-gallery__image" href="product/mim-printed-hair-clup/index.html">
-                                            <figure>
-                                                <img width="300" height="300" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22300%22%20viewBox%3D%220%200%20300%20300%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0003s_0008s_0000_8a" data-src="/theme/wp-content/uploads/2018/07/org_0003s_0008s_0000_8a-300x300.jpg" />
-                                            </figure>
-                                        </a>
-                                        <div class="flash">
-                                        </div>
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name product_title">
-                                            <a href="product/mim-printed-hair-clup/index.html">Mim Printed Hair Clup</a>
-                                        </h3>
-                                        <div>1 tháng</div>
-                                        <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>471.00</span></span>
-                                    </div>
-                                    <div class="group-button">
-                                        <div class="inner">
-                                            <div class="add-to-cart">
-                                                <a href="indexc169.html?add-to-cart=496" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="496" data-product_sku="FU1251" aria-label="Add &ldquo;Mim Printed Hair Clup&rdquo; to your cart" rel="nofollow">Thêm vào giỏ hàng</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            }
                         </div>
                     </div>
                 </div>
@@ -855,64 +695,44 @@
                     <div class="ovic-products only-icon label_hided review_hided   style-2   ovic_custom_5c92fe3eaf732 vc_custom_1547457855172 vc_custom_1547457855217  owl-ls-6 owl-lg-6 owl-md-5 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_style20">
                         <h3 class="ovic-title"><span class="text">Bài viết được xem nhiều</span></h3>
                         <div class="product-list-owl owl-slick equal-container better-height " data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:2,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
-                            <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-971 status-publish instock product_cat-trees-vegetables product_tag-blompot product_tag-bonsai product_tag-cactus product_tag-men product_tag-pot product_tag-women has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                <div class="product-inner">
-                                    <div class="product-thumb">
-                                        <a href="#" class="button yith-wcqv-button" data-product_id="971">Quick View</a>
-                                        <a class="thumb-link woocommerce-product-gallery__image" href="product/cactus-plant-in-a-pot/index.html">
-                                            <figure>
-                                                <img width="300" height="300" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22300%22%20viewBox%3D%220%200%20300%20300%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0002s_0003s_0000_4a" data-src="/theme/wp-content/uploads/2018/07/org_0002s_0003s_0000_4a-300x300.jpg" />
-                                            </figure>
-                                        </a>
-                                        <div class="flash">
-                                        </div>
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name product_title">
-                                            <a href="product/cactus-plant-in-a-pot/index.html">Tiêu đề bài viết</a>
-                                        </h3>
-                                        <div>Miêu tả ngắn</div>
-
-                                    </div>
-                                    <div class="group-button">
-                                        <div class="inner">
-                                            <div class="add-to-cart">
-                                                <a href="index3237.html?add-to-cart=971" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="971" data-product_sku="NA1119" aria-label="Add &ldquo;Cactus Plant in a Pot&rdquo; to your cart" rel="nofollow">Xem thêm</a>
+                            @if (ViewData["TopArticle"] != null)
+                            {
+                                SearchArticleResults rs = (SearchArticleResults)ViewData["TopArticle"];
+                                foreach (var item in rs.ItemList)
+                                {
+                                    <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-971 status-publish instock product_cat-trees-vegetables product_tag-blompot product_tag-bonsai product_tag-cactus product_tag-men product_tag-pot product_tag-women has-post-thumbnail shipping-taxable purchasable product-type-simple">
+                                        <div class="product-inner">
+                                            <div class="product-thumb">                                              
+                                                <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
+                                                    <figure>
+                                                        <img width="300" height="300" src="@item.Title" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0002s_0003s_0000_4a" data-src="@item.Thumb" />
+                                                    </figure>
+                                                </a>
+                                                <div class="flash">
+                                                </div>
                                             </div>
+                                            <div class="product-info">
+                                                <h3 class="product-name product_title">
+                                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Tiêu đề bài viết</a>
+                                                </h3>
+                                                <div>Miêu tả ngắn</div>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-971 status-publish instock product_cat-trees-vegetables product_tag-blompot product_tag-bonsai product_tag-cactus product_tag-men product_tag-pot product_tag-women has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                <div class="product-inner">
-                                    <div class="product-thumb">
-                                        <a href="#" class="button yith-wcqv-button" data-product_id="971">Quick View</a>
-                                        <a class="thumb-link woocommerce-product-gallery__image" href="product/cactus-plant-in-a-pot/index.html">
-                                            <figure>
-                                                <img width="300" height="300" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22300%22%20viewBox%3D%220%200%20300%20300%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0002s_0003s_0000_4a" data-src="/theme/wp-content/uploads/2018/07/org_0002s_0003s_0000_4a-300x300.jpg" />
-                                            </figure>
-                                        </a>
-                                        <div class="flash">
-                                        </div>
-                                    </div>
-                                    <div class="product-info" style="text-align:left;">
-                                        <h3 class="product-name product_title">
-                                            <a href="product/cactus-plant-in-a-pot/index.html">Tiêu đề bài viết</a>
-                                        </h3>
-                                        <div>Miêu tả ngắn</div>
-
-                                    </div>
-                                    <div class="group-button">
-                                        <div class="inner">
-                                            <div class="add-to-cart">
-                                                <a href="index3237.html?add-to-cart=971" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="971" data-product_sku="NA1119" aria-label="Add &ldquo;Cactus Plant in a Pot&rdquo; to your cart" rel="nofollow">Xem thêm</a>
                                             </div>
+                                            <div class="group-button">
+                                                <div class="inner">
+                                                    <div class="add-to-cart">
+                                                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)"  class="button product_type_simple add_to_cart_button ajax_add_to_cart"  aria-label="@item.Title">Xem thêm</a>
+                                                    </div>
 
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                }
+
+                            }
+
+
                         </div>
                     </div>
                 </div>

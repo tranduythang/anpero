@@ -25,6 +25,7 @@ namespace AnperoFrontend.Controllers
     }
     public class BuildCommonHtml : ActionFilterAttribute
     {
+        public Anpero.ICacheService cacheService = new Anpero.CacheService();
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
@@ -54,36 +55,28 @@ namespace AnperoFrontend.Controllers
             string TokenKey = CommonConfig.TokenKey;
             WebService.ProductItem[] saleProduct;
             WebService.SearchResult BestsaleProduct;
-            WebService.AnperoService sv = new WebService.AnperoService();
+            WebService.AnperoService sv = new WebService.AnperoService();          
+          
            
-            if (HttpRuntime.Cache["saleProduct"] != null)
+            if (!cacheService.TryGet("BestsaleProduct", out BestsaleProduct))
             {
-                saleProduct = (WebService.ProductItem[])   HttpRuntime.Cache["saleProduct"];
+                BestsaleProduct = sv.SearchProductFullData(StoreID, TokenKey, "0", "0", "0", 0, 99999999, 1, 7, "", SearchOrder.TimeDesc, 2, true);
+                if (BestsaleProduct != null)
+                {
+                    cacheService.AddOrUpdate("BestsaleProduct", BestsaleProduct, new TimeSpan(0, 10, 0));                 
+                }
             }
-            else
+            if (!cacheService.TryGet("SaleProduct", out saleProduct))
             {
                 saleProduct = sv.GetSaleProduct(StoreID, TokenKey);
+
                 if (saleProduct != null)
                 {
-                    HttpRuntime.Cache.Insert("saleProduct", saleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                    cacheService.AddOrUpdate("SaleProduct", saleProduct, new TimeSpan(0, 7, 0));
                 }
             }
             filterContext.Controller.ViewData["saleProduct"] = saleProduct;
-            if (HttpRuntime.Cache["BestsaleProduct"] != null)
-            {
-                BestsaleProduct = (WebService.SearchResult)HttpRuntime.Cache["BestsaleProduct"];
-            }
-            else
-            {
-                BestsaleProduct = sv.SearchProductFullData(StoreID, TokenKey, "0", "0", "0", 0, 99999999, 1, 7, "", SearchOrder.TimeDesc, 1, true);
-                if (BestsaleProduct != null)
-                {
-                    HttpRuntime.Cache.Insert("BestsaleProduct", BestsaleProduct, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
-                }
-
-            }
             filterContext.Controller.ViewData["BestsaleProduct"] = BestsaleProduct;
-
             GetTopArticle(filterContext, shortCacheTime);
             //slide of list product page
 
@@ -94,20 +87,17 @@ namespace AnperoFrontend.Controllers
             string TokenKey = CommonConfig.TokenKey;
             WebService.SearchArticleResults rs = new WebService.SearchArticleResults();
             WebService.AnperoService service = new WebService.AnperoService();
-            if (HttpRuntime.Cache["TopArticle"] != null)
-            {
-                rs = (WebService.SearchArticleResults)HttpRuntime.Cache["TopArticle"];
-            }
-            else
+
+            if (!cacheService.TryGet("TopArticle", out rs))
             {
                 rs = service.SearchArticle(StoreID, TokenKey, 0, 1, 4, 2);
+
                 if (rs != null)
                 {
-                    HttpRuntime.Cache.Insert("TopArticle", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                    cacheService.AddOrUpdate("TopArticle", rs, new TimeSpan(0, 7, 0));
                 }
-
-            }
-            filterContext.Controller.ViewData["FeatureArticle"] = rs;
+            }          
+            filterContext.Controller.ViewData["TopArticle"] = rs;
         }
     }
     public class BunderHtml : ActionFilterAttribute
@@ -153,6 +143,7 @@ namespace AnperoFrontend.Controllers
         public static string TimeDesc = "timeDesc";
         public static string NameDesc = "nameDesc";
         public static string NameAsc = "nameAsc";
+        public static string ViewTime = "ViewTime";
     }
     public static class PageContent
     {
