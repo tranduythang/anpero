@@ -18,131 +18,28 @@
     <meta content="@commonInfo.Name" name="author" />
     <meta property="og:image" content="@commonInfo.Logo">
 }
-@if (ViewData["slide"] == null)
+@if (ViewData["slide"] != null)
 {
     <!-- BEGIN SLIDER -->
     <div class="page-slider">
         <div class="fullwidthbanner-container revolution-slider">
             <div class="fullwidthabnner">
                 <ul id="revolutionul">
-                    <!-- THE NEW SLIDE -->
-                    <li data-transition="fade" data-slotamount="7" data-masterspeed="300" data-delay="9400">
-                        <img src="http://jaki.anpero.com/theme/wp-content/uploads/2019/01/s8-01.jpg" alt="Củ hoa tulip kép">
-                        <div class="caption lfl slide_title slide_item_left"
-                             data-x="300"
-                             data-y="125"
-                             data-speed="400"
-                             data-start="3500"
-                             data-easing="easeOutExpo" style="color:white;">
-                            HẠT GIỐNG HOA QUẢ
-                        </div>
-                        <div class="caption lfl slide_subtitle slide_item_left"
-                             data-x="300"
-                             data-y="200"
-                             data-speed="400"
-                             data-start="4000"
-                             data-easing="easeOutExpo">
-                            Thu tiền tận nhà toàn quốc
-                        </div>
-                        <div class="caption lfl slide_desc slide_item_left"
-                             data-x="300"
-                             data-y="245"
-                             data-speed="400"
-                             data-start="4500"
-                             data-easing="easeOutExpo" style="color:white;">
-                            Thu tiền tại nhà (COD). <br />Hỗ trợ phí ship cho tất cả các đơn hàng
-                        </div>
-                        @*<div class="caption lfr slide_item_right"
-                                 data-x="635"
-                                 data-y="90"
-                                 data-speed="1200"
-                                 data-start="1500"
-                                 data-easing="easeOutBack">
-                                <img src="http://hatgiong247.com/images/home/ship.png" alt="Hạt giống nga, hạt giống mỹ">
-                            </div>*@
+                    @if (ViewData["Slide"] != null)
+                    {
+                        Ads[] adsList = (Ads[])ViewData["Slide"];
+                        if (adsList.Length > 0)
+                        {
+                            foreach (var item in adsList)
+                            {
 
-                    </li>
-                    <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="http://hatgiong247.com/assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
-                        <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
-                        <img src="http://hatgiong247.com/assets/frontend/pages/img/revolutionslider/bg9.jpg" alt="">
-                        <div class="caption lft slide_title_white slide_item_right"
-                             data-x="300"
-                             data-y="90"
-                             data-speed="400"
-                             data-start="1500"
-                             data-easing="easeOutExpo">
-                            CHỌN TỪ CÁC TRANG TRẠI UY TÍN<br><span class="slide_title_white_bold"> TRÊN THẾ GIỚI</span>
-                        </div>
-                        <div class="caption lft slide_subtitle_white slide_item_left"
-                             data-x="287"
-                             data-y="245"
-                             data-speed="400"
-                             data-start="2000"
-                             data-easing="easeOutExpo">
-                            ĐƯỢC ĐÁNH GIÁ BỞI NGƯỜI DÙNG AMAZON VÀ EBAY TẠI MỸ
-                        </div>
-                        <a class="caption lft btn dark slide_btn slide_item_left" href="/hat-giong-hoa"
-                           data-x="387"
-                           data-y="315"
-                           data-speed="400"
-                           data-start="3000"
-                           data-easing="easeOutExpo">
-                            DANH SÁCH HẠT GIỐNG
-                        </a>
-                        <div class="caption lfb"
-                             data-x="640"
-                             data-y="150"
-                             data-speed="700"
-                             data-start="1000"
-                             data-easing="easeOutExpo">
-                            <img src="http://hatgiong247.com/images/home/lavender.png" alt="hạt giống lavender">
-                        </div>
-                    </li>
-                    <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="http://hatgiong247.com/assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
-                        <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
-                        <img src="http://hatgiong247.com/assets/frontend/pages/img/revolutionslider/bg4.jpg" alt="">
-                        <div class="caption lft slide_title"
-                             data-x="30"
-                             data-y="105"
-                             data-speed="400"
-                             data-start="1500"
-                             data-easing="easeOutExpo">
-                            CHĂM SÓC CÂY ?
-                        </div>
-                        <div class="caption lft slide_subtitle"
-                             data-x="30"
-                             data-y="180"
-                             data-speed="400"
-                             data-start="2000"
-                             data-easing="easeOutExpo">
-                            Chúng tôi có đầy đủ dụng cụ tốt nhất về làm vườn
-                        </div>
-                        <div class="caption lft slide_desc"
-                             data-x="30"
-                             data-y="225"
-                             data-speed="400"
-                             data-start="2500"
-                             data-easing="easeOutExpo">
-                            Đảm bảo cây phát triển tốt nhất
-                        </div>
-                        <a class="caption lft slide_btn btn red slide_item_left" href="/dung-cu-lam-vuon" target="_blank"
-                           data-x="30"
-                           data-y="300"
-                           data-speed="400"
-                           data-start="3000"
-                           data-easing="easeOutExpo">
-                            Xem sản phẩm !
-                        </a>
-
-                        <div class="caption lft start"
-                             data-x="850"
-                             data-y="135"
-                             data-speed="400"
-                             data-start="2400"
-                             data-easing="easeOutBack">
-                            <img src="http://hatgiong247.com/images/home/tool.png" alt="dụng cụ làm vườn">
-                        </div>
-                    </li>
+                                <li data-transition="fade" data-slotamount="7" data-masterspeed="300" data-delay="9400">
+                                    <img src="@item.ImagesUrl">
+                                    @Html.Raw(item.Description)
+                                </li>
+                            }
+                        }
+                    }
                 </ul>
                 <div class="tp-bannertimer tp-bottom"></div>
             </div>
@@ -356,7 +253,8 @@
 
                                 </div>
                             </div>
-                        </div><div class="wpb_column vc_column_container vc_col-sm-6">
+                        </div>
+                    <div class="wpb_column vc_column_container vc_col-sm-6">
                             <div class="vc_column-inner">
                                 <div class="wpb_wrapper">
                                     <div class="ovic-iconbox style17 Dark Background   ovic_custom_5c92fe3eaf71f vc_custom_1536740910379 ">
@@ -392,7 +290,8 @@
                     </div>
                 </div>
             </div>
-        </div><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-7 vc_col-md-7 ovic_custom_5c92fe3eaf727">
+        </div>
+    <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-7 vc_col-md-7 ovic_custom_5c92fe3eaf727">
             <div class="vc_column-inner">
                 <div class="wpb_wrapper">
                     <div class="ovic-product product-item product style6 default   ovic_custom_5c92fe3eaf728 vc_custom_1536910883987 vc_custom_1536910883999 " style="">
@@ -418,7 +317,9 @@
                 </div>
             </div>
         </div>
-    </div><div class="vc_row-full-width vc_clearfix"></div><div class="vc_row wpb_row vc_row-fluid ovic_custom_5c92fe3eaf729 vc_custom_1536909141636 vc_custom_1536909141667">
+    </div>
+    <div class="vc_row-full-width vc_clearfix"></div>
+    <div class="vc_row wpb_row vc_row-fluid ovic_custom_5c92fe3eaf729 vc_custom_1536909141636 vc_custom_1536909141667">
         <div class="wpb_column vc_column_container vc_col-sm-12">
             <div class="vc_column-inner">
                 <div class="wpb_wrapper">
@@ -429,7 +330,9 @@
                                 <div class="wpb_single_image wpb_content_element vc_align_center ovic_custom_5c92fe3eaf72c">
 
                                     <figure class="wpb_wrapper vc_figure">
-                                        <div class="vc_single_image-wrapper   vc_box_border_grey effect border-scale "><img class="vc_single_image-img lazy attachment-full" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20376%20250%27%2F%3E" data-src="https://gokko.kutethemes.net/wp-content/uploads/2018/09/h45.jpg" width="376" height="250" alt="Home 02" /></div>
+                                        <div class="vc_single_image-wrapper   vc_box_border_grey effect border-scale ">
+                                            <img class="vc_single_image-img lazy attachment-full" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20376%20250%27%2F%3E" data-src="https://gokko.kutethemes.net/wp-content/uploads/2018/09/h45.jpg" width="376" height="250" alt="Home 02" />
+                                        </div>
                                     </figure>
                                 </div>
                                 <div class="ovic-iconbox style16 Dark Background   ovic_custom_5c92fe3eaf72d ">
@@ -441,10 +344,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-
-
                                 <div class="wpb_single_image wpb_content_element vc_align_center ovic_custom_5c92fe3eaf72e">
-
                                     <figure class="wpb_wrapper vc_figure">
                                         <div class="vc_single_image-wrapper   vc_box_border_grey effect border-scale "><img class="vc_single_image-img lazy attachment-full" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20376%20250%27%2F%3E" data-src="https://gokko.kutethemes.net/wp-content/uploads/2018/09/h46.jpg" width="376" height="250" alt="Home 02" /></div>
                                     </figure>
@@ -620,21 +520,47 @@
         }
 
     }
-    <div class="banner-effect ovic-banner style21 default   ovic_custom_5c92fe3eaf731 vc_custom_1550451311424 vc_custom_1550451311453 "
-         style="">
-        <div class="thumb-banner">
-            <a href="shop/index.html">
-                <img width="1170" height="203" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221170%22%20height%3D%22203%22%20viewBox%3D%220%200%201170%20203%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-1170x203 size-1170x203 lazy" alt="h51" data-src="/theme/wp-content/uploads/2018/09/h51.jpg" />
-            </a>
-        </div>
-        <div class="texts-container">
-            <div class="texts">
-                <div class="text-1">World’s 1st </div>
-                <div class="text-2">Quad Camera </div>
-                <a class="banner-link" href="shop/index.html">Shop now</a>
+    @if (ViewData["Ads2"] != null)
+    {
+        Ads[] adsList = (Ads[])ViewData["Ads2"];
+        if (adsList.Length > 0)
+        {
+            foreach (var item in adsList)
+            {
+
+                <div class="banner-effect ovic-banner style21 default   ovic_custom_5c92fe3eaf731 vc_custom_1550451311424 vc_custom_1550451311453 "
+                     style="">
+                    <div class="thumb-banner">
+                        <a href="shop/index.html">
+                            <img width="1170" height="203" src="@item.ImagesUrl" class="wp-post-image attachment-1170x203 size-1170x203 lazy" alt="h51" data-src="@item.ImagesUrl" />
+                        </a>
+                    </div>
+                    <div class="texts-container">
+                        @Html.Raw(item.Description)                       
+                    </div>
+                </div>
+            }
+        }
+    }
+    else
+    {
+        <div class="banner-effect ovic-banner style21 default   ovic_custom_5c92fe3eaf731 vc_custom_1550451311424 vc_custom_1550451311453 "
+             style="">
+            <div class="thumb-banner">
+                <a href="shop/index.html">
+                    <img width="1170" height="203" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221170%22%20height%3D%22203%22%20viewBox%3D%220%200%201170%20203%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-1170x203 size-1170x203 lazy" alt="h51" data-src="/theme/wp-content/uploads/2018/09/h51.jpg" />
+                </a>
+            </div>
+            <div class="texts-container">
+                <div class="texts">
+                    <div class="text-1">World’s 1st </div>
+                    <div class="text-2">Quad Camera </div>
+                    <a class="banner-link" href="shop/index.html">Shop now</a>
+                </div>
             </div>
         </div>
-    </div>
+    }
+
 
     <div class="vc_row wpb_row vc_row-fluid">
         <div class="wpb_column vc_column_container vc_col-sm-12">
@@ -665,7 +591,7 @@
                                                     <a href="product/cactus-plant-in-a-pot/index.html">@item.PrName</a>
                                                 </h3>
                                                 <div>1 tháng</div>
-                                                <span class="price"><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale?item.SalePrice:item.Price)đ</span></span>
+                                                <span class="price"><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)đ</span></span>
                                             </div>
                                             <div class="group-button">
                                                 <div class="inner">
@@ -702,10 +628,10 @@
                                 {
                                     <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-971 status-publish instock product_cat-trees-vegetables product_tag-blompot product_tag-bonsai product_tag-cactus product_tag-men product_tag-pot product_tag-women has-post-thumbnail shipping-taxable purchasable product-type-simple">
                                         <div class="product-inner">
-                                            <div class="product-thumb">                                              
+                                            <div class="product-thumb">
                                                 <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
                                                     <figure>
-                                                        <img width="300" height="300" src="@item.Title" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0002s_0003s_0000_4a" data-src="@item.Thumb" />
+                                                        <img width="300" height="300" src="@item.Thumb" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0002s_0003s_0000_4a" data-src="@item.Thumb" />
                                                     </figure>
                                                 </a>
                                                 <div class="flash">
@@ -713,15 +639,15 @@
                                             </div>
                                             <div class="product-info">
                                                 <h3 class="product-name product_title">
-                                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Tiêu đề bài viết</a>
+                                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">item.Title</a>
                                                 </h3>
-                                                <div>Miêu tả ngắn</div>
+                                                <div>@item.ShotDesc</div>
 
                                             </div>
                                             <div class="group-button">
                                                 <div class="inner">
                                                     <div class="add-to-cart">
-                                                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)"  class="button product_type_simple add_to_cart_button ajax_add_to_cart"  aria-label="@item.Title">Xem thêm</a>
+                                                        <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="button product_type_simple add_to_cart_button ajax_add_to_cart" aria-label="@item.Title">Xem thêm</a>
                                                     </div>
 
                                                 </div>
@@ -745,107 +671,47 @@
                 <div class="ovic-slide  rows-space-0  ovic_custom_5c92fe3eaf742 vc_custom_1547456628930 ">
                     <div class="ovic-slide-style2">
                         <div class="owl-slick" data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:5,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:5}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:4}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:1}}]>
-                            <div class="ovic-iconbox style1 Dark Background   ovic_custom_5c92fe3eaf743 ">
-                                <div class="box-icon">
-                                    <i class="gokko-icon icon-paper-plane"></i>
-                                </div>
-                                <div class="texts">
-                                    <div class="title">
-                                        <a href="index.html">Free Shipping</a>
-                                    </div>
-                                    <div class="text-2">On all order over $99</div>
-                                </div>
-                            </div>
-
-                            <div class="ovic-iconbox style1 Dark Background   ovic_custom_5c92fe3eaf744 ">
-                                <div class="box-icon">
-                                    <i class="gokko-icon icon-refresh"></i>
-                                </div>
-                                <div class="texts">
-                                    <div class="title">
-                                        <a href="index.html">Money Back</a>
-                                    </div>
-                                    <div class="text-2">100 % money back guarantee</div>
-                                </div>
-                            </div>
-
-                            <div class="ovic-iconbox style1 Dark Background   ovic_custom_5c92fe3eaf746 ">
-                                <div class="box-icon">
-                                    <i class="gokko-icon icon-headphone"></i>
-                                </div>
-                                <div class="texts">
-                                    <div class="title">
-                                        <a href="index.html">Support 24/7</a>
-                                    </div>
-                                    <div class="text-2">24/7 customer support</div>
-                                </div>
-                            </div>
-
-                            <div class="ovic-iconbox style1 Dark Background   ovic_custom_5c92fe3eaf747 ">
-                                <div class="box-icon">
-                                    <i class="gokko-icon icon-payment"></i>
-                                </div>
-                                <div class="texts">
-                                    <div class="title">
-                                        <a href="index.html">Payment Method</a>
-                                    </div>
-                                    <div class="text-2">Secure System</div>
-                                </div>
-                            </div>
-
-                            <div class="ovic-iconbox style1 Dark Background   ovic_custom_5c92fe3eaf748 ">
-                                <div class="box-icon">
-                                    <i class="gokko-icon icon-gift"></i>
-                                </div>
-                                <div class="texts">
-                                    <div class="title">
-                                        <a href="index.html">Member Gift</a>
-                                    </div>
-                                    <div class="text-2">Give gifts by week</div>
-                                </div>
-                            </div>
-
+                            @if (ViewData["Ads3"] != null)
+                            {
+                                Ads[] adsList = (Ads[])ViewData["Ads3"];
+                                if (adsList.Length > 0)
+                                {
+                                    foreach (var item in adsList)
+                                    {
+                                        <div class="ovic-iconbox style1 Dark Background">
+                                            <div class="box-icon">
+                                                <img src="@item.ImagesUrl" />
+                                            </div>
+                                            <div class="texts">
+                                                @Html.Raw(item.Description)
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            }
                         </div>
                     </div>
                 </div>
                 <div class="ovic-slide  rows-space-0  ovic_custom_5c92fe3eaf733 vc_custom_1547457059059 ">
                     <div class="ovic-slide-default">
                         <div class="owl-slick" data-slick={&quot;arrows&quot;:false,&quot;slidesMargin&quot;:30,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:5,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:5}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:4}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
+                            @if (ViewData["Ads4"] != null)
+                            {
+                                Ads[] adsList = (Ads[])ViewData["Ads4"];
+                                if (adsList.Length > 0)
+                                {
+                                    foreach (var item in adsList)
+                                    {
+                                        <div class="wpb_single_image wpb_content_element vc_align_center ovic_custom_5c92fe3eaf734">
 
-                            <div class="wpb_single_image wpb_content_element vc_align_center ovic_custom_5c92fe3eaf734">
+                                            <figure class="wpb_wrapper vc_figure">
+                                                <a href="@item.ClickUrl" target="_self" class="vc_single_image-wrapper vc_box_border_grey effect bounce-in "><img class="vc_single_image-img lazy attachment-full" src="@item.ImagesUrl" data-src="@item.ImagesUrl" width="210" height="110" /></a>
+                                            </figure>
+                                        </div>
+                                    }
+                                }
 
-                                <figure class="wpb_wrapper vc_figure">
-                                    <a href="shop/index.html" target="_self" class="vc_single_image-wrapper   vc_box_border_grey effect bounce-in "><img class="vc_single_image-img lazy attachment-full" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20210%20110%27%2F%3E" data-src="https://gokko.kutethemes.net/wp-content/uploads/2019/03/brand-logo.png" width="210" height="110" alt="Home 02" /></a>
-                                </figure>
-                            </div>
-
-                            <div class="wpb_single_image wpb_content_element vc_align_center ovic_custom_5c92fe3eaf735">
-
-                                <figure class="wpb_wrapper vc_figure">
-                                    <a href="shop/index.html" target="_self" class="vc_single_image-wrapper   vc_box_border_grey effect bounce-in "><img class="vc_single_image-img lazy attachment-full" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20210%20110%27%2F%3E" data-src="https://gokko.kutethemes.net/wp-content/uploads/2019/03/brand-logo.png" width="210" height="110" alt="Home 02" /></a>
-                                </figure>
-                            </div>
-
-                            <div class="wpb_single_image wpb_content_element vc_align_center ovic_custom_5c92fe3eaf737">
-
-                                <figure class="wpb_wrapper vc_figure">
-                                    <a href="shop/index.html" target="_self" class="vc_single_image-wrapper   vc_box_border_grey effect bounce-in "><img class="vc_single_image-img lazy attachment-full" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20210%20110%27%2F%3E" data-src="https://gokko.kutethemes.net/wp-content/uploads/2019/03/brand-logo.png" width="210" height="110" alt="Home 02" /></a>
-                                </figure>
-                            </div>
-
-                            <div class="wpb_single_image wpb_content_element vc_align_center ovic_custom_5c92fe3eaf738">
-
-                                <figure class="wpb_wrapper vc_figure">
-                                    <a href="shop/index.html" target="_self" class="vc_single_image-wrapper   vc_box_border_grey effect bounce-in "><img class="vc_single_image-img lazy attachment-full" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20210%20110%27%2F%3E" data-src="https://gokko.kutethemes.net/wp-content/uploads/2019/03/brand-logo.png" width="210" height="110" alt="Home 02" /></a>
-                                </figure>
-                            </div>
-
-                            <div class="wpb_single_image wpb_content_element vc_align_center ovic_custom_5c92fe3eaf739">
-
-                                <figure class="wpb_wrapper vc_figure">
-                                    <a href="shop/index.html" target="_self" class="vc_single_image-wrapper vc_box_border_grey effect bounce-in "><img class="vc_single_image-img lazy attachment-full" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20210%20110%27%2F%3E" data-src="https://gokko.kutethemes.net/wp-content/uploads/2019/03/brand-logo.png" width="210" height="110" alt="Home 02" /></a>
-                                </figure>
-                            </div>
+                            }
                         </div>
                     </div>
                 </div>
