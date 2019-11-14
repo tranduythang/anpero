@@ -1426,6 +1426,21 @@ namespace AnperoFrontend.WebService {
                 this.priceRankField = value;
             }
         }
+        public SearchModel()
+        {
+            SortBy = "nameDesc";
+            Page = 1;
+            StoreId = 0;
+            KeyWord = string.Empty;
+            Category = "-1";
+            PriceFrom = -1;
+            PriceTo = -1;
+            CurentPage = 1;
+            PageSize = 18;
+            Brands = "";
+            ParentCategory = "0";
+            AtributeList = "";
+        }
     }
     
     /// <remarks/>

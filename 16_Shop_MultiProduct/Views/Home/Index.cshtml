@@ -76,7 +76,7 @@
                                     <div class="product-item products style-4 rows-space-0 product type-product post-380 status-publish instock product_cat-camera-photo product_tag-appliances product_tag-digital product_tag-fashion product_tag-glass has-post-thumbnail sale shipping-taxable purchasable product-type-simple">
                                         <div class="product-inner">
                                             <div class="product-thumb">
-                                                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item1.CatName,item1.Id)" class="button yith-wcqv-button">Chi tiết</a>
+                                                <a href="@Anpero.StringHelpper.GetProductLink(item1.PrName,item1.Id)" class="button yith-wcqv-button">Chi tiết</a>
                                                 <a class="thumb-link woocommerce-product-gallery__image" href="">
                                                     <figure>
                                                         <img width="300" height="300" src="@item1.Images" class="wp-post-image attachment-300x300 size-300x300 lazy" data-src="@item1.Images" />
@@ -85,7 +85,7 @@
                                             </div>
                                             <div class="product-info">
                                                 <h3 class="product-name product_title">
-                                                    <a href="@Anpero.StringHelpper.GetParentCategoryLink(item1.CatName,item1.Id)">@item1.PrName</a>
+                                                    <a href="@Anpero.StringHelpper.GetProductLink(item1.PrName,item1.Id)">@item1.PrName</a>
                                                 </h3>
                                                 @if (item1.Warranty > 0)
                                                 {
