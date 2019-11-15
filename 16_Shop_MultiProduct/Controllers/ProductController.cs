@@ -125,6 +125,7 @@ namespace AnperoFrontend.Controllers
             ViewData["productList"] = rs;
             ViewBag.pageName = "ParentCategory";
             ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+       
 
 
             if (rs != null && rs.Item.Length > 0)
@@ -160,6 +161,7 @@ namespace AnperoFrontend.Controllers
             
             ViewBag.pageName = "Search";
             ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+        
             if (!string.IsNullOrEmpty(model.KeyWord))
             {
                 title += model.KeyWord;

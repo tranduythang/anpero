@@ -30,7 +30,20 @@
     <meta property="og:url" content="@ViewBag.WebsiteUrl" />
     <meta property="og:image" content="@ViewBag.ImageUrl" />
     <link rel="canonical" href="@ViewBag.WebsiteUrl" />
+    <style>
+        .widget_product_brand .product-categories.list li a img,
+        .widget_product_brand .product-categories.logo li a::before,
+        .widget_product_brand .product-categories.logo li a::after {
+            display: none !important;
+        }
 
+        .widget_product_brand .product-categories.logo li,
+        .widget_product_brand .product-categories.logo li a {
+            font-size: 0;
+            line-height: 0;
+            padding: 10px 0;
+        }
+    </style>
 }
 <div class="main-container shop-page left-sidebar">
     <div class="container">
@@ -38,7 +51,7 @@
             <div class="col-sm-12">
                 <ul class="woocommerce-breadcrumb breadcrumb">
                     <li><a href="/">Trang chủ</a></li>
-                    @if (pageName.ToLower().Equals("search"))
+                    @if (pageName.ToLower().Equals("Search"))
                     {
                         <li>Tìm kiếm</li>
                     }
@@ -114,24 +127,17 @@
                         }
                         else
                         {
-                            <li class="product-item col-bg-4 col-lg-4 col-md-4 col-sm-4 col-xs-6 col-ts-6 style-2 post-1104 product type-product status-publish has-post-thumbnail product_cat-printer-ink product_tag-food product_tag-fruit product_tag-lemon product_tag-pear product_tag-sunfood product_shipping_class-free-uk-delivery first instock shipping-taxable purchasable product-type-variable has-default-attributes">
+                            <li class="product-item col-bg-4 col-lg-4 col-md-4 col-sm-4 col-xs-6 col-ts-6 style-2 post-1104 product type-product status-publish has-post-thumbnail product_cat-printer-ink product_tag-food product_tag-fruit product_tag-lemon product_tag-pear product_tag-sunfood product_shipping_class-free-uk-delivery first instock purchasable product-type-variable has-default-attributes">
                                 <div>Sản phẩm đang được cập nhật. Vui lòng quay lại sau</div>
                             </li>
                         }
 
                     </ul>
                 </div>
-                <div class="shop-control shop-after-control">
-
-                    <nav class="navigation pagination" role="navigation">
-                        <h2 class="screen-reader-text">&nbsp;</h2>
-                        <div class="nav-links">
-                            <span aria-current="page" class="page-numbers current">1</span>
-                            <a class="page-numbers" href="page/2/index.html">2</a>
-                            <a class="next page-numbers" href="page/2/index.html">Next</a>
-                        </div>
-                    </nav>
-                </div>
+                <nav aria-label="Page navigation" class="flex-control-paging ">
+                    @Html.Raw(ViewBag.page)
+                </nav>
+               
             </div>
             <div class="sidebar col-lg-3 col-md-4 initialized">
                 <div id="widget-area" class="widget-area shop-sidebar">
@@ -157,64 +163,12 @@
 
                         </ul>
                     </div>
-                    <div id="ovic_woocommerce_layered_nav-5" class="widget ovic_widget_layered_nav widget_layered_nav">
-                        <h2 class="widgettitle">Colors<span class="arrow"></span></h2>
-                        <div class="color-group">
-                            <a class="term-color " href="indexf9b2.html?filter_color=black">
-                                <i style="background-color: #000000"></i>
-                                <span class="term-name">Black</span>
-                                <span class="count">(4)</span>
-                            </a>
-                            <a class="term-color " href="indexf641.html?filter_color=blue">
-                                <i style="background-color: #1e73be"></i>
-                                <span class="term-name">Blue</span>
-                                <span class="count">(4)</span>
-                            </a>
-                            <a class="term-color " href="indexf017.html?filter_color=brown">
-                                <i style="background-color: #dd9933"></i>
-                                <span class="term-name">Brown</span>
-                                <span class="count">(4)</span>
-                            </a>
-                            <a class="term-color " href="indexe36b.html?filter_color=green">
-                                <i style="background-color: #81d742"></i>
-                                <span class="term-name">Green</span>
-                                <span class="count">(5)</span>
-                            </a>
-                            <a class="term-color " href="index7d44.html?filter_color=purple">
-                                <i style="background-color: #8224e3"></i>
-                                <span class="term-name">Purple</span>
-                                <span class="count">(4)</span>
-                            </a>
-                            <a class="term-color " href="index6e6e.html?filter_color=red">
-                                <i style="background-color: #dd3333"></i>
-                                <span class="term-name">Red</span>
-                                <span class="count">(4)</span>
-                            </a>
-                            <a class="term-color " href="index416b.html?filter_color=yellow">
-                                <i style="background-color: #eeee22"></i>
-                                <span class="term-name">Yellow</span>
-                                <span class="count">(5)</span>
-                            </a>
-                        </div>
-                    </div>
+
                     @if (commonInfo.ProductGroupList.Count() > 0)
                     {
                         <div class="widget woocommerce widget_product_brand  widget_product_categories">
                             <h2 class="widgettitle">Thương hiệu<span class="arrow"></span></h2>
-                            <style>
-                                .widget_product_brand .product-categories.list li a img,
-                                .widget_product_brand .product-categories.logo li a::before,
-                                .widget_product_brand .product-categories.logo li a::after {
-                                    display: none !important;
-                                }
 
-                                .widget_product_brand .product-categories.logo li,
-                                .widget_product_brand .product-categories.logo li a {
-                                    font-size: 0;
-                                    line-height: 0;
-                                    padding: 10px 0;
-                                }
-                            </style>
                             <ul class="product-categories list">
 
                                 @foreach (var item in commonInfo.ProductGroupList)
@@ -223,6 +177,22 @@
                                 }
                             </ul>
                         </div>
+                    }
+                    @foreach (var item in commonInfo.ProductProperties)
+                    {
+                        if (item.Values != null && item.Values.Length > 0)
+                        {
+                            <div class="widget woocommerce widget_product_brand  widget_product_categories">
+                                <h2 class="widgettitle">@item.Name<span class="arrow"></span></h2>
+
+                                <ul class="product-categories list">
+                                    @foreach (var valueItem in item.Values)
+                                    {
+                                        <li class="cat-item"> <label><input type="checkbox" name="properties" value="@valueItem.Id" /> @valueItem.Values</label></li>
+                                    }
+                                </ul>
+                            </div>                          
+                        }
                     }
                     <div id="media_image-2" class="widget widget_media_image"><a href="../../index.html"><img width="270" height="300" src="../../wp-content/uploads/2019/01/sidebar-banner-270x300.jpg" class="image wp-image-3650  attachment-medium size-medium lazy lazyed" alt="" style="max-width: 100%; height: auto;" data-src="../../wp-content/uploads/2019/01/sidebar-banner-270x300.jpg"></a></div><div id="widget_products-3" class="widget widget-products-slide">
                         <h2 class="widgettitle">Sản phẩm nổi bật<span class="arrow"></span></h2>
@@ -251,14 +221,14 @@
                                                             <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
                                                         </h3>
 
-                                                        <span class="price"><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)đ</span></span>                                                        
-                                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" data-quantity="1" class="button product_type_simple add_to_cart_button" aria-label="@item.PrName">Mua ngay</a>
-                                                        </div>
+                                                        <span class="price"><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)đ</span></span>
+                                                        <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" data-quantity="1" class="button product_type_simple add_to_cart_button" aria-label="@item.PrName">Mua ngay</a>
                                                     </div>
-                                                
+                                                </div>
+
                                             </li>
                                         }
-       
+
                                     }
                                 }
                             </ul>
@@ -273,6 +243,7 @@
 
 @if (hasData)
 {
+
     <script>
             var categoryId = @productList.Item[0].CatID;
             var ParentCatId = @productList.Item[0].ParentId;

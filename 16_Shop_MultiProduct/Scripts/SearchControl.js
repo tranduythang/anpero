@@ -12,6 +12,7 @@
         var properties = $("input[type=checkbox][name=properties]:checked");
         
         var branch = $("input[name=brands]:checked");
+        
         var category = $("input[name=category]:checked");
         if (properties.length > 0) {
             var attributeIdList = "";
@@ -35,6 +36,9 @@
                 categoryList += $(this).val() + ",";
             });
             conditon += param + "category=" + categoryList.substring(0, categoryList.length - 1);
+            param = "&";
+        } else if (config.category!=""){
+            conditon += param + "category=" + config.category;
             param = "&";
         }
         if (config.sortBy != "") {
