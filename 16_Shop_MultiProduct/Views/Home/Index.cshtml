@@ -103,8 +103,8 @@
                                                 <p>Thông số:  @item1.Specifications</p>
                                                 @if (item1.IsInstock)
                                                 {
-                                                    <div class="add-to-cart">
-                                                        <a href="Cart.addProduct(@item1.Id,@(item1.IsSale?item1.SalePrice:item1.Price),'@item1.Images','@HttpUtility.UrlEncode(item1.PrName)'" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ hàng</a>
+                                                    <div class="button add-to-cart">
+                                                        <a href="javascript:Cart.addProduct(@item1.Id,@(item1.IsSale?item1.SalePrice:item1.Price),'@item1.Images','@HttpUtility.UrlEncode(item1.PrName)'" class="button product_type_simple add_to_cart_button">Thêm vào giỏ hàng</a>
                                                     </div>
                                                 }
 

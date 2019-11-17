@@ -6341,9 +6341,11 @@ a.yith-wcqv-button .blockUI.blockOverlay::before {
     line-height: 36px;
     font-weight: bold;
 }
-.product-item.style-4 .add-to-cart > a:hover {
-    background-color: transparent !important;
-}
+    .product-item.style-4 .add-to-cart > a:hover {
+        /*background-color: transparent !important;*/
+        color: white;
+        border-color: #63ab04;
+    }
 .product-item.style-4 .wishlist-container {
     max-width: 220px;
     margin: 0 auto;
@@ -13739,3 +13741,7 @@ ul.custom-datas li:not(:first-child){
         text-align: center;
         color: white;
     }
+.product-info .add-to-cart:hover {
+    color: white;
+    border-color: #64ab05;
+}
