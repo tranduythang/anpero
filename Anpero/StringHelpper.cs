@@ -604,7 +604,7 @@ namespace Anpero
         {
             if (!string.IsNullOrEmpty(parentCatName) && !string.IsNullOrEmpty(productName) && productId > 0)
             {
-                return "/" + toURLgach(parentCatName) + "/" + toURLgach(productName) + "-p" + productId;
+                return "/" + toURLgach(parentCatName.ToLower()) + "/" + toURLgach(productName.ToLower()) + "-p" + productId;
             }
             else
             {
@@ -616,7 +616,7 @@ namespace Anpero
         {
             if (!string.IsNullOrEmpty(categoryName) && !string.IsNullOrEmpty(categoryName) && CategoryId > 0)
             {
-                return "/" + toURLgach(categoryName) + "-cat" + CategoryId;
+                return "/" + toURLgach(categoryName.ToLower()) + "-cat" + CategoryId;
             }
             else
             {
@@ -628,7 +628,7 @@ namespace Anpero
         {
             if (!string.IsNullOrEmpty(categoryName) && !string.IsNullOrEmpty(categoryName) && CategoryId > 0)
             {
-                return "/" + toURLgach(categoryName) + "-b" + CategoryId;
+                return "/" + toURLgach(categoryName.ToLower()) + "-b" + CategoryId;
             }
             else
             {
@@ -640,7 +640,7 @@ namespace Anpero
         {
             if (!string.IsNullOrEmpty(ArticleTitle) && !string.IsNullOrEmpty(ArticleTitle) && ArticleId > 0)
             {
-                return "/" + toURLgach(ArticleTitle) + "-a" + ArticleId;
+                return "/" + toURLgach(ArticleTitle.ToLower()) + "-a" + ArticleId;
             }
             else
             {
@@ -652,7 +652,7 @@ namespace Anpero
         {
             if (!string.IsNullOrEmpty(parentCategoryName) && !string.IsNullOrEmpty(parentCategoryName) && parentCategoryId > 0)
             {
-                return "/" + toURLgach(parentCategoryName) + "-c" + parentCategoryId;
+                return "/" + toURLgach(parentCategoryName.ToLower()) + "-c" + parentCategoryId;
             }
             else
             {
