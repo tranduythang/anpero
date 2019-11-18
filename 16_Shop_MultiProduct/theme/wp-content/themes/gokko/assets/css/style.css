@@ -6342,9 +6342,9 @@ a.yith-wcqv-button .blockUI.blockOverlay::before {
     font-weight: bold;
 }
     .product-item.style-4 .add-to-cart > a:hover {
-        /*background-color: transparent !important;*/
+        background-color: transparent !important;
         color: white;
-        border-color: #63ab04;
+        border-color: #d11222;
     }
 .product-item.style-4 .wishlist-container {
     max-width: 220px;
@@ -13730,18 +13730,11 @@ ul.custom-datas li:not(:first-child){
 .widget_shopping_cart .widgettitle{
     display: none;
 }
-.flex-control-paging li {
-    list-style: none;
-    padding:5px;
-    margin:5px;
-    width:30px;
-}
-    .flex-control-paging li .active {
-        background-color: #D11222;
+
+@media (min-width: 800px) {
+    .logo {
+        width: 270px;
         text-align: center;
-        color: white;
     }
-.product-info .add-to-cart:hover {
-    color: white;
-    border-color: #64ab05;
 }
+

@@ -103,8 +103,8 @@
                                                 <p>Thông số:  @item1.Specifications</p>
                                                 @if (item1.IsInstock)
                                                 {
-                                                    <div class="button add-to-cart">
-                                                        <a href="javascript:Cart.addProduct(@item1.Id,@(item1.IsSale?item1.SalePrice:item1.Price),'@item1.Images','@HttpUtility.UrlEncode(item1.PrName)'" class="button product_type_simple add_to_cart_button">Thêm vào giỏ hàng</a>
+                                                    <div class="add-to-cart">
+                                                        <a href="javascript:Cart.addProduct(@item1.Id,@(item1.IsSale?item1.SalePrice:item1.Price),'@item1.Images','@HttpUtility.UrlEncode(item1.PrName)'" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ hàng</a>
                                                     </div>
                                                 }
 
@@ -138,12 +138,9 @@
                                                 </a>
                                             </li>
                                         }
-
-
                                     </ul>
                                     <div class="clearfix"></div>
                                 </div>
-
                                 <div class="tab-container">
                                     <div class="tab-panel active">
                                         <div class="ovic-products   review_hided   style-2 ovic_custom_5c92fe3eaf6d6  owl-ls-3 owl-lg-3 owl-md-3 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_owl_default">
@@ -254,7 +251,7 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="wpb_column vc_column_container vc_col-sm-6">
+                        <div class="wpb_column vc_column_container vc_col-sm-6">
                             <div class="vc_column-inner">
                                 <div class="wpb_wrapper">
                                     <div class="ovic-iconbox style17 Dark Background   ovic_custom_5c92fe3eaf71f vc_custom_1536740910379 ">
@@ -291,7 +288,7 @@
                 </div>
             </div>
         </div>
-    <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-7 vc_col-md-7 ovic_custom_5c92fe3eaf727">
+        <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-7 vc_col-md-7 ovic_custom_5c92fe3eaf727">
             <div class="vc_column-inner">
                 <div class="wpb_wrapper">
                     <div class="ovic-product product-item product style6 default   ovic_custom_5c92fe3eaf728 vc_custom_1536910883987 vc_custom_1536910883999 " style="">
@@ -536,7 +533,7 @@
                         </a>
                     </div>
                     <div class="texts-container">
-                        @Html.Raw(item.Description)                       
+                        @Html.Raw(item.Description)
                     </div>
                 </div>
             }
