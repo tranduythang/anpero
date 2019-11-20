@@ -77,7 +77,7 @@
                                         <div class="product-inner">
                                             <div class="product-thumb">
                                                 <a href="@Anpero.StringHelpper.GetProductLink(item1.PrName,item1.Id)" class="button yith-wcqv-button">Chi tiết</a>
-                                                <a class="thumb-link woocommerce-product-gallery__image" href="">
+                                                <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetProductLink(item1.PrName,item1.Id)">
                                                     <figure>
                                                         <img width="300" height="300" src="@item1.Images" class="wp-post-image attachment-300x300 size-300x300 lazy" data-src="@item1.Images" />
                                                     </figure>
@@ -623,7 +623,7 @@
                                 SearchArticleResults rs = (SearchArticleResults)ViewData["TopArticle"];
                                 foreach (var item in rs.ItemList)
                                 {
-                                    <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-971 status-publish instock product_cat-trees-vegetables product_tag-blompot product_tag-bonsai product_tag-cactus product_tag-men product_tag-pot product_tag-women has-post-thumbnail shipping-taxable purchasable product-type-simple">
+                                    <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product  product_tag-blompot product_tag-bonsai product_tag-cactus product_tag-men product_tag-pot product_tag-women has-post-thumbnail shipping-taxable purchasable product-type-simple">
                                         <div class="product-inner">
                                             <div class="product-thumb">
                                                 <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
@@ -636,7 +636,7 @@
                                             </div>
                                             <div class="product-info">
                                                 <h3 class="product-name product_title">
-                                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">item.Title</a>
+                                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a>
                                                 </h3>
                                                 <div>@item.ShotDesc</div>
 

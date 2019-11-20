@@ -104,14 +104,12 @@
                                                     <img width="300" height="300" src="@item.Images" class="wp-post-image attachment-300x300 size-300x300" alt="@item.PrName">
                                                 </figure>
                                             </a>
-
                                         </div>
                                         <div class="product-info">
                                             <h3 class="product-name product_title">
                                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
                                             </h3>
-
-                                            <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>30.00</span> – <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>70.00</span></span>
+                                            <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale?item.SalePrice:item.Price)</span>                                            
                                             <div class="product-sku">@item.Specifications</div>
                                         </div>
                                         <div class="group-button">

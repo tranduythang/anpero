@@ -33,3 +33,6 @@ body{
     background-repeat: no-repeat !important;
     background-size: cover !important;
 }
+.widget_product_categories:not(.widget_product_brand) .widgettitle {
+    background-color: #d11222;
+}
