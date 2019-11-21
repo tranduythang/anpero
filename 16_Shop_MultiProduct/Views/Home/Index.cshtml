@@ -431,20 +431,27 @@
                                                                 </span>
 
                                                             </div>
-                                                            <div class="product-info">
-                                                                <div class="countdown-container">
-                                                                    <div class="gokko-countdown" data-datetime="@Anpero.StringHelpper.ConvertDateTime(item.SaleEndTime.ToString()).ToString()"
-                                                                         data-txt_day="Ngày"
-                                                                         data-txt_hour="Giờ"
-                                                                         data-txt_min="Phút"
-                                                                         data-txt_sec="Giây" data-value_first="1"></div>
+                                                            <div class="product-item style-4">
+                                                                    <div class="countdown-container">
+                                                                        <div class="gokko-countdown" data-datetime="@Anpero.StringHelpper.ConvertDateTime(item.SaleEndTime.ToString()).ToString()"
+                                                                             data-txt_day="Ngày"
+                                                                             data-txt_hour="Giờ"
+                                                                             data-txt_min="Phút"
+                                                                             data-txt_sec="Giây" data-value_first="1"></div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                              
-                                                   }
 
+                                                }
+                                                display: block;
+                                                position: absolute;
+                                                left: 0;
+                                                right: 0;
+                                                bottom: -21px;
+                                                width: calc(100% - 22px);
+                                                text-align: center;
+                                                }
                                             </div>
                                         </div>
 

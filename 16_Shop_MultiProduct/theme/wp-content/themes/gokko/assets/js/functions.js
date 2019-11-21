@@ -39,6 +39,7 @@
             else
                 html += '<div class="countdown-item item-sec"><span class="item-value">%S</span><span class="item-label">' + txt_sec + '</span></div>';
         }
+      
         if ( html ) {
             $(this).countdown(time, function (event) {
                 $(this).html(event.strftime(html));
