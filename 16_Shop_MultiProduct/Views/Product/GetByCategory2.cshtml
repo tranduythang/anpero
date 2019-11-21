@@ -1,0 +1,60 @@
+﻿@using AnperoFrontend.WebService;
+@model  SearchResult
+@if (Model != null && Model.Item.Length > 0)
+{
+    for (int i = 0; i < Model.Item.Length; i++)
+    {
+        var item = Model.Item[i];        
+        <div class="product-item recent-product style-3 rows-space-0 product type-product post-3426 status-publish last instock product_cat-gadgets-accessories product_tag-appliances product_tag-bass product_tag-furniture has-post-thumbnail sale featured shipping-taxable purchasable product-type-variable has-default-attributes">
+                <div class="product-inner">
+                    <div class="product-thumb" style="width: 190px;">
+                        <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
+                            <figure>
+                                <img width="190" height="190" src="@item.Images" class="wp-post-image attachment-190x190 size-190x190" alt="@item.PrName" />
+                            </figure>
+                        </a>
+                    </div>
+                    <div class="product-info">
+                        @if (item.IsSale)
+                        {
+                            <div class="flash">
+                                <span class="onsale"><span class="text">-@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
+                            </div>
+                        }
+                        <h3 class="product-name product_title">
+                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
+                        </h3>
+                        <div>@item.Warranty tháng</div>
+                        <span class="price">
+                            @if (item.IsSale)
+                            {
+                                <del>
+                                    <span class="woocommerce-Price-amount amount">@item.Price</span>
+                                </del>
+                                <ins>
+                                    <span class="woocommerce-Price-amount amount">@item.SalePrice đ</span>
+                                </ins>
+                            }
+                            else
+                            {
+                                <ins>
+                                    <span class="woocommerce-Price-amount amount">@item.Price</span>
+                                </ins>
+                            }
+                        </span>
+
+                    </div>
+                    <div class="product-info">
+                        <div class="countdown-container">
+                            <div class="gokko-countdown" data-datetime="@Anpero.StringHelpper.ConvertDateTime(item.SaleEndTime.ToString()).ToString()"
+                                 data-txt_day="Ngày"
+                                 data-txt_hour="Giờ"
+                                 data-txt_min="Phút"
+                                 data-txt_sec="Giây" data-value_first="1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+    }
+}
+
