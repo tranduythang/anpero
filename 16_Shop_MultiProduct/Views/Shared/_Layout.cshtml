@@ -30,20 +30,7 @@
     <script type='text/javascript' src='//cdn.anpero.com/cdn/plugins/jquery-2.2.4.js'></script>
     @Styles.Render("~/bundles/global.css")
     <link href="/theme/style.red.css?v=3" rel="stylesheet" />
-    <noscript>
-        <style>
-            .woocommerce-product-gallery {
-                opacity: 1 !important;
-            }
-        </style>
-    </noscript>
-    <noscript>
-        <style>
-            .wpb_animate_when_almost_visible {
-                opacity: 1;
-            }
-        </style>
-    </noscript>
+
 
     @RenderSection("health", required: false)
     @RenderSection("Styles", required: false)
@@ -195,16 +182,15 @@
                             </a>
                         </div>
                         <div class="block-minicart ovic-mini-cart ovic-dropdown">
-                            <a class="link-dropdown block-cart-link" href="/product/checkout" data-ovic="ovic-dropdown">
+                            <a class="link-dropdown block-cart-link" href="/product/checkout">
                                 <span class="gokko-icon icon-basket">
                                     <span class="count">0</span>
                                 </span>
                                 <span class="gokko-group">
-                                    <span class="text">Giỏ hàng</span>
-                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>0.00</span>
+                                    <span class="text">Giỏ hàng</span>                                    
                                 </span>
                             </a>
-                            <div class="widget woocommerce widget_shopping_cart"><div class="widget_shopping_cart_content"></div></div>
+                         
                         </div>
 
                     </div>
@@ -234,7 +220,7 @@
                                         {
                                             <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-mega-menu menu-item-has-children item-megamenu">
                                                 <a href="@item.DefaultLink" class="disable-link">@item.Name</a>
-                                                <div class="sub-menu megamenu lazy" style="width:720px;background-size: cover;background-position: center;height:auto;" data-src="@item.Images">
+                                                <div class="sub-menu megamenu lazy" style="width:520px;background-repeat: no-repeat;background-position: right;height:auto;" data-src="@item.Images">
                                                     <p>
                                                         <div class="vc_row wpb_row vc_row-fluid ovic_custom_5b768530ccd86 vc_custom_1533638258332">
                                                             <div class="wpb_column vc_column_container vc_col-sm-4">
@@ -461,13 +447,17 @@
         var ovic_megamenu_frontend = { "title": "MAIN MENU" };
     </script>
     <script type='text/javascript' src='/theme/wp-content/plugins/ovic-toolkit/includes/extends/megamenu/assets/js/megamenu-frontend.js'></script>
-    <script type='text/javascript' src='/theme/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'></script>
-    <script type='text/javascript' src='/theme/wp-content/plugins/woocommerce/assets/js/zoom/jquery.zoom.min.js'></script>
+    <script type='text/javascript' src='/theme/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'></script>    
     <script src="/Scripts/Anpero.Common.js"></script>
-    <script src="/Scripts/ShoppingCart.js"></script>
+    <script src="/Scripts/ShoppingCart.js?v=1"></script>
     @RenderSection("scripts", required: false)
     @Html.Raw(commonInfo.PageScript)
     @Html.Raw(commonInfo.AnperoPlugin)
+    <script type="text/javascript">
+        $(document).ready(function () {
+            Cart.bindCart();
+        });
+    </script>
     <script type="application/ld+json">
         {
         "@@context": "https://schema.org",

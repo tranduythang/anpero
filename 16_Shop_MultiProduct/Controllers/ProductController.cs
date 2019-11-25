@@ -285,7 +285,10 @@ namespace AnperoFrontend.Controllers
 
             }
             
-            
+            if(type== "sale")
+            {
+                return PartialView("GetByCategory2", relateProduct);
+            }
             return PartialView(relateProduct);
         }
     }

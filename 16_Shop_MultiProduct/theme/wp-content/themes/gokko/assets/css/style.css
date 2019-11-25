@@ -2134,12 +2134,7 @@ OTHER ELELEMNT
 .breadcrumb > .active {
     color: #222;
 }
-.woocommerce-breadcrumb a {
-    font-weight: normal;
-}
-.woocommerce-breadcrumb a:not(:hover) {
-    color: #888;
-}
+
 /*----- PAGINATION -----*/
 .woocommerce-pagination ul.page-numbers {
     list-style: none;

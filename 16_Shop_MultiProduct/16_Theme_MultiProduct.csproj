@@ -348,6 +348,7 @@
     <Content Include="assets\Plugin\slider-revolution-slider\rs-plugin\js\jquery.themepunch.tools.min.js" />
     <Content Include="assets\home-init.js" />
     <Content Include="assets\revo-slider-init.js" />
+    <Content Include="assets\productDetailStyle.css" />
     <Content Include="assets\style-revolution-slider.css" />
     <Content Include="assets\style.css" />
     <Content Include="assets\stylesheet\bootstrap.min.css" />
@@ -1421,6 +1422,7 @@
     <Content Include="Views\Product\GetByCategory.cshtml" />
     <Content Include="Views\Product\List_BACK.cshtml" />
     <Content Include="Views\Product\Index - Copy.cshtml" />
+    <Content Include="Views\Product\GetByCategory2.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
