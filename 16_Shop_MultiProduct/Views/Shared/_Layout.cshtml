@@ -182,7 +182,7 @@
                             </a>
                         </div>
                         <div class="block-minicart ovic-mini-cart ovic-dropdown">
-                            <a class="link-dropdown block-cart-link" href="/product/checkout" data-ovic="ovic-dropdown">
+                            <a class="link-dropdown block-cart-link" href="/product/checkout">
                                 <span class="gokko-icon icon-basket">
                                     <span class="count">0</span>
                                 </span>
@@ -190,7 +190,7 @@
                                     <span class="text">Giỏ hàng</span>                                    
                                 </span>
                             </a>
-                            <div class="widget woocommerce widget_shopping_cart"><div class="widget_shopping_cart_content"></div></div>
+                         
                         </div>
 
                     </div>
@@ -447,13 +447,17 @@
         var ovic_megamenu_frontend = { "title": "MAIN MENU" };
     </script>
     <script type='text/javascript' src='/theme/wp-content/plugins/ovic-toolkit/includes/extends/megamenu/assets/js/megamenu-frontend.js'></script>
-    <script type='text/javascript' src='/theme/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'></script>
-    <script type='text/javascript' src='/theme/wp-content/plugins/woocommerce/assets/js/zoom/jquery.zoom.min.js'></script>
+    <script type='text/javascript' src='/theme/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'></script>    
     <script src="/Scripts/Anpero.Common.js"></script>
-    <script src="/Scripts/ShoppingCart.js"></script>
+    <script src="/Scripts/ShoppingCart.js?v=1"></script>
     @RenderSection("scripts", required: false)
     @Html.Raw(commonInfo.PageScript)
     @Html.Raw(commonInfo.AnperoPlugin)
+    <script type="text/javascript">
+        $(document).ready(function () {
+            Cart.bindCart();
+        });
+    </script>
     <script type="application/ld+json">
         {
         "@@context": "https://schema.org",

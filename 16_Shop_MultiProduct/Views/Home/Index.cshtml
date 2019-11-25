@@ -104,7 +104,7 @@
                                                 @if (item1.IsInstock)
                                                 {
                                                     <div class="add-to-cart">
-                                                        <a href="javascript:Cart.addProduct(@item1.Id,@(item1.IsSale?item1.SalePrice:item1.Price),'@item1.Images','@HttpUtility.UrlEncode(item1.PrName)'" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ hàng</a>
+                                                        <a href="javascript:Cart.addProduct(@item1.Id,@Convert.ToInt32(item1.IsSale?item1.SalePrice:item1.Price),'@item1.Images','@HttpUtility.HtmlEncode(item1.PrName)')" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ hàng</a>
                                                     </div>
                                                 }
 
@@ -515,7 +515,7 @@
         <div class="wpb_column vc_column_container vc_col-sm-12">
             <div class="vc_column-inner">
                 <div class="wpb_wrapper">
-                    <div class="ovic-products only-icon label_hided review_hided   style-2   ovic_custom_5c92fe3eaf732 vc_custom_1547457855172 vc_custom_1547457855217  owl-ls-6 owl-lg-6 owl-md-5 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_style20">
+                    <div class="ovic-products only-icon review_hided   style-2   ovic_custom_5c92fe3eaf732 vc_custom_1547457855172 vc_custom_1547457855217  owl-ls-6 owl-lg-6 owl-md-5 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_style20">
                         <h3 class="ovic-title"><span class="text">Sản phẩm được xem nhiều</span></h3>
                         <div class="product-list-owl owl-slick equal-container better-height " data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:6,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:6}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:5}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
                             @if (ViewData["topViewProduct"] != null)
@@ -526,15 +526,21 @@
                                     <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product post-971 status-publish instock product_cat-trees-vegetables product_tag-blompot product_tag-bonsai product_tag-cactus product_tag-men product_tag-pot product_tag-women has-post-thumbnail shipping-taxable purchasable product-type-simple">
                                         <div class="product-inner">
                                             <div class="product-thumb">
-                                                <a href="#" class="button yith-wcqv-button" data-product_id="971">Quick View</a>
+                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="button yith-wcqv-button">Quick View</a>
                                                 <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
                                                     <figure>
-                                                        <img width="300" height="300" src="@item.Images" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0002s_0003s_0000_4a" data-src="@item.Images" />
+                                                        <img src="@item.Images" class="wp-post-image   lazy" alt="@item.PrName" data-src="@item.Images" />
                                                     </figure>
                                                 </a>
-                                                <div class="flash">
-                                                </div>
+                                                @if (item.IsSale)
+                                                {
+                                                    <div class="flash">
+                                                        <span class="onsale"><span class="text">-@Anpero.StringHelpper.GetDiscountPersen(item.Price,item.SalePrice)</span></span>
+                                                    </div>
+                                                }
+
                                             </div>
+                                          
                                             <div class="product-info">
                                                 <h3 class="product-name product_title">
                                                     <a href="product/cactus-plant-in-a-pot/index.html">@item.PrName</a>
@@ -567,7 +573,7 @@
         <div class="wpb_column vc_column_container vc_col-sm-12">
             <div class="vc_column-inner">
                 <div class="wpb_wrapper">
-                    <div class="ovic-products only-icon label_hided review_hided   style-2   ovic_custom_5c92fe3eaf732 vc_custom_1547457855172 vc_custom_1547457855217  owl-ls-6 owl-lg-6 owl-md-5 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_style20">
+                    <div class="ovic-products only-icon style-2   ovic_custom_5c92fe3eaf732 vc_custom_1547457855172 vc_custom_1547457855217  owl-ls-6 owl-lg-6 owl-md-5 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_style20">
                         <h3 class="ovic-title"><span class="text">Bài viết được xem nhiều</span></h3>
                         <div class="product-list-owl owl-slick equal-container better-height " data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:2,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
                             @if (ViewData["TopArticle"] != null)

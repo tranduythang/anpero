@@ -9,7 +9,7 @@
         }
         var quantity = Cart.quantity;
         if (Cart.list.length == 0) {
-          
+
             Cart.list.push({ id: _id, quantity, price: _price, thumb: _thumb, title: _title });
         } else {
             for (var i = 0; i < Cart.list.length; i++) {
@@ -21,7 +21,7 @@
             }
             // if this product no in cart list
             if (!checkExited) {
-                Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });                
+                Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });
             }
         }
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
@@ -67,46 +67,13 @@
         Cart.bindCartTable();
     },
     bindCart: function () {
-        var ttSC = 0;
-        var htmlCat = "<ul class=\"cart_list_items\">";
-        if ($.cookie("CartList") != 'null' && $.cookie("CartList") != "undefined" && $.cookie("CartList") != undefined) {
-            Cart.list = jQuery.parseJSON($.cookie("CartList"));
-            $(".spN").html(Cart.list.length);
-            for (var i = 0; i < Cart.list.length; i++) {
-                ttSC += parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity);
-                htmlCat += '<li class="cart_items">';
-                htmlCat += '<img src="' + Cart.list[i].thumb + '" class="item_img cart-img">';
-                htmlCat += '<div class="item_desc">';
-                    htmlCat += '<span class="product_title">' +unescape(Cart.list[i].title) + '</span>';                    
-                    htmlCat += '<span class="money" data-currency-usd="$22.00">' + Util.toMoneyFormat(Cart.list[i].price) + '</span>';
-                    htmlCat += ' <p class="product_quantity">x' + Cart.list[i].quantity + '</p>';
-                    htmlCat += '<a class="item_remove_btn" href="javascript:Cart.remove(' + Cart.list[i].id + ')">Xóa</a>';                    
-                htmlCat += '</div>';
-                htmlCat += '</li>';
-            }
-            htmlCat += "</ul>";
-            if (Cart.list.length > 0) {
-                
-                $(".toal-cart").show();
-                $(".mini-products-list").show();
-                $(".cart-buttons").show();                
-                $("#lpr").html(Util.toMoneyFormat(ttSC) + " đ");
-                $("#sendOrder").show();
-                htmlCat += '<div class="box_footer">';
-                htmlCat += '<p class="cart_total"><b>Tổng giá: </b><span class="money">' + Util.toMoneyFormat(ttSC) + ' đ</span></p>';
-                htmlCat += '<a id="clear_cart_all_items" class="cart_clear" href="/product/checkout"><i class="fa fa-refresh" title="Clear cart"></i></a><a class="btn cart_url pull-right"" href="/product/checkout">Thanh toán</a>';
-                htmlCat += '</div>';
-                $("#cart_content_box").html(htmlCat);
-            } else {
-                $("#sendOrder").hide();
-                $("#cart_content_box").html("Giỏ hàng rỗng");
-                $("#cart-sidebar2").html("Giỏ hàng rỗng");
-                $("#lpr").html(" 0 đ");
-            }
+        if (Cart.list.length > 0) {
+            $(".icon-basket .count").html(Cart.list.length);
+        } else {
+            $(".icon-basket .count").html(0);
         }
     },
     updateQuantity: function (_id, _quantity) {
-
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
         }
@@ -123,11 +90,12 @@
         var ttSC = 0;
 
         var _paymentFee = $('input[name=radio_4]:checked').attr("data-ship");
-        var htmlCat = ""; 
+        var htmlCat = "";
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined") {
 
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
             try {
+                debugger
                 $(".spN").html(Cart.list.length);
                 for (var i = 0; i < Cart.list.length; i++) {
                     ttSC += parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity);
@@ -136,9 +104,8 @@
                     htmlCat += '<a href="#"><img src="' + Cart.list[i].thumb + '" alt="' + unescape(Cart.list[i].title) + '"></a>';
                     htmlCat += '</td>';
                     htmlCat += '<td class="cart_description">';
-                    htmlCat += '<p class="product-name"><a href="#">' +unescape(Cart.list[i].title) + ' </a></p>';
+                    htmlCat += '<p class="product-name"><a href="#">' + unescape(Cart.list[i].title) + ' </a></p>';
                     htmlCat += '</td>';
-                    htmlCat += '<td class="cart_avail"><span class="label label-success">Còn hàng</span></td>';
                     htmlCat += '<td class="price"><span>' + Util.toMoneyFormat(Cart.list[i].price) + '</span></td>';
                     htmlCat += '<td class="qty">';
                     htmlCat += '<a href="javascript:Cart.remove3(' + Cart.list[i].id + ',' + Cart.list[i].price + ');" class="btn">-</a>';
@@ -267,14 +234,14 @@
             $("#cartContent2").show();
             $("#cartContent2").html("<h4>Đơn hàng đang được gửi ...</h4>");
             $("#ajax_loader").show();
-          //  Cart.list = JSON.stringify($.cookie("CartList"));
+            //  Cart.list = JSON.stringify($.cookie("CartList"));
             $.ajax({
                 method: "post",
                 url: "/handler/ProductHandler.ashx",
                 datatype: "text/plain",
-                data: { op: "CreateOrder", detail: unescape(_detail), PayMentType: _paymentType, shippingMethod: _shipingType, captcha: captchaResponse, name:unescape(_name), email: _email, phone: _phone, address: _address, ProductList: $.cookie("CartList"), shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee) },
+                data: { op: "CreateOrder", detail: unescape(_detail), PayMentType: _paymentType, shippingMethod: _shipingType, captcha: captchaResponse, name: unescape(_name), email: _email, phone: _phone, address: _address, ProductList: $.cookie("CartList"), shipingFee: parseInt(_shipingFee) + parseInt(_paymentFee) },
                 success: function (rs) {
-                    
+
                     $("#ajax_loader").hide();
                     if (!isNaN(rs)) {
                         $.removeCookie('CartList', { path: '/' });
@@ -335,37 +302,6 @@
     }
 };
 
-var Search = {
-    ParentCatId: 0,
-    Category: 0,
-    Page: 1,
-    PageSize: 24,
-    Products: function (page, orderBy) {
-        if (page != null) {
-            Search.Page = page;
-        }
-        var res = window.location.pathname.match(/[a-z0-9-]*-c(\d+)$/);
-        if (res != null && res.length == 2) {
-            Search.ParentCatId = res[1];
-        }
-        var res2 = window.location.pathname.match(/[a-z0-9-]*-cat(\d+)$/);
-        if (res2 != null && res2.length == 2) {
-            Search.Category = res2[1];
-        }
-        $.ajax({
-            method: "post",
-            url: "/product/searchAjax",
-            datatype: "text/plain",
-            data: { cat: categoryId, ParentCategory: Search.ParentCatId, Category: Search.Category, SortBy: orderBy, Page: Search.Page, PageSize: this.Products.PageSize },
-            success: function (rs) {
-                $("#product_listing__sorted").html(rs);
-            }
-        });
-    },
-    setOrder: function (order) {
-        Search.Products(1, order);
-    }
-};
 var OrderForm = {
     Name: "",
     Phone: "",
@@ -378,10 +314,10 @@ var OrderForm = {
 
 var order = "pricedesc";
 $(document).ready(function () {
-    $("input").change(function () {
+    $(".cartContent input").change(function () {
         Cart.saveTempForm();
     });
-    $("textarea").change(function () {
+    $(".cartContent  textarea").change(function () {
         Cart.saveTempForm();
     });
 
