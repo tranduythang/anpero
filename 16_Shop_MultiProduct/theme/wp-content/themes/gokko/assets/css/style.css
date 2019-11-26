@@ -8318,7 +8318,7 @@ SHORT CODE
 .gokko-countdown .countdown-item .item-value {
     font-size: 20px;
     color: #222222;
-    width: 46px;
+    width: 30px;
     height: 40px;
     line-height: 40px;
     text-align: center;
@@ -8339,7 +8339,7 @@ SHORT CODE
 }
 @media (max-width: 479px) {
     .gokko-countdown .countdown-item .item-value {
-        width: 40px;
+        width: 28px;
         height: 40px;
         line-height: 40px;
     }

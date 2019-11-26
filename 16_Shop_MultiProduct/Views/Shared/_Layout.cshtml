@@ -101,7 +101,7 @@
             </div>
 
         </div>
-    </div>   
+    </div>
     <header id="header" class="header header-digital style-2 style-8">
         <div class="top-header">
             <div class="container">
@@ -109,8 +109,8 @@
                     <div class="col-md-6 col-sm-12 header-digital-top-left">
                         <div class="top-left-menu-container ovic-menu-wapper horizontal">
                             <ul id="menu-top-left-menu" class="gokko-nav top-bar-menu top-left-menu ovic-menu">
-                                <li id="menu-item-154" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-154"><a href="#" class="disable-link">Welcome to @commonInfo.Name</a></li>
-                                <li id="menu-item-155" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-155"><a href="#" class="disable-link"><span class="icon icon-font gokko-icon icon-phone"></span>Hotline: @Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.HotLine)</a></li>
+                                <li id="menu-item-154" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-154"><a href="tel:@commonInfo.HotLine" class="disable-link">Welcome to @commonInfo.Name</a></li>
+                                <li id="menu-item-155" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-155"><a href="tel:@commonInfo.HotLine" class="disable-link"><span class="icon icon-font gokko-icon icon-phone"></span>Hotline: @Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.HotLine)</a></li>
                             </ul>
                         </div>
                     </div>
@@ -187,10 +187,10 @@
                                     <span class="count">0</span>
                                 </span>
                                 <span class="gokko-group">
-                                    <span class="text">Giỏ hàng</span>                                    
+                                    <span class="text">Giỏ hàng</span>
                                 </span>
                             </a>
-                         
+
                         </div>
 
                     </div>
@@ -447,7 +447,7 @@
         var ovic_megamenu_frontend = { "title": "MAIN MENU" };
     </script>
     <script type='text/javascript' src='/theme/wp-content/plugins/ovic-toolkit/includes/extends/megamenu/assets/js/megamenu-frontend.js'></script>
-    <script type='text/javascript' src='/theme/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'></script>    
+    <script type='text/javascript' src='/theme/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'></script>
     <script src="/Scripts/Anpero.Common.js"></script>
     <script src="/Scripts/ShoppingCart.js?v=1"></script>
     @RenderSection("scripts", required: false)
@@ -478,6 +478,21 @@
         "logo": "@commonInfo.Logo"
         }
 
+    </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "LocalBusiness",
+        "address": {
+        "@@type": "PostalAddress",
+        "addressLocality": "@commonInfo.Address",
+        "addressRegion": "@commonInfo.Address",
+        "streetAddress": "@commonInfo.Address"
+        },
+        "description": "@commonInfo.Desc",
+        "name": "@commonInfo.Name",
+        "telephone": "@commonInfo.HotLine"
+        }
     </script>
 </body>
 </html>

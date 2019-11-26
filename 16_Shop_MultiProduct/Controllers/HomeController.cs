@@ -82,7 +82,7 @@ namespace AnperoFrontend.Controllers
              WebService.SearchResult searchResult = new WebService.SearchResult();            
             if (!cacheService.TryGet("topViewProduct", out searchResult))
             {
-                searchResult = service.SearchProduct(StoreID, TokenKey, "", "", "", 1, 999999999, 1, 7, "", SearchOrder.ViewTime, 0, string.Empty);
+                searchResult = service.SearchProduct(StoreID, TokenKey, "", "", "", 1, 999999999, 1,5, "", SearchOrder.ViewTime, 0, string.Empty);
                 if (searchResult != null)
                 {
                     cacheService.AddOrUpdate("topViewProduct", searchResult, new TimeSpan(0, 10, 0));
