@@ -19,26 +19,25 @@
 }
 <div class="box-breadcrumb">
     <div class="container">
-        <ul class="hidden-sm hidden-xs">
+        <ul class="woocommerce-breadcrumb breadcrumb">
             <li><a href="/" target="_self" title="Trang chủ">Trang chủ</a></li>
             <li><a href="/blog">blogs</a></li>
             <li><span>@item.Title</span></li>
         </ul>
+
     </div>
 </div>
-<div class="box-news">
-    <div class="container">
-        <div class="box-title-new">
-            <div class="title-top">
-                <h1 class="title">@item.Title</h1>
-            </div>
 
-        </div>
+<div class="main-container left-sidebar">
+    <div class="container">
+      
+   
         <div class="row">
-            <div class="main_content sidebar_on col-sm-9  col-sm-push-3">
+            <div class="main-content col-lg-9 col-md-8">
+                <h2 class="post-title"><a href="index.html">@item.Title</a></h2>
                 <div id="shopify-section-template-article" class="shopify-section section_template section_template__article">
                     <div>
-                        <article class="article_item">                           
+                        <article class="article_item">
                             <p class="article_info">
                                 <span>
                                     <time class="article_time" datetime="@Anpero.StringHelpper.ConvertDateTime(item.CreateDate).ToString()">@Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</time>
@@ -55,7 +54,7 @@
                     </div>
                 </div>
             </div>
-            @*@Html.Partial("article/_MenuAndAdsPartial")*@
+            @Html.Partial("article/_MenuAndAdsPartial")
         </div>
     </div>
 </div>
