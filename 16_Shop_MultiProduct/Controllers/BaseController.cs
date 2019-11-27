@@ -16,12 +16,12 @@ namespace AnperoFrontend.Controllers
         //public static int webinFo = Cloud.GetWebInfoByDomain("domainName");
         //public static string TokenKey = webinFo.TokenKey;
         //public static string StoreID = webinFo.StoreID;
-
+        Lazy<WebService.AnperoService> lazyService = new Lazy<AnperoService>();
         public static int StoreID = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["storeID"]);
         public static string TokenKey = System.Configuration.ConfigurationManager.AppSettings["storeTokenKey"];
         public static int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
         public Anpero.ICacheService cacheService = new Anpero.CacheService();
-
+        public WebService.AnperoService service { get { return lazyService.Value; } }
     }
     public class BuildCommonHtml : ActionFilterAttribute
     {
@@ -60,7 +60,8 @@ namespace AnperoFrontend.Controllers
            
             if (!cacheService.TryGet("BestsaleProduct", out BestsaleProduct))
             {
-                BestsaleProduct = sv.SearchProductFullData(StoreID, TokenKey, "0", "0", "0", 0, 99999999, 1, 7, "", SearchOrder.TimeDesc, 2, true);
+                //BestsaleProduct = sv.SearchProductFullData(StoreID, TokenKey, "0", "0", "0", 0, 99999999, 1, 7, "", SearchOrder.TimeDesc,2, true);
+                BestsaleProduct = sv.SearchProduct(StoreID, TokenKey, "", "","", 0, int.MaxValue, 1, 7, "", SearchOrder.TimeDesc, 2, "");
                 if (BestsaleProduct != null)
                 {
                     cacheService.AddOrUpdate("BestsaleProduct", BestsaleProduct, new TimeSpan(0, 10, 0));                 

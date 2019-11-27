@@ -18,7 +18,15 @@ namespace Anpero
         }
         public static int GetDiscountPersen(decimal oldPrice, decimal newPrive)
         {
-            return Convert.ToInt32((oldPrice - newPrive) / oldPrice * 100);
+            try
+            {
+                return Convert.ToInt32((oldPrice - newPrive) / oldPrice * 100);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+           
         }
         public static Boolean isUrl(String url)
         {
