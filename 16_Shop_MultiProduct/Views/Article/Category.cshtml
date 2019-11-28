@@ -7,6 +7,8 @@
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
     }
     string currentUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+
+    
 }
 @section health{
     <meta name="description" content="@ViewBag.Description" />
@@ -22,8 +24,9 @@
 <div class="box-breadcrumb">
     <div class="container">
         <ul class="woocommerce-breadcrumb breadcrumb">
-            <li><a href="/">Trang chủ</a></li>            
-            <li><span> @ViewBag.CategoryName</span></li>
+            <li><a href="/">Trang chủ</a></li>
+            <li><a href="/blog">blogs</a></li>
+            <li><span> @ViewBag.Keywords</span></li>
         </ul>
 
     </div>
@@ -51,66 +54,13 @@
                                 <a class="read-more" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
                                     Xem thêm
                                 </a>
-
                             </div>
                         </article>
                     }
                 </div>
                 @Html.Raw(ViewBag.page)
             </div>
-            <div class="sidebar col-lg-3 col-md-4">
-                <div id="widget-area" class="widget-area blog-sidebar">
-                    <div class="sidebar-head">
-                        <span class="text">Sidebar</span>
-                        <a href="#" class="close-block-sidebar"><i class="fa fa-times" aria-hidden="true"></i></a>
-                    </div>
-                    <div id="categories-3" class="widget widget_categories">
-                        <h2 class="widgettitle">Danh mục<span class="arrow"></span></h2>
-                        <ul>
-                            @if (ViewData["categoryMenuList"] != null)
-                            {
-                                List<BlogCategory> categoryList = (List<BlogCategory>)ViewData["categoryMenuList"];
-                                foreach (var item in categoryList)
-                                {
-                                    <li class="cat-item">
-                                        <a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Name,item.Id)">@item.Name</a>
-                                    </li>
-                                }
-                            }
-
-                        </ul>
-                    </div><div id="widget_ovic_post-4" class="widget widget-recent-post">
-                        <h2 class="widgettitle">Recent Post<span class="arrow"></span></h2>
-                        <div class="ovic-blog">
-                            @if (ViewData["FeatureArticle"] != null)
-                            {
-                                SearchArticleResults featureList = (SearchArticleResults)ViewData["FeatureArticle"];
-                                foreach (var featureItem in featureList.ItemList)
-                                {
-                                    <article class="blog-item post type-post status-publish format-standard has-post-thumbnail hentry category-digital tag-google tag-phone">
-                                        <div class="post-thumb">
-                                            <a href="@Anpero.StringHelpper.GetArticleLink(featureItem.Title,featureItem.Id)" class="">
-                                                <img width="100" height="73" src="@featureItem.Thumb" class="wp-post-image attachment-100x73 size-100x73 lazy" alt="bloga-full-imgs" style="display: inline;">
-                                            </a>
-                                        </div>
-                                        <div class="post-info">
-                                            <h4 class="post-title">
-                                                <a href="@Anpero.StringHelpper.GetArticleLink(featureItem.Title,featureItem.Id)">@featureItem.ShotDesc</a>
-                                            </h4>
-                                           
-                                        </div>
-                                    </article>
-                                }
-
-                            }
-
-
-                        </div>
-                    </div>
-
-                </div><!-- .widget-area -->
-
-            </div>
+            @Html.Partial("article/_MenuAndAdsPartial")
         </div>
 
 
@@ -123,19 +73,19 @@
     }
 
         .breadcrumbs ul {
-                                    font-size: 0;
-                                    line-height: 0;
-                                }
+            font-size: 0;
+            line-height: 0;
+        }
 
         .breadcrumbs li {
-                                    display: inline-block;
-                                    padding: 27px 10px 0 0;
-                                }
+            display: inline-block;
+            padding: 27px 10px 0 0;
+        }
 
         .breadcrumbs a, .breadcrumbs span {
-                                    font-size: 14px;
-                                    line-height: 1em;
-                                }
+            font-size: 14px;
+            line-height: 1em;
+        }
 
         .breadcrumbs li ~ li:before {
             content: '\f105';

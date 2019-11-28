@@ -1,6 +1,7 @@
 ﻿@using AnperoFrontend.WebService;
 @{
-    List<BlogCategory> categoryList = new List<BlogCategory>();
+    List<BlogCategory>
+    categoryList = new List<BlogCategory>();
     SearchArticleResults TopArticle = new SearchArticleResults();
     if (ViewData["categoryMenuList"] != null)
     {
@@ -11,48 +12,49 @@
         TopArticle = (SearchArticleResults)ViewData["FeatureArticle"];
     }
 }
-<div class="sidebar_small col-sm-3  col-sm-pull-9">
-    <div id="shopify-section-sidebar-blog" class="shopify-section page_sidebar">
-        <div class="sidebar">
-            <div class="sidebar_widget sidebar_blog sidebar_widget__link-list">
-                <h3 class="widget_header">Chuyên mục</h3>
-                <div class="widget_content">
-                    <ul class="sidebar_menu">
-                        @foreach (BlogCategory item in categoryList)
-                        {
-                            <li class="csidebar_menu_item"><a class="sidebar_menu_links" href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Name,item.Id)">@item.Name</a></li>
-                        }
-                    </ul>
-                </div>
-            </div>
-            <div class="sidebar_widget sidebar_blog sidebar_widget__comments">
-                <h3 class="widget_header">Bài viết đặc sắc</h3>
-                <div class="widget_content">
-                    <ul class="list_comments">
-                        @if (TopArticle != null && TopArticle.ItemList.Length > 0)
-                        {
-                            for (int i = 0; i < TopArticle.ItemList.Length - 1; i++)
-                            {
-                                <li>
-                                    <a href="@Anpero.StringHelpper.GetArticleLink(TopArticle.ItemList[i].Title,TopArticle.ItemList[i].Id)">
-                                        <i class="fa fa-comment-o item_icon"></i>
-                                        <span class="item_content">@TopArticle.ItemList[i].Title</span>
-                                        <span class="clearfix"></span>
-                                        <span class="item_info">
-                                            <span class="item_author">Vicky</span>
-                                            <time datetime="@Anpero.StringHelpper.ConvertTimeVN(TopArticle.ItemList[i].CreateDate)">
-                                                <span class="item_date">@Anpero.StringHelpper.ConvertTimeVN(TopArticle.ItemList[i].CreateDate)</span>                                                
-                                            </time>
-                                        </span>
-                                    </a>
-                                </li>
-                            }
-
-                        }
-
-                    </ul>
-                </div>
-            </div>
+<div class="sidebar col-lg-3 col-md-4">
+    <div id="widget-area" class="widget-area blog-sidebar">
+        <div class="sidebar-head">
+            <span class="text">Sidebar</span>
+            <a href="#" class="close-block-sidebar"><i class="fa fa-times" aria-hidden="true"></i></a>
         </div>
-    </div>
+        <div class="widget widget_categories">
+            <h2 class="widgettitle">Browse Categories<span class="arrow"></span></h2>
+            <ul>
+                @foreach (var item in categoryList)
+                {
+                    <li class="cat-item">
+                        <a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Name,item.Id)">@item.Name</a>
+                    </li>
+                }
+
+            </ul>
+        </div>
+        @if (TopArticle != null && TopArticle.ItemList != null && TopArticle.ItemList.Length > 0)
+        {
+            <div id="widget_ovic_post-4" class="widget widget-recent-post">
+                <h2 class="widgettitle">Bài nổi bật<span class="arrow"></span></h2>
+                <div class="ovic-blog">
+                    @foreach (var item in TopArticle.ItemList)
+                    {
+                        <article class="blog-item post-3450 post type-post status-publish format-standard has-post-thumbnail hentry category-digital tag-google tag-phone">
+                            <div class="post-thumb">
+                                <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
+                                    <img  src="@item.Thumb" class="wp-post-image attachment-100x73 size-100x73 lazy" alt="@item.Title">
+                                </a>
+                            </div>
+                            <div class="post-info">
+                                <h4 class="post-title">
+                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a>
+                                </h4>
+                            </div>
+                        </article>
+                    }
+                </div>
+            </div>
+        }
+
+
+    </div><!-- .widget-area -->
+
 </div>

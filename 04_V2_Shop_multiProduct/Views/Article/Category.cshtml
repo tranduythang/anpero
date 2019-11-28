@@ -2,7 +2,7 @@
 @{
     SearchArticleResults articleList = (SearchArticleResults)ViewData["ArticleList"];
 }
-  
+
 <div class="columns-container">
     <div class="container" id="columns">
         <!-- breadcrumb -->
@@ -10,7 +10,7 @@
             <a class="home" href="#" title="Return to Home">Home</a>
             <span class="navigation-pipe">&nbsp;</span>
             <span class="navigation_page">Blog</span><span class="navigation-pipe">&nbsp;</span>
-            
+
         </div>
         <!-- ./breadcrumb -->
         <!-- row -->
@@ -34,7 +34,7 @@
                                 @Html.Raw(ViewBag.page)
                             </nav>
                         </div>
-                       
+
                     </div>
                     @foreach (var item in articleList.ItemList)
                     {
@@ -52,18 +52,18 @@
                                         <div class="col-sm-7">
                                             <div class="entry-ci">
                                                 <h3 class="entry-title"><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h3>
-                                                <div class="entry-meta-data">                                                   
+                                                <div class="entry-meta-data">
                                                     <span class="cat">
                                                         <i class="fa fa-folder-o"></i>
                                                         <a href="@Anpero.StringHelpper.GetCategoryLink(item.CategoryName,item.CategoryId)">@item.CategoryName </a>
-                                                        
+
                                                     </span>
                                                     <span class="comment-count">
                                                         <i class="fa fa-comment-o"></i> @item.ViewTime
                                                     </span>
                                                     <span class="date"><i class="fa fa-calendar"></i> @Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</span>
                                                 </div>
-                                                
+
                                                 <div class="entry-excerpt">
                                                     @item.ShotDesc
                                                 </div>
@@ -79,7 +79,7 @@
 
                         </ul>
                     }
-            
+
                     <div class="sortPagiBar clearfix">
                         <div class="bottom-pagination">
                             <nav>
@@ -162,7 +162,7 @@
                                 </div>
                             </article>
                         </li>
-              
+
 
                     </ul>
                     <div class="sortPagiBar clearfix">
@@ -185,7 +185,7 @@
                     </div>
                 </div>
             }
-      
+
             <!-- ./ Center colunm -->
         </div>
         <!-- ./row-->

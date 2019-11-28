@@ -17,10 +17,11 @@ namespace AnperoFrontend.Controllers
             BlogItem rs= ws.GetArticleById(StoreID, TokenKey, id);
             ViewBag.Title = rs.Title;
             ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + Anpero.StringHelpper.GetArticleLink(rs.Title, rs.Id);
-            ViewData["blogdeltail"] = rs;
-          
+            ViewData["blogdeltail"] = rs;            
+            GetTopArticle();
             return View();
         }
+
         [BuildCommonHtml]
         public ActionResult Category(int id)
         {
@@ -50,6 +51,8 @@ namespace AnperoFrontend.Controllers
                 }
                
             }
+            ViewBag.Category = id;
+            GetTopArticle();
             SetUpCommonArticle();
             return View();
         }
@@ -80,13 +83,29 @@ namespace AnperoFrontend.Controllers
                     categoryName += ", " + categoryList[i].Name;
                 }
             }
-            AnperoService ws = new AnperoService();
-            SearchArticleResults s = new SearchArticleResults();
-            s = ws.SearchArticle(StoreID, TokenKey,0, 1, 5, 1);
-            ViewData["FeatureArticle"] = s;
+         
             ViewBag.Description = "Tin tức |"+ categoryName;
             ViewBag.Keywords = categoryName;
             ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + "/blog";
+        }
+        public void GetTopArticle()
+        {
+            WebService.SearchArticleResults rs = new WebService.SearchArticleResults();
+            WebService.AnperoService service = new WebService.AnperoService();
+            if (HttpRuntime.Cache["TopArticle"] != null)
+            {
+                rs = (WebService.SearchArticleResults)HttpRuntime.Cache["TopArticle"];
+            }
+            else
+            {
+                rs = service.SearchArticle(StoreID, TokenKey, 0, 1, 4, 2);
+                if (rs != null)
+                {
+                    HttpRuntime.Cache.Insert("TopArticle", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
+                }
+
+            }
+            ViewData["FeatureArticle"] = rs;
         }
     }
 }
