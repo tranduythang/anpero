@@ -327,7 +327,7 @@
                 <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-4 vc_col-md-4 vc_col-xs-12 ovic_custom_5c8ef79e03361 vc_custom_1534326477700 vc_custom_1534326477742">
                     <div class="vc_column-inner">
                         <div class="wpb_wrapper">
-                            <div class="wpb_single_image wpb_content_element vc_align_left ovic_custom_5c8ef79e03362 vc_custom_1531127631320">
+                            <div class="wpb_single_image wpb_content_element vc_align_left ovic_custom_5c8ef79e03362 vc_custom_1531127631320" style="text-align:center;padding-right:100px;">
 
                                 <figure class="wpb_wrapper vc_figure">
                                     <div class="vc_single_image-wrapper">
@@ -377,13 +377,37 @@
                     </div>
                 </div>
 
+                @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                {
+                    <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-2 vc_col-md-2 vc_col-xs-12 ovic_custom_5c8ef79e03367 vc_custom_1534379485905 vc_custom_1534379485941 vc_custom_1534379485953">
+                        <div class="vc_column-inner">
+                            <div class="wpb_wrapper">
+                                <div class="ovic-custommenu vc_wp_custommenu wpb_content_element ovic_custom_5c8ef79e03368 " data-show_count_items="0" data-text_more="All Categories">
+                                    <div class="widget widget_nav_menu">
+                                        <h2 class="widgettitle">Sản phẩm</h2>
+                                        <div class=" ovic-menu-wapper horizontal">
+                                            <ul class="menu ovic-menu">
+                                                @foreach (var item in commonInfo.ProductCategoryList)
+                                                {
+                                                    <li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6"><a href="@item.DefaultLink" class="disable-link">@item.Name</a></li>
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
                 @if (commonInfo.FooterMenuList != null && commonInfo.FooterMenuList.Length > 0)
                 {
+
                     foreach (var item in commonInfo.FooterMenuList)
-                    {<div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-2 vc_col-md-2 vc_col-xs-12 ovic_custom_5c8ef79e03367 vc_custom_1534379485905 vc_custom_1534379485941 vc_custom_1534379485953">
+                    {
+                        <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-2 vc_col-md-2 vc_col-xs-12 ovic_custom_5c8ef79e03367 vc_custom_1534379485905 vc_custom_1534379485941 vc_custom_1534379485953">
                             <div class="vc_column-inner">
                                 <div class="wpb_wrapper">
-                                    <div class="ovic-custommenu vc_wp_custommenu wpb_content_element    ovic_custom_5c8ef79e03368 " data-show_count_items="0" data-text_more="All Categories">
+                                    <div class="ovic-custommenu vc_wp_custommenu wpb_content_element ovic_custom_5c8ef79e03368 " data-show_count_items="0" data-text_more="All Categories">
                                         <div class="widget widget_nav_menu">
                                             <h2 class="widgettitle">@item.Tittle</h2>
                                             <div class=" ovic-menu-wapper horizontal">
@@ -428,7 +452,25 @@
                         <div class="wpb_wrapper">
                             <div class="wpb_single_image wpb_content_element vc_align_right ovic_custom_5c8ef79e03371">
                                 <figure class="wpb_wrapper vc_figure">
-                                    <div class="vc_single_image-wrapper   vc_box_border_grey"><img class="vc_single_image-img lazy attachment-full" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20266%2024%27%2F%3E" data-src="https://gokko.kutethemes.net/wp-content/uploads/2018/09/payment-3.png" width="266" height="24" alt="Footer 08" /></div>
+                                    <div class="vc_single_image-wrapper   vc_box_border_grey">
+                                        @if (ViewData["Ads5"] != null)
+                                        {
+                                            Ads[] adsList = (Ads[])ViewData["Ads5"];
+                                            if (adsList.Length > 0)
+                                            {
+                                                foreach (var item in adsList)
+                                                {
+                                                    <img class="vc_single_image-img lazy attachment-full" src="@item.ImagesUrl" data-src="@item.ImagesUrl" alt="Footer 08" />
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <img class="vc_single_image-img lazy attachment-full" src="https://cdn.anpero.com/images/38/112019/12019112900230279.png" data-src="https://cdn.anpero.com/images/38/112019/12019112900230279.png" width="266" height="24" alt="Footer 08" />
+                                        }
+
+
+                                    </div>
                                 </figure>
                             </div>
                         </div>

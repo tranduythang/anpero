@@ -18,9 +18,7 @@ namespace AnperoFrontend.Controllers
             ViewBag.Title = rs.Title;
             ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + Anpero.StringHelpper.GetArticleLink(rs.Title, rs.Id);
             ViewData["blogdeltail"] = rs;
-            SearchArticleResults s = new SearchArticleResults();
-            s = ws.SearchArticle(StoreID, TokenKey, rs.CategoryId, 1, 5, 0);
-            ViewData["FeatureArticle"] = s;
+          
             return View();
         }
         [BuildCommonHtml]
@@ -82,7 +80,10 @@ namespace AnperoFrontend.Controllers
                     categoryName += ", " + categoryList[i].Name;
                 }
             }
-         
+            AnperoService ws = new AnperoService();
+            SearchArticleResults s = new SearchArticleResults();
+            s = ws.SearchArticle(StoreID, TokenKey,0, 1, 5, 1);
+            ViewData["FeatureArticle"] = s;
             ViewBag.Description = "Tin tức |"+ categoryName;
             ViewBag.Keywords = categoryName;
             ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + "/blog";

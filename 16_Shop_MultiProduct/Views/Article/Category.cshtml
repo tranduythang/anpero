@@ -22,15 +22,14 @@
 <div class="box-breadcrumb">
     <div class="container">
         <ul class="woocommerce-breadcrumb breadcrumb">
-            <li><a href="/">Trang chủ</a></li>
-            <li><a href="/blog">blogs</a></li>
-            <li><span> @ViewBag.Keywords</span></li>
+            <li><a href="/">Trang chủ</a></li>            
+            <li><span> @ViewBag.CategoryName</span></li>
         </ul>
- 
+
     </div>
 </div>
 <div class="main-container left-sidebar">
-    <div class="container">       
+    <div class="container">
         <div class="row blog-grid content-post auto-clear">
             <div class="main-content col-lg-9 col-md-8">
                 <!-- Main content -->
@@ -65,86 +64,56 @@
                         <span class="text">Sidebar</span>
                         <a href="#" class="close-block-sidebar"><i class="fa fa-times" aria-hidden="true"></i></a>
                     </div>
-            <div id="categories-3" class="widget widget_categories">
-                        <h2 class="widgettitle">Browse Categories<span class="arrow"></span></h2>		<ul>
-                            <li class="cat-item cat-item-82">
-                                <a href="category/appliances/index.html">Appliances</a>
-                            </li>
-                            <li class="cat-item cat-item-83">
-                                <a href="category/digital/index.html">Digital</a>
-                            </li>
-                            <li class="cat-item cat-item-84">
-                                <a href="category/furniture/index.html">Furniture</a>
-                            </li>
-                            <li class="cat-item cat-item-85">
-                                <a href="category/handmade/index.html">Handmade</a>
-                            </li>
-                            <li class="cat-item cat-item-86">
-                                <a href="category/narure/index.html">Narure</a>
-                            </li>
-                            <li class="cat-item cat-item-87">
-                                <a href="category/organic/index.html">Organic</a>
-                            </li>
+                    <div id="categories-3" class="widget widget_categories">
+                        <h2 class="widgettitle">Danh mục<span class="arrow"></span></h2>
+                        <ul>
+                            @if (ViewData["categoryMenuList"] != null)
+                            {
+                                List<BlogCategory> categoryList = (List<BlogCategory>)ViewData["categoryMenuList"];
+                                foreach (var item in categoryList)
+                                {
+                                    <li class="cat-item">
+                                        <a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Name,item.Id)">@item.Name</a>
+                                    </li>
+                                }
+                            }
+
                         </ul>
                     </div><div id="widget_ovic_post-4" class="widget widget-recent-post">
-                        <h2 class="widgettitle">Recent Post<span class="arrow"></span></h2>                <div class="ovic-blog">
-                            <article class="blog-item post-3450 post type-post status-publish format-standard has-post-thumbnail hentry category-digital tag-google tag-phone">
-                                <div class="post-thumb">
-                                    <a href="google-3xl-pixel-phone-is-much-nicer-than-the-iphone-x/index.html" class="">
-                                        <img width="100" height="73" src="https://gokko.kutethemes.net/wp-content/uploads/2018/12/bloga-full-imgs-100x73.jpg" class="wp-post-image attachment-100x73 size-100x73 lazy" alt="bloga-full-imgs" style="display: inline;">
-                                    </a>
-                                </div>
-                                <div class="post-info">
-                                    <h4 class="post-title">
-                                        <a href="google-3xl-pixel-phone-is-much-nicer-than-the-iphone-x/index.html">Google 3xl pixel phone is much nicer than the iphone X</a>
-                                    </h4>
-                                    <div class="post-meta">
-                                        <span class="author"><span>By</span> admin</span> -
-                                        <span class="date">10 Dec 2018</span>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="blog-item post-3443 post type-post status-publish format-standard has-post-thumbnail hentry category-digital tag-apple">
-                                <div class="post-thumb">
-                                    <a href="top-best-laptops-voted-in-2018/index.html" class="">
-                                        <img width="100" height="73" src="https://gokko.kutethemes.net/wp-content/uploads/2018/12/blog-fuedll-imgs-100x73.jpg" class="wp-post-image attachment-100x73 size-100x73 lazy" alt="blog-fuedll-imgs" style="display: inline;">
-                                    </a>
-                                </div>
-                                <div class="post-info">
-                                    <h4 class="post-title">
-                                        <a href="top-best-laptops-voted-in-2018/index.html">Top best laptops voted in 2018</a>
-                                    </h4>
-                                    <div class="post-meta">
-                                        <span class="author"><span>By</span> admin</span> -
-                                        <span class="date">10 Dec 2018</span>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="blog-item post-3441 post type-post status-publish format-standard has-post-thumbnail hentry category-digital tag-samsung">
-                                <div class="post-thumb">
-                                    <a href="top-the-best-smart-watches-2018/index.html" class="">
-                                        <img width="100" height="73" src="https://gokko.kutethemes.net/wp-content/uploads/2018/12/blog-full-imgs-100x73.jpg" class="wp-post-image attachment-100x73 size-100x73 lazy" alt="blog-full-imgs" style="display: inline;">
-                                    </a>
-                                </div>
-                                <div class="post-info">
-                                    <h4 class="post-title">
-                                        <a href="top-the-best-smart-watches-2018/index.html">Top the best smart watches 2018</a>
-                                    </h4>
-                                    <div class="post-meta">
-                                        <span class="author"><span>By</span> admin</span> -
-                                        <span class="date">10 Dec 2018</span>
-                                    </div>
-                                </div>
-                            </article>
+                        <h2 class="widgettitle">Recent Post<span class="arrow"></span></h2>
+                        <div class="ovic-blog">
+                            @if (ViewData["FeatureArticle"] != null)
+                            {
+                                SearchArticleResults featureList = (SearchArticleResults)ViewData["FeatureArticle"];
+                                foreach (var featureItem in featureList.ItemList)
+                                {
+                                    <article class="blog-item post type-post status-publish format-standard has-post-thumbnail hentry category-digital tag-google tag-phone">
+                                        <div class="post-thumb">
+                                            <a href="@Anpero.StringHelpper.GetArticleLink(featureItem.Title,featureItem.Id)" class="">
+                                                <img width="100" height="73" src="@featureItem.Thumb" class="wp-post-image attachment-100x73 size-100x73 lazy" alt="bloga-full-imgs" style="display: inline;">
+                                            </a>
+                                        </div>
+                                        <div class="post-info">
+                                            <h4 class="post-title">
+                                                <a href="@Anpero.StringHelpper.GetArticleLink(featureItem.Title,featureItem.Id)">@featureItem.ShotDesc</a>
+                                            </h4>
+                                           
+                                        </div>
+                                    </article>
+                                }
+
+                            }
+
+
                         </div>
                     </div>
-                
+
                 </div><!-- .widget-area -->
 
             </div>
         </div>
-    
-       
+
+
     </div>
 </div>
 
@@ -154,19 +123,19 @@
     }
 
         .breadcrumbs ul {
-            font-size: 0;
-            line-height: 0;
-        }
+                                    font-size: 0;
+                                    line-height: 0;
+                                }
 
         .breadcrumbs li {
-            display: inline-block;
-            padding: 27px 10px 0 0;
-        }
+                                    display: inline-block;
+                                    padding: 27px 10px 0 0;
+                                }
 
         .breadcrumbs a, .breadcrumbs span {
-            font-size: 14px;
-            line-height: 1em;
-        }
+                                    font-size: 14px;
+                                    line-height: 1em;
+                                }
 
         .breadcrumbs li ~ li:before {
             content: '\f105';
