@@ -69,7 +69,11 @@
                 <div class="col-sm-12">
                     <ul class="breadcrumb">
                         <li><a href="/" title="Trang chủ">Trang chủ</a></li>
-                        <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName, item.ParentId)" title="">@item.ParentCatName</a></li>
+                        @if (!string.IsNullOrEmpty(item.ParentCatName))
+                        {
+                            <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName, item.ParentId)" title="@item.PrName">@item.ParentCatName</a></li>
+                        }
+
                         @if (!string.IsNullOrEmpty(item.CatName))
                         {
                             <li><a href="@Anpero.StringHelpper.GetCategoryLink(item.CatName, item.CatID)" title="">@item.CatName</a> </li>
@@ -123,7 +127,25 @@
 
 
                             <div class="short-description">@item.Specifications @item.ShortDesc</div>
-                            <p class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price) đ</p>
+
+
+                            @if (item.IsSale)
+                            {
+                                <p class="price">
+                                    @Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)đ
+                                    <del> <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)đ</span></del>
+                                </p>
+                            }
+                            else
+                            {
+                                <p class="price">
+                                    @Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)đ                                    
+                                </p>
+                            }
+
+
+
+
                             @if (item.Properties != null && item.Properties.Count() > 0)
                             {
                                 <div class="atribute">
@@ -240,14 +262,14 @@
                     }
                 </div>
             </div>
-      
+
         </div>
     </div>
-            @section scripts{
-                <link href="~/theme/wp-content/plugins/ovic-toolkit/includes/frontend/assets/css/slick.min.css" rel="stylesheet" />
-                <script src="~/theme/wp-content/plugins/ovic-toolkit/includes/frontend/assets/js/libs/slick.min.js"></script>
-                <script src="//cdn.anpero.com/cdn/plugins/fancybox-3/dist/jquery.fancybox.min.js"></script>
-                <script>
+    @section scripts{
+        <link href="~/theme/wp-content/plugins/ovic-toolkit/includes/frontend/assets/css/slick.min.css" rel="stylesheet" />
+        <script src="~/theme/wp-content/plugins/ovic-toolkit/includes/frontend/assets/js/libs/slick.min.js"></script>
+        <script src="//cdn.anpero.com/cdn/plugins/fancybox-3/dist/jquery.fancybox.min.js"></script>
+        <script>
             var price =0;
             var defaultPrice =@Convert.ToInt32(item.SalePrice);
             var atributeName = "";
@@ -330,24 +352,24 @@
                 var iframeH = contentW / 16 * 9;
                 iframe.css('height', iframeH);
             }
-                </script>
-                @{
-                    List<string> images = new List<string>();
-                    images.Add(item.Images);
-                    images.AddRange(item.ImagesSlide);
-                    images = images.Select(x => "\"" + x + "\"").ToList();
-                    var imagesText = string.Join(",", images);
-                }
-                <script type="application/ld+json">
-                    {
-                    "@@context":"http://schema.org/",
-                    "@@type":"Product",
-                    "name":"@item.PrName",
-                    "image":[@Html.Raw(imagesText)],
-                    "description":"@item.ShortDesc",
-                    "sku": "@item.Id"
-                    }
-                </script>
+        </script>
+        @{
+            List<string> images = new List<string>();
+            images.Add(item.Images);
+            images.AddRange(item.ImagesSlide);
+            images = images.Select(x => "\"" + x + "\"").ToList();
+            var imagesText = string.Join(",", images);
+        }
+        <script type="application/ld+json">
+            {
+            "@@context":"http://schema.org/",
+            "@@type":"Product",
+            "name":"@item.PrName",
+            "image":[@Html.Raw(imagesText)],
+            "description":"@item.ShortDesc",
+            "sku": "@item.Id"
             }
+        </script>
+    }
 
-            }
+}
