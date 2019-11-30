@@ -324,11 +324,7 @@ SLICK SLIDER
         z-index: 50;
     }
 }
-@media (max-width: 767px) {
-    .slick-slider .slick-arrow {
-        display: none !important;
-    }
-}
+
 /*==========================================================================
 WOOCOMMERCE DATAS
 ===========================================================================*/

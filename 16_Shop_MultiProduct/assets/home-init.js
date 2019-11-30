@@ -1,10 +1,13 @@
 var homeFontend = function () {
     function bindProduct(categoryId) {
+        
+        $("#feature-pr-content").addClass("loading-lazy");
         $.ajax({
             url: "/product/getByCategory",
             type:"post",
             data: { id: categoryId },
             success: function (data) {
+                $("#feature-pr-content").removeClass("loading-lazy");
                 $("#feature-pr-content").html(data);
             }
         });

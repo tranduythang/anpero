@@ -91,7 +91,7 @@
                                 </a>
 
                             </div>
-                            <div id="sldetest" class="flex-control-nav flex-control-thumbs" style="height:300px;">
+                            <div id="sldetest" >
                                 @if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
                                 {
                                     foreach (var imagesSlide in item.ImagesSlide)
@@ -288,14 +288,30 @@
                 $(window).resize(function () {
                     resizeVideo();
                 });
-                 $('#sldetest').slick({
-                    autoplay: true,
-                    vertical: true,
-                    slidesToShow: 4,
-                    slidesToScroll: 1,
-                    prevArrow: '<span class="fa fa-angle-left prev slick-arrow" aria-disabled="false" style="display: inline-block;">',
-                    nextArrow: '</span><span class="fa fa-angle-right next slick-arrow" aria-disabled="false" style="display: inline-block;"></span>',
-                 });
+                @if (Request.Browser.IsMobileDevice)
+                {
+                    <text>
+                        $('#sldetest').slick({
+                            autoplay: true,
+                            prevArrow: '<span class="fa fa-angle-left prev slick-arrow" aria-disabled="false" style="display: inline-block;">',
+                            nextArrow: '</span><span class="fa fa-angle-right next slick-arrow" aria-disabled="false" style="display: inline-block;"></span>',
+                         });
+                    </text>
+                }
+                else
+                {
+                     <text>
+                        $('#sldetest').slick({
+                            autoplay: true,
+                            vertical: true,
+                            slidesToShow: 4,
+                            slidesToScroll: 1,
+                            prevArrow: '<span class="fa fa-angle-left prev slick-arrow" aria-disabled="false" style="display: inline-block;">',
+                            nextArrow: '</span><span class="fa fa-angle-right next slick-arrow" aria-disabled="false" style="display: inline-block;"></span>',
+                         });
+                    </text>
+                }
+
 
 
             });

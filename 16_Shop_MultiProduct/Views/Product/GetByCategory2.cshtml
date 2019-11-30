@@ -5,9 +5,9 @@
     for (int i = 0; i < Model.Item.Length; i++)
     {
         var item = Model.Item[i];        
-        <div class="product-item recent-product style-3 rows-space-0 product type-product post-3426 status-publish last instock product_cat-gadgets-accessories product_tag-appliances product_tag-bass product_tag-furniture has-post-thumbnail sale featured shipping-taxable purchasable product-type-variable has-default-attributes">
+        <div class="  product-item recent-product style-2  equal-elem rows-space-0 product type-product status-publish instock product_cat-trees-vegetables has-post-thumbnail purchasable product-type-simple">
             <div class="product-inner">
-                <div class="product-thumb" style="width: 190px;">
+                <div class="product-thumb" style="width: 50%;float:left;">
                     <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
                         <figure>
                             <img width="190" height="190" src="@item.Images" class="wp-post-image attachment-190x190 size-190x190" alt="@item.PrName" />
@@ -29,16 +29,16 @@
                         @if (item.IsSale)
                         {
                             <del>
-                                <span class="woocommerce-Price-amount amount">@item.Price</span>
+                                <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span>
                             </del>
                             <ins>
-                                <span class="woocommerce-Price-amount amount">@item.SalePrice đ</span>
+                                <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
                             </ins>
                         }
                         else
                         {
                             <ins>
-                                <span class="woocommerce-Price-amount amount">@item.Price</span>
+                                <span class="woocommerce-Price-amount amount">Anpero.StringHelpper.ConVertToMoneyFormatInt(@item.Price)</span>
                             </ins>
                         }
                     </span>
@@ -53,6 +53,17 @@
                              data-txt_sec="Giây" data-value_first="1"></div>
                     </div>
                 </div>
+                @if (item.IsInstock)
+                {
+                    <div class="group-button">
+                        <div class="inner">
+                            <div class="add-to-cart">
+                                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.PrName,item.Id)" class="button product_type_variable add_to_cart_button">Xem chi tiết</a>
+                            </div>
+
+                        </div>
+                    </div>
+                }
             </div>
             </div>        
     }
