@@ -96,7 +96,7 @@ namespace AnperoFrontend.Controllers
             WebService.AnperoService sv = new WebService.AnperoService();
             WebService.SearchResult rs = sv.GetProductByCategory(StoreID, TokenKey, id, page, 14, 0);
             ViewData["productList"] = rs;
-            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 16, rs.ResultCount, 10, "?page=");
             ViewBag.pageName = "Category";
             if (rs != null && rs.Item.Length > 0)
             {
@@ -122,7 +122,7 @@ namespace AnperoFrontend.Controllers
             WebService.AnperoService sv = new WebService.AnperoService();
             WebService.SearchResult rs = sv.GetProductByGroup(StoreID, TokenKey, id, page, 14, 0);
             ViewData["productList"] = rs;
-            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs == null ? 0 : rs.ResultCount, 10, "?page=");
+            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 16, rs == null ? 0 : rs.ResultCount, 10, "?page=");
 
             ViewBag.isParent = "1";
             ViewBag.pageName = "Group";
@@ -150,7 +150,7 @@ namespace AnperoFrontend.Controllers
             WebService.SearchResult rs = sv.GetProductByParentCategory(StoreID, TokenKey, id, page, 14, 0);
             ViewData["productList"] = rs;
             ViewBag.pageName = "ParentCategory";
-            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 16, rs.ResultCount, 10, "?page=");
 
 
 
@@ -186,7 +186,7 @@ namespace AnperoFrontend.Controllers
             ViewData["productList"] = rs;
 
             ViewBag.pageName = "Search";
-            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 14, rs.ResultCount, 10, "?page=");
+            ViewBag.page = Anpero.Paging.setUpPagedV2(page, 16, rs.ResultCount, 10, "?page=");
 
             if (!string.IsNullOrEmpty(model.KeyWord))
             {
