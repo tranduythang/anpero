@@ -123,7 +123,7 @@
                         <div class="wpb_wrapper">
                             <div class="ovic-tabs style1 style7 ovic_custom_5c92fe3eaf6df ">
                                 <div class="tab-head ovic-dropdown">
-                                    <h3 class="ovic-title"><span class="text">Bán chạy</span></h3>
+                                    <h3 class="ovic-title"><span class="text">Sản phẩm bán chạy</span></h3>
                                     <ul class="tab-link">
                                         <li class="active">
                                             <a data-id="0" href="#feature-pr-content" data-ajax="1" data-type="feature">
@@ -465,7 +465,7 @@
                         <div class="wpb_wrapper">
                             <div class="ovic-tabs style1 style7   ovic_custom_5c92fe3eaf6df ">
                                 <div class="tab-head ovic-dropdown">
-                                    <h3 class="ovic-title"><span class="text">Sản phẩm Khuyến mại</span></h3>
+                                    <h3 class="ovic-title"><span class="text">Sản phẩm khuyến mại</span></h3>
                                     <ul class="tab-link">
                                         <li class="active">
                                             <a data-id="0" href="#sale-pr-content" data-ajax="1" data-type="sale">
@@ -531,7 +531,7 @@
                                                                     </span>
 
                                                                 </div>
-                                                                <div class="product-item style-4" style="width:100%;">
+                                                                <div class="product-item style-4" style="width:100%;display:inline-block;">
                                                                     <div class="countdown-container">
                                                                         <div class="gokko-countdown" data-datetime="@Anpero.StringHelpper.ConvertDateTime(item.SaleEndTime.ToString()).ToString()"
                                                                              data-txt_day="Ngày"
@@ -646,7 +646,11 @@
                                                 <h3 class="product-name product_title">
                                                     <a href="product/cactus-plant-in-a-pot/index.html">@item.PrName</a>
                                                 </h3>
-                                                <div>1 tháng</div>
+                                                @if (item.Warranty > 0)
+                                                {
+                                                    <div>@item.Warranty tháng</div>
+                                                }
+
                                                 <span class="price"><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)đ</span></span>
                                             </div>
                                             <div class="group-button">

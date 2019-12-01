@@ -168,7 +168,7 @@ namespace Anpero
                     {
                         if (i == curentPage)
                         {
-                            pagedString += @"<li class='active pull-left'><a href='javascript:void(0);' tittle='đang ở trang này'>" + (i) + "</a></li>";
+                            pagedString += @"<li class='active pull-left'><a href='javascript:void(0);' title='đang ở trang này'>" + (i) + "</a></li>";
 
                         }
                         else
@@ -180,7 +180,8 @@ namespace Anpero
                 }
                 if (curentPage == totalPage)
                 {
-                    pagedString += @"<li class='active pull-left'><a href='javascript:void(0);' tittle='bạn đang ở trang cuôi'>&raquo;</a><li>";
+                    pagedString += @"<li class='active pull-left'><a href='" + pageaspx + query + totalPage + @"'>" + totalPage + @"</a></li>";
+                    pagedString += @"<li class=' pull-left'><a href='javascript:void(0);' title='bạn đang ở trang cuôi'>&raquo;</a><li>";
                 }
                 else
                 {

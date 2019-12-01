@@ -9,6 +9,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <_PublishTargetUrl>E:\webPublish\theme16</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
+    <File Include="404.html">
+      <publishTime>12/02/2019 00:16:37</publishTime>
+    </File>
     <File Include="assets/animate.css">
       <publishTime>11/09/2019 00:06:17</publishTime>
     </File>
@@ -757,19 +760,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/09/2019 00:06:17</publishTime>
     </File>
     <File Include="bin/Anpero.dll">
-      <publishTime>12/01/2019 04:50:49</publishTime>
+      <publishTime>12/02/2019 01:48:21</publishTime>
     </File>
     <File Include="bin/Anpero.pdb">
-      <publishTime>12/01/2019 04:50:49</publishTime>
+      <publishTime>12/02/2019 01:48:21</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.dll">
-      <publishTime>12/01/2019 04:50:49</publishTime>
+      <publishTime>12/02/2019 02:00:25</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.pdb">
-      <publishTime>12/01/2019 04:50:49</publishTime>
+      <publishTime>12/02/2019 02:00:25</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.XmlSerializers.dll">
-      <publishTime>12/01/2019 04:50:50</publishTime>
+      <publishTime>12/02/2019 02:00:26</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>11/05/2019 00:12:48</publishTime>
@@ -1711,7 +1714,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/21/2019 23:26:51</publishTime>
     </File>
     <File Include="theme/wp-content/themes/gokko/assets/css/style.css">
-      <publishTime>12/01/2019 04:30:13</publishTime>
+      <publishTime>12/02/2019 01:14:15</publishTime>
     </File>
     <File Include="theme/wp-content/themes/gokko/assets/fonts/GlacialIndifference-Bold.html">
       <publishTime>11/09/2019 00:06:17</publishTime>
@@ -3936,6 +3939,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Brands/Index.cshtml">
       <publishTime>11/09/2019 00:06:17</publishTime>
     </File>
+    <File Include="Views/Error/Index.cshtml">
+      <publishTime>12/02/2019 00:26:42</publishTime>
+    </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>11/25/2019 07:21:11</publishTime>
     </File>
@@ -3943,7 +3949,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/09/2019 00:06:17</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>12/01/2019 04:38:11</publishTime>
+      <publishTime>12/02/2019 02:00:11</publishTime>
     </File>
     <File Include="Views/Home/Policy.cshtml">
       <publishTime>11/25/2019 07:22:22</publishTime>
@@ -3982,7 +3988,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/01/2019 04:32:10</publishTime>
     </File>
     <File Include="Views/Product/List.cshtml">
-      <publishTime>11/29/2019 00:53:32</publishTime>
+      <publishTime>12/02/2019 01:41:48</publishTime>
     </File>
     <File Include="Views/Product/List_BACK.cshtml">
       <publishTime>11/16/2019 01:28:50</publishTime>
@@ -4003,7 +4009,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/09/2019 00:06:17</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/30/2019 15:11:15</publishTime>
+      <publishTime>12/01/2019 23:42:19</publishTime>
     </File>
     <File Include="Views/Shared/_partial/_FooterPartial.cshtml">
       <publishTime>11/09/2019 00:06:17</publishTime>
@@ -4054,7 +4060,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/10/2019 16:45:08</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/01/2019 03:26:50</publishTime>
+      <publishTime>12/02/2019 00:54:56</publishTime>
     </File>
   </ItemGroup>
 </Project>

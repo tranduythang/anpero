@@ -1,0 +1,112 @@
+﻿@{
+
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+        ViewBag.Title = commonInfo.Name;
+        ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau(commonInfo.Desc);
+        ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+    }
+}
+@section health{
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+    <style>
+
+        #error-container a {
+            color: #75829F;
+            text-decoration: none;
+            position: relative;
+            z-index: 1;
+        }
+
+            #error-container a:hover {
+                text-decoration: underline;
+            }
+
+        #error-container .container {
+            margin: auto;
+            max-width: 580px;
+            min-width: 200px;
+        }
+
+        #error-container .box hr {
+            display: block;
+            border: none;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        #error-container .box h1, .box h2 {
+            display: block;
+            text-align: center;
+        }
+
+        #error-container .box h1 {
+            color: #666;
+            font-weight: normal;
+            font-size: 50px;
+            padding: 0;
+            margin: 0;
+            margin-top: 10px;
+            line-height: 50px
+        }
+
+        #error-container .box h2 {
+            color: #666;
+            font-weight: normal;
+            font-size: 1.5em;
+        }
+
+        #error-container .box p {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #error-container .box ul li {
+            margin-bottom: 7px;
+        }
+
+        /**** Copyright Information ****/
+        #error-container .copyright {
+            display: block;
+            text-align: center;
+            color: #fff;
+            font-weight: normal;
+            margin-top: 20px;
+        }
+
+            #error-container .copyright a {
+                color: #fff;
+            }
+
+        #error-container .sitelink {
+            display: block;
+            text-align: center;
+            color: #999;
+            font-weight: normal;
+            margin-top: 20px;
+        }
+    </style>
+
+}
+
+<div id="snow"></div>
+<div class="container" id="error-container">
+    <div class="box">
+        <h1>404</h1>
+        <h2>Không tìm thấy</h2>
+        <hr>
+
+        <p>Địa chỉ bạn tìm kiếm không tồn tại hoặc không có sẵn tại thời điểm này</p>
+        <p> Rất xin lỗi bạn vì sự bất tiện này tuy nhiên có lỗi hệ thống xảy ra vào @DateTime.Now.ToString(). Vui lòng giúp chúng tôi bằng cách lên hệ trực tiếp qua số điện thoại  <a href="tel:@commonInfo.HotLine">@Anpero.StringHelpper.ToPhoneNumberFormat(@commonInfo.HotLine)</a>  hoặc thư điện tử để được hỗ trợ.</p>
+        <p>Bạn có thể:</p>
+        <ul>
+            <li>Kiểm tra lại địa chỉ đường dẫn trên <strong>Thanh địa chỉ </strong>của trình duyệt.</li>
+            <li>Nếu bạn đã từng vào được địa chỉ này, vui lòng click vào <a href="/home/contact">Liên hệ </a> để được hỗ trợ.</li>
+
+        </ul>
+        <div class="sitelink">
+            <a href="/">Trang chủ</a> | <a href="/home/contact">Liên hệ</a>
+        </div>
+    </div>
+</div>

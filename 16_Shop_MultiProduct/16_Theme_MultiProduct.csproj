@@ -123,6 +123,7 @@
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BrandsController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SeoController.cs" />
@@ -151,6 +152,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="404.html" />
     <Content Include="assets\animate.css" />
     <Content Include="assets\animate.js" />
     <Content Include="assets\js\countdown\countdownBasic.html" />
@@ -1423,6 +1425,7 @@
     <Content Include="Views\Product\List_BACK.cshtml" />
     <Content Include="Views\Product\Index - Copy.cshtml" />
     <Content Include="Views\Product\GetByCategory2.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

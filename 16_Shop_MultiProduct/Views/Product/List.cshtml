@@ -43,7 +43,24 @@
             line-height: 0;
             padding: 10px 0;
         }
+        .navigation ul li{
+            display: inline-block;
+            vertical-align: middle;
+            padding: 0 6px;
+            font-size: 14px;
+            height: 32px;
+            line-height: 33px;
+            min-width: 39px;
+            text-align: center;
+            border-radius: 2px;
+            margin-right: 4px;
+        }
+        .navigation ul li.active {
+            color: #fff;
+            background-color: #D11222;
+        }
     </style>
+    
 }
 <div class="main-container shop-page left-sidebar">
     <div class="container">
@@ -109,7 +126,7 @@
                                             <h3 class="product-name product_title">
                                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
                                             </h3>
-                                            <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale?item.SalePrice:item.Price)</span>                                            
+                                            <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)</span>
                                             <div class="product-sku">@item.Specifications</div>
                                         </div>
                                         <div class="group-button">
@@ -132,10 +149,10 @@
 
                     </ul>
                 </div>
-                <nav aria-label="Page navigation" class="flex-control-paging ">
+                <nav aria-label="Page navigation" class="navigation">
                     @Html.Raw(ViewBag.page)
                 </nav>
-               
+
             </div>
             <div class="sidebar col-lg-3 col-md-4 initialized">
                 <div id="widget-area" class="widget-area shop-sidebar">
@@ -143,25 +160,24 @@
                         <span class="text">Sidebar</span>
                         <a href="#" class="close-block-sidebar"><i class="fa fa-times" aria-hidden="true"></i></a>
                     </div>
-                    @*<div class="widget woocommerce widget_product_categories">
-                        <h2 class="widgettitle">Danh mục sản phẩm<span class="arrow"></span></h2>
-                        <ul class="product-categories">
+                    <div class="widget woocommerce widget_product_brand  widget_product_categories">
+                        <h2 class="widgettitle">Danh mục<span class="arrow"></span></h2>
+
+                        <ul class="product-categories list">
+
                             @foreach (var item in commonInfo.ProductCategoryList)
                             {
-
-                                <li class="cat-item"><a href="@item.DefaultLink">@item.Name</a></li>
+                                <li class="cat-item"> <label><input type="checkbox" name="category" value="@item.Id" /> @item.Name</label></li>
                                 if (item.ChildCategory != null && item.ChildCategory.Length > 0)
                                 {
                                     foreach (var childItem in item.ChildCategory)
                                     {
-                                        <li class="cat-item"><a href="@childItem.DefaultLink">@childItem.Name</a></li>
+                                        <li class="cat-item"> <label><input type="checkbox" name="category" value="@childItem.Id" /> @childItem.Name</label></li>
                                     }
                                 }
                             }
-
                         </ul>
-                    </div>*@
-
+                    </div>
                     @if (commonInfo.ProductGroupList.Count() > 0)
                     {
                         <div class="widget woocommerce widget_product_brand  widget_product_categories">
@@ -189,7 +205,7 @@
                                         <li class="cat-item"> <label><input type="checkbox" name="properties" value="@valueItem.Id" /> @valueItem.Values</label></li>
                                     }
                                 </ul>
-                            </div>                          
+                            </div>
                         }
                     }
                     <div id="media_image-2" class="widget widget_media_image"><a href="../../index.html"><img width="270" height="300" src="../../wp-content/uploads/2019/01/sidebar-banner-270x300.jpg" class="image wp-image-3650  attachment-medium size-medium lazy lazyed" alt="" style="max-width: 100%; height: auto;" data-src="../../wp-content/uploads/2019/01/sidebar-banner-270x300.jpg"></a></div><div id="widget_products-3" class="widget widget-products-slide">
