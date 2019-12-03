@@ -218,39 +218,37 @@
                                     {
                                         foreach (var item in commonInfo.ProductCategoryList)
                                         {
-                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-mega-menu menu-item-has-children item-megamenu">
-                                                <a href="@item.DefaultLink" class="disable-link">@item.Name</a>
-                                                <div class="sub-menu megamenu lazy" style="width:520px;background-repeat: no-repeat;background-position: right;height:auto;" data-src="@item.Images">
-                                                    <p>
-                                                        <div class="vc_row wpb_row vc_row-fluid ovic_custom_5b768530ccd86 vc_custom_1533638258332">
-                                                            <div class="wpb_column vc_column_container vc_col-sm-4">
-                                                                <div class="vc_column-inner">
-                                                                    <div class="wpb_wrapper">
-                                                                        <div class="ovic-custommenu vc_wp_custommenu wpb_content_element style4   ovic_custom_5b768530ccdc7 " data-show_count_items="0" data-text_more="All Categories">
-                                                                            <div class="widget widget_nav_menu">
-                                                                                <h2 class="widgettitle">@item.Name</h2><div class=" ovic-menu-wapper horizontal">
-                                                                                    <ul id="menu-d-electronics" class="menu ovic-menu">
-
-                                                                                        @if (item.ChildCategory != null && item.ChildCategory.Count() > 0)
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-mega-menu menu-item-has-children item-megamenu">
+                                        <a href="@item.DefaultLink" class="disable-link">@item.Name</a>
+                                        @if (item.ChildCategory != null && item.ChildCategory.Count() > 0)
+                                        {
+                                            <div class="sub-menu megamenu lazy" style="width:520px;background-repeat: no-repeat;background-position: right;height:auto;" data-src="@item.Images">
+                                                <p>
+                                                    <div class="vc_row wpb_row vc_row-fluid ovic_custom_5b768530ccd86 vc_custom_1533638258332">
+                                                        <div class="wpb_column vc_column_container vc_col-sm-4">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="ovic-custommenu vc_wp_custommenu wpb_content_element style4   ovic_custom_5b768530ccdc7 " data-show_count_items="0" data-text_more="All Categories">
+                                                                        <div class="widget widget_nav_menu">
+                                                                            <h2 class="widgettitle">@item.Name</h2><div class=" ovic-menu-wapper horizontal">
+                                                                                <ul id="menu-d-electronics" class="menu ovic-menu">
+                                                                                        @foreach (var childItem in item.ChildCategory)
                                                                                         {
-                                                                                            foreach (var childItem in item.ChildCategory)
-                                                                                            {
-                                                                                                <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="@childItem.DefaultLink" class="disable-link">@childItem.Name</a></li>
-
-                                                                                            }
+                                                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="@childItem.DefaultLink" class="disable-link">@childItem.Name</a></li>
                                                                                         }
-                                                                                    </ul>
-                                                                                </div>
+                                                                                </ul>
                                                                             </div>
                                                                         </div>
-
                                                                     </div>
+
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </p>
-                                                </div>
-                                            </li>
+                                                    </div>
+                                                </p>
+                                            </div>
+                                        }
+                                    </li>
                                         }
                                     }
 

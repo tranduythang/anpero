@@ -137,7 +137,7 @@ namespace AnperoFrontend.Controllers
         [BuildCommonHtml]
         public ActionResult ParentCategory(int id)
         {
-            ViewBag.category = id;
+            ViewBag.category = id.ToString();
             //Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
             //Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
             string pageQuery = Request.QueryString["page"];
@@ -194,10 +194,18 @@ namespace AnperoFrontend.Controllers
             }
             ViewBag.property = model.Property;
             ViewBag.category = model.Category;
+            
+            
+
             ViewBag.brands = model.Brands;
             ViewBag.Title = title;
             SetUpSeo(0, 0);
             return View("List");
+        }
+        private string GetCategoryNameForSeo()
+        {
+            
+            return "";
         }
         [BuildCommonHtml]
         public ActionResult Checkout()
@@ -306,7 +314,9 @@ namespace AnperoFrontend.Controllers
                     relateProduct.Item = rs;
                     break;
                 default:
-                    relateProduct = sv.SearchProduct(StoreID, TokenKey, id.ToString(), "0", "0", 0, 999999, 1, 6, "", SearchOrder.TimeDesc, 2, string.Empty);
+                    relateProduct = sv.SearchProduct(StoreID, TokenKey, id.ToString(), "0", "0", 0, int.MaxValue, 1, 6, "", SearchOrder.TimeDesc, 2,"");
+                  
+                    relateProduct.Item= relateProduct.Item.Skip(1).ToArray();
                     break;
 
             }

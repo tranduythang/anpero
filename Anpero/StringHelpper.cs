@@ -20,7 +20,7 @@ namespace Anpero
         {
             try
             {
-                return Convert.ToInt32((oldPrice - newPrive) / oldPrice * 100);
+                return Convert.ToInt32(((oldPrice - newPrive) / oldPrice) * 100);
             }
             catch (Exception)
             {

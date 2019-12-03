@@ -91,7 +91,7 @@
                                 </a>
 
                             </div>
-                            <div id="sldetest" >
+                            <div id="sldetest" style="width:100%;height:50px;float:left;">
                                 @if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
                                 {
                                     foreach (var imagesSlide in item.ImagesSlide)
@@ -139,7 +139,7 @@
                             else
                             {
                                 <p class="price">
-                                    @Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)đ                                    
+                                    @Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)đ
                                 </p>
                             }
 
@@ -288,33 +288,15 @@
                 $(window).resize(function () {
                     resizeVideo();
                 });
-                @if (Request.Browser.IsMobileDevice)
-                {
-                    <text>
                         $('#sldetest').slick({
                             autoplay: true,
-                            prevArrow: '<span class="fa fa-angle-left prev slick-arrow" aria-disabled="false" style="display: inline-block;">',
-                            nextArrow: '</span><span class="fa fa-angle-right next slick-arrow" aria-disabled="false" style="display: inline-block;"></span>',
-                         });
-                    </text>
-                }
-                else
-                {
-                     <text>
-                        $('#sldetest').slick({
-                            autoplay: true,
-                            vertical: true,
+                            //vertical: true,
                             slidesToShow: 4,
                             slidesToScroll: 1,
                             prevArrow: '<span class="fa fa-angle-left prev slick-arrow" aria-disabled="false" style="display: inline-block;">',
                             nextArrow: '</span><span class="fa fa-angle-right next slick-arrow" aria-disabled="false" style="display: inline-block;"></span>',
                          });
-                    </text>
-                }
 
-
-
-            });
             $("#tab-paymentDetail-link").click(function (e) {
                 $("#tab-title-paymentDetail").addClass("active");
                 $("#tab-title-description").removeClass("active");
@@ -359,7 +341,7 @@
                 var newQty = (parseInt($("#pdQuantity").val()) - 1);
                 $("#pdQuantity").val(newQty<0?0:newQty);
             });
-
+            });
             function resizeVideo() {
                 var contentW = $('#tab-description').width();
                 var iframe = $('#tab-description iframe');

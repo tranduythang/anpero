@@ -10,7 +10,23 @@
     string pageName = string.IsNullOrEmpty(ViewBag.pageName) ? "" : ViewBag.pageName;
     AnperoFrontend.WebService.SearchResult productList = new AnperoFrontend.WebService.SearchResult();
     var hasData = false;
-    var categoryName = "Tìm kiếm";
+    var categoryName = "";
+    string categoryIdList = ViewBag.category;
+    if (categoryIdList != null && !string.IsNullOrEmpty(categoryIdList))
+    {
+        var listId = categoryIdList.Split(',');
+        foreach (var CurentId in listId)
+        {
+            foreach (var item in commonInfo.ProductCategoryList)
+            {
+                if (item.Id.ToString().Equals(CurentId.Trim()))
+                {
+                    categoryName +="<a href=\""+item.DefaultLink+"\">"+item.Name+ @"</a>, ";
+                }
+            }
+        }
+     categoryName=   categoryName.Trim().TrimEnd(',');
+    }
 }
 @if (ViewData["productList"] != null)
 {
@@ -68,9 +84,13 @@
             <div class="col-sm-12">
                 <ul class="woocommerce-breadcrumb breadcrumb">
                     <li><a href="/">Trang chủ</a></li>
-                    @if (pageName.ToLower().Equals("Search"))
+                    @if (pageName.ToLower().Equals("search"))
                     {
                         <li>Tìm kiếm</li>
+                        if (!string.IsNullOrEmpty(categoryName))
+                        {
+                            <li>@Html.Raw(categoryName)</li>
+                        }
                     }
                     else if (ViewBag.isParent != null && hasData)
                     {
@@ -94,7 +114,7 @@
             <div class="main-content col-lg-9 col-md-8 has-sidebar">
                 <header class="woocommerce-products-header">
                     <div class="gokko-shop-title clearfix">
-                        <h1>@categoryName</h1>
+                        <h1>@Html.Raw(categoryName)</h1>
                         <div class="pagination-info" style="margin-top:0px;">
                             <select name="orderby" class="orderby" aria-label="Shop order" id="sort_by_select">
                                 <option value="nameDesc">Tên A – Z</option>
@@ -336,7 +356,7 @@
     <script src="/Scripts/SearchControl.js"></script>
     <script>
             $(document).ready(function () {
-                   Search.init({
+              Search.init({
                    property: "@ViewBag.property",
                    brands: "@ViewBag.brands",
                    category: "@ViewBag.category"

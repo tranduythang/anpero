@@ -68,7 +68,6 @@
                                 {
 
                                     <div class="box-title">
-
                                         <span class="text-sale"><span>Khuyến mại @Anpero.StringHelpper.GetDiscountPersen(item1.Price, item1.SalePrice)%</span></span>
                                     </div>
                                 }
@@ -150,7 +149,7 @@
                                                     for (int i = 1; i < searchResult.Item.Length; i++)
                                                     {
                                                         var item = searchResult.Item[i];
-                                                        <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product status-publish instock product_cat-gadgets-accessories product_tag-appliances product_tag-bass product_tag-furniture has-post-thumbnail sale featured shipping-taxable purchasable product-type-variable has-default-attributes">
+                                                        <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product  has-post-thumbnail sale featured  purchasable">
                                                             <div class="product-inner">
                                                                 <div class="product-thumb">
                                                                     <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="button yith-wcqv-button">Chi tiết</a>
@@ -162,7 +161,7 @@
                                                                     @if (item.IsSale)
                                                                     {
                                                                         <div class="flash">
-                                                                            <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item1.Price, item1.SalePrice)%</span></span>
+                                                                            <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
                                                                         </div>
                                                                     }
 
@@ -171,13 +170,13 @@
                                                                     <h3 class="product-name product_title">
                                                                         <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
                                                                     </h3>
-                                                                    <div>@item.Warranty tháng</div>
+                                                                    <div>Bảo hành @item.Warranty tháng</div>
                                                                     <span class="price">
                                                                         @if (item.IsSale)
                                                                         {
-                                                                            <del><span class="woocommerce-Price-amount amount">@item.Price</span></del>
+                                                                            <del><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span></del>
                                                                         }
-                                                                        <ins><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item1.SalePrice : item.Price)</span></ins>
+                                                                        <ins><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)đ</span></ins>
                                                                     </span>
                                                                 </div>
                                                                 @if (item.IsInstock)
@@ -492,7 +491,7 @@
                                                     @for (int i = 0; i < searchResult.Length; i++)
                                                     {
                                                         var item = searchResult[i];
-                                                        <div class="product-item recent-product style-2  equal-elem rows-space-0 product type-product status-publish instock product_cat-trees-vegetables has-post-thumbnail purchasable product-type-simple">
+                                                        <div class="product-item">
                                                             <div class="product-inner">
                                                                 <div class="product-thumb col-md-6" >
                                                                     <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
@@ -650,7 +649,6 @@
                                                 {
                                                     <div>@item.Warranty tháng</div>
                                                 }
-
                                                 <span class="price"><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)đ</span></span>
                                             </div>
                                             <div class="group-button">
