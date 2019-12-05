@@ -61,7 +61,7 @@ namespace AnperoFrontend.Controllers
             if (!cacheService.TryGet("BestsaleProduct", out BestsaleProduct))
             {
                 //BestsaleProduct = sv.SearchProductFullData(StoreID, TokenKey, "0", "0", "0", 0, 99999999, 1, 7, "", SearchOrder.TimeDesc,2, true);
-                BestsaleProduct = sv.SearchProduct(StoreID, TokenKey, "", "","", 0, int.MaxValue, 1, 6, "", SearchOrder.TimeDesc, 2, "");
+                BestsaleProduct = sv.SearchProduct(StoreID, TokenKey, "", "","", 0, int.MaxValue, 1, 99, "", SearchOrder.TimeDesc, 2, "");
                 if (BestsaleProduct != null)
                 {
                     cacheService.AddOrUpdate("BestsaleProduct", BestsaleProduct, new TimeSpan(0, 10, 0));                 
@@ -73,7 +73,7 @@ namespace AnperoFrontend.Controllers
 
                 if (saleProduct != null)
                 {
-                    cacheService.AddOrUpdate("SaleProduct", saleProduct, new TimeSpan(0, 6, 0));
+                    cacheService.AddOrUpdate("SaleProduct", saleProduct, new TimeSpan(0, 99, 0));
                 }
             }
             filterContext.Controller.ViewData["saleProduct"] = saleProduct;

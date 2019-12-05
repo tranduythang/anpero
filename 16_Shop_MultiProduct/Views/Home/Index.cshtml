@@ -54,13 +54,15 @@
     <div class="vc_row-full-width vc_clearfix"></div>
     @if (ViewData["BestsaleProduct"] != null)
     {
-        SearchResult searchResult = (SearchResult)ViewData["BestsaleProduct"];
-        if (searchResult.Item.Length > 0)
-        {
+        SearchResult BestsaleProduct = (SearchResult)ViewData["BestsaleProduct"];
+
+        if (BestsaleProduct.Item.Length > 0)
+        { 
+            SearchResult searchResult = new SearchResult();
+            searchResult.Item = BestsaleProduct.Item.Take(6).ToArray();
             var item1 = searchResult.Item[0];
             <div class="vc_row wpb_row vc_row-fluid ovic_custom_5c92fe3eaf6d1 vc_custom_1544605855380 vc_custom_1544605855411 vc_custom_1544605855425">
                 <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-4 vc_col-md-4 ovic_custom_5c92fe3eaf6d2 vc_custom_1536912601750">
-
                     <div class="vc_column-inner">
                         <div class="wpb_wrapper">
                             <div class="ovic-products style-4   ovic_custom_5c92fe3eaf6d3  item_is_margin owl-ls-1 owl-lg-1 owl-md-1 owl-sm-2 owl-xs-2 owl-ts-1 ovic_products_style27">
@@ -458,6 +460,7 @@
         ProductItem[] searchResult = (ProductItem[])ViewData["saleProduct"];
         if (searchResult.Length > 0)
         {
+            var productList = commonInfo.ProductCategoryList.Take(6).ToList();
             <div class="vc_row wpb_row vc_row-fluid">
                 <div class="wpb_column vc_column_container vc_col-sm-12">
                     <div class="vc_column-inner">
@@ -471,7 +474,7 @@
                                                 <span>Tất cả</span>
                                             </a>
                                         </li>
-                                        @foreach (var item in commonInfo.ProductCategoryList)
+                                        @foreach (var item in productList)
                                         {
                                             <li class="">
                                                 <a href="#sale-pr-content" class="feature-product" data-id="@item.Id" data-ajax="1" data-type="sale">
@@ -493,7 +496,7 @@
                                                         var item = searchResult[i];
                                                         <div class="product-item">
                                                             <div class="product-inner">
-                                                                <div class="product-thumb col-md-6" >
+                                                                <div class="product-thumb col-md-6">
                                                                     <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
                                                                         <figure>
                                                                             <img src="@item.Images" class="wp-post-image attachment-190x190 size-190x190" alt="@item.PrName" />
@@ -777,17 +780,17 @@
         </div>
     </div>
 </div>
-    @section scripts {
-        <script src="/assets/plugin/slider-revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
-        <script src="/assets/plugin/slider-revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js" type="text/javascript"></script>
-        <script src="/assets/revo-slider-init.js" type="text/javascript"></script>
-        <script src="/assets/home-init.js"></script>
-        <script>
-            $(document).ready(function () {
-                RevosliderInit.initRevoSlider();
-                $(".has-vertical-menu").addClass("has-open");
+@section scripts {
+    <script src="/assets/plugin/slider-revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
+    <script src="/assets/plugin/slider-revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js" type="text/javascript"></script>
+    <script src="/assets/revo-slider-init.js" type="text/javascript"></script>
+    <script src="/assets/home-init.js"></script>
+    <script>
+        $(document).ready(function () {
+            RevosliderInit.initRevoSlider();
+            $(".has-vertical-menu").addClass("has-open");
 
-            });
+        });
 
-        </script>
-    }
+    </script>
+}
