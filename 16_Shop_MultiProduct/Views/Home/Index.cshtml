@@ -74,7 +74,7 @@
                                     </div>
                                 }
                                 <div class="product-list-owl owl-slick equal-container better-height">
-                                    <div class="product-item products style-4 rows-space-0 product type-product post-380 status-publish instock product_cat-camera-photo product_tag-appliances product_tag-digital product_tag-fashion product_tag-glass has-post-thumbnail sale shipping-taxable purchasable product-type-simple">
+                                    <div class="product-item products style-4 rows-space-0 product type-product status-publish instock product_cat-camera-photo product_tag-appliances product_tag-digital product_tag-fashion product_tag-glass has-post-thumbnail sale shipping-taxable purchasable product-type-simple">
                                         <div class="product-inner">
                                             <div class="product-thumb">
                                                 <a href="@Anpero.StringHelpper.GetProductLink(item1.PrName,item1.Id)" class="button yith-wcqv-button">Chi tiết</a>
@@ -490,11 +490,11 @@
                                         <div class="wpb_wrapper">
                                             <div class="ovic-products only-icon review_hided  style-2 ovic_custom_5c92fe3eaf732 vc_custom_1547457855172 vc_custom_1547457855217  owl-ls-6 owl-lg-6 owl-md-5 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_style20">
 
-                                                <div id="sale-pr-content" class="animate product-list-owl owl-slick equal-container better-height ovic-accordion" data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:3,&quot;rows&quot;:2} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
+                                                <div id="sale-pr-content" class="animate product-list-owl owl-slick equal-container better-height ovic-accordion " data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:3,&quot;rows&quot;:2} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
                                                     @for (int i = 0; i < searchResult.Length; i++)
                                                     {
                                                         var item = searchResult[i];
-                                                        <div class="product-item">
+                                                        <div class="product-item equal-elem">
                                                             <div class="product-inner">
                                                                 <div class="product-thumb col-md-6">
                                                                     <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
