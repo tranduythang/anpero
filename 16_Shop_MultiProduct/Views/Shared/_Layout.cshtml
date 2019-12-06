@@ -270,107 +270,79 @@
                                     if (searchResult.Item.Length > 0)
                                     {
                                         var category = searchResult.Item.Select(x => new { id = x.ParentId, name = x.ParentCatName }).Distinct().ToList();
-                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
-                                            <a href="javascript:void(0);" class="disable-link">Sản phẩm bán chạy</a>
-                                            <ul class="sub-menu">
-                                                @foreach (var featureProduct in searchResult.Item)
-                                                {
-                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(featureProduct.PrName,featureProduct.Id)">@featureProduct.PrName</a></li>
-                                                }
-                                            </ul>
-                                        </li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-mega-menu menu-item-has-children item-megamenu">
+                                            <a href="javascript:void(0);">Sản phẩm bán chạy</a>
+                                            <div class="sub-menu megamenu" data-responsive=".header-responsive" style="width:1170px;">
+                                                <div class="vc_row wpb_row vc_row-fluid ovic_custom_5b763d890b4fd vc_custom_1534475649915">
+                                                    @foreach (var item in category)
+                                                    {
+                                                        var productCategory = searchResult.Item.Where(x => x.ParentId == item.id).ToList();
+                                                        <div class="wpb_column vc_column_container vc_col-sm-3">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="ovic-custommenu vc_wp_custommenu wpb_content_element default ovic_custom_5b763d890b53f " data-show_count_items="0" data-text_more="All Categories">
+                                                                        <div class="widget widget_nav_menu">
+                                                                            <h2 class="widgettitle">@item.name</h2>
+                                                                            <div class="ovic-menu-wapper horizontal">
+                                                                                <ul class="menu ovic-menu">
+                                                                                    @foreach (var productItem in productCategory)
+                                                                                    {
+                                                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(productItem.CatName,productItem.Id)">@productItem.PrName</a></li>
+                                                                                    }
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
 
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </li>
                                     }
                                 }
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-mega-menu menu-item-has-children item-megamenu">
-                                    <a href="shop/index.html">Shop</a>
-                                    <div class="sub-menu megamenu" data-responsive=".header-responsive" style="width:1170px;">
-                                        <div class="vc_row wpb_row vc_row-fluid ovic_custom_5b763d890b4fd vc_custom_1534475649915">
-                                            <div class="wpb_column vc_column_container vc_col-sm-3">
-                                                <div class="vc_column-inner">
-                                                    <div class="wpb_wrapper">
-                                                        <div class="ovic-custommenu vc_wp_custommenu wpb_content_element default   ovic_custom_5b763d890b53f " data-show_count_items="0" data-text_more="All Categories">
-                                                            <div class="widget widget_nav_menu">
-                                                                <h2 class="widgettitle">Shop Page</h2><div class=" ovic-menu-wapper horizontal">
-                                                                    <ul id="menu-mega-shop-page-1" class="menu ovic-menu">
-                                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1916"><a href="shop/index.html">Shop Grid Product</a></li>
-                                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1917"><a href="shop/indexa3bf.html?ovic_shop_list_style=list">Shop List Product</a></li>
-                                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1918"><a href="shop/index8553.html?ovic_shop_list_style=grid">Shop Left Sidebar</a></li>
-                                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1919"><a href="shop/indexdf91.html?ovic_sidebar_shop_layout=right">Shop Right Sidebar</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
 
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="wpb_column vc_column_container vc_col-sm-3">
-                                                <div class="vc_column-inner">
-                                                    <div class="wpb_wrapper">
-                                                        <div class="ovic-custommenu vc_wp_custommenu wpb_content_element default   ovic_custom_5b763d890b582 " data-show_count_items="0" data-text_more="All Categories">
-                                                            <div class="widget widget_nav_menu">
-                                                                <h2 class="widgettitle">Product Featured</h2><div class=" ovic-menu-wapper horizontal">
-                                                                    <ul id="menu-mega-product-featured-1" class="menu ovic-menu">
-                                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1912"><a href="product/ipad-conren-wifi-32gb-gold/index.html">Product Simple</a></li>
-                                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1913"><a href="product/macbook-pro-retina-display-2200/index.html">Product Variable</a></li>
-                                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1914"><a href="product/humidifier-for-bedroom-small/index.html">Product Grouped</a></li>
-                                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1915"><a href="product/redmai-noten-5-plus/index.html">Product Out of Stock</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div><div class="wpb_column vc_column_container vc_col-sm-3">
-                                                <div class="vc_column-inner">
-                                                    <div class="wpb_wrapper">
-                                                        <div class="ovic-custommenu vc_wp_custommenu wpb_content_element default   ovic_custom_5b763d890b5bb " data-show_count_items="0" data-text_more="All Categories">
-                                                            <div class="widget widget_nav_menu">
-                                                                <h2 class="widgettitle">Product Layout</h2><div class=" ovic-menu-wapper horizontal">
-                                                                    <ul id="menu-mega-product-layout-1" class="menu ovic-menu">
-                                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1907"><a href="product/ipad-conren-wifi-32gb-gold/index473c.html?ovic_sidebar_single_product_layout=left/&amp;ovic_woo_related_ls_items=4&amp;ovic_woo_related_lg_items=4&amp;ovic_woo_related_md_items=3&amp;ovic_woo_related_sm_items=2&amp;ovic_woo_related_xs_items=2&amp;ovic_woo_related_ts_items=2">Product Left Sidebar</a></li>
-                                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1908"><a href="product/ipad-conren-wifi-32gb-gold/indexe5bc.html?ovic_sidebar_single_product_layout=right/&amp;ovic_woo_related_ls_items=4&amp;ovic_woo_related_lg_items=4&amp;ovic_woo_related_md_items=3&amp;ovic_woo_related_sm_items=2&amp;ovic_woo_related_xs_items=2&amp;ovic_woo_related_ts_items=2">Product Right Sidebar</a></li>
-                                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1909"><a href="product/ipad-conren-wifi-32gb-gold/index.html">Product Full Width</a></li>
-                                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1910"><a href="product/ipad-conren-wifi-32gb-gold/index7a1a.html?ovic_single_product_thumbnail=horizontal">Product Horizontal Thumbnail</a></li>
-                                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1911"><a href="product/ipad-conren-wifi-32gb-gold/index.html">Product Vertical Thumbnail</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div><div class="wpb_column vc_column_container vc_col-sm-3">
-                                                <div class="vc_column-inner">
-                                                    <div class="wpb_wrapper">
-                                                        <div class="ovic-custommenu vc_wp_custommenu wpb_content_element default   ovic_custom_5b763d890b5f3 " data-show_count_items="0" data-text_more="All Categories">
-                                                            <div class="widget widget_nav_menu">
-                                                                <h2 class="widgettitle">WooCommerce Page</h2><div class=" ovic-menu-wapper horizontal">
-                                                                    <ul id="menu-mega-woocommerce-page-1" class="menu ovic-menu">
-                                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1903"><a href="cart/index.html">Shopping Cart</a></li>
-                                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1904"><a href="checkout/index.html">Checkout</a></li>
-                                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1905"><a href="wishlist/index.html">Wishlist</a></li>
-                                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1906"><a href="my-account/index.html">My account</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
 
                                 @if (ViewData["saleProduct"] != null)
                                 {
                                     ProductItem[] searchResult = (ProductItem[])ViewData["saleProduct"];
                                     if (searchResult.Length > 0)
                                     {
-                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                                        var category = searchResult.Select(x => new { id = x.ParentId, name = x.ParentCatName }).Distinct().ToList();
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-mega-menu menu-item-has-children item-megamenu">
+                                            <a href="/product/sales" class="disable-link">Đang khuyến mại</a>
+                                            <div class="sub-menu megamenu" data-responsive=".header-responsive" style="width:1170px;">
+                                                <div class="vc_row wpb_row vc_row-fluid ovic_custom_5b763d890b4fd vc_custom_1534475649915">
+                                                    @foreach (var item in category)
+                                                    {
+                                                        var productCategory = searchResult.Where(x => x.ParentId == item.id).ToList();
+                                                        <div class="wpb_column vc_column_container vc_col-sm-3">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="ovic-custommenu vc_wp_custommenu wpb_content_element default ovic_custom_5b763d890b53f " data-show_count_items="0" data-text_more="All Categories">
+                                                                        <div class="widget widget_nav_menu">
+                                                                            <h2 class="widgettitle">@item.name</h2>
+                                                                            <div class="ovic-menu-wapper horizontal">
+                                                                                <ul class="menu ovic-menu">
+                                                                                    @foreach (var productItem in productCategory)
+                                                                                    {
+                                                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(productItem.CatName,productItem.Id)">@productItem.PrName</a></li>
+                                                                                    }
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </li>
+                                        @*<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
                                             <a href="/product/sales" class="disable-link">Đang khuyến mại</a>
                                             <ul class="sub-menu">
                                                 @foreach (var featureProduct in searchResult)
@@ -378,7 +350,7 @@
                                                     <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(featureProduct.PrName,featureProduct.Id)">@featureProduct.PrName</a></li>
                                                 }
                                             </ul>
-                                        </li>
+                                        </li>*@
                                     }
                                 }
 
@@ -616,7 +588,7 @@
     <script src="/Scripts/ShoppingCart.js?v=1"></script>
     @RenderSection("scripts", required: false)
     @Html.Raw(commonInfo.PageScript)
-    
+
     @commonInfo.Footer
     @Html.Raw(commonInfo.AnperoPlugin)
     <script type="text/javascript">
