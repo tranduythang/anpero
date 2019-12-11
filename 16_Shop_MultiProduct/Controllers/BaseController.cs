@@ -69,7 +69,7 @@ namespace AnperoFrontend.Controllers
             }
             if (!cacheService.TryGet("SaleProduct", out saleProduct))
             {
-                saleProduct = sv.GetSaleProduct(StoreID, TokenKey);
+                saleProduct = sv.GetSaleProduct(StoreID, TokenKey).Take(6).ToArray();
 
                 if (saleProduct != null)
                 {

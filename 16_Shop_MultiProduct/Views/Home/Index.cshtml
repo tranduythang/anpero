@@ -460,7 +460,7 @@
         ProductItem[] searchResult = (ProductItem[])ViewData["saleProduct"];
         if (searchResult.Length > 0)
         {
-            var productList = commonInfo.ProductCategoryList.Take(6).ToList();
+            var productList = commonInfo.ProductCategoryList.Take(6).OrderByDescending(x=>x.Rank).ToList();
             <div class="vc_row wpb_row vc_row-fluid">
                 <div class="wpb_column vc_column_container vc_col-sm-12">
                     <div class="vc_column-inner">
