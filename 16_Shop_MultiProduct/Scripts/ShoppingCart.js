@@ -24,13 +24,9 @@
                 Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });
             }
         }
+        $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });        
+        window.location.href = "/product/checkout";
         
-        
-        $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
-        setTimeout(function () {
-            window.location.href = "/product/checkout";
-        }, 500);
-
        
     },
     addProduct3: function (_id, _price, _thumb, _title) {
