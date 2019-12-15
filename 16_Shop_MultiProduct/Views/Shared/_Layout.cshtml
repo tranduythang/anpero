@@ -261,9 +261,7 @@
                     <div class="box-header-nav">
                         <div class=" ovic-menu-wapper horizontal support-mobile-menu">
                             <ul id="menu-primary-menu-1" class="clone-main-menu gokko-nav main-menu ovic-menu ovic-clone-mobile-menu">
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom">
-                                    <a href="/" class="disable-link">Trang chủ</a>
-                                </li>
+                                
                                 @if (ViewData["BestsaleProduct"] != null)
                                 {
                                     SearchResult searchResult = (SearchResult)ViewData["BestsaleProduct"];
@@ -312,7 +310,7 @@
                                     {
                                         var category = searchResult.Select(x => new { id = x.ParentId, name = x.ParentCatName }).Distinct().ToList();
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-mega-menu menu-item-has-children item-megamenu">
-                                            <a href="/product/sales" class="disable-link">Đang khuyến mại</a>
+                                            <a href="/product/sales" class="disable-link">Sản phẩm khuyến mại</a>
                                             <div class="sub-menu megamenu" data-responsive=".header-responsive" style="width:1170px;">
                                                 <div class="vc_row wpb_row vc_row-fluid ovic_custom_5b763d890b4fd vc_custom_1534475649915">
                                                     @foreach (var item in category)
@@ -585,7 +583,7 @@
     <script type='text/javascript' src='/theme/wp-content/plugins/ovic-toolkit/includes/extends/megamenu/assets/js/megamenu-frontend.js'></script>
     <script type='text/javascript' src='/theme/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'></script>
     <script src="/Scripts/Anpero.Common.js"></script>
-    <script src="/Scripts/ShoppingCart.js?v=1"></script>
+    <script src="/Scripts/ShoppingCart.js?v=2"></script>
     @RenderSection("scripts", required: false)
     @Html.Raw(commonInfo.PageScript)
 

@@ -58,7 +58,7 @@
                     <div class="group-button">
                         <div class="inner">
                             <div class="add-to-cart">
-                                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.PrName,item.Id)" class="button product_type_variable add_to_cart_button">Xem chi tiết</a>
+                                <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)')" class="button product_type_variable add_to_cart_button">Thêm vào giỏ hàng</a>
                             </div>
 
                         </div>

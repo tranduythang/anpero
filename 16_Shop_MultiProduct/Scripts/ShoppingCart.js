@@ -2,8 +2,8 @@
     list: [],
     quantity: 1,
     addProduct: function (_id, _price, _thumb, _title) {
-
-        var checkExited = false;
+        
+                var checkExited = false;
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
         }
@@ -24,8 +24,10 @@
                 Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });
             }
         }
-        $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
+        $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });        
         window.location.href = "/product/checkout";
+        
+       
     },
     addProduct3: function (_id, _price, _thumb, _title) {
         var checkExited = false;
@@ -58,20 +60,31 @@
         }
         for (var i = 0; i < Cart.list.length; i++) {
             if (Cart.list[i].id == _id) {
-                Cart.list[i].price = parseInt(Cart.list[i].price)
+                Cart.list[i].price = parseInt(Cart.list[i].price);
                 Cart.list[i].quantity = parseInt(Cart.list[i].quantity) + 1;
                 $("#prQuantity_" + _id).val(Cart.list[i].quantity);
             }
         }
-        $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
+        var stringData =JSON.stringify(Cart.list);
+        $.cookie("CartList", stringData, { path: '/' });
         Cart.bindCartTable();
     },
     bindCart: function () {
-        if (Cart.list.length > 0) {
-            $(".icon-basket .count").html(Cart.list.length);
-        } else {
+        try {
+            if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
+                Cart.list = jQuery.parseJSON($.cookie("CartList"));
+                if (Cart.list.length > 0) {
+                    $(".icon-basket .count").html(Cart.list.length);
+                } else {
+                    $(".icon-basket .count").html(0);
+                }
+            }
+         
+        } catch (e) {
             $(".icon-basket .count").html(0);
         }
+     //   var x = $.cookie("CartList");
+      
     },
     updateQuantity: function (_id, _quantity) {
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
@@ -95,7 +108,7 @@
 
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
             try {
-                debugger
+                
                 $(".spN").html(Cart.list.length);
                 for (var i = 0; i < Cart.list.length; i++) {
                     ttSC += parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity);
@@ -267,7 +280,7 @@
                                 }
                             });
                         } else {
-                            $("#cartContent2").html("<h4>Đơn hàng số #" + rs + " đã được gửi thành công tới bộ phận bán hàng. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</h4><h5>Với thông tin chuyển khoản vui lòng click vào <a href='' style='color: blue;'>link này</a> để được hướng dẫn chuyển khoản</h5>");
+                            $("#cartContent2").html("<h4>Đơn hàng số #" + rs + " đã được gửi thành công tới bộ phận bán hàng. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</h4><h5>Với thông tin chuyển khoản vui lòng click vào <a href='/PaymentInfo' style='color: blue;'>link này</a> để được hướng dẫn chuyển khoản</h5>");
                             Util.notify("", "Đơn hàng đã được gửi tới bộ phận bán hàng. ");
                         }
 
@@ -310,7 +323,7 @@ var OrderForm = {
     Detail: "",
     PaymentMethod: "",
     ShipMethod: ""
-}
+};
 
 var order = "pricedesc";
 $(document).ready(function () {

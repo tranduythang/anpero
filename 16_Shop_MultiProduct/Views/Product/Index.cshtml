@@ -247,7 +247,8 @@
                                         <div class="group-button">
                                             <div class="inner">
                                                 <div class="add-to-cart">
-                                                    <a href="@Anpero.StringHelpper.GetProductLink(relatedProduct.PrName,relatedProduct.Id)" class="button product_type_simple add_to_cart_button" aria-label="@relatedProduct.PrName" rel="nofollow">Thêm vào giỏ hàng</a>
+                                                    
+                                                    <a href="javascript:Cart.addProduct(@relatedProduct.Id,@Convert.ToInt32(relatedProduct.IsSale?relatedProduct.SalePrice:relatedProduct.Price),'@relatedProduct.Images','@HttpUtility.HtmlEncode(relatedProduct.PrName)')" class="button product_type_simple add_to_cart_button" aria-label="@relatedProduct.PrName" rel="nofollow">Thêm vào giỏ hàng</a>
                                                 </div>
 
                                             </div>

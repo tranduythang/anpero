@@ -545,7 +545,7 @@
                                                                 <div class="group-button">
                                                                     <div class="inner">
                                                                         <div class="add-to-cart">
-                                                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="button product_type_simple add_to_cart_button" aria-label="JK-K-003" rel="nofollow" tabindex="0">Thêm vào giỏ hàng</a>
+                                                                            <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)')" class="button product_type_simple add_to_cart_button" aria-label="JK-K-003" rel="nofollow" tabindex="0">Thêm vào giỏ hàng</a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -657,7 +657,7 @@
                                             <div class="group-button">
                                                 <div class="inner">
                                                     <div class="add-to-cart">
-                                                        <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="button product_type_simple add_to_cart_button" aria-label="@item.PrName" rel="nofollow">Thêm vào giỏ hàng</a>
+                                                        <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)')" class="button product_type_simple add_to_cart_button" aria-label="@item.PrName" rel="nofollow">Thêm vào giỏ hàng</a>
                                                     </div>
 
                                                 </div>
