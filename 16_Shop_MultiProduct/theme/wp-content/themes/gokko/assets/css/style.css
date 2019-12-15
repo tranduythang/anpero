@@ -5272,8 +5272,7 @@ body.single-product .main-content > .product {
     font-size: 15px;
     color: #888888;
 }
-.entry-summary .product-code {
-    text-transform: uppercase;
+.entry-summary .product-code {   
     color: #888;
     border-bottom: 1px solid #e6e6e6;
     padding-bottom: 22px;
@@ -5400,9 +5399,6 @@ body.single-product .main-content > .product {
     font-weight: bold;
     border-bottom: 1px solid #e6e6e6;
     margin-bottom: 10px;
-}
-.products.product-grid .flash {
-    display: none;
 }
 .products.product-grid .product-item.style-1 .product-thumb:after,
 .products.product-grid .product-item.style-2 .product-thumb:after {
@@ -7015,6 +7011,8 @@ a.yith-wcqv-button .blockUI.blockOverlay::before {
     color: #888;
     background-color: transparent;
     font-weight: normal;
+    font-size:12px;
+    
 }
 .product-item.list .yith-wcwl-add-to-wishlist > div > a:before,
 .product-item.style-2 .yith-wcwl-add-to-wishlist > div > a:before,
@@ -7026,9 +7024,9 @@ a.yith-wcqv-button .blockUI.blockOverlay::before {
     font-weight: normal;
     margin-right: 2px;
     vertical-align: top;
-    font-size: 26px;
+    font-size: 14px;
     font-weight: 100;
-    margin-top: -3px;
+    margin-top: -1px;
     display: inline-block;
 }
 .product-item.style-2 .compare-button .compare:before {
@@ -7051,6 +7049,7 @@ a.yith-wcqv-button .blockUI.blockOverlay::before {
 .entry-summary .compare {
     vertical-align: top;
     margin-right: 13px;
+    margin-bottom: 5px;
 }
 .entry-summary .yith-wcwl-add-to-wishlist .yith-wcwl-add-button > img,
 .product-item.list .yith-wcwl-add-to-wishlist .yith-wcwl-add-button > img {

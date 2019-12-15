@@ -26,7 +26,11 @@
         <ul class="woocommerce-breadcrumb breadcrumb">
             <li><a href="/">Trang chủ</a></li>
             <li><a href="/blog">blogs</a></li>
-            <li><span> @ViewBag.Keywords</span></li>
+            @if (!string.IsNullOrEmpty(ViewBag.CategoryName))
+            {
+                <li><span> @ViewBag.CategoryName</span></li>
+            }
+
         </ul>
 
     </div>

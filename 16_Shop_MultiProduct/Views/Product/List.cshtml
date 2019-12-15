@@ -21,11 +21,11 @@
             {
                 if (item.Id.ToString().Equals(CurentId.Trim()))
                 {
-                    categoryName +="<a href=\""+item.DefaultLink+"\">"+item.Name+ @"</a>, ";
+                    categoryName += "<a href=\"" + item.DefaultLink + "\">" + item.Name + @"</a>, ";
                 }
             }
         }
-     categoryName=   categoryName.Trim().TrimEnd(',');
+        categoryName = categoryName.Trim().TrimEnd(',');
     }
 }
 @if (ViewData["productList"] != null)
@@ -59,7 +59,8 @@
             line-height: 0;
             padding: 10px 0;
         }
-        .navigation ul li{
+
+        .navigation ul li {
             display: inline-block;
             vertical-align: middle;
             padding: 0 6px;
@@ -71,12 +72,19 @@
             border-radius: 2px;
             margin-right: 4px;
         }
-        .navigation ul li.active {
-            color: #fff;
-            background-color: #D11222;
+
+            .navigation ul li.active {
+                color: #fff;
+                background-color: #D11222;
+            }
+
+        .top-nav {
+            border-top: 0px;
+            padding-top: 13px;
+            margin-top: 0px;
         }
     </style>
-    
+
 }
 <div class="main-container shop-page left-sidebar">
     <div class="container">
@@ -113,17 +121,25 @@
             </div>
             <div class="main-content col-lg-9 col-md-8 has-sidebar">
                 <header class="woocommerce-products-header">
-                    <div class="gokko-shop-title clearfix">
-                        <h1>@Html.Raw(categoryName)</h1>
-                        <div class="pagination-info" style="margin-top:0px;">
-                            <select name="orderby" class="orderby" aria-label="Shop order" id="sort_by_select">
-                                <option value="nameDesc">Tên A – Z</option>
-                                <option value="pricedesc">Giá giảm dần</option>
-                                <option value="priceAsc">Giá tăng dần</option>
-                                <option value="timeDesc">Mới nhất</option>
-                            </select>
+                    <div class="col-md-7">
+                        <nav aria-label="Page navigation" class="navigation top-nav">
+                            @Html.Raw(ViewBag.page)
+                        </nav>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="gokko-shop-title">
+                            <h1>@Html.Raw(categoryName)</h1>
+                            <div class="pagination-info" style="margin-top:0px;">
+                                <select name="orderby" class="orderby" aria-label="Shop order" id="sort_by_select">
+                                    <option value="nameDesc">Tên A – Z</option>
+                                    <option value="pricedesc">Giá giảm dần</option>
+                                    <option value="priceAsc">Giá tăng dần</option>
+                                    <option value="timeDesc">Mới nhất</option>
+                                </select>
 
+                            </div>
                         </div>
+
                     </div>
                 </header>
                 <div class="row auto-clear equal-container better-height ovic-products">

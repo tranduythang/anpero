@@ -112,7 +112,12 @@
                             </p>
 
                             <h1 class="product_title entry-title">@item.PrName</h1>
-                            <div class="flash"></div>
+                            @if (!string.IsNullOrEmpty(item.OriginName))
+                            {
+                                <div>
+                                    Xuất xứ: <span>@item.OriginName</span>
+                                </div>
+                            }
                             @if (item.Warranty > 0)
                             {
                                 <p class="product-code">
@@ -124,17 +129,15 @@
                                 <i class="fa fa-tags" aria-hidden="true"></i>
                                 <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName,item.ParentId)" title="@item.ParentCatName">@item.ParentCatName</a>
                             </div>
-
-
                             <div class="short-description">@item.Specifications @item.ShortDesc</div>
-
-
                             @if (item.IsSale)
                             {
                                 <p class="price">
                                     @Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)đ
-                                    <del> <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)đ</span></del>
+                                    <del> <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)đ</span> </del>
+                                    <div>Tiết kiệm @Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</div>
                                 </p>
+
                             }
                             else
                             {
@@ -142,10 +145,6 @@
                                     @Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)đ
                                 </p>
                             }
-
-
-
-
                             @if (item.Properties != null && item.Properties.Count() > 0)
                             {
                                 <div class="atribute">
@@ -175,7 +174,14 @@
                                             <a class="btn-number qtyplus quantity-plus" href="#" style="pointer-events: auto;"></a>
                                         </div>
                                     </div>
-                                    <button type="submit" class="button alt disabled wc-variation-selection-needed" btn-addCart" id="single_product__addtocart" data-original-title="" title="">Mua hàng</button>
+                                    <button type="submit" class="button alt disabled wc-variation-selection-needed" btn-addCart" id="single_product__addtocart" data-original-title="Mua hàng" title="Mua hàng">Mua hàng</button>
+                                    <ul class="gokko-nav top-bar-menu top-middle-menu ovic-menu col-md-12" style="margin-top:10px;">
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.facebook.com/share.php?u=@currentUrl"><span class="icon icon-font fa fa-facebook-f"></span></a></li>
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://twitter.com/intent/tweet?url=@currentUrl"><span class="icon icon-font fa fa-twitter"></span></a></li>
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.pinterest.com/pinthis/?url=@currentUrl"><span class="icon icon-font fa fa-pinterest"></span></a></li>
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.instagram.com?url=@currentUrl"><span class="icon icon-font fa fa-instagram"></span></a></li>
+                                    </ul>
+
                                 </div>
                             </div>
                         </div>
@@ -239,15 +245,29 @@
 
                                         <div class="product-info">
                                             <h3 class="product-name product_title">
-                                                <a href="product/cactus-plant-in-a-pot/index.html">@relatedProduct.PrName</a>
+                                                <a href="@Anpero.StringHelpper.GetProductLink(relatedProduct.PrName,relatedProduct.Id)">@relatedProduct.PrName</a>
                                             </h3>
-                                            <div>1 tháng</div>
+                                            @if (relatedProduct.Warranty > 0)
+                                            {
+                                                <div>@relatedProduct.Warranty tháng</div>
+                                            }
                                             <span class="price"><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(relatedProduct.IsSale ? relatedProduct.SalePrice : relatedProduct.Price)đ</span></span>
                                         </div>
+                                        @if (relatedProduct.IsSale)
+                                        {
+                                            <div class="product-item style-4" style="width:100%;display:inline-block;">
+                                                <div class="countdown-container">
+                                                    <div class="gokko-countdown" data-datetime="@Anpero.StringHelpper.ConvertDateTime(item.SaleEndTime.ToString()).ToString()"
+                                                         data-txt_day="Ngày"
+                                                         data-txt_hour="Giờ"
+                                                         data-txt_min="Phút"
+                                                         data-txt_sec="Giây" data-value_first="1"></div>
+                                                </div>
+                                            </div>
+                                        }
                                         <div class="group-button">
                                             <div class="inner">
                                                 <div class="add-to-cart">
-                                                    
                                                     <a href="javascript:Cart.addProduct(@relatedProduct.Id,@Convert.ToInt32(relatedProduct.IsSale?relatedProduct.SalePrice:relatedProduct.Price),'@relatedProduct.Images','@HttpUtility.HtmlEncode(relatedProduct.PrName)')" class="button product_type_simple add_to_cart_button" aria-label="@relatedProduct.PrName" rel="nofollow">Thêm vào giỏ hàng</a>
                                                 </div>
 
@@ -369,6 +389,25 @@
             "sku": "@item.Id"
             }
         </script>
+        <style>
+            .gokko-countdown .countdown-item .item-value {
+                font-size: 15px;
+                width: 20px;
+                height: 27px;
+                line-height: 30px;
+                text-align: center;
+            }
+
+            .product-item.style-4 .gokko-countdown .countdown-item .item-label {
+                width: calc(100% - 22px);
+                font-size: 12px;
+            }
+
+            .gokko-countdown .countdown-item:not(:last-child):after {
+                line-height: 28px;
+                font-size: 15px;
+            }
+        </style>
     }
 
 }

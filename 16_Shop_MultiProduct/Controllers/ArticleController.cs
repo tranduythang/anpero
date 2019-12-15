@@ -39,7 +39,7 @@ namespace AnperoFrontend.Controllers
            
             if (id == 0)
             {
-                ViewBag.CategoryName = "Blog";
+                ViewBag.CategoryName = "";
                 ViewBag.Title = "Tin tức";
             }
             else

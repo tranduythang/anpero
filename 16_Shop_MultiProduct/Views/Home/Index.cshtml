@@ -186,7 +186,7 @@
                                                                     <div class="group-button">
                                                                         <div class="inner">
                                                                             <div class="add-to-cart">
-                                                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="button product_type_variable add_to_cart_button">Xem chi tiết</a>
+                                                                                <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)')" class="button product_type_variable add_to_cart_button">Mua ngay</a>
                                                                             </div>
 
                                                                         </div>
@@ -301,7 +301,7 @@
         }
 
     }
-    else
+    @*else
     {
         <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid ovic_custom_5c92fe3eaf719 vc_custom_1536911229630 vc_custom_1536911229658 vc_custom_1536911229670">
             <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-5 vc_col-md-5">
@@ -452,7 +452,7 @@
             </div>
         </div>
         <div class="vc_row-full-width vc_clearfix"></div>
-    }
+    }*@
 
 
     @if (ViewData["saleProduct"] != null)
@@ -545,7 +545,7 @@
                                                                 <div class="group-button">
                                                                     <div class="inner">
                                                                         <div class="add-to-cart">
-                                                                            <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)')" class="button product_type_simple add_to_cart_button" aria-label="JK-K-003" rel="nofollow" tabindex="0">Thêm vào giỏ hàng</a>
+                                                                            <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)')" class="button product_type_simple add_to_cart_button" rel="nofollow" tabindex="0">Thêm vào giỏ hàng</a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
