@@ -1,0 +1,146 @@
+﻿@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+    string currentUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="breadcrumb">
+                <li><a href="/" title="Trang chủ">Trang chủ</a></li>
+
+                <li><span>Đăng ký bảo hành điện tử</span></li>
+            </ul>
+        </div>
+
+
+        <div class="main-content col-sm-12 form-horizontal">
+            <div class="form-group">
+                <label class="col-md-3 control-label"> Mã sản phẩm (mã vạch):</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" id="seria" />
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Họ và tên:</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" id="fullName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label"> Thành phố/ Tỉnh</label>
+                <div class="col-md-5">
+                    <select class="input  form-control" id="country" name="province">
+                        <option value="0">Tỉnh/ thành phố</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label"> Quận /Huyện</label>
+                <div class="col-md-5">
+                    <select class="input form-control" id="prov" name="district">
+                        <option value="0">Quận huyện</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label"> Địa chỉ:</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" id="address" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">CMTND/ Hộ Chiếu:</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" id="identiryId" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Số điện thoại:</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" id="phone" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Thư điện tử:</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" id="emial" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3"></div>
+                <div class="col-md-5" id="g-recaptcha"></div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3"></div>
+                <div class="col-md-5">
+                    <div class="add-to-cart">
+                        <a href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart" tabindex="0">Đăng ký bảo hành</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/Bootrap.notify.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="~/Scripts/Anpero.Common.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            Location.Init()
+        });
+        var width = $(window).width();
+        $("#ajax_loader").css("left", ((width / 2) - 100) + "px");
+        var googleCatcha;
+        $(window).load(function () {
+            googleCatcha = grecaptcha.render('g-recaptcha', {
+                'sitekey': googleCapchaSitekey,
+                'theme': 'light',
+                'hl': 'vi'
+            });
+
+            $("#btn-send-contact").click(function () {
+                $("#btn-send-contact").removeAttr('disabled');
+                var valid = true;
+                var captchaResponse = grecaptcha.getResponse(googleCatcha);               
+                if (valid) {
+                    $("#ajax_loader").show();
+                    $.ajax({
+                        method: "post",
+                        url: "/handler/ProductHandler.ashx",
+                        datatype: "text/plain",
+                        data: { op: "sendContact", name: _name, email: _email, phone: _phone, address: _address, message: _message, captcha: captchaResponse },
+                        success: function (rs) {
+                            $("#ajax_loader").hide();
+                            if (!isNaN(rs)) {
+                                Util.notify("", "Tin nhắn liên hệ đã được gửi, cảm ơn bạn đã đóng góp!");
+                            }
+                            resetContactForm();
+
+                        }
+                    });
+                }
+            });
+        });
+        function resetContactForm() {
+            $("#name").val("");
+            $("#email").val("");
+            $("#phone").val("");
+            $("#address").val("");
+            $("#message").val("");
+            grecaptcha.reset();
+            $("#btn-send-contact").prop('disabled', false);
+        }
+    </script>
+}

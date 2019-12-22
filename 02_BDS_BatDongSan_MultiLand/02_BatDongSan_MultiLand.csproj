@@ -122,6 +122,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\WarrantyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1009,6 +1010,7 @@
     <Content Include="Views\Shared\_partial\_HomeSlide_2.cshtml" />
     <Content Include="Views\Shared\_partial\_searchBox.cshtml" />
     <Content Include="Views\Shared\_partial\_contact.cshtml" />
+    <Content Include="Views\Warranty\Index.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

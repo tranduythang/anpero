@@ -128,8 +128,12 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SeoController.cs" />
     <Compile Include="Controllers\StaticController.cs" />
+    <Compile Include="Controllers\WarrantyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="handler\LocationHandler.ashx.cs">
+      <DependentUpon>LocationHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="handler\PaymentHandler.ashx.cs">
       <DependentUpon>PaymentHandler.ashx</DependentUpon>
@@ -408,6 +412,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="assets\fonts\GlacialIndifference-Bold.woff" />
+    <Content Include="handler\LocationHandler.ashx" />
     <None Include="Properties\PublishProfiles\Theme 16.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1426,6 +1431,7 @@
     <Content Include="Views\Product\Index - Copy.cshtml" />
     <Content Include="Views\Product\GetByCategory2.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Warranty\Index.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

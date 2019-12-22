@@ -32,3 +32,32 @@
     }
 
 };
+var Location = {
+    Init: function () {
+        $(document).ready(function () {
+            Location.Getlocation(0);
+            $("#country").change(function () {
+                Location.Getlocation($("#country option:selected").val());
+            });
+        });
+    },
+    Getlocation: function (_parentLocation) {
+        if (_parentLocation > 0) {
+            $("#prov").html("<option value=0>Đang tải dữ liệu</option>");
+        }
+
+        $.ajax({
+            method: "post",
+            url: "/handler/LocationHandler.ashx",
+            datatype: "text/plain",
+            data: { ParentLocationId: _parentLocation },
+            success: function (rs) {
+                if (_parentLocation == 0) {
+                    $("#country").html(rs);
+                } else {
+                    $("#prov").html(rs);
+                }
+            }
+        });
+    }
+};  
