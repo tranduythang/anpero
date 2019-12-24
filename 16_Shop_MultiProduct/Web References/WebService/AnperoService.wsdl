@@ -190,6 +190,29 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="RegisterSeria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="locationId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="idCard" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="seria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="captcha" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="st" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterSeriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegisterSeriaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="AddOrder2">
         <s:complexType>
           <s:sequence>
@@ -239,6 +262,7 @@
       </s:complexType>
       <s:complexType name="Ads">
         <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceId" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="ClickUrl" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="ImagesUrl" type="s:string" />
@@ -734,6 +758,12 @@
   <wsdl:message name="AddOrderSoapOut">
     <wsdl:part name="parameters" element="tns:AddOrderResponse" />
   </wsdl:message>
+  <wsdl:message name="RegisterSeriaSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterSeria" />
+  </wsdl:message>
+  <wsdl:message name="RegisterSeriaSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterSeriaResponse" />
+  </wsdl:message>
   <wsdl:message name="AddOrder2SoapIn">
     <wsdl:part name="parameters" element="tns:AddOrder2" />
   </wsdl:message>
@@ -859,6 +889,10 @@
       <wsdl:input message="tns:AddOrderSoapIn" />
       <wsdl:output message="tns:AddOrderSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="RegisterSeria">
+      <wsdl:input message="tns:RegisterSeriaSoapIn" />
+      <wsdl:output message="tns:RegisterSeriaSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="AddOrder2">
       <wsdl:input message="tns:AddOrder2SoapIn" />
       <wsdl:output message="tns:AddOrder2SoapOut" />
@@ -982,6 +1016,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddOrder">
       <soap:operation soapAction="http://tempuri.org/AddOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterSeria">
+      <soap:operation soapAction="http://tempuri.org/RegisterSeria" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1192,6 +1235,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddOrder">
       <soap12:operation soapAction="http://tempuri.org/AddOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterSeria">
+      <soap12:operation soapAction="http://tempuri.org/RegisterSeria" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

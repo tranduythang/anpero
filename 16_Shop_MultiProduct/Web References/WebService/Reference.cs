@@ -43,6 +43,8 @@ namespace AnperoFrontend.WebService {
         
         private System.Threading.SendOrPostCallback AddOrderOperationCompleted;
         
+        private System.Threading.SendOrPostCallback RegisterSeriaOperationCompleted;
+        
         private System.Threading.SendOrPostCallback AddOrder2OperationCompleted;
         
         private System.Threading.SendOrPostCallback GetRandomAdsSlideOperationCompleted;
@@ -133,6 +135,9 @@ namespace AnperoFrontend.WebService {
         
         /// <remarks/>
         public event AddOrderCompletedEventHandler AddOrderCompleted;
+        
+        /// <remarks/>
+        public event RegisterSeriaCompletedEventHandler RegisterSeriaCompleted;
         
         /// <remarks/>
         public event AddOrder2CompletedEventHandler AddOrder2Completed;
@@ -444,6 +449,53 @@ namespace AnperoFrontend.WebService {
             if ((this.AddOrderCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.AddOrderCompleted(this, new AddOrderCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RegisterSeria", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int RegisterSeria(string phone, string name, string email, string address, int locationId, string idCard, string seria, string captcha, int st, string token) {
+            object[] results = this.Invoke("RegisterSeria", new object[] {
+                        phone,
+                        name,
+                        email,
+                        address,
+                        locationId,
+                        idCard,
+                        seria,
+                        captcha,
+                        st,
+                        token});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void RegisterSeriaAsync(string phone, string name, string email, string address, int locationId, string idCard, string seria, string captcha, int st, string token) {
+            this.RegisterSeriaAsync(phone, name, email, address, locationId, idCard, seria, captcha, st, token, null);
+        }
+        
+        /// <remarks/>
+        public void RegisterSeriaAsync(string phone, string name, string email, string address, int locationId, string idCard, string seria, string captcha, int st, string token, object userState) {
+            if ((this.RegisterSeriaOperationCompleted == null)) {
+                this.RegisterSeriaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRegisterSeriaOperationCompleted);
+            }
+            this.InvokeAsync("RegisterSeria", new object[] {
+                        phone,
+                        name,
+                        email,
+                        address,
+                        locationId,
+                        idCard,
+                        seria,
+                        captcha,
+                        st,
+                        token}, this.RegisterSeriaOperationCompleted, userState);
+        }
+        
+        private void OnRegisterSeriaOperationCompleted(object arg) {
+            if ((this.RegisterSeriaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RegisterSeriaCompleted(this, new RegisterSeriaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2585,6 +2637,8 @@ namespace AnperoFrontend.WebService {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class Ads {
         
+        private string referenceIdField;
+        
         private string clickUrlField;
         
         private string descriptionField;
@@ -2594,6 +2648,16 @@ namespace AnperoFrontend.WebService {
         private int idField;
         
         private int priotyField;
+        
+        /// <remarks/>
+        public string ReferenceId {
+            get {
+                return this.referenceIdField;
+            }
+            set {
+                this.referenceIdField = value;
+            }
+        }
         
         /// <remarks/>
         public string ClickUrl {
@@ -3034,6 +3098,32 @@ namespace AnperoFrontend.WebService {
         private object[] results;
         
         internal AddOrderCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    public delegate void RegisterSeriaCompletedEventHandler(object sender, RegisterSeriaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class RegisterSeriaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal RegisterSeriaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

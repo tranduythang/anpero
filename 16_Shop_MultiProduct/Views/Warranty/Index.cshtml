@@ -80,7 +80,7 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-5">
                     <div class="add-to-cart">
-                        <a href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart" tabindex="0">Đăng ký bảo hành</a>
+                        <a href="javascript:void(0);" class="button product_type_simple add_to_cart_button ajax_add_to_cart" id="addWrr" tabindex="0">Đăng ký bảo hành</a>
                     </div>
 
                 </div>
@@ -93,54 +93,21 @@
     <script src="~/Scripts/Bootrap.notify.js"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="~/Scripts/Anpero.Common.js"></script>
-
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-
+    <script src="/Scripts/Warranty.js"></script>
     <script>
+        var googleCatcha;
         $(document).ready(function () {
             Location.Init()
+            Warranty.init();
+            
         });
-        var width = $(window).width();
-        $("#ajax_loader").css("left", ((width / 2) - 100) + "px");
-        var googleCatcha;
         $(window).load(function () {
             googleCatcha = grecaptcha.render('g-recaptcha', {
                 'sitekey': googleCapchaSitekey,
                 'theme': 'light',
                 'hl': 'vi'
             });
-
-            $("#btn-send-contact").click(function () {
-                $("#btn-send-contact").removeAttr('disabled');
-                var valid = true;
-                var captchaResponse = grecaptcha.getResponse(googleCatcha);               
-                if (valid) {
-                    $("#ajax_loader").show();
-                    $.ajax({
-                        method: "post",
-                        url: "/handler/ProductHandler.ashx",
-                        datatype: "text/plain",
-                        data: { op: "sendContact", name: _name, email: _email, phone: _phone, address: _address, message: _message, captcha: captchaResponse },
-                        success: function (rs) {
-                            $("#ajax_loader").hide();
-                            if (!isNaN(rs)) {
-                                Util.notify("", "Tin nhắn liên hệ đã được gửi, cảm ơn bạn đã đóng góp!");
-                            }
-                            resetContactForm();
-
-                        }
-                    });
-                }
-            });
         });
-        function resetContactForm() {
-            $("#name").val("");
-            $("#email").val("");
-            $("#phone").val("");
-            $("#address").val("");
-            $("#message").val("");
-            grecaptcha.reset();
-            $("#btn-send-contact").prop('disabled', false);
-        }
     </script>
 }
+
