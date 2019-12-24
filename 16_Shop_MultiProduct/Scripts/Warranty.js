@@ -67,11 +67,16 @@
                         datatype: "text/plain",
                         data:datas,
                         success: function (rs) {
-                            $("#ajax_loader").hide();
-                            if (!isNaN(rs)) {
-                                Util.notify("", "Tin nhắn liên hệ đã được gửi, cảm ơn bạn đã đóng góp!");
-                            }
-                            resetContactForm();
+                            swal({
+                                title: "Đăng ký bảo hành thành công",
+                                text: "Cảm ơn bạn đã sử dụng sản phẩm của JAKI.",
+                                showConfirmButton: true,
+                                confirmButtonText: "Về trang chủ",
+                                type: "success"
+                            },
+                                function () {
+                                    window.location.href = "/";
+                                });
 
                         }
                     });

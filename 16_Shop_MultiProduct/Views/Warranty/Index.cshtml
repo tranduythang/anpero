@@ -88,8 +88,20 @@
         </div>
     </div>
 </div>
-
+<style>
+    .sweet-alert .sa-icon {
+    width: 80px;
+    height: 80px;
+    border: 4px solid gray;
+    border-radius: 50%;
+    margin: 41px auto!important;
+    position: relative;
+    box-sizing: content-box;
+}
+</style>
 @section scripts{
+    <link href="https://anpero.com/assets/global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" />
+    <script src="https://anpero.com/assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js"></script>
     <script src="~/Scripts/Bootrap.notify.js"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="~/Scripts/Anpero.Common.js"></script>
@@ -99,7 +111,7 @@
         $(document).ready(function () {
             Location.Init()
             Warranty.init();
-            
+
         });
         $(window).load(function () {
             googleCatcha = grecaptcha.render('g-recaptcha', {
