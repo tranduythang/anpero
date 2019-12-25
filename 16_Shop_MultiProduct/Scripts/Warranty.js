@@ -71,11 +71,19 @@
                                 title: "Đăng ký bảo hành thành công",
                                 text: "Cảm ơn bạn đã sử dụng sản phẩm của JAKI.",
                                 showConfirmButton: true,
-                                confirmButtonText: "Về trang chủ",
+                                showCancelButton: true,
+                                
+                                cancelButtonText: 'Đăng ký tiếp',
+                                confirmButtonText: "Xem thông tin",
                                 type: "success"
-                            },
-                                function () {
-                                    window.location.href = "/";
+                            }, function (confirm) {                  
+                                    if (confirm) {
+                                        window.location.href = "/warranty/info?seria=" + datas.seria + "&idcard=" + datas.IdCard;
+                                    } else {
+                                        $("#seria").val("");
+                                        grecaptcha.reset();
+                                    }
+                                    
                                 });
 
                         }

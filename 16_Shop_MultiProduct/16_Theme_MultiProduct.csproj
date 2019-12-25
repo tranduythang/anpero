@@ -1433,6 +1433,7 @@
     <Content Include="Views\Product\GetByCategory2.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Warranty\Index.cshtml" />
+    <Content Include="Views\Warranty\Info.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1495,6 +1496,9 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
     <Content Include="Web References\WebService\SearchArticleResults.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebService\WarrantyCard.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
   </ItemGroup>

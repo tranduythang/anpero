@@ -1,0 +1,77 @@
+﻿@model AnperoFrontend.WebService.WarrantyCard
+<div class="single-thumb-vertical main-container shop-page no-sidebar">
+    <div class="container">
+        <div class="row">
+            <ul class="breadcrumb">
+                <li><a href="/" title="Trang chủ">Trang chủ</a></li>
+                <li><span>Thông tin bảo hành</span></li>
+
+            </ul>
+            <dl class="dl-horizontal">
+                <dt>
+                    Tên sản phẩm
+                </dt>
+                <dd>
+                    Đang được cập nhật
+                </dd>
+                <dt>
+                    Thời gian bảo hảnh 
+                </dt>
+                <dd>
+                    @Model.Warranty tháng từ ngày   @Html.DisplayFor(model => model.BeginDate) đến ngày  @Html.DisplayFor(model => model.EndDate)
+                </dd>
+                <dt>
+                    Mã số phiếu bảo hành
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Id)
+                </dd>
+                
+                <dt>
+                    Họ và tên:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.contact.Name)
+                </dd>
+                <dt>
+                    Thành phố
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.contact.Address)
+                </dd>
+                <dt>
+                    Quận huyện
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.contact.Address)
+                </dd>
+                <dt>
+                    Địa chỉ
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.contact.Address)
+                </dd>
+                <dt>
+                    CMTND / Hộ chiếu
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.contact.IdCard)
+                </dd>
+                <dt>
+                    Số điện thoại
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.contact.Phone)
+                </dd>
+                <dt>
+                    Thư điện tử
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.contact.Mail)
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+
