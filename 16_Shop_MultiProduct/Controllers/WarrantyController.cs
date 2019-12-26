@@ -19,8 +19,10 @@ namespace AnperoFrontend.Controllers
         [HttpPost]
         public JsonResult Register(WebService.Contact contact,string seria,string capcha)
         {
-                        
+
             string msg = "";
+            contact.District = "";
+            contact.Province="";
             int rs = service.RegisterSeria(contact, seria, capcha, StoreID, TokenKey,out msg);
             return Json(new {
                 resultCode = rs,
@@ -36,6 +38,23 @@ namespace AnperoFrontend.Controllers
             client.AgenId = StoreID;
             client.Token = TokenKey;                
             var rs = service.GetWarrantyCardInfo(seria,idCard, client);
+            //WebService.ProductItem item
+            ViewBag.ProductItem = service.GetProductDetail(StoreID, TokenKey, rs.ProductId);
+
+            AnperoFrontend.WebService.Location[] LocationList = service.GetLocation(0);
+            if (LocationList.Where(x => x.Id == rs.UserAddressId).Count() > 0)
+            {
+                ViewBag.ParentLocationName = LocationList.Where(x => x.Id == rs.UserAddressId).FirstOrDefault().Name;
+            }
+            else
+            {
+                foreach (var item in LocationList)
+                {
+                    
+                }
+            }
+            
+
             return View(rs);
         }
     }

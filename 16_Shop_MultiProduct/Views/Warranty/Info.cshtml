@@ -1,38 +1,43 @@
-﻿@model AnperoFrontend.WebService.WarrantyCard
+﻿@using AnperoFrontend.WebService;
+@using AnperoFrontend;
+@model AnperoFrontend.WebService.WarrantyCard
+@{
+    AnperoService sv = new AnperoService();
+    
+    AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewBag.ProductItem;
+}
+
+
+
+
 <div class="single-thumb-vertical main-container shop-page no-sidebar">
     <div class="container">
         <div class="row">
             <ul class="breadcrumb">
                 <li><a href="/" title="Trang chủ">Trang chủ</a></li>
                 <li><span>Thông tin bảo hành</span></li>
-
             </ul>
+            <div class="row">
+                <div class="col-md-3"><strong class="pull-right">Tên sản phẩm:</strong></div>
+                <div class="col-md-9 "><span class="pull-left">@item.PrName</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><strong class="pull-right">Thời gian bảo hảnh:</strong></div>
+                <div class="col-md-9 "><span class="pull-left">@Model.Warranty tháng từ ngày   @Model.BeginDate.ToString("dd/MM/yyyy") đến ngày  @Model.EndDate.ToString("dd/MM/yyyy") </span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><strong class="pull-right">Mã số phiếu bảo hành:</strong></div>
+                <div class="col-md-9 "><span class="pull-left">@Model.Id</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><strong class="pull-right">Seria:</strong></div>
+                <div class="col-md-9 "><span class="pull-left">@Model.Seria</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><strong class="pull-right">Họ và tên:</strong></div>
+                <div class="col-md-9 "><span class="pull-left">@Model.contact.Name</span></div>
+            </div>
             <dl class="dl-horizontal">
-                <dt>
-                    Tên sản phẩm
-                </dt>
-                <dd>
-                    Đang được cập nhật
-                </dd>
-                <dt>
-                    Thời gian bảo hảnh 
-                </dt>
-                <dd>
-                    @Model.Warranty tháng từ ngày   @Html.DisplayFor(model => model.BeginDate) đến ngày  @Html.DisplayFor(model => model.EndDate)
-                </dd>
-                <dt>
-                    Mã số phiếu bảo hành
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Id)
-                </dd>
-                
-                <dt>
-                    Họ và tên:
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.contact.Name)
-                </dd>
                 <dt>
                     Thành phố
                 </dt>
