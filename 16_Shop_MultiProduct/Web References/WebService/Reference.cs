@@ -497,27 +497,29 @@ namespace AnperoFrontend.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetWarrantyCardInfo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public WarrantyCard GetWarrantyCardInfo(string seria, string idCard, AnperoClient client) {
+        public WarrantyCard GetWarrantyCardInfo(string seria, string idCard, string captcha, AnperoClient client) {
             object[] results = this.Invoke("GetWarrantyCardInfo", new object[] {
                         seria,
                         idCard,
+                        captcha,
                         client});
             return ((WarrantyCard)(results[0]));
         }
         
         /// <remarks/>
-        public void GetWarrantyCardInfoAsync(string seria, string idCard, AnperoClient client) {
-            this.GetWarrantyCardInfoAsync(seria, idCard, client, null);
+        public void GetWarrantyCardInfoAsync(string seria, string idCard, string captcha, AnperoClient client) {
+            this.GetWarrantyCardInfoAsync(seria, idCard, captcha, client, null);
         }
         
         /// <remarks/>
-        public void GetWarrantyCardInfoAsync(string seria, string idCard, AnperoClient client, object userState) {
+        public void GetWarrantyCardInfoAsync(string seria, string idCard, string captcha, AnperoClient client, object userState) {
             if ((this.GetWarrantyCardInfoOperationCompleted == null)) {
                 this.GetWarrantyCardInfoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetWarrantyCardInfoOperationCompleted);
             }
             this.InvokeAsync("GetWarrantyCardInfo", new object[] {
                         seria,
                         idCard,
+                        captcha,
                         client}, this.GetWarrantyCardInfoOperationCompleted, userState);
         }
         
@@ -2912,8 +2914,6 @@ namespace AnperoFrontend.WebService {
         
         private string idCardField;
         
-        private string locationNameField;
-        
         /// <remarks/>
         public string Province {
             get {
@@ -3031,16 +3031,6 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.idCardField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string LocationName {
-            get {
-                return this.locationNameField;
-            }
-            set {
-                this.locationNameField = value;
             }
         }
     }

@@ -112,6 +112,11 @@ namespace AnperoFrontend
                 defaults: new { controller = "home", action = "policy", type = 2 }
             );
             routes.MapRoute(
+             name: "warrantyChecks",
+             url: "warrantycheck",
+             defaults: new { controller = "warranty", action = "check"}
+         );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

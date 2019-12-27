@@ -2,19 +2,18 @@
 @using AnperoFrontend;
 @model AnperoFrontend.WebService.WarrantyCard
 @{
-    AnperoService sv = new AnperoService();
-    
+    AnperoService sv = new AnperoService();    
     AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewBag.ProductItem;
 }
 
-
-
-
 <div class="single-thumb-vertical main-container shop-page no-sidebar">
     <div class="container">
-        <div class="row">
+        @if (Model != null && item!=null)
+        {
+            <div class="row">
             <ul class="breadcrumb">
                 <li><a href="/" title="Trang chủ">Trang chủ</a></li>
+                <li><a href="/warrantycheck" title="Trang chủ">Kiểm tra bảo hành</a></li>
                 <li><span>Thông tin bảo hành</span></li>
             </ul>
             <div class="row">
@@ -37,46 +36,45 @@
                 <div class="col-md-3"><strong class="pull-right">Họ và tên:</strong></div>
                 <div class="col-md-9 "><span class="pull-left">@Model.contact.Name</span></div>
             </div>
-            <dl class="dl-horizontal">
-                <dt>
-                    Thành phố
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.contact.Address)
-                </dd>
-                <dt>
-                    Quận huyện
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.contact.Address)
-                </dd>
-                <dt>
-                    Địa chỉ
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.contact.Address)
-                </dd>
-                <dt>
-                    CMTND / Hộ chiếu
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.contact.IdCard)
-                </dd>
-                <dt>
-                    Số điện thoại
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.contact.Phone)
-                </dd>
-                <dt>
-                    Thư điện tử
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.contact.Mail)
-                </dd>
-            </dl>
+            <div class="row">
+                <div class="col-md-3"><strong class="pull-right">Thành phố:</strong></div>
+                <div class="col-md-9 "><span class="pull-left">@Model.contact.District</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><strong class="pull-right">Quận Huyện:</strong></div>
+                <div class="col-md-9 "><span class="pull-left">@Model.contact.Province</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><strong class="pull-right">Địa chỉ:</strong></div>
+                <div class="col-md-9 "><span class="pull-left">@Model.contact.Address</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><strong class="pull-right">CMTND / Hộ chiếu:</strong></div>
+                <div class="col-md-9 "><span class="pull-left">@Model.contact.IdCard</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><strong class="pull-right">Số điện thoại:</strong></div>
+                <div class="col-md-9 "><span class="pull-left">@Model.contact.Phone</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><strong class="pull-right">Thư điện tử:</strong></div>
+                <div class="col-md-9 "><span class="pull-left">@Model.contact.Mail</span></div>
+            </div>
+            <div class="row">                
+                <div class="col-md-9 "><span class="pull-left"><a href="/warrantyCheck">Kiểm tra mã bảo hành khác</a></span></div>
+            </div>
         </div>
+
+        }
+        else
+        {
+            <div class="row">
+                <p class="col-md-12">
+                    Không tìm thấy thông tin bảo hành. Vui lòng nhập lại thông tin <a href="/warrantyCheck">tại đây </a>
+                </p>
+            </div>
+        }
+
+
     </div>
 </div>
-

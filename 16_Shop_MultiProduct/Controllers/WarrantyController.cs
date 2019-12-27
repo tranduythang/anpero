@@ -17,43 +17,40 @@ namespace AnperoFrontend.Controllers
             return View();
         }
         [HttpPost]
+        [BuildCommonHtml]
         public JsonResult Register(WebService.Contact contact,string seria,string capcha)
         {
 
             string msg = "";
-            contact.District = "";
-            contact.Province="";
+            //contact.District = "";
+            //contact.Province="";
+            contact.StoreId = StoreID.ToString();
             int rs = service.RegisterSeria(contact, seria, capcha, StoreID, TokenKey,out msg);
             return Json(new {
-                resultCode = rs,
+                code = rs,
                 msg = msg 
             });
         }
+        [HttpGet]
         [BuildCommonHtml]
-        public ActionResult Info(string seria,string idCard)
+        public ActionResult Check(string seria,string idCard)
+        {
+            ViewBag.identiryId = idCard;
+            ViewBag.seria = seria;
+            return View();
+        }
+        [BuildCommonHtml]
+        [HttpGet]
+        public ActionResult Info(string seria,string idCard, string capcha)
         {
 
             string msg = "";
             AnperoClient client = new AnperoClient();
             client.AgenId = StoreID;
             client.Token = TokenKey;                
-            var rs = service.GetWarrantyCardInfo(seria,idCard, client);
+            var rs = service.GetWarrantyCardInfo(seria,idCard,capcha, client);
             //WebService.ProductItem item
             ViewBag.ProductItem = service.GetProductDetail(StoreID, TokenKey, rs.ProductId);
-
-            AnperoFrontend.WebService.Location[] LocationList = service.GetLocation(0);
-            if (LocationList.Where(x => x.Id == rs.UserAddressId).Count() > 0)
-            {
-                ViewBag.ParentLocationName = LocationList.Where(x => x.Id == rs.UserAddressId).FirstOrDefault().Name;
-            }
-            else
-            {
-                foreach (var item in LocationList)
-                {
-                    
-                }
-            }
-            
 
             return View(rs);
         }

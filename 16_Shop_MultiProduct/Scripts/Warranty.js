@@ -4,14 +4,16 @@
         var valid = true;
         datas.LocationId = 0;
         var location = $("#country").val();
-        var district = $("#district").val();
+        var district = $("#prov").val();
         var captchaResponse = grecaptcha.getResponse(googleCatcha);
         if (district > 0) {
             datas.LocationId = district;
         } else if (location > 0) {
             datas.LocationId = location;
         }
-
+         
+        datas.Province = location>0?$("select[name=province] option:selected").text():"";
+        datas.District = district>0?$("select[name=district] option:selected").text():"";
         datas.seria = $("#seria").val();
         datas.Name = $("#fullName").val();
         datas.Address = $("#address").val();
@@ -64,27 +66,32 @@
                     $.ajax({
                         method: "post",
                         url: "/warranty/Register",
-                        datatype: "text/plain",
+                        datatype: "json",
                         data:datas,
                         success: function (rs) {
-                            swal({
-                                title: "Đăng ký bảo hành thành công",
-                                text: "Cảm ơn bạn đã sử dụng sản phẩm của JAKI.",
-                                showConfirmButton: true,
-                                showCancelButton: true,
-                                
-                                cancelButtonText: 'Đăng ký tiếp',
-                                confirmButtonText: "Xem thông tin",
-                                type: "success"
-                            }, function (confirm) {                  
+                            if (rs.code > 0) {
+                                swal({
+                                    title: "Đăng ký bảo hành thành công",
+                                    text: "Cảm ơn bạn đã sử dụng sản phẩm của JAKI.",
+                                    showConfirmButton: true,
+                                    showCancelButton: true,
+
+                                    cancelButtonText: 'Đăng ký tiếp',
+                                    confirmButtonText: "Xem thông tin",
+                                    type: "success"
+                                }, function (confirm) {
                                     if (confirm) {
-                                        window.location.href = "/warranty/info?seria=" + datas.seria + "&idcard=" + datas.IdCard;
+                                        window.location.href = "/warrantycheck?seria=" + datas.seria + "&idcard=" + datas.IdCard;
                                     } else {
                                         $("#seria").val("");
                                         grecaptcha.reset();
                                     }
-                                    
+
                                 });
+                            } else {
+                                Util.notify("", rs.msg);
+                            }
+                            
 
                         }
                     });
@@ -94,8 +101,36 @@
 
 
     }
+    function initCheck() {
+        $(document).ready(function () {
+            $("#checkWarranty").click(function () {
+                var valid = true;
+                var captchaResponse = grecaptcha.getResponse(googleCatcha);
+               var seria =  $("#seria").val();
+                var idCard= $("#identiryId").val();
+                if (captchaResponse == null || captchaResponse == "") {
+                    Util.notify("", "Vui lòng click vào ô kiểm tra bảo mật. ");
+                    valid = false;
+                    grecaptcha.reset();
+                }
+                if (seria == "") {
+                    Util.notify("", "Vui lòng Nhập seria. ");
+                    valid = false;
+                }
+                if (idCard == "") {
+                    Util.notify("", "Vui lòng nhập số CMTND / Hộ chiếu. ");
+                    valid = false;
+                }
+                if (valid) {                    
+                    window.location.href = "/warranty/info?seria=" + seria + "&idCard=" + idCard+"&capcha=" + captchaResponse;
+                }
+            });
+        });
+
+    }
     return {
-        init: init
+        init: init,
+        initCheck: initCheck
     };
 })();
 

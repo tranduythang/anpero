@@ -215,7 +215,6 @@
           <s:element minOccurs="0" maxOccurs="1" name="StoreId" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="LocationId" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="IdCard" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="LocationName" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="RegisterSeriaResponse">
@@ -231,6 +230,7 @@
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="seria" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="idCard" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="captcha" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="client" type="tns:AnperoClient" />
           </s:sequence>
         </s:complexType>
