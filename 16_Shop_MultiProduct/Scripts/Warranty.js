@@ -69,7 +69,7 @@
                         datatype: "json",
                         data:datas,
                         success: function (rs) {
-                            if (rs.code > 0) {
+                            if (rs.code != "" && rs.code != null && rs.code!=0) {
                                 swal({
                                     title: "Đăng ký bảo hành thành công",
                                     text: "Cảm ơn bạn đã sử dụng sản phẩm của JAKI.",
@@ -81,7 +81,7 @@
                                     type: "success"
                                 }, function (confirm) {
                                     if (confirm) {
-                                        window.location.href = "/warrantycheck?seria=" + datas.seria + "&idcard=" + datas.IdCard;
+                                        window.location.href = "/warranty/success?id=" + rs.code;
                                     } else {
                                         $("#seria").val("");
                                         grecaptcha.reset();
@@ -89,6 +89,7 @@
 
                                 });
                             } else {
+                                grecaptcha.reset();
                                 Util.notify("", rs.msg);
                             }
                             

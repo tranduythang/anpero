@@ -16,19 +16,20 @@ namespace AnperoFrontend.Controllers
         {
             return View();
         }
-        [HttpPost]
-        [BuildCommonHtml]
+        [HttpPost]       
         public JsonResult Register(WebService.Contact contact,string seria,string capcha)
         {
 
-            string msg = "";
+            string _msg = "";
             //contact.District = "";
             //contact.Province="";
             contact.StoreId = StoreID.ToString();
-            int rs = service.RegisterSeria(contact, seria, capcha, StoreID, TokenKey,out msg);
+            seria = seria.Replace(" ", string.Empty).Trim();
+            contact.IdCard = contact.IdCard .Replace(" ", string.Empty).Trim();
+            string rs = service.RegisterSeria(contact, seria, capcha, StoreID, TokenKey,out _msg);
             return Json(new {
                 code = rs,
-                msg = msg 
+                msg = _msg 
             });
         }
         [HttpGet]
@@ -54,6 +55,22 @@ namespace AnperoFrontend.Controllers
 
             return View(rs);
         }
+        [BuildCommonHtml]
+        [HttpGet]
+        public ActionResult Success(string id)
+        {
+
+            string msg = "";
+            AnperoClient client = new AnperoClient();
+            client.AgenId = StoreID;
+            client.Token = TokenKey;
+            var rs = service.GetWarrantyCardById(id, client);
+            //WebService.ProductItem item
+            ViewBag.ProductItem = service.GetProductDetail(StoreID, TokenKey, rs.ProductId);
+
+            return View("Info", rs);
+        }
+
     }
     //public class Contact
     //{   

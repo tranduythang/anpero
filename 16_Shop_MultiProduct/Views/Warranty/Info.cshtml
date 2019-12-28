@@ -2,20 +2,31 @@
 @using AnperoFrontend;
 @model AnperoFrontend.WebService.WarrantyCard
 @{
-    AnperoService sv = new AnperoService();    
+    AnperoService sv = new AnperoService();
     AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewBag.ProductItem;
+    string id = Request.QueryString["id"];
 }
 
 <div class="single-thumb-vertical main-container shop-page no-sidebar">
     <div class="container">
-        @if (Model != null && item!=null)
+
+        @if (Model != null && item != null)
         {
-            <div class="row">
+        <div class="row">
             <ul class="breadcrumb">
                 <li><a href="/" title="Trang chủ">Trang chủ</a></li>
                 <li><a href="/warrantycheck" title="Trang chủ">Kiểm tra bảo hành</a></li>
                 <li><span>Thông tin bảo hành</span></li>
             </ul>
+            @if (!string.IsNullOrEmpty(id))
+            {
+                <div class="row" style="margin-bottom:30px;">
+                    <div class="col-md-12">Đăng ký thành công cho sản phẩm <strong>@item.Id</strong></div>
+                    <div class="col-md-12">Mã số phiếu bảo hành của bạn là: <strong>JK-PBH-@Model.BeginDate.ToString("yyyyMMdd")-@Model.Id.Replace("-", string.Empty)</strong></div>
+                    <div class="col-md-12">Vui lòng liên hệ trong tâm bảo hành của Jaki trên toàn quốc để được hỗ trợ khi cần thiết</div>
+
+                </div>
+            }
             <div class="row">
                 <div class="col-md-3"><strong class="pull-right">Tên sản phẩm:</strong></div>
                 <div class="col-md-9 "><span class="pull-left">@item.PrName</span></div>
@@ -24,10 +35,10 @@
                 <div class="col-md-3"><strong class="pull-right">Thời gian bảo hảnh:</strong></div>
                 <div class="col-md-9 "><span class="pull-left">@Model.Warranty tháng từ ngày   @Model.BeginDate.ToString("dd/MM/yyyy") đến ngày  @Model.EndDate.ToString("dd/MM/yyyy") </span></div>
             </div>
-            <div class="row">
-                <div class="col-md-3"><strong class="pull-right">Mã số phiếu bảo hành:</strong></div>
-                <div class="col-md-9 "><span class="pull-left">@Model.Id</span></div>
-            </div>
+            @*<div class="row">
+            <div class="col-md-3"><strong class="pull-right">Mã số phiếu bảo hành:</strong></div>
+            <div class="col-md-9 "><span class="pull-left">@Model.Id</span></div>
+        </div>*@
             <div class="row">
                 <div class="col-md-3"><strong class="pull-right">Seria:</strong></div>
                 <div class="col-md-9 "><span class="pull-left">@Model.Seria</span></div>
@@ -37,12 +48,12 @@
                 <div class="col-md-9 "><span class="pull-left">@Model.contact.Name</span></div>
             </div>
             <div class="row">
-                <div class="col-md-3"><strong class="pull-right">Thành phố:</strong></div>
-                <div class="col-md-9 "><span class="pull-left">@Model.contact.District</span></div>
+                <div class="col-md-3"><strong class="pull-right">Thành phố / Tỉnh:</strong></div>
+                <div class="col-md-9 "><span class="pull-left">@Model.contact.Province</span></div>
             </div>
             <div class="row">
-                <div class="col-md-3"><strong class="pull-right">Quận Huyện:</strong></div>
-                <div class="col-md-9 "><span class="pull-left">@Model.contact.Province</span></div>
+                <div class="col-md-3"><strong class="pull-right">Quận / Huyện:</strong></div>
+                <div class="col-md-9 "><span class="pull-left">@Model.contact.District</span></div>
             </div>
             <div class="row">
                 <div class="col-md-3"><strong class="pull-right">Địa chỉ:</strong></div>
@@ -60,18 +71,26 @@
                 <div class="col-md-3"><strong class="pull-right">Thư điện tử:</strong></div>
                 <div class="col-md-9 "><span class="pull-left">@Model.contact.Mail</span></div>
             </div>
-            <div class="row">                
-                <div class="col-md-9 "><span class="pull-left"><a href="/warrantyCheck">Kiểm tra mã bảo hành khác</a></span></div>
+            <div class="form-group" style="margin-top:15px;">
+                <div class="col-md-3"></div>
+                <div class="col-md-5">
+                    <div class="add-to-cart">
+                        <a href="/" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Quay về trang chủ</a>
+                    </div>
+
+                </div>
             </div>
+           
         </div>
 
         }
         else
         {
             <div class="row">
-                <p class="col-md-12">
-                    Không tìm thấy thông tin bảo hành. Vui lòng nhập lại thông tin <a href="/warrantyCheck">tại đây </a>
-                </p>
+                <div class="col-md-12">
+                    <p>Mã vạch hoặc CMTND / Hộ chiếu này không tồn tại trên hệ thống của Jaki.</p>
+                    <p> Vui lòng kiểm tra lại mã sản phẩm này </p>
+                </div>
             </div>
         }
 

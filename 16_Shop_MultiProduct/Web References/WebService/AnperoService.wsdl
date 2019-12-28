@@ -190,82 +190,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="RegisterSeria">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="contact" type="tns:Contact" />
-            <s:element minOccurs="0" maxOccurs="1" name="seria" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="captcha" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="st" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="Contact">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="TaxCode" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="StoreId" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="LocationId" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="IdCard" type="s:string" />
-        </s:sequence>
-      </s:complexType>
-      <s:element name="RegisterSeriaResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="RegisterSeriaResult" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="rs" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetWarrantyCardInfo">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="seria" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="idCard" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="captcha" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="client" type="tns:AnperoClient" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="AnperoClient">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="ExpirationDate" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="CurentUserId" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="ServerName" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="AgenId" type="s:int" />
-        </s:sequence>
-      </s:complexType>
-      <s:element name="GetWarrantyCardInfoResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetWarrantyCardInfoResult" type="tns:WarrantyCard" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="WarrantyCard">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Seria" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="SeriaId" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="BeginDate" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="UserAddressId" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="AgenId" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="contact" type="tns:Contact" />
-          <s:element minOccurs="1" maxOccurs="1" name="Warranty" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="ProductId" type="s:int" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="AddOrder2">
         <s:complexType>
           <s:sequence>
@@ -767,6 +691,97 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetWarrantyCardInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="seria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idCard" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="captcha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="client" type="tns:AnperoClient" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AnperoClient">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ExpirationDate" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurentUserId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServerName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AgenId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetWarrantyCardInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWarrantyCardInfoResult" type="tns:WarrantyCard" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WarrantyCard">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Seria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SeriaId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BeginDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserAddressId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="AgenId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="contact" type="tns:Contact" />
+          <s:element minOccurs="1" maxOccurs="1" name="Warranty" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Contact">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StoreId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LocationId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdCard" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetWarrantyCardById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="warrantyId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="client" type="tns:AnperoClient" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWarrantyCardByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWarrantyCardByIdResult" type="tns:WarrantyCard" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterSeria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contact" type="tns:Contact" />
+            <s:element minOccurs="0" maxOccurs="1" name="seria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="captcha" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="st" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterSeriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterSeriaResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rs" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetPaymentAPIConfigSoapIn">
@@ -810,18 +825,6 @@
   </wsdl:message>
   <wsdl:message name="AddOrderSoapOut">
     <wsdl:part name="parameters" element="tns:AddOrderResponse" />
-  </wsdl:message>
-  <wsdl:message name="RegisterSeriaSoapIn">
-    <wsdl:part name="parameters" element="tns:RegisterSeria" />
-  </wsdl:message>
-  <wsdl:message name="RegisterSeriaSoapOut">
-    <wsdl:part name="parameters" element="tns:RegisterSeriaResponse" />
-  </wsdl:message>
-  <wsdl:message name="GetWarrantyCardInfoSoapIn">
-    <wsdl:part name="parameters" element="tns:GetWarrantyCardInfo" />
-  </wsdl:message>
-  <wsdl:message name="GetWarrantyCardInfoSoapOut">
-    <wsdl:part name="parameters" element="tns:GetWarrantyCardInfoResponse" />
   </wsdl:message>
   <wsdl:message name="AddOrder2SoapIn">
     <wsdl:part name="parameters" element="tns:AddOrder2" />
@@ -919,6 +922,24 @@
   <wsdl:message name="GetWebContentSoapOut">
     <wsdl:part name="parameters" element="tns:GetWebContentResponse" />
   </wsdl:message>
+  <wsdl:message name="GetWarrantyCardInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWarrantyCardInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetWarrantyCardInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWarrantyCardInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWarrantyCardByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWarrantyCardById" />
+  </wsdl:message>
+  <wsdl:message name="GetWarrantyCardByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWarrantyCardByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterSeriaSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterSeria" />
+  </wsdl:message>
+  <wsdl:message name="RegisterSeriaSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterSeriaResponse" />
+  </wsdl:message>
   <wsdl:portType name="AnperoServiceSoap">
     <wsdl:operation name="GetPaymentAPIConfig">
       <wsdl:input message="tns:GetPaymentAPIConfigSoapIn" />
@@ -947,14 +968,6 @@
     <wsdl:operation name="AddOrder">
       <wsdl:input message="tns:AddOrderSoapIn" />
       <wsdl:output message="tns:AddOrderSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="RegisterSeria">
-      <wsdl:input message="tns:RegisterSeriaSoapIn" />
-      <wsdl:output message="tns:RegisterSeriaSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetWarrantyCardInfo">
-      <wsdl:input message="tns:GetWarrantyCardInfoSoapIn" />
-      <wsdl:output message="tns:GetWarrantyCardInfoSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="AddOrder2">
       <wsdl:input message="tns:AddOrder2SoapIn" />
@@ -1020,6 +1033,18 @@
       <wsdl:input message="tns:GetWebContentSoapIn" />
       <wsdl:output message="tns:GetWebContentSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetWarrantyCardInfo">
+      <wsdl:input message="tns:GetWarrantyCardInfoSoapIn" />
+      <wsdl:output message="tns:GetWarrantyCardInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWarrantyCardById">
+      <wsdl:input message="tns:GetWarrantyCardByIdSoapIn" />
+      <wsdl:output message="tns:GetWarrantyCardByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterSeria">
+      <wsdl:input message="tns:RegisterSeriaSoapIn" />
+      <wsdl:output message="tns:RegisterSeriaSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="AnperoServiceSoap" type="tns:AnperoServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1079,24 +1104,6 @@
     </wsdl:operation>
     <wsdl:operation name="AddOrder">
       <soap:operation soapAction="http://tempuri.org/AddOrder" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RegisterSeria">
-      <soap:operation soapAction="http://tempuri.org/RegisterSeria" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetWarrantyCardInfo">
-      <soap:operation soapAction="http://tempuri.org/GetWarrantyCardInfo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1248,6 +1255,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetWarrantyCardInfo">
+      <soap:operation soapAction="http://tempuri.org/GetWarrantyCardInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarrantyCardById">
+      <soap:operation soapAction="http://tempuri.org/GetWarrantyCardById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterSeria">
+      <soap:operation soapAction="http://tempuri.org/RegisterSeria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="AnperoServiceSoap12" type="tns:AnperoServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1307,24 +1341,6 @@
     </wsdl:operation>
     <wsdl:operation name="AddOrder">
       <soap12:operation soapAction="http://tempuri.org/AddOrder" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RegisterSeria">
-      <soap12:operation soapAction="http://tempuri.org/RegisterSeria" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetWarrantyCardInfo">
-      <soap12:operation soapAction="http://tempuri.org/GetWarrantyCardInfo" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1469,6 +1485,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetWebContent">
       <soap12:operation soapAction="http://tempuri.org/GetWebContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarrantyCardInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetWarrantyCardInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarrantyCardById">
+      <soap12:operation soapAction="http://tempuri.org/GetWarrantyCardById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterSeria">
+      <soap12:operation soapAction="http://tempuri.org/RegisterSeria" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

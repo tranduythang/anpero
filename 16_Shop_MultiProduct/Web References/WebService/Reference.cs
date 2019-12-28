@@ -23,7 +23,7 @@ namespace AnperoFrontend.WebService {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="AnperoServiceSoap", Namespace="http://tempuri.org/")]
@@ -42,10 +42,6 @@ namespace AnperoFrontend.WebService {
         private System.Threading.SendOrPostCallback GetArticleByIdOperationCompleted;
         
         private System.Threading.SendOrPostCallback AddOrderOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback RegisterSeriaOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback GetWarrantyCardInfoOperationCompleted;
         
         private System.Threading.SendOrPostCallback AddOrder2OperationCompleted;
         
@@ -78,6 +74,12 @@ namespace AnperoFrontend.WebService {
         private System.Threading.SendOrPostCallback GetProductDetailOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetWebContentOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetWarrantyCardInfoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetWarrantyCardByIdOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback RegisterSeriaOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -139,12 +141,6 @@ namespace AnperoFrontend.WebService {
         public event AddOrderCompletedEventHandler AddOrderCompleted;
         
         /// <remarks/>
-        public event RegisterSeriaCompletedEventHandler RegisterSeriaCompleted;
-        
-        /// <remarks/>
-        public event GetWarrantyCardInfoCompletedEventHandler GetWarrantyCardInfoCompleted;
-        
-        /// <remarks/>
         public event AddOrder2CompletedEventHandler AddOrder2Completed;
         
         /// <remarks/>
@@ -191,6 +187,15 @@ namespace AnperoFrontend.WebService {
         
         /// <remarks/>
         public event GetWebContentCompletedEventHandler GetWebContentCompleted;
+        
+        /// <remarks/>
+        public event GetWarrantyCardInfoCompletedEventHandler GetWarrantyCardInfoCompleted;
+        
+        /// <remarks/>
+        public event GetWarrantyCardByIdCompletedEventHandler GetWarrantyCardByIdCompleted;
+        
+        /// <remarks/>
+        public event RegisterSeriaCompletedEventHandler RegisterSeriaCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetPaymentAPIConfig", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -454,79 +459,6 @@ namespace AnperoFrontend.WebService {
             if ((this.AddOrderCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.AddOrderCompleted(this, new AddOrderCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RegisterSeria", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int RegisterSeria(Contact contact, string seria, string captcha, int st, string token, out string rs) {
-            object[] results = this.Invoke("RegisterSeria", new object[] {
-                        contact,
-                        seria,
-                        captcha,
-                        st,
-                        token});
-            rs = ((string)(results[1]));
-            return ((int)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void RegisterSeriaAsync(Contact contact, string seria, string captcha, int st, string token) {
-            this.RegisterSeriaAsync(contact, seria, captcha, st, token, null);
-        }
-        
-        /// <remarks/>
-        public void RegisterSeriaAsync(Contact contact, string seria, string captcha, int st, string token, object userState) {
-            if ((this.RegisterSeriaOperationCompleted == null)) {
-                this.RegisterSeriaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRegisterSeriaOperationCompleted);
-            }
-            this.InvokeAsync("RegisterSeria", new object[] {
-                        contact,
-                        seria,
-                        captcha,
-                        st,
-                        token}, this.RegisterSeriaOperationCompleted, userState);
-        }
-        
-        private void OnRegisterSeriaOperationCompleted(object arg) {
-            if ((this.RegisterSeriaCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.RegisterSeriaCompleted(this, new RegisterSeriaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetWarrantyCardInfo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public WarrantyCard GetWarrantyCardInfo(string seria, string idCard, string captcha, AnperoClient client) {
-            object[] results = this.Invoke("GetWarrantyCardInfo", new object[] {
-                        seria,
-                        idCard,
-                        captcha,
-                        client});
-            return ((WarrantyCard)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void GetWarrantyCardInfoAsync(string seria, string idCard, string captcha, AnperoClient client) {
-            this.GetWarrantyCardInfoAsync(seria, idCard, captcha, client, null);
-        }
-        
-        /// <remarks/>
-        public void GetWarrantyCardInfoAsync(string seria, string idCard, string captcha, AnperoClient client, object userState) {
-            if ((this.GetWarrantyCardInfoOperationCompleted == null)) {
-                this.GetWarrantyCardInfoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetWarrantyCardInfoOperationCompleted);
-            }
-            this.InvokeAsync("GetWarrantyCardInfo", new object[] {
-                        seria,
-                        idCard,
-                        captcha,
-                        client}, this.GetWarrantyCardInfoOperationCompleted, userState);
-        }
-        
-        private void OnGetWarrantyCardInfoOperationCompleted(object arg) {
-            if ((this.GetWarrantyCardInfoCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.GetWarrantyCardInfoCompleted(this, new GetWarrantyCardInfoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1151,6 +1083,110 @@ namespace AnperoFrontend.WebService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetWarrantyCardInfo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public WarrantyCard GetWarrantyCardInfo(string seria, string idCard, string captcha, AnperoClient client) {
+            object[] results = this.Invoke("GetWarrantyCardInfo", new object[] {
+                        seria,
+                        idCard,
+                        captcha,
+                        client});
+            return ((WarrantyCard)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetWarrantyCardInfoAsync(string seria, string idCard, string captcha, AnperoClient client) {
+            this.GetWarrantyCardInfoAsync(seria, idCard, captcha, client, null);
+        }
+        
+        /// <remarks/>
+        public void GetWarrantyCardInfoAsync(string seria, string idCard, string captcha, AnperoClient client, object userState) {
+            if ((this.GetWarrantyCardInfoOperationCompleted == null)) {
+                this.GetWarrantyCardInfoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetWarrantyCardInfoOperationCompleted);
+            }
+            this.InvokeAsync("GetWarrantyCardInfo", new object[] {
+                        seria,
+                        idCard,
+                        captcha,
+                        client}, this.GetWarrantyCardInfoOperationCompleted, userState);
+        }
+        
+        private void OnGetWarrantyCardInfoOperationCompleted(object arg) {
+            if ((this.GetWarrantyCardInfoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetWarrantyCardInfoCompleted(this, new GetWarrantyCardInfoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetWarrantyCardById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public WarrantyCard GetWarrantyCardById(string warrantyId, AnperoClient client) {
+            object[] results = this.Invoke("GetWarrantyCardById", new object[] {
+                        warrantyId,
+                        client});
+            return ((WarrantyCard)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetWarrantyCardByIdAsync(string warrantyId, AnperoClient client) {
+            this.GetWarrantyCardByIdAsync(warrantyId, client, null);
+        }
+        
+        /// <remarks/>
+        public void GetWarrantyCardByIdAsync(string warrantyId, AnperoClient client, object userState) {
+            if ((this.GetWarrantyCardByIdOperationCompleted == null)) {
+                this.GetWarrantyCardByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetWarrantyCardByIdOperationCompleted);
+            }
+            this.InvokeAsync("GetWarrantyCardById", new object[] {
+                        warrantyId,
+                        client}, this.GetWarrantyCardByIdOperationCompleted, userState);
+        }
+        
+        private void OnGetWarrantyCardByIdOperationCompleted(object arg) {
+            if ((this.GetWarrantyCardByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetWarrantyCardByIdCompleted(this, new GetWarrantyCardByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RegisterSeria", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string RegisterSeria(Contact contact, string seria, string captcha, int st, string token, out string rs) {
+            object[] results = this.Invoke("RegisterSeria", new object[] {
+                        contact,
+                        seria,
+                        captcha,
+                        st,
+                        token});
+            rs = ((string)(results[1]));
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void RegisterSeriaAsync(Contact contact, string seria, string captcha, int st, string token) {
+            this.RegisterSeriaAsync(contact, seria, captcha, st, token, null);
+        }
+        
+        /// <remarks/>
+        public void RegisterSeriaAsync(Contact contact, string seria, string captcha, int st, string token, object userState) {
+            if ((this.RegisterSeriaOperationCompleted == null)) {
+                this.RegisterSeriaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRegisterSeriaOperationCompleted);
+            }
+            this.InvokeAsync("RegisterSeria", new object[] {
+                        contact,
+                        seria,
+                        captcha,
+                        st,
+                        token}, this.RegisterSeriaOperationCompleted, userState);
+        }
+        
+        private void OnRegisterSeriaOperationCompleted(object arg) {
+            if ((this.RegisterSeriaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RegisterSeriaCompleted(this, new RegisterSeriaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -1170,7 +1206,7 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1323,7 +1359,370 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Contact {
+        
+        private int idField;
+        
+        private string phoneField;
+        
+        private string nameField;
+        
+        private string mailField;
+        
+        private string provinceField;
+        
+        private string districtField;
+        
+        private string addressField;
+        
+        private int userIdField;
+        
+        private string taxCodeField;
+        
+        private string storeIdField;
+        
+        private int locationIdField;
+        
+        private string idCardField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Phone {
+            get {
+                return this.phoneField;
+            }
+            set {
+                this.phoneField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Mail {
+            get {
+                return this.mailField;
+            }
+            set {
+                this.mailField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Province {
+            get {
+                return this.provinceField;
+            }
+            set {
+                this.provinceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string District {
+            get {
+                return this.districtField;
+            }
+            set {
+                this.districtField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Address {
+            get {
+                return this.addressField;
+            }
+            set {
+                this.addressField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int UserId {
+            get {
+                return this.userIdField;
+            }
+            set {
+                this.userIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string TaxCode {
+            get {
+                return this.taxCodeField;
+            }
+            set {
+                this.taxCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string StoreId {
+            get {
+                return this.storeIdField;
+            }
+            set {
+                this.storeIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int LocationId {
+            get {
+                return this.locationIdField;
+            }
+            set {
+                this.locationIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string IdCard {
+            get {
+                return this.idCardField;
+            }
+            set {
+                this.idCardField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class WarrantyCard {
+        
+        private string idField;
+        
+        private string seriaField;
+        
+        private string seriaIdField;
+        
+        private System.DateTime beginDateField;
+        
+        private System.DateTime endDateField;
+        
+        private int userAddressIdField;
+        
+        private System.DateTime createDateField;
+        
+        private int agenIdField;
+        
+        private Contact contactField;
+        
+        private int warrantyField;
+        
+        private int productIdField;
+        
+        /// <remarks/>
+        public string Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Seria {
+            get {
+                return this.seriaField;
+            }
+            set {
+                this.seriaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SeriaId {
+            get {
+                return this.seriaIdField;
+            }
+            set {
+                this.seriaIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime BeginDate {
+            get {
+                return this.beginDateField;
+            }
+            set {
+                this.beginDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime EndDate {
+            get {
+                return this.endDateField;
+            }
+            set {
+                this.endDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int UserAddressId {
+            get {
+                return this.userAddressIdField;
+            }
+            set {
+                this.userAddressIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime CreateDate {
+            get {
+                return this.createDateField;
+            }
+            set {
+                this.createDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int AgenId {
+            get {
+                return this.agenIdField;
+            }
+            set {
+                this.agenIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Contact contact {
+            get {
+                return this.contactField;
+            }
+            set {
+                this.contactField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Warranty {
+            get {
+                return this.warrantyField;
+            }
+            set {
+                this.warrantyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ProductId {
+            get {
+                return this.productIdField;
+            }
+            set {
+                this.productIdField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class AnperoClient {
+        
+        private int expirationDateField;
+        
+        private string tokenField;
+        
+        private int curentUserIdField;
+        
+        private string serverNameField;
+        
+        private int agenIdField;
+        
+        /// <remarks/>
+        public int ExpirationDate {
+            get {
+                return this.expirationDateField;
+            }
+            set {
+                this.expirationDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CurentUserId {
+            get {
+                return this.curentUserIdField;
+            }
+            set {
+                this.curentUserIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ServerName {
+            get {
+                return this.serverNameField;
+            }
+            set {
+                this.serverNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int AgenId {
+            get {
+                return this.agenIdField;
+            }
+            set {
+                this.agenIdField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1512,7 +1911,7 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1833,7 +2232,7 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1938,7 +2337,7 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2055,7 +2454,7 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2100,7 +2499,7 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2145,7 +2544,7 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2214,7 +2613,7 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2319,7 +2718,7 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2400,7 +2799,7 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2661,7 +3060,7 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2742,370 +3141,7 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class WarrantyCard {
-        
-        private string idField;
-        
-        private string seriaField;
-        
-        private string seriaIdField;
-        
-        private System.DateTime beginDateField;
-        
-        private System.DateTime endDateField;
-        
-        private int userAddressIdField;
-        
-        private System.DateTime createDateField;
-        
-        private int agenIdField;
-        
-        private Contact contactField;
-        
-        private int warrantyField;
-        
-        private int productIdField;
-        
-        /// <remarks/>
-        public string Id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Seria {
-            get {
-                return this.seriaField;
-            }
-            set {
-                this.seriaField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string SeriaId {
-            get {
-                return this.seriaIdField;
-            }
-            set {
-                this.seriaIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime BeginDate {
-            get {
-                return this.beginDateField;
-            }
-            set {
-                this.beginDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime EndDate {
-            get {
-                return this.endDateField;
-            }
-            set {
-                this.endDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int UserAddressId {
-            get {
-                return this.userAddressIdField;
-            }
-            set {
-                this.userAddressIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime CreateDate {
-            get {
-                return this.createDateField;
-            }
-            set {
-                this.createDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int AgenId {
-            get {
-                return this.agenIdField;
-            }
-            set {
-                this.agenIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Contact contact {
-            get {
-                return this.contactField;
-            }
-            set {
-                this.contactField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int Warranty {
-            get {
-                return this.warrantyField;
-            }
-            set {
-                this.warrantyField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ProductId {
-            get {
-                return this.productIdField;
-            }
-            set {
-                this.productIdField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Contact {
-        
-        private string provinceField;
-        
-        private string districtField;
-        
-        private int idField;
-        
-        private string phoneField;
-        
-        private string nameField;
-        
-        private string mailField;
-        
-        private string addressField;
-        
-        private int userIdField;
-        
-        private string taxCodeField;
-        
-        private string storeIdField;
-        
-        private int locationIdField;
-        
-        private string idCardField;
-        
-        /// <remarks/>
-        public string Province {
-            get {
-                return this.provinceField;
-            }
-            set {
-                this.provinceField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string District {
-            get {
-                return this.districtField;
-            }
-            set {
-                this.districtField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int Id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Phone {
-            get {
-                return this.phoneField;
-            }
-            set {
-                this.phoneField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Mail {
-            get {
-                return this.mailField;
-            }
-            set {
-                this.mailField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Address {
-            get {
-                return this.addressField;
-            }
-            set {
-                this.addressField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int UserId {
-            get {
-                return this.userIdField;
-            }
-            set {
-                this.userIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string TaxCode {
-            get {
-                return this.taxCodeField;
-            }
-            set {
-                this.taxCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string StoreId {
-            get {
-                return this.storeIdField;
-            }
-            set {
-                this.storeIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int LocationId {
-            get {
-                return this.locationIdField;
-            }
-            set {
-                this.locationIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string IdCard {
-            get {
-                return this.idCardField;
-            }
-            set {
-                this.idCardField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class AnperoClient {
-        
-        private int expirationDateField;
-        
-        private string tokenField;
-        
-        private int curentUserIdField;
-        
-        private string serverNameField;
-        
-        private int agenIdField;
-        
-        /// <remarks/>
-        public int ExpirationDate {
-            get {
-                return this.expirationDateField;
-            }
-            set {
-                this.expirationDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Token {
-            get {
-                return this.tokenField;
-            }
-            set {
-                this.tokenField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int CurentUserId {
-            get {
-                return this.curentUserIdField;
-            }
-            set {
-                this.curentUserIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ServerName {
-            get {
-                return this.serverNameField;
-            }
-            set {
-                this.serverNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int AgenId {
-            get {
-                return this.agenIdField;
-            }
-            set {
-                this.agenIdField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3246,7 +3282,7 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3279,7 +3315,7 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3324,11 +3360,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void GetPaymentAPIConfigCompletedEventHandler(object sender, GetPaymentAPIConfigCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetPaymentAPIConfigCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3350,11 +3386,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void UpdateOrderStatusCompletedEventHandler(object sender, UpdateOrderStatusCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class UpdateOrderStatusCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3376,11 +3412,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void GetLocationCompletedEventHandler(object sender, GetLocationCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetLocationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3402,11 +3438,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void addContactCompletedEventHandler(object sender, addContactCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class addContactCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3428,11 +3464,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void SearchArticleCompletedEventHandler(object sender, SearchArticleCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class SearchArticleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3454,11 +3490,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void GetArticleByIdCompletedEventHandler(object sender, GetArticleByIdCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetArticleByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3480,11 +3516,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void AddOrderCompletedEventHandler(object sender, AddOrderCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class AddOrderCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3506,71 +3542,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
-    public delegate void RegisterSeriaCompletedEventHandler(object sender, RegisterSeriaCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class RegisterSeriaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal RegisterSeriaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public int Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
-            }
-        }
-        
-        /// <remarks/>
-        public string rs {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[1]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
-    public delegate void GetWarrantyCardInfoCompletedEventHandler(object sender, GetWarrantyCardInfoCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class GetWarrantyCardInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal GetWarrantyCardInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public WarrantyCard Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((WarrantyCard)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void AddOrder2CompletedEventHandler(object sender, AddOrder2CompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class AddOrder2CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3592,11 +3568,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void GetRandomAdsSlideCompletedEventHandler(object sender, GetRandomAdsSlideCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetRandomAdsSlideCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3618,11 +3594,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void GetAdsSlideCompletedEventHandler(object sender, GetAdsSlideCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetAdsSlideCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3644,11 +3620,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void GetCommonConfigCompletedEventHandler(object sender, GetCommonConfigCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetCommonConfigCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3670,11 +3646,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void GetBlogCategoryCompletedEventHandler(object sender, GetBlogCategoryCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetBlogCategoryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3696,11 +3672,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void SearchProductFullDataCompletedEventHandler(object sender, SearchProductFullDataCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class SearchProductFullDataCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3722,11 +3698,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void SearchProductCompletedEventHandler(object sender, SearchProductCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class SearchProductCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3748,11 +3724,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void SearchProductsCompletedEventHandler(object sender, SearchProductsCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class SearchProductsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3774,11 +3750,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void SearchProductByLocationCompletedEventHandler(object sender, SearchProductByLocationCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class SearchProductByLocationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3800,11 +3776,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void GetProductByParentCategoryCompletedEventHandler(object sender, GetProductByParentCategoryCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetProductByParentCategoryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3826,11 +3802,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void GetProductByCategoryCompletedEventHandler(object sender, GetProductByCategoryCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetProductByCategoryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3852,11 +3828,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void GetProductByGroupCompletedEventHandler(object sender, GetProductByGroupCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetProductByGroupCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3878,11 +3854,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void GetSaleProductCompletedEventHandler(object sender, GetSaleProductCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetSaleProductCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3904,11 +3880,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void GetRandomSaleProductCompletedEventHandler(object sender, GetRandomSaleProductCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetRandomSaleProductCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3930,11 +3906,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void GetProductDetailCompletedEventHandler(object sender, GetProductDetailCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetProductDetailCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3956,11 +3932,11 @@ namespace AnperoFrontend.WebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void GetWebContentCompletedEventHandler(object sender, GetWebContentCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetWebContentCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3977,6 +3953,92 @@ namespace AnperoFrontend.WebService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void GetWarrantyCardInfoCompletedEventHandler(object sender, GetWarrantyCardInfoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetWarrantyCardInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetWarrantyCardInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public WarrantyCard Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((WarrantyCard)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void GetWarrantyCardByIdCompletedEventHandler(object sender, GetWarrantyCardByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetWarrantyCardByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetWarrantyCardByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public WarrantyCard Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((WarrantyCard)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void RegisterSeriaCompletedEventHandler(object sender, RegisterSeriaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class RegisterSeriaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal RegisterSeriaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public string rs {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[1]));
             }
         }
     }
