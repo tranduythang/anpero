@@ -270,34 +270,36 @@
                                         var category = searchResult.Item.Select(x => new { id = x.ParentId, name = x.ParentCatName }).Distinct().ToList();
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-mega-menu menu-item-has-children item-megamenu">
                                             <a href="javascript:void(0);">Sản phẩm bán chạy</a>
-                                            <div class="sub-menu megamenu" data-responsive=".header-responsive" style="width:1170px;">
+                                            <div class="sub-menu megamenu" data-responsive=".header-responsive" style="width:1170px;z-index:99;">
                                                 <div class="vc_row wpb_row vc_row-fluid ovic_custom_5b763d890b4fd vc_custom_1534475649915">
-                                                    @foreach (var item in category)
-                                                    {
-                                                        var productCategory = searchResult.Item.Where(x => x.ParentId == item.id).ToList();
-                                                        <div class="wpb_column vc_column_container vc_col-sm-3">
-                                                            <div class="vc_column-inner">
-                                                                <div class="wpb_wrapper">
-                                                                    <div class="ovic-custommenu vc_wp_custommenu wpb_content_element default ovic_custom_5b763d890b53f " data-show_count_items="0" data-text_more="All Categories">
-                                                                        <div class="widget widget_nav_menu">
-                                                                            <h2 class="widgettitle">@item.name</h2>
-                                                                            <div class="ovic-menu-wapper horizontal">
-                                                                                <ul class="menu ovic-menu">
-                                                                                    @foreach (var productItem in productCategory)
-                                                                                    {
-                                                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(productItem.CatName,productItem.Id)">@productItem.PrName</a></li>
-                                                                                    }
-                                                                                </ul>
+                                                    <div class="wpb_column vc_column_container vc_col-sm-3"></div>
+                                                        @foreach (var item in category)
+                                                        {
+                                                            var productCategory = searchResult.Item.Where(x => x.ParentId == item.id).ToList();
+
+                                                            <div class="wpb_column vc_column_container vc_col-sm-3">
+                                                                <div class="vc_column-inner">
+                                                                    <div class="wpb_wrapper">
+                                                                        <div class="ovic-custommenu vc_wp_custommenu wpb_content_element default ovic_custom_5b763d890b53f " data-show_count_items="0" data-text_more="All Categories">
+                                                                            <div class="widget widget_nav_menu">
+                                                                                <h2 class="widgettitle">@item.name</h2>
+                                                                                <div class="ovic-menu-wapper horizontal">
+                                                                                    <ul class="menu ovic-menu">
+                                                                                        @foreach (var productItem in productCategory)
+                                                                                        {
+                                                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(productItem.CatName,productItem.Id)">@productItem.PrName</a></li>
+                                                                                        }
+                                                                                    </ul>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
 
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    }
+                                                        }
+                                                    </div>
                                                 </div>
-                                            </div>
                                         </li>
                                     }
                                 }
@@ -311,8 +313,9 @@
                                         var category = searchResult.Select(x => new { id = x.ParentId, name = x.ParentCatName }).Distinct().ToList();
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-mega-menu menu-item-has-children item-megamenu">
                                             <a href="/product/sales" class="disable-link">Sản phẩm khuyến mại</a>
-                                            <div class="sub-menu megamenu" data-responsive=".header-responsive" style="width:1170px;">
+                                            <div class="sub-menu megamenu" data-responsive=".header-responsive" style="width:1170px;z-index:99;">
                                                 <div class="vc_row wpb_row vc_row-fluid ovic_custom_5b763d890b4fd vc_custom_1534475649915">
+                                                    <div class="wpb_column vc_column_container vc_col-sm-3"></div>
                                                     @foreach (var item in category)
                                                     {
                                                         var productCategory = searchResult.Where(x => x.ParentId == item.id).ToList();
