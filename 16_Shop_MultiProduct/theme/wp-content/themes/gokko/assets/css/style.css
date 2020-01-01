@@ -1842,8 +1842,7 @@ input[type="tel"],
 input[type="search"],
 input[type="url"],
 select,
-textarea {
-    border: 1px solid #e6e6e6;
+textarea {    
     padding: 12px 20px;
     font-size: 14px;
     line-height: 20px;

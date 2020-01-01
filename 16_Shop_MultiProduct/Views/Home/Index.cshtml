@@ -23,6 +23,7 @@
     <!-- BEGIN SLIDER -->
     <div class="page-slider">
         <div class="fullwidthbanner-container revolution-slider">
+             @*assets\revo-slider-init.js*@
             <div class="fullwidthabnner">
                 <ul id="revolutionul">
                     @if (ViewData["Slide"] != null)
@@ -57,9 +58,9 @@
         SearchResult BestsaleProduct = (SearchResult)ViewData["BestsaleProduct"];
 
         if (BestsaleProduct.Item.Length > 0)
-        { 
+        {
             SearchResult searchResult = new SearchResult();
-            searchResult.Item = BestsaleProduct.Item.Take(6).ToArray();
+            searchResult.Item = BestsaleProduct.Item.Take(7).ToArray();
             var item1 = searchResult.Item[0];
             <div class="vc_row wpb_row vc_row-fluid ovic_custom_5c92fe3eaf6d1 vc_custom_1544605855380 vc_custom_1544605855411 vc_custom_1544605855425">
                 <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-4 vc_col-md-4 ovic_custom_5c92fe3eaf6d2 vc_custom_1536912601750">
@@ -302,82 +303,109 @@
 
     }
     @*else
-    {
-        <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid ovic_custom_5c92fe3eaf719 vc_custom_1536911229630 vc_custom_1536911229658 vc_custom_1536911229670">
-            <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-5 vc_col-md-5">
-                <div class="vc_column-inner">
-                    <div class="wpb_wrapper">
-                        <div style="font-size: 50px;color: #ffffff;text-align: left" class="vc_custom_heading ovic_custom_5c92fe3eaf71b vc_custom_1536911315076 vc_custom_1536911315115">Sản phẩm đặc biệt</div>
-                        <div class="vc_row wpb_row vc_inner vc_row-fluid">
-                            <div class="wpb_column vc_column_container vc_col-sm-6">
-                                <div class="vc_column-inner">
-                                    <div class="wpb_wrapper">
-                                        <div class="ovic-iconbox style17 Dark Background   ovic_custom_5c92fe3eaf71c vc_custom_1536740685223 ">
-                                            <div class="box-icon">
-                                                <i class="gokko-icon icon-download"></i>
+        {
+            <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid ovic_custom_5c92fe3eaf719 vc_custom_1536911229630 vc_custom_1536911229658 vc_custom_1536911229670">
+                <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-5 vc_col-md-5">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div style="font-size: 50px;color: #ffffff;text-align: left" class="vc_custom_heading ovic_custom_5c92fe3eaf71b vc_custom_1536911315076 vc_custom_1536911315115">Sản phẩm đặc biệt</div>
+                            <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                                <div class="wpb_column vc_column_container vc_col-sm-6">
+                                    <div class="vc_column-inner">
+                                        <div class="wpb_wrapper">
+                                            <div class="ovic-iconbox style17 Dark Background   ovic_custom_5c92fe3eaf71c vc_custom_1536740685223 ">
+                                                <div class="box-icon">
+                                                    <i class="gokko-icon icon-download"></i>
+                                                </div>
+                                                <div class="texts">
+                                                    <div class="title">Storage</div>
+                                                    <p class="text">16GB / 128Gb / 200gb</p>
+                                                </div>
                                             </div>
-                                            <div class="texts">
-                                                <div class="title">Storage</div>
-                                                <p class="text">16GB / 128Gb / 200gb</p>
-                                            </div>
-                                        </div>
 
-                                        <div class="ovic-iconbox style17 Dark Background   ovic_custom_5c92fe3eaf71d vc_custom_1536740846432 ">
-                                            <div class="box-icon">
-                                                <i class="gokko-icon icon-wifi2"></i>
+                                            <div class="ovic-iconbox style17 Dark Background   ovic_custom_5c92fe3eaf71d vc_custom_1536740846432 ">
+                                                <div class="box-icon">
+                                                    <i class="gokko-icon icon-wifi2"></i>
+                                                </div>
+                                                <div class="texts">
+                                                    <div class="title">Connectivity</div>
+                                                    <p class="text">
+                                                        Wi-less: 802.1 b/g/n<br />
+                                                        Bluetooth 4.2, A2DP, le
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <div class="texts">
-                                                <div class="title">Connectivity</div>
-                                                <p class="text">
-                                                    Wi-less: 802.1 b/g/n<br />
-                                                    Bluetooth 4.2, A2DP, le
-                                                </p>
-                                            </div>
-                                        </div>
 
-                                        <div class="ovic-iconbox style17 Dark Background   ovic_custom_5c92fe3eaf71e vc_custom_1536917769427">
-                                            <div class="box-icon">
-                                                <i class="gokko-icon icon-cpu"></i>
+                                            <div class="ovic-iconbox style17 Dark Background   ovic_custom_5c92fe3eaf71e vc_custom_1536917769427">
+                                                <div class="box-icon">
+                                                    <i class="gokko-icon icon-cpu"></i>
+                                                </div>
+                                                <div class="texts">
+                                                    <div class="title">System Architecture</div>
+                                                    <p class="text">Gphone a8 Chipset</p>
+                                                </div>
                                             </div>
-                                            <div class="texts">
-                                                <div class="title">System Architecture</div>
-                                                <p class="text">Gphone a8 Chipset</p>
-                                            </div>
-                                        </div>
 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wpb_column vc_column_container vc_col-sm-6">
+                                    <div class="vc_column-inner">
+                                        <div class="wpb_wrapper">
+                                            <div class="ovic-iconbox style17 Dark Background   ovic_custom_5c92fe3eaf71f vc_custom_1536740910379 ">
+                                                <div class="box-icon">
+                                                    <i class="gokko-icon icon-batery"></i>
+                                                </div>
+                                                <div class="texts">
+                                                    <div class="title">Battery</div>
+                                                    <p class="text">
+                                                        Non-removable Li-Po<br />
+                                                        1175 mAh
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="ovic-iconbox style17 Dark Background   ovic_custom_5c92fe3eaf720 ">
+                                                <div class="box-icon">
+                                                    <i class="gokko-icon icon-money2"></i>
+                                                </div>
+                                                <div class="texts">
+                                                    <div class="title">Market Price</div>
+                                                    <p class="text">
+                                                        $28 (16GB)<br />
+                                                        $89 (128GB)<br />
+                                                        $128 (200GB)
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="wpb_column vc_column_container vc_col-sm-6">
-                                <div class="vc_column-inner">
-                                    <div class="wpb_wrapper">
-                                        <div class="ovic-iconbox style17 Dark Background   ovic_custom_5c92fe3eaf71f vc_custom_1536740910379 ">
-                                            <div class="box-icon">
-                                                <i class="gokko-icon icon-batery"></i>
-                                            </div>
-                                            <div class="texts">
-                                                <div class="title">Battery</div>
-                                                <p class="text">
-                                                    Non-removable Li-Po<br />
-                                                    1175 mAh
-                                                </p>
-                                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-7 vc_col-md-7 ovic_custom_5c92fe3eaf727">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div class="ovic-product product-item product style6 default   ovic_custom_5c92fe3eaf728 vc_custom_1536910883987 vc_custom_1536910883999 " style="">
+                                <div class="banner">
+                                    <img width="498" height="493" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22498%22%20height%3D%22493%22%20viewBox%3D%220%200%20498%20493%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-498x493 size-498x493 lazy" alt="h49" data-src="/theme/wp-content/uploads/2018/09/h49.png" />
+                                </div>
+                                <div class="content">
+                                    <h2 class="product-name" style="min-width:400px;">
+                                        <a href="product/broccoli-natures-perfect-food-3/index.html" style="color:white;">
+                                            Show your color
+                                        </a>
+                                    </h2>
+                                    <div class="intro">Pro Wireless</div>
+                                    <div class="url-container clearfix">
+                                        <div class="group-price">
+                                            <span class="text-label">Only</span>
+                                            <span class="text-value"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>15.00</span></span>
                                         </div>
-
-                                        <div class="ovic-iconbox style17 Dark Background   ovic_custom_5c92fe3eaf720 ">
-                                            <div class="box-icon">
-                                                <i class="gokko-icon icon-money2"></i>
-                                            </div>
-                                            <div class="texts">
-                                                <div class="title">Market Price</div>
-                                                <p class="text">
-                                                    $28 (16GB)<br />
-                                                    $89 (128GB)<br />
-                                                    $128 (200GB)
-                                                </p>
-                                            </div>
-                                        </div>
-
+                                        <a class="extent-url" href="shop/index.html" target="">Shop now</a>
                                     </div>
                                 </div>
                             </div>
@@ -385,74 +413,47 @@
                     </div>
                 </div>
             </div>
-            <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-7 vc_col-md-7 ovic_custom_5c92fe3eaf727">
-                <div class="vc_column-inner">
-                    <div class="wpb_wrapper">
-                        <div class="ovic-product product-item product style6 default   ovic_custom_5c92fe3eaf728 vc_custom_1536910883987 vc_custom_1536910883999 " style="">
-                            <div class="banner">
-                                <img width="498" height="493" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22498%22%20height%3D%22493%22%20viewBox%3D%220%200%20498%20493%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-498x493 size-498x493 lazy" alt="h49" data-src="/theme/wp-content/uploads/2018/09/h49.png" />
-                            </div>
-                            <div class="content">
-                                <h2 class="product-name" style="min-width:400px;">
-                                    <a href="product/broccoli-natures-perfect-food-3/index.html" style="color:white;">
-                                        Show your color
-                                    </a>
-                                </h2>
-                                <div class="intro">Pro Wireless</div>
-                                <div class="url-container clearfix">
-                                    <div class="group-price">
-                                        <span class="text-label">Only</span>
-                                        <span class="text-value"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>15.00</span></span>
-                                    </div>
-                                    <a class="extent-url" href="shop/index.html" target="">Shop now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="vc_row-full-width vc_clearfix"></div>
-        <div class="vc_row wpb_row vc_row-fluid ovic_custom_5c92fe3eaf729 vc_custom_1536909141636 vc_custom_1536909141667">
-            <div class="wpb_column vc_column_container vc_col-sm-12">
-                <div class="vc_column-inner">
-                    <div class="wpb_wrapper">
-                        <div class="ovic-slide  rows-space-0  ovic_custom_5c92fe3eaf72b ">
-                            <div class="ovic-slide-default">
-                                <div class="owl-slick" data-slick={&quot;arrows&quot;:false,&quot;slidesMargin&quot;:20,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:3,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:1}}]>
+            <div class="vc_row-full-width vc_clearfix"></div>
+            <div class="vc_row wpb_row vc_row-fluid ovic_custom_5c92fe3eaf729 vc_custom_1536909141636 vc_custom_1536909141667">
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div class="ovic-slide  rows-space-0  ovic_custom_5c92fe3eaf72b ">
+                                <div class="ovic-slide-default">
+                                    <div class="owl-slick" data-slick={&quot;arrows&quot;:false,&quot;slidesMargin&quot;:20,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:3,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:1}}]>
 
-                                    <div class="wpb_single_image wpb_content_element vc_align_center ovic_custom_5c92fe3eaf72c">
+                                        <div class="wpb_single_image wpb_content_element vc_align_center ovic_custom_5c92fe3eaf72c">
 
-                                        <figure class="wpb_wrapper vc_figure">
-                                            <div class="vc_single_image-wrapper   vc_box_border_grey effect border-scale ">
-                                                <img class="vc_single_image-img lazy attachment-full" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20376%20250%27%2F%3E" data-src="https://gokko.kutethemes.net/wp-content/uploads/2018/09/h45.jpg" width="376" height="250" alt="Home 02" />
-                                            </div>
-                                        </figure>
-                                    </div>
-                                    <div class="ovic-iconbox style16 Dark Background   ovic_custom_5c92fe3eaf72d ">
-                                        <div class="box-url-video">
-                                            <img width="376" height="250" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22376%22%20height%3D%22250%22%20viewBox%3D%220%200%20376%20250%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-376x250 size-376x250 lazy" alt="h47" data-src="/theme/wp-content/uploads/2018/09/h47.jpg" />                                                                            <a class="js-popup-video youtube" href="https://www.youtube.com/watch?v=SXyObZahu-o">
-                                                <i class="gokko-icon icon-play2"></i>
-                                                <span>Watch Video</span>
-                                            </a>
+                                            <figure class="wpb_wrapper vc_figure">
+                                                <div class="vc_single_image-wrapper   vc_box_border_grey effect border-scale ">
+                                                    <img class="vc_single_image-img lazy attachment-full" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20376%20250%27%2F%3E" data-src="https://gokko.kutethemes.net/wp-content/uploads/2018/09/h45.jpg" width="376" height="250" alt="Home 02" />
+                                                </div>
+                                            </figure>
                                         </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="wpb_single_image wpb_content_element vc_align_center ovic_custom_5c92fe3eaf72e">
-                                        <figure class="wpb_wrapper vc_figure">
-                                            <div class="vc_single_image-wrapper   vc_box_border_grey effect border-scale "><img class="vc_single_image-img lazy attachment-full" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20376%20250%27%2F%3E" data-src="https://gokko.kutethemes.net/wp-content/uploads/2018/09/h46.jpg" width="376" height="250" alt="Home 02" /></div>
-                                        </figure>
+                                        <div class="ovic-iconbox style16 Dark Background   ovic_custom_5c92fe3eaf72d ">
+                                            <div class="box-url-video">
+                                                <img width="376" height="250" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22376%22%20height%3D%22250%22%20viewBox%3D%220%200%20376%20250%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-376x250 size-376x250 lazy" alt="h47" data-src="/theme/wp-content/uploads/2018/09/h47.jpg" />                                                                            <a class="js-popup-video youtube" href="https://www.youtube.com/watch?v=SXyObZahu-o">
+                                                    <i class="gokko-icon icon-play2"></i>
+                                                    <span>Watch Video</span>
+                                                </a>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="wpb_single_image wpb_content_element vc_align_center ovic_custom_5c92fe3eaf72e">
+                                            <figure class="wpb_wrapper vc_figure">
+                                                <div class="vc_single_image-wrapper   vc_box_border_grey effect border-scale "><img class="vc_single_image-img lazy attachment-full" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20376%20250%27%2F%3E" data-src="https://gokko.kutethemes.net/wp-content/uploads/2018/09/h46.jpg" width="376" height="250" alt="Home 02" /></div>
+                                            </figure>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="vc_row-full-width vc_clearfix"></div>
-    }*@
+            <div class="vc_row-full-width vc_clearfix"></div>
+        }*@
 
 
     @if (ViewData["saleProduct"] != null)
@@ -460,7 +461,7 @@
         ProductItem[] searchResult = (ProductItem[])ViewData["saleProduct"];
         if (searchResult.Length > 0)
         {
-            var productList = commonInfo.ProductCategoryList.Take(6).OrderByDescending(x=>x.Rank).ToList();
+            var productList = commonInfo.ProductCategoryList.Take(6).ToList();
             <div class="vc_row wpb_row vc_row-fluid">
                 <div class="wpb_column vc_column_container vc_col-sm-12">
                     <div class="vc_column-inner">
@@ -507,7 +508,7 @@
                                                                     @if (item.IsSale)
                                                                     {
                                                                         <div class="flash">
-                                                                            <span class="onsale"><span class="text">-@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
+                                                                            <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
                                                                         </div>
                                                                     }
                                                                     <h3 class="product-name product_title">
@@ -638,7 +639,7 @@
                                                 @if (item.IsSale)
                                                 {
                                                     <div class="flash">
-                                                        <span class="onsale"><span class="text">-@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)</span></span>
+                                                        <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)</span></span>
                                                     </div>
                                                 }
 
@@ -680,7 +681,7 @@
             <div class="vc_column-inner">
                 <div class="wpb_wrapper">
                     <div class="ovic-products only-icon style-2   ovic_custom_5c92fe3eaf732 vc_custom_1547457855172 vc_custom_1547457855217  owl-ls-6 owl-lg-6 owl-md-5 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_style20">
-                        <h3 class="ovic-title"><span class="text">Bài viết được xem nhiều</span></h3>
+                        <h3 class="ovic-title"><span class="text">Bài viết được xem nhiều nhất</span></h3>
                         <div class="product-list-owl owl-slick equal-container better-height " data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:2,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
                             @if (ViewData["TopArticle"] != null)
                             {

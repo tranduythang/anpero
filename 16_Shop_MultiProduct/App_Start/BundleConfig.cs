@@ -17,8 +17,7 @@ namespace AnperoFrontend
               "~/theme/wp-content/plugins/ovic-toolkit/includes/frontend/assets/js/libs/growl.min.js",
               "~/theme/wp-content/plugins/ovic-toolkit/includes/frontend/assets/js/libs/chosen.min.js",
               "~/theme/wp-content/plugins/ovic-toolkit/includes/frontend/assets/js/frontend.min.js",
-              "~/Scripts/jquery.cokie.min.js",
-              "~/Html/js/javascript.js"
+              "~/Scripts/jquery.cokie.min.js"
           ));
             bundles.Add(new StyleBundle("~/bundles/global.css").Include(
                   "~/theme/wp-includes/css/dist/block-library/style.min.css",

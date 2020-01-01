@@ -41,7 +41,7 @@
             <div class="form-group">
                 <label class="col-md-3 control-label"> Thành phố/ Tỉnh</label>
                 <div class="col-md-5">
-                    <select class="input  form-control" id="country" name="province">
+                    <select class="input form-control" id="country" name="province">
                         <option value="0">Tỉnh/ thành phố</option>
                     </select>
                 </div>
@@ -104,6 +104,10 @@
         margin: 41px auto !important;
         position: relative;
         box-sizing: content-box;
+    }
+    select{     
+    -webkit-appearance: checkbox;
+    -moz-appearance: none;
     }
 </style>
 @section scripts{

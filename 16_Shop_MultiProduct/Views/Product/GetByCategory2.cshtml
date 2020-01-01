@@ -18,7 +18,7 @@
                     @if (item.IsSale)
                     {
                         <div class="flash">
-                            <span class="onsale"><span class="text">-@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
+                            <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
                         </div>
                     }
                     <h3 class="product-name product_title">

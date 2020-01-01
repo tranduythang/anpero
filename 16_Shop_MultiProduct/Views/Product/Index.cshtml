@@ -63,7 +63,7 @@
         <link href="/theme/wp-content/themes/gokko/assets/css/content-single-product.css" rel="stylesheet" />
     }
 
-    <div class="single-thumb-vertical main-container shop-page no-sidebar">
+    <div class=" main-container shop-page no-sidebar">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -84,7 +84,7 @@
                 <div class="main-content col-sm-12">
                     <div class="product type-product status-publish first instock product_cat-camera-photo product_tag-appliances product_tag-fashion product_tag-glass product_tag-women has-post-thumbnail shipping-taxable purchasable product-type-variable">
                         <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4" style="opacity: 1; transition: opacity 0.25s ease-in-out 0s;">
-                            <a href="#" class="woocommerce-product-gallery__trigger">🔍</a>
+                            
                             <div class="flex-viewport">
                                 <a href="@(item.ImagesSlide !=null && item.ImagesSlide.Length>0?item.ImagesSlide[0]:item.Images)" class="fancybox" data-fancybox="gallery" rel="gallery" data-type="image">
                                     <img role="presentation" alt="" src="@(item.ImagesSlide !=null && item.ImagesSlide.Length>0?item.ImagesSlide[0]:item.Images)">
@@ -107,11 +107,19 @@
                         </div>
 
                         <div class="summary entry-summary">
+                            @if (item.IsSale)
+                            {
+                                <div class="flash">
+                                    <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
+                                </div>
+                            }
+
+                            <h1 class="product_title entry-title">@item.PrName</h1>
                             <p class="stock in-stock available-product">
                                 Tình trạng:<span> @(item.IsInstock ? "Còn hàng" : "Hết hàng")</span>
                             </p>
 
-                            <h1 class="product_title entry-title">@item.PrName</h1>
+
                             @if (!string.IsNullOrEmpty(item.OriginName))
                             {
                                 <div>
@@ -125,10 +133,7 @@
                                 </p>
                             }
 
-                            <div class="woocommerce-product-rating">
-                                <i class="fa fa-tags" aria-hidden="true"></i>
-                                <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.ParentCatName,item.ParentId)" title="@item.ParentCatName">@item.ParentCatName</a>
-                            </div>
+
                             <div class="short-description">@item.Specifications @item.ShortDesc</div>
                             @if (item.IsSale)
                             {
@@ -237,7 +242,7 @@
                                             @if (relatedProduct.IsSale)
                                             {
                                                 <div class="flash">
-                                                    <span class="onsale"><span class="text">-@Anpero.StringHelpper.GetDiscountPersen(relatedProduct.Price, relatedProduct.SalePrice)</span></span>
+                                                    <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(relatedProduct.Price, relatedProduct.SalePrice)</span></span>
                                                 </div>
                                             }
 

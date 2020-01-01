@@ -311,12 +311,12 @@ namespace AnperoFrontend.Controllers
                     {
                         rs = rs.Where(x => x.CatID == id || x.ParentId == id).ToArray();
                     }
-                    relateProduct.Item = rs;
+                    relateProduct.Item = rs.Take(6).ToArray();
                     break;
                 default:
-                    relateProduct = sv.SearchProduct(StoreID, TokenKey, id.ToString(), "0", "0", 0, int.MaxValue, 1, 6, "", SearchOrder.TimeDesc, 2,"");
+                    relateProduct = sv.SearchProduct(StoreID, TokenKey, id.ToString(), "0", "0", 0, int.MaxValue, 1, 5, "", SearchOrder.TimeDesc, 2,"");
                   
-                    relateProduct.Item= relateProduct.Item.Skip(1).ToArray();
+                    //relateProduct.Item= relateProduct.Item.Skip(1).ToArray();
                     break;
 
             }
