@@ -22,9 +22,16 @@
             {
                 <div class="row" style="margin-bottom:30px;">
                     <div class="col-md-12">Đăng ký thành công cho sản phẩm <strong>@item.Id</strong></div>
-                    <div class="col-md-12">Mã số phiếu bảo hành của bạn là: <strong>JK-PBH-@Model.BeginDate.ToString("yyyyMMdd")-@Model.Id.Replace("-", string.Empty)</strong></div>
+                    <div class="col-md-12">Mã số phiếu bảo hành của bạn là: <strong>JK-PBH-@Model.Id</strong></div>
                     <div class="col-md-12">Vui lòng liên hệ trong tâm bảo hành của Jaki trên toàn quốc để được hỗ trợ khi cần thiết</div>
 
+                </div>
+            }
+            else
+            {
+                <div class="row">
+                    <div class="col-md-3"><strong class="pull-right">Mã số phiếu bảo hành:</strong></div>
+                    <div class="col-md-9 "><span class="pull-left">JK-PBH-@Model.Id</span></div>
                 </div>
             }
             <div class="row">
@@ -80,7 +87,7 @@
 
                 </div>
             </div>
-           
+
         </div>
 
         }
@@ -93,7 +100,10 @@
                 </div>
             </div>
         }
-
-
     </div>
 </div>
+<style>
+    .col-md-5 input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="search"], input[type="url"] {
+        height: 35px;
+    }
+</style>

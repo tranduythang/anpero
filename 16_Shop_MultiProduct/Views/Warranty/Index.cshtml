@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.title = "Đăng ký bảo hành điện tử";
+    ViewBag.title = "Jaki - Đăng ký bảo hành điện tử";
     AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
     if (ViewData["commonInfo"] != null)
     {
@@ -19,7 +19,7 @@
             <ul class="breadcrumb">
                 <li><a href="/" title="Trang chủ">Trang chủ</a></li>
 
-                <li><span>Đăng ký bảo hành điện tử</span></li>
+                <li><span>Jaki - Đăng ký bảo hành điện tử</span></li>
             </ul>
         </div>
 
@@ -87,7 +87,7 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-5">
                     <div class="add-to-cart">
-                        <a href="javascript:void(0);" class="button product_type_simple add_to_cart_button ajax_add_to_cart" id="addWrr" tabindex="0">Đăng ký bảo hành</a>
+                        <a href="javascript:void(0);" class="button product_type_simple add_to_cart_button ajax_add_to_cart" id="addWrr" tabindex="0">Kiểm tra bảo hành</a>
                     </div>
 
                 </div>
@@ -105,9 +105,10 @@
         position: relative;
         box-sizing: content-box;
     }
-    select{     
-    -webkit-appearance: checkbox;
-    -moz-appearance: none;
+
+    select {
+        -webkit-appearance: checkbox;
+        -moz-appearance: none;
     }
 </style>
 @section scripts{
@@ -132,5 +133,10 @@
             });
         });
     </script>
+    <style>
+        .col-md-5 input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="search"], input[type="url"] {
+            height: 35px;
+        }
+    </style>
 }
 

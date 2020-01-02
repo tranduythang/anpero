@@ -1,10 +1,13 @@
-﻿<div class="container">
+﻿@{
+    ViewBag.title = " Jaki - Đăng ký bảo hành điện tử";
+    
+}
+<div class="container">
     <div class="row">
         <div class="col-sm-12">
             <ul class="breadcrumb">
                 <li><a href="/" title="Trang chủ">Trang chủ</a></li>
-
-                <li><span>Kiểm tra thông tin bảo hành</span></li>
+                <li><span>Jaki - Kiếm tra thông tin bảo hành điện tử</span></li>
             </ul>
         </div>
 
@@ -40,7 +43,12 @@
         </div>
     </div>
 </div>
-
+@section health{
+    <meta property="og:description" content="Đăng ký bảo hành điện tử thương hiệu Jaki">
+    <meta property="og:title" content="Jaki - Kiếm tra thông tin bảo hành điện tử">
+    <meta name="description" content="Đăng ký bảo hành điện tử thương hiệu Jaki">
+    <meta name="keywords" content="bảo hành, Jaki">
+}
 @section scripts{
     <link href="https://anpero.com/assets/global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" />
     <script src="https://anpero.com/assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js"></script>
@@ -50,7 +58,7 @@
     <script src="/Scripts/Warranty.js"></script>
     <script>
         var googleCatcha;
-        $(document).ready(function () {            
+        $(document).ready(function () {
             Warranty.initCheck();
         });
         $(window).load(function () {
@@ -61,5 +69,10 @@
             });
         });
     </script>
+    <style>
+        .col-md-5 input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="search"], input[type="url"]{
+            height:35px;
+        }
+    </style>
 }
 
