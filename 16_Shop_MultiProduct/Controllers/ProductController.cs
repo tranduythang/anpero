@@ -18,7 +18,7 @@ namespace AnperoFrontend.Controllers
         {
             
             WebService.ProductItem item = service.GetProductDetail(StoreID, TokenKey, id);
-            WebService.SearchResult relateProduct = service.SearchProduct(StoreID, TokenKey, item.CatID.ToString(), "0", "0", 0, 999999, 1, 5, "", SearchOrder.TimeDesc, 0, string.Empty);
+            WebService.SearchResult relateProduct = service.SearchProduct(StoreID, TokenKey, item.CatID.ToString(), "0", "0", 0, int.MaxValue, 1, 5, "", SearchOrder.TimeDesc, 0, string.Empty);
             ViewData["relateProduct"] = relateProduct;
             ViewData["prDetail"] = item;
             ViewBag.Title = item.PrName;

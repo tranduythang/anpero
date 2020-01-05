@@ -22,10 +22,10 @@ namespace AnperoFrontend.handler
                 LocationList = sv.GetLocation(ParentLocationId);
                 if (ParentLocationId == 0)
                 {
-                    LocationListHtml += "<option value='0'>Tỉnh / thành phố</option>";
+                    LocationListHtml += "<option value='0'>Thành phố/Tỉnh</option>";
                 }else
                 {
-                    LocationListHtml += "<option value='0'>Quận / Huyện</option>";
+                    LocationListHtml += "<option value='0'>Quận/Huyện</option>";
                 }
             }
             catch (Exception)

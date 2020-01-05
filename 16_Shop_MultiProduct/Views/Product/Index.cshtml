@@ -9,7 +9,7 @@
     AnperoFrontend.WebService.ProductItem item = (AnperoFrontend.WebService.ProductItem)ViewData["prDetail"];
     ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
         Anpero.StringHelpper.GetProductLink(item.PrName, item.Id);
-    string currentUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+    string currentUrl = Request.Url.ToString();
 
     @section health{
         @*<link href="/Content/theme/css/owl.carousel.min.css" rel="stylesheet" />*@
@@ -84,7 +84,7 @@
                 <div class="main-content col-sm-12">
                     <div class="product type-product status-publish first instock product_cat-camera-photo product_tag-appliances product_tag-fashion product_tag-glass product_tag-women has-post-thumbnail shipping-taxable purchasable product-type-variable">
                         <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4" style="opacity: 1; transition: opacity 0.25s ease-in-out 0s;">
-                            
+
                             <div class="flex-viewport">
                                 <a href="@(item.ImagesSlide !=null && item.ImagesSlide.Length>0?item.ImagesSlide[0]:item.Images)" class="fancybox" data-fancybox="gallery" rel="gallery" data-type="image">
                                     <img role="presentation" alt="" src="@(item.ImagesSlide !=null && item.ImagesSlide.Length>0?item.ImagesSlide[0]:item.Images)">
@@ -115,33 +115,31 @@
                             }
 
                             <h1 class="product_title entry-title">@item.PrName</h1>
-                            <p class="stock in-stock available-product">
+                            <div class="in-stock available-product">
                                 Tình trạng:<span> @(item.IsInstock ? "Còn hàng" : "Hết hàng")</span>
-                            </p>
+                            </div>
 
 
                             @if (!string.IsNullOrEmpty(item.OriginName))
                             {
                                 <div>
-                                    Xuất xứ: <span>@item.OriginName</span>
+                                    Xuất xứ: <span style="color:#007ff0;">@item.OriginName</span>
                                 </div>
                             }
                             @if (item.Warranty > 0)
                             {
-                                <p class="product-code">
-                                    Bảo hành: <span>@item.Warranty</span>
-                                </p>
+                                <div class="product-code">
+                                    Bảo hành: <span>@item.Warranty</span> tháng
+                                </div>
                             }
-
-
                             <div class="short-description">@item.Specifications @item.ShortDesc</div>
                             @if (item.IsSale)
                             {
-                                <p class="price">
+                                <div class="price">
                                     @Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)đ
                                     <del> <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)đ</span> </del>
-                                    <div>Tiết kiệm @Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</div>
-                                </p>
+                                    <div style="font-size:14px;color: #9b9b9b;font-weight: normal;">Tiết kiệm @Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</div>
+                                </div>
 
                             }
                             else
@@ -412,7 +410,11 @@
                 line-height: 28px;
                 font-size: 15px;
             }
+            .breadcrumb {
+                margin: 22px 0 15px;
+            }
         </style>
+        
     }
 
 }
