@@ -18,22 +18,19 @@
     <meta property="og:url" content="@ViewBag.WebsiteUrl" />
     <meta property="og:image" content="@commonInfo.Logo" />
 }
-<div class="box-breadcrumb">
-    <div class="container">
-        <ul class="hidden-sm hidden-xs">
-            <li><a href="/" title="Trang chủ @commonInfo.Name">Trang chủ</a></li>
-            <li><span>Liên hệ</span></li>
 
-        </ul>
-    </div>
-</div>
-<div class="template_contact">
+<div class="template_contact main-container shop-page left-sidebar">
     <div class="container">
-
-        <div>
-            @Html.Raw(commonInfo.Footer)
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="woocommerce-breadcrumb breadcrumb">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li>Liên hệ</li>
+                </ul>
+            </div>
         </div>
-        <div class="section section_template__contact">
+
+        <div class="section">
             <div class="row">
                 <div class="col-sm-4" itemscope itemtype="http://schema.org/LocalBusiness">
                     <div class="contact_item item_address">
@@ -90,6 +87,9 @@
             </div>
         </div>
     </div>
+</div>
+<div>
+    @Html.Raw(commonInfo.Footer)
 </div>
 @section scripts{
     <script src="~/Scripts/Bootrap.notify.js"></script>

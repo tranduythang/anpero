@@ -53,10 +53,13 @@
             $("#sort_by_select").val(sortBy);
         }
         
-        config = $.extend(config, param);        
-        $("input[type=checkbox][name=properties],input[name=brands],input[name=category]").click(function () {
+        config = $.extend(config, param); 
+        $(".btn-search").click(function () {
             doSearch();           
         });
+        //$("input[type=checkbox][name=properties],input[name=brands],input[name=category]").click(function () {
+            
+        //});
         $("#sort_by_select").change(function () {
             config.sortBy = $(this).val();
             doSearch();           

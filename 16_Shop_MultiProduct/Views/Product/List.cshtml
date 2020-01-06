@@ -121,15 +121,19 @@
             </div>
             <div class="main-content col-lg-9 col-md-8 has-sidebar">
                 <header class="woocommerce-products-header">
-                    <div class="col-md-7">
-                        <nav aria-label="Page navigation" class="navigation top-nav">
-                            @Html.Raw(ViewBag.page)
-                        </nav>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="gokko-shop-title">
+                    @if (ViewBag.page != null)
+                    {
+                        <div class="col-md-12">
+                            <nav aria-label="Page navigation" class="navigation top-nav">
+                                @Html.Raw(ViewBag.page)
+                            </nav>
+                        </div>
+                    }
+
+                    <div class="woocommerce-products-header">
+                        <div class="gokko-shop-title clearfix">
                             <h1>@Html.Raw(categoryName)</h1>
-                            <div class="pagination-info" style="margin-top:0px;">
+                            <div class="pagination-info" style="padding-top:0px;">
                                 <select name="orderby" class="orderby" aria-label="Shop order" id="sort_by_select">
                                     <option value="nameDesc">Tên A – Z</option>
                                     <option value="pricedesc">Giá giảm dần</option>
@@ -213,35 +217,44 @@
                                 }
                             }
                         </ul>
+                        <div>
+                            <button class="btn-search button product_type_simple add_to_cart_button">Tìm kiếm</button>
+                        </div>
                     </div>
                     @if (commonInfo.ProductGroupList.Count() > 0)
                     {
-                        <div class="widget woocommerce widget_product_brand  widget_product_categories">
-                            <h2 class="widgettitle">Thương hiệu<span class="arrow"></span></h2>
+                <div class="widget woocommerce widget_product_brand  widget_product_categories">
+                    <h2 class="widgettitle">Thương hiệu<span class="arrow"></span></h2>
 
-                            <ul class="product-categories list">
+                    <ul class="product-categories list">
 
-                                @foreach (var item in commonInfo.ProductGroupList)
-                                {
-                                    <li class="cat-item"> <label><input type="checkbox" name="brands" value="@item.Id" /> @item.Name</label></li>
-                                }
-                            </ul>
-                        </div>
+                        @foreach (var item in commonInfo.ProductGroupList)
+                        {
+                            <li class="cat-item"> <label><input type="checkbox" name="brands" value="@item.Id" /> @item.Name</label></li>
+                        }
+                    </ul>
+                    <div>
+                        <button class="btn-search button product_type_simple add_to_cart_button">Tìm kiếm</button>
+                    </div>
+                </div>
                     }
                     @foreach (var item in commonInfo.ProductProperties)
                     {
                         if (item.Values != null && item.Values.Length > 0)
                         {
-                            <div class="widget woocommerce widget_product_brand  widget_product_categories">
-                                <h2 class="widgettitle">@item.Name<span class="arrow"></span></h2>
+                <div class="widget woocommerce widget_product_brand  widget_product_categories">
+                    <h2 class="widgettitle">@item.Name<span class="arrow"></span></h2>
 
-                                <ul class="product-categories list">
-                                    @foreach (var valueItem in item.Values)
-                                    {
-                                        <li class="cat-item"> <label><input type="checkbox" name="properties" value="@valueItem.Id" /> @valueItem.Values</label></li>
-                                    }
-                                </ul>
-                            </div>
+                    <ul class="product-categories list">
+                        @foreach (var valueItem in item.Values)
+                        {
+                            <li class="cat-item"> <label><input type="checkbox" name="properties" value="@valueItem.Id" /> @valueItem.Values</label></li>
+                        }
+                    </ul>
+                    <div>
+                        <button class="btn-search button product_type_simple add_to_cart_button">Tìm kiếm</button>
+                    </div>
+                </div>
                         }
                     }
                     <div id="media_image-2" class="widget widget_media_image"><a href="../../index.html"><img width="270" height="300" src="../../wp-content/uploads/2019/01/sidebar-banner-270x300.jpg" class="image wp-image-3650  attachment-medium size-medium lazy lazyed" alt="" style="max-width: 100%; height: auto;" data-src="../../wp-content/uploads/2019/01/sidebar-banner-270x300.jpg"></a></div><div id="widget_products-3" class="widget widget-products-slide">
