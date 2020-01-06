@@ -698,7 +698,7 @@ namespace Anpero
             {
                 if (YYYYMMddhhmmss.Length >= 8)
                 {
-
+                     
                     string year = YYYYMMddhhmmss.Substring(0, 4);
                     string month = YYYYMMddhhmmss.Substring(4, 2);
                     string day = YYYYMMddhhmmss.Substring(6, 2);

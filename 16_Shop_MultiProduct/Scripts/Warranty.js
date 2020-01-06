@@ -89,7 +89,7 @@
 
                                 });
                             } else {
-                                if (msg == "Seria không tồn tại trên hệ thống") {
+                                if (rs.msg == "Seria không tồn tại trên hệ thống") {
                                     Util.notify("", "Mã vạch " + datas.seria + " không tồn tại. Vui lòng kiểm tra lại mã sản phẩm vì sản phẩm này không phải là mã của thương hiệu Jaki.");
                                 } else {
                                     Util.notify("", "Mã vạch" + datas.seria + "đã được đăng ký bảo hành chính hãng Jaki. Vui lòng kiểm tra lại với nhà sản xuất để được hỗ trợ nếu cần.");
