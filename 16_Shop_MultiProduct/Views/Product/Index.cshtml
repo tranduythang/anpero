@@ -12,18 +12,16 @@
     string currentUrl = Request.Url.ToString();
 
     @section health{
-        @*<link href="/Content/theme/css/owl.carousel.min.css" rel="stylesheet" />*@
-
-        <meta name="description" content="@Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc)" />
-        <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(item.KeyWord)" />
-        <meta property="og:description" content="@item.ShortDesc" />
-        <meta property="og:title" content="@item.PrName" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="@ViewBag.WebsiteUrl" />
-        <meta property="og:image" content="@item.Images" />
-        <link rel="canonical" href="@ViewBag.WebsiteUrl" />
-        <link href="//cdn.anpero.com/cdn/plugins/fancybox-3/src/css/core.css" rel="stylesheet" />
-        <link href="//cdn.anpero.com/cdn/plugins/fancybox-3/src/css/fullscreen.css" rel="stylesheet" />
+<meta property="og:image:type" content="image/jpg">
+<meta name="description" content="@Html.Raw(Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc))" />
+<meta name="keywords" content="@Html.Raw(Anpero.StringHelpper.UnicodeToKoDau(item.KeyWord))" />
+<meta property="og:description" content="@Html.Raw(item.ShortDesc)" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="@ViewBag.WebsiteUrl" />
+<meta property="og:image" content="@item.Images" />
+<link rel="canonical" href="@ViewBag.WebsiteUrl" />
+<link href="//cdn.anpero.com/cdn/plugins/fancybox-3/src/css/core.css" rel="stylesheet" />
+<link href="//cdn.anpero.com/cdn/plugins/fancybox-3/src/css/fullscreen.css" rel="stylesheet" />
     }
     @section Styles {
 
@@ -87,7 +85,7 @@
 
                             <div class="flex-viewport">
                                 <a href="@(item.ImagesSlide !=null && item.ImagesSlide.Length>0?item.ImagesSlide[0]:item.Images)" class="fancybox" data-fancybox="gallery" rel="gallery" data-type="image">
-                                    <img role="presentation" alt="" src="@(item.ImagesSlide !=null && item.ImagesSlide.Length>0?item.ImagesSlide[0]:item.Images)">
+                                    <img role="presentation" alt="@item.PrName" src="@(item.ImagesSlide !=null && item.ImagesSlide.Length>0?item.ImagesSlide[0]:item.Images)">
                                 </a>
 
                             </div>
@@ -254,13 +252,15 @@
                                             {
                                                 <div>@relatedProduct.Warranty tháng</div>
                                             }
+                                        <del><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(relatedProduct.IsSale ? relatedProduct.SalePrice : relatedProduct.Price)đ</span></del>
                                             <span class="price"><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(relatedProduct.IsSale ? relatedProduct.SalePrice : relatedProduct.Price)đ</span></span>
+
                                         </div>
                                         @if (relatedProduct.IsSale)
                                         {
                                             <div class="product-item style-4" style="width:100%;display:inline-block;">
                                                 <div class="countdown-container">
-                                                    <div class="gokko-countdown" data-datetime="@item.SaleEndTime.ToString()"
+                                                    <div class="gokko-countdown" data-datetime="@Anpero.StringHelpper.ConvertDateTime(item.SaleEndTime).ToString()"
                                                          data-txt_day="Ngày"
                                                          data-txt_hour="Giờ"
                                                          data-txt_min="Phút"
@@ -410,11 +410,12 @@
                 line-height: 28px;
                 font-size: 15px;
             }
+
             .breadcrumb {
                 margin: 22px 0 15px;
             }
         </style>
-        
+
     }
 
 }

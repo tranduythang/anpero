@@ -14,25 +14,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-    <title>@ViewBag.Title</title>
-    <meta property="og:title" content="@ViewBag.Title" />
+    <title>@Html.Raw(ViewBag.Title)</title>
+    <meta property="og:title" content="@Html.Raw(ViewBag.Title)" />
     <meta property="og:locale" content="vi_VN" />
     <meta property="og:type" content="website" />
     <meta name="distribution" content="Global" />
     <meta name="revisit-after" content="1 days" />
     <meta http-equiv="REFRESH" content="1800" />
     <meta name="robots" content="index,follow,all" />
-
     <link rel="shortcut icon" href="@(string.IsNullOrEmpty(commonInfo.Favicon)?commonInfo.Logo:commonInfo.Favicon)" type="image/x-icon">
-   
-    <meta content="trần tr&#226;n" name="author" />
+    <meta content="@commonInfo.Name" name="author" />
     <link rel='stylesheet' href='//cdn.anpero.com/cdn/Bootstrap/bootstrap3.7.min.css' type='text/css' media='all' />
     <link rel='stylesheet' href='//cdn.anpero.com/cdn/font/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
     <script type='text/javascript' src='//cdn.anpero.com/cdn/plugins/jquery-2.2.4.js'></script>
     @Styles.Render("~/bundles/global.css")
-    <link href="/theme/style.red.css?v=3" rel="stylesheet" />
-
-
+    <link href="/theme/style.red.css?v=4" rel="stylesheet" />
     @RenderSection("health", required: false)
     @RenderSection("Styles", required: false)
     <link href='/static/css' rel='stylesheet' type='text/css'>
@@ -261,62 +257,83 @@
                     <div class="box-header-nav">
                         <div class=" ovic-menu-wapper horizontal support-mobile-menu">
                             <ul id="menu-primary-menu-1" class="clone-main-menu gokko-nav main-menu ovic-menu ovic-clone-mobile-menu">
-                                
+
                                 @if (ViewData["BestsaleProduct"] != null)
                                 {
                                     SearchResult searchResult = (SearchResult)ViewData["BestsaleProduct"];
                                     if (searchResult.Item.Length > 0)
                                     {
                                         var category = searchResult.Item.Select(x => new { id = x.ParentId, name = x.ParentCatName }).Distinct().ToList();
+                                        var newCat = from a in category
+                                                     join b in commonInfo.ProductCategoryList.ToList()
+                                                     on a.id equals b.Id
+                                                     select new
+                                                     {
+                                                         id = a.id,
+                                                         name = a.name,
+                                                         rank = b.Rank
+                                                     };
+                                        var shortCat = newCat.OrderBy(x => x.rank).ToList();
+
+
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-mega-menu menu-item-has-children item-megamenu">
                                             <a href="javascript:void(0);">Sản phẩm bán chạy</a>
                                             <div class="sub-menu megamenu" data-responsive=".header-responsive" style="width:1170px;z-index:99;">
                                                 <div class="vc_row wpb_row vc_row-fluid ovic_custom_5b763d890b4fd vc_custom_1534475649915">
                                                     <div class="wpb_column vc_column_container vc_col-sm-3"></div>
-                                                        @foreach (var item in category)
-                                                        {
-                                                            var productCategory = searchResult.Item.Where(x => x.ParentId == item.id).ToList();
+                                                    @foreach (var item in shortCat)
+                                                    {
+                                                        var productCategory = searchResult.Item.Where(x => x.ParentId == item.id).ToList();
 
-                                                            <div class="wpb_column vc_column_container vc_col-sm-3">
-                                                                <div class="vc_column-inner">
-                                                                    <div class="wpb_wrapper">
-                                                                        <div class="ovic-custommenu vc_wp_custommenu wpb_content_element default ovic_custom_5b763d890b53f " data-show_count_items="0" data-text_more="All Categories">
-                                                                            <div class="widget widget_nav_menu">
-                                                                                <h2 class="widgettitle">@item.name</h2>
-                                                                                <div class="ovic-menu-wapper horizontal">
-                                                                                    <ul class="menu ovic-menu">
-                                                                                        @foreach (var productItem in productCategory)
-                                                                                        {
-                                                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(productItem.CatName,productItem.Id)">@productItem.PrName</a></li>
-                                                                                        }
-                                                                                    </ul>
-                                                                                </div>
+                                                        <div class="wpb_column vc_column_container vc_col-sm-3">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="ovic-custommenu vc_wp_custommenu wpb_content_element default ovic_custom_5b763d890b53f " data-show_count_items="0" data-text_more="All Categories">
+                                                                        <div class="widget widget_nav_menu">
+                                                                            <h2 class="widgettitle">@item.name</h2>
+                                                                            <div class="ovic-menu-wapper horizontal">
+                                                                                <ul class="menu ovic-menu">
+                                                                                    @foreach (var productItem in productCategory)
+                                                                                    {
+                                                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(productItem.CatName,productItem.Id)">@productItem.PrName</a></li>
+                                                                                    }
+                                                                                </ul>
                                                                             </div>
                                                                         </div>
-
                                                                     </div>
+
                                                                 </div>
                                                             </div>
-                                                        }
-                                                    </div>
+                                                        </div>
+                                                    }
                                                 </div>
+                                            </div>
                                         </li>
                                     }
                                 }
-
-
                                 @if (ViewData["saleProduct"] != null)
                                 {
                                     ProductItem[] searchResult = (ProductItem[])ViewData["saleProduct"];
                                     if (searchResult.Length > 0)
                                     {
-                                        var category = searchResult.Select(x => new { id = x.ParentId, name = x.ParentCatName }).Distinct().ToList();
+                                        
+                                        var category = searchResult.Item.Select(x => new { id = x.ParentId, name = x.ParentCatName }).Distinct().ToList();
+                                        var newCat = from a in category
+                                                     join b in commonInfo.ProductCategoryList.ToList()
+                                                     on a.id equals b.Id
+                                                     select new
+                                                     {
+                                                         id = a.id,
+                                                         name = a.name,
+                                                         rank = b.Rank
+                                                     };
+                                        var shortCat = newCat.OrderBy(x => x.rank).ToList();
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-mega-menu menu-item-has-children item-megamenu">
                                             <a href="/product/sales" class="disable-link">Sản phẩm khuyến mại</a>
                                             <div class="sub-menu megamenu" data-responsive=".header-responsive" style="width:1170px;z-index:99;">
                                                 <div class="vc_row wpb_row vc_row-fluid ovic_custom_5b763d890b4fd vc_custom_1534475649915">
                                                     <div class="wpb_column vc_column_container vc_col-sm-3"></div>
-                                                    @foreach (var item in category)
+                                                    @foreach (var item in shortCat)
                                                     {
                                                         var productCategory = searchResult.Where(x => x.ParentId == item.id).ToList();
                                                         <div class="wpb_column vc_column_container vc_col-sm-3">
@@ -344,19 +361,16 @@
                                             </div>
                                         </li>
                                         @*<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
-                                            <a href="/product/sales" class="disable-link">Đang khuyến mại</a>
-                                            <ul class="sub-menu">
-                                                @foreach (var featureProduct in searchResult)
-                                                {
-                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(featureProduct.PrName,featureProduct.Id)">@featureProduct.PrName</a></li>
-                                                }
-                                            </ul>
-                                        </li>*@
+                                                <a href="/product/sales" class="disable-link">Đang khuyến mại</a>
+                                                <ul class="sub-menu">
+                                                    @foreach (var featureProduct in searchResult)
+                                                    {
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(featureProduct.PrName,featureProduct.Id)">@featureProduct.PrName</a></li>
+                                                    }
+                                                </ul>
+                                            </li>*@
                                     }
                                 }
-
-
-
                                 @foreach (var item in commonInfo.MenuList)
                                 {
                                     var hasChildren = false;
