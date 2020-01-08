@@ -1436,6 +1436,7 @@
     <Content Include="Views\Warranty\Index.cshtml" />
     <Content Include="Views\Warranty\Info.cshtml" />
     <Content Include="Views\Warranty\Check.cshtml" />
+    <Content Include="Views\Warranty\AjaxInfo.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
