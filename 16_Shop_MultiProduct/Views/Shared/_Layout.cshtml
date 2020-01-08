@@ -317,7 +317,7 @@
                                     if (searchResult.Length > 0)
                                     {
                                         
-                                        var category = searchResult.Item.Select(x => new { id = x.ParentId, name = x.ParentCatName }).Distinct().ToList();
+                                        var category = searchResult.Select(x => new { id = x.ParentId, name = x.ParentCatName }).Distinct().ToList();
                                         var newCat = from a in category
                                                      join b in commonInfo.ProductCategoryList.ToList()
                                                      on a.id equals b.Id
