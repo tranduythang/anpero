@@ -21,6 +21,8 @@
         datas.Phone = $("#phone").val();
         datas.Mail = $("#emial").val();
         datas.IdCard = $("#identiryId").val();
+        datas.Note = $("#note").val();
+        datas.Reseller = $("#reseller").val();
         datas.capcha = captchaResponse;
         if (captchaResponse == null || captchaResponse == "") {
             Util.notify("", "Vui lòng click vào ô kiểm tra bảo mật. ");

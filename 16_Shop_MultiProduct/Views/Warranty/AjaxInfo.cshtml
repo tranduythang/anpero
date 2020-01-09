@@ -12,10 +12,10 @@
         <div class="container">
             <div class="row">
                 @*<ul class="breadcrumb">
-                    <li><a href="/" title="Trang chủ">Trang chủ</a></li>
-                    <li><a href="/warrantycheck" title="Trang chủ">Kiểm tra bảo hành</a></li>
-                    <li><span>Thông tin bảo hành</span></li>
-                </ul>*@
+            <li><a href="/" title="Trang chủ">Trang chủ</a></li>
+            <li><a href="/warrantycheck" title="Trang chủ">Kiểm tra bảo hành</a></li>
+            <li><span>Thông tin bảo hành</span></li>
+        </ul>*@
                 <div class="row">
                     <div class="col-md-3"><strong class="pull-right">Mã số phiếu bảo hành:</strong></div>
                     <div class="col-md-9 "><span class="pull-left">JK-PBH-@Model.Id</span></div>
@@ -28,10 +28,14 @@
                 <div class="row">
                     <div class="col-md-3"><strong class="pull-right">Thời gian bảo hảnh:</strong></div>
                     <div class="col-md-9 "><span class="pull-left">@Model.Warranty tháng từ ngày   @Model.BeginDate.ToString("dd/MM/yyyy") đến ngày  @Model.EndDate.ToString("dd/MM/yyyy") </span></div>
-                </div>                
+                </div>
                 <div class="row">
                     <div class="col-md-3"><strong class="pull-right">Seria:</strong></div>
                     <div class="col-md-9 "><span class="pull-left">@Model.Seria</span></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><strong class="pull-right">Đại lý:</strong></div>
+                    <div class="col-md-9 "><span class="pull-left">@Model.Reseller</span></div>
                 </div>
                 <div class="row">
                     <div class="col-md-3"><strong class="pull-right">Họ và tên:</strong></div>
@@ -60,6 +64,10 @@
                 <div class="row">
                     <div class="col-md-3"><strong class="pull-right">Thư điện tử:</strong></div>
                     <div class="col-md-9 "><span class="pull-left">@Model.contact.Mail</span></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><strong class="pull-right">Ghi chú:</strong></div>
+                    <div class="col-md-9 "><span class="pull-left">@Model.Note</span></div>
                 </div>
                 <div class="form-group" style="margin-top:15px;">
                     <div class="col-md-3"></div>
