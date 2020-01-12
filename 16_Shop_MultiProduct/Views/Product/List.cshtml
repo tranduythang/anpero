@@ -166,7 +166,18 @@
                                             <h3 class="product-name product_title">
                                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
                                             </h3>
-                                            <span class="price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)</span>
+                                            @if (item.IsSale)
+                                            {
+                                                <span class="price">
+                                                    <del><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span></del>
+                                                    <ins><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)đ</span></ins>
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="price"><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)đ</span></span>
+                                            }
+                                            
                                             <div class="product-sku">@item.Specifications</div>
                                         </div>
                                         <div class="group-button">
@@ -223,38 +234,38 @@
                     </div>
                     @if (commonInfo.ProductGroupList.Count() > 0)
                     {
-                <div class="widget woocommerce widget_product_brand  widget_product_categories">
-                    <h2 class="widgettitle">Thương hiệu<span class="arrow"></span></h2>
+                        <div class="widget woocommerce widget_product_brand  widget_product_categories">
+                            <h2 class="widgettitle">Thương hiệu<span class="arrow"></span></h2>
 
-                    <ul class="product-categories list">
+                            <ul class="product-categories list">
 
-                        @foreach (var item in commonInfo.ProductGroupList)
-                        {
-                            <li class="cat-item"> <label><input type="checkbox" name="brands" value="@item.Id" /> @item.Name</label></li>
-                        }
-                    </ul>
-                    <div>
-                        <button class="btn-search button product_type_simple add_to_cart_button">Tìm kiếm</button>
-                    </div>
-                </div>
+                                @foreach (var item in commonInfo.ProductGroupList)
+                                {
+                                    <li class="cat-item"> <label><input type="checkbox" name="brands" value="@item.Id" /> @item.Name</label></li>
+                                }
+                            </ul>
+                            <div>
+                                <button class="btn-search button product_type_simple add_to_cart_button">Tìm kiếm</button>
+                            </div>
+                        </div>
                     }
                     @foreach (var item in commonInfo.ProductProperties)
                     {
                         if (item.Values != null && item.Values.Length > 0)
                         {
-                <div class="widget woocommerce widget_product_brand  widget_product_categories">
-                    <h2 class="widgettitle">@item.Name<span class="arrow"></span></h2>
+                            <div class="widget woocommerce widget_product_brand  widget_product_categories">
+                                <h2 class="widgettitle">@item.Name<span class="arrow"></span></h2>
 
-                    <ul class="product-categories list">
-                        @foreach (var valueItem in item.Values)
-                        {
-                            <li class="cat-item"> <label><input type="checkbox" name="properties" value="@valueItem.Id" /> @valueItem.Values</label></li>
-                        }
-                    </ul>
-                    <div>
-                        <button class="btn-search button product_type_simple add_to_cart_button">Tìm kiếm</button>
-                    </div>
-                </div>
+                                <ul class="product-categories list">
+                                    @foreach (var valueItem in item.Values)
+                                    {
+                                        <li class="cat-item"> <label><input type="checkbox" name="properties" value="@valueItem.Id" /> @valueItem.Values</label></li>
+                                    }
+                                </ul>
+                                <div>
+                                    <button class="btn-search button product_type_simple add_to_cart_button">Tìm kiếm</button>
+                                </div>
+                            </div>
                         }
                     }
                     <div id="media_image-2" class="widget widget_media_image"><a href="../../index.html"><img width="270" height="300" src="../../wp-content/uploads/2019/01/sidebar-banner-270x300.jpg" class="image wp-image-3650  attachment-medium size-medium lazy lazyed" alt="" style="max-width: 100%; height: auto;" data-src="../../wp-content/uploads/2019/01/sidebar-banner-270x300.jpg"></a></div><div id="widget_products-3" class="widget widget-products-slide">
@@ -283,8 +294,18 @@
                                                         <h3 class="product-name product_title">
                                                             <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
                                                         </h3>
+                                                        @if (item.IsSale)
+                                                        {
+                                                            <span class="price">
+                                                                <del><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span></del>
+                                                                <ins><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)đ</span></ins>
+                                                            </span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="price"><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)đ</span></span>
+                                                        }
 
-                                                        <span class="price"><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)đ</span></span>
                                                         <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" data-quantity="1" class="button product_type_simple add_to_cart_button" aria-label="@item.PrName">Mua ngay</a>
                                                     </div>
                                                 </div>
@@ -390,7 +411,9 @@
                    brands: "@ViewBag.brands",
                    category: "@ViewBag.category"
               });
-
+                if (Util.getParameterByName("keyword") != "") {
+                    $("input[name=keyword]").val(Util.getParameterByName("keyword"));
+                }
             });
     </script>
 }

@@ -34,8 +34,13 @@
         var txt = document.createElement('textarea');
         txt.innerHTML = html;
         return txt.value;
+    },
+    getParameterByName: function(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
-
 };
 var Location = {
     Init: function () {

@@ -99,8 +99,11 @@
                                                     }
                                                     <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>@Anpero.StringHelpper.ConVertToMoneyFormatInt(item1.IsSale ? item1.SalePrice : item1.Price)đ</span></ins>
                                                 </span>
+                                                @if (!string.IsNullOrEmpty(item1.OriginName))
+                                                {
+                                                    <p>Xuất xứ : @item1.OriginName</p>
+                                                }
 
-                                                <p>Xuất xứ : @item1.OriginName</p>
                                                 <p>Thông số:  @item1.Specifications</p>
                                                 @if (item1.IsInstock)
                                                 {
