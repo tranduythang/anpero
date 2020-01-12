@@ -21,6 +21,8 @@
         datas.Phone = $("#phone").val();
         datas.Mail = $("#emial").val();
         datas.IdCard = $("#identiryId").val();
+        datas.Note = $("#note").val();
+        datas.Reseller = $("#reseller").val();
         datas.capcha = captchaResponse;
         if (captchaResponse == null || captchaResponse == "") {
             Util.notify("", "Vui lòng click vào ô kiểm tra bảo mật. ");
@@ -127,8 +129,24 @@
                     Util.notify("", "Vui lòng nhập số CMTND / Hộ chiếu. ");
                     valid = false;
                 }
+
                 if (valid) {                    
-                    window.location.href = "/warranty/info?seria=" + seria + "&idCard=" + idCard+"&capcha=" + captchaResponse;
+                    $.ajax({
+                        url: "/warranty/ajaxinfo",
+                        data: { seria: seria, idCard: idCard, capcha: captchaResponse },
+                        type: "post",
+                        success: function (rs) {                     
+                            if ( rs != null && rs.trim() != "") {
+                                $("#content-check").hide();
+                                $("#content-check-rs").show().html(rs);
+                            } else {
+                                Util.notify("", "Mã vạch hoặc CMTND / Hộ chiếu này không tồn tại trên hệ thống của Jaki.");
+                                Util.notify("", "Vui lòng kiểm tra lại mã sản phẩm này ");                                
+                                grecaptcha.reset();
+                            }
+                        }
+                    });
+                    
                 }
             });
         });

@@ -114,10 +114,10 @@
                     ttSC += parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity);
                     htmlCat += '<tr>';
                     htmlCat += '<td class="cart_product">';
-                    htmlCat += '<a href="#"><img src="' + Cart.list[i].thumb + '" alt="' + unescape(Cart.list[i].title) + '"></a>';
+                    htmlCat += '<a href="#"><img src="' + Cart.list[i].thumb + '" alt="' + Util.decodeHTML(Cart.list[i].title) + '"></a>';
                     htmlCat += '</td>';
                     htmlCat += '<td class="cart_description">';
-                    htmlCat += '<p class="product-name"><a href="#">' + unescape(Cart.list[i].title) + ' </a></p>';
+                    htmlCat += '<p class="product-name"><a href="#">' + Util.decodeHTML(Cart.list[i].title) + ' </a></p>';
                     htmlCat += '</td>';
                     htmlCat += '<td class="price"><span>' + Util.toMoneyFormat(Cart.list[i].price) + '</span></td>';
                     htmlCat += '<td class="qty">';

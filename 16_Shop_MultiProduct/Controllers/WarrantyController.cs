@@ -17,7 +17,7 @@ namespace AnperoFrontend.Controllers
             return View();
         }
         [HttpPost]       
-        public JsonResult Register(WebService.Contact contact,string seria,string capcha)
+        public JsonResult Register(WebService.Contact contact,string seria,string note,string reseller,string capcha)
         {
 
             string _msg = "";
@@ -26,7 +26,7 @@ namespace AnperoFrontend.Controllers
             contact.StoreId = StoreID.ToString();
             seria = seria.Replace(" ", string.Empty).Trim();
             contact.IdCard = contact.IdCard .Replace(" ", string.Empty).Trim();
-            string rs = service.RegisterSeria(contact, seria, capcha, StoreID, TokenKey,out _msg);
+            string rs = service.RegisterSeria(contact, seria, reseller,note, capcha, StoreID, TokenKey,out _msg);
             return Json(new {
                 code = rs,
                 msg = _msg 
@@ -44,7 +44,7 @@ namespace AnperoFrontend.Controllers
         [HttpGet]
         public ActionResult Info(string seria,string idCard, string capcha)
         {
-
+            
             string msg = "";
             AnperoClient client = new AnperoClient();
             client.AgenId = StoreID;
@@ -54,6 +54,20 @@ namespace AnperoFrontend.Controllers
             ViewBag.ProductItem = service.GetProductDetail(StoreID, TokenKey, rs.ProductId);
 
             return View(rs);
+        }
+        [HttpPost]
+        public PartialViewResult AjaxInfo(string seria, string idCard, string capcha)
+        {
+
+            string msg = "";
+            AnperoClient client = new AnperoClient();
+            client.AgenId = StoreID;
+            client.Token = TokenKey;
+            var rs = service.GetWarrantyCardInfo(seria, idCard, capcha, client);
+            //WebService.ProductItem item
+            ViewBag.ProductItem = service.GetProductDetail(StoreID, TokenKey, rs.ProductId);
+
+            return PartialView(rs);
         }
         [BuildCommonHtml]
         [HttpGet]
