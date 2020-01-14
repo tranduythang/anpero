@@ -136,9 +136,19 @@
                                 <div class="price">
                                     @Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)đ
                                     <del> <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)đ</span> </del>
-                                    <div style="font-size:14px;color: #9b9b9b;font-weight: normal;">Tiết kiệm @Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</div>
-                                </div>
 
+                                </div>
+                                <div style="font-size:14px;color: #9b9b9b;font-weight: normal;">Tiết kiệm @Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</div>
+                                <div class="product-item style-4">
+                                    <div class="countdown-container">
+                                        <span style="margin-right:10px;line-height:31px;" class="pull-left">Khuyến mãi kết thúc sau:</span>
+                                        <div class="gokko-countdown" data-datetime="@Anpero.StringHelpper.ConvertDateTime(item.SaleEndTime.ToString()).ToString()"
+                                             data-txt_day="Ngày"
+                                             data-txt_hour="Giờ"
+                                             data-txt_min="Phút"
+                                             data-txt_sec="Giây" data-value_first="1"></div>
+                                    </div>
+                                </div>
                             }
                             else
                             {

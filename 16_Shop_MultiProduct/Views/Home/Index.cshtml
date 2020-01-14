@@ -11,18 +11,18 @@
     }
 }
 @section health{
-<link href="/assets/style-revolution-slider.css" rel="stylesheet">
-<link href="/assets/plugin/slider-revolution-slider/rs-plugin/css/settings.css" rel="stylesheet">
-<meta property="og:image:type" content="image/jpg">
-<meta content="@commonInfo.Name" name="author" />
-<meta property="og:image" content="@commonInfo.Logo">
+    <link href="/assets/style-revolution-slider.css" rel="stylesheet">
+    <link href="/assets/plugin/slider-revolution-slider/rs-plugin/css/settings.css" rel="stylesheet">
+    <meta property="og:image:type" content="image/jpg">
+    <meta content="@commonInfo.Name" name="author" />
+    <meta property="og:image" content="@commonInfo.Logo">
 }
 @if (ViewData["slide"] != null)
 {
     <!-- BEGIN SLIDER -->
     <div class="page-slider">
         <div class="fullwidthbanner-container revolution-slider">
-             @*assets\revo-slider-init.js*@
+            @*assets\revo-slider-init.js*@
             <div class="fullwidthabnner">
                 <ul id="revolutionul">
                     @if (ViewData["Slide"] != null)
@@ -33,9 +33,10 @@
                             foreach (var item in adsList)
                             {
 
-                                <li data-transition="fade" data-slotamount="7" data-masterspeed="300" data-delay="9400">
+                                <li data-transition="fade" data-slotamount="7" data-masterspeed="300" data-delay="9400">                                    
                                     <img src="@item.ImagesUrl">
                                     @Html.Raw(item.Description)
+
                                 </li>
                             }
                         }
@@ -246,7 +247,7 @@
                         <div class="wpb_wrapper">
                             <div class="ovic-product product-item product style6 default   ovic_custom_5c92fe3eaf728 vc_custom_1536910883987 vc_custom_1536910883999 " style="">
                                 <div class="banner">
-                                    <img width="498" height="493" src="@adsList1[3].ImagesUrl" class="wp-post-image attachment-498x493 size-498x493 lazy" alt="h49" data-src="/theme/wp-content/uploads/2018/09/h49.png" />
+                                    <img width="498" height="493" src="@adsList1[3].ImagesUrl" class="wp-post-image attachment-498x493 size-498x493 lazy" alt="h49" data-src="@adsList1[3].ImagesUrl" />
                                 </div>
                                 <div class="content">
                                     @Html.Raw(adsList1[3].Description)
@@ -273,23 +274,31 @@
                                         <div class="wpb_single_image wpb_content_element vc_align_center ovic_custom_5c92fe3eaf72c">
 
                                             <figure class="wpb_wrapper vc_figure">
-                                                <div class="vc_single_image-wrapper   vc_box_border_grey effect border-scale ">
-                                                    <img class="vc_single_image-img lazy attachment-full" src="@Html.Raw(adsList1[4].ImagesUrl)" data-src="@Html.Raw(adsList1[4].ImagesUrl)" width="376" height="250" />
-                                                </div>
+                                                <a href="@adsList1[4].ClickUrl">
+                                                    <div class="vc_single_image-wrapper   vc_box_border_grey effect border-scale ">
+                                                        <img class="vc_single_image-img lazy attachment-full" src="@Html.Raw(adsList1[4].ImagesUrl)" data-src="@Html.Raw(adsList1[4].ImagesUrl)" width="376" height="250" />
+                                                    </div>
+                                                </a>
                                             </figure>
                                         </div>
                                         <div class="ovic-iconbox style16 Dark Background   ovic_custom_5c92fe3eaf72d  slick-slide slick-active">
-                                            <div class="box-url-video">
-                                                <img width="376" height="250" src="@Html.Raw(adsList1[5].ImagesUrl)" class="wp-post-image attachment-376x250 size-376x250 lazy" alt="h47" data-src="@Html.Raw(adsList1[5].ImagesUrl)" />
-                                                @Html.Raw(adsList1[5].Description)
-                                            </div>
+                                            <a href="@adsList1[5].ClickUrl">
+                                                <div class="box-url-video">
+
+                                                    <img width="376" height="250" src="@Html.Raw(adsList1[5].ImagesUrl)" class="wp-post-image attachment-376x250 size-376x250 lazy" alt="h47" data-src="@Html.Raw(adsList1[5].ImagesUrl)" />
+                                                    @Html.Raw(adsList1[5].Description)
+
+                                                </div>
+                                            </a>
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="wpb_single_image wpb_content_element vc_align_center ovic_custom_5c92fe3eaf72e">
                                             <figure class="wpb_wrapper vc_figure">
-                                                <div class="vc_single_image-wrapper   vc_box_border_grey effect border-scale ">
-                                                    <img class="vc_single_image-img lazy attachment-full" src="@Html.Raw(adsList1[6].ImagesUrl)" data-src="@Html.Raw(adsList1[6].ImagesUrl)" width="376" height="250" />
-                                                </div>
+                                                <a href="@adsList1[6].ClickUrl">
+                                                    <div class="vc_single_image-wrapper vc_box_border_grey effect border-scale ">
+                                                        <img class="vc_single_image-img lazy attachment-full" src="@Html.Raw(adsList1[6].ImagesUrl)" data-src="@Html.Raw(adsList1[6].ImagesUrl)" width="376" height="250" />
+                                                    </div>
+                                                </a>
                                             </figure>
                                         </div>
                                     </div>
@@ -649,13 +658,32 @@
 
                                             <div class="product-info">
                                                 <h3 class="product-name product_title">
-                                                    <a href="product/cactus-plant-in-a-pot/index.html">@item.PrName</a>
+                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
                                                 </h3>
                                                 @if (item.Warranty > 0)
                                                 {
                                                     <div>@item.Warranty tháng</div>
                                                 }
-                                                <span class="price"><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)đ</span></span>
+                                                <span class="price">
+
+
+
+                                                    @if (item.IsSale)
+                                                    {
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span>
+                                                        </del>
+                                                        <ins>
+                                                            <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
+                                                        </ins>
+                                                    }
+                                                    else
+                                                    {
+                                                        <ins>
+                                                            <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span>
+                                                        </ins>
+                                                    }
+                                                </span>
                                             </div>
                                             <div class="group-button">
                                                 <div class="inner">

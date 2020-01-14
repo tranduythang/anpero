@@ -11,7 +11,7 @@
             message: '<strong>' + _mesage + '</strong>'
         }, {
                 type: 'warning',
-                delay: 3000,
+                delay: 6000,
                 z_index: 9999,
                 placement: {
                     from: "top",

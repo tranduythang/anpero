@@ -47,42 +47,7 @@
     <meta property="og:image" content="@ViewBag.ImageUrl" />
     <link rel="canonical" href="@ViewBag.WebsiteUrl" />
     <style>
-        .widget_product_brand .product-categories.list li a img,
-        .widget_product_brand .product-categories.logo li a::before,
-        .widget_product_brand .product-categories.logo li a::after {
-            display: none !important;
-        }
-
-        .widget_product_brand .product-categories.logo li,
-        .widget_product_brand .product-categories.logo li a {
-            font-size: 0;
-            line-height: 0;
-            padding: 10px 0;
-        }
-
-        .navigation ul li {
-            display: inline-block;
-            vertical-align: middle;
-            padding: 0 6px;
-            font-size: 14px;
-            height: 32px;
-            line-height: 33px;
-            min-width: 39px;
-            text-align: center;
-            border-radius: 2px;
-            margin-right: 4px;
-        }
-
-            .navigation ul li.active {
-                color: #fff;
-                background-color: #D11222;
-            }
-
-        .top-nav {
-            border-top: 0px;
-            padding-top: 13px;
-            margin-top: 0px;
-        }
+      
     </style>
 
 }
@@ -177,7 +142,7 @@
                                             {
                                                 <span class="price"><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)đ</span></span>
                                             }
-                                            
+
                                             <div class="product-sku">@item.Specifications</div>
                                         </div>
                                         <div class="group-button">
@@ -212,13 +177,13 @@
                         <a href="#" class="close-block-sidebar"><i class="fa fa-times" aria-hidden="true"></i></a>
                     </div>
                     <div class="widget woocommerce widget_product_brand  widget_product_categories">
-                        <h2 class="widgettitle">Danh mục<span class="arrow"></span></h2>
+                        <h2 class="widgettitle">Danh mục<span class="arrow"></span><button class="pull-right btn btn-default btn-sm btn-search">Tìm kiếm</button></h2>
 
                         <ul class="product-categories list">
 
                             @foreach (var item in commonInfo.ProductCategoryList)
                             {
-                                <li class="cat-item"> <label><input type="checkbox" name="category" value="@item.Id" /> @item.Name</label></li>
+                                <li class="cat-item"> <label><input type="checkbox" name="category" value="@item.Id" /></label> @item.Name</li>
                                 if (item.ChildCategory != null && item.ChildCategory.Length > 0)
                                 {
                                     foreach (var childItem in item.ChildCategory)
@@ -229,13 +194,13 @@
                             }
                         </ul>
                         <div>
-                            <button class="btn-search button product_type_simple add_to_cart_button">Tìm kiếm</button>
+                            
                         </div>
                     </div>
                     @if (commonInfo.ProductGroupList.Count() > 0)
                     {
                         <div class="widget woocommerce widget_product_brand  widget_product_categories">
-                            <h2 class="widgettitle">Thương hiệu<span class="arrow"></span></h2>
+                            <h2 class="widgettitle">Thương hiệu<span class="arrow"></span><button class="pull-right btn btn-default btn-sm btn-search">Tìm kiếm</button></h2>
 
                             <ul class="product-categories list">
 
@@ -244,9 +209,7 @@
                                     <li class="cat-item"> <label><input type="checkbox" name="brands" value="@item.Id" /> @item.Name</label></li>
                                 }
                             </ul>
-                            <div>
-                                <button class="btn-search button product_type_simple add_to_cart_button">Tìm kiếm</button>
-                            </div>
+                         
                         </div>
                     }
                     @foreach (var item in commonInfo.ProductProperties)
@@ -254,7 +217,7 @@
                         if (item.Values != null && item.Values.Length > 0)
                         {
                             <div class="widget woocommerce widget_product_brand  widget_product_categories">
-                                <h2 class="widgettitle">@item.Name<span class="arrow"></span></h2>
+                                <h2 class="widgettitle">@item.Name<span class="arrow"></span><button class="pull-right btn btn-default btn-sm btn-search">Tìm kiếm</button></h2>
 
                                 <ul class="product-categories list">
                                     @foreach (var valueItem in item.Values)
@@ -262,9 +225,7 @@
                                         <li class="cat-item"> <label><input type="checkbox" name="properties" value="@valueItem.Id" /> @valueItem.Values</label></li>
                                     }
                                 </ul>
-                                <div>
-                                    <button class="btn-search button product_type_simple add_to_cart_button">Tìm kiếm</button>
-                                </div>
+                             
                             </div>
                         }
                     }
@@ -401,7 +362,51 @@
         }
     </script>
 }
+<style>
+      .widget_product_brand .product-categories.list li a img,
+        .widget_product_brand .product-categories.logo li a::before,
+        .widget_product_brand .product-categories.logo li a::after {
+            display: none !important;
+        }
 
+        .widget_product_brand .product-categories.logo li,
+        .widget_product_brand .product-categories.logo li a {
+            font-size: 0;
+            line-height: 0;
+            padding: 10px 0;
+        }
+
+        .navigation ul li {
+            display: inline-block;
+            vertical-align: middle;
+            padding: 0 6px;
+            font-size: 14px;
+            height: 32px;
+            line-height: 33px;
+            min-width: 39px;
+            text-align: center;
+            border-radius: 2px;
+            margin-right: 4px;
+        }
+
+            .navigation ul li.active {
+                color: #fff;
+                background-color: #D11222;
+            }
+
+        .top-nav {
+            border-top: 0px;
+            padding-top: 13px;
+            margin-top: 0px;
+        }
+    .btn-sm {
+           padding: 4px;
+        font-size: 13px;
+        line-height: 16px;
+        color: #D11222;
+        border-color: #D11222;
+    }
+</style>
 @section  scripts{
     <script src="/Scripts/SearchControl.js"></script>
     <script>
