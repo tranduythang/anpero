@@ -16,6 +16,11 @@ namespace AnperoFrontend.Controllers
             SetUpSlideAds();
             return View();
         }
+        [BuildCommonHtml]
+        public ActionResult IconList()
+        {
+            return View();
+        }
         private void SetUpSlideAds()
         {
            

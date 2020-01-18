@@ -222,7 +222,7 @@
                                                     <div class="sub-menu megamenu lazy" style="width:520px;background-repeat: no-repeat;background-position: right;height:auto;" data-src="@item.Images">
                                                         <p>
                                                             <div class="vc_row wpb_row vc_row-fluid ovic_custom_5b768530ccd86 vc_custom_1533638258332">
-                                                                <div class="wpb_column vc_column_container vc_col-sm-4">
+                                                                <div class="wpb_column vc_column_container vc_col-sm-6">
                                                                     <div class="vc_column-inner">
                                                                         <div class="wpb_wrapper">
                                                                             <div class="ovic-custommenu vc_wp_custommenu wpb_content_element style4   ovic_custom_5b768530ccdc7 " data-show_count_items="0" data-text_more="All Categories">
@@ -295,7 +295,7 @@
                                                                                 <ul class="menu ovic-menu">
                                                                                     @foreach (var productItem in productCategory)
                                                                                     {
-                                                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(productItem.CatName,productItem.Id)">@productItem.PrName</a></li>
+                                                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(productItem.CatName,productItem.Id)">@productItem.PrName.Split('|').FirstOrDefault().Trim()</a></li>
                                                                                     }
                                                                                 </ul>
                                                                             </div>
@@ -346,7 +346,7 @@
                                                                                 <ul class="menu ovic-menu">
                                                                                     @foreach (var productItem in productCategory)
                                                                                     {
-                                                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(productItem.CatName,productItem.Id)">@productItem.PrName</a></li>
+                                                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(productItem.CatName,productItem.Id)">@productItem.PrName.Split('|').FirstOrDefault().Trim()</a></li>
                                                                                     }
                                                                                 </ul>
                                                                             </div>

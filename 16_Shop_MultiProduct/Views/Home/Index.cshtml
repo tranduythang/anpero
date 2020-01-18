@@ -33,7 +33,7 @@
                             foreach (var item in adsList)
                             {
 
-                                <li data-transition="fade" data-slotamount="7" data-masterspeed="300" data-delay="9400">                                    
+                                <li data-transition="fade" data-slotamount="7" data-masterspeed="300" data-delay="9400">
                                     <img src="@item.ImagesUrl">
                                     @Html.Raw(item.Description)
 
@@ -506,7 +506,7 @@
                                                     @for (int i = 0; i < searchResult.Length; i++)
                                                     {
                                                         var item = searchResult[i];
-                                                        <div class="product-item equal-elem">
+                                                        <div class="product-item  style-2 style-4 equal-elem">
                                                             <div class="product-inner">
                                                                 <div class="product-thumb col-md-6">
                                                                     <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
@@ -812,6 +812,8 @@
     </div>
 </div>
 @section scripts {
+    <link href="/theme/wp-content/plugins/ovic-toolkit/assets/css/magnific-popup.css" rel="stylesheet" />
+    <script src="/theme/wp-content/plugins/ovic-toolkit/assets/js/jquery.magnific-popup.min.js"></script>
     <script src="/assets/plugin/slider-revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
     <script src="/assets/plugin/slider-revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js" type="text/javascript"></script>
     <script src="/assets/revo-slider-init.js" type="text/javascript"></script>
@@ -820,7 +822,17 @@
         $(document).ready(function () {
             RevosliderInit.initRevoSlider();
             $(".has-vertical-menu").addClass("has-open");
-
+            if ($(".js-popup-video").length) {
+                $('.js-popup-video').magnificPopup({
+                      disableOn: 700,
+                            type: 'iframe',
+                            mainClass: 'mfp-fade',
+                            removalDelay: 160,
+                            preloader: false,
+                            fixedContentPos: false
+                    });
+            }
+          
         });
 
     </script>

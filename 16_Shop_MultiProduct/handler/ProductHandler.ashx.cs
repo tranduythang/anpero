@@ -68,10 +68,10 @@ namespace AnperoFrontend.handler
                     case "CreateOrder":
                         {
 
-                            string name = context.Request["name"];
+                            string name =HttpUtility.HtmlDecode(context.Request["name"]);
                             string email = context.Request["email"];
                             string phone = context.Request["phone"];
-                            string address = context.Request["address"];
+                            string address = HttpUtility.HtmlDecode(context.Request["address"]);
                             string ProductList = context.Request["ProductList"];
 
                             int shipingFee = 0;

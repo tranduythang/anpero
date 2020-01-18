@@ -306,7 +306,7 @@
         <script src="//cdn.anpero.com/cdn/plugins/fancybox-3/dist/jquery.fancybox.min.js"></script>
         <script>
             var price =0;
-            var defaultPrice =@Convert.ToInt32(item.SalePrice);
+            var defaultPrice =@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price);
             var atributeName = "";
             var _attrId = 0;
             var producText = {

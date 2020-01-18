@@ -188,7 +188,7 @@
                                 {
                                     foreach (var childItem in item.ChildCategory)
                                     {
-                                        <li class="cat-item"> <label><input type="checkbox" name="category" value="@childItem.Id" /> @childItem.Name</label></li>
+                                        <li class="cat-item sub-cat-item"> <label><input type="checkbox" name="category" value="@childItem.Id" /> @childItem.Name</label></li>
                                     }
                                 }
                             }
@@ -368,7 +368,9 @@
         .widget_product_brand .product-categories.logo li a::after {
             display: none !important;
         }
-
+    .sub-cat-item{
+        padding-left:15px!important;
+    }
         .widget_product_brand .product-categories.logo li,
         .widget_product_brand .product-categories.logo li a {
             font-size: 0;
