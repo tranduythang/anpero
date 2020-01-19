@@ -152,9 +152,47 @@
         });
 
     }
+    function initCheckSeria() {
+        $(document).ready(function () {
+            $("#checkWarranty").click(function () {
+                var valid = true;
+                var captchaResponse = grecaptcha.getResponse(googleCatcha);
+                var seria = $("#seria").val();
+                
+                if (captchaResponse == null || captchaResponse == "") {
+                    Util.notify("", "Vui lòng click vào ô kiểm tra bảo mật. ");
+                    valid = false;
+                    grecaptcha.reset();
+                }
+                if (seria == "") {
+                    Util.notify("", "Vui lòng Nhập seria. ");
+                    valid = false;
+                }
+                if (valid) {
+                    $.ajax({
+                        url: "/warranty/AjaxCheckseria",
+                        data: { seria: seria,capcha: captchaResponse },
+                        type: "post",
+                        success: function (rs) {
+                            if (parseInt(rs.code)>0) {
+                                window.location.href = rs.link + "?seria=" + seria;
+                            } else {
+                                Util.notify("", "Mã vạch này không tồn tại trên hệ thống của Jaki.");
+                                Util.notify("", "Vui lòng kiểm tra lại mã sản phẩm này ");
+                                grecaptcha.reset();
+                            }
+                        }
+                    });
+
+                }
+            });
+        });
+
+    }
     return {
         init: init,
-        initCheck: initCheck
+        initCheck: initCheck,
+        initCheckSeria: initCheckSeria
     };
 })();
 

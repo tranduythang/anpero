@@ -786,6 +786,22 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetProductIdBySeria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="seria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="captcha" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="st" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductIdBySeriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetProductIdBySeriaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetPaymentAPIConfigSoapIn">
@@ -944,6 +960,12 @@
   <wsdl:message name="RegisterSeriaSoapOut">
     <wsdl:part name="parameters" element="tns:RegisterSeriaResponse" />
   </wsdl:message>
+  <wsdl:message name="GetProductIdBySeriaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductIdBySeria" />
+  </wsdl:message>
+  <wsdl:message name="GetProductIdBySeriaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductIdBySeriaResponse" />
+  </wsdl:message>
   <wsdl:portType name="AnperoServiceSoap">
     <wsdl:operation name="GetPaymentAPIConfig">
       <wsdl:input message="tns:GetPaymentAPIConfigSoapIn" />
@@ -1048,6 +1070,10 @@
     <wsdl:operation name="RegisterSeria">
       <wsdl:input message="tns:RegisterSeriaSoapIn" />
       <wsdl:output message="tns:RegisterSeriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductIdBySeria">
+      <wsdl:input message="tns:GetProductIdBySeriaSoapIn" />
+      <wsdl:output message="tns:GetProductIdBySeriaSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="AnperoServiceSoap" type="tns:AnperoServiceSoap">
@@ -1286,6 +1312,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetProductIdBySeria">
+      <soap:operation soapAction="http://tempuri.org/GetProductIdBySeria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="AnperoServiceSoap12" type="tns:AnperoServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1516,6 +1551,15 @@
     </wsdl:operation>
     <wsdl:operation name="RegisterSeria">
       <soap12:operation soapAction="http://tempuri.org/RegisterSeria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductIdBySeria">
+      <soap12:operation soapAction="http://tempuri.org/GetProductIdBySeria" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

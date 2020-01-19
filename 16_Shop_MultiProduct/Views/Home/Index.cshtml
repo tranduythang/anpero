@@ -16,6 +16,10 @@
     <meta property="og:image:type" content="image/jpg">
     <meta content="@commonInfo.Name" name="author" />
     <meta property="og:image" content="@commonInfo.Logo">
+    <meta property="og:description" content="@commonInfo.Desc">
+    <meta property="og:description" content="@commonInfo.Desc">
+    <meta name="description" content="@commonInfo.Desc" />
+
 }
 @if (ViewData["slide"] != null)
 {
@@ -36,7 +40,6 @@
                                 <li data-transition="fade" data-slotamount="7" data-masterspeed="300" data-delay="9400">
                                     <img src="@item.ImagesUrl">
                                     @Html.Raw(item.Description)
-
                                 </li>
                             }
                         }
@@ -271,20 +274,19 @@
                                 <div class="ovic-slide-default">
                                     <div class="owl-slick" data-slick={&quot;arrows&quot;:false,&quot;slidesMargin&quot;:20,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:3,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:1}}]>
 
-                                        <div class="wpb_single_image wpb_content_element vc_align_center ovic_custom_5c92fe3eaf72c">
-
+                                        <div class="wpb_content_element vc_align_center ovic_custom_5c92fe3eaf72c">
                                             <figure class="wpb_wrapper vc_figure">
                                                 <a href="@adsList1[4].ClickUrl">
-                                                    <div class="vc_single_image-wrapper   vc_box_border_grey effect border-scale ">
+                                                    <div class="vc_box_border_grey effect border-scale ">
                                                         <img class="vc_single_image-img lazy attachment-full" src="@Html.Raw(adsList1[4].ImagesUrl)" data-src="@Html.Raw(adsList1[4].ImagesUrl)" width="376" height="250" />
                                                     </div>
+                                                    @Html.Raw(adsList1[4].Description)
                                                 </a>
                                             </figure>
                                         </div>
                                         <div class="ovic-iconbox style16 Dark Background   ovic_custom_5c92fe3eaf72d  slick-slide slick-active">
                                             <a href="@adsList1[5].ClickUrl">
                                                 <div class="box-url-video">
-
                                                     <img width="376" height="250" src="@Html.Raw(adsList1[5].ImagesUrl)" class="wp-post-image attachment-376x250 size-376x250 lazy" alt="h47" data-src="@Html.Raw(adsList1[5].ImagesUrl)" />
                                                     @Html.Raw(adsList1[5].Description)
 
@@ -292,11 +294,12 @@
                                             </a>
                                             <div class="clearfix"></div>
                                         </div>
-                                        <div class="wpb_single_image wpb_content_element vc_align_center ovic_custom_5c92fe3eaf72e">
+                                        <div class="wpb_content_element vc_align_center ovic_custom_5c92fe3eaf72e">
                                             <figure class="wpb_wrapper vc_figure">
                                                 <a href="@adsList1[6].ClickUrl">
                                                     <div class="vc_single_image-wrapper vc_box_border_grey effect border-scale ">
                                                         <img class="vc_single_image-img lazy attachment-full" src="@Html.Raw(adsList1[6].ImagesUrl)" data-src="@Html.Raw(adsList1[6].ImagesUrl)" width="376" height="250" />
+                                                        @Html.Raw(adsList1[6].Description)
                                                     </div>
                                                 </a>
                                             </figure>
@@ -587,29 +590,27 @@
     @if (ViewData["Ads2"] != null)
     {
         Ads[] adsList = (Ads[])ViewData["Ads2"];
-        if (adsList.Length > 0)
+        if (adsList.Length > 1)
         {
-            foreach (var item in adsList)
-            {
+            var item1 = adsList[0];
+            var item2 = adsList[1];
 
-                <div class="banner-effect ovic-banner style21 default   ovic_custom_5c92fe3eaf731 vc_custom_1550451311424 vc_custom_1550451311453 "
-                     style="">
+                <div class="banner-effect ovic-banner style21 default   ovic_custom_5c92fe3eaf731 vc_custom_1550451311424 vc_custom_1550451311453 ">
                     <div class="thumb-banner">
-                        <a href="shop/index.html">
-                            <img width="1170" height="203" src="@item.ImagesUrl" class="wp-post-image attachment-1170x203 size-1170x203 lazy" alt="h51" data-src="@item.ImagesUrl" />
+                        <a href="@item1.ClickUrl">
+                            <img src="@item1.ImagesUrl" class="wp-post-image attachment-1170x203 size-1170x203 lazy" alt="h51" data-src="@item1.ImagesUrl" />
                         </a>
                     </div>
                     <div class="texts-container">
-                        @Html.Raw(item.Description)
+                        @Html.Raw(item2.Description)
                     </div>
                 </div>
-            }
+            
         }
     }
     else
     {
-        <div class="banner-effect ovic-banner style21 default   ovic_custom_5c92fe3eaf731 vc_custom_1550451311424 vc_custom_1550451311453 "
-             style="">
+        <div class="banner-effect ovic-banner style21 default   ovic_custom_5c92fe3eaf731 vc_custom_1550451311424 vc_custom_1550451311453 ">
             <div class="thumb-banner">
                 <a href="shop/index.html">
                     <img width="1170" height="203" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221170%22%20height%3D%22203%22%20viewBox%3D%220%200%201170%20203%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-1170x203 size-1170x203 lazy" alt="h51" data-src="/theme/wp-content/uploads/2018/09/h51.jpg" />
@@ -824,15 +825,15 @@
             $(".has-vertical-menu").addClass("has-open");
             if ($(".js-popup-video").length) {
                 $('.js-popup-video').magnificPopup({
-                      disableOn: 700,
-                            type: 'iframe',
-                            mainClass: 'mfp-fade',
-                            removalDelay: 160,
-                            preloader: false,
-                            fixedContentPos: false
-                    });
+                    disableOn: 700,
+                    type: 'iframe',
+                    mainClass: 'mfp-fade',
+                    removalDelay: 160,
+                    preloader: false,
+                    fixedContentPos: false
+                });
             }
-          
+
         });
 
     </script>
