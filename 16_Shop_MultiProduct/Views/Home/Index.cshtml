@@ -590,10 +590,10 @@
     @if (ViewData["Ads2"] != null)
     {
         Ads[] adsList = (Ads[])ViewData["Ads2"];
-        if (adsList.Length > 1)
+        if (adsList.Length > 0)
         {
             var item1 = adsList[0];
-            var item2 = adsList[1];
+            var item2 =adsList.Length>1?adsList[1]:new Ads();
 
                 <div class="banner-effect ovic-banner style21 default   ovic_custom_5c92fe3eaf731 vc_custom_1550451311424 vc_custom_1550451311453 ">
                     <div class="thumb-banner">
