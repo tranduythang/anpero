@@ -33,6 +33,11 @@ namespace AnperoFrontend
             defaults: new { controller = "Article", action = "Category", id = 0 }
             );
             routes.MapRoute(
+            name: "CheckSeria",
+            url: "productcheck",
+            defaults: new { controller = "Warranty", action = "CheckSeria"}
+            );            
+            routes.MapRoute(
             name: "blogList2",
             url: "blog/{title}-b{id}",
             defaults: new { controller = "Article", action = "Category", id = UrlParameter.Optional }

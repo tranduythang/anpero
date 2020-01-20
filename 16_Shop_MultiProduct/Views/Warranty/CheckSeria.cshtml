@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.title = " Jaki - Kiểm tra bảo hành điện tử";
+
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="breadcrumb">
+                <li><a href="/" title="Trang chủ">Trang chủ</a></li>
+                <li><span>Jaki - Kiếm tra thông tin sản phẩm</span></li>
+            </ul>
+        </div>
+
+
+        <div class="main-content col-sm-12 form-horizontal">
+            <div id="content-check">
+                <div class="form-group">
+                    <label class="col-md-3 control-label"> Mã sản phẩm (mã vạch):</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" id="seria" value="@ViewBag.seria" />
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-5" id="g-recaptcha"></div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-5">
+                        <div class="add-to-cart">
+                            <a href="javascript:void(0);" class="button product_type_simple add_to_cart_button ajax_add_to_cart" id="checkWarranty" tabindex="0">Kiểm tra bảo hành</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="content-check-rs"></div>
+
+        </div>
+    </div>
+</div>
+@section health{
+    <meta property="og:description" content="Kiểm tra seria thương hiệu Jaki">
+    <meta property="og:title" content="Jaki - Kiếm tra seria">
+    <meta name="description" content="Kiểm tra seria thương hiệu Jaki">
+    <meta name="keywords" content="seria,bảo hành, Jaki">
+}
+@section scripts{
+    <link href="https://anpero.com/assets/global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" />
+    <script src="https://anpero.com/assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js"></script>
+    <script src="~/Scripts/Bootrap.notify.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="~/Scripts/Anpero.Common.js"></script>
+    <script src="/Scripts/Warranty.js"></script>
+    <script>
+        var googleCatcha;
+        $(document).ready(function () {
+            Warranty.initCheckSeria();
+        });
+        $(window).load(function () {
+            googleCatcha = grecaptcha.render('g-recaptcha', {
+                'sitekey': googleCapchaSitekey,
+                'theme': 'light',
+                'hl': 'vi'
+            });
+        });
+    </script>
+    <style>
+        .col-md-5 input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="search"], input[type="url"] {
+            height: 35px;
+        }
+    </style>
+}
+

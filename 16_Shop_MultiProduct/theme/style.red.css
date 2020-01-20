@@ -27,7 +27,7 @@ body {
 }
 .vc_custom_1536911229630 {
     padding-bottom: 200px !important;
-    background-image: url(https://cdn.anpero.com/images/54/112019/h48-10f442019111300463620.jpg) !important;
+    background-image: url(https://cdn.anpero.com/images/54/12020/image2020011819282389.jpg) !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
@@ -43,4 +43,10 @@ body {
 }
 .box-header-nav .main-menu .sub-menu {    
     color: #d11222;
+}
+@media only screen and (max-width: 768px) {
+    .vc_custom_1536911229630 {
+        background-image: none !important;
+        background-color: #d11222 !important;
+    }
 }

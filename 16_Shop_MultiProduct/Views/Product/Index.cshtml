@@ -12,16 +12,16 @@
     string currentUrl = Request.Url.ToString();
 
     @section health{
-<meta property="og:image:type" content="image/jpg">
-<meta name="description" content="@Html.Raw(Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc))" />
-<meta name="keywords" content="@Html.Raw(Anpero.StringHelpper.UnicodeToKoDau(item.KeyWord))" />
-<meta property="og:description" content="@Html.Raw(item.ShortDesc)" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="@ViewBag.WebsiteUrl" />
-<meta property="og:image" content="@item.Images" />
-<link rel="canonical" href="@ViewBag.WebsiteUrl" />
-<link href="//cdn.anpero.com/cdn/plugins/fancybox-3/src/css/core.css" rel="stylesheet" />
-<link href="//cdn.anpero.com/cdn/plugins/fancybox-3/src/css/fullscreen.css" rel="stylesheet" />
+        <meta property="og:image:type" content="image/jpg">
+        <meta name="description" content="@Html.Raw(Anpero.StringHelpper.removeHtmlTangs(item.ShortDesc))" />
+        <meta name="keywords" content="@Html.Raw(Anpero.StringHelpper.UnicodeToKoDau(item.KeyWord))" />
+        <meta property="og:description" content="@Html.Raw(item.ShortDesc)" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="@ViewBag.WebsiteUrl" />
+        <meta property="og:image" content="@item.Images" />
+        <link rel="canonical" href="@ViewBag.WebsiteUrl" />
+        <link href="//cdn.anpero.com/cdn/plugins/fancybox-3/src/css/core.css" rel="stylesheet" />
+        <link href="//cdn.anpero.com/cdn/plugins/fancybox-3/src/css/fullscreen.css" rel="stylesheet" />
     }
     @section Styles {
 
@@ -262,7 +262,7 @@
                                             {
                                                 <div>@relatedProduct.Warranty tháng</div>
                                             }
-                                        <del><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(relatedProduct.IsSale ? relatedProduct.SalePrice : relatedProduct.Price)đ</span></del>
+                                            <del><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(relatedProduct.IsSale ? relatedProduct.SalePrice : relatedProduct.Price)đ</span></del>
                                             <span class="price"><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(relatedProduct.IsSale ? relatedProduct.SalePrice : relatedProduct.Price)đ</span></span>
 
                                         </div>
@@ -301,12 +301,13 @@
     </div>
     @section scripts{
         @Html.Raw(item.Script)
+        <script src="~/Scripts/Bootrap.notify.js"></script>
         <link href="~/theme/wp-content/plugins/ovic-toolkit/includes/frontend/assets/css/slick.min.css" rel="stylesheet" />
         <script src="~/theme/wp-content/plugins/ovic-toolkit/includes/frontend/assets/js/libs/slick.min.js"></script>
         <script src="//cdn.anpero.com/cdn/plugins/fancybox-3/dist/jquery.fancybox.min.js"></script>
         <script>
             var price =0;
-            var defaultPrice =@Convert.ToInt32(item.SalePrice);
+            var defaultPrice =@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price);
             var atributeName = "";
             var _attrId = 0;
             var producText = {
@@ -315,6 +316,7 @@
                 items: "items",
             };
             $(document).ready(function () {
+
                 $(".fancybox").fancybox({
                     openEffect: 'none',
                     closeEffect: 'none'
@@ -376,6 +378,10 @@
                 var newQty = (parseInt($("#pdQuantity").val()) - 1);
                 $("#pdQuantity").val(newQty<0?0:newQty);
             });
+                  var seria = Util.getParameterByName("seria")
+                if (seria != "") {
+                    Util.notify("", "Tìm thấy sản phẩm cho mã seria: "+seria);
+                }
             });
             function resizeVideo() {
                 var contentW = $('#tab-description').width();
