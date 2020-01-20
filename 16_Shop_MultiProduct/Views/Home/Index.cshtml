@@ -277,7 +277,7 @@
                                         <div class="wpb_content_element vc_align_center ovic_custom_5c92fe3eaf72c">
                                             <figure class="wpb_wrapper vc_figure">
                                                 <a href="@adsList1[4].ClickUrl">
-                                                    <div class="vc_box_border_grey effect border-scale ">
+                                                    <div class="vc_single_image-wrapper vc_box_border_grey effect border-scale ">
                                                         <img class="vc_single_image-img lazy attachment-full" src="@Html.Raw(adsList1[4].ImagesUrl)" data-src="@Html.Raw(adsList1[4].ImagesUrl)" width="376" height="250" />
                                                     </div>
                                                     @Html.Raw(adsList1[4].Description)
@@ -518,7 +518,7 @@
                                                                         </figure>
                                                                     </a>
                                                                 </div>
-                                                                <div class="product-info" style="float:left;width:50%;">
+                                                                <div class="product-info col-md-6">
                                                                     @if (item.IsSale)
                                                                     {
                                                                         <div class="flash">
@@ -593,19 +593,19 @@
         if (adsList.Length > 0)
         {
             var item1 = adsList[0];
-            var item2 =adsList.Length>1?adsList[1]:new Ads();
+            var item2 = adsList.Length > 1 ? adsList[1] : new Ads();
 
-                <div class="banner-effect ovic-banner style21 default   ovic_custom_5c92fe3eaf731 vc_custom_1550451311424 vc_custom_1550451311453 ">
-                    <div class="thumb-banner">
-                        <a href="@item1.ClickUrl">
-                            <img src="@item1.ImagesUrl" class="wp-post-image attachment-1170x203 size-1170x203 lazy" alt="h51" data-src="@item1.ImagesUrl" />
-                        </a>
-                    </div>
-                    <div class="texts-container">
-                        @Html.Raw(item2.Description)
-                    </div>
+            <div class="banner-effect ovic-banner style21 default   ovic_custom_5c92fe3eaf731 vc_custom_1550451311424 vc_custom_1550451311453 ">
+                <div class="thumb-banner">
+                    <a href="@item1.ClickUrl">
+                        <img src="@item1.ImagesUrl" class="wp-post-image attachment-1170x203 size-1170x203 lazy" alt="h51" data-src="@item1.ImagesUrl" />
+                    </a>
                 </div>
-            
+                <div class="texts-container">
+                    @Html.Raw(item2.Description)
+                </div>
+            </div>
+
         }
     }
     else
@@ -711,7 +711,7 @@
         <div class="wpb_column vc_column_container vc_col-sm-12">
             <div class="vc_column-inner">
                 <div class="wpb_wrapper">
-                    <div class="ovic-products only-icon style-2   ovic_custom_5c92fe3eaf732 vc_custom_1547457855172 vc_custom_1547457855217  owl-ls-6 owl-lg-6 owl-md-5 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_style20">
+                    <div class="ovic-products only-icon style-2   ovic_custom_5c92fe3eaf732 vc_custom_1547457855217  owl-ls-6 owl-lg-6 owl-md-5 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_style20">
                         <h3 class="ovic-title"><span class="text">Bài viết được xem nhiều nhất</span></h3>
                         <div class="product-list-owl owl-slick equal-container better-height " data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:2,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
                             @if (ViewData["TopArticle"] != null)
@@ -724,7 +724,7 @@
                                             <div class="product-thumb">
                                                 <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
                                                     <figure>
-                                                        <img width="300" height="300" src="@item.Thumb" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0002s_0003s_0000_4a" data-src="@item.Thumb" />
+                                                        <img  src="@item.Thumb" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0002s_0003s_0000_4a" data-src="@item.Thumb" />
                                                     </figure>
                                                 </a>
                                                 <div class="flash">
@@ -772,6 +772,7 @@
                                     foreach (var item in adsList)
                                     {
                                         <div class="ovic-iconbox style1 Dark Background">
+
                                             <div class="box-icon">
                                                 <img src="@item.ImagesUrl" />
                                             </div>
@@ -833,8 +834,29 @@
                     fixedContentPos: false
                 });
             }
+            try {
+                if ($('.gokko-countdown').length > 0) {
+                    $('.gokko-countdown').each(function () {
+                        $(this).gokko_countdown();
+                    });
+                }
+            } catch (e) {
 
+            }
         });
 
     </script>
 }
+<style>
+    .revolution-slider .style-2 .button {
+        background-color:white!important;
+        color:#d11222!important;
+        border:1px solid #d11222!important;         
+        border-radius: 0px;
+    }
+    .revolution-slider .style-2 .button:hover {
+        background-color:#d11222!important;
+        color:white!important;
+        border:1px solid white!important;               
+    }
+</style>

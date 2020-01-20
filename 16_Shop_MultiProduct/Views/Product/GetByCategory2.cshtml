@@ -7,14 +7,14 @@
         var item = Model.Item[i];        
         <div class="  product-item recent-product style-2  equal-elem rows-space-0 product type-product status-publish instock product_cat-trees-vegetables has-post-thumbnail purchasable product-type-simple">
             <div class="product-inner">
-                <div class="product-thumb" style="width: 50%;float:left;">
+                <div class="product-thumb col-md-6">
                     <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
                         <figure>
                             <img width="190" height="190" src="@item.Images" class="wp-post-image attachment-190x190 size-190x190" alt="@item.PrName" />
                         </figure>
                     </a>
                 </div>
-                <div class="product-info">
+                <div class="product-info col-md-6">
                     @if (item.IsSale)
                     {
                         <div class="flash">
