@@ -44,6 +44,9 @@ body {
 .box-header-nav .main-menu .sub-menu {    
     color: #d11222;
 }
+.header:not(.style-1) .block-search .form-search {
+    border: 2px solid #d11222;
+}
 @media only screen and (max-width: 768px) {
     .vc_custom_1536911229630 {
         background-image: none !important;

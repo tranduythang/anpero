@@ -14,13 +14,14 @@
                         </figure>
                     </a>
                 </div>
+                @if (item.IsSale)
+                {
+                    <div class="flash">
+                        <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
+                    </div>
+                }
                 <div class="product-info col-md-6">
-                    @if (item.IsSale)
-                    {
-                        <div class="flash">
-                            <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
-                        </div>
-                    }
+
                     <h3 class="product-name product_title">
                         <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
                     </h3>

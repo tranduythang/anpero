@@ -8,7 +8,7 @@
         ViewBag.Title = commonInfo.Name;
         ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau(commonInfo.Desc);
         ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
-    }
+    }    
 }
 @section health{
     <link href="/assets/style-revolution-slider.css" rel="stylesheet">
@@ -152,7 +152,7 @@
                                 <div class="tab-container">
                                     <div class="tab-panel active">
                                         <div class="ovic-products   review_hided   style-2 ovic_custom_5c92fe3eaf6d6  owl-ls-3 owl-lg-3 owl-md-3 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_owl_default">
-                                            <div id="feature-pr-content" class="owl-slick product-list-owl equal-container better-height" data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:3,&quot;rows&quot;:2} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
+                                            <div id="feature-pr-content" class="owl-slick product-list-owl equal-container better-height" data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:@(Request.Browser.IsMobileDevice?"2":"3"),&quot;rows&quot;:@(Request.Browser.IsMobileDevice?"3":"2")} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
                                                 @if (searchResult.Item.Length > 1)
                                                 {
                                                     for (int i = 1; i < searchResult.Item.Length; i++)
@@ -167,14 +167,13 @@
                                                                             <img width="300" height="300" src="@item.Images" class="wp-post-image attachment-300x300 size-300x300" alt="@item.PrName" />
                                                                         </figure>
                                                                     </a>
-                                                                    @if (item.IsSale)
-                                                                    {
-                                                                        <div class="flash">
-                                                                            <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
-                                                                        </div>
-                                                                    }
-
                                                                 </div>
+                                                                @if (item.IsSale)
+                                                                {
+                                                                    <div class="flash">
+                                                                        <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
+                                                                    </div>
+                                                                }
                                                                 <div class="product-info">
                                                                     <h3 class="product-name product_title">
                                                                         <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
@@ -505,7 +504,7 @@
                                         <div class="wpb_wrapper">
                                             <div class="ovic-products only-icon review_hided  style-2 ovic_custom_5c92fe3eaf732 vc_custom_1547457855172 vc_custom_1547457855217  owl-ls-6 owl-lg-6 owl-md-5 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_style20">
 
-                                                <div id="sale-pr-content" class="animate product-list-owl owl-slick equal-container better-height ovic-accordion " data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:3,&quot;rows&quot;:2} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
+                                                <div id="sale-pr-content" class="animate product-list-owl owl-slick equal-container better-height ovic-accordion " data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:@(Request.Browser.IsMobileDevice?"2":"3"),&quot;rows&quot;:@(Request.Browser.IsMobileDevice?"3":"2")} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
                                                     @for (int i = 0; i < searchResult.Length; i++)
                                                     {
                                                         var item = searchResult[i];
@@ -518,13 +517,14 @@
                                                                         </figure>
                                                                     </a>
                                                                 </div>
+                                                                @if (item.IsSale)
+                                                                {
+                                                                    <div class="flash">
+                                                                        <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
+                                                                    </div>
+                                                                }
                                                                 <div class="product-info col-md-6">
-                                                                    @if (item.IsSale)
-                                                                    {
-                                                                        <div class="flash">
-                                                                            <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
-                                                                        </div>
-                                                                    }
+
                                                                     <h3 class="product-name product_title">
                                                                         <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
                                                                     </h3>
@@ -834,7 +834,8 @@
                     fixedContentPos: false
                 });
             }
-            try {
+            setTimeout(function () {
+                   try {
                 if ($('.gokko-countdown').length > 0) {
                     $('.gokko-countdown').each(function () {
                         $(this).gokko_countdown();
@@ -843,11 +844,18 @@
             } catch (e) {
 
             }
+            }, 2000);
         });
-
+       
     </script>
 }
 <style>
+      @@media (max-width: 479px){
+                .row-item .product-inner{position:relative;}
+                .flash, .product-item .yith-wcqv-button, .wishlist-container, .rating-wapper {
+                 display: block!important; 
+                }
+            }
     .revolution-slider .style-2 .button {
         background-color:white!important;
         color:#d11222!important;
