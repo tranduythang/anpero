@@ -56,7 +56,7 @@ namespace AnperoFrontend.Controllers
             }
             else
             {
-                customArticle = service.SearchArticle(StoreID, TokenKey, Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["CustomArticleId"]), 0, 5, 0);
+                customArticle = service.SearchArticle(StoreID, TokenKey, Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["CustomArticleId"]), 0, 10, 0);
                 if (customArticle != null)
                 {
                     HttpRuntime.Cache.Insert("customArticle", customArticle, null, DateTime.Now.AddMinutes(shortCacheTime + 10), TimeSpan.Zero);
