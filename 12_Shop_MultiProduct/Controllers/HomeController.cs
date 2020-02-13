@@ -74,7 +74,7 @@ namespace AnperoFrontend.Controllers
 
             if (!cache.TryGet(NewestProductCache, out searchResult))
             {
-                searchResult = service.SearchProduct(StoreID, TokenKey, "", "", "", 0, 999999999, 1, 7, "", SearchOrder.TimeDesc, 0,string.Empty);
+                searchResult = service.SearchProduct(StoreID, TokenKey, "", "", "", 0, 999999999, 1, 19, "", SearchOrder.TimeDesc, 0,string.Empty);
                 cache.AddOrUpdate(NewestProductCache, searchResult, DateTime.Now.AddMinutes(shortCacheTime));
             }
            
