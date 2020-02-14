@@ -189,13 +189,13 @@ SLICK SLIDER
 .slick-slider.slick-vertical .slick-slide {
     border: none;
 }
-.slick-slider:not(:hover) .slick-arrow {
+/*.slick-slider:not(:hover) .slick-arrow {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
     -ms-transform: scale(0);
     -o-transform: scale(0);
     transform: scale(0);
-}
+}*/
 .slick-slider .slick-arrow {
     display: inline-block;
     position: absolute;
@@ -11603,13 +11603,7 @@ FIX-BROWSERS
         transform: scale(1);
     }
 }
-@media (max-width: 1199px) {
-    .ovic-slide-style1 .slick-slider .slick-arrow,
-    .ovic_products_owl_default .slick-slider .slick-arrow,
-    .ovic_products_style2 .slick-slider .slick-arrow,
-    .ovic_products_style20 .slick-slider .slick-arrow,
-    .ovic-slide-style3 .slick-slider .slick-arrow,
-    .ovic-slide-default .slick-slider .slick-arrow,
+@media (max-width: 1199px) {    
     #header .header-control,
     .header-organic .box-nav {
         display: none !important;
