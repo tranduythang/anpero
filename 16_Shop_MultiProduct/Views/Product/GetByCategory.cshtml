@@ -30,9 +30,9 @@
                         <span class="price">
                             @if (item.IsSale)
                             {
-                                <del><span class="woocommerce-Price-amount amount">@item.Price</span></del>
+                                <del><span class="woocommerce-Price-amount amount">@(item.Price)đ</span></del>
                             }
-                            <ins><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)</span></ins>
+                        <ins><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)</span>đ</ins>
                         </span>
                     </div>
                     @if (item.IsInstock)
