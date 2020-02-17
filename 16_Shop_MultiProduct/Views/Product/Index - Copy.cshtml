@@ -351,7 +351,7 @@
                                                             <a href="@Anpero.StringHelpper.GetProductLink(relatedProduct.PrName,relatedProduct.Id)" title="@relatedProduct.PrName" class="view-product"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                                                             @if (item.IsInstock)
                                                             {
-                                                                <a href="javascript:Cart.addProduct(@relatedProduct.Id,'@Convert.ToInt32(relatedProduct.IsSale?item.SalePrice:item.Price)','@relatedProduct.Images','@relatedProduct.PrName')" class="add-cart" title="Mua hàng">
+                                                                <a href="javascript:Cart.addProduct(@relatedProduct.Id,'@Convert.ToInt32(relatedProduct.IsSale?item.SalePrice:item.Price)','@relatedProduct.Images','@relatedProduct.PrName',@Convert.ToInt32(item.Price))" class="add-cart" title="Mua hàng">
                                                                     <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                                                                 </a>
                                                             }

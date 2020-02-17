@@ -59,7 +59,7 @@
                     <div class="group-button">
                         <div class="inner">
                             <div class="add-to-cart">
-                                <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)')" class="button product_type_variable add_to_cart_button">Mua ngay</a>
+                                <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)',@Convert.ToInt32(item.Price))" class="button product_type_variable add_to_cart_button">Mua ngay</a>
                             </div>
 
                         </div>

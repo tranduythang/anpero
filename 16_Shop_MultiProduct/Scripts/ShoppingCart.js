@@ -1,8 +1,11 @@
 ﻿var Cart = {
     list: [],
     quantity: 1,
-    addProduct: function (_id, _price, _thumb, _title) {
-        
+    addProduct: function(_id, _price, _thumb, _title, _originPrice = 0) {
+        debugger
+        if (_originPrice == 0) {
+            _originPrice = _price;
+        }
                 var checkExited = false;
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
@@ -10,7 +13,7 @@
         var quantity = Cart.quantity;
         if (Cart.list.length == 0) {
 
-            Cart.list.push({ id: _id, quantity, price: _price, thumb: _thumb, title: _title });
+            Cart.list.push({ id: _id, quantity, price: _price, thumb: _thumb, title: _title, originPrice: _originPrice});
         } else {
             for (var i = 0; i < Cart.list.length; i++) {
                 if (Cart.list[i].id == _id) {
@@ -21,7 +24,7 @@
             }
             // if this product no in cart list
             if (!checkExited) {
-                Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });
+                Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title, originPrice: _originPrice });
             }
         }
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });        
@@ -29,14 +32,18 @@
         
        
     },
-    addProduct3: function (_id, _price, _thumb, _title) {
+    addProduct3: function(_id, _price, _thumb, _title, _originPrice = 0) {
+        debugger
+        if (_originPrice==0){
+            _originPrice=_price;
+        }
         var checkExited = false;
         if ($.cookie("CartList") != null && $.cookie("CartList") != "undefined" && $.cookie("CartList") != "null") {
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
         }
 
         if (Cart.list.length == 0) {
-            Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });
+            Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title, originPrice: _originPrice });
         } else {
             for (var i = 0; i < Cart.list.length; i++) {
                 if (Cart.list[i].id == _id) {
@@ -47,7 +54,7 @@
             }
             // if this product no in cart list
             if (!checkExited) {
-                Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title });
+                Cart.list.push({ id: _id, quantity: 1, price: _price, thumb: _thumb, title: _title, originPrice: _originPrice});
             }
         }
         $.cookie("CartList", JSON.stringify(Cart.list), { path: '/' });
@@ -108,7 +115,7 @@
 
             Cart.list = jQuery.parseJSON($.cookie("CartList"));
             try {
-                
+                debugger
                 $(".spN").html(Cart.list.length);
                 for (var i = 0; i < Cart.list.length; i++) {
                     ttSC += parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity);
@@ -119,7 +126,8 @@
                     htmlCat += '<td class="cart_description">';
                     htmlCat += '<p class="product-name"><a href="#">' + Util.decodeHTML(Cart.list[i].title) + ' </a></p>';
                     htmlCat += '</td>';
-                    htmlCat += '<td class="price"><span>' + Util.toMoneyFormat(Cart.list[i].price) + '</span></td>';
+                    htmlCat += '<td class="price"><span>' + Util.toMoneyFormat(Cart.list[i].price) + 'đ</span></td>';
+                    htmlCat += '<td class="price"><span>' + Util.toMoneyFormat(Cart.list[i].originPrice - Cart.list[i].price) + 'đ</span></td>';
                     htmlCat += '<td class="qty">';
                     htmlCat += '<a href="javascript:Cart.remove3(' + Cart.list[i].id + ',' + Cart.list[i].price + ');" class="btn">-</a>';
                     htmlCat += '<input class="input-text qty2" type="text" value="' + Cart.list[i].quantity + '" id="prQuantity_' + Cart.list[i].id + '">';

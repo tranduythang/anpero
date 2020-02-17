@@ -112,7 +112,7 @@
                                                 @if (item1.IsInstock)
                                                 {
                                                     <div class="add-to-cart">
-                                                        <a href="javascript:Cart.addProduct(@item1.Id,@Convert.ToInt32(item1.IsSale?item1.SalePrice:item1.Price),'@item1.Images','@HttpUtility.HtmlEncode(item1.PrName)')" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ hàng</a>
+                                                        <a href="javascript:Cart.addProduct(@item1.Id,@Convert.ToInt32(item1.IsSale?item1.SalePrice:item1.Price),'@item1.Images','@HttpUtility.HtmlEncode(item1.PrName)',@Convert.ToInt32(item1.Price))" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ hàng</a>
                                                     </div>
                                                 }
 
@@ -191,7 +191,7 @@
                                                                     <div class="group-button">
                                                                         <div class="inner">
                                                                             <div class="add-to-cart">
-                                                                                <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)')" class="button product_type_variable add_to_cart_button">Mua ngay</a>
+                                                                                <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)',@Convert.ToInt32(item.Price))" class="button product_type_variable add_to_cart_button">Mua ngay</a>
                                                                             </div>
 
                                                                         </div>
@@ -556,7 +556,7 @@
                                                                 <div class="group-button">
                                                                     <div class="inner">
                                                                         <div class="add-to-cart">
-                                                                            <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)')" class="button product_type_simple add_to_cart_button" rel="nofollow" tabindex="0">Thêm vào giỏ hàng</a>
+                                                                            <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)',@Convert.ToInt32(item.Price))" class="button product_type_simple add_to_cart_button" rel="nofollow" tabindex="0">Thêm vào giỏ hàng</a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -680,7 +680,7 @@
                                             <div class="group-button">
                                                 <div class="inner">
                                                     <div class="add-to-cart">
-                                                        <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)')" class="button product_type_simple add_to_cart_button" aria-label="@item.PrName" rel="nofollow">Thêm vào giỏ hàng</a>
+                                                        <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)',@Convert.ToInt32(item.Price))" class="button product_type_simple add_to_cart_button" aria-label="@item.PrName" rel="nofollow">Thêm vào giỏ hàng</a>
                                                     </div>
 
                                                 </div>

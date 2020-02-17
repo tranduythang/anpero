@@ -110,7 +110,7 @@
                                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="view-product"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                                                 @if (item.IsInstock)
                                                 {
-                                                    <a href="javascript:Cart.addProduct(@item.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName') @Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="add-cart" title="Mua hàng">
+                                                    <a href="javascript:Cart.addProduct(@item.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName',@Convert.ToInt32(item.Price)) @Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="add-cart" title="Mua hàng">
                                                         <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                                                     </a>
                                                 }

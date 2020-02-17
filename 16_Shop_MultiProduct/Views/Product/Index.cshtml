@@ -283,7 +283,7 @@
                                         <div class="group-button">
                                             <div class="inner">
                                                 <div class="add-to-cart">
-                                                    <a href="javascript:Cart.addProduct(@relatedProduct.Id,@Convert.ToInt32(relatedProduct.IsSale?relatedProduct.SalePrice:relatedProduct.Price),'@relatedProduct.Images','@HttpUtility.HtmlEncode(relatedProduct.PrName)')" class="button product_type_simple add_to_cart_button" aria-label="@relatedProduct.PrName" rel="nofollow">Thêm vào giỏ hàng</a>
+                                                    <a href="javascript:Cart.addProduct(@relatedProduct.Id,@Convert.ToInt32(relatedProduct.IsSale?relatedProduct.SalePrice:relatedProduct.Price),'@relatedProduct.Images','@HttpUtility.HtmlEncode(relatedProduct.PrName)',@Convert.ToInt32(item.Price))" class="button product_type_simple add_to_cart_button" aria-label="@relatedProduct.PrName" rel="nofollow">Thêm vào giỏ hàng</a>
                                                 </div>
 
                                             </div>
@@ -372,7 +372,8 @@
             });
             $("#single_product__addtocart").click(function () {
                 Cart.quantity = $("#pdQuantity").val();
-                Cart.addProduct(@item.Id,parseInt(defaultPrice) + parseInt(price), '@item.Images', "@HttpUtility.HtmlEncode(item.PrName) "+atributeName,_attrId);
+                debugger
+                Cart.addProduct(@item.Id,parseInt(defaultPrice) + parseInt(price), '@item.Images', "@HttpUtility.HtmlEncode(item.PrName) "+atributeName,@Convert.ToInt32(item.Price));
             });
             $(".group-qty .plus").click(function () {
                 $("#pdQuantity").val(parseInt($("#pdQuantity").val())+1);

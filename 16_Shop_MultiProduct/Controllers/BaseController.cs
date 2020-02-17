@@ -98,7 +98,7 @@ namespace AnperoFrontend.Controllers
 
             if (!cacheService.TryGet("TopArticle", out rs))
             {
-                rs = service.SearchArticle(StoreID, TokenKey, 0, 1, 4, 2);
+                rs = service.SearchArticle(StoreID, TokenKey, 0, 1, 4, 1);
 
                 if (rs != null)
                 {
