@@ -1,0 +1,78 @@
+.commentlist .rating {
+    padding-top: 0;
+    padding-bottom: 5px;
+}
+.commentlist .rating i {
+    font-size: 14px;
+}
+.content-rating {
+    font-size: 0;
+    line-height: 0;
+    display: inline-block;
+}
+/* STAR SHOW */
+.ovic-post-rating.star-rating {
+    position: relative;
+    display: table;
+}
+.ovic-post-rating.star-rating:before {
+    content: "\2605\2605\2605\2605\2605";
+    color: #EFEFEF;
+}
+.ovic-post-rating.star-rating > span:before {
+    content: "\2605\2605\2605\2605\2605";
+    color: #f0cb00;
+}
+.ovic-post-rating.star-rating:before, .ovic-post-rating.star-rating > span:before {
+    display: inline-block;
+    float: left;
+    font-size: 26px;
+    line-height: 1;
+}
+.ovic-post-rating.star-rating > span {
+    font-size: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+/* STAR GROUP */
+.star-cb-group {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    display: inline-block;
+    overflow: hidden;
+}
+.star-cb-group > input {
+    display: none;
+}
+.star-cb-group > input + label {
+    display: inline-block;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    line-height: 1;
+    margin-bottom: 0;
+}
+.star-cb-group > input + label:before {
+    display: inline-block;
+    content: '\2606';
+    color: #f0cb00;
+}
+.star-cb-group > input:checked ~ label:before, .star-cb-group > input + label:hover ~ label:before, .star-cb-group > input + label:hover:before {
+    content: '\2605';
+    color: #f0cb00;
+}
+.star-cb-group > .star-cb-clear + label {
+    width: 0;
+}
+.star-cb-group:hover > input + label:before {
+    content: '\2606';
+    color: #f0cb00;
+    text-shadow: none;
+}
+.star-cb-group:hover > input + label:hover ~ label:before, .star-cb-group:hover > input + label:hover:before {
+    content: '\2605';
+    color: #f0cb00;
+}

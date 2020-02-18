@@ -1,0 +1,157 @@
+﻿@{
+    ViewBag.title = "Jaki - Đăng ký bảo hành điện tử";
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+    string currentUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+}
+@section health{
+    <meta property="og:description" content="Đăng ký bảo hành điện tử thương hiệu Jaki">
+    <meta property="og:title" content="Đăng ký bảo hành điện tử thương hiệu Jaki">
+    <meta name="description" content="Đăng ký bảo hành điện tử thương hiệu Jaki">
+    <meta name="keywords" content="Đăng ký bảo hành điện tử,Jaki">
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="breadcrumb">
+                <li><a href="/" title="Trang chủ">Trang chủ</a></li>
+
+                <li><span>Jaki - Đăng ký bảo hành điện tử</span></li>
+            </ul>
+        </div>
+
+
+        <div class="main-content col-sm-12 form-horizontal">
+            <div class="form-group">
+                <label class="col-md-3 control-label"> Mã sản phẩm (mã vạch):</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" id="seria" />
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Đại lý:</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" id="reseller" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Họ và tên:</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" id="fullName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Thành phố/Tỉnh</label>
+                <div class="col-md-5">
+                    <select class="input form-control" id="country" name="province">
+                        <option value="0">Thành phố/Tỉnh</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Quận/Huyện</label>
+                <div class="col-md-5">
+                    <select class="input form-control" id="prov" name="district">
+                        <option value="0">Quận/Huyện</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label"> Địa chỉ:</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" id="address" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">CMTND/ Hộ Chiếu:</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" id="identiryId" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Số điện thoại:</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" id="phone" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Thư điện tử:</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" id="emial" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Ghi chú:</label>
+                <div class="col-md-5">
+                    <textarea id="note" class="form-control"></textarea>                    
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3"></div>
+                <div class="col-md-5" id="g-recaptcha"></div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3"></div>
+                <div class="col-md-5">
+                    <div class="add-to-cart">
+                        <a href="javascript:void(0);" class="button product_type_simple add_to_cart_button ajax_add_to_cart" id="addWrr" tabindex="0">Đăng ký bảo hành</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .sweet-alert .sa-icon {
+        width: 80px;
+        height: 80px;
+        border: 4px solid gray;
+        border-radius: 50%;
+        margin: 41px auto !important;
+        position: relative;
+        box-sizing: content-box;
+    }
+
+    select {
+        -webkit-appearance: checkbox;
+        -moz-appearance: none;
+    }
+</style>
+@section scripts{
+    <link href="https://anpero.com/assets/global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" />
+    <script src="https://anpero.com/assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js"></script>
+    <script src="~/Scripts/Bootrap.notify.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="~/Scripts/Anpero.Common.js"></script>
+    <script src="/Scripts/Warranty.js"></script>
+    <script>
+        var googleCatcha;
+        $(document).ready(function () {
+            Location.Init()
+            Warranty.init();
+
+        });
+        $(window).load(function () {
+            googleCatcha = grecaptcha.render('g-recaptcha', {
+                'sitekey': googleCapchaSitekey,
+                'theme': 'light',
+                'hl': 'vi'
+            });
+        });
+    </script>
+    <style>
+        .col-md-5 input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="search"], input[type="url"] {
+            height: 35px;
+        }
+        .breadcrumb {
+                margin: 22px 0 15px;
+            }
+    </style>
+}
+

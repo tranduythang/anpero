@@ -1,0 +1,22 @@
+.font-bold-play-fair {
+  font-family: 'Playfair Display';
+  font-weight: bold;
+}
+
+.font-black-play-fair {
+  font-family: 'Playfair Display';
+  font-weight: 900;
+}
+
+.font-play-fair {
+  font-family: 'Playfair Display';
+}
+
+@font-face {
+  font-family: FontGothamBook;
+  src: url(../fonts/SVN-Gotham\ Book.otf)format("opentype");
+}
+
+.font-gotham{
+  font-family: FontGothamBook;
+}

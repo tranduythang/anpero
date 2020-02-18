@@ -1,0 +1,86 @@
+﻿@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+        ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau(commonInfo.Desc);
+        ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+    }
+}
+@section health{
+    <meta name="description" content="@commonInfo.Desc" />
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    <meta property="og:description" content="@commonInfo.Desc" />
+    <meta property="og:title" content="@ViewBag.Title" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="@ViewBag.WebsiteUrl" />
+    <meta property="og:image" content="@commonInfo.Logo" />
+}
+<div class="box-breadcrumb">
+    <div class="container">
+        <ul class="woocommerce-breadcrumb breadcrumb">
+            <li><a href="/">Trang chủ</a></li>
+            <li><a href="/blog">Các chính sách</a></li>
+            <li><span>@ViewBag.Title</span></li>
+        </ul>
+
+    </div>
+</div>
+<div class="main-container col1-layout wow bounceInUp animated animated" style="visibility: visible;">
+    <div class="main container">
+        <div class="std">
+            <div class="wrapper_bl" style="margin-top: 1px;">
+                <div class="form_background">
+                    @Html.Raw(ViewBag.HtmlContent)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .vc_custom_1534841895972 {
+        margin-bottom: 60px !important;
+        padding-top: 200px !important;
+        padding-bottom: 267px !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+    }
+
+    .vc_custom_1533525099580 {
+        margin-bottom: 36px !important;
+    }
+
+    .vc_custom_1533525112166 {
+        margin-bottom: 26px !important;
+    }
+
+    .vc_custom_1533525126017 {
+        margin-bottom: 36px !important;
+    }
+
+    .vc_custom_1534732886416 {
+        margin-bottom: 73px !important;
+        padding-top: 70px !important;
+        padding-bottom: 50px !important;
+        background-color: #fafafa !important;
+    }
+
+    .vc_custom_1533525381906 {
+        margin-bottom: 33px !important;
+    }
+</style>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            if ($(".vc_bar").length) {
+                $(".vc_bar").each(function () {
+                    var percent = $(this).attr("data-value");
+                    $(this).animate({
+                        width:percent+ "%"
+                    }, 1000);
+                });
+            }
+        });
+    </script>
+}
