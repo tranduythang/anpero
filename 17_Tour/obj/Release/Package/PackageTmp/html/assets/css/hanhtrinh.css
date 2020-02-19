@@ -1,0 +1,57 @@
+.divgachxannh {
+  border: 1px cyan solid;
+}
+
+#tbcntt {
+  border: 1px black solid;
+}
+
+#btcntt {
+  margin-top: 3%;
+  border: 1px black solid;
+}
+
+#member-area {
+  background-color: rgb(41,41,41);
+  color: #fff;
+}
+.member-row{
+  justify-content:center; 
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.member{
+  flex: 0 0 15%;
+  max-width: 15%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+.member img{
+  width: 100%;
+  margin-top: 20%;
+  margin-bottom: 10%;
+}
+.member h5{
+  font-family: 'Playfair Display';
+  font-weight: bold;
+}
+.member p{
+  font-size: 0.8rem;
+}
+.btc-ntd{
+  justify-content:center; 
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 15%;
+  margin-left: 15%;
+}
+.btc-ntd .item{
+  flex: 0 0 33.33333%;
+  width: 33.33333%;
+}
+.btc-ntd .item img{
+  width: 100%;
+}

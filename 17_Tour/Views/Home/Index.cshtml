@@ -8,7 +8,7 @@
         ViewBag.Title = commonInfo.Name;
         ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau(commonInfo.Desc);
         ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
-    }    
+    }
 }
 @section health{
     <meta property="og:image:type" content="image/jpg">
@@ -19,54 +19,720 @@
     <meta name="description" content="@commonInfo.Desc" />
 
 }
-@if (ViewData["slide"] != null)
-{
-    <!-- BEGIN SLIDER -->
-    <div class="page-slider">
-        <div class="fullwidthbanner-container revolution-slider">
-            @*assets\revo-slider-init.js*@
-            <div class="fullwidthabnner">
-                <ul id="revolutionul">
-                    @if (ViewData["Slide"] != null)
-                    {
-                        Ads[] adsList = (Ads[])ViewData["Slide"];
-                        if (adsList.Length > 0)
-                        {
-                            foreach (var item in adsList)
-                            {
+<div class="container-fluid">
+    <div class="row">
+        @if (ViewData["slide"] != null)
+        {
 
-                                <li data-transition="fade" data-slotamount="7" data-masterspeed="300" data-delay="9400">
-                                    <img src="@item.ImagesUrl">
-                                    @Html.Raw(item.Description)
-                                </li>
-                            }
+            <div class="owl-carousel-1 owl-carousel  owl-theme box-slide">
+                @if (ViewData["Slide"] != null)
+                {
+                    Ads[] adsList = (Ads[])ViewData["Slide"];
+                    if (adsList.Length > 0)
+                    {
+                        foreach (var item in adsList)
+                        {
+
+                            <div class="d-inline-block home-mau-xam Intro item ">
+                                <a href="@item.ClickUrl">
+                                    <img src="@item.ImagesUrl" style="width: 100%;">
+                                </a>
+
+                                @Html.Raw(item.Description)
+
+                                <!-- thay link video vao src sua kich thuoc w h -->
+                                <div class="Intro-video"><iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/BwZqr77uk48" width="390" height="216"></iframe></div>
+                            </div>
                         }
                     }
-                </ul>
-                <div class="tp-bannertimer tp-bottom"></div>
+                }
+            </div>
+        }
+        <div id="About">
+            <div class="owl-carousel-1 owl-carousel  owl-theme box-slide bg-white" data-ride="carousel" id="AboutText">
+
+                @if (ViewData["ads1"] != null)
+                {
+                    Ads[] adsList = (Ads[])ViewData["ads1"];
+                    if (adsList.Length > 0)
+                    {
+                        foreach (var item in adsList)
+                        {
+                            <div class="item bg-white text-center p-4">
+                                <img class="w-100 d-block" src="@item.ImagesUrl">
+                            </div>
+                        }
+                    }
+                }
+
+
             </div>
         </div>
     </div>
-    <!-- END SLIDER -->
-}
+</div>
+<div class="row">
+    @if (ViewData["ads2"] != null)
+    {
+        Ads[] adsList = (Ads[])ViewData["ads2"];
+        if (adsList.Length > 0)
+        {
+            foreach (var item in adsList)
+            {
+                <a style="width: 50%;" href="@item.ClickUrl">
+                    <img style="width: 100%;" src="@item.ImagesUrl" />
+                </a>
+            }
+        }
+    }
+</div>
+<div id="hanhTrinh" class="hanhTrinh">
+    <div style="padding-top: 4%;padding-bottom: 4%;">
+        <h2 class="text-center font-bold-play-fair"> Các Hoạt Động <br> Của một hành trình </h2><img class="gach-xanh" src="assets/img/gach-xanh.png" style="margin-left: 49%;">
+    </div>
+    <div class="col-12 row hanhTrinh-hoatDong" style="padding: 0;margin: 0px;">
+        <!-- thay anh trong src -->
+        <figure class="figure col-3" style="padding: 0;width: 25%;">
+            <a href="#" style="width: 100%;"><img class="img-fluid" src="assets/img/chdcmht_1.png" style="width: 100%;margin: 0px;padding: 0px;"></a>
+        </figure>
+        <!-- end  -->
+        <figure class="figure col-3" style="padding: 0;width: 25%;"><a href="#" style="width: 100%;"><img class="img-fluid" src="assets/img/chdcmht_2.png" style="width: 100%;margin: 0px;padding: 0px;"></a></figure>
+        <figure class="figure col-3" style="padding: 0;width: 25%;"><a href="#" style="width: 100%;"><img class="img-fluid" src="assets/img/chdcmht_3.png" style="width: 100%;margin: 0px;padding: 0px;"></a></figure>
+        <figure class="figure col-3" style="padding: 0;width: 25%;"><a href="#" style="width: 100%;"><img class="img-fluid" src="assets/img/chdcmht_4.png" style="width: 100%;margin: 0px;padding: 0px;"></a></figure>
 
-<div class="container">
+    </div>
+    @if (commonInfo.ProductCategoryList.Length > 0)
+    {
+        var product = commonInfo.ProductCategoryList.Where(x => x.Id == 1082).FirstOrDefault();
+        <div class="d-inline-flex col-12 home-mau-xam " style="padding-right: 0px;padding-left: 0px;">
+            <div id="hanhTrinh2-text" class="col-4 hanhTrinh-text" style="padding-top: 5%;padding-right: 8%;padding-left: 8%;padding-bottom: 5%;">
+                <h2 class="font-bold-play-fair" style="margin: 0px;padding-bottom: 2%;">@product.Name</h2><img class="gach-xanh" src="assets/img/gach-xanh.png" style="padding-bottom: 13%;">
+                @Html.Raw(product.Description)
+            </div>
+            <!-- end  -->
+            <div class="col-8" id="hanhTrinh-carousel" style="padding: 0;overflow:hidden;">
+                <div class="d-inline-flex">
+                    <div class="row" style="padding: 0%;margin-right: 0;margin-bottom: 1%;margin-left: 0;margin-top: 1%;">
+                        <div id="hanhTrinh2-img" class="row owl-carousel-4 owl-carousel  owl-theme box-slide caroucel-style2" style="padding: 0;padding-top: -5%;margin: 0;padding-bottom: 5%;">
+                            @foreach (var subItem in product.ChildCategory)
+                            {
+                                <div class="upText item">
+                                    <a href="@subItem.DefaultLink" style="width: 100%;">
+                                        <img class="upText-img" src="@subItem.Images" style="width: 100%;">
+                                    </a>
+                                    <div class="upText-Text" style="padding: 0;margin: 0;">
+                                        <p style="margin: 0;margin-top: 5px;">@subItem.Description</p>
+                                        <div class="row" style="margin: 0;">
+                                            <h5 class="font-bold-play-fair" style="width: 70%;">@subItem.Name</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
 
-   
+                </div>
+             
+            </div>
+        </div>
+    }
 
 </div>
+<div id="khachMoi" class="row" style="padding: 0;margin: 0;  border-top: 5px solid black;  border-bottom: 5px solid black;">
+    <div class="bg-white col-12 row" style="padding: 0;">
+        <div id="khacMoiAnh" class="col-8 multi-item-carousel" style="padding: 0px;">
+            <div data-ride="carousel" class="carousel" id="carousel-khach-moi">
+                <div role="listbox" class="carousel-inner">
+                    <div class="carousel-item active" id="slide-khach-moi-1">
+                        <div class="bg-dark row pad-mr-0" style="width: 100%;">
+                            <!-- khach moi  -->
+                            <div id="khach-moi-1" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-nhatruc.png" />
+                                <div class="item-fade-text">
+                                    <h4>Người Mẫu<br />Nhã Trúc</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <!-- end  -->
+                            <div id="khach-moi-2" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-binhan.png" />
+                                <div class="item-fade-text">
+                                    <h4>Diễn Viên<br />Bình An</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-3" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-buiphuongnga.png" />
+                                <div class="item-fade-text">
+                                    <h4>Á Hậu<br />Bùi Phương Nga</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-4" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-trangha.png" />
+                                <div class="item-fade-text">
+                                    <h4>Nhà Văn<br />Trang Hạ</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end  -->
+                    <div class="carousel-item" id="slide-khach-moi-2">
+                        <div class="bg-dark row pad-mr-0" style="width: 100%;">
+                            <div id="khach-moi-2" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-binhan.png" />
+                                <div class="item-fade-text">
+                                    <h4>Diễn Viên<br />Bình An</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-3" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-buiphuongnga.png" />
+                                <div class="item-fade-text">
+                                    <h4>Á Hậu<br />Bùi Phương Nga</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-4" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-trangha.png" />
+                                <div class="item-fade-text">
+                                    <h4>Nhà Văn<br />Trang Hạ</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-5" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-quangvinh.png" />
+                                <div class="item-fade-text">
+                                    <h4>KOL<br />Quang Vinh</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end  -->
+                    <div class="carousel-item" id="slide-khach-moi-3">
+                        <div class="bg-dark row pad-mr-0" style="width: 100%;">
+                            <div id="khach-moi-3" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-buiphuongnga.png" />
+                                <div class="item-fade-text">
+                                    <h4>Á Hậu<br />Bùi Phương Nga</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-4" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-trangha.png" />
+                                <div class="item-fade-text">
+                                    <h4>Nhà Văn<br />Trang Hạ</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-5" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-quangvinh.png" />
+                                <div class="item-fade-text">
+                                    <h4>KOL<br />Quang Vinh</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-6" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-jayquan.png" />
+                                <div class="item-fade-text">
+                                    <h4>KOL<br />Jay Quân<br />&amp;<br />Chúng Huyền<br />Thanh</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end  -->
+                    <div class="carousel-item" id="slide-khach-moi-4">
+                        <div class="bg-dark row pad-mr-0" style="width: 100%;">
+                            <div id="khach-moi-4" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-trangha.png" />
+                                <div class="item-fade-text">
+                                    <h4>Nhà Văn<br />Trang Hạ</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-5" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-quangvinh.png" />
+                                <div class="item-fade-text">
+                                    <h4>KOL<br />Quang Vinh</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-6" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-jayquan.png" />
+                                <div class="item-fade-text">
+                                    <h4>KOL<br />Jay Quân<br />&amp;<br />Chúng Huyền<br />Thanh</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-7" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-hoanganh.png" />
+                                <div class="item-fade-text">
+                                    <h4>Á Hậu<br />Hoàng Anh</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end  -->
+                    <div class="carousel-item" id="slide-khach-moi-5">
+                        <div class="bg-dark row pad-mr-0" style="width: 100%;">
+                            <div id="khach-moi-5" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-quangvinh.png" />
+                                <div class="item-fade-text">
+                                    <h4>KOL<br />Quang Vinh</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-6" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-jayquan.png" />
+                                <div class="item-fade-text">
+                                    <h4>KOL<br />Jay Quân<br />&amp;<br />Chúng Huyền<br />Thanh</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-7" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-hoanganh.png" />
+                                <div class="item-fade-text">
+                                    <h4>Á Hậu<br />Hoàng Anh</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-1" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-nhatruc.png" />
+                                <div class="item-fade-text">
+                                    <h4>Người Mẫu<br />Nhã Trúc</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end  -->
+                    <div class="carousel-item" id="slide-khach-moi-7">
+                        <div class="bg-dark row pad-mr-0" style="width: 100%;">
+                            <div id="khach-moi-6" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-jayquan.png" />
+                                <div class="item-fade-text">
+                                    <h4>KOL<br />Jay Quân<br />&amp;<br />Chúng Huyền<br />Thanh</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-7" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-hoanganh.png" />
+                                <div class="item-fade-text">
+                                    <h4>Á Hậu<br />Hoàng Anh</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-1" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-nhatruc.png" />
+                                <div class="item-fade-text">
+                                    <h4>Người Mẫu<br />Nhã Trúc</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-2" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-binhan.png" />
+                                <div class="item-fade-text">
+                                    <h4>Diễn Viên<br />Bình An</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end  -->
+                    <div class="carousel-item" id="slide-khach-moi-8">
+                        <div class="bg-dark row pad-mr-0" style="width: 100%;">
+                            <div id="khach-moi-7" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-hoanganh.png" />
+                                <div class="item-fade-text">
+                                    <h4>Á Hậu<br />Hoàng Anh</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-1" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-nhatruc.png" />
+                                <div class="item-fade-text">
+                                    <h4>Người Mẫu<br />Nhã Trúc</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-2" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-binhan.png" />
+                                <div class="item-fade-text">
+                                    <h4>Diễn Viên<br />Bình An</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                            <div id="khach-moi-3" class="w-25 item-fade">
+                                <img class="w-100 item-fade-img" src="assets/img/khachmoi-buiphuongnga.png" />
+                                <div class="item-fade-text">
+                                    <h4>Á Hậu<br />Bùi Phương Nga</h4>
+                                    <p>Amazing Tour</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end  -->
+                </div>
+                <div><a href="#carousel-khach-moi" role="button" data-slide="prev" class="carousel-control-prev"><span class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a><a href="#carousel-khach-moi" role="button" data-slide="next" class="carousel-control-next"><span class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a></div>
+            </div>
+        </div>
+        <div id="khachMoiText" class="col-4" style="padding: 0;">
+            <!-- phan text khach moi  -->
+            <div style="margin-right: 25%;margin-top: 40%;margin-left: 25%;">
+                <h2 class="font-bold-play-fair" style="margin-bottom: 0px;padding-bottom: 2%;">Khách Mời</h2>
+                <img class="gach-xanh" src="assets/img/gach-xanh.png" style="padding-bottom: 13%;">
+                <p>Tham gia Amazing Tour không chỉ có những Photographers, Travel Bloggers, Youtubers, hay các nhà báo, phóng viên truyền hình trong lĩnh vực du lịch; mà chương trình còn quy tụ nhiều khách mời nổi tiếng, những gương mặt luôn tích cực hoạt động trong hành trình truyền cảm hứng và quảng bá du lịch cho cộng đồng đam mê dịch chuyển.</p>
+            </div>
+            <!-- end  -->
+        </div>
+    </div>
+</div>
+<div id="thuVien" class="home-mau-xam" style="padding-top: 8%;padding-bottom: 8%;">
+    <div id="thuVienText" class="text-center" style="margin-bottom: 3%;margin-top: -3%;">
+        <h2 class="font-bold-play-fair" style="padding: 0;">Thư Viện</h2>
+        <p style="padding-bottom: 0;">Ảnh Và Video Cuộc Hành Trình</p><img class="gach-xanh" src="assets/img/gach-xanh.png">
+    </div>
+    <div id="thuVienCards">
+        <div class="carousel slide" data-ride="carousel" id="carousel-2">
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <div class="row" style="margin-right: 1%;margin-left: 1%;">
+                        <!-- thu vien 1 -->
+                        <div id="tv-card-item1" class="tv-card-item">
+                            <div class="bg-white">
+                                <img class="tv-card-img" src="assets/img/thuvien1.png">
+                                <div class="tv-card-text">
+                                    <h5 class="font-bold-play-fair" style="margin-bottom: 0;">Amazing Tour 1</h5>
+                                    <div class="row" style="margin: 0;">
+                                        <p style="margin-bottom: 0;width: 50%;padding-bottom:10%;">Hàn Quốc</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- thu vien 2  -->
+                        <div id="tv-card-item2" class="tv-card-item">
+                            <div class="bg-white">
+                                <img class="tv-card-img" src="assets/img/thuvien2.png">
+                                <div class="tv-card-text">
+                                    <h5 class="font-bold-play-fair" style="margin-bottom: 0;">Amazing Tour 2</h5>
+                                    <div class="row" style="margin: 0;">
+                                        <p style="margin-bottom: 0;width: 50%;padding-bottom:10%;">Malaysia</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- thu vien 3  -->
+                        <div id="tv-card-item3" class="tv-card-item">
+                            <div class="bg-white">
+                                <img class="tv-card-img" src="assets/img/thuvien3.png">
+                                <div class="tv-card-text">
+                                    <h5 class="font-bold-play-fair" style="margin-bottom: 0;">Amazing Tour 3</h5>
+                                    <div class="row" style="margin: 0;">
+                                        <p style="margin-bottom: 0;width: 50%;padding-bottom:10%;">Philippines</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- thu vien 4  -->
+                        <div id="tv-card-item4" class="tv-card-item">
+                            <div class="bg-white">
+                                <img class="tv-card-img" src="assets/img/thuvien4.png">
+                                <div class="tv-card-text">
+                                    <h5 class="font-bold-play-fair" style="margin-bottom: 0;">Amazing Tour 4</h5>
+                                    <div class="row" style="margin: 0;">
+                                        <p id="thuVien" style="margin-bottom: 0; padding-bottom:10%;width: 50%;">Thổ Nhĩ Kỳ</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end  -->
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="carousel-control-prev" href="#carousel-2" role="button" data-slide="prev"><span class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-2" role="button"
+                                                                                                                                                                                                data-slide="next"><span class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a>
+            </div>
+            <ol class="carousel-indicators" style="margin-left: 0;margin-top: 0;margin-right: 0;margin-bottom: -5%;">
+                <li data-target="#carousel-2" data-slide-to="0" class="active"></li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div id="chiaSe-camNhan" class="text-center" style="padding-bottom: 5%;">
+    <h2 class="font-bold-play-fair" style="padding-top: 7%;margin-bottom: 7%;">Chia Sẻ &amp; Cảm Nhận</h2>
+    <div id="chiaSe-camNhan-content">
+        <div>
+            <div class="row" style="padding-bottom: 5%;padding-right: 8%;padding-left: 8%;">
+                <!-- chia se cam nhan  -->
+                <div id="cscn-item-id" class="cscn-item">
+                    <img src="assets/img/cscn1.png">
+                    <h6 class="font-bold-play-fair">Mr. Kang Sungghill</h6>
+                    <h6 class="text-uppercase">Trưởng Đại Diện Tổng Cục<br> Du Lịch Hàn Quốc Tại Việt Nam</h6>
+                    <p class="cmt">
+                        "Amazing Photo Tour không chỉ đơn thuần là Fam Tour dành cho các nhà báo mà thành phần tham dự còn có cả các nhà nhiếp ảnh, sản suất phim nổi tiếng nên nó trở nên vô cùng đặc biệt và đây cũng là nhân tố được kỳ vọng sẽ tạo
+                        ra được thật nhiều tác phẩm có giá trị sau chương trình"
+                    </p>
+                </div>
+                <!-- end  -->
+                <div id="cscn-item-id" class="cscn-item">
+                    <img src="assets/img/cscn2.png">
+                    <h6 class="font-bold-play-fair">Đại Diện Turkish Airlines</h6>
+                    <h6 class="font-play-fair"></h6>
+                    <p class="cmt">
+                        Sự tin cậy dành cho nhà tổ chức Amazing Tour - Travellive, tạp chí uy tính hàng đầu về du lịch giải trí - cũng là lý di để Tukish Arilines tài trợ cho chương trình này. Turkish Airlines sẽ lên kế hoặc cùng đồng hành với  Amazing
+                        Tour để tạo ra chuỗi sản phần các điểm đến trong  thời gian tới
+                    </p>
+                </div>
+                <!-- end  -->
+                <div id="cscn-item-id" class="cscn-item">
+                    <img src="assets/img/cscn3.png">
+                    <h6 class="font-bold-play-fair">Hoàng Hà</h6>
+                    <h6 class="text-uppercase">Trưởng Ban Ảnh Báo<br>Điện Tử Zing News</h6>
+                    <p class="cmt">"Qua các bức ảnh video tư liệu của các nhà báp, phóng viên nhiếp ảnh , chúng tôi hy vọng có thể đem tới cho người xem những góc nhìn đa chiều khác quan và chân thực nhất về Malaysia"</p>
+                </div>
+                <!-- end  -->
+            </div>
+
+            <div class="row" style="padding-bottom: 5%;padding-right: 8%;padding-left: 8%;">
+                <div id="cscn-item-id" class="cscn-item">
+                    <img src="assets/img/cscn4.png">
+                    <h6 class="font-bold-play-fair">Nhã Trúc</h6>
+                    <h6 class="text-uppercase">Người Mẫu</h6>
+                    <p class="cmt">
+                        "Hành trình tới Malaysia đã đem tới cho tôi những trải nghiệm thật thứ vị tại đất nước xinh đẹp này. Cảm ơn Amazing Tour đã tạo nên một chương trình đầy ý nghĩa và bổ ích giúp thúc đẩy niềm đam mê du lịch của mọi người đặc
+                        biệt là các bạn trẻ đam mê du lịch khám phá"
+                    </p>
+                </div>
+                <!-- end  -->
+                <div id="cscn-item-id" class="cscn-item">
+                    <img src="assets/img/cscn5.png">
+                    <h6 class="font-bold-play-fair">Bình An</h6>
+                    <h6 class="text-uppercase">Thành Viên Đoàn</h6>
+                    <p class="cmt">"Những ngày ở Thổ Nhĩ Kỳ thật sự là chuỗi ký ức thậ đẹp"</p>
+                </div>
+                <!-- end  -->
+                <div id="cscn-item-id" class="cscn-item">
+                    <img src="assets/img/cscn6.png">
+                    <h6 class="font-bold-play-fair">Trần Đức Việt</h6>
+                    <h6 class="text-uppercase">Nhiếp Ảnh Gia</h6>
+                    <p class="cmt">
+                        "Amazing Tour đã cho tôi những trải nghiệm vô cùng tuyệt vời tại xứ sở kim chi Hàn Quốc. Hy vọng qua những tác phẩm chúng tôi ghi lại tại nơi đây sẽ giúp các du khách hiểu rõ hơn về con người văn hóa Hàn Quốc và hơn nữa là
+                        truyền cảm hứng du lịch cho người dân Việt Nam"
+                    </p>
+                </div>
+                <!-- end  -->
+            </div>
+        </div>
+        <div id="showMore">
+            <div class="row" style="padding-bottom: 5%;padding-right: 8%;padding-left: 8%;">
+                <!-- end  -->
+                <div id="cscn-item-id" class="cscn-item">
+                    <img src="assets/img/cscn1.png">
+                    <h6 class="font-bold-play-fair">Mr. Kang Sungghill</h6>
+                    <h6 class="text-uppercase">Trưởng Đại Diện Tổng Cục<br> Du Lịch Hàn Quốc Tại Việt Nam</h6>
+                    <p class="cmt">
+                        "Amazing Photo Tour không chỉ đơn thuần là Fam Tour dành cho các nhà báo mà thành phần tham dự còn có cả các nhà nhiếp ảnh, sản suất phim nổi tiếng nên nó trở nên vô cùng đặc biệt và đây cũng là nhân tố được kỳ vọng sẽ tạo
+                        ra được thật nhiều tác phẩm có giá trị sau chương trình"
+                    </p>
+                </div>
+                <!-- end  -->
+                <div id="cscn-item-id" class="cscn-item">
+                    <img src="assets/img/cscn2.png">
+                    <h6 class="font-bold-play-fair">Đại Diện Turkish Airlines</h6>
+                    <h6 class="font-play-fair"></h6>
+                    <p class="cmt">
+                        Sự tin cậy dành cho nhà tổ chức Amazing Tour - Travellive, tạp chí uy tính hàng đầu về du lịch giải trí - cũng là lý di để Tukish Arilines tài trợ cho chương trình này. Turkish Airlines sẽ lên kế hoặc cùng đồng hành với  Amazing
+                        Tour để tạo ra chuỗi sản phần các điểm đến trong  thời gian tới
+                    </p>
+                </div>
+                <!-- end  -->
+                <div id="cscn-item-id" class="cscn-item">
+                    <img src="assets/img/cscn3.png">
+                    <h6 class="font-bold-play-fair">Hoàng Hà</h6>
+                    <h6 class="text-uppercase">Trưởng Ban Ảnh Báo<br>Điện Tử Zing News</h6>
+                    <p class="cmt">"Qua các bức ảnh video tư liệu của các nhà báp, phóng viên nhiếp ảnh , chúng tôi hy vọng có thể đem tới cho người xem những góc nhìn đa chiều khác quan và chân thực nhất về Malaysia"</p>
+                </div>
+                <!-- end  -->
+            </div>
+
+            <div class="row" style="padding-bottom: 5%;padding-right: 8%;padding-left: 8%;">
+                <!-- end  -->
+                <div id="cscn-item-id" class="cscn-item">
+                    <img src="assets/img/cscn4.png">
+                    <h6 class="font-bold-play-fair">Nhã Trúc</h6>
+                    <h6 class="text-uppercase">Người Mẫu</h6>
+                    <p class="cmt">
+                        "Hành trình tới Malaysia đã đem tới cho tôi những trải nghiệm thật thứ vị tại đất nước xinh đẹp này. Cảm ơn Amazing Tour đã tạo nên một chương trình đầy ý nghĩa và bổ ích giúp thúc đẩy niềm đam mê du lịch của mọi người đặc
+                        biệt là các bạn trẻ đam mê du lịch khám phá"
+                    </p>
+                </div>
+                <!-- end  -->
+                <div id="cscn-item-id" class="cscn-item">
+                    <img src="assets/img/cscn5.png">
+                    <h6 class="font-bold-play-fair">Bình An</h6>
+                    <h6 class="text-uppercase">Thành Viên Đoàn</h6>
+                    <p class="cmt">"Những ngày ở Thổ Nhĩ Kỳ thật sự là chuỗi ký ức thậ đẹp"</p>
+                </div>
+                <!-- end  -->
+                <div id="cscn-item-id" class="cscn-item">
+                    <img src="assets/img/cscn6.png">
+                    <h6 class="font-bold-play-fair">Trần Đức Việt</h6>
+                    <h6 class="text-uppercase">Nhiếp Ảnh Gia</h6>
+                    <p class="cmt">
+                        "Amazing Tour đã cho tôi những trải nghiệm vô cùng tuyệt vời tại xứ sở kim chi Hàn Quốc. Hy vọng qua những tác phẩm chúng tôi ghi lại tại nơi đây sẽ giúp các du khách hiểu rõ hơn về con người văn hóa Hàn Quốc và hơn nữa là
+                        truyền cảm hứng du lịch cho người dân Việt Nam"
+                    </p>
+                </div>
+                <!-- end  -->
+            </div>
+        </div>
+    </div>
+    <div class="justify-content-center row">
+        <div class="col-2" style="padding-bottom: 3%;">
+            <i class="fa fa-angle-double-down show-more-icon icon-show" id="showicon"></i>
+        </div>
+    </div>
+    <div id="cscn-boder" style="margin-right: 5%;margin-left: 5%;"></div>
+</div>
+<div class="text-center" id="amz-info">
+    <div id="amz-info-btc" class="text-center">
+        <h4 class="font-bold-play-fair" style="padding-bottom: 1%;">Ban Tổ Chức</h4><img class="col-1" src="assets/img/btc.png" style="padding-bottom: 3%;">
+    </div><img class="gach-xanh" src="assets/img/gach-xanh.png" style="padding-bottom: 1%;">
+    <div id="amz-info-doiTac" class="text-center" style="padding-top: 2%;">
+        <h4 class="font-bold-play-fair" style="padding-bottom: 1%;">Đối Tác</h4>
+        <div class="justify-content-center align-items-center row" style="padding-bottom: 1%;">
+            <img class="col-2" src="assets/img/dt1.jpg" style="width: 20%;">
+            <img class="col-2" src="assets/img/dt2.jpg" style="width: 20%;">
+            <img class="col-2" src="assets/img/dt3.jpg" style="width: 20%;">
+            <img class="col-2" src="assets/img/dt4.jpg" style="width: 20%;">
+        </div>
+    </div><img class="gach-xanh" src="assets/img/gach-xanh.png" style="padding-bottom: 3%;">
+    <div id="amz-info-ntt" class="text-center" style="padding-bottom: 5%;">
+        <h4 class="font-bold-play-fair" style="padding-bottom: 1%;">Nhà tài trợ</h4>
+        <div data-ride="carousel" class="carousel" id="carousel-3">
+            <div role="listbox" class="carousel-inner">
+                <div class="carousel-item" id="6">
+                    <div class="align-items-center row">
+                        <img id="img1" class="col-2" src="assets/img/ntt1.jpg" />
+                        <img id="img2" class="col-2" src="assets/img/ntt2.jpg" />
+                        <img id="img3" class="col-2" src="assets/img/ntt3.jpg" />
+                        <img id="img4" class="col-2" src="assets/img/ntt4.jpg" />
+                        <img id="img5" class="col-2" src="assets/img/ntt5.jpg" />
+                        <img id="img6" class="col-2" src="assets/img/ntt6.jpg" />
+                    </div>
+                </div>
+                <div class="carousel-item" id="7">
+                    <div class="align-items-center row">
+                        <img id="img2" class="col-2" src="assets/img/ntt2.jpg" />
+                        <img id="img3" class="col-2" src="assets/img/ntt3.jpg" />
+                        <img id="img4" class="col-2" src="assets/img/ntt4.jpg" />
+                        <img id="img5" class="col-2" src="assets/img/ntt5.jpg" />
+                        <img id="img6" class="col-2" src="assets/img/ntt6.jpg" />
+                        <img id="img7" class="col-2" src="assets/img/ntt7.jpg" />
+                    </div>
+                </div>
+                <div class="carousel-item" id="8">
+                    <div class="align-items-center row">
+                        <img id="img3" class="col-2" src="assets/img/ntt3.jpg" />
+                        <img id="img4" class="col-2" src="assets/img/ntt4.jpg" />
+                        <img id="img5" class="col-2" src="assets/img/ntt5.jpg" />
+                        <img id="img6" class="col-2" src="assets/img/ntt6.jpg" />
+                        <img id="img7" class="col-2" src="assets/img/ntt7.jpg" />
+                        <img id="img8" class="col-2" src="assets/img/ntt8.jpg" />
+                    </div>
+                </div>
+                <div class="carousel-item active" id="9">
+                    <div class="align-items-center row">
+                        <img id="img4" class="col-2" src="assets/img/ntt4.jpg" />
+                        <img id="img5" class="col-2" src="assets/img/ntt5.jpg" />
+                        <img id="img6" class="col-2" src="assets/img/ntt6.jpg" />
+                        <img id="img7" class="col-2" src="assets/img/ntt7.jpg" />
+                        <img id="img8" class="col-2" src="assets/img/ntt8.jpg" />
+                        <img id="img9" class="col-2" src="assets/img/ntt9.jpg" />
+                    </div>
+                </div>
+                <div class="carousel-item" id="10">
+                    <div class="align-items-center row">
+                        <img id="img5" class="col-2" src="assets/img/ntt5.jpg" />
+                        <img id="img6" class="col-2" src="assets/img/ntt6.jpg" />
+                        <img id="img7" class="col-2" src="assets/img/ntt7.jpg" />
+                        <img id="img8" class="col-2" src="assets/img/ntt8.jpg" />
+                        <img id="img9" class="col-2" src="assets/img/ntt9.jpg" />
+                        <img id="img10" class="col-2" src="assets/img/ntt10.jpg" />
+                    </div>
+                </div>
+                <div class="carousel-item" id="1">
+                    <div class="align-items-center row">
+                        <img id="img6" class="col-2" src="assets/img/ntt6.jpg" />
+                        <img id="img7" class="col-2" src="assets/img/ntt7.jpg" />
+                        <img id="img8" class="col-2" src="assets/img/ntt8.jpg" />
+                        <img id="img9" class="col-2" src="assets/img/ntt9.jpg" />
+                        <img id="img10" class="col-2" src="assets/img/ntt10.jpg" />
+                        <img id="img1" class="col-2" src="assets/img/ntt1.jpg" />
+                    </div>
+                </div>
+                <div class="carousel-item" id="2">
+                    <div class="align-items-center row">
+                        <img id="img7" class="col-2" src="assets/img/ntt7.jpg" />
+                        <img id="img8" class="col-2" src="assets/img/ntt8.jpg" />
+                        <img id="img9" class="col-2" src="assets/img/ntt9.jpg" />
+                        <img id="img10" class="col-2" src="assets/img/ntt10.jpg" />
+                        <img id="img1" class="col-2" src="assets/img/ntt1.jpg" />
+                        <img id="img2" class="col-2" src="assets/img/ntt2.jpg" />
+                    </div>
+                </div>
+                <div class="carousel-item" id="3">
+                    <div class="align-items-center row">
+                        <img id="img8" class="col-2" src="assets/img/ntt8.jpg" />
+                        <img id="img9" class="col-2" src="assets/img/ntt9.jpg" />
+                        <img id="img10" class="col-2" src="assets/img/ntt10.jpg" />
+                        <img id="img1" class="col-2" src="assets/img/ntt1.jpg" />
+                        <img id="img2" class="col-2" src="assets/img/ntt2.jpg" />
+                        <img id="img3" class="col-2" src="assets/img/ntt3.jpg" />
+                    </div>
+                </div>
+                <div class="carousel-item" id="4">
+                    <div class="align-items-center row">
+                        <img id="img9" class="col-2" src="assets/img/ntt9.jpg" />
+                        <img id="img10" class="col-2" src="assets/img/ntt10.jpg" />
+                        <img id="img1" class="col-2" src="assets/img/ntt1.jpg" />
+                        <img id="img2" class="col-2" src="assets/img/ntt2.jpg" />
+                        <img id="img3" class="col-2" src="assets/img/ntt3.jpg" />
+                        <img id="img4" class="col-2" src="assets/img/ntt4.jpg" />
+                    </div>
+                </div>
+                <div class="carousel-item" id="5">
+                    <div class="align-items-center row">
+                        <img id="img10" class="col-2" src="assets/img/ntt10.jpg" />
+                        <img id="img1" class="col-2" src="assets/img/ntt1.jpg" />
+                        <img id="img2" class="col-2" src="assets/img/ntt2.jpg" />
+                        <img id="img3" class="col-2" src="assets/img/ntt3.jpg" />
+                        <img id="img4" class="col-2" src="assets/img/ntt4.jpg" />
+                        <img id="img5" class="col-2" src="assets/img/ntt5.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a href="#carousel-3" role="button" data-slide="prev" class="carousel-control-prev">
+                    <span aria-hidden="true"></span><span class="sr-only">Previous</span>
+                </a>
+                <a href="#carousel-3" role="button" data-slide="next" class="carousel-control-next">
+                    <span aria-hidden="true"></span><span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 @section scripts {
-    <link href="/theme/wp-content/plugins/ovic-toolkit/assets/css/magnific-popup.css" rel="stylesheet" />
-    <script src="/theme/wp-content/plugins/ovic-toolkit/assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="/assets/plugin/slider-revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
-    <script src="/assets/plugin/slider-revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js" type="text/javascript"></script>
-    <script src="/assets/revo-slider-init.js" type="text/javascript"></script>
-    <script src="/assets/home-init.js"></script>
     <script>
         $(document).ready(function () {
-  
-  
+
+
         });
-       
+
     </script>
 }
