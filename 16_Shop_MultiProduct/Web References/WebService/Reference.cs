@@ -81,6 +81,8 @@ namespace AnperoFrontend.WebService {
         
         private System.Threading.SendOrPostCallback RegisterSeriaOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetProductIdBySeriaOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -196,6 +198,9 @@ namespace AnperoFrontend.WebService {
         
         /// <remarks/>
         public event RegisterSeriaCompletedEventHandler RegisterSeriaCompleted;
+        
+        /// <remarks/>
+        public event GetProductIdBySeriaCompletedEventHandler GetProductIdBySeriaCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetPaymentAPIConfig", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -1150,10 +1155,12 @@ namespace AnperoFrontend.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RegisterSeria", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string RegisterSeria(Contact contact, string seria, string captcha, int st, string token, out string rs) {
+        public string RegisterSeria(Contact contact, string seria, string reseller, string note, string captcha, int st, string token, out string rs) {
             object[] results = this.Invoke("RegisterSeria", new object[] {
                         contact,
                         seria,
+                        reseller,
+                        note,
                         captcha,
                         st,
                         token});
@@ -1162,18 +1169,20 @@ namespace AnperoFrontend.WebService {
         }
         
         /// <remarks/>
-        public void RegisterSeriaAsync(Contact contact, string seria, string captcha, int st, string token) {
-            this.RegisterSeriaAsync(contact, seria, captcha, st, token, null);
+        public void RegisterSeriaAsync(Contact contact, string seria, string reseller, string note, string captcha, int st, string token) {
+            this.RegisterSeriaAsync(contact, seria, reseller, note, captcha, st, token, null);
         }
         
         /// <remarks/>
-        public void RegisterSeriaAsync(Contact contact, string seria, string captcha, int st, string token, object userState) {
+        public void RegisterSeriaAsync(Contact contact, string seria, string reseller, string note, string captcha, int st, string token, object userState) {
             if ((this.RegisterSeriaOperationCompleted == null)) {
                 this.RegisterSeriaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRegisterSeriaOperationCompleted);
             }
             this.InvokeAsync("RegisterSeria", new object[] {
                         contact,
                         seria,
+                        reseller,
+                        note,
                         captcha,
                         st,
                         token}, this.RegisterSeriaOperationCompleted, userState);
@@ -1183,6 +1192,39 @@ namespace AnperoFrontend.WebService {
             if ((this.RegisterSeriaCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.RegisterSeriaCompleted(this, new RegisterSeriaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetProductIdBySeria", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int GetProductIdBySeria(string seria, string captcha, int st) {
+            object[] results = this.Invoke("GetProductIdBySeria", new object[] {
+                        seria,
+                        captcha,
+                        st});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetProductIdBySeriaAsync(string seria, string captcha, int st) {
+            this.GetProductIdBySeriaAsync(seria, captcha, st, null);
+        }
+        
+        /// <remarks/>
+        public void GetProductIdBySeriaAsync(string seria, string captcha, int st, object userState) {
+            if ((this.GetProductIdBySeriaOperationCompleted == null)) {
+                this.GetProductIdBySeriaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetProductIdBySeriaOperationCompleted);
+            }
+            this.InvokeAsync("GetProductIdBySeria", new object[] {
+                        seria,
+                        captcha,
+                        st}, this.GetProductIdBySeriaOperationCompleted, userState);
+        }
+        
+        private void OnGetProductIdBySeriaOperationCompleted(object arg) {
+            if ((this.GetProductIdBySeriaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetProductIdBySeriaCompleted(this, new GetProductIdBySeriaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1523,6 +1565,10 @@ namespace AnperoFrontend.WebService {
         
         private string seriaField;
         
+        private string resellerField;
+        
+        private string noteField;
+        
         private string seriaIdField;
         
         private System.DateTime beginDateField;
@@ -1558,6 +1604,26 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.seriaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Reseller {
+            get {
+                return this.resellerField;
+            }
+            set {
+                this.resellerField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Note {
+            get {
+                return this.noteField;
+            }
+            set {
+                this.noteField = value;
             }
         }
         
@@ -4039,6 +4105,32 @@ namespace AnperoFrontend.WebService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void GetProductIdBySeriaCompletedEventHandler(object sender, GetProductIdBySeriaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetProductIdBySeriaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetProductIdBySeriaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
             }
         }
     }

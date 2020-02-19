@@ -1,0 +1,239 @@
+.row.footer {
+  margin-top: 3vh;
+}
+
+.carousel-indicators .active {
+  background-color: rgb(95,95,95);
+}
+
+.carousel-indicators li {
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+  background-color: #404040;
+}
+
+.carousel-item:hover .carousel-fade {
+  opacity: 0.4;
+}
+
+.carousel-inner.aboutText {
+  width: 100%;
+}
+
+.figure.col-3 {
+  padding: 0px!important;
+}
+
+.body-back {
+  background-color: rgb(220,220,220);
+}
+
+.upText {
+  padding-top: 10%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.upText:hover {
+  padding-top: 5%;
+}
+
+.upText .upText-Text {
+  visibility: hidden;
+  /*background-color: white;*/
+}
+
+.upText:hover .upText-Text {
+  visibility: visible;
+}
+
+.pad-mr-0 {
+  padding: 0%;
+  margin: 0%;
+}
+
+.item-fade:hover .item-fade-img {
+  opacity: 0.5;
+}
+
+.item-fade:hover .item-fade-text {
+  visibility: visible;
+}
+
+.item-fade-text {
+  position: absolute;
+  color: white;
+  width: 25%;
+  text-align: center;
+  visibility: hidden;
+  top: 36%;
+}
+.item-fade-text h4{
+  font-family: 'Playfair Display';
+  font-weight: bold;
+}
+
+.tv-card-item {
+  background-color: #dadada;
+  width: 25%;
+  text-align: left;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.tv-card-item .tv-card-img {
+  background-color: #dadada;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.cscn-item .cmt {
+  background-image: url(../../assets/img/dau-ngoac-hoi.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30%;
+  min-height: 100px;
+}
+
+.cscn-item {
+  text-align: center;
+  width: 33%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+
+
+.footer {
+  padding: 35px 40px;
+  color: rgba(255,255,255,1.00);
+  /*margin-bottom: 20px;*/
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 5px;
+  background-color: rgb(41,41,41);
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.home-mau-xam {
+  background-color: #dadada;
+}
+
+#About {
+  background-color: #6b6b6b;
+}
+
+#cscn-item-id img {
+  width: 40%;
+  padding-bottom: 3%;
+}
+
+.hanhTrinh-text p {
+  margin-right: 15%;
+}
+
+.hanhTrinh-hoatDong figure {
+  margin: 0px;
+}
+
+#cscn-item-id p {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.nav-item {
+  width: 16%;
+  text-align: center;
+}
+
+.nav-item a {
+  padding-left: 0px!important;
+  padding-right: 0px!important;
+}
+
+.intro-text {
+  position: absolute;
+  top: 60%;
+  color: white;
+  padding-left: 7%;
+  width: 50%;
+}
+
+.gach-xanh {
+  width: 30px;
+  padding-left: 2px;
+}
+
+#Intro-video {
+  position: absolute;
+  left: auto;
+  right: 0px;
+  float: right;
+  margin-top: -216px;
+}
+
+.nav-item:hover a .nav-item-under {
+  border-bottom: 2px solid #74c8e0;
+}
+
+.nav-item a .nav-item-under {
+  width: 80%;
+  margin: 0px 0px 0px 10%;
+  padding: 0px;
+}
+
+#cscn-boder {
+  border-bottom: 2px solid #74c8e0;
+}
+
+.soc-icon {
+  background: #25c5b2;
+  width: 10px!important;
+  height: 5px!important;
+  /* font-size: 1.5rem; */
+  text-align: left;
+  border-radius: 50%;
+  line-height: 0px;
+  /* padding-top: 1.5vw;
+  padding-right: 2vw;
+  padding-bottom: 1.5vwpx;
+  padding-left: 1vw; */
+  padding-left: 0.6rem;
+  padding-top: 0.9rem;
+  padding-right: 1.2rem;
+  padding-bottom: 0.9rem;
+  color: black;
+}
+
+#cscn-item-id img {
+  padding-bottom: 20px;
+}
+
+.show-more-icon {
+  font-size: 40px;
+  color: rgb(157,165,174);
+  padding-bottom: 4%;
+}
+
+.show-more-icon:hover {
+  color: black;
+}
+
+#showMore {
+  display: none;
+}
+
+.icon-hide {
+  display: none;
+}
+
+.icon-show {
+  display: block;
+}
+
+

@@ -8,22 +8,25 @@
         ViewBag.Title = commonInfo.Name;
         ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau(commonInfo.Desc);
         ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
-    }
+    }    
 }
 @section health{
-
     <link href="/assets/style-revolution-slider.css" rel="stylesheet">
     <link href="/assets/plugin/slider-revolution-slider/rs-plugin/css/settings.css" rel="stylesheet">
     <meta property="og:image:type" content="image/jpg">
     <meta content="@commonInfo.Name" name="author" />
     <meta property="og:image" content="@commonInfo.Logo">
+    <meta property="og:description" content="@commonInfo.Desc">
+    <meta property="og:description" content="@commonInfo.Desc">
+    <meta name="description" content="@commonInfo.Desc" />
+
 }
 @if (ViewData["slide"] != null)
 {
     <!-- BEGIN SLIDER -->
     <div class="page-slider">
         <div class="fullwidthbanner-container revolution-slider">
-             @*assets\revo-slider-init.js*@
+            @*assets\revo-slider-init.js*@
             <div class="fullwidthabnner">
                 <ul id="revolutionul">
                     @if (ViewData["Slide"] != null)
@@ -96,17 +99,20 @@
                                                 <span class="price">
                                                     @if (item1.IsSale)
                                                     {
-                                                        <del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>@Anpero.StringHelpper.ConVertToMoneyFormatInt(item1.Price)</span></del>
+                                                        <del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>@Anpero.StringHelpper.ConVertToMoneyFormatInt(item1.Price)đ</span></del>
                                                     }
                                                     <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>@Anpero.StringHelpper.ConVertToMoneyFormatInt(item1.IsSale ? item1.SalePrice : item1.Price)đ</span></ins>
                                                 </span>
+                                                @if (!string.IsNullOrEmpty(item1.OriginName))
+                                                {
+                                                    <p>Xuất xứ : @item1.OriginName</p>
+                                                }
 
-                                                <p>Xuất xứ : @item1.OriginName</p>
                                                 <p>Thông số:  @item1.Specifications</p>
                                                 @if (item1.IsInstock)
                                                 {
                                                     <div class="add-to-cart">
-                                                        <a href="javascript:Cart.addProduct(@item1.Id,@Convert.ToInt32(item1.IsSale?item1.SalePrice:item1.Price),'@item1.Images','@HttpUtility.HtmlEncode(item1.PrName)')" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ hàng</a>
+                                                        <a href="javascript:Cart.addProduct(@item1.Id,@Convert.ToInt32(item1.IsSale?item1.SalePrice:item1.Price),'@item1.Images','@HttpUtility.HtmlEncode(item1.PrName)',@Convert.ToInt32(item1.Price))" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ hàng</a>
                                                     </div>
                                                 }
 
@@ -143,9 +149,8 @@
                                     </ul>
                                     <div class="clearfix"></div>
                                 </div>
-                                <div class="tab-container">
-                                    <div class="tab-panel active">
-                                        <div class="ovic-products   review_hided   style-2 ovic_custom_5c92fe3eaf6d6  owl-ls-3 owl-lg-3 owl-md-3 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_owl_default">
+                                
+                                 <div class="ovic-products   review_hided   style-2 ovic_custom_5c92fe3eaf6d6  owl-ls-3 owl-lg-3 owl-md-3 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_owl_default">
                                             <div id="feature-pr-content" class="owl-slick product-list-owl equal-container better-height" data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:3,&quot;rows&quot;:2} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
                                                 @if (searchResult.Item.Length > 1)
                                                 {
@@ -161,14 +166,13 @@
                                                                             <img width="300" height="300" src="@item.Images" class="wp-post-image attachment-300x300 size-300x300" alt="@item.PrName" />
                                                                         </figure>
                                                                     </a>
-                                                                    @if (item.IsSale)
-                                                                    {
-                                                                        <div class="flash">
-                                                                            <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
-                                                                        </div>
-                                                                    }
-
                                                                 </div>
+                                                                @if (item.IsSale)
+                                                                {
+                                                                    <div class="flash">
+                                                                        <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
+                                                                    </div>
+                                                                }
                                                                 <div class="product-info">
                                                                     <h3 class="product-name product_title">
                                                                         <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
@@ -177,7 +181,7 @@
                                                                     <span class="price">
                                                                         @if (item.IsSale)
                                                                         {
-                                                                            <del><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span></del>
+                                                                            <del><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)đ</span></del>
                                                                         }
                                                                         <ins><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)đ</span></ins>
                                                                     </span>
@@ -187,7 +191,7 @@
                                                                     <div class="group-button">
                                                                         <div class="inner">
                                                                             <div class="add-to-cart">
-                                                                                <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)')" class="button product_type_variable add_to_cart_button">Mua ngay</a>
+                                                                                <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)',@Convert.ToInt32(item.Price))" class="button product_type_variable add_to_cart_button">Mua ngay</a>
                                                                             </div>
 
                                                                         </div>
@@ -199,8 +203,7 @@
                                                 }
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    
                             </div>
                         </div>
                     </div>
@@ -244,7 +247,7 @@
                         <div class="wpb_wrapper">
                             <div class="ovic-product product-item product style6 default   ovic_custom_5c92fe3eaf728 vc_custom_1536910883987 vc_custom_1536910883999 " style="">
                                 <div class="banner">
-                                    <img width="498" height="493" src="@adsList1[3].ImagesUrl" class="wp-post-image attachment-498x493 size-498x493 lazy" alt="h49" data-src="/theme/wp-content/uploads/2018/09/h49.png" />
+                                    <img width="498" height="493" src="@adsList1[3].ImagesUrl" class="wp-post-image attachment-498x493 size-498x493 lazy" alt="h49" data-src="@adsList1[3].ImagesUrl" />
                                 </div>
                                 <div class="content">
                                     @Html.Raw(adsList1[3].Description)
@@ -268,26 +271,34 @@
                                 <div class="ovic-slide-default">
                                     <div class="owl-slick" data-slick={&quot;arrows&quot;:false,&quot;slidesMargin&quot;:20,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:3,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:1}}]>
 
-                                        <div class="wpb_single_image wpb_content_element vc_align_center ovic_custom_5c92fe3eaf72c">
-
+                                        <div class="wpb_content_element vc_align_center ovic_custom_5c92fe3eaf72c">
                                             <figure class="wpb_wrapper vc_figure">
-                                                <div class="vc_single_image-wrapper   vc_box_border_grey effect border-scale ">
-                                                    <img class="vc_single_image-img lazy attachment-full" src="@Html.Raw(adsList1[4].ImagesUrl)" data-src="@Html.Raw(adsList1[4].ImagesUrl)" width="376" height="250" />
-                                                </div>
+                                                <a href="@adsList1[4].ClickUrl">
+                                                    <div class="vc_single_image-wrapper vc_box_border_grey effect border-scale ">
+                                                        <img class="vc_single_image-img lazy attachment-full" src="@Html.Raw(adsList1[4].ImagesUrl)" data-src="@Html.Raw(adsList1[4].ImagesUrl)" width="376" height="250" />
+                                                    </div>
+                                                    @Html.Raw(adsList1[4].Description)
+                                                </a>
                                             </figure>
                                         </div>
                                         <div class="ovic-iconbox style16 Dark Background   ovic_custom_5c92fe3eaf72d  slick-slide slick-active">
-                                            <div class="box-url-video">
-                                                <img width="376" height="250" src="@Html.Raw(adsList1[5].ImagesUrl)" class="wp-post-image attachment-376x250 size-376x250 lazy" alt="h47" data-src="@Html.Raw(adsList1[5].ImagesUrl)" />
-                                                @Html.Raw(adsList1[5].Description)
-                                            </div>
+                                            <a href="@adsList1[5].ClickUrl">
+                                                <div class="box-url-video">
+                                                    <img width="376" height="250" src="@Html.Raw(adsList1[5].ImagesUrl)" class="wp-post-image attachment-376x250 size-376x250 lazy" alt="h47" data-src="@Html.Raw(adsList1[5].ImagesUrl)" />
+                                                    @Html.Raw(adsList1[5].Description)
+
+                                                </div>
+                                            </a>
                                             <div class="clearfix"></div>
                                         </div>
-                                        <div class="wpb_single_image wpb_content_element vc_align_center ovic_custom_5c92fe3eaf72e">
+                                        <div class="wpb_content_element vc_align_center ovic_custom_5c92fe3eaf72e">
                                             <figure class="wpb_wrapper vc_figure">
-                                                <div class="vc_single_image-wrapper   vc_box_border_grey effect border-scale ">
-                                                    <img class="vc_single_image-img lazy attachment-full" src="@Html.Raw(adsList1[6].ImagesUrl)" data-src="@Html.Raw(adsList1[6].ImagesUrl)" width="376" height="250" />
-                                                </div>
+                                                <a href="@adsList1[6].ClickUrl">
+                                                    <div class="vc_single_image-wrapper vc_box_border_grey effect border-scale ">
+                                                        <img class="vc_single_image-img lazy attachment-full" src="@Html.Raw(adsList1[6].ImagesUrl)" data-src="@Html.Raw(adsList1[6].ImagesUrl)" width="376" height="250" />
+                                                        @Html.Raw(adsList1[6].Description)
+                                                    </div>
+                                                </a>
                                             </figure>
                                         </div>
                                     </div>
@@ -485,17 +496,15 @@
                                         }
                                     </ul>
                                     <div class="clearfix"></div>
-                                </div>
-                                <div class="tab-container">
-                                    <div class="tab-panel active">
-                                        <div class="wpb_wrapper">
+                                </div>                                
+                                <div class="wpb_wrapper">
                                             <div class="ovic-products only-icon review_hided  style-2 ovic_custom_5c92fe3eaf732 vc_custom_1547457855172 vc_custom_1547457855217  owl-ls-6 owl-lg-6 owl-md-5 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_style20">
 
                                                 <div id="sale-pr-content" class="animate product-list-owl owl-slick equal-container better-height ovic-accordion " data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:3,&quot;rows&quot;:2} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
                                                     @for (int i = 0; i < searchResult.Length; i++)
                                                     {
                                                         var item = searchResult[i];
-                                                        <div class="product-item equal-elem">
+                                                        <div class="product-item  style-2 style-4 equal-elem">
                                                             <div class="product-inner">
                                                                 <div class="product-thumb col-md-6">
                                                                     <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
@@ -504,13 +513,14 @@
                                                                         </figure>
                                                                     </a>
                                                                 </div>
-                                                                <div class="product-info" style="float:left;width:50%;">
-                                                                    @if (item.IsSale)
-                                                                    {
-                                                                        <div class="flash">
-                                                                            <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
-                                                                        </div>
-                                                                    }
+                                                                @if (item.IsSale)
+                                                                {
+                                                                    <div class="flash">
+                                                                        <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
+                                                                    </div>
+                                                                }
+                                                                <div class="product-info col-md-6">
+
                                                                     <h3 class="product-name product_title">
                                                                         <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
                                                                     </h3>
@@ -519,16 +529,16 @@
                                                                         @if (item.IsSale)
                                                                         {
                                                                             <del>
-                                                                                <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span>
+                                                                                <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)đ</span>
                                                                             </del>
                                                                             <ins>
-                                                                                <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
+                                                                                <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)đ</span>
                                                                             </ins>
                                                                         }
                                                                         else
                                                                         {
                                                                             <ins>
-                                                                                <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)</span>
+                                                                                <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)đ</span>
                                                                             </ins>
                                                                         }
                                                                     </span>
@@ -546,7 +556,7 @@
                                                                 <div class="group-button">
                                                                     <div class="inner">
                                                                         <div class="add-to-cart">
-                                                                            <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)')" class="button product_type_simple add_to_cart_button" rel="nofollow" tabindex="0">Thêm vào giỏ hàng</a>
+                                                                            <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)',@Convert.ToInt32(item.Price))" class="button product_type_simple add_to_cart_button" rel="nofollow" tabindex="0">Thêm vào giỏ hàng</a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -558,12 +568,7 @@
                                                 </div>
                                             </div>
                                         </div>
-
-                                    </div>
-
-                                </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -578,27 +583,25 @@
         Ads[] adsList = (Ads[])ViewData["Ads2"];
         if (adsList.Length > 0)
         {
-            foreach (var item in adsList)
-            {
+            var item1 = adsList[0];
+            var item2 = adsList.Length > 1 ? adsList[1] : new Ads();
 
-                <div class="banner-effect ovic-banner style21 default   ovic_custom_5c92fe3eaf731 vc_custom_1550451311424 vc_custom_1550451311453 "
-                     style="">
-                    <div class="thumb-banner">
-                        <a href="shop/index.html">
-                            <img width="1170" height="203" src="@item.ImagesUrl" class="wp-post-image attachment-1170x203 size-1170x203 lazy" alt="h51" data-src="@item.ImagesUrl" />
-                        </a>
-                    </div>
-                    <div class="texts-container">
-                        @Html.Raw(item.Description)
-                    </div>
+            <div class="banner-effect ovic-banner style21 default   ovic_custom_5c92fe3eaf731 vc_custom_1550451311424 vc_custom_1550451311453 ">
+                <div class="thumb-banner">
+                    <a href="@item1.ClickUrl">
+                        <img src="@item1.ImagesUrl" class="wp-post-image attachment-1170x203 size-1170x203 lazy" alt="h51" data-src="@item1.ImagesUrl" />
+                    </a>
                 </div>
-            }
+                <div class="texts-container">
+                    @Html.Raw(item2.Description)
+                </div>
+            </div>
+
         }
     }
     else
     {
-        <div class="banner-effect ovic-banner style21 default   ovic_custom_5c92fe3eaf731 vc_custom_1550451311424 vc_custom_1550451311453 "
-             style="">
+        <div class="banner-effect ovic-banner style21 default   ovic_custom_5c92fe3eaf731 vc_custom_1550451311424 vc_custom_1550451311453 ">
             <div class="thumb-banner">
                 <a href="shop/index.html">
                     <img width="1170" height="203" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221170%22%20height%3D%22203%22%20viewBox%3D%220%200%201170%20203%22%3E%3C%2Fsvg%3E" class="wp-post-image attachment-1170x203 size-1170x203 lazy" alt="h51" data-src="/theme/wp-content/uploads/2018/09/h51.jpg" />
@@ -639,7 +642,7 @@
                                                 @if (item.IsSale)
                                                 {
                                                     <div class="flash">
-                                                        <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)</span></span>
+                                                        <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)</span>%</span>
                                                     </div>
                                                 }
 
@@ -647,18 +650,37 @@
 
                                             <div class="product-info">
                                                 <h3 class="product-name product_title">
-                                                    <a href="product/cactus-plant-in-a-pot/index.html">@item.PrName</a>
+                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
                                                 </h3>
                                                 @if (item.Warranty > 0)
                                                 {
                                                     <div>@item.Warranty tháng</div>
                                                 }
-                                                <span class="price"><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)đ</span></span>
+                                                <span class="price">
+
+
+
+                                                    @if (item.IsSale)
+                                                    {
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)đ</span>
+                                                        </del>
+                                                        <ins>
+                                                            <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)đ</span>
+                                                        </ins>
+                                                    }
+                                                    else
+                                                    {
+                                                        <ins>
+                                                            <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)đ</span>
+                                                        </ins>
+                                                    }
+                                                </span>
                                             </div>
                                             <div class="group-button">
                                                 <div class="inner">
                                                     <div class="add-to-cart">
-                                                        <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)')" class="button product_type_simple add_to_cart_button" aria-label="@item.PrName" rel="nofollow">Thêm vào giỏ hàng</a>
+                                                        <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)',@Convert.ToInt32(item.Price))" class="button product_type_simple add_to_cart_button" aria-label="@item.PrName" rel="nofollow">Thêm vào giỏ hàng</a>
                                                     </div>
 
                                                 </div>
@@ -680,7 +702,7 @@
         <div class="wpb_column vc_column_container vc_col-sm-12">
             <div class="vc_column-inner">
                 <div class="wpb_wrapper">
-                    <div class="ovic-products only-icon style-2   ovic_custom_5c92fe3eaf732 vc_custom_1547457855172 vc_custom_1547457855217  owl-ls-6 owl-lg-6 owl-md-5 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_style20">
+                    <div class="ovic-products only-icon style-2   ovic_custom_5c92fe3eaf732 vc_custom_1547457855217  owl-ls-6 owl-lg-6 owl-md-5 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_style20">
                         <h3 class="ovic-title"><span class="text">Bài viết được xem nhiều nhất</span></h3>
                         <div class="product-list-owl owl-slick equal-container better-height " data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:2,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
                             @if (ViewData["TopArticle"] != null)
@@ -693,7 +715,7 @@
                                             <div class="product-thumb">
                                                 <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
                                                     <figure>
-                                                        <img width="300" height="300" src="@item.Thumb" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0002s_0003s_0000_4a" data-src="@item.Thumb" />
+                                                        <img  src="@item.Thumb" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0002s_0003s_0000_4a" data-src="@item.Thumb" />
                                                     </figure>
                                                 </a>
                                                 <div class="flash">
@@ -741,6 +763,7 @@
                                     foreach (var item in adsList)
                                     {
                                         <div class="ovic-iconbox style1 Dark Background">
+
                                             <div class="box-icon">
                                                 <img src="@item.ImagesUrl" />
                                             </div>
@@ -782,6 +805,8 @@
     </div>
 </div>
 @section scripts {
+    <link href="/theme/wp-content/plugins/ovic-toolkit/assets/css/magnific-popup.css" rel="stylesheet" />
+    <script src="/theme/wp-content/plugins/ovic-toolkit/assets/js/jquery.magnific-popup.min.js"></script>
     <script src="/assets/plugin/slider-revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
     <script src="/assets/plugin/slider-revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js" type="text/javascript"></script>
     <script src="/assets/revo-slider-init.js" type="text/javascript"></script>
@@ -790,8 +815,47 @@
         $(document).ready(function () {
             RevosliderInit.initRevoSlider();
             $(".has-vertical-menu").addClass("has-open");
+            if ($(".js-popup-video").length) {
+                $('.js-popup-video').magnificPopup({
+                    disableOn: 700,
+                    type: 'iframe',
+                    mainClass: 'mfp-fade',
+                    removalDelay: 160,
+                    preloader: false,
+                    fixedContentPos: false
+                });
+            }
+            setTimeout(function () {
+                   try {
+                if ($('.gokko-countdown').length > 0) {
+                    $('.gokko-countdown').each(function () {
+                        $(this).gokko_countdown();
+                    });
+                }
+            } catch (e) {
 
+            }
+            }, 2000);
         });
-
+       
     </script>
 }
+<style>
+      @@media (max-width: 479px){
+                .row-item .product-inner{position:relative;}
+                .flash, .product-item .yith-wcqv-button, .wishlist-container, .rating-wapper {
+                 display: block!important; 
+                }
+            }
+    .revolution-slider .style-2 .button {
+        background-color:white!important;
+        color:#d11222!important;
+        border:1px solid #d11222!important;         
+        border-radius: 0px;
+    }
+    .revolution-slider .style-2 .button:hover {
+        background-color:#d11222!important;
+        color:white!important;
+        border:1px solid white!important;               
+    }
+</style>

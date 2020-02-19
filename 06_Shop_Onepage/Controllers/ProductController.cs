@@ -17,7 +17,7 @@ namespace AnperoFrontend.Controllers
             WebService.AnperoService sv = new WebService.AnperoService();
             WebService.ProductItem item = sv.GetProductDetail(StoreID, TokenKey, id);
 
-            WebService.SearchResult relateProduct = sv.SearchProduct(StoreID, TokenKey, item.CatID.ToString(), "", "", 0, 999999, 1, 5, "", SearchOrder.TimeDesc, 0);
+            WebService.SearchResult relateProduct = sv.SearchProduct(StoreID, TokenKey, item.CatID.ToString(), "", "", 0, 999999, 1, 5, "", SearchOrder.TimeDesc, 0, string.Empty);
             ViewData["relateProduct"] = relateProduct;
             ViewData["prDetail"] = item;
             ViewBag.Title = item.PrName;
@@ -83,11 +83,11 @@ namespace AnperoFrontend.Controllers
             if (!string.IsNullOrEmpty(model.Category) && model.Category.Contains(@"c-"))
             {
                 model.Category = model.Category.Replace(@"c-", string.Empty);
-                rs = sv.SearchProduct(StoreID, TokenKey, "%", model.Category.ToString(), model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
+                rs = sv.SearchProduct(StoreID, TokenKey, "%", model.Category.ToString(), model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0, string.Empty);
             }
             else
             {
-                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), "", model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
+                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), "", model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0, string.Empty);
             }
             ViewData["productList"] = rs;
             if (rs != null)
@@ -114,12 +114,12 @@ namespace AnperoFrontend.Controllers
             if (!string.IsNullOrEmpty(model.Category) && model.Category.Contains(@"c-"))
             {
                 string parentCat = model.Category.Replace(@"c-", string.Empty);
-                rs = sv.SearchProduct(StoreID, TokenKey, "0", parentCat, model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
+                rs = sv.SearchProduct(StoreID, TokenKey, "0", parentCat, model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0, string.Empty);
 
             }
             else
             {
-                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), "0", model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0);
+                rs = sv.SearchProduct(StoreID, TokenKey, model.Category.ToString(), "0", model.GroupId, model.PriceFrom, model.PriceTo, model.Page, model.PageSize, model.KeyWord, model.SortBy, 0, string.Empty);
             }
 
             ViewData["productList"] = rs;

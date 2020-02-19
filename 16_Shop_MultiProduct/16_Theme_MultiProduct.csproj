@@ -156,6 +156,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="aboutHtml.html" />
     <Content Include="404.html" />
     <Content Include="assets\animate.css" />
     <Content Include="assets\animate.js" />
@@ -1366,6 +1367,7 @@
     <Content Include="theme\wp-content\uploads\2019\01\m86.jpg" />
     <Content Include="theme\wp-content\uploads\2019\01\s8-01.jpg" />
     <Content Include="theme\wp-content\uploads\2019\01\sidebar-banner-270x300.jpg" />
+    <Content Include="theme\wp-content\uploads\h378b8c.jpg" />
     <Content Include="theme\wp-includes\css\dist\block-library\style.min.css" />
     <Content Include="theme\wp-includes\css\dist\block-library\theme.min.css" />
     <Content Include="theme\wp-includes\js\comment-reply.min.js" />
@@ -1435,6 +1437,9 @@
     <Content Include="Views\Warranty\Index.cshtml" />
     <Content Include="Views\Warranty\Info.cshtml" />
     <Content Include="Views\Warranty\Check.cshtml" />
+    <Content Include="Views\Warranty\AjaxInfo.cshtml" />
+    <Content Include="Views\Home\IconList.cshtml" />
+    <Content Include="Views\Warranty\CheckSeria.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

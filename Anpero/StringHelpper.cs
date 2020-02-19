@@ -696,17 +696,17 @@ namespace Anpero
         {
             try
             {
-                if (YYYYMMddhhmmss.Length >= 8)
+                if (YYYYMMddhhmmss.Length >= 8 && YYYYMMddhhmmss.IndexOf("/")<0)
                 {
-
+                     
                     string year = YYYYMMddhhmmss.Substring(0, 4);
                     string month = YYYYMMddhhmmss.Substring(4, 2);
                     string day = YYYYMMddhhmmss.Substring(6, 2);
-                    return new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day));
+                    return new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day),23,59,0);
                 }
                 else
                 {
-                    return DateTime.Now;
+                    return ConvertTodateTime(YYYYMMddhhmmss, true);                     
                 }
             }
             catch (Exception)
@@ -717,7 +717,41 @@ namespace Anpero
 
 
         }
+        public static DateTime ConvertTodateTime(string inputString, bool getEndOfDay = false)
+        {
+            DateTime datetime = new DateTime();
+            try
+            {
+                datetime = DateTime.ParseExact(inputString, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None);
+                if (getEndOfDay)
+                {
+                    datetime.AddHours(23);
+                }
+            }
+            catch (Exception)
+            {
+                try
+                {
+                    try
+                    {
+                        string year = inputString.Substring(0, 4);
+                        string month = inputString.Substring(4, 2);
+                        string day = inputString.Substring(6, 2);
+                        datetime = new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day));
+                    }
+                    catch (Exception)
+                    {
+                    }
 
+                }
+                catch (Exception)
+                {
+
+                }
+                //                datetime = DateTime.ParseExact(inputString, "dd/MM/yyyy h:mm tt", System.Globalization.CultureInfo.InvariantCulture, DateTimeStyles.None);
+            }
+            return datetime;
+        }
         /// <summary>
     }
 }
