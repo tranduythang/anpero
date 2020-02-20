@@ -27,11 +27,9 @@
 
     }
 
-    <div class="product_data_tabs">
-        <div class="container">
-            @Html.Raw(item.Detail)
-        </div>
-    </div>
+    
+    @Html.Raw(item.Detail)
+    
     <div class="container">
         @if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
         {
