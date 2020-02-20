@@ -12,6 +12,7 @@ namespace AnperoFrontend.Controllers
         {
             Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
             Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
+            ViewData["hanhtrinh"] = service.GetProductByCategory(StoreID, TokenKey, 1082, 1, 14, 0);
             GetNewestProduct();
             SetUpSlideAds();
             return View();
