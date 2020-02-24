@@ -216,6 +216,7 @@
                 </ul>
                 <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description" style="display: block;">
                     @Html.Raw(item.Detail)
+                    <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="" data-numposts="5"></div>
                 </div>
                 <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--additional_information panel entry-content wc-tab" id="tab-paymentDetail" role="tabpanel" aria-labelledby="tab-title-additional_information"></div>
 
@@ -307,6 +308,26 @@
         <link href="~/theme/wp-content/plugins/ovic-toolkit/includes/frontend/assets/css/slick.min.css" rel="stylesheet" />
         <script src="~/theme/wp-content/plugins/ovic-toolkit/includes/frontend/assets/js/libs/slick.min.js"></script>
         <script src="//cdn.anpero.com/cdn/plugins/fancybox-3/dist/jquery.fancybox.min.js"></script>
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0&appId=129078861768565&autoLogAppEvents=1"></script>
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '129078861768565',
+                    xfbml: true,
+                    version: 'v6.0'
+                });
+                FB.AppEvents.logPageView();
+            };
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) { return; }
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
         <script>
             var price =0;
             var defaultPrice =@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price);
@@ -318,7 +339,8 @@
                 items: "items",
             };
             $(document).ready(function () {
-
+                $(".fb-comments").attr("data-width", $("#tab-description").width())
+            
                 $(".fancybox").fancybox({
                     openEffect: 'none',
                     closeEffect: 'none'
