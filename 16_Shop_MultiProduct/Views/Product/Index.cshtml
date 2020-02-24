@@ -216,7 +216,7 @@
                 </ul>
                 <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description" style="display: block;">
                     @Html.Raw(item.Detail)
-                    <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="" data-numposts="5"></div>
+                    <div class="fb-comments" data-href="@HttpContext.Current.Request.Url.AbsoluteUri" data-width="" data-numposts="5"></div>
                 </div>
                 <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--additional_information panel entry-content wc-tab" id="tab-paymentDetail" role="tabpanel" aria-labelledby="tab-title-additional_information"></div>
 
@@ -339,8 +339,9 @@
                 items: "items",
             };
             $(document).ready(function () {
+
                 $(".fb-comments").attr("data-width", $("#tab-description").width())
-            
+
                 $(".fancybox").fancybox({
                     openEffect: 'none',
                     closeEffect: 'none'
