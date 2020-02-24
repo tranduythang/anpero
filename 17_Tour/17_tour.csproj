@@ -423,6 +423,22 @@
     <Content Include="assets\home-init.js" />
     <Content Include="assets\revo-slider-init.js" />
     <Content Include="assets\productDetailStyle.css" />
+    <Content Include="assets\SamsungGrid\css\component.css" />
+    <Content Include="assets\SamsungGrid\css\demo.css" />
+    <Content Include="assets\SamsungGrid\css\normalize.css" />
+    <Content Include="assets\SamsungGrid\fonts\codropsicons\codropsicons.svg" />
+    <Content Include="assets\SamsungGrid\fonts\codropsicons\license.txt" />
+    <Content Include="assets\SamsungGrid\img\dummy.png" />
+    <Content Include="assets\SamsungGrid\img\loading.gif" />
+    <Content Include="assets\SamsungGrid\index.html" />
+    <Content Include="assets\SamsungGrid\index2.html" />
+    <Content Include="assets\SamsungGrid\index3.html" />
+    <Content Include="assets\SamsungGrid\js\classie.js" />
+    <Content Include="assets\SamsungGrid\js\colorfinder-1.1.js" />
+    <Content Include="assets\SamsungGrid\js\gridScrollFx.js" />
+    <Content Include="assets\SamsungGrid\js\imagesloaded.pkgd.min.js" />
+    <Content Include="assets\SamsungGrid\js\masonry.pkgd.min.js" />
+    <Content Include="assets\SamsungGrid\js\modernizr.custom.js" />
     <Content Include="assets\style-revolution-slider.css" />
     <Content Include="assets\style.css" />
     <Content Include="assets\stylesheet\bootstrap.min.css" />
@@ -498,6 +514,13 @@
     <Content Include="assets\fonts\MaterialIcons-Regular.woff" />
     <Content Include="assets\fonts\MaterialIcons-Regular.woff2" />
     <Content Include="assets\fonts\SVN-Gotham Book.otf" />
+    <Content Include="assets\SamsungGrid\.DS_Store" />
+    <Content Include="assets\SamsungGrid\fonts\codropsicons\codropsicons.eot" />
+    <Content Include="assets\SamsungGrid\fonts\codropsicons\codropsicons.ttf" />
+    <Content Include="assets\SamsungGrid\fonts\codropsicons\codropsicons.woff" />
+    <Content Include="assets\SamsungGrid\img\.DS_Store" />
+    <Content Include="assets\SamsungGrid\js\.DS_Store" />
+    <Content Include="assets\SamsungGrid\README.md" />
     <None Include="Properties\PublishProfiles\Theme 16.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1762,7 +1785,6 @@
     <Content Include="Views\Shared\_partial\_MainFooter_1.cshtml" />
     <Content Include="Views\Home\Policy.cshtml" />
     <Content Include="Views\API\Index.cshtml" />
-    <Content Include="Views\Product\SearchAjax.cshtml" />
     <Content Include="Views\Brands\Index.cshtml" />
     <Content Include="Views\Shared\_partial\_FooterPartial.cshtml" />
     <Content Include="Views\Shared\_partial\_HeaderPartial.cshtml" />
@@ -1795,8 +1817,6 @@
     <Content Include="theme\wp-content\themes\gokko\assets\fonts\gokko\fonts\Gokko-Icon05fa.ttf" />
     <Content Include="theme\wp-content\themes\gokko\assets\fonts\gokko\fonts\Gokko-Icon05fa.woff" />
     <Content Include="Views\Product\GetByCategory.cshtml" />
-    <Content Include="Views\Product\List_BACK.cshtml" />
-    <Content Include="Views\Product\Index - Copy.cshtml" />
     <Content Include="Views\Product\GetByCategory2.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Warranty\Index.cshtml" />

@@ -14,6 +14,8 @@ namespace AnperoFrontend
           ));
             bundles.Add(new StyleBundle("~/bundles/global.css").Include(
                   "~/assets/css/fonts.css",
+                  "~/assets/css/hanhtrinh.css",
+                  "~/assets/css/thuvienanh.css",
                   "~/assets/css/styles.css"
            ));
             BundleTable.EnableOptimizations = true;

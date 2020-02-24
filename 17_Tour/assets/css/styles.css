@@ -62,12 +62,12 @@
 }
 
 .item-fade-text {
-  position: absolute;
-  color: white;
-  width: 25%;
-  text-align: center;
-  visibility: hidden;
-  top: 36%;
+    position: absolute;
+    color: white;
+    width: 100%;
+    text-align: center;
+    visibility: hidden;
+    top: 36%;
 }
 .item-fade-text h4{
   font-family: 'Playfair Display';
