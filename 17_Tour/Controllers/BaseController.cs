@@ -45,6 +45,48 @@ namespace AnperoFrontend.Controllers
                     HttpRuntime.Cache.Insert("commonInfo", rs, null, DateTime.Now.AddMinutes(shortCacheTime), TimeSpan.Zero);
                 }
             }
+           
+
+            SetUpSlideAds(filterContext);
+        }
+        private void SetUpSlideAds(ActionExecutedContext filterContext)
+        {
+
+            int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
+            WebService.AnperoService service = new WebService.AnperoService();
+
+            WebService.Ads[] Slide = null;
+            WebService.Ads[] ads1 = null;
+            WebService.Ads[] Ads2 = null;
+            WebService.Ads[] Ads3 = null;
+            WebService.Ads[] Ads4 = null;
+
+            if (!cacheService.TryGet("Slide", out Slide))
+            {
+                Slide = service.GetAdsSlide(CommonConfig.StoreID, CommonConfig.TokenKey, PageContent.Slide);
+                cacheService.AddOrUpdate("Slide", Slide, new TimeSpan(0, 0, 10, 0, 0));
+            }
+
+            if (!cacheService.TryGet("ads1", out ads1))
+            {
+                ads1 = service.GetAdsSlide(CommonConfig.StoreID, CommonConfig.TokenKey, PageContent.Ads1);
+                cacheService.AddOrUpdate("ads1", ads1, new TimeSpan(0, 0, 10, 0, 0));
+            }
+            if (!cacheService.TryGet("Ads2", out Ads2))
+            {
+                Ads2 = service.GetAdsSlide(CommonConfig.StoreID, CommonConfig.TokenKey, PageContent.Ads2);
+                cacheService.AddOrUpdate("Ads2", Ads2, new TimeSpan(0, 0, 10, 0, 0));
+            }
+            if (!cacheService.TryGet("Ads3", out Ads3))
+            {
+                Ads3 = service.GetAdsSlide(CommonConfig.StoreID, CommonConfig.TokenKey, PageContent.Ads3);
+                cacheService.AddOrUpdate("Ads3", Ads3, new TimeSpan(0, 0, 10, 0, 0));
+            }
+            if (!cacheService.TryGet("Ads4", out Ads4))
+            {
+                Ads4 = service.GetAdsSlide(CommonConfig.StoreID, CommonConfig.TokenKey, PageContent.Ads4);
+                cacheService.AddOrUpdate("Ads4", Ads4, new TimeSpan(0, 0, 10, 0, 0));
+            }
             WebService.Ads[] Ads5 = null;
             if (!cacheService.TryGet("Ads5", out Ads5))
             {
@@ -52,8 +94,28 @@ namespace AnperoFrontend.Controllers
                 cacheService.AddOrUpdate("Ads5", Ads5, new TimeSpan(0, 0, 10, 0, 0));
             }
             filterContext.Controller.ViewData["ads5"] = Ads5;
+            //WebService.Ads[] ads3 = null;
+            //if (HttpRuntime.Cache["ads3"] != null)
+            //{
+            //    ViewData["ads3"] = (WebService.Ads[])HttpRuntime.Cache["ads3"];
+            //}
+            //else
+            //{
+            //    ads3 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads3);
+            //    ViewData["ads3"] = ads3;
+            //    if (Slide != null)
+            //    {
+            //        HttpRuntime.Cache.Insert("Ads2", ads3, null, DateTime.Now.AddMinutes(shortCacheTime + 3), TimeSpan.Zero);
+            //    }
+            //}
+            filterContext.Controller.ViewData["slide"] = Slide;
+            filterContext.Controller.ViewData["ads1"] = ads1;
+            filterContext.Controller.ViewData["ads2"] = Ads2;
+            filterContext.Controller.ViewData["ads3"] = Ads3;
+            filterContext.Controller.ViewData["ads4"] = Ads4;
 
 
+            //Response.Cache.SetCacheability(HttpCacheability.Public);
         }
         public void SetupCommonData(ActionExecutedContext filterContext)
         {
@@ -107,7 +169,9 @@ namespace AnperoFrontend.Controllers
             }          
             filterContext.Controller.ViewData["TopArticle"] = rs;
         }
+   
     }
+ 
     public class BunderHtml : ActionFilterAttribute
     {
 

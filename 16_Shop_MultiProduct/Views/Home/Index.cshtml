@@ -8,7 +8,7 @@
         ViewBag.Title = commonInfo.Name;
         ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau(commonInfo.Desc);
         ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
-    }    
+    }
 }
 @section health{
     <link href="/assets/style-revolution-slider.css" rel="stylesheet">
@@ -149,61 +149,61 @@
                                     </ul>
                                     <div class="clearfix"></div>
                                 </div>
-                                
-                                 <div class="ovic-products   review_hided   style-2 ovic_custom_5c92fe3eaf6d6  owl-ls-3 owl-lg-3 owl-md-3 owl-sm-3 owl-xs-2 owl-ts-2 vc_col-sm-12 ovic_products_owl_default ovic-accordion">
-                                            <div id="feature-pr-content" class="owl-slick product-list-owl equal-container better-height " data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:3,&quot;rows&quot;:2} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
-                                                @if (searchResult.Item.Length > 1)
-                                                {
-                                                    for (int i = 1; i < searchResult.Item.Length; i++)
-                                                    {
-                                                        var item = searchResult.Item[i];
-                                                        <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product  has-post-thumbnail sale featured  purchasable">
-                                                            <div class="product-inner">
-                                                                <div class="product-thumb">
-                                                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="button yith-wcqv-button">Chi tiết</a>
-                                                                    <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
-                                                                        <figure>
-                                                                            <img width="300" height="300" src="@item.Images" class="wp-post-image attachment-300x300 size-300x300" alt="@item.PrName" />
-                                                                        </figure>
-                                                                    </a>
-                                                                </div>
+
+                                <div class="ovic-products   review_hided   style-2 ovic_custom_5c92fe3eaf6d6  owl-ls-3 owl-lg-3 owl-md-3 owl-sm-3 owl-xs-2 owl-ts-2 vc_col-sm-12 ovic_products_owl_default ovic-accordion">
+                                    <div id="feature-pr-content" class="owl-slick product-list-owl equal-container better-height " data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:3,&quot;rows&quot;:2} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
+                                        @if (searchResult.Item.Length > 1)
+                                        {
+                                            for (int i = 1; i < searchResult.Item.Length; i++)
+                                            {
+                                                var item = searchResult.Item[i];
+                                                <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product  has-post-thumbnail sale featured  purchasable">
+                                                    <div class="product-inner">
+                                                        <div class="product-thumb">
+                                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="button yith-wcqv-button">Chi tiết</a>
+                                                            <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
+                                                                <figure>
+                                                                    <img width="300" height="300" src="@item.Images" class="wp-post-image attachment-300x300 size-300x300" alt="@item.PrName" />
+                                                                </figure>
+                                                            </a>
+                                                        </div>
+                                                        @if (item.IsSale)
+                                                        {
+                                                            <div class="flash">
+                                                                <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
+                                                            </div>
+                                                        }
+                                                        <div class="product-info">
+                                                            <h3 class="product-name product_title">
+                                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
+                                                            </h3>
+                                                            <div>Bảo hành @item.Warranty tháng</div>
+                                                            <span class="price">
                                                                 @if (item.IsSale)
                                                                 {
-                                                                    <div class="flash">
-                                                                        <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
-                                                                    </div>
+                                                                    <del><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)đ</span></del>
                                                                 }
-                                                                <div class="product-info">
-                                                                    <h3 class="product-name product_title">
-                                                                        <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
-                                                                    </h3>
-                                                                    <div>Bảo hành @item.Warranty tháng</div>
-                                                                    <span class="price">
-                                                                        @if (item.IsSale)
-                                                                        {
-                                                                            <del><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)đ</span></del>
-                                                                        }
-                                                                        <ins><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)đ</span></ins>
-                                                                    </span>
-                                                                </div>
-                                                                @if (item.IsInstock)
-                                                                {
-                                                                    <div class="group-button">
-                                                                        <div class="inner">
-                                                                            <div class="add-to-cart">
-                                                                                <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)',@Convert.ToInt32(item.Price))" class="button product_type_variable add_to_cart_button">Mua ngay</a>
-                                                                            </div>
-
-                                                                        </div>
-                                                                    </div>
-                                                                }
-                                                            </div>
+                                                                <ins><span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.IsSale ? item.SalePrice : item.Price)đ</span></ins>
+                                                            </span>
                                                         </div>
-                                                    }
-                                                }
-                                            </div>
-                                        </div>
-                                    
+                                                        @if (item.IsInstock)
+                                                        {
+                                                            <div class="group-button">
+                                                                <div class="inner">
+                                                                    <div class="add-to-cart">
+                                                                        <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)',@Convert.ToInt32(item.Price))" class="button product_type_variable add_to_cart_button">Mua ngay</a>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -496,78 +496,78 @@
                                         }
                                     </ul>
                                     <div class="clearfix"></div>
-                                </div>                                
+                                </div>
                                 <div class="wpb_wrapper">
-                                            <div class="ovic-products only-icon review_hided  style-2 ovic_custom_5c92fe3eaf732 vc_custom_1547457855172 vc_custom_1547457855217  owl-ls-6 owl-lg-6 owl-md-5 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_style20">
+                                    <div class="vc_row ovic-products only-icon review_hided  style-2 ovic_custom_5c92fe3eaf732 vc_custom_1547457855172 vc_custom_1547457855217  owl-ls-6 owl-lg-6 owl-md-5 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_style20 col-sm-12">
 
-                                                <div id="sale-pr-content" class="animate product-list-owl owl-slick equal-container better-height ovic-accordion vc_col-sm-12" data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:3,&quot;rows&quot;:2} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
-                                                    @for (int i = 0; i < searchResult.Length; i++)
-                                                    {
-                                                        var item = searchResult[i];
-                                                        <div class="product-item  style-2 style-4 equal-elem">
-                                                            <div class="product-inner">
-                                                                <div class="product-thumb col-md-6">
-                                                                    <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
-                                                                        <figure>
-                                                                            <img src="@item.Images" class="wp-post-image attachment-190x190 size-190x190" alt="@item.PrName" />
-                                                                        </figure>
-                                                                    </a>
-                                                                </div>
+                                        <div id="sale-pr-content" class="animate product-list-owl owl-slick equal-container better-height ovic-accordion  " data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:3,&quot;rows&quot;:2} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
+                                            @for (int i = 0; i < searchResult.Length; i++)
+                                            {
+                                                var item = searchResult[i];
+                                                <div class="product-item  style-2 style-4 equal-elem">
+                                                    <div class="product-inner">
+                                                        <div class="product-thumb col-md-6">
+                                                            <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
+                                                                <figure>
+                                                                    <img src="@item.Images" class="wp-post-image attachment-190x190 size-190x190" alt="@item.PrName" />
+                                                                </figure>
+                                                            </a>
+                                                        </div>
+                                                        @if (item.IsSale)
+                                                        {
+                                                            <div class="flash">
+                                                                <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
+                                                            </div>
+                                                        }
+                                                        <div class="product-info col-md-6">
+
+                                                            <h3 class="product-name product_title">
+                                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
+                                                            </h3>
+                                                            <div>Bảo hành : @item.Warranty tháng</div>
+                                                            <span class="price">
                                                                 @if (item.IsSale)
                                                                 {
-                                                                    <div class="flash">
-                                                                        <span class="onsale"><span class="text">@Anpero.StringHelpper.GetDiscountPersen(item.Price, item.SalePrice)%</span></span>
-                                                                    </div>
+                                                                    <del>
+                                                                        <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)đ</span>
+                                                                    </del>
+                                                                    <ins>
+                                                                        <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)đ</span>
+                                                                    </ins>
                                                                 }
-                                                                <div class="product-info col-md-6">
+                                                                else
+                                                                {
+                                                                    <ins>
+                                                                        <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)đ</span>
+                                                                    </ins>
+                                                                }
+                                                            </span>
 
-                                                                    <h3 class="product-name product_title">
-                                                                        <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a>
-                                                                    </h3>
-                                                                    <div>Bảo hành : @item.Warranty tháng</div>
-                                                                    <span class="price">
-                                                                        @if (item.IsSale)
-                                                                        {
-                                                                            <del>
-                                                                                <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)đ</span>
-                                                                            </del>
-                                                                            <ins>
-                                                                                <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)đ</span>
-                                                                            </ins>
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            <ins>
-                                                                                <span class="woocommerce-Price-amount amount">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price)đ</span>
-                                                                            </ins>
-                                                                        }
-                                                                    </span>
-
-                                                                </div>
-                                                                <div class="product-item style-4" style="width:100%;display:inline-block;">
-                                                                    <div class="countdown-container">
-                                                                        <div class="gokko-countdown" data-datetime="@Anpero.StringHelpper.ConvertDateTime(item.SaleEndTime.ToString()).ToString()"
-                                                                             data-txt_day="Ngày"
-                                                                             data-txt_hour="Giờ"
-                                                                             data-txt_min="Phút"
-                                                                             data-txt_sec="Giây" data-value_first="1"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="group-button">
-                                                                    <div class="inner">
-                                                                        <div class="add-to-cart">
-                                                                            <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)',@Convert.ToInt32(item.Price))" class="button product_type_simple add_to_cart_button" rel="nofollow" tabindex="0">Thêm vào giỏ hàng</a>
-                                                                        </div>
-                                                                    </div>
+                                                        </div>
+                                                        <div class="product-item style-4" style="width:100%;display:inline-block;">
+                                                            <div class="countdown-container">
+                                                                <div class="gokko-countdown" data-datetime="@Anpero.StringHelpper.ConvertDateTime(item.SaleEndTime.ToString()).ToString()"
+                                                                     data-txt_day="Ngày"
+                                                                     data-txt_hour="Giờ"
+                                                                     data-txt_min="Phút"
+                                                                     data-txt_sec="Giây" data-value_first="1"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="group-button">
+                                                            <div class="inner">
+                                                                <div class="add-to-cart">
+                                                                    <a href="javascript:Cart.addProduct(@item.Id,@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price),'@item.Images','@HttpUtility.HtmlEncode(item.PrName)',@Convert.ToInt32(item.Price))" class="button product_type_simple add_to_cart_button" rel="nofollow" tabindex="0">Thêm vào giỏ hàng</a>
                                                                 </div>
                                                             </div>
                                                         </div>
-
-                                                    }
-
+                                                    </div>
                                                 </div>
-                                            </div>
+
+                                            }
+
                                         </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -622,15 +622,15 @@
         <div class="wpb_column vc_column_container vc_col-sm-12">
             <div class="vc_column-inner">
                 <div class="wpb_wrapper">
-                    <div class="ovic-products only-icon review_hided   style-2   ovic_custom_5c92fe3eaf732 vc_custom_1547457855172 vc_custom_1547457855217  owl-ls-6 owl-lg-6 owl-md-5 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_style20">
+                    <div class="ovic-products only-icon review_hided   style-2 ovic_custom_5c92fe3eaf732 vc_custom_1547457855172 vc_custom_1547457855217  owl-ls-6 owl-lg-6 owl-md-5 owl-sm-3 owl-xs-2 owl-ts-2 co-ms-12 ovic_products_style20">
                         <h3 class="ovic-title"><span class="text">Sản phẩm được xem nhiều nhất</span></h3>
-                        <div class="product-list-owl owl-slick equal-container better-height slick-slider vc_col-sm-12" data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:6,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:6}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:5}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
+                        <div id="topPrViewCt" class="product-list-owl owl-slick vc_row equal-container better-height slick-slider" data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:6,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:6}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:5}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
                             @if (ViewData["topViewProduct"] != null)
                             {
                                 SearchResult topViewProduct = (SearchResult)ViewData["topViewProduct"];
                                 foreach (var item in topViewProduct.Item)
                                 {
-                                    <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product status-publish instock product_cat-trees-vegetables has-post-thumbnail purchasable product-type-simple">
+                                    <div class="product-item recent-product style-2 equal-elem rows-space-0 product type-product status-publish instock product_cat-trees-vegetables has-post-thumbnail purchasable product-type-simple vc_col-sm-12">
                                         <div class="product-inner">
                                             <div class="product-thumb">
                                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" class="button yith-wcqv-button">Quick View</a>
@@ -697,7 +697,7 @@
                 <div class="wpb_wrapper">
                     <div class="ovic-products only-icon style-2   ovic_custom_5c92fe3eaf732 vc_custom_1547457855217  owl-ls-6 owl-lg-6 owl-md-5 owl-sm-3 owl-xs-2 owl-ts-2 ovic_products_style20">
                         <h3 class="ovic-title"><span class="text">Bài viết được xem nhiều nhất</span></h3>
-                        <div class="product-list-owl owl-slick equal-container better-height " data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:2,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
+                        <div id="topViewNew" class="product-list-owl owl-slick equal-container better-height " data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:2,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}}]>
                             @if (ViewData["TopArticle"] != null)
                             {
                                 SearchArticleResults rs = (SearchArticleResults)ViewData["TopArticle"];
@@ -708,7 +708,7 @@
                                             <div class="product-thumb">
                                                 <a class="thumb-link woocommerce-product-gallery__image" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
                                                     <figure>
-                                                        <img  src="@item.Thumb" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0002s_0003s_0000_4a" data-src="@item.Thumb" />
+                                                        <img src="@item.Thumb" class="wp-post-image attachment-300x300 size-300x300 lazy" alt="org_0002s_0003s_0000_4a" data-src="@item.Thumb" />
                                                     </figure>
                                                 </a>
                                                 <div class="flash">
@@ -742,12 +742,12 @@
             </div>
         </div>
     </div>
-    <div class="wpb_column vc_column_container vc_col-sm-12">
+    <div class="wpb_column vc_column_container">
         <div class="vc_column-inner">
             <div class="wpb_wrapper">
                 <div class="ovic-slide  rows-space-0  ovic_custom_5c92fe3eaf742 vc_custom_1547456628930 ">
                     <div class="ovic-slide-style2">
-                        <div class="owl-slick" data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:5,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:5}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:4}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:1}}]>
+                        <div class="owl-slick col-sm-12" data-slick={&quot;arrows&quot;:true,&quot;slidesMargin&quot;:0,&quot;dots&quot;:false,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:5,&quot;rows&quot;:1} data-responsive=[{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:5}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:4}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:3}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:1}}]>
                             @if (ViewData["Ads3"] != null)
                             {
                                 Ads[] adsList = (Ads[])ViewData["Ads3"];
@@ -819,36 +819,53 @@
                 });
             }
             setTimeout(function () {
-                   try {
-                if ($('.gokko-countdown').length > 0) {
-                    $('.gokko-countdown').each(function () {
-                        $(this).gokko_countdown();
-                    });
-                }
-            } catch (e) {
+                try {
+                    if ($('.gokko-countdown').length > 0) {
+                        $('.gokko-countdown').each(function () {
+                            $(this).gokko_countdown();
+                        });
+                    }
+                } catch (e) {
 
-            }
+                }
             }, 2000);
         });
-       
+
     </script>
 }
 <style>
-      @@media (max-width: 479px){
-                .row-item .product-inner{position:relative;}
-                .flash, .product-item .yith-wcqv-button, .wishlist-container, .rating-wapper {
-                 display: block!important; 
-                }
-            }
+    @@media (max-width: 479px) {
+        .row-item .product-inner {
+            position: relative;
+        }
+
+        .flash, .product-item .yith-wcqv-button, .wishlist-container, .rating-wapper {
+            display: block !important;
+        }
+    }
+
     .revolution-slider .style-2 .button {
-        background-color:white!important;
-        color:#d11222!important;
-        border:1px solid #d11222!important;         
+        background-color: white !important;
+        color: #d11222 !important;
+        border: 1px solid #d11222 !important;
         border-radius: 0px;
     }
-    .revolution-slider .style-2 .button:hover {
-        background-color:#d11222!important;
-        color:white!important;
-        border:1px solid white!important;               
+
+        .revolution-slider .style-2 .button:hover {
+            background-color: #d11222 !important;
+            color: white !important;
+            border: 1px solid white !important;
+        }
+
+    #sale-pr-content .slick-arrow.next,#topViewNew .slick-arrow.next {
+        right: -9px !important;
     }
+    #sale-pr-content .slick-arrow.prev,#topViewNew .slick-arrow.prev {
+        left: -9px !important;
+    }
+      #topPrViewCt .slick-arrow.prev{
+        left: 9px !important;
+    }
+    
+    
 </style>
