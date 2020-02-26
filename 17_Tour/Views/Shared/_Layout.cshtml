@@ -36,7 +36,8 @@
     <link href="/assets/owl.carousel/owl.carousel.css" rel="stylesheet" />
 </head>
 <body class="font-gotham">
-    <a href="/"><img src="/assets/img/HeaderImg.png" style="width: 100%;"></a>
+    @RenderSection("healthHtml", required: false)
+   
     <nav class="navbar navbar-light navbar-expand-md">
         <div class="container-fluid">
             <a class="navbar-brand d-xl-flex align-items-xl-start" href="/" style="width: 25%;margin-right: 10%;">
@@ -79,166 +80,38 @@
                 </ul>
             </div>
             @*<div class="collapse navbar-collapse" id="navcol-1" style="margin-left: 18%;">
-                <ul class="nav navbar-nav d-xl-flex justify-content-xl-center w-100" style="font-size: 14px;">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/">TRANG CHỦ<div class="nav-item-under"></div></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/">GIỚI THIỆU<div class="nav-item-under"></div></a></li>
-                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" role="button" data-toggle="dropdown" aria-haspopup="true">
-                            HÀNH TRÌNH
-                            <div class="nav-item-under"></div>
-                        </a>
-                        <div class="dropdown-menu" style="padding-left: 10%;padding-right: 10%;" aria-labelledby="hanhtrinhdd">
-                            <a class="dropdown-item" href="/han-quoc-p3869">HÀN QUỐC</a>
-                            <a class="dropdown-item" href="/malaysia-p3868">MALAYSIA</a>
-                            <a class="dropdown-item" href="/philippines-p3867">PHILIPPINES</a>
-                            <a class="dropdown-item" href="/tho-nhi-ky-p3866">THỔ NHĨ KỲ</a>
-                        </div>
-                    </li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/">THƯ VIỆN<div class="nav-item-under"></div></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/home/contact">LIÊN HỆ<div class="nav-item-under"></div></a></li>
-                    <li class="nav-item ml-auto" role="presentation">
-                        <a class="nav-link d-lg-flex align-items-xl-center" href="javascript:doGTranslate('vi|en');" style="height: 100%;">
-                            <img class="d-lg-flex ml-auto" src="/assets/img/EnFlag.png" style="width: 25%;">
-                        </a>
-                    </li>
+                    <ul class="nav navbar-nav d-xl-flex justify-content-xl-center w-100" style="font-size: 14px;">
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="/">TRANG CHỦ<div class="nav-item-under"></div></a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="/">GIỚI THIỆU<div class="nav-item-under"></div></a></li>
 
-                </ul>
-            </div>*@
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" role="button" data-toggle="dropdown" aria-haspopup="true">
+                                HÀNH TRÌNH
+                                <div class="nav-item-under"></div>
+                            </a>
+                            <div class="dropdown-menu" style="padding-left: 10%;padding-right: 10%;" aria-labelledby="hanhtrinhdd">
+                                <a class="dropdown-item" href="/han-quoc-p3869">HÀN QUỐC</a>
+                                <a class="dropdown-item" href="/malaysia-p3868">MALAYSIA</a>
+                                <a class="dropdown-item" href="/philippines-p3867">PHILIPPINES</a>
+                                <a class="dropdown-item" href="/tho-nhi-ky-p3866">THỔ NHĨ KỲ</a>
+                            </div>
+                        </li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="/">THƯ VIỆN<div class="nav-item-under"></div></a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="/home/contact">LIÊN HỆ<div class="nav-item-under"></div></a></li>
+                        <li class="nav-item ml-auto" role="presentation">
+                            <a class="nav-link d-lg-flex align-items-xl-center" href="javascript:doGTranslate('vi|en');" style="height: 100%;">
+                                <img class="d-lg-flex ml-auto" src="/assets/img/EnFlag.png" style="width: 25%;">
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>*@
         </div>
     </nav>
     <div class="bg-white body-back">
         @RenderBody()
-        <div class="text-center" id="amz-info">
-            <div id="amz-info-btc" class="text-center">
-                <h4 class="font-bold-play-fair" style="padding-bottom: 1%;">Ban Tổ Chức</h4><img class="col-1" src="/assets/img/btc.png" style="padding-bottom: 3%;">
-            </div><img class="gach-xanh" src="/assets/img/gach-xanh.png" style="padding-bottom: 1%;">
-            <div id="amz-info-doiTac" class="text-center" style="padding-top: 2%;">
-                <h4 class="font-bold-play-fair" style="padding-bottom: 1%;">Đối Tác</h4>
-                <div class="justify-content-center align-items-center row" style="padding-bottom: 1%;">
-                    <img class="col-2" src="/assets/img/dt1.jpg" style="width: 20%;">
-                    <img class="col-2" src="/assets/img/dt2.jpg" style="width: 20%;">
-                    <img class="col-2" src="/assets/img/dt3.jpg" style="width: 20%;">
-                    <img class="col-2" src="/assets/img/dt4.jpg" style="width: 20%;">
-                </div>
-            </div>
-            <img class="gach-xanh" src="/assets/img/gach-xanh.png" style="padding-bottom: 3%;">
-            <div id="amz-info-ntt" class="text-center" style="padding-bottom: 5%;">
-                <h4 class="font-bold-play-fair" style="padding-bottom: 1%;">Nhà tài trợ</h4>
-                <div data-ride="carousel" class="carousel" id="carousel-3">
-                    <div role="listbox" class="carousel-inner">
-                        <div class="carousel-item" id="6">
-                            <div class="align-items-center row">
-                                <img id="img1" class="col-2" src="/assets/img/ntt1.jpg" />
-                                <img id="img2" class="col-2" src="/assets/img/ntt2.jpg" />
-                                <img id="img3" class="col-2" src="/assets/img/ntt3.jpg" />
-                                <img id="img4" class="col-2" src="/assets/img/ntt4.jpg" />
-                                <img id="img5" class="col-2" src="/assets/img/ntt5.jpg" />
-                                <img id="img6" class="col-2" src="/assets/img/ntt6.jpg" />
-                            </div>
-                        </div>
-                        <div class="carousel-item" id="7">
-                            <div class="align-items-center row">
-                                <img id="img2" class="col-2" src="/assets/img/ntt2.jpg" />
-                                <img id="img3" class="col-2" src="/assets/img/ntt3.jpg" />
-                                <img id="img4" class="col-2" src="/assets/img/ntt4.jpg" />
-                                <img id="img5" class="col-2" src="/assets/img/ntt5.jpg" />
-                                <img id="img6" class="col-2" src="/assets/img/ntt6.jpg" />
-                                <img id="img7" class="col-2" src="/assets/img/ntt7.jpg" />
-                            </div>
-                        </div>
-                        <div class="carousel-item" id="8">
-                            <div class="align-items-center row">
-                                <img id="img3" class="col-2" src="/assets/img/ntt3.jpg" />
-                                <img id="img4" class="col-2" src="/assets/img/ntt4.jpg" />
-                                <img id="img5" class="col-2" src="/assets/img/ntt5.jpg" />
-                                <img id="img6" class="col-2" src="/assets/img/ntt6.jpg" />
-                                <img id="img7" class="col-2" src="/assets/img/ntt7.jpg" />
-                                <img id="img8" class="col-2" src="/assets/img/ntt8.jpg" />
-                            </div>
-                        </div>
-                        <div class="carousel-item active" id="9">
-                            <div class="align-items-center row">
-                                <img id="img4" class="col-2" src="/assets/img/ntt4.jpg" />
-                                <img id="img5" class="col-2" src="/assets/img/ntt5.jpg" />
-                                <img id="img6" class="col-2" src="/assets/img/ntt6.jpg" />
-                                <img id="img7" class="col-2" src="/assets/img/ntt7.jpg" />
-                                <img id="img8" class="col-2" src="/assets/img/ntt8.jpg" />
-                                <img id="img9" class="col-2" src="/assets/img/ntt9.jpg" />
-                            </div>
-                        </div>
-                        <div class="carousel-item" id="10">
-                            <div class="align-items-center row">
-                                <img id="img5" class="col-2" src="/assets/img/ntt5.jpg" />
-                                <img id="img6" class="col-2" src="/assets/img/ntt6.jpg" />
-                                <img id="img7" class="col-2" src="/assets/img/ntt7.jpg" />
-                                <img id="img8" class="col-2" src="/assets/img/ntt8.jpg" />
-                                <img id="img9" class="col-2" src="/assets/img/ntt9.jpg" />
-                                <img id="img10" class="col-2" src="/assets/img/ntt10.jpg" />
-                            </div>
-                        </div>
-                        <div class="carousel-item" id="1">
-                            <div class="align-items-center row">
-                                <img id="img6" class="col-2" src="/assets/img/ntt6.jpg" />
-                                <img id="img7" class="col-2" src="/assets/img/ntt7.jpg" />
-                                <img id="img8" class="col-2" src="/assets/img/ntt8.jpg" />
-                                <img id="img9" class="col-2" src="/assets/img/ntt9.jpg" />
-                                <img id="img10" class="col-2" src="/assets/img/ntt10.jpg" />
-                                <img id="img1" class="col-2" src="/assets/img/ntt1.jpg" />
-                            </div>
-                        </div>
-                        <div class="carousel-item" id="2">
-                            <div class="align-items-center row">
-                                <img id="img7" class="col-2" src="/assets/img/ntt7.jpg" />
-                                <img id="img8" class="col-2" src="/assets/img/ntt8.jpg" />
-                                <img id="img9" class="col-2" src="/assets/img/ntt9.jpg" />
-                                <img id="img10" class="col-2" src="/assets/img/ntt10.jpg" />
-                                <img id="img1" class="col-2" src="/assets/img/ntt1.jpg" />
-                                <img id="img2" class="col-2" src="/assets/img/ntt2.jpg" />
-                            </div>
-                        </div>
-                        <div class="carousel-item" id="3">
-                            <div class="align-items-center row">
-                                <img id="img8" class="col-2" src="/assets/img/ntt8.jpg" />
-                                <img id="img9" class="col-2" src="/assets/img/ntt9.jpg" />
-                                <img id="img10" class="col-2" src="/assets/img/ntt10.jpg" />
-                                <img id="img1" class="col-2" src="/assets/img/ntt1.jpg" />
-                                <img id="img2" class="col-2" src="/assets/img/ntt2.jpg" />
-                                <img id="img3" class="col-2" src="/assets/img/ntt3.jpg" />
-                            </div>
-                        </div>
-                        <div class="carousel-item" id="4">
-                            <div class="align-items-center row">
-                                <img id="img9" class="col-2" src="/assets/img/ntt9.jpg" />
-                                <img id="img10" class="col-2" src="/assets/img/ntt10.jpg" />
-                                <img id="img1" class="col-2" src="/assets/img/ntt1.jpg" />
-                                <img id="img2" class="col-2" src="/assets/img/ntt2.jpg" />
-                                <img id="img3" class="col-2" src="/assets/img/ntt3.jpg" />
-                                <img id="img4" class="col-2" src="/assets/img/ntt4.jpg" />
-                            </div>
-                        </div>
-                        <div class="carousel-item" id="5">
-                            <div class="align-items-center row">
-                                <img id="img10" class="col-2" src="/assets/img/ntt10.jpg" />
-                                <img id="img1" class="col-2" src="/assets/img/ntt1.jpg" />
-                                <img id="img2" class="col-2" src="/assets/img/ntt2.jpg" />
-                                <img id="img3" class="col-2" src="/assets/img/ntt3.jpg" />
-                                <img id="img4" class="col-2" src="/assets/img/ntt4.jpg" />
-                                <img id="img5" class="col-2" src="/assets/img/ntt5.jpg" />
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <a href="#carousel-3" role="button" data-slide="prev" class="carousel-control-prev">
-                            <span aria-hidden="true"></span><span class="sr-only">Previous</span>
-                        </a>
-                        <a href="#carousel-3" role="button" data-slide="next" class="carousel-control-next">
-                            <span aria-hidden="true"></span><span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @RenderSection("footerHtml", required: false)
+       
     </div>
     <div class="row footer" style="font-size: 0.8rem;">
         <div class="col-10 row" style="margin-left: 8%;padding-top: 3vh;">
@@ -313,7 +186,7 @@
         }
         function googleTranslateElementInit2() { new google.translate.TranslateElement({ pageLanguage: 'vi', autoDisplay: false }, 'google_translate_element2'); }
         $(document).ready(function () {
-             $('.owl-carousel-1').owlCarousel({
+            $('.owl-carousel-1').owlCarousel({
                 itemsCustom: [
                     [320, 1],
                     [600, 1],
@@ -324,7 +197,7 @@
                 navigation: true,
                 autoPlay: true
             });
-           $('.owl-carousel-4').owlCarousel({
+            $('.owl-carousel-4').owlCarousel({
                 itemsCustom: [
                     [320, 2],
                     [600, 2],
