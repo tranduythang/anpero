@@ -216,7 +216,14 @@
                 </ul>
                 <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description" style="display: block;">
                     @Html.Raw(item.Detail)
-                    <div class="fb-comments" data-href="@HttpContext.Current.Request.Url.AbsoluteUri" data-width="" data-numposts="5"></div>
+                    <div class="fb-like"
+                         data-href="@HttpContext.Current.Request.Url.AbsoluteUri"
+                         data-layout="standard"
+                         data-action="like"
+                         data-show-faces="true">
+                    </div>
+                    <div class="fb-comments" data-href="@HttpContext.Current.Request.Url.AbsoluteUri" data-width="" data-numposts="15"></div>
+
                 </div>
                 <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--additional_information panel entry-content wc-tab" id="tab-paymentDetail" role="tabpanel" aria-labelledby="tab-title-additional_information"></div>
 
