@@ -22,66 +22,102 @@
         <link rel="canonical" href="@ViewBag.WebsiteUrl" />
         <link href="//cdn.anpero.com/cdn/plugins/fancybox-3/src/css/core.css" rel="stylesheet" />
         <link href="//cdn.anpero.com/cdn/plugins/fancybox-3/src/css/fullscreen.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="/assets/SamsungGrid/css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="/assets/SamsungGrid/css/component.css" />
+
     }
     @section Styles {
+        <style>
+            .grid.swipe-right li.animate .curtain {
+                animation: swipeRight 1.5s cubic-bezier(0.6,0,0.4,1) forwards;
+            }
 
+            @@keyframes swipeRight {
+                50%, 60% {
+                    transform: translate(0);
+                }
+
+                100% {
+                    transform: translate3d(100%,0,0);
+                }
+            }
+        </style>
     }
 
-    
+
     @Html.Raw(item.Detail)
-    
-    <div class="container">
-        @if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
-        {
-            foreach (var imagesSlide in item.ImagesSlide)
-            {
-                <div class="slide">
-                    <a href="@imagesSlide" class="fancybox" data-fancybox="gallery" rel="gallery" data-type="image">
-                        <img src="@imagesSlide" alt="@item.PrName" class="viewMore" role="presentation">
-                    </a>
-                </div>
-            }
-        }
-    </div>
-    @section scripts{
-        @Html.Raw(item.Script)
-        <script src="//cdn.anpero.com/cdn/plugins/fancybox-3/dist/jquery.fancybox.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $(".fancybox").fancybox({
-                    openEffect: 'none',
-                    closeEffect: 'none'
-                });
-                resizeVideo();
-                $(window).resize(function () {
+    if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
+    {
+        <div class="container-fluid">
+            <div class="text-center gallery" id="gallery">
+                <h1 class="font-bold-play-fair">Gallery</h1>
+                <div class="divgachxannh" style="width: 4%;margin-left: 48%;margin-bottom:10vh"></div>
+            </div>
+
+            <section class="grid-wrap" id="tab-description">
+                <ul class="grid swipe-right" id="grid">
+
+                    @foreach (var imagesSlide in item.ImagesSlide)
+                    {
+
+                        <li><a href="@imagesSlide" class="fancybox" data-fancybox="gallery" rel="gallery" data-type="image"><img src="@imagesSlide" alt="@item.PrName" style="height:300px;"></a></li>
+
+                    }
+
+                </ul>
+            </section>
+          
+        </div>
+  }
+        @section scripts{
+            @Html.Raw(item.Script)
+            <script src="/assets/SamsungGrid/js/modernizr.custom.js"></script>
+            <script src="//cdn.anpero.com/cdn/plugins/fancybox-3/dist/jquery.fancybox.min.js"></script>
+            <script src="/assets/SamsungGrid/js/colorfinder-1.1.js"></script>
+            <script src="/assets/SamsungGrid/js/masonry.pkgd.min.js"></script>
+            <script src="/assets/SamsungGrid/js/imagesloaded.pkgd.min.js"></script>
+            <script src="/assets/SamsungGrid/js/classie.js"></script>
+
+            <script src="/assets/SamsungGrid/js/gridScrollFx.js"></script>
+            <script>
+                $(document).ready(function () {
+                    new GridScrollFx(document.getElementById('grid'), {
+                        viewportFactor: 0.4
+                    });
+                    $(".fancybox").fancybox({
+                        openEffect: 'none',
+                        closeEffect: 'none'
+                    });
                     resizeVideo();
+                    $(window).resize(function () {
+                        resizeVideo();
+                    });
                 });
-            });
-            function resizeVideo() {
-                var contentW = $('#tab-description').width();
-                var iframe = $('#tab-description iframe');
-                var iframeW = iframe.css('width', contentW - 20);
-                iframe.css('width', iframeW);
-                var iframeH = contentW / 16 * 9;
-                iframe.css('height', iframeH);
+                function resizeVideo() {
+                    var contentW = $('#tab-description').width();
+                    var iframe = $('#tab-description iframe');
+                    var iframeW = iframe.css('width', contentW - 20);
+                    iframe.css('width', iframeW);
+                    var iframeH = contentW / 16 * 9;
+                    iframe.css('height', iframeH);
+                }
+            </script>
+            @{
+                List<string> images = new List<string>();
+                images.Add(item.Images);
+                images.AddRange(item.ImagesSlide);
+                images = images.Select(x => "\"" + x + "\"").ToList();
+                var imagesText = string.Join(",", images);
             }
-        </script>
-        @{
-            List<string> images = new List<string>();
-            images.Add(item.Images);
-            images.AddRange(item.ImagesSlide);
-            images = images.Select(x => "\"" + x + "\"").ToList();
-            var imagesText = string.Join(",", images);
+            <script type="application/ld+json">
+                {
+                "@@context":"http://schema.org/",
+                "@@type":"Product",
+                "name":"@item.PrName",
+                "image":[@Html.Raw(imagesText)],
+                "description":"@item.ShortDesc",
+                "sku": "@item.Id"
+                }
+            </script>
         }
-        <script type="application/ld+json">
-            {
-            "@@context":"http://schema.org/",
-            "@@type":"Product",
-            "name":"@item.PrName",
-            "image":[@Html.Raw(imagesText)],
-            "description":"@item.ShortDesc",
-            "sku": "@item.Id"
-            }
-        </script>
     }
-}

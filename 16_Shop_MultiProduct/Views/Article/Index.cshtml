@@ -46,12 +46,17 @@
                             </p>
                             <div class="rte article_content" id="tab-description">
                                 @Html.Raw(item.Content)
+                                <div class="fb-share-button"
+                                     data-href="@HttpContext.Current.Request.Url.AbsoluteUri"
+                                     data-layout="button_count">
+                                </div>
                                 <div class="fb-like"
                                      data-href="@HttpContext.Current.Request.Url.AbsoluteUri"
                                      data-layout="standard"
                                      data-action="like"
                                      data-show-faces="true">
                                 </div>
+
                                 <div class="fb-comments" data-href="@HttpContext.Current.Request.Url.AbsoluteUri" data-width="" data-numposts="15"></div>
                             </div>
                             <p class="article_tags">

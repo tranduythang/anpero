@@ -154,7 +154,7 @@
                                                     {
                                                         foreach (var childItem in item.ChildCategory)
                                                         {
-                                        <option class="level-2" value="@childItem.Id">&nbsp;&nbsp;@childItem.Name</option>
+                                                            <option class="level-2" value="@childItem.Id">&nbsp;&nbsp;@childItem.Name</option>
                                                         }
 
                                                     }
@@ -316,7 +316,7 @@
                                     ProductItem[] searchResult = (ProductItem[])ViewData["saleProduct"];
                                     if (searchResult.Length > 0)
                                     {
-                                        
+
                                         var category = searchResult.Select(x => new { id = x.ParentId, name = x.ParentCatName }).Distinct().ToList();
                                         var newCat = from a in category
                                                      join b in commonInfo.ProductCategoryList.ToList()
@@ -569,7 +569,9 @@
                                             {
                                                 foreach (var item in adsList)
                                                 {
-                                                    <img class="vc_single_image-img lazy attachment-full" src="@item.ImagesUrl" data-src="@item.ImagesUrl" alt="Footer 08" />
+                                                    <a href="@item.ClickUrl">
+                                                        <img class="vc_single_image-img lazy attachment-full" src="@item.ImagesUrl" data-src="@item.ImagesUrl" alt="Footer 08" />
+                                                    </a>
                                                 }
                                             }
                                         }
@@ -606,8 +608,8 @@
 
     @commonInfo.Footer
     <style>
-        #menu-d-electronics li,#ovic-menu-clone-menu-d-electronics .menu-item{
-            padding-left:10px;
+        #menu-d-electronics li, #ovic-menu-clone-menu-d-electronics .menu-item {
+            padding-left: 10px;
         }
     </style>
     @Html.Raw(commonInfo.AnperoPlugin)

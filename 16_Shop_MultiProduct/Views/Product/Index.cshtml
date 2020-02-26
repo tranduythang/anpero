@@ -216,6 +216,10 @@
                 </ul>
                 <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description" style="display: block;">
                     @Html.Raw(item.Detail)
+                    <div class="fb-share-button"
+                         data-href="@HttpContext.Current.Request.Url.AbsoluteUri"
+                         data-layout="button_count">
+                    </div>
                     <div class="fb-like"
                          data-href="@HttpContext.Current.Request.Url.AbsoluteUri"
                          data-layout="standard"

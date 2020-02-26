@@ -56,7 +56,7 @@
         } else if (!Util.isVnFone(datas.Phone)) {
             Util.notify("", "Lỗi! Số điện thoại không đúng định dạng.");
         }
-        if (datas.Mail == "" || !Util.isEmail(datas.Mail)) {
+        if (datas.Mail != "" && !Util.isEmail(datas.Mail)) {
             Util.notify("", "Lỗi! Email không đúng định dạng.");
         }
         return valid;
