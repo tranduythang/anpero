@@ -30,8 +30,8 @@
 
 <div class="main-container left-sidebar">
     <div class="container">
-      
-   
+
+
         <div class="row">
             <div class="main-content col-lg-9 col-md-8">
                 <h2 class="post-title"><a href="index.html">@item.Title</a></h2>
@@ -44,8 +44,20 @@
                                 </span>
                                 <span class="article_author"><span id="fb-root"></span></span>
                             </p>
-                            <div class="rte article_content">
+                            <div class="rte article_content" id="tab-description">
                                 @Html.Raw(item.Content)
+                                <div class="fb-share-button"
+                                     data-href="@HttpContext.Current.Request.Url.AbsoluteUri"
+                                     data-layout="button_count">
+                                </div>
+                                <div class="fb-like"
+                                     data-href="@HttpContext.Current.Request.Url.AbsoluteUri"
+                                     data-layout="standard"
+                                     data-action="like"
+                                     data-show-faces="true">
+                                </div>
+
+                                <div class="fb-comments" data-href="@HttpContext.Current.Request.Url.AbsoluteUri" data-width="" data-numposts="15"></div>
                             </div>
                             <p class="article_tags">
                                 @item.Tag
@@ -58,86 +70,97 @@
         </div>
     </div>
 </div>
-    @if (ViewData["ArticleList"] != null)
+@if (ViewData["ArticleList"] != null)
+{
+    SearchArticleResults articleList = (SearchArticleResults)ViewData["ArticleList"];
+    if (articleList.ResultsCount > 0)
     {
-        SearchArticleResults articleList = (SearchArticleResults)ViewData["ArticleList"];
-        if (articleList.ResultsCount > 0)
-        {
-            <div class="related-pro container">
-                <div class="slider-items-products">
-                    <div class="new_title center">
-                        <h2>Bài liên quan</h2>
-                    </div>
-                    <div id="related-slider" class="product-flexslider hidden-buttons">
-                        <div class="slider-items slider-width-col4 products-grid">
-                            @foreach (var articleItem in articleList.ItemList)
-                            {
-                                <div class="item">
-                                    <div class="item-inner">
-                                        <div class="item-img">
-                                            <div class="item-img-info">
-                                                <a href="@Anpero.StringHelpper.GetArticleLink(articleItem.Title, articleItem.Id)" class="product-image">
-                                                    <img src="@articleItem.Thumb" alt="@articleItem.Title">
-                                                </a>
-                                            </div>
+        <div class="related-pro container">
+            <div class="slider-items-products">
+                <div class="new_title center">
+                    <h2>Bài liên quan</h2>
+                </div>
+                <div id="related-slider" class="product-flexslider hidden-buttons">
+                    <div class="slider-items slider-width-col4 products-grid">
+                        @foreach (var articleItem in articleList.ItemList)
+                        {
+                            <div class="item">
+                                <div class="item-inner">
+                                    <div class="item-img">
+                                        <div class="item-img-info">
+                                            <a href="@Anpero.StringHelpper.GetArticleLink(articleItem.Title, articleItem.Id)" class="product-image">
+                                                <img src="@articleItem.Thumb" alt="@articleItem.Title">
+                                            </a>
                                         </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title">
-                                                    <a href="@Anpero.StringHelpper.GetArticleLink(articleItem.Title, articleItem.Id)">
-                                                        @HttpUtility.HtmlDecode(articleItem.Title)
-                                                    </a>
-                                                </div>
+                                    </div>
+                                    <div class="item-info">
+                                        <div class="info-inner">
+                                            <div class="item-title">
+                                                <a href="@Anpero.StringHelpper.GetArticleLink(articleItem.Title, articleItem.Id)">
+                                                    @HttpUtility.HtmlDecode(articleItem.Title)
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            }
-                        </div>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
-        }
+        </div>
     }
-    <script>
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
+}
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0&appId=129078861768565&autoLogAppEvents=1"></script>
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '129078861768565',
+            xfbml: true,
+            version: 'v6.0'
+        });
+        FB.AppEvents.logPageView();
+    };
 
-    <!-- Your like button code -->
-    <div class="fb-like"
-         data-href="https://www.your-domain.com/your-page.html"
-         data-layout="standard"
-         data-action="like"
-         data-show-faces="true">
-    </div>
-    <style>
-        .breadcrumbs {
-            padding: 0 0 26px 0;
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+<script>
+    $(document).ready(function () {
+        $(".fb-comments").attr("data-width", $("#tab-description").width());
+    });
+</script>
+<!-- Your like button code -->
+
+<style>
+    .breadcrumbs {
+        padding: 0 0 26px 0;
+    }
+
+        .breadcrumbs ul {
+            font-size: 0;
+            line-height: 0;
         }
 
-            .breadcrumbs ul {
-                font-size: 0;
-                line-height: 0;
-            }
+        .breadcrumbs li {
+            display: inline-block;
+            padding: 27px 10px 0 0;
+        }
 
-            .breadcrumbs li {
-                display: inline-block;
-                padding: 27px 10px 0 0;
-            }
+        .breadcrumbs a, .breadcrumbs span {
+            font-size: 14px;
+            line-height: 1em;
+        }
 
-            .breadcrumbs a, .breadcrumbs span {
-                font-size: 14px;
-                line-height: 1em;
-            }
-
-            .breadcrumbs li ~ li:before {
-                content: '\f105';
-                margin: 0 10px 0 0;
-                font: 14px/1em "FontAwesome";
-            }
-    </style>
+        .breadcrumbs li ~ li:before {
+            content: '\f105';
+            margin: 0 10px 0 0;
+            font: 14px/1em "FontAwesome";
+        }
+</style>

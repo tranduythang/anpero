@@ -17,7 +17,7 @@ namespace AnperoFrontend.Controllers
             ViewData["thuvien"] = service.GetProductByCategory(StoreID, TokenKey, 1087, 1, 14, 0);
             ViewData["chiase"] = service.GetProductByCategory(StoreID, TokenKey, 1089, 1, 14, 0);
             GetNewestProduct();
-            SetUpSlideAds();
+            
             return View();
         }
         [BuildCommonHtml]
@@ -25,68 +25,7 @@ namespace AnperoFrontend.Controllers
         {
             return View();
         }
-        private void SetUpSlideAds()
-        {
-           
-            int shortCacheTime = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["shortCacheTime"]);
-            WebService.AnperoService service = new WebService.AnperoService();
-
-            WebService.Ads[] Slide = null;
-            WebService.Ads[] ads1 = null;
-            WebService.Ads[] Ads2 = null;
-            WebService.Ads[] Ads3 = null;
-            WebService.Ads[] Ads4 = null;
-            
-            if (!base.cacheService.TryGet("Slide",out Slide))          
-            {
-                Slide = service.GetAdsSlide(StoreID, TokenKey, PageContent.Slide);                
-                cacheService.AddOrUpdate("Slide", Slide,new TimeSpan(0,0,10,0,0));
-            }
-
-            if (!base.cacheService.TryGet("ads1", out ads1))
-            {
-                ads1 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads1);              
-                cacheService.AddOrUpdate("ads1", ads1, new TimeSpan(0, 0, 10, 0, 0));
-            }
-            if (!base.cacheService.TryGet("Ads2", out Ads2))
-            {
-                Ads2 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads2);
-                cacheService.AddOrUpdate("Ads2", Ads2, new TimeSpan(0, 0, 10, 0, 0));
-            }
-            if (!base.cacheService.TryGet("Ads3", out Ads3))
-            {
-                Ads3 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads3);
-                cacheService.AddOrUpdate("Ads3", Ads3, new TimeSpan(0, 0, 10, 0, 0));
-            }
-            if (!base.cacheService.TryGet("Ads4", out Ads4))
-            {
-                Ads4 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads4);
-                cacheService.AddOrUpdate("Ads4", Ads4, new TimeSpan(0, 0, 10, 0, 0));
-            }
-            
-            //WebService.Ads[] ads3 = null;
-            //if (HttpRuntime.Cache["ads3"] != null)
-            //{
-            //    ViewData["ads3"] = (WebService.Ads[])HttpRuntime.Cache["ads3"];
-            //}
-            //else
-            //{
-            //    ads3 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads3);
-            //    ViewData["ads3"] = ads3;
-            //    if (Slide != null)
-            //    {
-            //        HttpRuntime.Cache.Insert("Ads2", ads3, null, DateTime.Now.AddMinutes(shortCacheTime + 3), TimeSpan.Zero);
-            //    }
-            //}
-            ViewData["slide"] = Slide;
-            ViewData["ads1"] = ads1;
-            ViewData["ads2"] = Ads2;
-            ViewData["ads3"] = Ads3;
-            ViewData["ads4"] = Ads4;
-           
-
-            Response.Cache.SetCacheability(HttpCacheability.Public);
-        }
+      
         private void GetNewestProduct()
         {
             WebService.AnperoService service = new WebService.AnperoService();

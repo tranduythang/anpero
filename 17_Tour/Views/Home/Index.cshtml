@@ -116,10 +116,9 @@
                         <h2 class="font-bold-play-fair" style="margin: 0px;padding-bottom: 2%;">@product.Name</h2><img class="gach-xanh" src="/assets/img/gach-xanh.png" style="padding-bottom: 13%;">
                         @Html.Raw(product.Description)
                     </div>
-
                     <div class="@(isMobile?"col-md-12":"col-8") col-xs-12" id="hanhTrinh-carousel">
-                        <div id="hanhTrinh2-img" class="owl-carousel-4 owl-carousel  owl-theme box-slide caroucel-style2">
 
+                        <div id="hanhTrinh2-img" class="row owl-carousel-4 owl-carousel  owl-theme box-slide caroucel-style2">
                             @foreach (var subItem in productList.Item)
                             {
                                 <div class="upText item">
@@ -136,7 +135,6 @@
                             }
                         </div>
                     </div>
-
                 </div>
             </div>
         }
