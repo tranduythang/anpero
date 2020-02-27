@@ -28,16 +28,16 @@
 .body-back {
   background-color: rgb(220,220,220);
 }
-
 .upText {
-  padding-top: 10%;
-  padding-left: 1%;
-  padding-right: 1%;
+    padding-top: 10%;
+    padding-left: 1%;
+    padding-right: 1%;
+    transition: padding-top 0.5s;
 }
 
-.upText:hover {
-  padding-top: 5%;
-}
+    .upText:hover {
+        padding-top: 5%;
+    }
 
 .upText .upText-Text {
   visibility: hidden;
