@@ -43,10 +43,13 @@
   visibility: hidden;
   /*background-color: white;*/
 }
-
-.upText:hover .upText-Text {
-  visibility: visible;
-}
+    .upText .upText-Text p{
+        margin-top:10px;
+        margin-bottom:5px;
+    }
+    .upText:hover .upText-Text {
+        visibility: visible;
+    }
 
 .pad-mr-0 {
   padding: 0%;
@@ -271,16 +274,24 @@ html, body {
     user-select: none;
 }
 
-.box-slide .owl-controls .owl-prev {    
-    background-image: url(/images/icons/icon-left.png);
+.box-slide .owl-controls .owl-prev {
+    /*background-image: url(/images/icons/icon-left.png);*/
+    background-image: url(/assets/img/1.svg);
 }
 .box-slide .owl-controls .owl-next {
-    right:0px;
-    background-image: url(/images/icons/icon-right.png);
+    right: 0px;
+    /*background-image: url(/images/icons/icon-right.png);*/
+    background-image: url(/assets/img/2.svg);
 }
 .caroucel-style2 .owl-controls .owl-prev, .caroucel-style2 .owl-controls .owl-next {
     top: 40%;
 }
 .tv-card-text{
     margin:15px;
+}
+.hanhTrinh-text {
+    padding-top: 5%;
+    padding-right: 8%;
+    padding-left: 8%;
+    padding-bottom: 5%;
 }

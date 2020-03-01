@@ -60,6 +60,8 @@ namespace AnperoFrontend.Controllers
             WebService.Ads[] Ads2 = null;
             WebService.Ads[] Ads3 = null;
             WebService.Ads[] Ads4 = null;
+            WebService.Ads[] Ads5 = null;
+            WebService.Ads[] Ads6 = null;
 
             if (!cacheService.TryGet("Slide", out Slide))
             {
@@ -87,13 +89,18 @@ namespace AnperoFrontend.Controllers
                 Ads4 = service.GetAdsSlide(CommonConfig.StoreID, CommonConfig.TokenKey, PageContent.Ads4);
                 cacheService.AddOrUpdate("Ads4", Ads4, new TimeSpan(0, 0, 10, 0, 0));
             }
-            WebService.Ads[] Ads5 = null;
+            
             if (!cacheService.TryGet("Ads5", out Ads5))
             {
                 Ads5 = service.GetAdsSlide(CommonConfig.StoreID, CommonConfig.TokenKey, PageContent.Ads5);
                 cacheService.AddOrUpdate("Ads5", Ads5, new TimeSpan(0, 0, 10, 0, 0));
             }
-            filterContext.Controller.ViewData["ads5"] = Ads5;
+            if (!cacheService.TryGet("Ads6", out Ads6))
+            {
+                Ads6 = service.GetAdsSlide(CommonConfig.StoreID, CommonConfig.TokenKey, PageContent.Ads6);
+                cacheService.AddOrUpdate("Ads6", Ads6, new TimeSpan(0, 0, 10, 0, 0));
+            }
+          
             //WebService.Ads[] ads3 = null;
             //if (HttpRuntime.Cache["ads3"] != null)
             //{
@@ -113,7 +120,8 @@ namespace AnperoFrontend.Controllers
             filterContext.Controller.ViewData["ads2"] = Ads2;
             filterContext.Controller.ViewData["ads3"] = Ads3;
             filterContext.Controller.ViewData["ads4"] = Ads4;
-
+            filterContext.Controller.ViewData["ads5"] = Ads5;
+            filterContext.Controller.ViewData["ads6"] = Ads6;
 
             //Response.Cache.SetCacheability(HttpCacheability.Public);
         }
