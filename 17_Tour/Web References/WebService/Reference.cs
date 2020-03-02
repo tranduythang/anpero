@@ -2028,6 +2028,8 @@ namespace AnperoFrontend.WebService {
         
         private bool isInstockField;
         
+        private Ads[] imagesSlide2Field;
+        
         private string[] imagesSlideField;
         
         private string tagField;
@@ -2253,6 +2255,16 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.isInstockField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Ads[] ImagesSlide2 {
+            get {
+                return this.imagesSlide2Field;
+            }
+            set {
+                this.imagesSlide2Field = value;
             }
         }
         
@@ -2525,6 +2537,87 @@ namespace AnperoFrontend.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Ads {
+        
+        private string referenceIdField;
+        
+        private string clickUrlField;
+        
+        private string descriptionField;
+        
+        private string imagesUrlField;
+        
+        private int idField;
+        
+        private int priotyField;
+        
+        /// <remarks/>
+        public string ReferenceId {
+            get {
+                return this.referenceIdField;
+            }
+            set {
+                this.referenceIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ClickUrl {
+            get {
+                return this.clickUrlField;
+            }
+            set {
+                this.clickUrlField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ImagesUrl {
+            get {
+                return this.imagesUrlField;
+            }
+            set {
+                this.imagesUrlField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Prioty {
+            get {
+                return this.priotyField;
+            }
+            set {
+                this.priotyField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class SearchResult {
         
         private ProductPropertiesValue[] propertiesValueField;
@@ -2627,6 +2720,8 @@ namespace AnperoFrontend.WebService {
         
         private int stField;
         
+        private int rankField;
+        
         /// <remarks/>
         public int Id {
             get {
@@ -2674,6 +2769,16 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.stField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Rank {
+            get {
+                return this.rankField;
+            }
+            set {
+                this.rankField = value;
             }
         }
     }
@@ -3121,87 +3226,6 @@ namespace AnperoFrontend.WebService {
             }
             set {
                 this.faviconField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Ads {
-        
-        private string referenceIdField;
-        
-        private string clickUrlField;
-        
-        private string descriptionField;
-        
-        private string imagesUrlField;
-        
-        private int idField;
-        
-        private int priotyField;
-        
-        /// <remarks/>
-        public string ReferenceId {
-            get {
-                return this.referenceIdField;
-            }
-            set {
-                this.referenceIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ClickUrl {
-            get {
-                return this.clickUrlField;
-            }
-            set {
-                this.clickUrlField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                this.descriptionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ImagesUrl {
-            get {
-                return this.imagesUrlField;
-            }
-            set {
-                this.imagesUrlField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int Id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int Prioty {
-            get {
-                return this.priotyField;
-            }
-            set {
-                this.priotyField = value;
             }
         }
     }

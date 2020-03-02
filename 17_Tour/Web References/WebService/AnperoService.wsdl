@@ -347,6 +347,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="Desc" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Images" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="St" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rank" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfProductProperties">
@@ -473,6 +474,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="Script" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="KeyWord" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="IsInstock" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImagesSlide2" type="tns:ArrayOfAds" />
           <s:element minOccurs="0" maxOccurs="1" name="ImagesSlide" type="tns:ArrayOfString" />
           <s:element minOccurs="0" maxOccurs="1" name="Tag" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="TagLink" type="s:string" />
