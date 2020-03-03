@@ -9,7 +9,7 @@
 
 #btcntt {
   margin-top: 3%;
-  border: 1px black solid;
+  border-right: 1px black solid;
   width:1px;
 }
 
@@ -57,3 +57,10 @@
 .btc-ntd .item img{
   width: 100%;
 }
+.member-img-content .col-md-3{
+    padding:0 5% 40px 5%;
+}
+    .member-img-content .col-md-3 img {
+        border-radius: 50%;
+        width: 100%;
+    }
