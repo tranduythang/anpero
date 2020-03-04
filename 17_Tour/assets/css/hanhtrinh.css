@@ -57,8 +57,12 @@
 .btc-ntd .item img{
   width: 100%;
 }
-.member-img-content .col-md-3{
-    padding:0 5% 40px 5%;
+.member-img-content{
+    margin-right:10%;
+    margin-left:10%;
+}
+.member-img-content .col-md-3 {
+    padding: 0 6% 40px 6%;
 }
     .member-img-content .col-md-3 img {
         border-radius: 50%;
