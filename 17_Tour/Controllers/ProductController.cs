@@ -14,7 +14,7 @@ namespace AnperoFrontend.Controllers
 
         // GET: Product
         [BuildCommonHtml]
-        public ActionResult Index(int id)
+        public ActionResult Index(int id,string type="")
         {
             
             WebService.ProductItem item = service.GetProductDetail(StoreID, TokenKey, id);
@@ -22,8 +22,15 @@ namespace AnperoFrontend.Controllers
             ViewData["relateProduct"] = relateProduct;
             ViewData["prDetail"] = item;
             ViewBag.Title = item.PrName;
-
-            return View();
+            if (type == "")
+            {
+                return View();
+            }
+            else
+            {
+                return View("thuvien");
+            }
+            
         }
 
         public ActionResult SearchAjax(WebService.SearchModel model)

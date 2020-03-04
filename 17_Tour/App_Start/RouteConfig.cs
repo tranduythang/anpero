@@ -62,6 +62,12 @@ namespace AnperoFrontend
               constraints: new { id = @"\d+", title = @"[^/]+" }
            );
             routes.MapRoute(
+                name: "productDetail2",
+                url: "{title}-t{id}",
+                defaults: new { controller = "product", action = "index", id = UrlParameter.Optional,type="thuvien" },
+                constraints: new { id = @"\d+", title = @"[^/]+" }
+             );
+            routes.MapRoute(
               name: "search",
               url: "search",
               defaults: new { controller = "product", action = "search" }
