@@ -49,22 +49,26 @@
                     <!--Grid column-->
 
                 </div>
-            
+
 
                 <div class="form-group text-center" style="margin-top: 16px;">
                     <button id="btn-send-contact" class="btn btn-primary btn-lg" style="background: #292929;border:0px" type="button">Liên Hệ Ngay</button>
                 </div>
             </form>
         </div>
-        <div style="margin-top: 15%;margin-left:10%" itemscope itemtype="http://schema.org/LocalBusiness">
-            @Html.Raw(commonInfo.Address)
-            
-            <div>
-                <a href="https://www.facebook.com"><i class="fa fa-star fa-facebook soc-icon"></i></a>
-                <a href="https://www.facebook.com"><i class="fa fa-star fa-youtube soc-icon"></i></a>
-                <a href="https://www.facebook.com"><i class="fa fa-star fa-instagram soc-icon"></i></a>
+        @if (!Request.Browser.IsMobileDevice)
+        {
+            <div style="margin-top: 15%;margin-left:10%" itemscope itemtype="http://schema.org/LocalBusiness">
+                @Html.Raw(commonInfo.Address)
+
+                <div>
+                    <a href="https://www.facebook.com"><i class="fa fa-star fa-facebook soc-icon"></i></a>
+                    <a href="https://www.facebook.com"><i class="fa fa-star fa-youtube soc-icon"></i></a>
+                    <a href="https://www.facebook.com"><i class="fa fa-star fa-instagram soc-icon"></i></a>
+                </div>
             </div>
-        </div>
+        }
+
     </div>
 </div>
 <div>
