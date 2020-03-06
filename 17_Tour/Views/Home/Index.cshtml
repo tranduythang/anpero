@@ -50,7 +50,7 @@
             </div>
         }
 
-        <div id="About" class="bg-white d-inline-flex">
+        <div id="About"  class="bg-white d-inline-flex w-100">
             <div class="owl-carousel-1 owl-carousel slide owl-theme box-slide bg-white " id="AboutText">
                 @if (ViewData["ads1"] != null)
                 {
@@ -208,7 +208,7 @@
                                     {
                                         <div class="tv-card-item item">
                                             <div class="bg-white">
-                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
+                                                <a href="/@(Anpero.StringHelpper.toURLgach(item.PrName)+"-t"+item.Id)">
                                                     <img class="tv-card-img" src="@item.Images">
                                                 </a>
                                                 <div class="tv-card-text">
