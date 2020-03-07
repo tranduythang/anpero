@@ -49,9 +49,8 @@
                 }
             </div>
         }
-
-        <div id="About" class="bg-white d-inline-flex">
-            <div class="owlCarousel-1 owl-carousel slide owl-theme box-slide bg-white ads1-ct" id="AboutText">
+        <div id="About" class="bg-white d-inline-flex w-100">
+            <div class="owl-carousel-1 owl-carousel slide owl-theme box-slide bg-white ads1-ct" id="AboutText">
                 @if (ViewData["ads1"] != null)
                 {
                     Ads[] adsList = (Ads[])ViewData["ads1"];
@@ -59,8 +58,8 @@
                     {
                         foreach (var item in adsList)
                         {
-                            <div class="item">                                
-                                    <img class="w-100" src="@item.ImagesUrl">                                
+                            <div class="item">
+                                <img class="w-100" src="@item.ImagesUrl">
                             </div>
                         }
                     }
@@ -213,7 +212,7 @@
                                     {
                                         <div class="tv-card-item item">
                                             <div class="bg-white">
-                                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
+                                                <a href="/@(Anpero.StringHelpper.toURLgach(item.PrName)+"-t"+item.Id)">
                                                     <img class="tv-card-img" src="@item.Images">
                                                 </a>
                                                 <div class="tv-card-text">
@@ -364,34 +363,35 @@
             display: inline;
             float: left;
             width: 100%;
-            justify-content:center;
+            justify-content: center;
         }
 
         .showMore {
             display: none;
         }
-        .owlCarousel-1 .owl-page{
-            float:left;
-        }
-        .owlCarousel-1 .owl-page span {
-            width: 5px;
-            height: 5px;
-            margin: 5px 7px;
-            background: #adb3b7;
-            display: block;
-            -webkit-backface-visibility: visible;
-            transition: opacity .2s ease;
-            border-radius: 30px;
-            
+
+        .owlCarousel-1 .owl-page {
+            float: left;
         }
 
-        .owlCarousel-1 .owl-page.active span {
-            background: #8b8e90;
-        }
+            .owlCarousel-1 .owl-page span {
+                width: 5px;
+                height: 5px;
+                margin: 5px 7px;
+                background: #adb3b7;
+                display: block;
+                -webkit-backface-visibility: visible;
+                transition: opacity .2s ease;
+                border-radius: 30px;
+            }
+
+            .owlCarousel-1 .owl-page.active span {
+                background: #8b8e90;
+            }
     </style>
     <script>
         $(document).ready(function () {
-            
+
             $("#showicon").click(function () {
                 $(".showMore").slideDown();
             });
@@ -403,7 +403,7 @@
                 stagePadding: 30,
                 smartSpeed: 450
             });
-            $(".ads1-ct .owl-pagination").css("padding-left",$("body").width()/2 -30+"px")            
+            $(".ads1-ct .owl-pagination").css("padding-left", $("body").width() / 2 - 30 + "px")
         });
 
     </script>

@@ -23,25 +23,34 @@
         <link href="//cdn.anpero.com/cdn/plugins/fancybox-3/src/css/core.css" rel="stylesheet" />
         <link href="//cdn.anpero.com/cdn/plugins/fancybox-3/src/css/fullscreen.css" rel="stylesheet" />
         @*<link rel="stylesheet" type="text/css" href="/assets/SamsungGrid/css/normalize.css" />
-         <link rel="stylesheet" type="text/css" href="/assets/SamsungGrid/css/component.css" />*@
+            <link rel="stylesheet" type="text/css" href="/assets/SamsungGrid/css/component.css" />*@
 
     }
     <div class="container-fluid">
 
         @if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
         {
+            <div class="row">
+                <div class="w-100" style="">
+                    <img class="w-100" src="@item.ImagesSlide[0]">
+                </div>
+            </div>
             <div class="text-center" style="margin-top: 10vh;">
                 <h1 class="font-bold-play-fair"><strong>Hành Trình</strong></h1>
                 <h4>Ảnh</h4>
             </div>
-            <section class="grid-wrap" id="tab-description" style="margin-top: 7vh;">
-                <div class="grid swipe-right owl-carousel-4 box-slide d-inline-flex" id="grid">
-                    @foreach (var imagesSlide in item.ImagesSlide)
-                    {
-                        <div class="item" style="padding-right:10px;padding-left:10px;"><a href="@imagesSlide" class="fancybox" data-fancybox="gallery" rel="gallery" data-type="image"><img src="@imagesSlide" alt="@item.PrName"></a></div>
-                    }
-                </div>
-            </section>
+            if (item.ImagesSlide.Length > 1)
+            {
+                <section class="grid-wrap" id="tab-description" style="margin-top: 7vh;">
+                    <div class="grid swipe-right owl-carousel-4 box-slide d-inline-flex" id="grid">
+                        @for (int i = 1; i < item.ImagesSlide.Length; i++)
+                        {
+                            <div class="item" style="padding-right:10px;padding-left:10px;"><a href="@item.ImagesSlide[i]" class="fancybox" data-fancybox="gallery" rel="gallery" data-type="image"><img src="@item.ImagesSlide[i]" alt="@item.PrName"></a></div>
+                        }
+                    </div>
+                </section>
+            }
+
         }
         <div class="text-center" style="margin-top: 10vh;">
             <h4>Video</h4>
