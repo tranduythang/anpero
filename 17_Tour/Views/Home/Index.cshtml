@@ -49,8 +49,8 @@
                 }
             </div>
         }
-        <div id="About" class="bg-white d-inline-flex w-100">
-            <div class="owl-carousel-1 owl-carousel slide owl-theme box-slide bg-white ads1-ct" id="AboutText">
+        <div id="About" class="bg-white col-md-12">
+            <div class="owlCarousel-1 owl-carousel slide owl-theme box-slide bg-white ads1-ct" id="AboutText">
                 @if (ViewData["ads1"] != null)
                 {
                     Ads[] adsList = (Ads[])ViewData["ads1"];
@@ -251,10 +251,6 @@
             {
 
                 SearchResult productList = (SearchResult)ViewData["chiase"];
-                if (productList != null && productList.Item.Length > 0)
-                {
-
-                }
                 <div class="row " style="padding-bottom: 5%;padding-right: 8%;padding-left: 8%;">
                     @for (int i = 0; i < productList.Item.Length; i++)
                     {
@@ -271,6 +267,8 @@
                                 @Html.Raw(productList.Item[i].ShortDesc)
                             </p>
                         </div>
+
+
                     }
                 </div>
             }
@@ -366,6 +364,13 @@
             justify-content: center;
         }
 
+        .ads1-ct .owl-pagination {            
+            position: absolute;
+            bottom: 49px;
+            /*left: 48%;*/
+            left:calc(50% - 15px);
+        }
+
         .showMore {
             display: none;
         }
@@ -377,6 +382,7 @@
             .owlCarousel-1 .owl-page span {
                 width: 5px;
                 height: 5px;
+                content: "";
                 margin: 5px 7px;
                 background: #adb3b7;
                 display: block;
@@ -388,12 +394,26 @@
             .owlCarousel-1 .owl-page.active span {
                 background: #8b8e90;
             }
+
+        @@media only screen and (max-width: 768px) {
+            .ads1-ct .owl-pagination {
+                bottom: 0px;
+                margin-bottom: 5px;
+            }
+        }
     </style>
     <script>
         $(document).ready(function () {
 
             $("#showicon").click(function () {
-                $(".showMore").slideDown();
+                if ($(".fa-angle-double-down").length > 0) {
+                    $(".showMore").slideDown();
+                    $(".fa-angle-double-down").addClass("fa-angle-double-up").removeClass("fa-angle-double-down");
+                } else {
+                    $(".showMore").slideUp();
+                    $(".fa-angle-double-up").addClass("fa-angle-double-down").removeClass("fa-angle-double-up");
+                }
+
             });
             $('.owlCarousel-1').owlCarousel({
                 animateOut: 'slideOutDown',
@@ -403,7 +423,7 @@
                 stagePadding: 30,
                 smartSpeed: 450
             });
-            $(".ads1-ct .owl-pagination").css("padding-left", $("body").width() / 2 - 30 + "px")
+            //$(".ads1-ct .owl-pagination").css("padding-left", $("body").width() / 2 - 30 + "px")
         });
 
     </script>
