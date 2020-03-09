@@ -26,24 +26,10 @@
             <link rel="stylesheet" type="text/css" href="/assets/SamsungGrid/css/component.css" />*@
 
     }
-    @section Styles {
-        <style>
-            .grid.swipe-right li.animate .curtain {
-                animation: swipeRight 1.5s cubic-bezier(0.6,0,0.4,1) forwards;
-            }
-
-            @@keyframes swipeRight {
-                50%, 60% {
-                    transform: translate(0);
-                }
-
-                100% {
-                    transform: translate3d(100%,0,0);
-                }
-            }
-        </style>
-    }
+<div class="row" id="page-container">
     @Html.Raw(item.Detail)
+</div>
+    
     if (item.ImagesSlide != null && item.ImagesSlide.Length > 0)
     {
         <div class="container-fluid">
@@ -51,28 +37,30 @@
                 <h1 class="font-bold-play-fair">Gallery</h1>
                 <div class="divgachxannh" style="width: 4%;margin-left: 48%;margin-bottom:10vh"></div>
             </div>
-
             <section class="grid-wrap" id="tab-description">
-                <div class="grid swipe-right owl-carousel-4 box-slide d-inline-flex" id="grid">
-
+                <div class="grid swipe-right owl-carousel-3 box-slide d-inline-flex" id="grid">
                     @foreach (var imagesSlide in item.ImagesSlide)
                     {
-
                         <div class="item" style="padding-right:10px;padding-left:10px;"><a href="@imagesSlide" class="fancybox" data-fancybox="gallery" rel="gallery" data-type="image"><img src="@imagesSlide" alt="@item.PrName"></a></div>
                     }
                 </div>
             </section>
             @if (item.ImagesSlide2 != null && item.ImagesSlide2.Length > 0)
             {
-                <div class="text-center gallery" style="margin-top:45px;">
-                    <h1 class="font-bold-play-fair">Nhà tài trợ</h1>
-                    <div class="divgachxannh" style="width: 4%;margin-left: 48%;margin-bottom:10vh"></div>
-                </div>
-                <section class="grid-wrap" id="tab-description">
-                    <div class="grid swipe-right owl-carousel-6 box-slide d-inline-flex" id="grid">
+                @*<div class="text-center gallery" style="margin-top:45px;">
+                        <h1 class="font-bold-play-fair">Nhà tài trợ</h1>
+                        <div class="divgachxannh" style="width: 4%;margin-left: 48%;margin-bottom:10vh"></div>
+                    </div>*@
+                <section class="col-md-12 grid-wrap text-center" id="tab-description">
+                    @*<div class="grid owl-carousel-8 box-slide" id="grid">*@
+                    <div class="grid" id="brand-item">
                         @foreach (var imagesSlide in item.ImagesSlide2)
                         {
-                            <div class="item" style="padding-right:10px;padding-left:10px;"><a href="@imagesSlide.ImagesUrl" class="fancybox" data-fancybox="gallery" rel="gallery" data-type="image"><img src="@imagesSlide.ImagesUrl" alt="@item.PrName"></a></div>
+                            <div class="item">
+                                <a href="@imagesSlide.ImagesUrl" class="fancybox" data-fancybox="gallery" rel="gallery" data-type="image">
+                                    <img src="@imagesSlide.ImagesUrl" alt="@item.PrName">
+                                </a>
+                            </div>
                         }
                     </div>
                 </section>
@@ -90,7 +78,31 @@
 
         @*<script src="/assets/SamsungGrid/js/gridScrollFx.js"></script>*@
         <script>
+
             $(document).ready(function () {
+                $('.owl-carousel-3').owlCarousel({
+                    itemsCustom: [
+                        [320, 2],
+                        [600, 2],
+                        [768, 2],
+                        [1024, 3],
+                        [1200, 3]
+                    ],
+                    navigation: true,
+                    autoPlay: true
+                });
+                $('.owl-carousel-8').owlCarousel({
+                    center: true,
+
+                    itemsCustom: [
+                        [768, 4],
+                        [1024, 8],
+                        [1200, 8]
+                    ],
+                    navigation: true,
+                    autoPlay: true
+                });
+
                 //new GridScrollFx(document.getElementById('grid'), {
                 //    viewportFactor: 0.4
                 //});
@@ -130,4 +142,36 @@
             }
         </script>
     }
+}
+@section Styles {
+    <style>
+        #brand-item .item {
+            text-align: center;
+            display: inline-block;
+            margin: 0 15px 0 15px;
+        }
+
+        .grid.swipe-right li.animate .curtain {
+            animation: swipeRight 1.5s cubic-bezier(0.6,0,0.4,1) forwards;
+        }
+
+        .owl-carousel .owl-stage {
+            display: flex;
+            align-items: center;
+        }
+
+        .owl-carousel .caption {
+            text-align: center;
+        }
+
+        @@keyframes swipeRight {
+            50%, 60% {
+                transform: translate(0);
+            }
+
+            100% {
+                transform: translate3d(100%,0,0);
+            }
+        }
+    </style>
 }

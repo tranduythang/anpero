@@ -49,9 +49,8 @@
                 }
             </div>
         }
-
-        <div id="About"  class="bg-white d-inline-flex w-100">
-            <div class="owl-carousel-1 owl-carousel slide owl-theme box-slide bg-white " id="AboutText">
+        <div id="About" class="bg-white col-md-12">
+            <div class="owlCarousel-1 owl-carousel slide owl-theme box-slide bg-white ads1-ct" id="AboutText">
                 @if (ViewData["ads1"] != null)
                 {
                     Ads[] adsList = (Ads[])ViewData["ads1"];
@@ -60,9 +59,7 @@
                         foreach (var item in adsList)
                         {
                             <div class="item">
-                                <div class="bg-white text-center p-4 ">
-                                    <img class="w-100" src="@item.ImagesUrl">
-                                </div>
+                                <img class="w-100" src="@item.ImagesUrl">
                             </div>
                         }
                     }
@@ -114,7 +111,10 @@
             <div id="hanhTrinh2-text" class="col-md-4 col-xs-12  hanhTrinh-text">
                 <h2 class="font-bold-play-fair">@product.Name</h2>
                 <img class="gach-xanh" src="/assets/img/gach-xanh.png" style="padding-bottom: 13%;">
-                @Html.Raw(product.Description)
+                <div class="owlCarousel-1">
+                    @Html.Raw(product.Description)
+                </div>
+
             </div>
             <div class="col-md-8 col-xs-12">
 
@@ -148,7 +148,9 @@
                     <div style="margin-right: 15%;margin-top: 15%;margin-left: 15%;">
                         <h2 class="font-bold-play-fair" style="margin-bottom: 0px;padding-bottom: 2%;">Khách Mời</h2>
                         <img class="gach-xanh" src="/assets/img/gach-xanh.png" style="padding-bottom: 13%;">
-                        <p>@Html.Raw(categoryItem.Description)</p>
+                        <div class="owlCarousel-1">
+                            @Html.Raw(categoryItem.Description)
+                        </div>
                     </div>
                 }
                 <div id="khacMoiAnh" class="col-md-8 multi-item-carousel" style="padding: 0px;overflow:hidden;">
@@ -178,7 +180,9 @@
                         <div style="margin-right: 25%;margin-top: 40%;margin-left: 25%;">
                             <h2 class="font-bold-play-fair" style="margin-bottom: 0px;padding-bottom: 2%;">Khách Mời</h2>
                             <img class="gach-xanh" src="/assets/img/gach-xanh.png" style="padding-bottom: 13%;">
-                            <p>@Html.Raw(categoryItem.Description)</p>
+                            <div class="owlCarousel-1">
+                                @Html.Raw(categoryItem.Description)
+                            </div>
                         </div>
                     }
                 </div>
@@ -247,10 +251,6 @@
             {
 
                 SearchResult productList = (SearchResult)ViewData["chiase"];
-                if (productList != null && productList.Item.Length > 0)
-                {
-
-                }
                 <div class="row " style="padding-bottom: 5%;padding-right: 8%;padding-left: 8%;">
                     @for (int i = 0; i < productList.Item.Length; i++)
                     {
@@ -267,6 +267,8 @@
                                 @Html.Raw(productList.Item[i].ShortDesc)
                             </p>
                         </div>
+
+
                     }
                 </div>
             }
@@ -283,19 +285,19 @@
     <div class="text-center" id="amz-info">
         <div id="amz-info-btc" class="text-center">
             <h4 class="font-bold-play-fair" style="padding-bottom: 1%;">Ban Tổ Chức</h4>
-            
-                @if (ViewData["ads6"] != null)
+
+            @if (ViewData["ads6"] != null)
+            {
+                Ads[] adsList = (Ads[])ViewData["ads6"];
+                if (adsList.Length > 0)
                 {
-                    Ads[] adsList = (Ads[])ViewData["ads6"];
-                    if (adsList.Length > 0)
+                    foreach (var item in adsList)
                     {
-                        foreach (var item in adsList)
-                        {
-                            <img class="col-md-4" src="@item.ImagesUrl" style="max-width:150px;">
-                        }
+                        <img class="col-1" src="@item.ImagesUrl">
                     }
                 }
-            
+            }
+
         </div>
         <img class="gach-xanh" src="/assets/img/gach-xanh.png" style="padding-bottom: 1%;">
         <div id="amz-info-doiTac" class="text-center" style="padding-top: 2%;">
@@ -353,17 +355,86 @@
 }
 @section scripts {
     <style>
+        .owlCarousel-1 .owl-pagination {
+            margin-bottom: 24px;
+            margin-top: 15px;
+            display: inline;
+            float: left;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .ads1-ct .owl-pagination {            
+            position: absolute;
+            bottom: 49px;
+            /*left: 48%;*/
+            left:calc(50% - 15px);
+        }
+
         .showMore {
             display: none;
+        }
+
+        .owlCarousel-1 .owl-page {
+            float: left;
+        }
+
+            .owlCarousel-1 .owl-page span {
+                width: 5px;
+                height: 5px;
+                content: "";
+                margin: 5px 7px;
+                background: #adb3b7;
+                display: block;
+                -webkit-backface-visibility: visible;
+                transition: opacity .2s ease;
+                border-radius: 30px;
+            }
+
+            .owlCarousel-1 .owl-page.active span {
+                background: #8b8e90;
+            }
+
+        @@media only screen and (max-width: 768px) {
+            .ads1-ct .owl-pagination {
+                bottom: 0px;
+                margin-bottom: 5px;
+            }
         }
     </style>
     <script>
         $(document).ready(function () {
-            $("#showicon").click(function () {
-                $(".showMore").slideDown();
-            });
 
+            $("#showicon").click(function () {
+                if ($(".fa-angle-double-down").length > 0) {
+                    $(".showMore").slideDown();
+                    $(".fa-angle-double-down").addClass("fa-angle-double-up").removeClass("fa-angle-double-down");
+                } else {
+                    $(".showMore").slideUp();
+                    $(".fa-angle-double-up").addClass("fa-angle-double-down").removeClass("fa-angle-double-up");
+                }
+
+            });
+            $('.owlCarousel-1').owlCarousel({
+                animateOut: 'slideOutDown',
+                animateIn: 'flipInX',
+                items: 1,
+                margin: 30,
+                stagePadding: 30,
+                smartSpeed: 450
+            });
+            //$(".ads1-ct .owl-pagination").css("padding-left", $("body").width() / 2 - 30 + "px")
         });
 
     </script>
+    @if (Request.Browser.IsMobileDevice)
+    {
+        <script>
+            $(document).ready(function () {
+                $(".Intro-video").css("margin-top", "-79px");
+                $(".Intro-video iframe").css("width", "150px").css("height", "80px");;
+            });
+        </script>
+    }
+
 }
