@@ -17,9 +17,12 @@
         <meta name="keywords" content="@Html.Raw(Anpero.StringHelpper.UnicodeToKoDau(item.KeyWord))" />
         <meta property="og:description" content="@Html.Raw(item.ShortDesc)" />
         <meta property="og:type" content="website" />
+        <meta property="og:title" content="@item.PrName" />
         <meta property="og:url" content="@ViewBag.WebsiteUrl" />
         <meta property="og:image" content="@item.Images" />
+        <meta property="og:locale" content="vi_VN" />        
         <link rel="canonical" href="@ViewBag.WebsiteUrl" />
+
         <link href="//cdn.anpero.com/cdn/plugins/fancybox-3/src/css/core.css" rel="stylesheet" />
         <link href="//cdn.anpero.com/cdn/plugins/fancybox-3/src/css/fullscreen.css" rel="stylesheet" />
     }
@@ -469,13 +472,14 @@
             .breadcrumb {
                 margin: 22px 0 15px;
             }
-               .slick-slider .slick-arrow{
-left:-11px;
+
+            .slick-slider .slick-arrow {
+                left: -11px;
             }
-            .slick-slider .slick-arrow.next { 
-                right: -12px!important;
-            }
-            
+
+                .slick-slider .slick-arrow.next {
+                    right: -12px !important;
+                }
         </style>
 
     }

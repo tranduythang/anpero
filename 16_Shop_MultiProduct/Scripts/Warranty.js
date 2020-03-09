@@ -3,16 +3,16 @@
     function getAndValidateData() {
         var valid = true;
         datas.LocationId = 0;
-        var location = $("#country").val();
+        var _location = $("#country").val();
         var district = $("#prov").val();
         var captchaResponse = grecaptcha.getResponse(googleCatcha);
         if (district > 0) {
             datas.LocationId = district;
-        } else if (location > 0) {
-            datas.LocationId = location;
+        } else if (_location > 0) {
+            datas.LocationId = _location;
         }
          
-        datas.Province = location>0?$("select[name=province] option:selected").text():"";
+        datas.Province = _location>0?$("select[name=province] option:selected").text():"";
         datas.District = district>0?$("select[name=district] option:selected").text():"";
         datas.seria = $("#seria").val();
         datas.Name = $("#fullName").val();
@@ -56,7 +56,8 @@
         } else if (!Util.isVnFone(datas.Phone)) {
             Util.notify("", "Lỗi! Số điện thoại không đúng định dạng.");
         }
-        if (datas.Mail != "" && !Util.isEmail(datas.Mail)) {
+        
+        if (datas.Mail.trim() != "" && !Util.isEmail(datas.Mail)) {
             Util.notify("", "Lỗi! Email không đúng định dạng.");
         }
         return valid;

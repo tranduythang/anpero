@@ -17,8 +17,9 @@
     <meta content="@commonInfo.Name" name="author" />
     <meta property="og:image" content="@commonInfo.Logo">
     <meta property="og:description" content="@commonInfo.Desc">
-    <meta property="og:description" content="@commonInfo.Desc">
     <meta name="description" content="@commonInfo.Desc" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@commonInfo.Name" />
 
 }
 @if (ViewData["slide"] != null)
@@ -857,15 +858,22 @@
             border: 1px solid white !important;
         }
 
-    #sale-pr-content .slick-arrow.next,#topViewNew .slick-arrow.next {
+    #sale-pr-content .slick-arrow.next, #topViewNew .slick-arrow.next {
         right: -9px !important;
     }
-    #sale-pr-content .slick-arrow.prev,#topViewNew .slick-arrow.prev {
+
+    #sale-pr-content .slick-arrow.prev, #topViewNew .slick-arrow.prev {
         left: -9px !important;
     }
-      #topPrViewCt .slick-arrow.prev{
-        left: 9px !important;
+
+    #topPrViewCt .slick-arrow.prev {
+        left: 5px !important;
     }
-    
-    
+    .vc_custom_1547456628930 .slick-arrow.next {
+            right: -10px!important;
+    }
+    .vc_custom_1547456628930 .slick-arrow.prev{
+            left: -10px!important;
+    }
+     
 </style>
