@@ -339,7 +339,9 @@ html, body {
 .nav-item a:hover {
     font-family: FontGothamBold;
 }
-
+.botron{
+    border-radius:50%!important;
+}
 @media only screen and (max-width: 768px) {
     .navbar-brand img {
         width: 100% !important;
