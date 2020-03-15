@@ -15,15 +15,15 @@
     <meta property="og:image:type" content="image/jpg">
     <meta content="@commonInfo.Name" name="author" />
     <meta property="og:image" content="@commonInfo.Logo">
-    <meta property="og:description" content="@commonInfo.Desc">    
+    <meta property="og:description" content="@commonInfo.Desc">
     <meta name="description" content="@commonInfo.Desc" />
 
 }
 @section healthHtml{
-    <a href="/"><img src="/assets/img/HeaderImg.png" style="width: 100%;"></a>
+    <a href="https://vntravellive.com"><img src="/assets/img/HeaderImg.png" style="width: 100%;"></a>
 }
 <div class="container-fluid">
-    <div class="row">
+    <div class="row" id="home-slide">
         @if (ViewData["slide"] != null)
         {
 
@@ -152,7 +152,7 @@
                         </div>
                     </div>
                 }
-                <div id="khacMoiAnh" class="col-md-8 multi-item-carousel" style="padding: 0px;overflow:hidden;">
+                <div id="khacMoiAnh" class="col-md-8 multi-item-carousel">
                     <div role="listbox" class="owl-carousel-4 box-slide d-inline-flex">
                         @foreach (var item in productList.Item)
                         {
@@ -207,7 +207,8 @@
                                 {
 
                                     SearchResult productList = (SearchResult)ViewData["thuvien"];
-                                    foreach (var item in productList.Item)
+                                    var itemList = productList.Item.ToArray();
+                                    foreach (var item in itemList)
                                     {
                                         <div class="tv-card-item item">
                                             <div class="bg-white">
@@ -217,7 +218,7 @@
                                                 <div class="tv-card-text">
                                                     <h5 class="font-bold-play-fair" style="margin-bottom: 0;">@item.PrName</h5>
                                                     <div class="row" style="margin: 0;">
-                                                        <p style="margin-bottom: 0;width: 50%;padding-bottom:10%;">@item.Tag</p>
+                                                        <p style="margin-bottom: 0;padding-bottom:10%;">@item.Tag</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -292,17 +293,17 @@
                 {
                     foreach (var item in adsList)
                     {
-                        <img class="col-1" src="@item.ImagesUrl">
+                        <img class="img-btc" src="@item.ImagesUrl">
                     }
                 }
             }
 
         </div>
-        <img class="gach-xanh" src="/assets/img/gach-xanh.png" style="padding-bottom: 1%;">
+        <img class="gach-xanh" src="/assets/img/gach-xanh.png" style="padding-bottom: 1%;padding-top:2%;">
         <div id="amz-info-doiTac" class="text-center" style="padding-top: 2%;">
             <h4 class="font-bold-play-fair" style="padding-bottom: 1%;">Đối Tác</h4>
             <div class="justify-content-center align-items-center row box-slide" style="padding-bottom: 1%;">
-                <div class="owl-carousel-4">
+                <div>
                     @if (ViewData["ads4"] != null)
                     {
                         Ads[] adsList = (Ads[])ViewData["ads4"];
@@ -310,7 +311,7 @@
                         {
                             foreach (var item in adsList)
                             {
-                                <img class="col-12" src="@item.ImagesUrl">
+                                <img class="img-btc" src="@item.ImagesUrl"  >
                             }
                         }
                     }
@@ -354,6 +355,20 @@
 }
 @section scripts {
     <style>
+        #home-slide p{
+            font-size:25px;
+            font-family:FontGothamThin;
+        }
+        #khacMoiAnh {
+            padding: 0px;
+            overflow: hidden;
+            border-top: 3px black solid;
+        }
+
+            #khacMoiAnh .owl-carousel-4 {
+                border-bottom: 3px black solid;
+            }
+
         .owlCarousel-1 .owl-pagination {
             margin-bottom: 24px;
             margin-top: 15px;
@@ -363,11 +378,11 @@
             justify-content: center;
         }
 
-        .ads1-ct .owl-pagination {            
+        .ads1-ct .owl-pagination {
             position: absolute;
             bottom: 49px;
             /*left: 48%;*/
-            left:calc(50% - 15px);
+            left: calc(50% - 15px);
         }
 
         .showMore {

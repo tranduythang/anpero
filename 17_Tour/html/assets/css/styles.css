@@ -122,7 +122,7 @@ html, body {
 }
 
 .home-mau-xam {
-  background-color: #dadada;
+    background-color: #f3f3f3;
 }
 
 #About {
@@ -193,22 +193,22 @@ html, body {
 }
 
 .soc-icon {
-  background: #25c5b2;
-  width: 10px!important;
-  height: 5px!important;
-  /* font-size: 1.5rem; */
-  text-align: left;
-  border-radius: 50%;
-  line-height: 0px;
-  /* padding-top: 1.5vw;
+    background: #65aaba;
+    width: 10px !important;
+    height: 5px !important;
+    /* font-size: 1.5rem; */
+    text-align: left;
+    border-radius: 50%;
+    line-height: 0px;
+    /* padding-top: 1.5vw;
   padding-right: 2vw;
   padding-bottom: 1.5vwpx;
   padding-left: 1vw; */
-  padding-left: 0.6rem;
-  padding-top: 0.9rem;
-  padding-right: 1.2rem;
-  padding-bottom: 0.9rem;
-  color: black;
+    padding-left: 0.6rem;
+    padding-top: 0.9rem;
+    padding-right: 1.2rem;
+    padding-bottom: 0.9rem;
+    color: black;
 }
 
 #cscn-item-id img {

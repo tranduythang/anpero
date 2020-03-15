@@ -13,10 +13,31 @@
 }
 
 @font-face {
-  font-family: FontGothamBook;
-  src: url('/assets/fonts/SVN-Gotham Book.otf')format("opentype");
+    font-family: FontGothamBook;
+    src: url('/assets/fonts/SVN-Gotham Book.otf')format("opentype");
+}
+@font-face {
+    font-family: FontGothamBold;
+    src: url('/assets/fonts/gothamvn/SVN-Gotham Bold.otf')format("opentype");
+}
+@font-face {
+    font-family: FontGothamThin;
+    src: url('/assets/fonts/gothamvn/SVN-Gotham-Thin.otf')format("opentype");
+}
+@font-face {
+    font-family: FontGothamLight;
+    src: url('/assets/fonts/gothamvn/SVN-Gotham Light.otf')format("opentype");
+}
+@font-face {
+    font-family: Playfair;
+    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-Regular.ttf')format("opentype");
+}
+@font-face {
+    font-family: PlayfairBold;
+    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-Bold.ttf')format("opentype");
 }
 
-.font-gotham{
-  font-family: FontGothamBook;
+
+.font-gotham {
+    font-family: FontGothamBook;
 }

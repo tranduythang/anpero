@@ -118,16 +118,24 @@
             @Html.Raw(commonInfo.Address)
         </div>
         <div class="ml-auto">
-            <ul class="list-group" style="margin-right: 3vw;">
+            <ul class="list-group" style="margin-right: 3vw;">              
+               
                 <li class="list-group-item bg-transparent p-0 mb-2">
-                    <a href="@commonInfo.FaceBookLink"><i class="fa fa-facebook soc-icon"></i></a>
+                    <a href="https://www.instagram.com/travellive_magazine/">
+                        <img src="/assets/img/icon/1.png" />
+                    </a>
                 </li>
                 <li class="list-group-item bg-transparent p-0 mb-2">
-                    <a href="https://www.facebook.com"><i class="fa fa-youtube mr-1 soc-icon"></i></a>
+                    <a href="https://www.youtube.com/channel/UCzrkxqFIgJtmgbp-VwjdYHQ">
+                        <img src="/assets/img/icon/3.png"/>
+                    </a>
                 </li>
                 <li class="list-group-item bg-transparent p-0 mb-2">
-                    <a href="https://www.facebook.com"><i class="fa fa-instagram soc-icon"></i></a>
+                    <a href="@commonInfo.FaceBookLink">
+                        <img src="/assets/img/icon/2.png" />
+                    </a>
                 </li>
+            
             </ul>
         </div>
     </div>
@@ -211,9 +219,9 @@
             });
             $('.owl-carousel-6').owlCarousel({
                 itemsCustom: [
-                    [320, 3],
-                    [600, 3],
-                    [768, 3],
+                    [320, 2],
+                    [600, 2],
+                    [768, 2],
                     [1024, 6],
                     [1200, 6]
                 ],
