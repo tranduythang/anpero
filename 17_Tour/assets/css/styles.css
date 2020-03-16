@@ -1,3 +1,6 @@
+body,p{
+    font-size:14px;
+}
 .row.footer {
     margin-top: 3vh;
 }
@@ -12,7 +15,9 @@
     height: 5px;
     background-color: #404040;
 }
-
+.nav-item a{
+    font-size:13px;
+}
 .carousel-item:hover .carousel-fade {
     opacity: 0.4;
 }
@@ -111,7 +116,7 @@
 
 
 .footer {
-    padding: 35px 40px;
+    padding: 18px 15px;
     color: rgba(255,255,255,1.00);
     /*margin-bottom: 20px;*/
     border-bottom-right-radius: 5px;
@@ -126,7 +131,8 @@ html, body {
 }
 
 .home-mau-xam {
-    background-color: #dadada;
+    background-color: #f3f3f3;
+
 }
 
 #About {
@@ -205,17 +211,12 @@ html, body {
 }
 
 .soc-icon {
-    background: #25c5b2;
+    background: #65aaba;
     width: 10px !important;
     height: 5px !important;
-    /* font-size: 1.5rem; */
     text-align: left;
     border-radius: 50%;
-    line-height: 0px;
-    /* padding-top: 1.5vw;
-  padding-right: 2vw;
-  padding-bottom: 1.5vwpx;
-  padding-left: 1vw; */
+    line-height: 0px;    
     padding-left: 0.6rem;
     padding-top: 0.9rem;
     padding-right: 1.2rem;
@@ -326,7 +327,33 @@ html, body {
         padding-right: 100px;
     }
 
+.navbar-nav .nav-link {
+    font-size: 13px;
+}
+.img-btc{
+    width:200px;
+}
+.navbar-brand img{
+    width:80%!important;
+}
+.nav-item a:hover {
+    font-family: FontGothamBold;
+}
+.botron{
+    border-radius:50%!important;
+}
 @media only screen and (max-width: 768px) {
+    .navbar-brand img {
+        width: 100% !important;
+    }
+    .ml-auto {
+        position: absolute;
+        bottom: 34px;
+        right: 15px;
+    }
+    .img-btc {
+        width: 130px;
+    }
     .footer .col-10 p:first-child {        
         border-right: solid 0px rgb(255, 255, 255)!important;
         border-bottom: solid 1px rgb(255, 255, 255);

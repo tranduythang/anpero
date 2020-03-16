@@ -31,10 +31,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/20/2020 00:16:21</publishTime>
     </File>
     <File Include="assets/css/fonts.css">
-      <publishTime>02/20/2020 00:16:21</publishTime>
+      <publishTime>03/13/2020 02:22:42</publishTime>
     </File>
     <File Include="assets/css/hanhtrinh.css">
-      <publishTime>03/05/2020 02:17:43</publishTime>
+      <publishTime>03/13/2020 02:27:05</publishTime>
     </File>
     <File Include="assets/css/lienhe.css">
       <publishTime>02/20/2020 00:16:21</publishTime>
@@ -43,7 +43,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/20/2020 00:16:21</publishTime>
     </File>
     <File Include="assets/css/styles.css">
-      <publishTime>03/08/2020 03:04:39</publishTime>
+      <publishTime>03/15/2020 20:28:16</publishTime>
     </File>
     <File Include="assets/css/thuvienanh.css">
       <publishTime>02/20/2020 00:16:21</publishTime>
@@ -90,6 +90,63 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="assets/fonts/glyphicons-halflings-regular.woff">
       <publishTime>02/20/2020 00:16:21</publishTime>
     </File>
+    <File Include="assets/fonts/Gotham-Thin-Regular.otf">
+      <publishTime>03/12/2020 23:07:03</publishTime>
+    </File>
+    <File Include="assets/fonts/gothamvn/SVN-Gotham Black Italic.otf">
+      <publishTime>03/12/2020 23:20:17</publishTime>
+    </File>
+    <File Include="assets/fonts/gothamvn/SVN-Gotham Black.otf">
+      <publishTime>03/12/2020 23:20:17</publishTime>
+    </File>
+    <File Include="assets/fonts/gothamvn/SVN-Gotham Bold Italic.otf">
+      <publishTime>03/12/2020 23:20:17</publishTime>
+    </File>
+    <File Include="assets/fonts/gothamvn/SVN-Gotham Bold.otf">
+      <publishTime>03/12/2020 23:20:17</publishTime>
+    </File>
+    <File Include="assets/fonts/gothamvn/SVN-Gotham Bold.ttf">
+      <publishTime>03/12/2020 23:20:17</publishTime>
+    </File>
+    <File Include="assets/fonts/gothamvn/SVN-Gotham Book Italic.otf">
+      <publishTime>03/12/2020 23:20:17</publishTime>
+    </File>
+    <File Include="assets/fonts/gothamvn/SVN-Gotham Book.otf">
+      <publishTime>03/12/2020 23:20:17</publishTime>
+    </File>
+    <File Include="assets/fonts/gothamvn/SVN-Gotham Italic.otf">
+      <publishTime>03/12/2020 23:20:17</publishTime>
+    </File>
+    <File Include="assets/fonts/gothamvn/SVN-Gotham Light Italic.otf">
+      <publishTime>03/12/2020 23:20:17</publishTime>
+    </File>
+    <File Include="assets/fonts/gothamvn/SVN-Gotham Light.otf">
+      <publishTime>03/12/2020 23:20:17</publishTime>
+    </File>
+    <File Include="assets/fonts/gothamvn/SVN-Gotham Light.ttf">
+      <publishTime>03/12/2020 23:20:17</publishTime>
+    </File>
+    <File Include="assets/fonts/gothamvn/SVN-Gotham Regular.otf">
+      <publishTime>03/12/2020 23:20:17</publishTime>
+    </File>
+    <File Include="assets/fonts/gothamvn/SVN-Gotham Thin Italic.otf">
+      <publishTime>03/12/2020 23:20:17</publishTime>
+    </File>
+    <File Include="assets/fonts/gothamvn/SVN-Gotham Ultra Italic.otf">
+      <publishTime>03/12/2020 23:20:17</publishTime>
+    </File>
+    <File Include="assets/fonts/gothamvn/SVN-Gotham Ultra.otf">
+      <publishTime>03/12/2020 23:20:17</publishTime>
+    </File>
+    <File Include="assets/fonts/gothamvn/SVN-Gotham XLight Italic.otf">
+      <publishTime>03/12/2020 23:20:17</publishTime>
+    </File>
+    <File Include="assets/fonts/gothamvn/SVN-Gotham XLight.otf">
+      <publishTime>03/12/2020 23:20:17</publishTime>
+    </File>
+    <File Include="assets/fonts/gothamvn/SVN-Gotham-Thin.otf">
+      <publishTime>03/12/2020 23:20:17</publishTime>
+    </File>
     <File Include="assets/fonts/material-icons.min.css">
       <publishTime>02/20/2020 00:16:21</publishTime>
     </File>
@@ -107,6 +164,27 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="assets/fonts/MaterialIcons-Regular.woff2">
       <publishTime>02/20/2020 00:16:21</publishTime>
+    </File>
+    <File Include="assets/fonts/Playfair_Display/OFL.txt">
+      <publishTime>03/13/2020 01:31:01</publishTime>
+    </File>
+    <File Include="assets/fonts/Playfair_Display/PlayfairDisplay-Black.ttf">
+      <publishTime>03/13/2020 01:31:01</publishTime>
+    </File>
+    <File Include="assets/fonts/Playfair_Display/PlayfairDisplay-BlackItalic.ttf">
+      <publishTime>03/13/2020 01:31:01</publishTime>
+    </File>
+    <File Include="assets/fonts/Playfair_Display/PlayfairDisplay-Bold.ttf">
+      <publishTime>03/13/2020 01:31:01</publishTime>
+    </File>
+    <File Include="assets/fonts/Playfair_Display/PlayfairDisplay-BoldItalic.ttf">
+      <publishTime>03/13/2020 01:31:01</publishTime>
+    </File>
+    <File Include="assets/fonts/Playfair_Display/PlayfairDisplay-Italic.ttf">
+      <publishTime>03/13/2020 01:31:01</publishTime>
+    </File>
+    <File Include="assets/fonts/Playfair_Display/PlayfairDisplay-Regular.ttf">
+      <publishTime>03/13/2020 01:31:01</publishTime>
     </File>
     <File Include="assets/fonts/SFUFuturaBold.TTF">
       <publishTime>02/20/2020 00:16:21</publishTime>
@@ -233,6 +311,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="assets/img/HeaderImg.png">
       <publishTime>02/20/2020 00:16:21</publishTime>
+    </File>
+    <File Include="assets/img/icon/1.png">
+      <publishTime>03/13/2020 00:05:32</publishTime>
+    </File>
+    <File Include="assets/img/icon/2.png">
+      <publishTime>03/13/2020 00:05:32</publishTime>
+    </File>
+    <File Include="assets/img/icon/3.png">
+      <publishTime>03/13/2020 00:05:32</publishTime>
     </File>
     <File Include="assets/img/Intro.png">
       <publishTime>02/20/2020 00:16:21</publishTime>
@@ -1057,19 +1144,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/20/2020 00:16:22</publishTime>
     </File>
     <File Include="bin/Anpero.dll">
-      <publishTime>03/04/2020 20:04:09</publishTime>
+      <publishTime>03/13/2020 02:06:58</publishTime>
     </File>
     <File Include="bin/Anpero.pdb">
-      <publishTime>03/04/2020 20:04:09</publishTime>
+      <publishTime>03/13/2020 02:06:58</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.dll">
-      <publishTime>03/09/2020 00:34:54</publishTime>
+      <publishTime>03/15/2020 20:35:21</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.pdb">
-      <publishTime>03/09/2020 00:34:54</publishTime>
+      <publishTime>03/15/2020 20:35:21</publishTime>
     </File>
     <File Include="bin/AnperoFrontend.XmlSerializers.dll">
-      <publishTime>03/09/2020 00:34:54</publishTime>
+      <publishTime>03/15/2020 20:35:22</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>11/05/2019 00:12:48</publishTime>
@@ -1144,7 +1231,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/20/2020 00:16:22</publishTime>
     </File>
     <File Include="html/assets/css/hanhtrinh.css">
-      <publishTime>02/20/2020 22:47:35</publishTime>
+      <publishTime>03/13/2020 01:42:58</publishTime>
     </File>
     <File Include="html/assets/css/lienhe.css">
       <publishTime>02/20/2020 00:16:22</publishTime>
@@ -1153,7 +1240,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/20/2020 00:16:22</publishTime>
     </File>
     <File Include="html/assets/css/styles.css">
-      <publishTime>02/29/2020 19:20:10</publishTime>
+      <publishTime>03/12/2020 23:49:34</publishTime>
     </File>
     <File Include="html/assets/css/thuvienanh.css">
       <publishTime>02/20/2020 00:16:22</publishTime>
@@ -1178,6 +1265,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="html/assets/fonts/FontAwesome.otf">
       <publishTime>02/20/2020 00:16:22</publishTime>
+    </File>
+    <File Include="html/assets/fonts/Gotham-Medium.otf">
+      <publishTime>03/12/2020 23:01:15</publishTime>
+    </File>
+    <File Include="html/assets/fonts/Gotham-Thin.otf">
+      <publishTime>03/12/2020 23:01:15</publishTime>
+    </File>
+    <File Include="html/assets/fonts/Gotham-Ultra.otf">
+      <publishTime>03/12/2020 23:01:15</publishTime>
     </File>
     <File Include="html/assets/fonts/material-icons.min.css">
       <publishTime>02/20/2020 00:16:22</publishTime>
@@ -1372,7 +1468,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/20/2020 00:16:22</publishTime>
     </File>
     <File Include="html/hanhtrinh/malaysia.html">
-      <publishTime>02/20/2020 00:16:22</publishTime>
+      <publishTime>03/13/2020 00:11:14</publishTime>
     </File>
     <File Include="html/img/Logo/airasia.png">
       <publishTime>02/20/2020 00:16:22</publishTime>
@@ -5134,13 +5230,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/04/2020 01:37:52</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>03/07/2020 23:50:50</publishTime>
+      <publishTime>03/13/2020 03:07:02</publishTime>
     </File>
     <File Include="Views/Home/IconList.cshtml">
       <publishTime>03/04/2020 20:03:19</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>03/09/2020 00:33:44</publishTime>
+      <publishTime>03/13/2020 01:53:51</publishTime>
     </File>
     <File Include="Views/Home/Policy.cshtml">
       <publishTime>02/20/2020 00:16:21</publishTime>
@@ -5176,7 +5272,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/20/2020 00:16:21</publishTime>
     </File>
     <File Include="Views/Product/Index.cshtml">
-      <publishTime>03/08/2020 01:59:33</publishTime>
+      <publishTime>03/15/2020 20:02:32</publishTime>
     </File>
     <File Include="Views/Product/List.cshtml">
       <publishTime>02/20/2020 00:16:21</publishTime>
@@ -5188,7 +5284,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/20/2020 00:16:21</publishTime>
     </File>
     <File Include="Views/Product/thuvien.cshtml">
-      <publishTime>03/08/2020 03:38:07</publishTime>
+      <publishTime>03/13/2020 02:33:24</publishTime>
     </File>
     <File Include="Views/Shared/article/_MenuAndAdsPartial.cshtml">
       <publishTime>02/20/2020 00:16:21</publishTime>
@@ -5203,7 +5299,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/20/2020 00:16:21</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>03/07/2020 22:02:12</publishTime>
+      <publishTime>03/13/2020 00:19:18</publishTime>
     </File>
     <File Include="Views/Shared/_partial/_FooterPartial.cshtml">
       <publishTime>02/20/2020 00:16:21</publishTime>

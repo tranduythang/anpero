@@ -58,15 +58,11 @@ namespace AnperoFrontend.Controllers
         [HttpPost]
         public PartialViewResult AjaxInfo(string seria, string idCard, string capcha)
         {
-
-            string msg = "";
             AnperoClient client = new AnperoClient();
             client.AgenId = StoreID;
             client.Token = TokenKey;
             var rs = service.GetWarrantyCardInfo(seria, idCard, capcha, client);
-            //WebService.ProductItem item
             ViewBag.ProductItem = service.GetProductDetail(StoreID, TokenKey, rs.ProductId);
-
             return PartialView(rs);
         }
         [HttpPost]

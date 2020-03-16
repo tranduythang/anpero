@@ -1,10 +1,16 @@
 .divgachxannh {
-  border: 1px cyan solid;
-  height:1px;
+    border: 1px #74c9dd solid;
+    height: 5px;
+    background-color: #74c9dd;
+    margin-top:30px;
+}
+.gach-xanh {
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 #tbcntt {
-  border: 1px black solid;
+    border: 1px black solid;
 }
 
 #btcntt {
@@ -61,11 +67,22 @@
     margin-right:10%;
     margin-left:10%;
 }
+.d-xl-flex .col-md-3 .lazy img{
+    width:62%;
+}
+.d-xl-flex .col-md-3 h4, .member-img-content .col-md-3 h4 {
+    font-family: PlayfairBold;
+    font-size: 19px;
+}
+.d-xl-flex .col-md-3 h6, .member-img-content .col-md-3 h6 {
+    font-size: 15px;
+}
+
 .member-img-content .col-md-3 {
-    padding: 0 0 40px 0;
+    padding: 0 0 120px 0;
 }
     .member-img-content .col-md-3 img {
         border-radius: 50%;
-        width: 100%;
+        width: 80%;
         padding: 0 18% 0 18%;
     }
