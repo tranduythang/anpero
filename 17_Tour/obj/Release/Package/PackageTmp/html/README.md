@@ -1,1 +1,0 @@
-# gnoah1379.github.io
