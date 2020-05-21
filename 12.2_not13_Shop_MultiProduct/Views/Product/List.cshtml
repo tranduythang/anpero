@@ -297,7 +297,7 @@
                             </div>
                         </div>
                         <div class="sidebar_widget sidebar_widget__products">
-                            <h3 class="widget_header">Products</h3>
+                            <h3 class="widget_header">SẢN PHẨM NỔI BẬT</h3>
                             <div class="widget_content">
                                 <ul class="list_products">
                                     @if (ViewData["saleProduct"] != null)
@@ -323,12 +323,12 @@
                                                         <div class="product_price">
                                                             @if (item.IsSale)
                                                             {
-                                                                <span class="money">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
+                                                                <span class="money compare-at-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</span>
 
 
                                                             }
 
-                                                            <span class="money compare-at-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
+                                                            <span class="money ">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) đ</span>
 
                                                         </div>
                                                         <div class="product_links">
