@@ -24,13 +24,12 @@
                     <h2 class="title">Sản phẩm mới</h2>
                     <a href="/search" class="view-all top-all hidden-xs translateY-50 transition-3">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                 </div>
-
-
-                <div class="owl-carousel owl-carousel-6" id="">
+                <div class="row">
                     @for (var i = 0; i < newestProduct.Item.Length; i++)
                     {
                         var item = newestProduct.Item[i];
-                        <div class="item box-product">
+                    <div class="col-md-3 col-6">
+                        <div class="item box-product" style="margin-bottom:15px;">
                             <div class="main">
                                 <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="images">
                                     @if (item.IsInstock)
@@ -75,6 +74,8 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                        
                     }
                 </div>
             </div>
