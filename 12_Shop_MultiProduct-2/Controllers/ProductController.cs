@@ -27,7 +27,7 @@ namespace AnperoFrontend.Controllers
             return View();
         }
         
-        public ActionResult SearchAjax(SearchModel model)
+        public ActionResult SearchAjax(Anpero.Model.SearchModel model)
         {
             model.StoreId = StoreID;
             string pageQuery = Request.QueryString["page"];
