@@ -14,12 +14,12 @@
     <div class="header-page">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-12 col-xs-12 header-logo">
+                <div class="col-md-5 col-sm-12 col-xs-12 header-logo">
                     <div class="visible-xs visible-sm toggle-menu translateY-50">
                         <a href="javascript:void(0)" class="btnMBToggleNav"><img src="/content/theme/images/icons/icon-menu.png" alt=""></a>
                     </div>
                     <div class="logo">
-                        <a href="/"><img src="@commonInfo.Logo" alt="@commonInfo.Name"></a>
+                        <a href="/"><img src="http://udicland.com.vn/images/ads/1388658134_1384155587_UdicLand%20logo.png" style="width:100%"></a>
                     </div>
                     <h1 class="hide">
                         @commonInfo.Name
@@ -34,17 +34,16 @@
                     </div>
                 </div>
                 
-                <div class="col-md-6 col-sm-12 col-xs-12 header-search">
+                <div class="col-md-4 col-sm-12 col-xs-12 header-search">
                         <div class="form-search">
                             <form action="@baseUrl/search" method="get" role="search">
-                                <i class="fa fa-search" aria-hidden="true"></i>
                                 <input type="text" name="keyword" placeholder="Tìm kiếm" aria-label="Search" itemprop="query-input">
+                                <i class="fa fa-search" aria-hidden="true"></i>
                                 <button type="submit" class="btn-search">Tìm kiếm</button>
                             </form>
                         </div>
                         <ul class="search-notice">
-                            <li class="title"><strong>Gợi ý từ khóa:</strong></li>
-                            <li><span>gõ Tiếng Việt có dấu hoặc không dấu đều được</span></li>
+                            <li>gõ Tiếng Việt có dấu hoặc không dấu đều được</li>
                         </ul>
                     </div>
                 <div class="col-md-3 hidden-sm hidden-xs header-user">
@@ -101,42 +100,46 @@
             <ul class="nav-navbar">
                 <li class="active  li-child">
                     <a href="#" class="current" title="Trang chủ">
-                        <span>TRANG CHỦ</span>
-                    </a>   
-                </li>         
-                @if (commonInfo.MenuList != null && commonInfo.MenuList.Length > 0)
-                {
-                    foreach (var item in commonInfo.MenuList)
-                    {
-                        <li class="li-child">
-
-                            @if (item.ChidMenu != null && item.ChidMenu.Length > 0)
-                            {
-                                <a href="@item.Link"  class="m-nav" title="@item.Tittle">
-                                    <span>@item.Tittle</span>
-                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                </a>
-                                <ul class="main-child level-2">
-                                    @foreach (var childItem in item.ChidMenu)
-                                    {
-                                        <li class="">
-                                            <a href="@childItem.Link" title="@childItem.Tittle"><span>@childItem.Tittle</span></a>
-                                        </li>
-                                    }
-                                </ul>
-
-                            }
-                            else
-                            {
-                                <a href="@item.Link" title="@item.Tittle">
-                                    <span>@item.Tittle</span>
-                                </a>
-                            }
-
-
+                        TRANG CHỦ
+                    </a>
+                </li>
+                <li class="li-child">
+                    <a href="#" class="" title="Sản phẩm">
+                        Sản phẩm
+                        <i class="fa fa-chevron-down"></i>
+                    </a>                   
+                    <ul class="nav-navbar-child">
+                        <li class="nav-child-items">
+                            <a href="#">Cho thuê văn phòng</a>
                         </li>
-                    }
-                }
+                        <li class="nav-child-items">
+                            <a href="#">Quản lý tòa nhà</a>
+                        </li>
+                        <li class="nav-child-items">
+                            <a href="#">Dịch vụ tòa nhà</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="li-child">
+                    <a href="#" class="" title="Ưu đãi">
+                        Ưu đãi
+                    </a>
+                </li>
+                <li class="li-child">
+                    <a href="#" class="" title="Giới thiệu">
+                        Giới thiệu
+                    </a>
+                </li>
+                <li class="li-child">
+                    <a href="#" class="" title="Tin tức">
+                        Tin tức
+                    </a>
+                </li>
+                <li class="li-child">
+                    <a href="#" class="" title="Liên hệ">
+                        Liên hệ
+                    </a>
+                </li>                
             </ul>
             <div class="visible-xs visible-sm close-menu-mobile text-center">
                 <a href="javascript:void(0)" class="close-nav view-all">Đóng</a>

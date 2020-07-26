@@ -979,3 +979,54 @@
 @import "footer";
 @import "responsive";
 
+
+.header-page {
+
+}
+
+.header-menu{
+    margin: 10px 0 0 0;
+    .nav-navbar > li{
+        font-weight: bold; text-transform: uppercase;
+
+        &:hover{
+            .nav-navbar-child{
+                display: block; border-top: 1px solid #fff;
+            }
+        }
+    }
+}
+
+
+
+.nav-navbar-child {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    min-width: 170px;
+    z-index: 1111;
+    border: 1px solid $color-main;
+    border-top: none;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+
+    .nav-child-items > a {
+        color: #fff;
+        font-size: 14px;
+        display: block;
+        padding: 10px 0;
+        background-color: $color-main;
+        animation: all .2s ease-in;
+
+        &:hover {
+            background-color: #fff;
+            color: $color-main;
+        }
+    }
+
+    .nav-child-items:last-child > a {
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+}
