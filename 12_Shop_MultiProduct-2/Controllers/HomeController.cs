@@ -9,7 +9,7 @@ namespace AnperoFrontend.Controllers
     public class HomeController : BaseController
     {
         [BuildCommonHtml]
-        [OutputCache(Duration = 60*5, VaryByParam = "none")]
+//        [OutputCache(Duration = 60*5, VaryByParam = "none")]
         public ActionResult Index()
         {
             //Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
