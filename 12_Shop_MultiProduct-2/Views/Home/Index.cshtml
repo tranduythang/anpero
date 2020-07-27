@@ -28,45 +28,46 @@
 }
 
 @if (ViewBag.Slide != null)
-{
-    <div class="box-slide-home">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="main-slide-home">
-                    <div class="box-slide-1">
-                        
-                    </div>
+{<div class="container">
+        <div class="box-slide-home">
 
-                    <!--bannerSlider-->
+            <div class="main-slide-home">
+                <div class="box-slide-1">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="~/Content/theme/images/udic1.jpg" alt="" style="">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="~/Content/theme/images/udic2.png" alt="" style="">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="~/Content/theme/images/udic3.png" alt="" style="">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="~/Content/theme/images/udic4.png" alt="" style="">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="~/Content/theme/images/udic5.jpg" alt="" style="">
+                            </div>
+                        </div>
+                        <!-- Left and right controls -->
+                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
                 </div>
+                <!--bannerSlider-->
             </div>
+
         </div>
     </div>
     <!--box-slide-home-->
 }
-@if (ViewBag.Ads1 != null)
-{
-    Ads[] Ads1 = (Ads[])ViewBag.Ads1;
-    <div class="box-slide-ads hidden-xs">
-        <div class="container">
-            <div class="row">
-                @for (var i = 0; i < Ads1.Length; i++)
-                {
 
-                    <div class="col-sm-6 col-xs-6 item-slide">
-                        <div class="image-hover">
-                            <a href="@Ads1[i].ClickUrl">
-                                <img alt="@Ads1[i].Description" src="@Ads1[i].ImagesUrl">
-                            </a>
-                        </div>
-                    </div>
-
-                }
-            </div>
-        </div>
-    </div>
-    <!--box-slide-ads-->
-}
 
 @if (ViewData["BestsaleProduct"] != null)
 {
@@ -75,43 +76,35 @@
     {
         <div class="box-top-products box-slide">
             <div class="container">
-                <div class="box-title-new">
-                    <div class="title-top">
-                        <h2 class="title">Top bán chạy</h2>
-                    </div>
-
+                <div class="box-title-new has-sub-content">
+                    <h2 class="title line-width-10">Dịch vụ</h2>
+                    <span>UdicLand cho thuê văn phòng trọn gói, văn phòng chuyên nghiệp, văn phòng mini, văn phòng truyền thống với chất lượng và giá thành tốt nhất tại Hà Nội</span>
                 </div>
-
-
-                <div class="owl-carousel owl-carousel-4" id="">
-                    @for (var i = 0; i < bestSaleList.Item.Length; i++)
-                    {
-                        var item = bestSaleList.Item[i];
-                        <div class="item box-product">
-                            <div class="icon icon-top">@(i + 1)</div>
-                            <div class="main">
-                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="images">
-                                    <img src="@item.Images" alt="@item.PrName">
-                                </a>
-                                <div class="detail text-center clearfix">
-                                    <h3 class="name">
-                                        <a class="" ref="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
-                                            @item.PrName
-                                        </a>
-                                    </h3>
-                                    <div class="box-prince">
-                                        <span class="prince-new">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) + " đ")</span>
-                                        @if (item.IsSale)
-                                        {
-                                            <span class="prince-old">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
-                                        }
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    }
+                <div class="box-services row">
+                    <div class="col-md-4">
+                        <a href="#" class="items-service">
+                            <img src="~/Content/theme/images/office.png" alt="Alternate Text" />
+                            <h2>Văn phòng cho thuê</h2>
+                            <span>Udicland đang cho thuê đa dạng các dịch vụ văn phòng như Văn phòng truyền thống, Văn phòng mini, văn phòng ảo, chỗ ngồi làm việc, chỗ ngồi linh hoạt</span>
+                            <span class="read-more">Xem thêm</span>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#" class="items-service">
+                            <img src="~/Content/theme/images/sercuritires.png" alt="Alternate Text" />
+                            <h2>Quản lý tòa nhà</h2>
+                            <span>Là một dịch vụ cung cấp Nhà quản lý, nhân công và điều hành nhân công thực hiện những công việc bảo vệ, vệ sinh, giao dịch với khách hàng thuê, vận hành điện, nước, bảo trì, bảo dưỡng toà nhà để toà nhà hoạt động tốt, kinh doanh đạt hiệu quả</span>
+                            <span class="read-more">Xem thêm</span>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#" class="items-service">
+                            <img src="~/Content/theme/images/services1.png" alt="Alternate Text" />
+                            <h2> Dịch vụ tòa nhà</h2>
+                            <span>Với điều kiện sống và làm việc ngày càng hiện đại và phát triển như thời đại ngày nay, một môi trường làm việc tốt, thoáng mát và sạch sẽ là yếu tố quan trọng, nó ảnh hưởng trực tiếp đến năng suất làm việc và khả năng sáng tạo của con người</span>
+                            <span class="read-more">Xem thêm</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -119,225 +112,203 @@
     }
 }
 
-    @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
-    {
-
-        foreach (var items in commonInfo.ProductCategoryList)
-        {
-            AnperoService sv = new AnperoService();
-            AnperoFrontend.WebService.SearchResult newestProduct = sv.GetProductByParentCategory(ViewBag.storeId,ViewBag.TokenKey, items.Id,1,6, 0);
-            if (newestProduct != null && newestProduct.Item.Length > 0)
-            {
-                <div class="box-top-products box-slide">
-                    <div class="container">
-                        <div class="box-title-new">
-                            <div class="title-top">
-                                <h2 class="title">@items.Name</h2>
-                            </div>
-
-                        </div>
-                        <div class="owl-carousel owl-carousel-4" id="">
-                            @for (var i = 0; i < newestProduct.Item.Length; i++)
-                            {
-                                var item = newestProduct.Item[i];
-                                <div class="item box-product">
-                                    <div class="main">
-                                        <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="images">
-                                            @if (item.IsInstock)
-                                            {
-                                                <span class="lable-sale"> mới</span>
-                                            }
-                                            else
-                                            {
-                                                <span class="lable-sold">Hết hàng</span>
-                                            }
-                                            <img src="@item.Images" alt="@item.PrName">
-                                        </a>
-                                        <div class="list-action">
-                                            <a href="https://www.facebook.com/sharer/sharer.php?u=@currentUrl" target="_blank" title="Chia sẻ với bạn bè" class="btn-quickview-1"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="view-product"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
-                                            @if (item.IsInstock)
-                                            {
-                                                <a href="javascript:Cart.addProduct(@item.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName')" class="add-cart" title="Mua hàng">
-                                                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                                                </a>
-                                            }
-                                            else
-                                            {
-                                                <a href="javascript:void(0);" class="add-cart" title="Mua hàng">
-                                                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                                                </a>
-                                            }
-                                        </div>
-                                        <div class="detail text-center clearfix">
-                                            <h3 class="name">
-                                                <a class="" ref="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
-                                                    @item.PrName
-                                                </a>
-                                            </h3>
-                                            <div class="box-prince">
-                                                <span class="prince-new">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
-                                                @if (item.IsSale)
-                                                {
-                                                    <span class="prince-old">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
-                                                }
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-                        </div>
-                    </div>
-                </div>
-                <!--box-top-products-->
-            }
-        }
-
-
-    }
-
-@*@if (ViewData["newestProduct"] != null)
-{
-    var newestProduct = (AnperoFrontend.WebService.SearchResult)ViewData["newestProduct"];
-    if (newestProduct != null && newestProduct.Item.Length > 0)
-    {*@
-        @*<div class="box-top-products box-slide">
-            <div class="container">
+<div class="box-top-products box-slide">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
                 <div class="box-title-new">
-                    <div class="title-top">
-                        <h2 class="title">Sản phẩm mới</h2>
-                    </div>
-
+                    <h2 class="title line-width-28">Tin tức nổi bật</h2>
                 </div>
-
-
-                <div class="owl-carousel owl-carousel-4" id="">
-                    @for (var i = 0; i < newestProduct.Item.Length; i++)
-                    {
-                        var item = newestProduct.Item[i];
-                        <div class="item box-product">
-                            <div class="main">
-                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="images">
-                                    @if (item.IsInstock)
-                                    {
-                                        <span class="lable-sale"> mới</span>
-                                    }
-                                    else
-                                    {
-                                        <span class="lable-sold">Hết hàng</span>
-                                    }
-                                    <img src="@item.Images" alt="@item.PrName">
-                                </a>
-                                <div class="list-action">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u=@currentUrl" target="_blank" title="Chia sẻ với bạn bè" class="btn-quickview-1"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="view-product"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
-                                    @if (item.IsInstock)
-                                    {
-                                        <a href="javascript:Cart.addProduct(@item.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName')" class="add-cart" title="Mua hàng">
-                                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                                        </a>
-                                    }
-                                    else
-                                    {
-                                        <a href="javascript:void(0);" class="add-cart" title="Mua hàng">
-                                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                                        </a>
-                                    }
-                                </div>
-                                <div class="detail text-center clearfix">
-                                    <h3 class="name">
-                                        <a class="" ref="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
-                                            @item.PrName
-                                        </a>
-                                    </h3>
-                                    <div class="box-prince">
-                                        <span class="prince-new">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
-                                        @if (item.IsSale)
-                                        {
-                                            <span class="prince-old">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
-                                        }
-                                    </div>
-                                </div>
+                <div class="row section-posts">
+                    <div class="col-md-6">
+                        <a href="#" class="items-post">
+                            <img src="~/Content/theme/images/udic-post1.png" alt="Alternate Text" />
+                            <div class="content-post">
+                                <h3>Văn phòng ảo Hà Nội chỉ 600.000 đồng/tháng</h3>
+                                <span class="block-with-text">UdicLand cung cấp dịch vụ văn phòng trọn gói, văn phòng chuyên nghiệp, văn phòng mini...</span>
                             </div>
-                        </div>
-                    }
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="#" class="items-post">
+                            <img src="~/Content/theme/images/udic-post2.png" alt="Alternate Text" />
+                            <div class="content-post">
+                                <h3>Văn phòng ảo Hà Nội chỉ 600.000 đồng/tháng</h3>
+                                <span class="block-with-text">UdicLand cung cấp dịch vụ văn phòng trọn gói, văn phòng chuyên nghiệp, văn phòng mini asdasd ádasdasd ádasdasd ádasdasd ádasdasd ád</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="#" class="items-post">
+                            <img src="~/Content/theme/images/udic-post3.png" alt="Alternate Text" />
+                            <div class="content-post">
+                                <h3>Văn phòng ảo Hà Nội chỉ 600.000 đồng/tháng</h3>
+                                <span class="block-with-text">UdicLand cung cấp dịch vụ văn phòng trọn gói, văn phòng chuyên nghiệp, văn phòng mini...</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="#" class="items-post">
+                            <img src="~/Content/theme/images/udic-post4.png" alt="Alternate Text" />
+                            <div class="content-post">
+                                <h3>Văn phòng ảo Hà Nội chỉ 600.000 đồng/tháng</h3>
+                                <span class="block-with-text">UdicLand cung cấp dịch vụ văn phòng trọn gói, văn phòng chuyên nghiệp, văn phòng mini...</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>*@
-        <!--box-top-products-->
-    @*}
-}*@
-
-@if (ViewBag.Ads3 != null)
-{
-    Ads[] ads3 = (Ads[])ViewBag.Ads3;
-    <div class="box-slide-ads hidden-xs">
-        <div class="container">
-            @for (var i = 0; i < ads3.Length; i += 2)
-            {
-                <div class="row">
-                    <div class="col-sm-6 col-xs-6 item-slide">
-                        <div class="image-hover">
-                            <a href="@ads3[i].ClickUrl">
-                                <img alt="@ads3[i].Description" src="@ads3[i].ImagesUrl">
-                            </a>
-                        </div>
-                    </div>
-                    @if (i + 1 < ads3.Length)
-                    {
-                        <div class="col-sm-6 col-xs-6 item-slide">
-                            <div class="image-hover">
-                                <a href="@ads3[i+1].ClickUrl">
-                                    <img alt="@ads3[i+1].Description" src="@ads3[i+1].ImagesUrl">
-                                </a>
-                            </div>
-                        </div>
-                    }
+            <div class="col-md-4">
+                <div class="box-title-new">
+                    <h2 class="title line-width-26">Album</h2>
                 </div>
-            }
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--box-top-products-->
+
+<div class="box-top-products box-slide">
+    <div class="container">
+        <div class="box-title-new">
+            <h2 class="title line-width-14">Khách hàng</h2>
+        </div>
+        <div class="box-slide box-swiper-slider">
+            <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <a href="#" class="logo-company">
+                            <img src="~/Content/theme/images/logo/swiper1.jpg" alt="Alternate Text" />
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="logo-company">
+                            <img src="~/Content/theme/images/logo/swiper2.jpg" alt="Alternate Text" />
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="logo-company">
+                            <img src="~/Content/theme/images/logo/swiper3.png" alt="Alternate Text" />
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="logo-company">
+                            <img src="~/Content/theme/images/logo/swiper4.png" alt="Alternate Text" />
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="#" class="logo-company">
+                            <img src="~/Content/theme/images/logo/swiper5.jpg" alt="Alternate Text" />
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="logo-company">
+                            <img src="~/Content/theme/images/logo/swiper6.jpg" alt="Alternate Text" />
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="logo-company">
+                            <img src="~/Content/theme/images/logo/swiper7.jpg" alt="Alternate Text" />
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="logo-company">
+                            <img src="~/Content/theme/images/logo/swiper8.png" alt="Alternate Text" />
+                        </a>
+                    </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev">
+                    <i class="fa fa-chevron-left"></i>
+                </div>
+                <div class="swiper-button-next">
+                    <i class="fa fa-chevron-right"></i>
+                </div>
+
+            </div>
         </div>
     </div>
-    <!--box-slide-ads-->
-}
-@if (ViewData["FeatureArticle"] != null)
-{
-    SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
-    <div class="box-news">
+</div>
+
+
+@*@if (ViewData["newestProduct"] != null)
+    {
+        var newestProduct = (AnperoFrontend.WebService.SearchResult)ViewData["newestProduct"];
+        if (newestProduct != null && newestProduct.Item.Length > 0)
+        {*@
+@*<div class="box-top-products box-slide">
         <div class="container">
             <div class="box-title-new">
                 <div class="title-top">
-                    <h2 class="title">Tin tức mới</h2>
+                    <h2 class="title">Sản phẩm mới</h2>
                 </div>
-                <p class="des">Tin @commonInfo.Name, cập nhật tin tức nhanh nhất và mới nhất</p>
+
             </div>
 
-            <div class="box-top-products box-slide">
-                <div class="owl-carousel owl-carousel-3">
-                    @foreach (var item in FeatureArticle.ItemList)
-                    {
-                        <div class="item item-new">
-                            <div class="item-slide">
-                                <div class="image-hover">
-                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" title="@item.Title">
-                                        <img class="" src="@item.Thumb" alt="@item.Title">
-                                    </a>
-                                </div>
-                                <ul class="info-new">
-                                    <li class="time"><i class="fa fa-calendar" aria-hidden="true"></i> <time>@Anpero.StringHelpper.ConvertDateTime(item.CreateDate).ToString("dd/mm/yyyy")</time></li>
 
-                                    <li class="post"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>@item.CategoryName</span></li>
-                                </ul>
+            <div class="owl-carousel owl-carousel-4" id="">
+                @for (var i = 0; i < newestProduct.Item.Length; i++)
+                {
+                    var item = newestProduct.Item[i];
+                    <div class="item box-product">
+                        <div class="main">
+                            <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="images">
+                                @if (item.IsInstock)
+                                {
+                                    <span class="lable-sale"> mới</span>
+                                }
+                                else
+                                {
+                                    <span class="lable-sold">Hết hàng</span>
+                                }
+                                <img src="@item.Images" alt="@item.PrName">
+                            </a>
+                            <div class="list-action">
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=@currentUrl" target="_blank" title="Chia sẻ với bạn bè" class="btn-quickview-1"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="view-product"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                @if (item.IsInstock)
+                                {
+                                    <a href="javascript:Cart.addProduct(@item.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName')" class="add-cart" title="Mua hàng">
+                                        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="javascript:void(0);" class="add-cart" title="Mua hàng">
+                                        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                                    </a>
+                                }
                             </div>
-                            <div class="detail clearfix">
-                                <h3 class="title"><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" title="@item.Title">@item.Title</a></h3>
-                                <p class="des">@item.ShotDesc</p>
-                                <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="view" title="">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                            <div class="detail text-center clearfix">
+                                <h3 class="name">
+                                    <a class="" ref="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
+                                        @item.PrName
+                                    </a>
+                                </h3>
+                                <div class="box-prince">
+                                    <span class="prince-new">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
+                                    @if (item.IsSale)
+                                    {
+                                        <span class="prince-old">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
+                                    }
+                                </div>
                             </div>
                         </div>
-                    }
-
-                </div>
+                    </div>
+                }
             </div>
         </div>
-    </div>
-}
+    </div>*@
+<!--box-top-products-->
+@*}
+    }*@
+
+
+

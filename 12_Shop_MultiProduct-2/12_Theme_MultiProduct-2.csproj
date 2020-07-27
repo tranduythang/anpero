@@ -310,6 +310,7 @@
     <Content Include="Content\theme\css\font-awesome.min.css" />
     <Content Include="Content\theme\css\owl.carousel.min.css" />
     <Content Include="Content\theme\css\style.css" />
+    <Content Include="Content\theme\css\swiper-bundle.min.css" />
     <Content Include="Content\theme\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\theme\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\theme\html\detail.html" />
@@ -317,8 +318,10 @@
     <Content Include="Content\theme\html\list-product.html" />
     <Content Include="Content\theme\images\banner.jpg" />
     <Content Include="Content\theme\images\bg-menu.png" />
+    <Content Include="Content\theme\images\building.png" />
     <Content Include="Content\theme\images\call.png" />
     <Content Include="Content\theme\images\close.png" />
+    <Content Include="Content\theme\images\english-square.png" />
     <Content Include="Content\theme\images\icons\549382_669482593182702_21641337532994228_n.jpg" />
     <Content Include="Content\theme\images\icons\bg_pd_top.png" />
     <Content Include="Content\theme\images\icons\bg_seller.png" />
@@ -459,14 +462,38 @@
     <Content Include="Content\theme\images\img-98.jpg" />
     <Content Include="Content\theme\images\img-99.jpg" />
     <Content Include="Content\theme\images\logo.png" />
+    <Content Include="Content\theme\images\logo\swiper1.jpg" />
+    <Content Include="Content\theme\images\logo\swiper2.jpg" />
+    <Content Include="Content\theme\images\logo\swiper3.png" />
+    <Content Include="Content\theme\images\logo\swiper4.png" />
+    <Content Include="Content\theme\images\logo\swiper5.jpg" />
+    <Content Include="Content\theme\images\logo\swiper6.jpg" />
+    <Content Include="Content\theme\images\logo\swiper7.jpg" />
+    <Content Include="Content\theme\images\logo\swiper8.png" />
     <Content Include="Content\theme\images\logo_ft.png" />
     <Content Include="Content\theme\images\mobile_bg.svg" />
+    <Content Include="Content\theme\images\office.png" />
+    <Content Include="Content\theme\images\office.svg" />
+    <Content Include="Content\theme\images\sercuritires.png" />
+    <Content Include="Content\theme\images\services.png" />
+    <Content Include="Content\theme\images\services1.png" />
     <Content Include="Content\theme\images\to-top.png" />
+    <Content Include="Content\theme\images\udic-post1.png" />
+    <Content Include="Content\theme\images\udic-post2.png" />
+    <Content Include="Content\theme\images\udic-post3.png" />
+    <Content Include="Content\theme\images\udic-post4.png" />
+    <Content Include="Content\theme\images\udic1.jpg" />
+    <Content Include="Content\theme\images\udic2.png" />
+    <Content Include="Content\theme\images\udic3.png" />
+    <Content Include="Content\theme\images\udic4.png" />
+    <Content Include="Content\theme\images\udic5.jpg" />
+    <Content Include="Content\theme\images\vietnam-square.png" />
     <Content Include="Content\theme\js\bootstrap-datetimepicker.js" />
     <Content Include="Content\theme\js\bootstrap.min.js" />
     <Content Include="Content\theme\js\javascript.js" />
     <Content Include="Content\theme\js\jquery-1.10.2.min.js" />
     <Content Include="Content\theme\js\owl.carousel.min.js" />
+    <Content Include="Content\theme\js\swiper-bundle.min.js" />
     <Content Include="Global.asax" />
     <Content Include="handler\ProductHandler.ashx" />
     <Content Include="assets\fonts\clhLqOv7MXn459PTh0gXYHW1xglZCgocDnD_teV2lMU.woff" />
@@ -506,6 +533,7 @@
     <Content Include="Content\theme\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\theme\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\theme\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\theme\images\securities.webp" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

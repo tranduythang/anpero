@@ -86,6 +86,10 @@ header {
                 -moz-border-radius-bottomleft: 0;
                 border: 1px solid #fff;
                 border-left: 0;
+
+                &:hover{
+                    cursor: pointer;
+                }
             }
         }
 
