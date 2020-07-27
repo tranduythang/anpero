@@ -267,3 +267,83 @@ header {
         }
     }
 }
+
+.header-languages {
+    margin: 15px 0 0 0;
+    position: relative;
+
+    .current-languages {
+        color: #fff;
+        display: inline-block;
+        padding: 5px 0 5px 10px;
+        padding-right: 26px;
+        position: relative;
+        border-radius: 5px;
+
+        & > i {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 10px;
+            animation: rotate .2s ease;
+        }
+
+        &:hover {
+            background-color: #fff;
+            color: $color-main;
+        }        
+    }
+
+
+
+    .list-languages {
+        display: none;
+        position: absolute;
+        z-index: 1111;
+
+        & > .list-items {
+            & > a {
+                display: inline-block;
+                position: relative;
+                color: #fff;
+                padding: 6px 0;
+                padding-right: 50px;
+                padding-left: 10px;
+                animation: all .2s ease-in;
+                border-radius: 5px;
+
+                &:hover {
+                    color: $color-main;
+                    background: #fff;
+                }
+            }
+        }
+
+        &.show {
+            display: block;
+        }
+    }
+}
+
+.flags{
+    position: absolute; right: 20px; top: 52%; transform: translateY(-50%);
+    &:before{
+        content:""; width: 22px; height: 22px; display: inline-block;
+        background-repeat: no-repeat;
+        background-size: contain;
+        @include border-radius(50%);
+    }
+}
+
+.flag-vn {
+    &:before {
+        background-image: url("../images/vietnam-square.png");
+    }
+}
+
+.flag-eng {
+    &:before {
+        background-image: url("../images/english-square.png");
+    }
+}

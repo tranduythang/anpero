@@ -125,6 +125,20 @@ $(document).ready(function () {
     });
 
     //$('.datetimepicker').datetimepicker();
+
+    $('.header-languages .current-languages').click(function () {
+        $(this).toggleClass('show');
+        $('.header-languages .list-languages').toggleClass('show');
+    })
 });
+
+// Remove dropdown when click outside target
+window.onclick = function (e) {
+    if (!e.target.matches('.header-languages .current-languages')) {
+        var dropdownNotifications = $('.header-languages .list-languages');
+        if (dropdownNotifications.hasClass('show'));
+        dropdownNotifications.removeClass('show');
+    }
+}
 
 

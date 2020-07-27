@@ -1004,7 +1004,7 @@
     position: absolute;
     top: 40px;
     left: 0;
-    min-width: 170px;
+    min-width: 190px;
     z-index: 1111;
     border: 1px solid $color-main;
     border-top: none;
@@ -1015,10 +1015,10 @@
         color: #fff;
         font-size: 14px;
         display: block;
-        padding: 10px 0;
+        padding: 10px 5px;
         background-color: $color-main;
         animation: all .2s ease-in;
-
+        white-space: nowrap;
         &:hover {
             background-color: #fff;
             color: $color-main;
