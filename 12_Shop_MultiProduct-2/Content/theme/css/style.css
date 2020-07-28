@@ -459,6 +459,8 @@ footer .main-bottom-footer .copyright a:hover { color: #fff; }
 .box-temp-fixed .box-hotline label p span { display: block; }
 .box-temp-fixed .box-hotline label .close-hotline { z-index: 1; position: absolute; top: 14px; right: 10px; display: inline-block; width: 21px; height: 21px; background: url(../images/close.png) no-repeat; cursor: pointer; }
 
+.main-bottom-footer .copy > p { font-size: 14px; }
+
 @media screen and (min-width: 1351px) { .box-banner .banner { width: 1350px; margin: 0 auto; } }
 @media screen and (min-width: 1200px) { .container { width: 1200px; max-width: 1200px; } }
 @media all and (min-width: 1025px) { .nav-navbar li:hover > .level-2 { visibility: visible; opacity: 1; filter: alpha(opacity=100); }

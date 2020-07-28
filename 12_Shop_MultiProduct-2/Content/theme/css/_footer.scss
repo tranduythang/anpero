@@ -181,3 +181,11 @@ footer {
     }
   }
 }
+
+.main-bottom-footer{
+    .copy{
+        & >p{
+             font-size: 14px;
+        }
+    }
+}
