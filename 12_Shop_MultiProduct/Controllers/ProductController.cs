@@ -76,8 +76,8 @@ namespace AnperoFrontend.Controllers
             {
                 ViewBag.Title = rs.Item[0].CatName;
             }
-            
-            
+
+         
             SetUpSeo(2, id);
             return View("List");
         }

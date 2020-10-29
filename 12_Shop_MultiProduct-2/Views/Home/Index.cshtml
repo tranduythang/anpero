@@ -81,57 +81,6 @@
     <!--box-slide-ads-->
 }
 
-@if (ViewData["BestsaleProduct"] != null)
-{
-    AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["BestsaleProduct"];
-    if (bestSaleList != null && bestSaleList.Item.Length > 0)
-    {
-        <div class="box-top-products box-slide">
-            <div class="container">
-                <div class="box-title-new">
-                    <div class="title-top">
-                        <h2 class="title">Top bán chạy</h2>
-                    </div>
-
-                </div>
-
-
-                <div class="owl-carousel owl-carousel-3" id="">
-                    @for (var i = 0; i < bestSaleList.Item.Length; i++)
-                    {
-                        var item = bestSaleList.Item[i];
-                        <div class="item box-product">
-                            <div class="icon icon-top">@(i + 1)</div>
-                            <div class="main">
-                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="images">
-                                    <img src="@item.Images" alt="@item.PrName">
-                                </a>
-                                <div class="detail text-center clearfix">
-                                    <h3 class="name">
-                                        <a class="" ref="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
-                                            @item.PrName
-                                        </a>
-                                    </h3>
-                                    <div class="box-prince">
-                                        <span class="prince-new">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice) + " đ")</span>
-                                        @if (item.IsSale)
-                                        {
-                                            <span class="prince-old">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
-                                        }
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    }
-                </div>
-            </div>
-        </div>
-        <!--box-top-products-->
-    }
-}
-
     @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
     {
 
@@ -188,6 +137,7 @@
                                                     @item.PrName
                                                 </a>
                                             </h3>
+                                            <span>@item.Specifications</span>
                                             <div class="box-prince">
                                                 <span class="prince-new">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
                                                 @if (item.IsSale)

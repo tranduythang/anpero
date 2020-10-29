@@ -112,8 +112,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .box-slide .item:hover { -webkit-box-shadow: 0px 5px 10px 0px rgba(138, 138, 145, 0.8); -moz-box-shadow: 0px 5px 10px 0px rgba(138, 138, 145, 0.8); box-shadow: 0px 5px 10px 0px rgba(138, 138, 145, 0.8); }
 .box-slide .item:hover .list-action a { visibility: visible; filter: alpha(opacity=100); -khtml-opacity: 1; -moz-opacity: 1; opacity: 1; transform: translate(0px, 0px); -ms-transform: translate(0px, 0px); -webkit-transform: translate(0px, 0px); }
 .box-slide .item .icon-top { position: absolute; top: 10px; left: 17px; z-index: 1; }
-.box-slide .item .images { height: 300px; display: block; }
-.box-slide .item .images img { transition: all 0.35s ease-in-out 0s; -moz-transition: all 0.35s ease-in-out 0s; -o-transition: all 0.35s ease-in-out 0s; -webkit-transition: all 0.35s ease-in-out 0s; -ms-transition: all 0.35s ease-in-out 0s; max-height: 100%; margin: auto; display: block; width: auto; -webkit-transform-style: preserve-3d; transform-style: preserve-3d; }
+.box-slide .item .images { height: 300px; display: block;overflow:hidden; }
+.box-slide .item .images img { transition: all 0.35s ease-in-out 0s; -moz-transition: all 0.35s ease-in-out 0s; -o-transition: all 0.35s ease-in-out 0s; -webkit-transition: all 0.35s ease-in-out 0s; -ms-transition: all 0.35s ease-in-out 0s; margin: auto; display: block; width: 100%; -webkit-transform-style: preserve-3d; transform-style: preserve-3d; }
 .box-slide .item .images:hover img { transform: rotateY(180deg); -webkit-transform: rotateY(180deg); -ms-transform: rotateY(180deg); -o-transform: rotateY(180deg); }
 .box-slide .item .detail { padding: 10px 0px; }
 .box-slide .item .detail .name { font-size: 15px; line-height: 1.5; height: 25px; -webkit-line-clamp: 1; -webkit-box-orient: vertical; display: -webkit-box; overflow: hidden; margin: 0; }
@@ -234,7 +234,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 .box-list-product .item-product { margin-bottom: 30px; }
 .box-list-product .item-product .item { margin-left: 0; margin-right: 0; }
-.box-list-product .item-product .item .images { height: 260px; }
+.box-list-product .item-product .item .images { height: 260px;overflow:hidden; }
 
 .box-pagination { padding: 20px 10px; display: block; border: none; }
 .box-pagination ul { margin: 0; float: right; }

@@ -18,7 +18,7 @@
                                     CHÚNG TÔI Ở ĐÂY
                                 </h4>
                                 <div class="info clearfix">
-                                    <p>@commonInfo.Address <a target="_blank" href="/home/contact">Xem bản đồ</a></p>
+                                    <p>@Html.Raw(commonInfo.Address) <a target="_blank" href="/home/contact">Xem bản đồ</a></p>
                                     <p>Tư Vấn Bán Hàng (8h - 20h hằng ngày) <a href="tel:@commonInfo.HotLine">@Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.HotLine)</a></p>
                                     <p class="col50">Tư Vấn Đổi Trả (8h - 20h hằng ngày)<span>@Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.OtherPhone)</span></p>
                                 </div>
@@ -72,7 +72,7 @@
                             <div class="col-sm-6 col-xs-12 left-pay">
                                 <h4 class="title">THANH TOÁN </h4>
                                 <div class="content-pay">
-                                    <img src="/images/img-119.png">
+                                    <img src="/Content/theme/images/img-119.png">
                                 </div>
 
                             </div>
@@ -149,8 +149,9 @@
                 </div>
                 <div class="copy pull-left">
                     <p>@commonInfo.Name - @commonInfo.Desc</p>
-                    <p>Địa chỉ: @commonInfo.Address</p>
+                    <p>Địa chỉ: @Html.Raw(commonInfo.Address)</p>
                     <p>HotLine: @Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.HotLine)</p>
+                    <p>Email: @commonInfo.Email</p>
                 </div>
                 <div class="clearfix"></div>
                 <p class="copyright text-center">

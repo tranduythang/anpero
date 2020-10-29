@@ -78,7 +78,7 @@
         <div class="box-slide box-list-product">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-9  col-sm-push-3 col-md-push-3">
+                    <div class="col-sm-12  col-md-12">
                         <div class="box-top-list-product">
                             <div class="right-top">
                                 <div class="browse-tags">
@@ -98,7 +98,7 @@
                         <div class="main-list-product row" id="product_listing__sorted">
                             @foreach (var item in productList.Item)
                             {
-                                <div class="col-md-3 col-sm-3 col-xs-6 item-product">
+                                <div class="col-md-4 col-sm-4 col-xs-6 item-product">
                                     <div class="item box-product">
                                         <div class="main">
                                             <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="images">
@@ -154,69 +154,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="sidebar_small col-sm-3  col-sm-pull-9 col-md-push-9">
-                        @if (commonInfo.ProductGroupList.Count() > 0)
-                        {
-
-                            <div class="sidebar_widget sidebar_widget__products">
-                                <h3 class="widget_header">Thương hiệu</h3>
-                                <div class="widget_content">
-                                    <ul class="list_links">
-                                        <li class="level_1__item">
-                                            @foreach (var item in commonInfo.ProductGroupList)
-                                            {
-                                                <div class="checkbox">
-                                                    <label><input type="checkbox" name="brands" value="@item.Id" /> @item.Name</label>
-                                                </div>
-                                            }
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        }
-
-                        <div class="shopify-section page_sidebar" style="margin-top:10px;">
-                            <div class="sidebar">
-                                <div class="sidebar_widget sidebar_widget__products">
-                                    <h3 class="widget_header">Danh mục sản phẩm</h3>
-                                    <div class="widget_content">
-                                        <ul class="list_links">
-                                            <li class="level_1__item ">
-                                                @foreach (var item in commonInfo.ProductCategoryList)
-                                                {
-                                                    <div class="checkbox">
-                                                        <label><input type="radio" name="category" value="@item.Id" /> @item.Name</label>
-                                                    </div>
-                                                }
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="sidebar_widget sidebar_widget__products">
-                                    @foreach (var item in commonInfo.ProductProperties)
-                                    {
-                                        if (item.Values != null && item.Values.Length > 0)
-                                        {
-                                            <h3 class="widget_header">@item.Name</h3>
-                                            <div class="widget_content">
-                                                <ul class="list_links">
-                                                    <li class="level_1__item">
-                                                        @foreach (var valueItem in item.Values)
-                                                        {
-                                                            <div class="checkbox">
-                                                                <label><input type="checkbox" name="properties" value="@valueItem.Id" /> @valueItem.Values</label>
-                                                            </div>
-                                                        }
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        }
-                                    }
-                                </div>
-                               
-                            </div>
-                        </div>
-                    </div>
+   
                 </div>
             </div>
         </div>
