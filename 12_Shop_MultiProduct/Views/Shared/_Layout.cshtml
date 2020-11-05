@@ -25,6 +25,11 @@
     @RenderSection("health", required: false)
     @RenderSection("Styles", required: false)
     <link href='/static/css' rel='stylesheet' type='text/css'>
+    <style>
+        #google_translate_element2, .goog-te-banner-frame, .skiptranslate {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     @Html.Partial("_partial/_HeaderPartial")
@@ -107,11 +112,7 @@
         });
     </script>
     @*google translate begin*@
-    <style>
-        #google_translate_element2, .goog-te-banner-frame, .skiptranslate {
-            display: none;
-        }
-    </style>
+    
     <div id="google_translate_element2"></div>
     <script type="text/javascript">
         function GTranslateGetCurrentLang() { var keyValue = document.cookie.match('(^|;) ?googtrans=([^;]*)(;|$)'); return keyValue ? keyValue[2].split('/')[2] : null; }
