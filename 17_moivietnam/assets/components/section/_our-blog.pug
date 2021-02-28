@@ -1,0 +1,36 @@
+include ../post/_post
+
+// Practice
+section.section-md.bg-transparent
+	.container.container-wide
+		.text-center
+			h2.heading-decoration  Our Blog
+		.row.row-40.row-offset-lg.justify-content-center
+			.col-xs-11.col-sm-6.col-lg-3( data-animate!={ class: 'fadeInUpBig' } )
+				+post-line({
+					img:     'home-03-422x228',
+					tag:     'News',
+					title:   'Top 5 Korean Skincare Products: Our Recommended Choice',
+					date:    'November 12, 2020'
+				}).post-line-hover
+			.col-xs-11.col-sm-6.col-lg-3( data-animate!={ class: 'fadeInUpBig', delay: '.15s' } )
+				+post-line({
+					img:     'home-04-422x228',
+					tag:     'News',
+					title:   'How to Create a Unique Look with Korean Makeup',
+					date:    'November 12, 2020'
+				}).post-line-hover
+			.col-xs-11.col-sm-6.col-lg-3( data-animate!={ class: 'fadeInUpBig', delay: '.3s' } )
+				+post-line({
+					img:     'home-05-422x228',
+					tag:     'News',
+					title:   'Your Complete Guide To Water-Free K-Beauty Products',
+					date:    'November 12, 2020'
+				}).post-line-hover
+			.col-xs-11.col-sm-6.col-lg-3( data-animate!={ class: 'fadeInUpBig', delay: '.45s' } )
+				+post-line({
+					img:     'home-06-422x228',
+					tag:     'News',
+					title:   'Six Face Washing Mistakes You Might Be Making',
+					date:    'November 12, 2020'
+				}).post-line-hover

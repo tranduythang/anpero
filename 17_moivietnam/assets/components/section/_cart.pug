@@ -1,0 +1,50 @@
+// Cart
+section.section-md.bg-transparent
+	.container
+		.row.justify-content-center
+			.col-xl-10
+				h2.text-center Cart
+				.table-container.table-responsive-md
+					table.table.table-align-center.table-cart
+						tr
+							td
+								a.d-inline-block( href='single-product.html' ): +img( 'product/cart-01-135x170' )
+							td
+								h5: a( href='single-product.html' ) Eye Cream
+								p Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+							td
+								.h5 $32
+							td
+								.form-group.table-cart-spinner
+									input.form-control.input-spinner( data-spinner, type='number', name='spinner', value='1' )
+							td
+								.h5.text-primary $32
+
+						tr
+							td
+								a.d-inline-block( href='single-product.html' ): +img( 'product/cart-02-135x170' )
+							td
+								h5: a( href='single-product.html' ) Botanial Pore Toner
+								p Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+							td
+								.h5 $30
+							td
+								.form-group.table-cart-spinner
+									input.form-control.input-spinner( data-spinner, type='number', name='spinner', value='1' )
+							td
+								.h5.text-primary $30
+
+				table.table.table-filled.table-align-1
+					tr.text-style-btn
+						td.text-style-btn Subtotal
+						td $62.00
+					tr
+						td.text-style-btn Shipping:
+						td $0.00
+					tr
+						td.text-style-btn Taxes:
+						td $0.00
+					tr
+						td.text-style-btn.text-primary Total
+						td $62.00
+				button.btn Checkout

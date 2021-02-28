@@ -1,0 +1,75 @@
+-
+	var
+		logo = {
+			default: 'logo-default-87x50.svg',
+			inverse: 'logo-inverse-87x50.svg',
+			name: 'Pure'
+		},
+		menu = {
+			type: 'root',
+			child: [
+				{
+					title: 'About',
+					link: 'about.html',
+					id: 'about'
+				},
+
+				{ title: 'Categories' },
+
+				{
+					title: 'Pages',
+					link: '#',
+					id: 'pages',
+					class: 'navbar-navigation-item-hidden',
+					child: {
+						type: 'dropdown',
+						child: [
+							{
+								title: 'Blog',
+								child: {
+									type: 'dropdown',
+									child: [
+										{ title: 'Blog post' }
+									]
+								}
+							},
+							{ title: '404' },
+							{ title: 'Typography' },
+							{ title: 'Coming soon' },
+							{ title: 'Icon boxes' },
+							{
+								title: 'Progress bars',
+								link: 'counters-&-progress-bars.html',
+							},
+							{ title: 'Search results' }
+						]
+					}
+				},
+
+				{
+					title: 'Shop',
+					id: 'shop',
+					class: 'navbar-navigation-item-hidden',
+					child: {
+						type: 'dropdown',
+						child: [
+							{ title: 'Single product' },
+							{ title: 'Checkout' },
+							{ title: 'Cart' }
+						]
+					}
+				},
+
+				{
+					title: 'Contact us',
+					class: 'navbar-navigation-item-hidden'
+				}
+			]
+		},
+
+		homePage,
+		pageName,
+		pageId,
+		pageClass= null,
+		htmlClass= null,
+		breadcrumbs = [];

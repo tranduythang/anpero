@@ -1,0 +1,36 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
+@import "../base/mixins";
+
+
+// Base
+.icon {
+	display: inline-block;
+}
+
+
+// Sizing
+.icon-md {
+	font-size: px-to-rem( 22px );
+}
+
+
+// Theming
+.icon-link {
+	color: inherit;
+
+	&:hover {
+		color: $primary;
+	}
+}
+
+.icon-link-gray {
+	color: $gray-400;
+
+	&:hover {
+		color: $primary;
+	}
+}

@@ -1,0 +1,57 @@
+include ../product/_product
+include ../pagination/_pagination
+
+// Shop
+section.section-md.bg-100
+	.container
+		.row.row-40
+			.col-md-8.col-lg-9
+				.row.row-40.row-xl-55
+					.col-6.col-lg-4
+						+product-simple({
+							img: 'product/product-02-181x159.png',
+							title: 'Eye Cream',
+							price: '32.00'
+						})
+					.col-6.col-lg-4
+						+product-simple({
+							img: 'product/product-03-127x218.png',
+							title: 'Cleansing Gel',
+							price: '25.00'
+						})
+					.col-6.col-lg-4
+						+product-simple({
+							img: 'product/product-04-108x215.png',
+							title: 'Power Tonic',
+							price: '37.00'
+						})
+
+					.col-6.col-lg-4
+						+product-simple({
+							img: 'product/product-06-67x206.png',
+							title: 'Refining Serum',
+							price: '29.00'
+						})
+					.col-6.col-lg-4
+						+product-simple({
+							img: 'product/product-07-189x109.png',
+							title: 'Foaming Cleanser',
+							price: '38.00'
+						})
+					.col-6.col-lg-4
+						+product-simple({
+							img: 'product/product-08-68x194.png',
+							title: 'Botanical Pore Toner',
+							price: '30.00'
+						})
+
+				+pagination([
+					{ prev: true, actionClass: 'disabled' },
+					{ value: '1', actionClass: 'active' },
+					{ value: '2' },
+					{ value: '3' },
+					{ next: true }
+				]).justify-content-center
+
+			.col-md-4.col-lg-3
+				include ../widget/_shop-sidebar-widgets

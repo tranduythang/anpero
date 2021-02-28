@@ -1,0 +1,27 @@
+// Single product
+section.section-md.bg-transparent
+	.container
+		.row.row-25.row-xl-55.justify-content-between
+			.col-sm-6.col-lg-5
+				+img( 'product/single-product-01-470x623' ).shadow-sm.image.image-sm.product-overview-figure
+			.col-md-6.col-lg-6
+				.product-overview
+					h2 Eye Cream
+					.product-overview-price
+						span.product-overview-price-old.big $60.00
+						span.product-overview-price-new.h3 $35.99
+					p.big Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam sed do.
+					p.big Vix velit moderatius ex, mutat albucius menandri eum in, nominati perpetua repudiare ei per. Vis amet consetetur eloquentiam et, iisque elaboraret ius ex, quod putent mei ne. Usu in integre nusquam fierent. Dicunt salutandi et sea, doming ancillae no eos. Ne duo deleniti theophrastus.
+					dl.term-list.term-list-inline.text-style-btn
+						dt Sku:
+						dd 35157
+					dl.term-list.term-list-inline.text-style-btn
+						dt Categories:
+						dd Skincare
+					.product-overview-filter-form
+						.row.row-5.row-gutters-5
+							.col-5.col-sm-4.col-md-5.col-xl-3
+								.form-group
+									input.form-control.input-spinner( data-spinner, type='number', name='spinner', value='1' )
+							.col-7.col-sm-4.col-md-7.col-xl-4
+								button.btn.btn-block( type='submit' ) Add to cart

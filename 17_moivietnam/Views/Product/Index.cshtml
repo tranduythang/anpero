@@ -1,0 +1,198 @@
+﻿@model AnperoFrontend.WebService.ProductItem
+@if (Model != null)
+{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+    string thisUrl = HttpContext.Current.Request.Url.AbsolutePath;
+
+    ViewBag.WebsiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
+        Anpero.StringHelpper.GetProductLink(Model.PrName, Model.Id);
+    string currentUrl = Request.Url.ToString();
+
+    @section health{
+        <meta property="og:image:type" content="image/jpg">
+        <meta name="description" content="@Html.Raw(Anpero.StringHelpper.removeHtmlTangs(Model.ShortDesc))" />
+        <meta name="keywords" content="@Html.Raw(Anpero.StringHelpper.UnicodeToKoDau(Model.KeyWord))" />
+        <meta property="og:description" content="@Html.Raw(Model.ShortDesc)" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="@Model.PrName" />
+        <meta property="og:url" content="@ViewBag.WebsiteUrl" />
+        <meta property="og:image" content="@Model.Images" />
+        <meta property="og:locale" content="vi_VN" />
+        <link rel="canonical" href="@ViewBag.WebsiteUrl" />
+
+    }
+    @section Styles {
+
+
+    }
+    <section class="section page-title bg-image context-dark" style="background-image: url(https://cdn.anpero.com/images/38/22021/bg-1-1920x4962021022814580386.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-xl-8">
+                    <h2 class="page-title-text">
+                        @if (!string.IsNullOrEmpty(Model.ParentCatName))
+                        {
+                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(Model.ParentCatName, Model.ParentId)" title="@Model.PrName">@Model.ParentCatName</a> <span>-</span>
+                        }
+
+                        @if (!string.IsNullOrEmpty(Model.CatName))
+                        {
+                            <a href="@Anpero.StringHelpper.GetCategoryLink(Model.CatName, Model.CatID)" title="">@Model.CatName</a> <span>-</span>
+                        }
+                        @Model.PrName
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Single product-->
+    <section class="section-md bg-transparent">
+        <div class="container">
+            <div class="row row-25 row-xl-55 justify-content-between">
+                <div class="col-sm-6 col-lg-5">
+                    <div class="owl-carousel owl-vertical-center">
+                        <img class="shadow-sm image image-sm product-overview-figure" src="@Model.Images" alt="@Model.PrName" width="470"/>
+                        @if (Model.ImagesSlide != null && Model.ImagesSlide.Count() > 0)
+                        {
+                            foreach (var item in Model.ImagesSlide)
+                            {
+                                <img class="shadow-sm image image-sm product-overview-figure" src="@item" alt="@Model.PrName" width="470"/>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="product-overview">
+                        <h2>@Model.PrName</h2>
+                        <div class="product-overview-price">
+                            @if (Model.IsSale)
+                            {
+                                <span class="product-overview-price-old big">@Anpero.StringHelpper.ConVertToMoneyFormatInt(Model.Price) đ</span>
+                            }
+
+                            <span class="product-overview-price-new h3">@Anpero.StringHelpper.ConVertToMoneyFormatInt(Model.SalePrice) đ</span>
+                        </div>
+                        <p class="big">@Html.Raw(Model.ShortDesc.Replace("\n", "<br>"))</p>
+
+
+                        <dl class="term-list term-list-inline text-style-btn">
+                            <dt>Categories:</dt>
+                            <dd><a href="@Anpero.StringHelpper.GetCategoryLink(Model.CatName, Model.CatID)" title="@Model.CatName">@Model.CatName</a></dd>
+                        </dl>
+                        <div class="product-overview-filter-form">
+                            <div class="row row-5 row-gutters-5">
+                                <div class="col-5 col-sm-4 col-md-5 col-xl-3">
+                                    <div class="form-group">
+                                        <input class="form-control input-spinner" data-spinner type="number" name="spinner" value="1">
+                                    </div>
+                                </div>
+                                <div class="col-7 col-sm-4 col-md-7 col-xl-4">
+                                    <button class="btn btn-block" type="submit" id="single_product_addtocart">Mua ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-md bg-transparent">
+        <div class="container">
+            <div class="tab tab-classic">
+                <ul class="nav nav-classic tab-header" role="tablist">
+                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#navClassic1-1" role="tab" aria-selected="true">Description</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#navClassic1-2" role="tab" aria-selected="false">Comment</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="navClassic1-1" role="tabpanel">
+                        @Html.Raw(Model.Detail)
+                    </div>
+                    <div class="tab-pane fade" id="navClassic1-2" role="tabpanel">
+                        <h3>Bình luận</h3>
+                        <div class="fb-comments" data-href="@HttpContext.Current.Request.Url.AbsoluteUri" data-width="" data-numposts="15"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Products grid-->
+    <section class="section-md bg-transparent">
+        <div class="container">
+            <h3>Sản phẩm liên quan</h3>
+            <div class="row row-40 row-xl-55">
+                @if (ViewData["relateProduct"] != null)
+                {
+                    AnperoFrontend.WebService.SearchResult relateProduct = (AnperoFrontend.WebService.SearchResult)ViewData["relateProduct"];
+                    if (relateProduct.Item != null && relateProduct.Item.Length > 0)
+                    {
+                        // relateProduct.Item= relateProduct.Item.Where(x => x.Id != item.Id);
+                        foreach (var relatedProduct in relateProduct.Item.Where(x => x.Id != Model.Id))
+                        {
+                            <div class="col-6 col-lg-3">
+                                <!-- Product-->
+                                <div class="product product-simple">
+                                    <a class="product-media" href="@Anpero.StringHelpper.GetProductLink(relatedProduct.PrName,relatedProduct.Id)"><img src="@relatedProduct.Images" alt="@relatedProduct.PrName" width="195" height="115" /></a>
+                                    <h4 class="product-title"><a href="@Anpero.StringHelpper.GetProductLink(relatedProduct.PrName,relatedProduct.Id)">@relatedProduct.PrName</a></h4>
+                                    <div class="h4 product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(relatedProduct.SalePrice) đ</div>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+            </div>
+        </div>
+    </section>
+    @section scripts{
+        @Html.Raw(Model.Script)
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0&appId=129078861768565&autoLogAppEvents=1"></script>
+
+        <script>
+
+    var defaultPrice =@Convert.ToInt32(Model.IsSale? Model.SalePrice: Model.Price);
+    $(window).resize(function () {
+        resizeVideo();
+    });
+    $(document).ready(function () {
+        $(".fb-comments").attr("data-width", $("#navClassic1-1").width())
+        resizeVideo();
+        $("#single_product_addtocart").click(function () {
+            Cart.quantity = $("input[name=spinner]").val();            
+            Cart.addProduct(@Model.Id,@Model.SalePrice, '@Model.Images', "@HttpUtility.HtmlEncode(Model.PrName) ",@Convert.ToInt32(Model.Price));
+        });
+
+    });
+    function resizeVideo() {
+        var contentW = $("#navClassic1-1").width();
+        var iframe = $('#navClassic1-1 iframe');
+        var iframeW = iframe.css('width', contentW - 20);
+        iframe.css('width', iframeW);
+        var iframeH = contentW / 16 * 9;
+        iframe.css('height', iframeH);
+    }
+        </script>
+        @{
+            List<string> images = new List<string>();
+            images.Add(Model.Images);
+            images.AddRange(Model.ImagesSlide);
+            images = images.Select(x => "\"" + x + "\"").ToList();
+            var imagesText = string.Join(",", images);
+        }
+<script type="application/ld+json">
+    {
+    "@@context":"http://schema.org/",
+    "@@type":"Product",
+    "name":"@Model.PrName",
+    "image":[@Html.Raw(imagesText)],
+    "description":"@Model.ShortDesc",
+    "sku": "@Model.Id"
+    }
+</script>
+
+    }
+
+}

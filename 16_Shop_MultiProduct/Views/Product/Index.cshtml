@@ -408,8 +408,7 @@
                 _attrId=$(this).attr("data-attrId");
             });
             $("#single_product__addtocart").click(function () {
-                Cart.quantity = $("#pdQuantity").val();
-                debugger
+                Cart.quantity = $("#pdQuantity").val();                
                 Cart.addProduct(@item.Id,parseInt(defaultPrice) + parseInt(price), '@item.Images', "@HttpUtility.HtmlEncode(item.PrName) "+atributeName,@Convert.ToInt32(item.Price));
             });
             $(".group-qty .plus").click(function () {
@@ -419,7 +418,7 @@
                 var newQty = (parseInt($("#pdQuantity").val()) - 1);
                 $("#pdQuantity").val(newQty<0?0:newQty);
             });
-                  var seria = Util.getParameterByName("seria")
+            var seria = Util.getParameterByName("seria")
                 if (seria != "") {
                     Util.notify("", "Tìm thấy sản phẩm cho mã seria: "+seria);
                 }

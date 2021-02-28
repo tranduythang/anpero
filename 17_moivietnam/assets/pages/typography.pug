@@ -1,0 +1,25 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/page-title/_page-title
+
+block variables
+	- pageName = 'Typography';
+
+block page
+	+rd-navbar(
+		data-rd-navbar = {
+			responsive: {
+				1200: {autoHeight: false}
+			}
+		}
+	).rd-navbar-absolute.rd-navbar-fullwidth-light
+	
+	+page-title({
+		bgImage: 'images/background/bg-1-1920x496.jpg'
+	})
+
+	include ../components/section/_typography-type
+	include ../components/section/_typography-paragraphs
+	include ../components/section/_typography-lists
+	include ../components/section/_typography-quote
+	include ../components/footer/_footer-subscribe

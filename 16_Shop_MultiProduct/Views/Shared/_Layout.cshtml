@@ -24,8 +24,6 @@
     <meta name="robots" content="index,follow,all" />
     <link rel="shortcut icon" href="@(string.IsNullOrEmpty(commonInfo.Favicon)?commonInfo.Logo:commonInfo.Favicon)" type="image/x-icon">
     <meta content="@commonInfo.Name" name="author" />
-    <link rel='stylesheet' href='//cdn.anpero.com/cdn/Bootstrap/bootstrap3.7.min.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='//cdn.anpero.com/cdn/font/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
     <script type='text/javascript' src='//cdn.anpero.com/cdn/plugins/jquery-2.2.4.js'></script>
     @Styles.Render("~/bundles/global.css")
     <link href="/theme/style.red.css?v=4" rel="stylesheet" />
@@ -34,499 +32,472 @@
     <link href='/static/css' rel='stylesheet' type='text/css'>
 </head>
 <body class="page-template-fullwidth page wp-embed-responsive  woocommerce-no-js  wpb-js-composer vc_responsive">
-    <a href="javascript:void(0)" class="overlay-body"></a>
-    <div class="header-mobile-wapper">
-        <div class="header-mobile">
-            <div class="main-header">
-                <div class="logo">
-                    <a href="@currentUrl"><img alt="@commonInfo.Name" src="@commonInfo.Logo" class="_rw" /></a>
-                </div>
-                <div class="control">
-                    <div class="menu-mobile-wapper">
-                        <a href="#" class="menu-bar menu-toggle">
-                            <span class="fa fa-bars"></span>
-                        </a>
+
+  
+        <div class="header-mobile-wapper">
+            <div class="header-mobile">
+                <div class="main-header">
+                    <div class="logo">
+                        <a href="@currentUrl"><img alt="@commonInfo.Name" src="@commonInfo.Logo" class="_rw" /></a>
                     </div>
-                    <div class="mobile-cart-block">
-                        <div class="mobile-block block-minicart">
-                            <a class="link-dropdown block-cart-link" href="/product/checkout">
-                                <span class="gokko-icon icon-basket">
-                                    <span class="count spN">0</span>
-                                </span>
+                    <div class="control">
+                        <div class="menu-mobile-wapper">
+                            <a href="#" class="menu-bar menu-toggle">
+                                <span class="fa fa-bars"></span>
                             </a>
                         </div>
-                    </div>
-                    <div class="form-search-mobile">
-                        <a href="#"><i class="gokko-icon icon-search"></i></a>
-                        <div class="block-search">
-                            <form role="search" method="get" action="/search" class="form-search block-search ovic-live-search-form" role="search">
-                                <a href="#" class="close-block-search"><span class="fa fa-times"></span></a>
-                                <div class="form-content search-box results-search is-woocommerce">
-                                    <div class="inner">
-                                        <input autocomplete="off" type="text" class="searchfield txt-livesearch input" name="keyword" id="keyword" placeholder="Tìm có dấu hoặc không dấu..." itemprop="query-input">
-                                    </div>
-                                    <div class="category">
-                                        <select name='Category' id='Category' class='category-search-option' tabindex="1">
-                                            <option value='0'>All Categories</option>
-                                            @if (commonInfo.ProductCategoryList != null)
-                                            {
-                                                foreach (var item in commonInfo.ProductCategoryList)
+                        <div class="mobile-cart-block">
+                            <div class="mobile-block block-minicart">
+                                <a class="link-dropdown block-cart-link" href="/product/checkout">
+                                    <span class="gokko-icon icon-basket">
+                                        <span class="count spN">0</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="form-search-mobile">
+                            <a href="#"><i class="gokko-icon icon-search"></i></a>
+                            <div class="block-search">
+                                <form role="search" method="get" action="/search" class="form-search block-search ovic-live-search-form" role="search">
+                                    <a href="#" class="close-block-search"><span class="fa fa-times"></span></a>
+                                    <div class="form-content search-box results-search is-woocommerce">
+                                        <div class="inner">
+                                            <input autocomplete="off" type="text" class="searchfield txt-livesearch input" name="keyword" id="keyword" placeholder="Tìm có dấu hoặc không dấu..." itemprop="query-input">
+                                        </div>
+                                        <div class="category">
+                                            <select name='Category' id='Category' class='category-search-option' tabindex="1">
+                                                <option value='0'>All Categories</option>
+                                                @if (commonInfo.ProductCategoryList != null)
                                                 {
-                                                    <option class="level-0" value="@item.Id">@item.Name</option>
-                                                    if (item.ChildCategory != null && item.ChildCategory.Count() > 0)
+                                                    foreach (var item in commonInfo.ProductCategoryList)
                                                     {
-                                                        foreach (var childItem in item.ChildCategory)
+                                                        <option class="level-0" value="@item.Id">@item.Name</option>
+                                                        if (item.ChildCategory != null && item.ChildCategory.Count() > 0)
                                                         {
-                                                            <option class="level-2" value="@childItem.Id">@childItem.Name</option>
+                                                            foreach (var childItem in item.ChildCategory)
+                                                            {
+                                                                <option class="level-2" value="@childItem.Id">@childItem.Name</option>
+                                                            }
+
                                                         }
 
                                                     }
-
                                                 }
-                                            }
-                                        </select>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <button type="submit" class="btn-submit">
-                                    <span class="text">Tìm kiếm</span>
-                                    <span class="gokko-icon icon-search" aria-hidden="true"></span>
-                                </button>
-                            </form><!-- block search -->
+                                    <button type="submit" class="btn-submit">
+                                        <span class="text">Tìm kiếm</span>
+                                        <span class="gokko-icon icon-search" aria-hidden="true"></span>
+                                    </button>
+                                </form><!-- block search -->
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
-    </div>
-    <header id="header" class="header header-digital style-2 style-8">
-        <div class="top-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-12 header-digital-top-left">
-                        <div class="top-left-menu-container ovic-menu-wapper horizontal">
-                            <ul id="menu-top-left-menu" class="gokko-nav top-bar-menu top-left-menu ovic-menu">
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="tel:@commonInfo.HotLine" class="disable-link">Welcome to @commonInfo.Name</a></li>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="tel:@commonInfo.HotLine" class="disable-link"><span class="icon icon-font gokko-icon icon-phone"></span>Hotline: @Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.HotLine)</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12 header-digital-top-right">
-                        <div class="top-right-menu-container ovic-menu-wapper horizontal">
-                            <ul id="menu-top-right-menu" class="gokko-nav top-bar-menu top-right-menu ovic-menu">
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/search">TÌM KIẾM</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/home/contact">LIÊN HỆ</a></li>
-                                @*<li id="menu-item-197" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-197"><a href="/blog" class="disable-link">FAQ’s</a></li>*@
-                            </ul>
-                        </div><div class="top-middle-menu-container ovic-menu-wapper horizontal">
-                            <ul id="menu-social-menu" class="gokko-nav top-bar-menu top-middle-menu ovic-menu">
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.facebook.com/share.php?u=@currentUrl"><span class="icon icon-font fa fa-facebook-f"></span></a></li>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://twitter.com/intent/tweet?url=@currentUrl"><span class="icon icon-font fa fa-twitter"></span></a></li>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.pinterest.com/pinthis/?url=@currentUrl"><span class="icon icon-font fa fa-pinterest"></span></a></li>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.instagram.com?url=@currentUrl"><span class="icon icon-font fa fa-instagram"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-        <div class="header-middle">
-            <div class="container">
-                <div class="header-middle-inner">
-                    <div class="logo"><a href="/"><img alt="Gokko" src="@commonInfo.Logo" class="_rw" /></a></div>
-                    <div class="box-search">
-                        <div class="block-search">
-                            <form role="search" method="get" action="/search" class="form-search block-search ovic-live-search-form">
-                                <a href="#" class="close-block-search"><span class="fa fa-times"></span></a>
-                                <div class="form-content search-box results-search is-woocommerce">
-                                    <div class="inner">
-                                        <input autocomplete="off" type="text" class="searchfield txt-livesearch input" name="keyword" placeholder="Tìm kiếm sản phẩm">
-                                    </div>
-                                    <div class="category">
-                                        <select name='category' class='category-search-option' tabindex="1">
-                                            <option value='0'>Tất cả danh mục</option>
-                                            @if (commonInfo.ProductCategoryList != null)
-                                            {
-                                                foreach (var item in commonInfo.ProductCategoryList)
-                                                {
-                                                    <option class="level-0" value="@item.Id">@item.Name</option>
-                                                    if (item.ChildCategory != null && item.ChildCategory.Count() > 0)
-                                                    {
-                                                        foreach (var childItem in item.ChildCategory)
-                                                        {
-                                                            <option class="level-2" value="@childItem.Id">&nbsp;&nbsp;@childItem.Name</option>
-                                                        }
-
-                                                    }
-
-                                                }
-                                            }
-                                        </select>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn-submit">
-                                    <span class="text">Tìm kiếm</span>
-                                    <span class="gokko-icon icon-search" aria-hidden="true"></span>
-                                </button>
-                            </form><!-- block search -->
+        <header id="header" class="header header-digital style-2 style-8">
+            <div class="top-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 header-digital-top-left">
+                            <div class="top-left-menu-container ovic-menu-wapper horizontal">
+                                <ul id="menu-top-left-menu" class="gokko-nav top-bar-menu top-left-menu ovic-menu">
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="tel:@commonInfo.HotLine" class="disable-link">Welcome to @commonInfo.Name</a></li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="tel:@commonInfo.HotLine" class="disable-link"><span class="icon icon-font gokko-icon icon-phone"></span>Hotline: @Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.HotLine)</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="header-control">
-                        <div class="block-wishlist">
-                            <a class="woo-wishlist-link" href="https://www.facebook.com/share.php?u=@currentUrl" target="_blank">
-                                <i class="gokko-icon icon-wishlist icon-heart"></i>
-                                <span class="text">Yêu thích</span>
-                            </a>
-                        </div>
-                        <div class="block-minicart ovic-mini-cart ovic-dropdown">
-                            <a class="link-dropdown block-cart-link" href="/product/checkout">
-                                <span class="gokko-icon icon-basket">
-                                    <span class="count">0</span>
-                                </span>
-                                <span class="gokko-group">
-                                    <span class="text">Giỏ hàng</span>
-                                </span>
-                            </a>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="header-nav">
-            <div class="container">
-                <div class="header-nav-inner header-responsive">
-                    <!-- block category -->
-                    <div data-items="11"
-                         class="vertical-wrapper block-nav-category has-vertical-menu">
-                        <div class="block-title">
-                            <span class="before">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </span>
-                            <span class="text-title">Danh mục sản phẩm</span>
-                        </div>
-                        <div class="block-content verticalmenu-content">
-                            <div class=" ovic-menu-wapper vertical support-mobile-menu">
-                                <ul id="menu-digital-vertical-menu" class="ovic-nav vertical-menu ovic-menu ovic-clone-mobile-menu">
-                                    @if (commonInfo.ProductCategoryList != null)
-                                    {
-                                        foreach (var item in commonInfo.ProductCategoryList)
-                                        {
-                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-mega-menu menu-item-has-children item-megamenu">
-                                                <a href="@item.DefaultLink" class="disable-link">@item.Name</a>
-                                                @if (item.ChildCategory != null && item.ChildCategory.Count() > 0)
-                                                {
-                                                    <div class="sub-menu megamenu lazy" style="width:520px;background-repeat: no-repeat;background-position: right;height:auto;" data-src="@item.Images">
-                                                        <p>
-                                                            <div class="vc_row wpb_row vc_row-fluid ovic_custom_5b768530ccd86 vc_custom_1533638258332">
-                                                                <div class="wpb_column vc_column_container vc_col-sm-6">
-                                                                    <div class="vc_column-inner">
-                                                                        <div class="wpb_wrapper">
-                                                                            <div class="ovic-custommenu vc_wp_custommenu wpb_content_element style4   ovic_custom_5b768530ccdc7 " data-show_count_items="0" data-text_more="All Categories">
-                                                                                <div class="widget widget_nav_menu">
-                                                                                    <h2 class="widgettitle">@item.Name</h2><div class=" ovic-menu-wapper horizontal">
-                                                                                        <ul id="menu-d-electronics" class="menu ovic-menu">
-                                                                                            @foreach (var childItem in item.ChildCategory)
-                                                                                            {
-                                                                                                <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="@childItem.DefaultLink" class="disable-link">@childItem.Name</a></li>
-                                                                                            }
-                                                                                        </ul>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </p>
-                                                    </div>
-                                                }
-                                            </li>
-                                        }
-                                    }
-
+                        <div class="col-md-6 col-sm-12 header-digital-top-right">
+                            <div class="top-right-menu-container ovic-menu-wapper horizontal">
+                                <ul id="menu-top-right-menu" class="gokko-nav top-bar-menu top-right-menu ovic-menu">
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/search">TÌM KIẾM</a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/home/contact">LIÊN HỆ</a></li>
+                                    @*<li id="menu-item-197" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-197"><a href="/blog" class="disable-link">FAQ’s</a></li>*@
+                                </ul>
+                            </div><div class="top-middle-menu-container ovic-menu-wapper horizontal">
+                                <ul id="menu-social-menu" class="gokko-nav top-bar-menu top-middle-menu ovic-menu">
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.facebook.com/share.php?u=@currentUrl"><span class="icon icon-font fa fa-facebook-f"></span></a></li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://twitter.com/intent/tweet?url=@currentUrl"><span class="icon icon-font fa fa-twitter"></span></a></li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.pinterest.com/pinthis/?url=@currentUrl"><span class="icon icon-font fa fa-pinterest"></span></a></li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.instagram.com?url=@currentUrl"><span class="icon icon-font fa fa-instagram"></span></a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <!-- block category -->
-                    <div class="box-header-nav">
-                        <div class=" ovic-menu-wapper horizontal support-mobile-menu">
-                            <ul id="menu-primary-menu-1" class="clone-main-menu gokko-nav main-menu ovic-menu ovic-clone-mobile-menu">
-
-                                @if (ViewData["BestsaleProduct"] != null)
-                                {
-                                    SearchResult searchResult = (SearchResult)ViewData["BestsaleProduct"];
-                                    if (searchResult.Item.Length > 0)
-                                    {
-                                        var category = searchResult.Item.Select(x => new { id = x.ParentId, name = x.ParentCatName }).Distinct().ToList();
-                                        var newCat = from a in category
-                                                     join b in commonInfo.ProductCategoryList.ToList()
-                                                     on a.id equals b.Id
-                                                     select new
-                                                     {
-                                                         id = a.id,
-                                                         name = a.name,
-                                                         rank = b.Rank
-                                                     };
-                                        var shortCat = newCat.OrderBy(x => x.rank).ToList();
-
-
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-mega-menu menu-item-has-children item-megamenu">
-                                            <a href="javascript:void(0);">Sản phẩm bán chạy</a>
-                                            <div class="sub-menu megamenu" data-responsive=".header-responsive" style="width:1170px;z-index:99;">
-                                                <div class="vc_row wpb_row vc_row-fluid ovic_custom_5b763d890b4fd vc_custom_1534475649915">
-                                                    <div class="wpb_column vc_column_container vc_col-sm-3"></div>
-                                                    @foreach (var item in shortCat)
-                                                    {
-                                                        var productCategory = searchResult.Item.Where(x => x.ParentId == item.id).ToList();
-
-                                                        <div class="wpb_column vc_column_container vc_col-sm-3">
-                                                            <div class="vc_column-inner">
-                                                                <div class="wpb_wrapper">
-                                                                    <div class="ovic-custommenu vc_wp_custommenu wpb_content_element default ovic_custom_5b763d890b53f " data-show_count_items="0" data-text_more="All Categories">
-                                                                        <div class="widget widget_nav_menu">
-                                                                            <h2 class="widgettitle">@item.name</h2>
-                                                                            <div class="ovic-menu-wapper horizontal">
-                                                                                <ul class="menu ovic-menu">
-                                                                                    @foreach (var productItem in productCategory)
-                                                                                    {
-                                                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(productItem.PrName,productItem.Id)">@productItem.PrName.Split('|').FirstOrDefault().Trim()</a></li>
-                                                                                    }
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    }
-                                                </div>
-                                            </div>
-                                        </li>
-                                    }
-                                }
-                                @if (ViewData["saleProduct"] != null)
-                                {
-                                    ProductItem[] searchResult = (ProductItem[])ViewData["saleProduct"];
-                                    if (searchResult.Length > 0)
-                                    {
-
-                                        var category = searchResult.Select(x => new { id = x.ParentId, name = x.ParentCatName }).Distinct().ToList();
-                                        var newCat = from a in category
-                                                     join b in commonInfo.ProductCategoryList.ToList()
-                                                     on a.id equals b.Id
-                                                     select new
-                                                     {
-                                                         id = a.id,
-                                                         name = a.name,
-                                                         rank = b.Rank
-                                                     };
-                                        var shortCat = newCat.OrderBy(x => x.rank).ToList();
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-mega-menu menu-item-has-children item-megamenu">
-                                            <a href="javascript:void(0);" class="disable-link">Sản phẩm khuyến mại</a>
-                                            <div class="sub-menu megamenu" data-responsive=".header-responsive" style="width:1170px;z-index:99;">
-                                                <div class="vc_row wpb_row vc_row-fluid ovic_custom_5b763d890b4fd vc_custom_1534475649915">
-                                                    <div class="wpb_column vc_column_container vc_col-sm-3"></div>
-                                                    @foreach (var item in shortCat)
-                                                    {
-                                                        var productCategory = searchResult.Where(x => x.ParentId == item.id).ToList();
-                                                        <div class="wpb_column vc_column_container vc_col-sm-3">
-                                                            <div class="vc_column-inner">
-                                                                <div class="wpb_wrapper">
-                                                                    <div class="ovic-custommenu vc_wp_custommenu wpb_content_element default ovic_custom_5b763d890b53f " data-show_count_items="0" data-text_more="All Categories">
-                                                                        <div class="widget widget_nav_menu">
-                                                                            <h2 class="widgettitle">@item.name</h2>
-                                                                            <div class="ovic-menu-wapper horizontal">
-                                                                                <ul class="menu ovic-menu">
-                                                                                    @foreach (var productItem in productCategory)
-                                                                                    {
-                                                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(productItem.PrName,productItem.Id)">@productItem.PrName.Split('|').FirstOrDefault().Trim()</a></li>
-                                                                                    }
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    }
-                                                </div>
-                                            </div>
-                                        </li>
-                                        @*<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
-                                                <a href="/product/sales" class="disable-link">Đang khuyến mại</a>
-                                                <ul class="sub-menu">
-                                                    @foreach (var featureProduct in searchResult)
-                                                    {
-                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(featureProduct.PrName,featureProduct.Id)">@featureProduct.PrName</a></li>
-                                                    }
-                                                </ul>
-                                            </li>*@
-                                    }
-                                }
-                                @foreach (var item in commonInfo.MenuList)
-                                {
-                                    var hasChildren = false;
-                                    if (item.ChidMenu != null && item.ChidMenu.Count() > 0)
-                                    {
-                                        hasChildren = true;
-                                    }
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom @(hasChildren?"menu-item-has-children":"")">
-                                        <a href="@item.Link" class="disable-link">@item.Tittle</a>
-                                        @if (item.ChidMenu != null && item.ChidMenu.Count() > 0)
-                                        {
-                                            <ul class="sub-menu">
-                                                @foreach (var subItem in item.ChidMenu)
+                </div>
+            </div>
+            <div class="header-middle">
+                <div class="container">
+                    <div class="header-middle-inner">
+                        <div class="logo"><a href="/"><img alt="Gokko" src="@commonInfo.Logo" class="_rw" /></a></div>
+                        <div class="box-search">
+                            <div class="block-search">
+                                <form role="search" method="get" action="/search" class="form-search block-search ovic-live-search-form">
+                                    <a href="#" class="close-block-search"><span class="fa fa-times"></span></a>
+                                    <div class="form-content search-box results-search is-woocommerce">
+                                        <div class="inner">
+                                            <input autocomplete="off" type="text" class="searchfield txt-livesearch input" name="keyword" placeholder="Tìm kiếm sản phẩm">
+                                        </div>
+                                        <div class="category">
+                                            <select name='category' class='category-search-option' tabindex="1">
+                                                <option value='0'>Tất cả danh mục</option>
+                                                @if (commonInfo.ProductCategoryList != null)
                                                 {
-                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@subItem.Link">@subItem.Tittle</a></li>
+                                                    foreach (var item in commonInfo.ProductCategoryList)
+                                                    {
+                                                        <option class="level-0" value="@item.Id">@item.Name</option>
+                                                        if (item.ChildCategory != null && item.ChildCategory.Count() > 0)
+                                                        {
+                                                            foreach (var childItem in item.ChildCategory)
+                                                            {
+                                                                <option class="level-2" value="@childItem.Id">&nbsp;&nbsp;@childItem.Name</option>
+                                                            }
+
+                                                        }
+
+                                                    }
                                                 }
-                                            </ul>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn-submit">
+                                        <span class="text">Tìm kiếm</span>
+                                        <span class="gokko-icon icon-search" aria-hidden="true"></span>
+                                    </button>
+                                </form><!-- block search -->
+                            </div>
+                        </div>
+                        <div class="header-control">
+                            <div class="block-wishlist">
+                                <a class="woo-wishlist-link" href="https://www.facebook.com/share.php?u=@currentUrl" target="_blank">
+                                    <i class="gokko-icon icon-wishlist icon-heart"></i>
+                                    <span class="text">Yêu thích</span>
+                                </a>
+                            </div>
+                            <div class="block-minicart ovic-mini-cart ovic-dropdown">
+                                <a class="link-dropdown block-cart-link" href="/product/checkout">
+                                    <span class="gokko-icon icon-basket">
+                                        <span class="count">0</span>
+                                    </span>
+                                    <span class="gokko-group">
+                                        <span class="text">Giỏ hàng</span>
+                                    </span>
+                                </a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-nav">
+                <div class="container">
+                    <div class="header-nav-inner header-responsive">
+                        <!-- block category -->
+                        <div data-items="11"
+                             class="vertical-wrapper block-nav-category has-vertical-menu">
+                            <div class="block-title">
+                                <span class="before">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </span>
+                                <span class="text-title">Danh mục sản phẩm</span>
+                            </div>
+                            <div class="block-content verticalmenu-content">
+                                <div class=" ovic-menu-wapper vertical support-mobile-menu">
+                                    <ul id="menu-digital-vertical-menu" class="ovic-nav vertical-menu ovic-menu ovic-clone-mobile-menu">
+                                        @if (commonInfo.ProductCategoryList != null)
+                                        {
+                                            foreach (var item in commonInfo.ProductCategoryList)
+                                            {
+                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-mega-menu menu-item-has-children item-megamenu">
+                                                    <a href="@item.DefaultLink" class="disable-link">@item.Name</a>
+                                                    @if (item.ChildCategory != null && item.ChildCategory.Count() > 0)
+                                                    {
+                                                        <div class="sub-menu megamenu lazy" style="width:520px;background-repeat: no-repeat;background-position: right;height:auto;" data-src="@item.Images">
+                                                            <p>
+                                                                <div class="vc_row wpb_row vc_row-fluid ovic_custom_5b768530ccd86 vc_custom_1533638258332">
+                                                                    <div class="wpb_column vc_column_container vc_col-sm-6">
+                                                                        <div class="vc_column-inner">
+                                                                            <div class="wpb_wrapper">
+                                                                                <div class="ovic-custommenu vc_wp_custommenu wpb_content_element style4   ovic_custom_5b768530ccdc7 " data-show_count_items="0" data-text_more="All Categories">
+                                                                                    <div class="widget widget_nav_menu">
+                                                                                        <h2 class="widgettitle">@item.Name</h2><div class=" ovic-menu-wapper horizontal">
+                                                                                            <ul id="menu-d-electronics" class="menu ovic-menu">
+                                                                                                @foreach (var childItem in item.ChildCategory)
+                                                                                                {
+                                                                                                    <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="@childItem.DefaultLink" class="disable-link">@childItem.Name</a></li>
+                                                                                                }
+                                                                                            </ul>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </p>
+                                                        </div>
+                                                    }
+                                                </li>
+                                            }
                                         }
 
-                                    </li>
-                                }
-                            </ul>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        <!-- block category -->
+                        <div class="box-header-nav">
+                            <div class=" ovic-menu-wapper horizontal support-mobile-menu">
+                                <ul id="menu-primary-menu-1" class="clone-main-menu gokko-nav main-menu ovic-menu ovic-clone-mobile-menu">
 
+                                    @if (ViewData["BestsaleProduct"] != null)
+                                    {
+                                        SearchResult searchResult = (SearchResult)ViewData["BestsaleProduct"];
+                                        if (searchResult.Item.Length > 0)
+                                        {
+                                            var category = searchResult.Item.Select(x => new { id = x.ParentId, name = x.ParentCatName }).Distinct().ToList();
+                                            var newCat = from a in category
+                                                         join b in commonInfo.ProductCategoryList.ToList()
+                                                         on a.id equals b.Id
+                                                         select new
+                                                         {
+                                                             id = a.id,
+                                                             name = a.name,
+                                                             rank = b.Rank
+                                                         };
+                                            var shortCat = newCat.OrderBy(x => x.rank).ToList();
+
+
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-mega-menu menu-item-has-children item-megamenu">
+                                                <a href="javascript:void(0);">Sản phẩm bán chạy</a>
+                                                <div class="sub-menu megamenu" data-responsive=".header-responsive" style="width:1170px;z-index:99;">
+                                                    <div class="vc_row wpb_row vc_row-fluid ovic_custom_5b763d890b4fd vc_custom_1534475649915">
+                                                        <div class="wpb_column vc_column_container vc_col-sm-3"></div>
+                                                        @foreach (var item in shortCat)
+                                                        {
+                                                            var productCategory = searchResult.Item.Where(x => x.ParentId == item.id).ToList();
+
+                                                            <div class="wpb_column vc_column_container vc_col-sm-3">
+                                                                <div class="vc_column-inner">
+                                                                    <div class="wpb_wrapper">
+                                                                        <div class="ovic-custommenu vc_wp_custommenu wpb_content_element default ovic_custom_5b763d890b53f " data-show_count_items="0" data-text_more="All Categories">
+                                                                            <div class="widget widget_nav_menu">
+                                                                                <h2 class="widgettitle">@item.name</h2>
+                                                                                <div class="ovic-menu-wapper horizontal">
+                                                                                    <ul class="menu ovic-menu">
+                                                                                        @foreach (var productItem in productCategory)
+                                                                                        {
+                                                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(productItem.PrName,productItem.Id)">@productItem.PrName.Split('|').FirstOrDefault().Trim()</a></li>
+                                                                                        }
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                    }
+                                    @if (ViewData["saleProduct"] != null)
+                                    {
+                                        ProductItem[] searchResult = (ProductItem[])ViewData["saleProduct"];
+                                        if (searchResult.Length > 0)
+                                        {
+
+                                            var category = searchResult.Select(x => new { id = x.ParentId, name = x.ParentCatName }).Distinct().ToList();
+                                            var newCat = from a in category
+                                                         join b in commonInfo.ProductCategoryList.ToList()
+                                                         on a.id equals b.Id
+                                                         select new
+                                                         {
+                                                             id = a.id,
+                                                             name = a.name,
+                                                             rank = b.Rank
+                                                         };
+                                            var shortCat = newCat.OrderBy(x => x.rank).ToList();
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-mega-menu menu-item-has-children item-megamenu">
+                                                <a href="javascript:void(0);" class="disable-link">Sản phẩm khuyến mại</a>
+                                                <div class="sub-menu megamenu" data-responsive=".header-responsive" style="width:1170px;z-index:99;">
+                                                    <div class="vc_row wpb_row vc_row-fluid ovic_custom_5b763d890b4fd vc_custom_1534475649915">
+                                                        <div class="wpb_column vc_column_container vc_col-sm-3"></div>
+                                                        @foreach (var item in shortCat)
+                                                        {
+                                                            var productCategory = searchResult.Where(x => x.ParentId == item.id).ToList();
+                                                            <div class="wpb_column vc_column_container vc_col-sm-3">
+                                                                <div class="vc_column-inner">
+                                                                    <div class="wpb_wrapper">
+                                                                        <div class="ovic-custommenu vc_wp_custommenu wpb_content_element default ovic_custom_5b763d890b53f " data-show_count_items="0" data-text_more="All Categories">
+                                                                            <div class="widget widget_nav_menu">
+                                                                                <h2 class="widgettitle">@item.name</h2>
+                                                                                <div class="ovic-menu-wapper horizontal">
+                                                                                    <ul class="menu ovic-menu">
+                                                                                        @foreach (var productItem in productCategory)
+                                                                                        {
+                                                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(productItem.PrName,productItem.Id)">@productItem.PrName.Split('|').FirstOrDefault().Trim()</a></li>
+                                                                                        }
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            @*<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                                                    <a href="/product/sales" class="disable-link">Đang khuyến mại</a>
+                                                    <ul class="sub-menu">
+                                                        @foreach (var featureProduct in searchResult)
+                                                        {
+                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@Anpero.StringHelpper.GetProductLink(featureProduct.PrName,featureProduct.Id)">@featureProduct.PrName</a></li>
+                                                        }
+                                                    </ul>
+                                                </li>*@
+                                        }
+                                    }
+                                    @foreach (var item in commonInfo.MenuList)
+                                    {
+                                        var hasChildren = false;
+                                        if (item.ChidMenu != null && item.ChidMenu.Count() > 0)
+                                        {
+                                            hasChildren = true;
+                                        }
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom @(hasChildren?"menu-item-has-children":"")">
+                                            <a href="@item.Link" class="disable-link">@item.Tittle</a>
+                                            @if (item.ChidMenu != null && item.ChidMenu.Count() > 0)
+                                            {
+                                                <ul class="sub-menu">
+                                                    @foreach (var subItem in item.ChidMenu)
+                                                    {
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="@subItem.Link">@subItem.Tittle</a></li>
+                                                    }
+                                                </ul>
+                                            }
+
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="fullwidth-template">
+            @RenderBody()
+        </div>
+
+        <a href="#" class="backtotop">
+            <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
+        </a>
+
+        <div class="mobile-footer">
+            <div class="mobile-footer-inner">
+                <div class="mobile-block block-menu-main">
+                    <a href="#" class="menu-bar menu-toggle">
+                        <span class="fa fa-bars"></span>
+                        <span class="text">Menu</span>
+                    </a>
+                </div>
+                <div class="mobile-block block-menu-filter">
+                    <a href="#" class="menu-bar filter-toggle">
+                        <span class="fa fa-filter"></span>
+                        <span class="text">Filter</span>
+                    </a>
+                </div>
+                <div class="mobile-block block-minicart">
+                    <a class="link-dropdown" href="/product/checkout">
+                        <span class="gokko-icon icon-basket"></span>
+                        <span class="text">Giỏ hàng</span>
+                    </a>
                 </div>
             </div>
         </div>
-    </header>
-    <div class="fullwidth-template">
-        @RenderBody()
-    </div>
-
-    <a href="#" class="backtotop">
-        <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
-    </a>
-
-    <div class="mobile-footer">
-        <div class="mobile-footer-inner">
-            <div class="mobile-block block-menu-main">
-                <a href="#" class="menu-bar menu-toggle">
-                    <span class="fa fa-bars"></span>
-                    <span class="text">Menu</span>
-                </a>
-            </div>
-            <div class="mobile-block block-menu-filter">
-                <a href="#" class="menu-bar filter-toggle">
-                    <span class="fa fa-filter"></span>
-                    <span class="text">Filter</span>
-                </a>
-            </div>
-            <div class="mobile-block block-minicart">
-                <a class="link-dropdown" href="/product/checkout">
-                    <span class="gokko-icon icon-basket"></span>
-                    <span class="text">Giỏ hàng</span>
-                </a>
-            </div>
-        </div>
-    </div>
-    <footer class="footer ovic-footer">
-        <div class="container">
-            <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid ovic_custom_5c8ef79e0335f vc_custom_1534492816102 vc_custom_1534492816151">
-                <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-4 vc_col-md-4 vc_col-xs-12 ovic_custom_5c8ef79e03361 vc_custom_1534326477700 vc_custom_1534326477742">
-                    <div class="vc_column-inner">
-                        <div class="wpb_wrapper">
-                            <div class="wpb_single_image wpb_content_element vc_align_left ovic_custom_5c8ef79e03362 vc_custom_1531127631320" style="text-align:center;padding-right:100px;">
-
-                                <figure class="wpb_wrapper vc_figure">
-                                    <div class="vc_single_image-wrapper">
-                                        <img class="vc_single_image-img lazy attachment-full" src="@commonInfo.Logo" width="84" height="24" alt="@commonInfo.Name" />
-                                    </div>
-                                </figure>
-                            </div>
-                            <div style="font-size: 14px;color: #888888;line-height: 20px;text-align: left" class="vc_custom_heading ovic_custom_5c8ef79e03363 vc_custom_1531127910430 vc_custom_1531127910448">
-                                @Html.Raw(commonInfo.Desc)
-                            </div>
-                            <div class="ovic-iconbox default  ovic_custom_5c8ef79e03364 vc_custom_1533092033076 ">
-                                <div class="iconbox-inner">
-                                    <div class="icon">
-                                        <span class="gokko-icon icon-location"></span>
-                                    </div>
-                                    <div class="content">
-                                        <p class="text">
-                                            @Html.Raw(commonInfo.Address)
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="ovic-iconbox default dark   ovic_custom_5c8ef79e03365 vc_custom_1552873369334 ">
-                                <div class="iconbox-inner">
-                                    <div class="icon">
-                                        <span class="gokko-icon icon-envelope"></span>
-                                    </div>
-                                    <div class="content">
-                                        <p class="text"><a href="mailto:@commonInfo.Email"> @commonInfo.Email</a></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="ovic-iconbox default  ovic_custom_5c8ef79e03366 ">
-                                <div class="iconbox-inner">
-                                    <div class="icon">
-                                        <span class="gokko-icon icon-phone"></span>
-                                    </div>
-                                    <div class="content">
-                                        <p class="text"><a href="tel:commonInfo.HotLine"> @Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.HotLine) </a></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
-                {
-                    <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-2 vc_col-md-2 vc_col-xs-12 ovic_custom_5c8ef79e03367 vc_custom_1534379485905 vc_custom_1534379485941 vc_custom_1534379485953">
+        <footer class="footer ovic-footer">
+            <div class="container">
+                <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid ovic_custom_5c8ef79e0335f vc_custom_1534492816102 vc_custom_1534492816151">
+                    <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-4 vc_col-md-4 vc_col-xs-12 ovic_custom_5c8ef79e03361 vc_custom_1534326477700 vc_custom_1534326477742">
                         <div class="vc_column-inner">
                             <div class="wpb_wrapper">
-                                <div class="wpb_content_element ovic_custom_5c8ef79e03368 " data-text_more="All Categories">
-                                    <div class="widget widget_nav_menu">
-                                        <h2 class="widgettitle">Sản phẩm</h2>
-                                        <div class="@(isMobileDrive?"ovic-menu-wapper":"")  horizontal">
-                                            <ul class="menu">
-                                                @foreach (var item in commonInfo.ProductCategoryList)
-                                                {
-                                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6"><a href="@item.DefaultLink" class="disable-link">@item.Name</a></li>
-                                                }
-                                            </ul>
+                                <div class="wpb_single_image wpb_content_element vc_align_left ovic_custom_5c8ef79e03362 vc_custom_1531127631320" style="text-align:center;padding-right:100px;">
+
+                                    <figure class="wpb_wrapper vc_figure">
+                                        <div class="vc_single_image-wrapper">
+                                            <img class="vc_single_image-img lazy attachment-full" src="@commonInfo.Logo" width="84" height="24" alt="@commonInfo.Name" />
+                                        </div>
+                                    </figure>
+                                </div>
+                                <div style="font-size: 14px;color: #888888;line-height: 20px;text-align: left" class="vc_custom_heading ovic_custom_5c8ef79e03363 vc_custom_1531127910430 vc_custom_1531127910448">
+                                    @Html.Raw(commonInfo.Desc)
+                                </div>
+                                <div class="ovic-iconbox default  ovic_custom_5c8ef79e03364 vc_custom_1533092033076 ">
+                                    <div class="iconbox-inner">
+                                        <div class="icon">
+                                            <span class="gokko-icon icon-location"></span>
+                                        </div>
+                                        <div class="content">
+                                            <p class="text">
+                                                @Html.Raw(commonInfo.Address)
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="ovic-iconbox default dark   ovic_custom_5c8ef79e03365 vc_custom_1552873369334 ">
+                                    <div class="iconbox-inner">
+                                        <div class="icon">
+                                            <span class="gokko-icon icon-envelope"></span>
+                                        </div>
+                                        <div class="content">
+                                            <p class="text"><a href="mailto:@commonInfo.Email"> @commonInfo.Email</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="ovic-iconbox default  ovic_custom_5c8ef79e03366 ">
+                                    <div class="iconbox-inner">
+                                        <div class="icon">
+                                            <span class="gokko-icon icon-phone"></span>
+                                        </div>
+                                        <div class="content">
+                                            <p class="text"><a href="tel:commonInfo.HotLine"> @Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.HotLine) </a></p>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
-                }
-                @if (commonInfo.FooterMenuList != null && commonInfo.FooterMenuList.Length > 0)
-                {
 
-                    foreach (var item in commonInfo.FooterMenuList)
+                    @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
                     {
                         <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-2 vc_col-md-2 vc_col-xs-12 ovic_custom_5c8ef79e03367 vc_custom_1534379485905 vc_custom_1534379485941 vc_custom_1534379485953">
                             <div class="vc_column-inner">
                                 <div class="wpb_wrapper">
-                                    <div class="ovic-custommenu" data-text_more="All Categories">
+                                    <div class="wpb_content_element ovic_custom_5c8ef79e03368 " data-text_more="All Categories">
                                         <div class="widget widget_nav_menu">
-                                            <h2 class="widgettitle">@item.Tittle</h2>
-                                            <div class="@(isMobileDrive?"ovic-menu-wapper":"") horizontal">
-                                                <ul id="menu-footer-shop" class="menu">
-                                                    @if (item.ChidMenu != null && item.ChidMenu.Length > 0)
+                                            <h2 class="widgettitle">Sản phẩm</h2>
+                                            <div class="@(isMobileDrive?"ovic-menu-wapper":"")  horizontal">
+                                                <ul class="menu">
+                                                    @foreach (var item in commonInfo.ProductCategoryList)
                                                     {
-                                                        foreach (var chidlItem in item.ChidMenu)
-                                                        {
-                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6"><a href="@chidlItem.Link" class="disable-link">@chidlItem.Tittle</a></li>
-                                                        }
+                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6"><a href="@item.DefaultLink" class="disable-link">@item.Name</a></li>
                                                     }
                                                 </ul>
                                             </div>
@@ -536,89 +507,117 @@
                             </div>
                         </div>
                     }
-                }
+                    @if (commonInfo.FooterMenuList != null && commonInfo.FooterMenuList.Length > 0)
+                    {
 
-            </div>
-            <div class="vc_row-full-width vc_clearfix"></div>
-            <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid ovic_custom_5c8ef79e0336d vc_custom_1536225683628 vc_custom_1536225683675">
-                <div class="wpb_column vc_column_container vc_col-sm-6 ovic_custom_5c8ef79e0336e vc_custom_1530841990163">
-                    <div class="vc_column-inner">
-                        <div class="wpb_wrapper">
-                            <div class="wpb_text_column wpb_content_element ovic_custom_5c8ef79e0336f ">
-                                <div class="wpb_wrapper">
-                                    <div style="color: #fff; font-size: 14px;">
-                                        Copyright © 2019 <a style="color: #fff;" href="/">@commonInfo.Name.</a> <br>
-                                        Trang web thương mại điện tử được phát triển bởi Concat Group - Ccg
+                        foreach (var item in commonInfo.FooterMenuList)
+                        {
+                            <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-2 vc_col-md-2 vc_col-xs-12 ovic_custom_5c8ef79e03367 vc_custom_1534379485905 vc_custom_1534379485941 vc_custom_1534379485953">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="ovic-custommenu" data-text_more="All Categories">
+                                            <div class="widget widget_nav_menu">
+                                                <h2 class="widgettitle">@item.Tittle</h2>
+                                                <div class="@(isMobileDrive?"ovic-menu-wapper":"") horizontal">
+                                                    <ul id="menu-footer-shop" class="menu">
+                                                        @if (item.ChidMenu != null && item.ChidMenu.Length > 0)
+                                                        {
+                                                            foreach (var chidlItem in item.ChidMenu)
+                                                            {
+                                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6"><a href="@chidlItem.Link" class="disable-link">@chidlItem.Tittle</a></li>
+                                                            }
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+                                </div>
+                            </div>
+                        }
+                    }
 
+                </div>
+                <div class="vc_row-full-width vc_clearfix"></div>
+                <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid ovic_custom_5c8ef79e0336d vc_custom_1536225683628 vc_custom_1536225683675">
+                    <div class="wpb_column vc_column_container vc_col-sm-6 ovic_custom_5c8ef79e0336e vc_custom_1530841990163">
+                        <div class="vc_column-inner">
+                            <div class="wpb_wrapper">
+                                <div class="wpb_text_column wpb_content_element ovic_custom_5c8ef79e0336f ">
+                                    <div class="wpb_wrapper">
+                                        <div style="color: #fff; font-size: 14px;">
+                                            Copyright © 2019 <a style="color: #fff;" href="/">@commonInfo.Name.</a> <br>
+                                            Trang web thương mại điện tử được phát triển bởi Concat Group - Ccg
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wpb_column vc_column_container vc_col-sm-6 ovic_custom_5c8ef79e03370">
+                        <div class="vc_column-inner">
+                            <div class="wpb_wrapper">
+                                <div class="wpb_single_image wpb_content_element vc_align_right ovic_custom_5c8ef79e03371">
+                                    <figure class="wpb_wrapper vc_figure">
+                                        <div class="vc_single_image-wrapper   vc_box_border_grey">
+                                            @if (ViewData["Ads5"] != null)
+                                            {
+                                                Ads[] adsList = (Ads[])ViewData["Ads5"];
+                                                if (adsList.Length > 0)
+                                                {
+                                                    foreach (var item in adsList)
+                                                    {
+                                                        <a href="@item.ClickUrl">
+                                                            <img class="vc_single_image-img lazy attachment-full" src="@item.ImagesUrl" data-src="@item.ImagesUrl" alt="Footer 08" />
+                                                        </a>
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <img class="vc_single_image-img lazy attachment-full" src="https://cdn.anpero.com/images/38/112019/12019112900230279.png" data-src="https://cdn.anpero.com/images/38/112019/12019112900230279.png" width="266" height="24" alt="Footer 08" />
+                                            }
+
+
+                                        </div>
+                                    </figure>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column vc_column_container vc_col-sm-6 ovic_custom_5c8ef79e03370">
-                    <div class="vc_column-inner">
-                        <div class="wpb_wrapper">
-                            <div class="wpb_single_image wpb_content_element vc_align_right ovic_custom_5c8ef79e03371">
-                                <figure class="wpb_wrapper vc_figure">
-                                    <div class="vc_single_image-wrapper   vc_box_border_grey">
-                                        @if (ViewData["Ads5"] != null)
-                                        {
-                                            Ads[] adsList = (Ads[])ViewData["Ads5"];
-                                            if (adsList.Length > 0)
-                                            {
-                                                foreach (var item in adsList)
-                                                {
-                                                    <a href="@item.ClickUrl">
-                                                        <img class="vc_single_image-img lazy attachment-full" src="@item.ImagesUrl" data-src="@item.ImagesUrl" alt="Footer 08" />
-                                                    </a>
-                                                }
-                                            }
-                                        }
-                                        else
-                                        {
-                                            <img class="vc_single_image-img lazy attachment-full" src="https://cdn.anpero.com/images/38/112019/12019112900230279.png" data-src="https://cdn.anpero.com/images/38/112019/12019112900230279.png" width="266" height="24" alt="Footer 08" />
-                                        }
-
-
-                                    </div>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="vc_row-full-width vc_clearfix"></div>
             </div>
-            <div class="vc_row-full-width vc_clearfix"></div>
-        </div>
-    </footer>
-    <link rel='stylesheet' href='/theme/wp-content/plugins/woocommerce/assets/css/photoswipe/photoswipe.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='/theme/wp-content/plugins/woocommerce/assets/css/photoswipe/default-skin/default-skin.css' type='text/css' media='all' />
-    @Scripts.Render("~/bundles/global.js")
-    <script type='text/javascript' src='/theme/wp-content/plugins/ovic-toolkit/includes/frontend/assets/js/libs/countdown.min.js'></script>
-    <script type='text/javascript' src='/theme/wp-content/themes/gokko/assets/js/functions.js'></script>
-    <script type='text/javascript'>
-        var ovic_megamenu_frontend = { "title": "MAIN MENU" };
-    </script>
-    <script type='text/javascript' src='/theme/wp-content/plugins/ovic-toolkit/includes/extends/megamenu/assets/js/megamenu-frontend.js'></script>
-    <script type='text/javascript' src='/theme/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'></script>
-    <script src="/Scripts/Anpero.Common.js"></script>
-    <script src="/Scripts/ShoppingCart.js?v=2"></script>
-    @RenderSection("scripts", required: false)
-    @Html.Raw(commonInfo.PageScript)
+        </footer>
+        <link rel='stylesheet' href='/theme/wp-content/plugins/woocommerce/assets/css/photoswipe/photoswipe.css' type='text/css' media='all' />
+        <link rel='stylesheet' href='/theme/wp-content/plugins/woocommerce/assets/css/photoswipe/default-skin/default-skin.css' type='text/css' media='all' />
+        @Scripts.Render("~/bundles/global.js")
+        <script type='text/javascript' src='/theme/wp-content/plugins/ovic-toolkit/includes/frontend/assets/js/libs/countdown.min.js'></script>
+        <script type='text/javascript' src='/theme/wp-content/themes/gokko/assets/js/functions.js'></script>
+        <script type='text/javascript'>
+            var ovic_megamenu_frontend = { "title": "MAIN MENU" };
+        </script>
+        <script type='text/javascript' src='/theme/wp-content/plugins/ovic-toolkit/includes/extends/megamenu/assets/js/megamenu-frontend.js'></script>
+        <script type='text/javascript' src='/theme/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'></script>
+        <script src="/Scripts/Anpero.Common.js"></script>
+        <script src="/Scripts/ShoppingCart.js?v=2"></script>
+        @RenderSection("scripts", required: false)
+        @Html.Raw(commonInfo.PageScript)
 
-    @commonInfo.Footer
-    <style>
-        #menu-d-electronics li, #ovic-menu-clone-menu-d-electronics .menu-item {
-            padding-left: 10px;
-        }
-    </style>
-    @Html.Raw(commonInfo.AnperoPlugin)
-    <script type="text/javascript">
-        $(document).ready(function () {
-            Cart.bindCart();
-        });
-    </script>
-    <script type="application/ld+json">
+        @commonInfo.Footer
+        <style>
+            #menu-d-electronics li, #ovic-menu-clone-menu-d-electronics .menu-item {
+                padding-left: 10px;
+            }
+        </style>
+        @Html.Raw(commonInfo.AnperoPlugin)
+        <script type="text/javascript">
+            $(document).ready(function () {
+                Cart.bindCart();
+            });
+        </script>
+        <script type="application/ld+json">
         {
         "@@context": "https://schema.org",
         "@@type": "WebSite",
@@ -629,8 +628,8 @@
         "query-input": "required name=keyword"
         }
         }
-    </script>
-    <script type="application/ld+json">
+        </script>
+        <script type="application/ld+json">
         {
         "@@context": "https://schema.org",
         "@@type": "Organization",
@@ -638,8 +637,8 @@
         "logo": "@commonInfo.Logo"
         }
 
-    </script>
-    <script type="application/ld+json">
+        </script>
+        <script type="application/ld+json">
         {
         "@@context": "http://schema.org",
         "@@type": "LocalBusiness",
@@ -653,6 +652,6 @@
         "name": "@commonInfo.Name",
         "telephone": "@commonInfo.HotLine"
         }
-    </script>
+        </script>
 </body>
 </html>

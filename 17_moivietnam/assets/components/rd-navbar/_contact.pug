@@ -1,0 +1,25 @@
+.navbar-contact
+	ul.list.list-sm
+		li.list-item: h4.text-uppercase.text-primary Free Consultation
+		li.list-item: a.link.link-inherit-primary.big2( href='tel:#' ) 800.567.1234
+		li.list-item: a.link.link-inherit-primary( href='mailto:#' ) info@demolink.org
+		li.list-item: span 355 S Grand Ave, #[br]Los Angeles, CA 90071
+
+	ul.list.list-divided
+		li.list-item
+			+blurb-link({
+				iconClass: 'linearicons-user-plus',
+				title:     'Book an appointment'
+			})
+		li.list-item
+			+blurb-link({
+				iconClass: 'linearicons-library2',
+				title:     'Practice Areas',
+				link:      'practice.html'
+			})
+		li.list-item
+			+blurb-link({
+				iconClass: 'linearicons-balance',
+				title:     'Recent Cases',
+				link:      'our-cases.html'
+			})

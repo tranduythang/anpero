@@ -1,0 +1,159 @@
+﻿@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+    string thisUrl = Request.Url.AbsoluteUri;
+}
+<footer>
+    <div class="box-top-footer">
+        <div class="container">
+            <div class="main-footer">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 col-xs-12 left-footer">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12 left-top">
+                                <h4 class="title">
+                                    CHÚNG TÔI Ở ĐÂY
+                                </h4>
+                                <div class="info clearfix">
+                                    <p>@commonInfo.Address <a target="_blank" href="/home/contact">Xem bản đồ</a></p>
+                                    <p>Tư Vấn Bán Hàng (8h - 20h hằng ngày) <a href="tel:@commonInfo.HotLine">@Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.HotLine)</a></p>
+                                    <p class="col50">Tư Vấn Đổi Trả (8h - 20h hằng ngày)<span>@Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.OtherPhone)</span></p>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6 col-xs-12 left-social">
+                                <h4 class="title">LIÊN KẾT </h4>
+                                <ul class="box-social clearfix">
+                                    <li class="pull-left">
+                                        <a href="http://www.facebook.com/share.php?u=@commonInfo.FaceBookLink&title=@commonInfo.Desc" target="_blank" title="">
+                                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="pull-left">
+                                        <a href="//www.twitter.com/share?url=@thisUrl" target="_blank" title="">
+                                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="pull-left">
+                                        <a href="//plus.google.com/share?url=@thisUrl" target="_blank" title="">
+                                            <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="pull-left">
+                                        <a href="//pinterest.com/pinthis?url=@thisUrl" target="_blank"><i class="fa fa-pinterest-p"></i></a>
+                                    </li>
+
+                                    <li class="pull-left">
+                                        @if (!string.IsNullOrEmpty(commonInfo.Skype))
+                                        {
+                                            <a href="skype:@commonInfo.Skype?call"><i class="fa fa-skype"></i></a>
+                                        }
+                                        else
+                                        {
+                                            <a href="#" target="_blank" title="">
+                                                <i class="fa fa-skype" aria-hidden="true"></i>
+                                            </a>
+                                        }
+
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-6 col-xs-12 left-pay">
+                                <h4 class="title">THANH TOÁN </h4>
+                                <div class="content-pay">
+                                    <img src="/Content/theme/images/img-119.png" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12 left-footer">
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-12 right-links">
+                                <h4 class="title">Thông tin</h4>
+                                <ul class="list-links">
+                                    <li>
+                                        <a href="/about">Giới thiệu</a>
+                                    </li>
+                                    <li>
+                                        <a href="/shippolicy">Chính sách vận chuyển</a>
+                                    </li>
+                                    <li>
+                                        <a href="/ProductReturnPolicy">Chính sách đổi trả</a>
+                                    </li>
+                                    <li>
+                                        <a href="/WarrantyPolicy">Chính sách bảo hành</a>
+                                    </li>
+                                    <li>
+                                        <a href="/PaymentInfo">Hướng dẫn thanh toán</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-4 col-xs-12 right-links">
+                                <h4 class="title">Tin tức</h4>
+                                <ul class="list-links">
+                                    <li>
+                                        <a href="/Blog">Blogs</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/home/contact">Liên hệ</a>
+                                    </li>
+                                    @if (!string.IsNullOrEmpty(commonInfo.FaceBookLink))
+                                    {
+                                        <li>
+                                            <a href="@commonInfo.FaceBookLink" target="_blank">Fanpage</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                            <div class="col-sm-4 col-xs-12 right-links">
+                                <div class="fb-page" data-href="@commonInfo.FaceBookLink"
+                                     data-width=""
+                                     data-height="300"
+                                     data-small-header="false"
+                                     show_facepile="true"
+                                     data-adapt-container-width="true"
+                                     data-hide-cover="false"
+                                     data-show-facepile="true">
+                                    <blockquote cite="@commonInfo.FaceBookLink" class="fb-xfbml-parse-ignore">
+                                        <a href="@commonInfo.FaceBookLink">@commonInfo.Name</a>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-footer">
+        <div class="container">
+            <div class="main-bottom-footer clearfix">
+                <div class="logo pull-left">
+                    <a href="#" title="">
+                        <img class="insImageload" data-load="true" src="@commonInfo.Logo" alt="@commonInfo.Name">
+                    </a>
+                </div>
+                <div class="copy pull-left">
+                    <p>@commonInfo.Name - @commonInfo.Desc</p>
+                    <p>Địa chỉ: @commonInfo.Address</p>
+                    <p>HotLine: @Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.HotLine)</p>
+                </div>
+                <div class="clearfix"></div>
+                <p class="copyright text-center">
+                    Copyrights © @DateTime.Today.Year @commonInfo.Name. <a target="_blank" href="https://anpero.com">Powered by Anpero</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.3&appId=369348303254756&autoLogAppEvents=1"></script>
+<!--footer-->

@@ -1,0 +1,31 @@
+include ../counter/_counter
+
+// Our goals
+section#consultation-form.section-md.bg-100
+	.container
+		.row.row-30.justify-content-xl-between
+			.col-md-6.col-xl-5.text-center.text-md-left( data-animate!={ class: 'fadeInLeftBig' } )
+				.image-block
+					+img( 'home-07-357x494' )
+					.image-block-embed
+						+counter({
+							value:     '25',
+							title:     'off'
+						})
+			.col-md-6.col-xl-7.col-xxl-6
+				h2.heading-decoration( data-animate!={ class: 'fadeInRightBig' } ) 100% Authentic <br> Products
+				p.big( data-animate!={ class: 'fadeInRightBig', delay: '.1' } ) At Pure, we offer a wide range of authentic Korean beauty products that are backed by lots of great reviews. Our store also provides regular discounts and free global shipping for all our clients.
+				.row.row-5.row-content( data-animate!={ class: 'fadeInRightBig', delay: '.2' } )
+					.col-sm-6
+						+blurb-icon-left({
+							iconClass: 'thin-icon-ambulance',
+							title:     'Free Shipping Worldwide'
+						})
+					.col-sm-6
+						+blurb-icon-left({
+							iconClass: 'thin-icon-documents',
+							title:     'Money Back Guarantee'
+						})
+				.group-26
+					a.btn( href='shop.html' ) Shop Now
+					a.btn.btn-outline( href='contact-us.html' ) Contact Us

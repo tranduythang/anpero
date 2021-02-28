@@ -1,0 +1,35 @@
+include ../product/_product
+
+// Products grid
+section.section-md.bg-transparent
+	.container
+		h3 Related products
+		.row.row-40.row-xl-55
+			.col-6.col-lg-3
+				+product-simple({
+					img:   'product/product-05-195x115.png',
+					title: 'Resurfacing Mask',
+					price: '27.00'
+				})
+
+			.col-6.col-lg-3
+				+product-simple({
+					img:   'product/product-06-67x206.png',
+					title: 'Refining Serum',
+					price: '29.00'
+				})
+
+			.col-6.col-lg-3
+				+product-simple({
+					img:   'product/product-07-189x109.png',
+					title: 'Foaming Cleanser',
+					price: '38.00'
+				})
+
+			.col-6.col-lg-3
+				+product-simple({
+					img:   'product/product-08-68x194.png',
+					title: 'Botanical Pore Toner',
+					price: '30.00'
+				})
+

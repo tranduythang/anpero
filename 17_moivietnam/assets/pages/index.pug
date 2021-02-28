@@ -1,0 +1,32 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+
+block variables
+	- pageName = 'Home';
+
+block page
+	+rd-navbar(
+		data-rd-navbar = {
+			responsive: {
+				1200: { autoHeight: false }
+			}
+		}
+	).rd-navbar-absolute
+	
+	include ../components/section/_intro
+	
+	include ../components/section/_categories-1
+	
+	include ../components/section/_call-to-action
+	
+	include ../components/section/_categories-2
+	
+	include ../components/section/_quote-large
+	
+	include ../components/section/_our-blog
+	
+	include ../components/section/_our-goals
+	
+	include ../components/section/_awards-2
+
+	include ../components/footer/_footer-subscribe

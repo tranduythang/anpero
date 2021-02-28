@@ -1,0 +1,134 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
+@import "../bootstrap/scss/button-group";
+
+
+// Base
+.btn {
+	position: relative;
+	z-index: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: $btn-border-width solid transparent;
+	font-family: $btn-font-family;
+	font-weight: $btn-font-weight;
+	text-transform: capitalize;
+	box-shadow: $btn-box-shadow;
+	background: $primary;
+	color: $white;
+	transition: $transition-base;
+	letter-spacing: .02em;
+
+	@include button-size(
+		$btn-padding-y,
+		$btn-padding-x,
+		$btn-font-size,
+		$btn-line-height,
+		$btn-border-radius
+	);
+
+	&:hover,
+	&.hover,
+	&:active,
+	&.active {
+		text-decoration: none;
+		color: $white;
+		background-color: $primary-dark;
+	}
+
+	&:focus,
+	&.focus {
+		outline: 0;
+	}
+
+	&.disabled,
+	&:disabled {
+		opacity: $btn-disabled-opacity;
+		pointer-events: none;
+	}
+}
+
+
+// Spacing
+* + .btn {
+	margin-top: px-to-rem( 22px );
+}
+
+table + .btn {
+	margin-top: px-to-rem( 15px );
+}
+
+.rd-range-value + .btn,
+.rd-range + .btn {
+	margin-top: px-to-rem( 13px );
+}
+
+
+// Theming
+.btn-outline {
+	color: $gray-900;
+	background: transparent;
+	border-color: $gray-900;
+
+	&::before {
+		background-color: $gray-900;
+	}
+
+	&:hover {
+		color: $white;
+	}
+}
+
+.btn-primary-light {
+	background-color: $primary-light;
+}
+
+.btn-block {
+	display: flex;
+	width: 100%;
+}
+
+
+// Sizing
+.btn-sm {
+	padding: px-to-rem( 11px, 24px );
+}
+
+
+// Context dark
+.context-dark {
+	.btn-outline {
+		color: $white;
+		border-color: rgba( $white, .3 );
+
+		&::before {
+			background-color: $primary;
+		}
+	}
+}
+
+
+// Media
+@include media-breakpoint-up(md) {
+	.row + .btn {
+		margin-top: px-to-rem( 50px );
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	table + .btn {
+		margin-top: px-to-rem( 20px );
+	}
+
+	h2 + .btn {
+		margin-top: px-to-rem( 42px );
+	}
+
+	h1 + .btn {
+		margin-top: px-to-rem( 37px );
+	}
+}

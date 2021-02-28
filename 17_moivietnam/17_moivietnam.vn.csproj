@@ -1,0 +1,1992 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{93D78566-CD67-4EC5-B1C4-EA8FE69BFC6D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AnperoFrontend</RootNamespace>
+    <AssemblyName>AnperoFrontend</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44312</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\APIController.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BrandsController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\SeoController.cs" />
+    <Compile Include="Controllers\StaticController.cs" />
+    <Compile Include="Controllers\WarrantyController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="handler\LocationHandler.ashx.cs">
+      <DependentUpon>LocationHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="handler\PaymentHandler.ashx.cs">
+      <DependentUpon>PaymentHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="handler\ProductHandler.ashx.cs">
+      <DependentUpon>ProductHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SearchModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="Web References\WebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="aboutHtml.html" />
+    <Content Include="404.html" />
+    <Content Include="assets\404.html" />
+    <Content Include="assets\about.html" />
+    <Content Include="assets\blog-post.html" />
+    <Content Include="assets\blog.html" />
+    <Content Include="assets\cart.html" />
+    <Content Include="assets\categories.html" />
+    <Content Include="assets\checkout.html" />
+    <Content Include="assets\coming-soon.html" />
+    <Content Include="assets\components\address\address.css" />
+    <Content Include="assets\components\animate\animate.css" />
+    <Content Include="assets\components\base\base.css" />
+    <Content Include="assets\components\base\core.min.js" />
+    <Content Include="assets\components\base\script.js" />
+    <Content Include="assets\components\base\script.min.js" />
+    <Content Include="assets\components\base\support.js" />
+    <Content Include="assets\components\blog-post\blog-post.css" />
+    <Content Include="assets\components\blurb\blurb.css" />
+    <Content Include="assets\components\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\components\bootstrap\js\popper.js" />
+    <Content Include="assets\components\button\button.css" />
+    <Content Include="assets\components\countdown\countdown.css" />
+    <Content Include="assets\components\countdown\countdown.min.js" />
+    <Content Include="assets\components\counter\counter.css" />
+    <Content Include="assets\components\counter\counter.min.js" />
+    <Content Include="assets\components\current-device\current-device.min.js" />
+    <Content Include="assets\components\divider\divider.css" />
+    <Content Include="assets\components\font-awesome\font-awesome.css" />
+    <Content Include="assets\components\font-awesome\fontawesome-webfont.svg" />
+    <Content Include="assets\components\footer\footer.css" />
+    <Content Include="assets\components\google-map\google-map.css" />
+    <Content Include="assets\components\google-map\google-map.js" />
+    <Content Include="assets\components\grid\grid.css" />
+    <Content Include="assets\components\icon\icon.css" />
+    <Content Include="assets\components\image-block\image-block.css" />
+    <Content Include="assets\components\image\image.css" />
+    <Content Include="assets\components\input\input.css" />
+    <Content Include="assets\components\intro\intro.css" />
+    <Content Include="assets\components\jquery\jquery-3.4.1.min.js" />
+    <Content Include="assets\components\jquery\jquery-ui.min.js" />
+    <Content Include="assets\components\lightgallery\fonts\lg.svg" />
+    <Content Include="assets\components\lightgallery\images\loading.gif" />
+    <Content Include="assets\components\lightgallery\images\video-play.png" />
+    <Content Include="assets\components\lightgallery\images\vimeo-play.png" />
+    <Content Include="assets\components\lightgallery\images\youtube-play.png" />
+    <Content Include="assets\components\lightgallery\lightgallery.css" />
+    <Content Include="assets\components\lightgallery\lightgallery.min.js" />
+    <Content Include="assets\components\linearicons\linearicons.css" />
+    <Content Include="assets\components\linearicons\linearicons.svg" />
+    <Content Include="assets\components\line\line.css" />
+    <Content Include="assets\components\link\link.css" />
+    <Content Include="assets\components\list\list.css" />
+    <Content Include="assets\components\logo\logo.css" />
+    <Content Include="assets\components\mdi\mdi.css" />
+    <Content Include="assets\components\mdi\mdi.svg" />
+    <Content Include="assets\components\multiswitch\multiswitch.css" />
+    <Content Include="assets\components\multiswitch\multiswitch.js" />
+    <Content Include="assets\components\nav\nav.css" />
+    <Content Include="assets\components\owl-carousel\owl.carousel.css" />
+    <Content Include="assets\components\owl-carousel\owl.carousel.min.js" />
+    <Content Include="assets\components\page-title\page-title.css" />
+    <Content Include="assets\components\pagination\pagination.css" />
+    <Content Include="assets\components\person\person.css" />
+    <Content Include="assets\components\post\post.css" />
+    <Content Include="assets\components\preloader\preloader.css" />
+    <Content Include="assets\components\product-overview\product-overview.css" />
+    <Content Include="assets\components\product\product.css" />
+    <Content Include="assets\components\progress-circle\progress-circle.css" />
+    <Content Include="assets\components\progress-circle\progress-circle.min.js" />
+    <Content Include="assets\components\progress-linear\progress-linear.css" />
+    <Content Include="assets\components\quote\quote.css" />
+    <Content Include="assets\components\rating\rating.css" />
+    <Content Include="assets\components\rd-form\rd-form.css" />
+    <Content Include="assets\components\rd-mailform\phpmailer\class.phpmailer.php" />
+    <Content Include="assets\components\rd-mailform\phpmailer\class.pop3.php" />
+    <Content Include="assets\components\rd-mailform\phpmailer\class.smtp.php" />
+    <Content Include="assets\components\rd-mailform\phpmailer\PHPMailerAutoload.php" />
+    <Content Include="assets\components\rd-mailform\rd-mailform.css" />
+    <Content Include="assets\components\rd-mailform\rd-mailform.min.js" />
+    <Content Include="assets\components\rd-mailform\reCaptcha.php" />
+    <Content Include="assets\components\rd-mailform\ReCaptcha\autoload.php" />
+    <Content Include="assets\components\rd-mailform\ReCaptcha\ReCaptcha.php" />
+    <Content Include="assets\components\rd-mailform\ReCaptcha\RequestMethod.php" />
+    <Content Include="assets\components\rd-mailform\ReCaptcha\RequestMethod\Curl.php" />
+    <Content Include="assets\components\rd-mailform\ReCaptcha\RequestMethod\CurlPost.php" />
+    <Content Include="assets\components\rd-mailform\ReCaptcha\RequestMethod\Post.php" />
+    <Content Include="assets\components\rd-mailform\ReCaptcha\RequestMethod\Socket.php" />
+    <Content Include="assets\components\rd-mailform\ReCaptcha\RequestMethod\SocketPost.php" />
+    <Content Include="assets\components\rd-mailform\ReCaptcha\RequestParameters.php" />
+    <Content Include="assets\components\rd-mailform\ReCaptcha\Response.php" />
+    <Content Include="assets\components\rd-navbar\rd-navbar.css" />
+    <Content Include="assets\components\rd-navbar\rd-navbar.min.js" />
+    <Content Include="assets\components\rd-range\rd-range.css" />
+    <Content Include="assets\components\rd-range\rd-range.min.js" />
+    <Content Include="assets\components\rd-search\rd-search.css" />
+    <Content Include="assets\components\rd-search\rd-search.js" />
+    <Content Include="assets\components\rd-search\rd-search.php" />
+    <Content Include="assets\components\regula\regula.css" />
+    <Content Include="assets\components\regula\regula.min.js" />
+    <Content Include="assets\components\rights\rights.css" />
+    <Content Include="assets\components\section\section.css" />
+    <Content Include="assets\components\select2\select2.css" />
+    <Content Include="assets\components\select2\select2.min.js" />
+    <Content Include="assets\components\service-section\service-section.css" />
+    <Content Include="assets\components\snackbar\snackbar.css" />
+    <Content Include="assets\components\spinner\spinner.css" />
+    <Content Include="assets\components\table\table.css" />
+    <Content Include="assets\components\tab\tab.css" />
+    <Content Include="assets\components\tag\tag.css" />
+    <Content Include="assets\components\template-info\template-info.css" />
+    <Content Include="assets\components\term-list\term-list.css" />
+    <Content Include="assets\components\text-decorated\text-decorated.css" />
+    <Content Include="assets\components\text-divider\text-divider.css" />
+    <Content Include="assets\components\thinicons\Thin-Regular.svg" />
+    <Content Include="assets\components\thinicons\thin.css" />
+    <Content Include="assets\components\thumbnail\thumbnail.css" />
+    <Content Include="assets\components\to-top\to-top.css" />
+    <Content Include="assets\components\tooltip\tooltip.css" />
+    <Content Include="assets\components\util\util.min.js" />
+    <Content Include="assets\components\video\video.css" />
+    <Content Include="assets\components\widget\widget.css" />
+    <Content Include="assets\contact-us.html" />
+    <Content Include="assets\counters-&amp;-progress-bars.html" />
+    <Content Include="assets\icon-boxes.html" />
+    <Content Include="assets\images\about-01-1170x386.jpg" />
+    <Content Include="assets\images\about-02-458x538.jpg" />
+    <Content Include="assets\images\about-03-458x538.jpg" />
+    <Content Include="assets\images\about-04-458x538.jpg" />
+    <Content Include="assets\images\about-05-458x538.jpg" />
+    <Content Include="assets\images\background\bg-1-1920x496.jpg" />
+    <Content Include="assets\images\background\bg-2-1920x496.jpg" />
+    <Content Include="assets\images\background\bg-3-1920x496.jpg" />
+    <Content Include="assets\images\background\bg-4-1920x496.jpg" />
+    <Content Include="assets\images\background\bg-5-1920x496.jpg" />
+    <Content Include="assets\images\background\bg-6-1920x930.jpg" />
+    <Content Include="assets\images\blog-01-769x431.jpg" />
+    <Content Include="assets\images\blog-02-769x431.jpg" />
+    <Content Include="assets\images\blog-03-769x431.jpg" />
+    <Content Include="assets\images\blog-04-769x431.jpg" />
+    <Content Include="assets\images\blog-05-769x431.jpg" />
+    <Content Include="assets\images\blog-06-769x431.jpg" />
+    <Content Include="assets\images\blog-post-01-769x431.jpg" />
+    <Content Include="assets\images\blog-post-02-769x431.jpg" />
+    <Content Include="assets\images\blog-post-03-349x358.jpg" />
+    <Content Include="assets\images\blog-post-04-368x228.jpg" />
+    <Content Include="assets\images\blog-post-05-368x228.jpg" />
+    <Content Include="assets\images\favicon.ico" />
+    <Content Include="assets\images\heading-decoration.png" />
+    <Content Include="assets\images\home-01-1920x1003.jpg" />
+    <Content Include="assets\images\home-02-1920x625.jpg" />
+    <Content Include="assets\images\home-03-422x228.jpg" />
+    <Content Include="assets\images\home-04-422x228.jpg" />
+    <Content Include="assets\images\home-05-422x228.jpg" />
+    <Content Include="assets\images\home-06-422x228.jpg" />
+    <Content Include="assets\images\home-07-357x494.jpg" />
+    <Content Include="assets\images\intro-logo-863x487.svg" />
+    <Content Include="assets\images\logo-default-87x50.svg" />
+    <Content Include="assets\images\logo-inverse-87x50.svg" />
+    <Content Include="assets\images\logo\logo-01-128x48.png" />
+    <Content Include="assets\images\logo\logo-02-131x40.png" />
+    <Content Include="assets\images\logo\logo-03-140x49.png" />
+    <Content Include="assets\images\logo\logo-04-112x53.png" />
+    <Content Include="assets\images\logo\logo-05-118x40.png" />
+    <Content Include="assets\images\person\person-01-53x53.png" />
+    <Content Include="assets\images\person\person-02-53x53.png" />
+    <Content Include="assets\images\person\person-03-53x53.png" />
+    <Content Include="assets\images\popular-category-01-370x302.jpg" />
+    <Content Include="assets\images\popular-category-02-370x302.jpg" />
+    <Content Include="assets\images\popular-category-03-370x302.jpg" />
+    <Content Include="assets\images\popular-category-04-370x302.jpg" />
+    <Content Include="assets\images\popular-category-05-370x302.jpg" />
+    <Content Include="assets\images\popular-category-06-370x302.jpg" />
+    <Content Include="assets\images\product\cart-01-135x170.jpg" />
+    <Content Include="assets\images\product\cart-02-135x170.jpg" />
+    <Content Include="assets\images\product\product-01-141x195.png" />
+    <Content Include="assets\images\product\product-02-181x159.png" />
+    <Content Include="assets\images\product\product-03-127x218.png" />
+    <Content Include="assets\images\product\product-04-108x215.png" />
+    <Content Include="assets\images\product\product-05-195x115.png" />
+    <Content Include="assets\images\product\product-06-67x206.png" />
+    <Content Include="assets\images\product\product-07-189x109.png" />
+    <Content Include="assets\images\product\product-08-68x194.png" />
+    <Content Include="assets\images\product\single-product-01-265x233.png" />
+    <Content Include="assets\images\product\single-product-01-470x623.jpg" />
+    <Content Include="assets\images\product\thumbnail-product-01-72x91.png" />
+    <Content Include="assets\images\product\thumbnail-product-02-72x91.png" />
+    <Content Include="assets\images\recent-post-01-72x72.jpg" />
+    <Content Include="assets\images\recent-post-02-72x72.jpg" />
+    <Content Include="assets\index.html" />
+    <Content Include="assets\privacy-policy.html" />
+    <Content Include="assets\search-results.html" />
+    <Content Include="assets\shop.html" />
+    <Content Include="assets\single-product.html" />
+    <Content Include="assets\typography.html" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="handler\ProductHandler.ashx" />
+    <Content Include="handler\PaymentHandler.ashx" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="handler\LocationHandler.ashx" />
+    <Content Include="assets\components\address\address.css.map" />
+    <Content Include="assets\components\address\address.scss" />
+    <Content Include="assets\components\animate\animate.css.map" />
+    <Content Include="assets\components\animate\animate.scss" />
+    <Content Include="assets\components\animate\_attention-seekers\_attention-seekers.scss" />
+    <Content Include="assets\components\animate\_attention-seekers\_bounce.scss" />
+    <Content Include="assets\components\animate\_attention-seekers\_flash.scss" />
+    <Content Include="assets\components\animate\_attention-seekers\_jello.scss" />
+    <Content Include="assets\components\animate\_attention-seekers\_pulse.scss" />
+    <Content Include="assets\components\animate\_attention-seekers\_rubberBand.scss" />
+    <Content Include="assets\components\animate\_attention-seekers\_shake.scss" />
+    <Content Include="assets\components\animate\_attention-seekers\_swing.scss" />
+    <Content Include="assets\components\animate\_attention-seekers\_tada.scss" />
+    <Content Include="assets\components\animate\_attention-seekers\_wobble.scss" />
+    <Content Include="assets\components\animate\_base.scss" />
+    <Content Include="assets\components\animate\_bouncing-entrances\_bounceIn.scss" />
+    <Content Include="assets\components\animate\_bouncing-entrances\_bounceInDown.scss" />
+    <Content Include="assets\components\animate\_bouncing-entrances\_bounceInLeft.scss" />
+    <Content Include="assets\components\animate\_bouncing-entrances\_bounceInRight.scss" />
+    <Content Include="assets\components\animate\_bouncing-entrances\_bounceInUp.scss" />
+    <Content Include="assets\components\animate\_bouncing-entrances\_bouncing-entrances.scss" />
+    <Content Include="assets\components\animate\_bouncing-exits\_bounceOut.scss" />
+    <Content Include="assets\components\animate\_bouncing-exits\_bounceOutDown.scss" />
+    <Content Include="assets\components\animate\_bouncing-exits\_bounceOutLeft.scss" />
+    <Content Include="assets\components\animate\_bouncing-exits\_bounceOutRight.scss" />
+    <Content Include="assets\components\animate\_bouncing-exits\_bounceOutUp.scss" />
+    <Content Include="assets\components\animate\_bouncing-exits\_bouncing-exits.scss" />
+    <Content Include="assets\components\animate\_fading-entrances\_fadeIn.scss" />
+    <Content Include="assets\components\animate\_fading-entrances\_fadeInDown.scss" />
+    <Content Include="assets\components\animate\_fading-entrances\_fadeInDownBig.scss" />
+    <Content Include="assets\components\animate\_fading-entrances\_fadeInLeft.scss" />
+    <Content Include="assets\components\animate\_fading-entrances\_fadeInLeftBig.scss" />
+    <Content Include="assets\components\animate\_fading-entrances\_fadeInRight.scss" />
+    <Content Include="assets\components\animate\_fading-entrances\_fadeInRightBig.scss" />
+    <Content Include="assets\components\animate\_fading-entrances\_fadeInUp.scss" />
+    <Content Include="assets\components\animate\_fading-entrances\_fadeInUpBig.scss" />
+    <Content Include="assets\components\animate\_fading-entrances\_fading-entrances.scss" />
+    <Content Include="assets\components\animate\_fading-exits\_fadeOut.scss" />
+    <Content Include="assets\components\animate\_fading-exits\_fadeOutDown.scss" />
+    <Content Include="assets\components\animate\_fading-exits\_fadeOutDownBig.scss" />
+    <Content Include="assets\components\animate\_fading-exits\_fadeOutLeft.scss" />
+    <Content Include="assets\components\animate\_fading-exits\_fadeOutLeftBig.scss" />
+    <Content Include="assets\components\animate\_fading-exits\_fadeOutRight.scss" />
+    <Content Include="assets\components\animate\_fading-exits\_fadeOutRightBig.scss" />
+    <Content Include="assets\components\animate\_fading-exits\_fadeOutUp.scss" />
+    <Content Include="assets\components\animate\_fading-exits\_fadeOutUpBig.scss" />
+    <Content Include="assets\components\animate\_fading-exits\_fading-exits.scss" />
+    <Content Include="assets\components\animate\_flippers\_flip.scss" />
+    <Content Include="assets\components\animate\_flippers\_flipInX.scss" />
+    <Content Include="assets\components\animate\_flippers\_flipInY.scss" />
+    <Content Include="assets\components\animate\_flippers\_flipOutX.scss" />
+    <Content Include="assets\components\animate\_flippers\_flipOutY.scss" />
+    <Content Include="assets\components\animate\_flippers\_flippers.scss" />
+    <Content Include="assets\components\animate\_lightspeed\_lightspeed.scss" />
+    <Content Include="assets\components\animate\_lightspeed\_lightSpeedIn.scss" />
+    <Content Include="assets\components\animate\_lightspeed\_lightSpeedOut.scss" />
+    <Content Include="assets\components\animate\_properties.scss" />
+    <Content Include="assets\components\animate\_rotating-entrances\_rotateIn.scss" />
+    <Content Include="assets\components\animate\_rotating-entrances\_rotateInDownLeft.scss" />
+    <Content Include="assets\components\animate\_rotating-entrances\_rotateInDownRight.scss" />
+    <Content Include="assets\components\animate\_rotating-entrances\_rotateInUpLeft.scss" />
+    <Content Include="assets\components\animate\_rotating-entrances\_rotateInUpRight.scss" />
+    <Content Include="assets\components\animate\_rotating-entrances\_rotating-entrances.scss" />
+    <Content Include="assets\components\animate\_rotating-exits\_rotateOut.scss" />
+    <Content Include="assets\components\animate\_rotating-exits\_rotateOutDownLeft.scss" />
+    <Content Include="assets\components\animate\_rotating-exits\_rotateOutDownRight.scss" />
+    <Content Include="assets\components\animate\_rotating-exits\_rotateOutUpLeft.scss" />
+    <Content Include="assets\components\animate\_rotating-exits\_rotateOutUpRight.scss" />
+    <Content Include="assets\components\animate\_rotating-exits\_rotating-exits.scss" />
+    <Content Include="assets\components\animate\_sliding-entrances\_slideInDown.scss" />
+    <Content Include="assets\components\animate\_sliding-entrances\_slideInLeft.scss" />
+    <Content Include="assets\components\animate\_sliding-entrances\_slideInRight.scss" />
+    <Content Include="assets\components\animate\_sliding-entrances\_slideInUp.scss" />
+    <Content Include="assets\components\animate\_sliding-entrances\_sliding-entrances.scss" />
+    <Content Include="assets\components\animate\_sliding-exits\_slideOutDown.scss" />
+    <Content Include="assets\components\animate\_sliding-exits\_slideOutLeft.scss" />
+    <Content Include="assets\components\animate\_sliding-exits\_slideOutRight.scss" />
+    <Content Include="assets\components\animate\_sliding-exits\_slideOutUp.scss" />
+    <Content Include="assets\components\animate\_sliding-exits\_sliding-exits.scss" />
+    <Content Include="assets\components\animate\_specials\_hinge.scss" />
+    <Content Include="assets\components\animate\_specials\_rollIn.scss" />
+    <Content Include="assets\components\animate\_specials\_rollOut.scss" />
+    <Content Include="assets\components\animate\_specials\_specials.scss" />
+    <Content Include="assets\components\animate\_zooming-entrances\_zoomIn.scss" />
+    <Content Include="assets\components\animate\_zooming-entrances\_zoomInDown.scss" />
+    <Content Include="assets\components\animate\_zooming-entrances\_zooming-entrances.scss" />
+    <Content Include="assets\components\animate\_zooming-entrances\_zoomInLeft.scss" />
+    <Content Include="assets\components\animate\_zooming-entrances\_zoomInRight.scss" />
+    <Content Include="assets\components\animate\_zooming-entrances\_zoomInUp.scss" />
+    <Content Include="assets\components\animate\_zooming-exits\_zooming-exits.scss" />
+    <Content Include="assets\components\animate\_zooming-exits\_zoomOut.scss" />
+    <Content Include="assets\components\animate\_zooming-exits\_zoomOutDown.scss" />
+    <Content Include="assets\components\animate\_zooming-exits\_zoomOutLeft.scss" />
+    <Content Include="assets\components\animate\_zooming-exits\_zoomOutRight.scss" />
+    <Content Include="assets\components\animate\_zooming-exits\_zoomOutUp.scss" />
+    <Content Include="assets\components\base\base.css.map" />
+    <Content Include="assets\components\base\base.scss" />
+    <Content Include="assets\components\base\_backgrounds.scss" />
+    <Content Include="assets\components\base\_borders.scss" />
+    <Content Include="assets\components\base\_config.pug" />
+    <Content Include="assets\components\base\_functions.pug" />
+    <Content Include="assets\components\base\_functions.scss" />
+    <Content Include="assets\components\base\_link.scss" />
+    <Content Include="assets\components\base\_mixins.pug" />
+    <Content Include="assets\components\base\_mixins.scss" />
+    <Content Include="assets\components\base\_page.scss" />
+    <Content Include="assets\components\base\_reset.scss" />
+    <Content Include="assets\components\base\_skeleton.pug" />
+    <Content Include="assets\components\base\_spacing.scss" />
+    <Content Include="assets\components\base\_text.scss" />
+    <Content Include="assets\components\base\_type.scss" />
+    <Content Include="assets\components\base\_variables.scss" />
+    <Content Include="assets\components\blog-post\blog-post.css.map" />
+    <Content Include="assets\components\blog-post\blog-post.scss" />
+    <Content Include="assets\components\blurb\blurb.css.map" />
+    <Content Include="assets\components\blurb\blurb.scss" />
+    <Content Include="assets\components\blurb\_blurb.pug" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_alert.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_background-variant.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_badge.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_border-radius.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_box-shadow.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_breakpoints.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_buttons.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_caret.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_clearfix.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_deprecate.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_float.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_forms.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_gradients.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_grid-framework.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_grid.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_hover.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_image.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_list-group.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_lists.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_nav-divider.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_pagination.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_reset-text.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_resize.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_screen-reader.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_size.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_table-row.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_text-emphasis.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_text-hide.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_text-truncate.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_transition.scss" />
+    <Content Include="assets\components\bootstrap\scss\mixins\_visibility.scss" />
+    <Content Include="assets\components\bootstrap\scss\utilities\_align.scss" />
+    <Content Include="assets\components\bootstrap\scss\utilities\_background.scss" />
+    <Content Include="assets\components\bootstrap\scss\utilities\_borders.scss" />
+    <Content Include="assets\components\bootstrap\scss\utilities\_clearfix.scss" />
+    <Content Include="assets\components\bootstrap\scss\utilities\_display.scss" />
+    <Content Include="assets\components\bootstrap\scss\utilities\_embed.scss" />
+    <Content Include="assets\components\bootstrap\scss\utilities\_flex.scss" />
+    <Content Include="assets\components\bootstrap\scss\utilities\_float.scss" />
+    <Content Include="assets\components\bootstrap\scss\utilities\_overflow.scss" />
+    <Content Include="assets\components\bootstrap\scss\utilities\_position.scss" />
+    <Content Include="assets\components\bootstrap\scss\utilities\_screenreaders.scss" />
+    <Content Include="assets\components\bootstrap\scss\utilities\_shadows.scss" />
+    <Content Include="assets\components\bootstrap\scss\utilities\_sizing.scss" />
+    <Content Include="assets\components\bootstrap\scss\utilities\_spacing.scss" />
+    <Content Include="assets\components\bootstrap\scss\utilities\_stretched-link.scss" />
+    <Content Include="assets\components\bootstrap\scss\utilities\_text.scss" />
+    <Content Include="assets\components\bootstrap\scss\utilities\_visibility.scss" />
+    <Content Include="assets\components\bootstrap\scss\vendor\_rfs.scss" />
+    <Content Include="assets\components\bootstrap\scss\_alert.scss" />
+    <Content Include="assets\components\bootstrap\scss\_badge.scss" />
+    <Content Include="assets\components\bootstrap\scss\_breadcrumb.scss" />
+    <Content Include="assets\components\bootstrap\scss\_button-group.scss" />
+    <Content Include="assets\components\bootstrap\scss\_buttons.scss" />
+    <Content Include="assets\components\bootstrap\scss\_card.scss" />
+    <Content Include="assets\components\bootstrap\scss\_carousel.scss" />
+    <Content Include="assets\components\bootstrap\scss\_close.scss" />
+    <Content Include="assets\components\bootstrap\scss\_code.scss" />
+    <Content Include="assets\components\bootstrap\scss\_custom-forms.scss" />
+    <Content Include="assets\components\bootstrap\scss\_dropdown.scss" />
+    <Content Include="assets\components\bootstrap\scss\_forms.scss" />
+    <Content Include="assets\components\bootstrap\scss\_functions.scss" />
+    <Content Include="assets\components\bootstrap\scss\_grid.scss" />
+    <Content Include="assets\components\bootstrap\scss\_images.scss" />
+    <Content Include="assets\components\bootstrap\scss\_input-group.scss" />
+    <Content Include="assets\components\bootstrap\scss\_jumbotron.scss" />
+    <Content Include="assets\components\bootstrap\scss\_list-group.scss" />
+    <Content Include="assets\components\bootstrap\scss\_media.scss" />
+    <Content Include="assets\components\bootstrap\scss\_mixins.scss" />
+    <Content Include="assets\components\bootstrap\scss\_modal.scss" />
+    <Content Include="assets\components\bootstrap\scss\_nav.scss" />
+    <Content Include="assets\components\bootstrap\scss\_navbar.scss" />
+    <Content Include="assets\components\bootstrap\scss\_pagination.scss" />
+    <Content Include="assets\components\bootstrap\scss\_popover.scss" />
+    <Content Include="assets\components\bootstrap\scss\_print.scss" />
+    <Content Include="assets\components\bootstrap\scss\_progress.scss" />
+    <Content Include="assets\components\bootstrap\scss\_reboot.scss" />
+    <Content Include="assets\components\bootstrap\scss\_root.scss" />
+    <Content Include="assets\components\bootstrap\scss\_spinners.scss" />
+    <Content Include="assets\components\bootstrap\scss\_tables.scss" />
+    <Content Include="assets\components\bootstrap\scss\_toasts.scss" />
+    <Content Include="assets\components\bootstrap\scss\_tooltip.scss" />
+    <Content Include="assets\components\bootstrap\scss\_transitions.scss" />
+    <Content Include="assets\components\bootstrap\scss\_type.scss" />
+    <Content Include="assets\components\bootstrap\scss\_utilities.scss" />
+    <Content Include="assets\components\bootstrap\scss\_variables.scss" />
+    <Content Include="assets\components\button\button.css.map" />
+    <Content Include="assets\components\button\button.scss" />
+    <Content Include="assets\components\countdown\countdown.css.map" />
+    <Content Include="assets\components\countdown\countdown.scss" />
+    <Content Include="assets\components\countdown\_countdown.pug" />
+    <Content Include="assets\components\counter\counter.css.map" />
+    <Content Include="assets\components\counter\counter.scss" />
+    <Content Include="assets\components\counter\_counter.pug" />
+    <Content Include="assets\components\divider\divider.css.map" />
+    <Content Include="assets\components\divider\divider.scss" />
+    <Content Include="assets\components\font-awesome\font-awesome.css.map" />
+    <Content Include="assets\components\font-awesome\font-awesome.scss" />
+    <Content Include="assets\components\font-awesome\fontawesome-webfont.eot" />
+    <Content Include="assets\components\font-awesome\fontawesome-webfont.ttf" />
+    <Content Include="assets\components\font-awesome\fontawesome-webfont.woff" />
+    <Content Include="assets\components\font-awesome\fontawesome-webfont.woff2" />
+    <Content Include="assets\components\font-awesome\FontAwesome.otf" />
+    <Content Include="assets\components\footer\footer.css.map" />
+    <Content Include="assets\components\footer\footer.scss" />
+    <Content Include="assets\components\footer\_footer-contact.pug" />
+    <Content Include="assets\components\footer\_footer-contact.scss" />
+    <Content Include="assets\components\footer\_footer-extended.pug" />
+    <Content Include="assets\components\footer\_footer-extended.scss" />
+    <Content Include="assets\components\footer\_footer-subscribe.pug" />
+    <Content Include="assets\components\footer\_footer-subscribe.scss" />
+    <Content Include="assets\components\google-map\google-map.css.map" />
+    <Content Include="assets\components\google-map\google-map.scss" />
+    <Content Include="assets\components\google-map\_google-map.pug" />
+    <Content Include="assets\components\grid\grid.css.map" />
+    <Content Include="assets\components\grid\grid.scss" />
+    <Content Include="assets\components\grid\_grid-spacing.scss" />
+    <Content Include="assets\components\icon\icon.css.map" />
+    <Content Include="assets\components\icon\icon.scss" />
+    <Content Include="assets\components\image-block\image-block.css.map" />
+    <Content Include="assets\components\image-block\image-block.scss" />
+    <Content Include="assets\components\image\image.css.map" />
+    <Content Include="assets\components\image\image.scss" />
+    <Content Include="assets\components\input\input.css.map" />
+    <Content Include="assets\components\input\input.scss" />
+    <Content Include="assets\components\input\_input.pug" />
+    <Content Include="assets\components\intro\intro.css.map" />
+    <Content Include="assets\components\intro\intro.scss" />
+    <Content Include="assets\components\lightgallery\fonts\lg.eot" />
+    <Content Include="assets\components\lightgallery\fonts\lg.ttf" />
+    <Content Include="assets\components\lightgallery\fonts\lg.woff" />
+    <Content Include="assets\components\lightgallery\lightgallery.css.map" />
+    <Content Include="assets\components\lightgallery\lightgallery.scss" />
+    <Content Include="assets\components\lightgallery\lightgallery\_lg-autoplay.scss" />
+    <Content Include="assets\components\lightgallery\lightgallery\_lg-core.scss" />
+    <Content Include="assets\components\lightgallery\lightgallery\_lg-fonts.scss" />
+    <Content Include="assets\components\lightgallery\lightgallery\_lg-fullscreen.scss" />
+    <Content Include="assets\components\lightgallery\lightgallery\_lg-mixins.scss" />
+    <Content Include="assets\components\lightgallery\lightgallery\_lg-pager.scss" />
+    <Content Include="assets\components\lightgallery\lightgallery\_lg-share.scss" />
+    <Content Include="assets\components\lightgallery\lightgallery\_lg-theme-default.scss" />
+    <Content Include="assets\components\lightgallery\lightgallery\_lg-thumbnail.scss" />
+    <Content Include="assets\components\lightgallery\lightgallery\_lg-transitions.scss" />
+    <Content Include="assets\components\lightgallery\lightgallery\_lg-variables.scss" />
+    <Content Include="assets\components\lightgallery\lightgallery\_lg-video.scss" />
+    <Content Include="assets\components\lightgallery\lightgallery\_lg-zoom.scss" />
+    <Content Include="assets\components\linearicons\linearicons.css.map" />
+    <Content Include="assets\components\linearicons\linearicons.eot" />
+    <Content Include="assets\components\linearicons\linearicons.scss" />
+    <Content Include="assets\components\linearicons\linearicons.ttf" />
+    <Content Include="assets\components\linearicons\linearicons.woff" />
+    <Content Include="assets\components\line\line.css.map" />
+    <Content Include="assets\components\line\line.scss" />
+    <Content Include="assets\components\link\link.css.map" />
+    <Content Include="assets\components\link\link.scss" />
+    <Content Include="assets\components\list\list.css.map" />
+    <Content Include="assets\components\list\list.scss" />
+    <Content Include="assets\components\logo\logo.css.map" />
+    <Content Include="assets\components\logo\logo.scss" />
+    <Content Include="assets\components\logo\_logo.pug" />
+    <Content Include="assets\components\mdi\mdi.css.map" />
+    <Content Include="assets\components\mdi\mdi.eot" />
+    <Content Include="assets\components\mdi\mdi.scss" />
+    <Content Include="assets\components\mdi\mdi.ttf" />
+    <Content Include="assets\components\mdi\mdi.woff" />
+    <Content Include="assets\components\mdi\mdi.woff2" />
+    <Content Include="assets\components\multiswitch\multiswitch.css.map" />
+    <Content Include="assets\components\multiswitch\multiswitch.scss" />
+    <Content Include="assets\components\nav\nav.css.map" />
+    <Content Include="assets\components\nav\nav.scss" />
+    <Content Include="assets\components\nav\_nav-classic.scss" />
+    <Content Include="assets\components\nav\_nav-creative.scss" />
+    <Content Include="assets\components\owl-carousel\owl.carousel.css.map" />
+    <Content Include="assets\components\owl-carousel\owl.carousel.scss" />
+    <Content Include="assets\components\owl-carousel\_default.scss" />
+    <Content Include="assets\components\owl-carousel\_owl-bordered.scss" />
+    <Content Include="assets\components\page-title\page-title.css.map" />
+    <Content Include="assets\components\page-title\page-title.scss" />
+    <Content Include="assets\components\page-title\_page-title.pug" />
+    <Content Include="assets\components\pagination\pagination.css.map" />
+    <Content Include="assets\components\pagination\pagination.scss" />
+    <Content Include="assets\components\pagination\_pagination.pug" />
+    <Content Include="assets\components\person\person.css.map" />
+    <Content Include="assets\components\person\person.scss" />
+    <Content Include="assets\components\person\_person-boxed.scss" />
+    <Content Include="assets\components\person\_person-poster.scss" />
+    <Content Include="assets\components\person\_person-simple.scss" />
+    <Content Include="assets\components\person\_person.pug" />
+    <Content Include="assets\components\post\post.css.map" />
+    <Content Include="assets\components\post\post.scss" />
+    <Content Include="assets\components\post\_post-classic.scss" />
+    <Content Include="assets\components\post\_post-line.scss" />
+    <Content Include="assets\components\post\_post-minimal.scss" />
+    <Content Include="assets\components\post\_post-shadow.scss" />
+    <Content Include="assets\components\post\_post-small.scss" />
+    <Content Include="assets\components\post\_post.pug" />
+    <Content Include="assets\components\preloader\preloader.css.map" />
+    <Content Include="assets\components\preloader\preloader.scss" />
+    <Content Include="assets\components\preloader\_preloader.pug" />
+    <Content Include="assets\components\product-overview\product-overview.css.map" />
+    <Content Include="assets\components\product-overview\product-overview.scss" />
+    <Content Include="assets\components\product\product.css.map" />
+    <Content Include="assets\components\product\product.scss" />
+    <Content Include="assets\components\product\_product-small.scss" />
+    <Content Include="assets\components\product\_product.pug" />
+    <Content Include="assets\components\progress-circle\progress-circle.css.map" />
+    <Content Include="assets\components\progress-circle\progress-circle.scss" />
+    <Content Include="assets\components\progress-circle\_progress-circle.pug" />
+    <Content Include="assets\components\progress-linear\progress-linear.css.map" />
+    <Content Include="assets\components\progress-linear\progress-linear.scss" />
+    <Content Include="assets\components\progress-linear\_progress-liear.pug" />
+    <Content Include="assets\components\quote\quote.css.map" />
+    <Content Include="assets\components\quote\quote.scss" />
+    <Content Include="assets\components\quote\_quote-default.scss" />
+    <Content Include="assets\components\quote\_quote-large.scss" />
+    <Content Include="assets\components\quote\_quote-line.scss" />
+    <Content Include="assets\components\quote\_quote-md.scss" />
+    <Content Include="assets\components\quote\_quote.pug" />
+    <Content Include="assets\components\rating\rating.css.map" />
+    <Content Include="assets\components\rating\rating.scss" />
+    <Content Include="assets\components\rating\_rating.pug" />
+    <Content Include="assets\components\rd-form\rd-form.css.map" />
+    <Content Include="assets\components\rd-form\rd-form.scss" />
+    <Content Include="assets\components\rd-mailform\rd-mailform.config.json" />
+    <Content Include="assets\components\rd-mailform\rd-mailform.css.map" />
+    <Content Include="assets\components\rd-mailform\rd-mailform.scss" />
+    <Content Include="assets\components\rd-mailform\rd-mailform.tpl" />
+    <Content Include="assets\components\rd-navbar\rd-navbar.css.map" />
+    <Content Include="assets\components\rd-navbar\rd-navbar.scss" />
+    <Content Include="assets\components\rd-navbar\_cart.pug" />
+    <Content Include="assets\components\rd-navbar\_contact-form.pug" />
+    <Content Include="assets\components\rd-navbar\_contact.pug" />
+    <Content Include="assets\components\rd-navbar\_navigation.pug" />
+    <Content Include="assets\components\rd-navbar\_rd-navbar-fixed.scss" />
+    <Content Include="assets\components\rd-navbar\_rd-navbar-fullwidth.scss" />
+    <Content Include="assets\components\rd-navbar\_rd-navbar.pug" />
+    <Content Include="assets\components\rd-navbar\_search.pug" />
+    <Content Include="assets\components\rd-range\rd-range.css.map" />
+    <Content Include="assets\components\rd-range\rd-range.scss" />
+    <Content Include="assets\components\rd-search\rd-search.css.map" />
+    <Content Include="assets\components\rd-search\rd-search.scss" />
+    <Content Include="assets\components\regula\regula.css.map" />
+    <Content Include="assets\components\regula\regula.scss" />
+    <Content Include="assets\components\rights\rights.css.map" />
+    <Content Include="assets\components\rights\rights.scss" />
+    <Content Include="assets\components\rights\_rights.pug" />
+    <Content Include="assets\components\section\section.css.map" />
+    <Content Include="assets\components\section\section.scss" />
+    <Content Include="assets\components\section\_404.pug" />
+    <Content Include="assets\components\section\_about-us-2.pug" />
+    <Content Include="assets\components\section\_about-us.pug" />
+    <Content Include="assets\components\section\_awards-2.pug" />
+    <Content Include="assets\components\section\_awards.pug" />
+    <Content Include="assets\components\section\_blog-classic.pug" />
+    <Content Include="assets\components\section\_blog-post.pug" />
+    <Content Include="assets\components\section\_blurb-hover-sample.pug" />
+    <Content Include="assets\components\section\_blurb-icon-left-sample-2.pug" />
+    <Content Include="assets\components\section\_blurb-icon-left-sample.pug" />
+    <Content Include="assets\components\section\_call-to-action.pug" />
+    <Content Include="assets\components\section\_cart.pug" />
+    <Content Include="assets\components\section\_categories-1.pug" />
+    <Content Include="assets\components\section\_categories-2.pug" />
+    <Content Include="assets\components\section\_categories-3.pug" />
+    <Content Include="assets\components\section\_checkout.pug" />
+    <Content Include="assets\components\section\_coming-soon.pug" />
+    <Content Include="assets\components\section\_contact-form.pug" />
+    <Content Include="assets\components\section\_contact-info.pug" />
+    <Content Include="assets\components\section\_countdown-sample.pug" />
+    <Content Include="assets\components\section\_counter-icon-sample.pug" />
+    <Content Include="assets\components\section\_counter-icon.pug" />
+    <Content Include="assets\components\section\_intro.pug" />
+    <Content Include="assets\components\section\_our-blog.pug" />
+    <Content Include="assets\components\section\_our-goals.pug" />
+    <Content Include="assets\components\section\_our-team.pug" />
+    <Content Include="assets\components\section\_privacy-policy.pug" />
+    <Content Include="assets\components\section\_product-overview.pug" />
+    <Content Include="assets\components\section\_product-single.pug" />
+    <Content Include="assets\components\section\_products-grid.pug" />
+    <Content Include="assets\components\section\_progress-linear-sample.pug" />
+    <Content Include="assets\components\section\_quote-large.pug" />
+    <Content Include="assets\components\section\_search-results.pug" />
+    <Content Include="assets\components\section\_shop.pug" />
+    <Content Include="assets\components\section\_typography-lists.pug" />
+    <Content Include="assets\components\section\_typography-paragraphs.pug" />
+    <Content Include="assets\components\section\_typography-quote.pug" />
+    <Content Include="assets\components\section\_typography-type.pug" />
+    <Content Include="assets\components\select2\select2.css.map" />
+    <Content Include="assets\components\select2\select2.scss" />
+    <Content Include="assets\components\select2\select2\theme\_layout.scss" />
+    <Content Include="assets\components\select2\select2\theme\_multiple.scss" />
+    <Content Include="assets\components\select2\select2\theme\_single.scss" />
+    <Content Include="assets\components\select2\select2\_dropdown.scss" />
+    <Content Include="assets\components\select2\select2\_multiple.scss" />
+    <Content Include="assets\components\select2\select2\_single.scss" />
+    <Content Include="assets\components\service-section\service-section.css.map" />
+    <Content Include="assets\components\service-section\service-section.scss" />
+    <Content Include="assets\components\snackbar\snackbar.css.map" />
+    <Content Include="assets\components\snackbar\snackbar.scss" />
+    <Content Include="assets\components\spinner\spinner.css.map" />
+    <Content Include="assets\components\spinner\spinner.scss" />
+    <Content Include="assets\components\table\table.css.map" />
+    <Content Include="assets\components\table\table.scss" />
+    <Content Include="assets\components\tab\tab.css.map" />
+    <Content Include="assets\components\tab\tab.scss" />
+    <Content Include="assets\components\tab\_tab-classic.scss" />
+    <Content Include="assets\components\tag\tag.css.map" />
+    <Content Include="assets\components\tag\tag.scss" />
+    <Content Include="assets\components\template-info\template-info.css.map" />
+    <Content Include="assets\components\template-info\template-info.scss" />
+    <Content Include="assets\components\term-list\term-list.css.map" />
+    <Content Include="assets\components\term-list\term-list.scss" />
+    <Content Include="assets\components\text-decorated\text-decorated.css.map" />
+    <Content Include="assets\components\text-decorated\text-decorated.scss" />
+    <Content Include="assets\components\text-divider\text-divider.css.map" />
+    <Content Include="assets\components\text-divider\text-divider.scss" />
+    <Content Include="assets\components\thinicons\Thin-Regular.eot" />
+    <Content Include="assets\components\thinicons\Thin-Regular.ttf" />
+    <Content Include="assets\components\thinicons\Thin-Regular.woff" />
+    <Content Include="assets\components\thinicons\thin.css.map" />
+    <Content Include="assets\components\thinicons\thin.scss" />
+    <Content Include="assets\components\thumbnail\thumbnail.css.map" />
+    <Content Include="assets\components\thumbnail\thumbnail.scss" />
+    <Content Include="assets\components\thumbnail\_thumbnail-light.scss" />
+    <Content Include="assets\components\thumbnail\_thumbnail-ordered.scss" />
+    <Content Include="assets\components\thumbnail\_thumbnail-simple.scss" />
+    <Content Include="assets\components\thumbnail\_thumbnail.pug" />
+    <Content Include="assets\components\to-top\to-top.css.map" />
+    <Content Include="assets\components\to-top\to-top.scss" />
+    <Content Include="assets\components\tooltip\tooltip.css.map" />
+    <Content Include="assets\components\tooltip\tooltip.scss" />
+    <Content Include="assets\components\video\video.css.map" />
+    <Content Include="assets\components\video\video.scss" />
+    <Content Include="assets\components\widget\widget.css.map" />
+    <Content Include="assets\components\widget\widget.scss" />
+    <Content Include="assets\components\widget\_blog-sidebar-widgets.pug" />
+    <Content Include="assets\components\widget\_shop-sidebar-widgets.pug" />
+    <Content Include="assets\components\widget\_widget-categories-shop.pug" />
+    <Content Include="assets\components\widget\_widget-categories.pug" />
+    <Content Include="assets\components\widget\_widget-price-range.pug" />
+    <Content Include="assets\components\widget\_widget-products.pug" />
+    <Content Include="assets\components\widget\_widget-recent-posts.pug" />
+    <Content Include="assets\components\widget\_widget-search-shop.pug" />
+    <Content Include="assets\components\widget\_widget-search.pug" />
+    <Content Include="assets\components\widget\_widget-subscribe.pug" />
+    <Content Include="assets\components\widget\_widget-tags.pug" />
+    <Content Include="assets\pages\404.pug" />
+    <Content Include="assets\pages\about.pug" />
+    <Content Include="assets\pages\blog-post.pug" />
+    <Content Include="assets\pages\blog.pug" />
+    <Content Include="assets\pages\cart.pug" />
+    <Content Include="assets\pages\categories.pug" />
+    <Content Include="assets\pages\checkout.pug" />
+    <Content Include="assets\pages\coming-soon.pug" />
+    <Content Include="assets\pages\contact-us.pug" />
+    <Content Include="assets\pages\counters-&amp;-progress-bars.pug" />
+    <Content Include="assets\pages\icon-boxes.pug" />
+    <Content Include="assets\pages\index.pug" />
+    <Content Include="assets\pages\privacy-policy.pug" />
+    <Content Include="assets\pages\search-results.pug" />
+    <Content Include="assets\pages\shop.pug" />
+    <Content Include="assets\pages\single-product.pug" />
+    <Content Include="assets\pages\typography.pug" />
+    <None Include="Properties\PublishProfiles\Theme 16.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Scripts\Anpero.Common.js" />
+    <Content Include="Scripts\Bootrap.notify.js" />
+    <Content Include="Scripts\js-cokie.js" />
+    <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Scripts\SearchControl.js" />
+    <Content Include="Scripts\contact.js" />
+    <Content Include="Scripts\ShoppingCart.js" />
+    <Content Include="theme\index.html" />
+    <Content Include="theme\style.min.css" />
+    <Content Include="theme\style.red.css" />
+    <Content Include="theme\wp-content\plugins\akismet\_inc\form.js" />
+    <Content Include="theme\wp-content\plugins\contact-form-7\images\ajax-loader.gif" />
+    <Content Include="theme\wp-content\plugins\contact-form-7\includes\css\styles.css" />
+    <Content Include="theme\wp-content\plugins\contact-form-7\includes\js\scripts.js" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\css\js_composer.min.css" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.svg" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\fonts\vc_icons_v2\fonts\vcpb-plugin-iconsb82a.svg" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\flickr.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\address-book.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\alarm-clock.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\anchor.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\application-image.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\arrow.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\asterisk.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\auction-hammer.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\balloon-buzz.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\balloon-facebook.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\balloon-twitter.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\balloon.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\battery-full.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\binocular.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\blue-document-excel.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\blue-document-image.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\blue-document-music.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\blue-document-office.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\blue-document-pdf.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\blue-document-powerpoint.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\blue-document-word.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\bookmark.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\camcorder.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\camera.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\chart-pie.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\chart.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\clock.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\control.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\fire.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\heart.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\mail.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\plus-shield.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\icons\video.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\spinner.gif" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\toggle_close.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\images\toggle_open.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\js\dist\js_composer_front.min.js" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\lib\bower\flexslider\jquery.flexslider-min.js" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\lib\vc_waypoints\vc-waypoints.min.js" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\vc\alert.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\vc\blur.svg" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\vc\exclamation.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\vc\info.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\vc\remove.png" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\vc\tick.png" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\assets\css\magnific-popup.css" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\assets\js\jquery.magnific-popup.min.js" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\extends\attributes-swatches\product-attribute.css" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\extends\attributes-swatches\product-attribute.js" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\extends\live-search\assets\css\live-search.min.css" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\extends\live-search\assets\images\loading.gif" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\extends\live-search\assets\js\live-search.min.js" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\extends\mailchimp\mailchimp.min.js" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\extends\mapper\assets\css\mapper.min.css" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\extends\mapper\assets\js\mapper.min.js" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\extends\megamenu\assets\css\megamenu-frontend.css" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\extends\megamenu\assets\js\megamenu-frontend.js" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\extends\post-rating\post-rating.css" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\css\animate.min.css" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\css\bootstrap.min.css" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\css\chosen-sprite%402x.png" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\css\chosen-sprite.png" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\css\chosen.min.css" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\css\frontend.css" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\css\growl.min.css" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\css\slick.min.css" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\fonts\glyphicons-halflings-regular-2.html" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\fonts\glyphicons-halflings-regular-3.html" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\fonts\glyphicons-halflings-regular-4.html" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\fonts\glyphicons-halflings-regular-5.html" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\fonts\glyphicons-halflings-regulard41d.html" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\js\frontend.min.js" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\js\libs\bootstrap.min.js" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\js\libs\chosen.min.js" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\js\libs\countdown.min.js" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\js\libs\growl.min.js" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\js\libs\lazyload.min.js" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\js\libs\serialize-object.min.js" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\js\libs\slick.min.js" />
+    <Content Include="theme\wp-content\plugins\ovic-toolkit\includes\frontend\assets\js\libs\threesixty.min.js" />
+    <Content Include="theme\wp-content\plugins\revslider\admin\assets\images\dummy.png" />
+    <Content Include="theme\wp-content\plugins\revslider\public\assets\assets\coloredbg.png" />
+    <Content Include="theme\wp-content\plugins\revslider\public\assets\assets\gridtile.png" />
+    <Content Include="theme\wp-content\plugins\revslider\public\assets\assets\gridtile_3x3.png" />
+    <Content Include="theme\wp-content\plugins\revslider\public\assets\assets\gridtile_3x3_white.png" />
+    <Content Include="theme\wp-content\plugins\revslider\public\assets\assets\gridtile_white.png" />
+    <Content Include="theme\wp-content\plugins\revslider\public\assets\assets\loader.gif" />
+    <Content Include="theme\wp-content\plugins\revslider\public\assets\css\closedhand.html" />
+    <Content Include="theme\wp-content\plugins\revslider\public\assets\css\openhand.html" />
+    <Content Include="theme\wp-content\plugins\revslider\public\assets\css\settings.css" />
+    <Content Include="theme\wp-content\plugins\revslider\public\assets\fonts\revicons\revicons90c6.svg" />
+    <Content Include="theme\wp-content\plugins\revslider\public\assets\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="theme\wp-content\plugins\revslider\public\assets\js\jquery.themepunch.revolution.min44f4.js" />
+    <Content Include="theme\wp-content\plugins\revslider\public\assets\js\jquery.themepunch.tools.min.js" />
+    <Content Include="theme\wp-content\plugins\revslider\public\assets\js\jquery.themepunch.tools.min44f4.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\css\photoswipe\default-skin\default-skin.css" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\css\photoswipe\default-skin\default-skin.png" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\css\photoswipe\default-skin\preloader.gif" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\css\photoswipe\photoswipe.css" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\css\prettyPhoto.css" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\css\select2.css" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\accounting\accounting.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\flexslider\jquery.flexslider.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\frontend\add-to-cart-variation.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\frontend\add-to-cart.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\frontend\address-i18n.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\frontend\cart-fragments.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\frontend\cart.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\frontend\country-select.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\frontend\lost-password.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\frontend\password-strength-meter.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\frontend\price-slider.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\frontend\single-product.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\frontend\woocommerce.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\jquery-blockui\jquery.blockUI.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\jquery-ui-touch-punch\jquery-ui-touch-punch.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\js-cookie\js.cookie.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\photoswipe\photoswipe-ui-default.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\photoswipe\photoswipe.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\prettyPhoto\jquery.prettyPhoto.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\selectWoo\selectWoo.full.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\js\zoom\jquery.zoom.min.js" />
+    <Content Include="theme\wp-content\plugins\woocommerce\packages\woocommerce-blocks\build\style.css" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-compare\assets\css\colorbox.css" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-compare\assets\css\jquery.dataTables.css" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-compare\assets\css\style.css" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-compare\assets\images\colorbox\border.png" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-compare\assets\images\colorbox\controls.png" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-compare\assets\images\colorbox\loading.gif" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-compare\assets\images\colorbox\loading_background.png" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-compare\assets\js\FixedColumns.min.js" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-compare\assets\js\imagesloaded.pkgd.min.js" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-compare\assets\js\jquery.colorbox-min.js" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-compare\assets\js\jquery.dataTables.min.js" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-compare\assets\js\woocompare.min.js" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-quick-view\assets\css\yith-quick-view.css" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-quick-view\assets\js\frontend.min.js" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\assets\css\frontend.css" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\assets\js\frontend.min.js" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index012f.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index0aef.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index0f9a.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index14ad.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index15f9.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index265b.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index287f.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index35e8.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index3634.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index3918.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index3c40.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index3d36.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index4697.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index4880.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index4bc3.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index4f7d.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index50af.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index58c1.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index69dd.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index6c9c.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index735d.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index73cf.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index73ec.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index809a.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index825c.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index84c7.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index8586.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index894f.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index8b86.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index8c02.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index8ec6.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index954e.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\index995b.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexa20b.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexa737.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexac5e.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexaed3.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexb09f.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexb410.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexc2e7.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexc50e.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexd3c6.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexdbae.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexde01.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexdf46.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexe0c3.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexe614.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexe62b.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexec14.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexec92.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexefc3.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexf177.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexf714.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexf8e8.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-social-login\includes\hybridauth\indexf99a.html" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-wishlist\assets\css\font-awesome.min.css" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-wishlist\assets\css\jquery.selectBox.css" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-wishlist\assets\css\style.css" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-wishlist\assets\images\email.jpg" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-wishlist\assets\images\facebook.png" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-wishlist\assets\images\googleplus.jpg" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-wishlist\assets\images\jquery.selectBox-arrow.gif" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-wishlist\assets\images\jquery.selectBox-arrow.png" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-wishlist\assets\images\pinterest.jpg" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-wishlist\assets\images\twitter.png" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-wishlist\assets\images\whatsapp.png" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-wishlist\assets\images\wpspin_light.gif" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-wishlist\assets\js\jquery.selectBox.min.js" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-wishlist\assets\js\jquery.yith-wcwl.js" />
+    <Content Include="theme\wp-content\themes\gokko\assets\css\content-single-product.css" />
+    <Content Include="theme\wp-content\themes\gokko\assets\css\style.css" />
+    <Content Include="theme\wp-content\themes\gokko\assets\fonts\GlacialIndifference-Bold.html" />
+    <Content Include="theme\wp-content\themes\gokko\assets\fonts\GlacialIndifference-Italic.html" />
+    <Content Include="theme\wp-content\themes\gokko\assets\fonts\GlacialIndifference-Regular.html" />
+    <Content Include="theme\wp-content\themes\gokko\assets\fonts\gokko\fonts\Gokko-Icon05fa.svg" />
+    <Content Include="theme\wp-content\themes\gokko\assets\fonts\gokko\style.css" />
+    <Content Include="theme\wp-content\themes\gokko\assets\images\logo-mobile.png" />
+    <Content Include="theme\wp-content\themes\gokko\assets\js\functions.js" />
+    <Content Include="theme\wp-content\themes\gokko\style.css" />
+    <Content Include="theme\wp-content\uploads\2018\07\appliances-logo.png" />
+    <Content Include="theme\wp-content\uploads\2018\07\bg-newseter-031148.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\furniture-logo.png" />
+    <Content Include="theme\wp-content\uploads\2018\07\h01.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\h02.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\h03.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\h04.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\h05.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\h0681c2.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\h07.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\h08.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\h10.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\h11.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\h12.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\h13.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\h14.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\h15.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\h16.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\h17.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\h18.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\h20.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\ins1.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\ins2.74.delayed.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\ins3.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\ins4.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\ins5.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\ins6.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\ins7.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\ins8.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m140.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m141.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m142.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m143.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m144.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m145.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m213.png" />
+    <Content Include="theme\wp-content\uploads\2018\07\m214.png" />
+    <Content Include="theme\wp-content\uploads\2018\07\m215.png" />
+    <Content Include="theme\wp-content\uploads\2018\07\m23.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m24.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m3532eb.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m38.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m39.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m41.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m42.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m43.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m44.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m51.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m52.189.delayed.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m53.17d1ac8.delayed.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m61.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m610.1cc.delayed.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m611.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m612.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m64.png" />
+    <Content Include="theme\wp-content\uploads\2018\07\m655db4.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m66.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m67.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m68.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\m69.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\olu-eletu-13086-unsplash-1.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0000s_0000_1a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0000s_0000_1a-47x47.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0000s_0001_1b-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0000s_0001_1b-47x47.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0000s_0002_1c-47x47.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0000_5.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0001s_0000_2a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0002s_0000_3a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0002s_0000_3a-47x47.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0002s_0001_3b-47x47.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0002s_0002_3c-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0002s_0002_3c-47x47.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0002_4.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0003s_0000_4a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0003s_0000_6a-150x150.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0003s_0000_6a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0003s_0000_6a-47x47.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0003s_0000_6a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0003s_0000_6a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0003s_0000_6b-47x47.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0003s_0000_6b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0003s_0000_6b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0003s_0000_6c-300x300.png" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0003s_0000_6c-47x47.png" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0003s_0000_6c-600x600.png" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0003s_0000_6c.png" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0003_3.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0004s_0000_5a-150x150.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0004s_0000_5a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0004_2.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0006s_0000_7a-150x150.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0006s_0000_7a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0007s_0000_8a-150x150.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0007s_0000_8a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0007s_0000_8a-47x47.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0007s_0001_8b-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0007s_0001_8b-47x47.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0007s_0002_8c-47x47.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0008s_0000_9a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0009s_0000_10a-150x150.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0009s_0000_10a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0010s_0000_11a-150x150.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0010s_0000_11a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0011s_0000_12a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0000s_0012s_0000_13a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0001s_0000s_0000_13a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0001s_0000_3.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0001s_0001s_0000_12a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0001s_0001_2.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0001s_0002_1.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0001s_0006s_0000_7a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0001s_0006s_0001_7b-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0001s_0007s_0000_6a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0001s_0007s_0002_6c-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0001s_0008s_0000_5a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0001s_0008s_0002_5c-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0001s_0009s_0002_4c-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0000s_0000_1a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0000s_0000_1a-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0000s_0000_1a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0000_4.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0001s_0000_2a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0001s_0000_2a-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0001s_0000_2a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0002s_0000_3a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0002s_0000_3a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0002_2.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0003s_0000_4a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0003s_0000_4a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0003s_0000_4a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0003s_0001_4b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0003s_0001_4b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0003s_0002_4c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0003s_0002_4c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0003_1.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0004s_0000_5a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0004s_0000_5a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0005s_0000_6a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0005s_0000_6a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0006s_0000_7a-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0006s_0000_7a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0007s_0000_8a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0007s_0000_8a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0007s_0002_8c-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0008s_0000_9a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0008s_0000_9a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0009s_0000_10a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0009s_0002_10c-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0009s_0002_10c-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0010s_0000_11a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0010s_0000_11a-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0010s_0000_11a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0011s_0000_12a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0011s_0000_12a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0011s_0000_12a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0011s_0000_12a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0011s_0001_12b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0011s_0001_12b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0011s_0002_12c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0011s_0002_12c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0012s_0000_13a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0002s_0012s_0000_13a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0000s_0000_16a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0000s_0000_16a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0000s_0000_16a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0000s_0001_16b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0000s_0001_16b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0000s_0002_16c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0000s_0002_16c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0000_7.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0001s_0000_15a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0001s_0000_15a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0001s_0000_15a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0001s_0001_15b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0001s_0001_15b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0001s_0002_15c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0001s_0002_15c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0002s_0000_14a-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0002s_0000_14a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0002s_0000_14a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0002s_0000_14a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0002s_0001_14b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0002s_0001_14b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0002s_0002_14c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0002s_0002_14c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0003s_0000_13a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0003_4.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0004s_0000_12a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0004s_0000_12a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0004s_0000_12a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0004s_0001_12b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0004s_0001_12b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0004s_0002_12c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0004s_0002_12c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0004_3.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0005s_0000_11a-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0005s_0000_11a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0005s_0000_11a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0005s_0000_11a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0005s_0001_11b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0005s_0001_11b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0005s_0002_11c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0005s_0002_11c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0006_1.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0007s_0000_10a-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0007s_0000_10a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0007s_0000_10a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0007s_0000_10a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0007s_0001_10b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0007s_0001_10b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0007s_0002_10c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0007s_0002_10c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0008s_0000_8a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0008s_0000_8a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0008s_0000_8a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0008s_0001_8b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0008s_0001_8b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0008s_0002_8c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0008s_0002_8c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0009s_0000_7a-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0009s_0000_7a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0009s_0000_7a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0009s_0000_7a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0009s_0001_7b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0009s_0001_7b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0009s_0002_7c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0009s_0002_7c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0010s_0000_6a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0010s_0000_6a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0010s_0000_6a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0010s_0001_6b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0010s_0001_6b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0010s_0002_6c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0010s_0002_6c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0011s_0000_5a-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0011s_0000_5a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0011s_0000_5a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0011s_0000_5a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0011s_0001_5b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0011s_0001_5b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0011s_0002_5c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0011s_0002_5c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0012s_0000_4a-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0012s_0000_4a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0012s_0000_4a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0012s_0000_4a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0012s_0001_4b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0012s_0001_4b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0012s_0002_4c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0012s_0002_4c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0013s_0000_3a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0013s_0000_3a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0013s_0000_3a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0013s_0001_3b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0013s_0001_3b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0014s_0000_2a-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0014s_0000_2a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0014s_0000_2a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0014s_0000_2a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0014s_0001_2b-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0014s_0001_2b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0014s_0001_2b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0014s_0002_2c-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0014s_0002_2c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0014s_0002_2c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0015s_0000_1a-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0015s_0000_1a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0015s_0000_1a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0015s_0000_1a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0015s_0001_1b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0015s_0001_1b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0015s_0002_1c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0003s_0015s_0002_1c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0000s_0000_14a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0000s_0000_14a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0000s_0000_14a-460x460.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0000s_0000_14a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0000s_0000_14a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0000s_0001_14b-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0000s_0001_14b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0000s_0001_14b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0000s_0002_14c-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0000s_0002_14c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0000s_0002_14c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0000_4.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0001s_0000_13a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0001s_0000_13a-220x220.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0001s_0000_13a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0001s_0000_13a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0001s_0000_13a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0001s_0001_13b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0001s_0001_13b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0001s_0002_13c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0001s_0002_13c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0001_3.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0002s_0000_12a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0002s_0000_12a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0002s_0000_12a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0002s_0000_12a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0002s_0001_12b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0002s_0001_12b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0002s_0002_12c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0002s_0002_12c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0002_2.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0003s_0000_11a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0003s_0000_11a-220x220.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0003s_0000_11a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0003s_0000_11a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0003s_0000_11a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0003s_0001_11b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0003s_0001_11b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0003s_0002_11c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0003s_0002_11c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0003_1.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0004s_0000_10a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0004s_0000_10a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0004s_0000_10a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0004s_0000_10a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0004s_0001_10b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0004s_0001_10b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0004s_0002_10c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0004s_0002_10c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0005s_0000_9a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0005s_0000_9a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0005s_0000_9a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0005s_0000_9a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0005s_0001_9b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0005s_0001_9b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0005s_0002_9c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0005s_0002_9c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0006s_0000_8a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0006s_0000_8a-220x220.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0006s_0000_8a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0006s_0000_8a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0006s_0000_8a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0006s_0001_8b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0006s_0001_8b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0006s_0002_8c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0006s_0002_8c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0007s_0000_7a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0007s_0000_7a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0007s_0000_7a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0007s_0000_7a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0007s_0001_7b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0007s_0001_7b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0007s_0002_7c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0007s_0002_7c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0008s_0000_6a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0008s_0000_6a-220x220.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0008s_0000_6a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0008s_0000_6a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0008s_0000_6a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0008s_0001_6b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0008s_0001_6b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0008s_0002_6c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0008s_0002_6c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0009s_0000_5a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0009s_0000_5a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0009s_0000_5a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0009s_0000_5a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0009s_0001_5b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0009s_0001_5b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0009s_0002_5c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0009s_0002_5c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0010s_0000_4a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0010s_0000_4a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0010s_0000_4a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0010s_0000_4a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0010s_0001_4b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0010s_0001_4b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0010s_0002_4c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0010s_0002_4c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0011s_0000_3a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0011s_0000_3a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0011s_0000_3a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0011s_0000_3a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0011s_0001_3b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0011s_0001_3b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0011s_0002_3c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0011s_0002_3c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0012s_0000_2a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0012s_0000_2a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0012s_0000_2a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0012s_0000_2a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0012s_0001_2b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0012s_0001_2b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0012s_0002_2c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0012s_0002_2c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0013s_0000_1a-120x120.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0013s_0000_1a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0013s_0000_1a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0013s_0000_1a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0013s_0001_1b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0013s_0001_1b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0013s_0002_1c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0004s_0013s_0002_1c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0000s_0000_14a-150x150.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0000s_0000_14a-160x160.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0000s_0000_14a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0000s_0000_14a-60x60.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0000_5.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0001s_0000_23a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0001s_0002_23c-60x60.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0001_4.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0002s_0000_22a-150x150.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0002s_0000_22a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0002_3.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0003s_0000_11a-150x150.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0003s_0000_11a-160x160.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0003s_0000_11a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0003s_0001_11b-60x60.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0003_2.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0004s_0000_14a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0004s_0000_14a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0004s_0000_14a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0004s_0001_14b-160x160.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0004s_0001_14b-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0004s_0001_14b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0004s_0001_14b-60x60.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0004s_0001_14b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0004s_0002_14c-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0004s_0002_14c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0004s_0002_14c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0004_1.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0005s_0000_9a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0006s_0000_8a-150x150.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0006s_0000_8a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0006s_0002_8c-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0007s_0000_7a-150x150.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0007s_0000_7a-160x160.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0007s_0000_7a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0008s_0000_6a-160x160.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0008s_0000_6a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0009s_0000_5a-150x150.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0009s_0000_5a-160x160.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0009s_0000_5a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0009s_0000_5a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0009s_0000_5a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0009s_0001_5b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0009s_0001_5b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0009s_0002_5c-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0009s_0002_5c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0009s_0002_5c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0010s_0000_4a-160x160.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0010s_0000_4a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0011s_0000_3a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0012s_0000_2a-160x160.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0012s_0000_2a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0012s_0000_2a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0012s_0000_2a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0012s_0001_2b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0012s_0001_2b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0012s_0002_2c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0012s_0002_2c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\org_0005s_0013s_0000_1a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\07\pin2.png" />
+    <Content Include="theme\wp-content\uploads\2018\07\pin3.png" />
+    <Content Include="theme\wp-content\uploads\2018\08\h22.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\h23.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\h24.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\h25.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\h26.26.delayed.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\h27.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\h30.png" />
+    <Content Include="theme\wp-content\uploads\2018\08\h31.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\h32.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\h34.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\h35.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\h36.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\h378b8c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\m62-2.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\m63-2.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\megamenu-Bedroom-Furniture-bg.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\megamenu-fresh-berries-bg.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\megamenu-fruit-bg.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\megamenu-gardening-pots-plants-bg.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\megamenu-Jewelry-bg.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\megamenu-Livingroom-bg.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\megamenu-Planters-bg.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\megamenu-tree-plants-bg.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\megamenu-vegetables-bg.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\megamenu-wedding-gifts-bg.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\megamenu-Wedding-Gifts2-bg.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\team1.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\team2.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\team3.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\team4.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\team5.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\08\team6.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\bg-mapcc29.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\h44.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\h47.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\h48-10f44.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\h49.png" />
+    <Content Include="theme\wp-content\uploads\2018\09\h51.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\h53.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\h54.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\h56.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\h57.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\h64.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\h65.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\logo3.png" />
+    <Content Include="theme\wp-content\uploads\2018\09\logo4.png" />
+    <Content Include="theme\wp-content\uploads\2018\09\m710-1.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\m711-1.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\m712-19c83.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\m714.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\m715.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\m716.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\m717.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\m718.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\m719.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\09\m79-1.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\1.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\2.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\3.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\4.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\5.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\6.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\blog-fuedll-imgs-100x73.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\blog-fuedll-imgs.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\blog-full-imgs-100x73.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\blog-full-imgs.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\bloga-full-imgs-100x73.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\bloga-full-imgs.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\en.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0000s_0000_24c-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0000s_0000_24c-220x220.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0000s_0000_24c-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0000s_0000_24c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0000s_0000_24c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0000s_0001_24b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0000s_0001_24b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0000s_0002_24a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0000s_0002_24a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0001s_0000_23b-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0001s_0000_23b-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0001s_0000_23b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0001s_0000_23b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0001s_0001_23a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0001s_0001_23a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0001s_0002_23c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0001s_0002_23c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0002s_0000_22a-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0002s_0000_22a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0002s_0000_22a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0002s_0000_22a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0002s_0001_22b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0002s_0001_22b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0002s_0002_22c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0002s_0002_22c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0003s_0000_21a-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0003s_0000_21a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0003s_0000_21a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0003s_0000_21a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0003s_0001_21b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0003s_0001_21b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0003s_0002_21c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0003s_0002_21c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0004s_0000_20a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0004s_0000_20a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0004s_0000_20a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0004s_0001_20b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0004s_0001_20b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0004s_0002_20c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0004s_0002_20c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0005s_0000_19a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0005s_0000_19a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0005s_0000_19a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0005s_0001_19b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0005s_0001_19b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0005s_0002_19c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0005s_0002_19c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0006s_0000_18a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0006s_0000_18a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0006s_0000_18a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0006s_0001_18b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0006s_0001_18b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0006s_0002_18c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0006s_0002_18c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0007s_0000_17a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0008s_0000_16a-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0008s_0000_16a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0008s_0000_16a-460x460.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0008s_0000_16a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0008s_0000_16a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0008s_0001_16b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0008s_0001_16b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0008s_0002_16c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0008s_0002_16c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0009s_0000_15b-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0009s_0000_15b-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0009s_0000_15b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0009s_0000_15b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0009s_0001_15c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0009s_0001_15c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0009s_0002_15a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0009s_0002_15a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0010s_0000_14a-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0010s_0000_14a-300x300.4a.delayed.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0010s_0000_14a-460x460.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0010s_0000_14a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0010s_0000_14a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0010s_0001_14b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0010s_0001_14b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0010s_0002_14c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0010s_0002_14c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0011s_0000_13a-190x190.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0011s_0000_13a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0011s_0000_13a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0011s_0000_13a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0011s_0001_13b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0011s_0001_13b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0011s_0002_13c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0011s_0002_13c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0012s_0000_12a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0012s_0000_12a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0012s_0000_12a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0012s_0001_12b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0012s_0001_12b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0012s_0002_12c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0012s_0002_12c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0013s_0000_11a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0013s_0000_11a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0013s_0000_11a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0013s_0001_11b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0013s_0001_11b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0013s_0002_11c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0013s_0002_11c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0014s_0000_10a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0014s_0000_10a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0014s_0000_10a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0014s_0001_10b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0014s_0001_10b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0014s_0002_10c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0014s_0002_10c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0015s_0000_9a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0015s_0000_9a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0015s_0000_9a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0015s_0001_9b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0015s_0001_9b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0015s_0002_9c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0015s_0002_9c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0016s_0000_8a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0016s_0000_8a-460x460.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0016s_0000_8a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0016s_0000_8a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0016s_0001_8b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0016s_0001_8b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0016s_0002_8c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0016s_0002_8c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0017s_0000_7a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0017s_0000_7a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0017s_0000_7a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0017s_0001_7b-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0017s_0001_7b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0017s_0001_7b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0017s_0002_7c-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0017s_0002_7c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0017s_0002_7c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0018s_0000_6a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0018s_0000_6a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0018s_0000_6a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0018s_0001_6b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0018s_0001_6b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0018s_0002_6c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0018s_0002_6c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0019s_0000_5a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0019s_0000_5a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0019s_0000_5a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0019s_0001_5b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0019s_0001_5b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0019s_0002_5c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0019s_0002_5c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0020s_0000_4a-220x220.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0020s_0000_4a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0020s_0000_4a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0020s_0000_4a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0020s_0001_4b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0020s_0001_4b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0020s_0002_4c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0020s_0002_4c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0021s_0000_3a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0021s_0000_3a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0021s_0000_3a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0021s_0001_3b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0021s_0001_3b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0021s_0002_3c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0021s_0002_3c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0022s_0000_2a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0022s_0000_2a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0022s_0000_2a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0022s_0001_2b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0022s_0001_2b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0022s_0002_2c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0022s_0002_2c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0023s_0000_1a-300x300.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0023s_0000_1a-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0023s_0000_1a.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0023s_0001_1b-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0023s_0001_1b.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0023s_0002_1c-600x600.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\org_0000s_0023s_0002_1c.jpg" />
+    <Content Include="theme\wp-content\uploads\2018\12\sl01-02_1.jpg" />
+    <Content Include="theme\wp-content\uploads\2019\01\favicon.png" />
+    <Content Include="theme\wp-content\uploads\2019\01\m81.jpg" />
+    <Content Include="theme\wp-content\uploads\2019\01\m86.jpg" />
+    <Content Include="theme\wp-content\uploads\2019\01\s8-01.jpg" />
+    <Content Include="theme\wp-content\uploads\2019\01\sidebar-banner-270x300.jpg" />
+    <Content Include="theme\wp-content\uploads\h378b8c.jpg" />
+    <Content Include="theme\wp-includes\css\dist\block-library\style.min.css" />
+    <Content Include="theme\wp-includes\css\dist\block-library\theme.min.css" />
+    <Content Include="theme\wp-includes\js\comment-reply.min.js" />
+    <Content Include="theme\wp-includes\js\jquery\jquery-migrate.min.js" />
+    <Content Include="theme\wp-includes\js\jquery\jquery.js" />
+    <Content Include="theme\wp-includes\js\jquery\ui\core.min.js" />
+    <Content Include="theme\wp-includes\js\jquery\ui\mouse.min.js" />
+    <Content Include="theme\wp-includes\js\jquery\ui\slider.min.js" />
+    <Content Include="theme\wp-includes\js\jquery\ui\widget.min.js" />
+    <Content Include="theme\wp-includes\js\underscore.min.js" />
+    <Content Include="theme\wp-includes\js\wp-embed.min.js" />
+    <Content Include="theme\wp-includes\js\wp-util.min.js" />
+    <Content Include="theme\wp-includes\js\zxcvbn-async.min.js" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Shared\product\_MenuAndAdsPartial.cshtml" />
+    <Content Include="Views\Product\List.cshtml" />
+    <Content Include="Web References\WebService\Ads.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Views\Article\Index.cshtml" />
+    <Content Include="Views\Article\Category.cshtml" />
+    <Content Include="Views\Shared\article\_MenuAndAdsPartial.cshtml" />
+    <Content Include="Views\Product\Checkout.cshtml" />
+    <Content Include="Views\Shared\_partial\_HomeSlide_1.cshtml" />
+    <Content Include="Views\Shared\_partial\_MainHeader_1.cshtml" />
+    <Content Include="Views\Shared\product\_productDetail.cshtml" />
+    <Content Include="Views\Shared\_partial\_MainFooter_1.cshtml" />
+    <Content Include="Views\Home\Policy.cshtml" />
+    <Content Include="Views\API\Index.cshtml" />
+    <Content Include="Views\Product\SearchAjax.cshtml" />
+    <Content Include="Views\Brands\Index.cshtml" />
+    <Content Include="Views\Shared\_partial\_FooterPartial.cshtml" />
+    <Content Include="Views\Shared\_partial\_HeaderPartial.cshtml" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.eot" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.ttf" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.woff" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v1d41d.eot" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\fonts\vc_icons_v2\fonts\vcpb-plugin-iconsb82a.eot" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\fonts\vc_icons_v2\fonts\vcpb-plugin-iconsb82a.ttf" />
+    <Content Include="theme\wp-content\plugins\js_composer\assets\fonts\vc_icons_v2\fonts\vcpb-plugin-iconsb82a.woff" />
+    <Content Include="theme\wp-content\plugins\revslider\public\assets\fonts\revicons\revicons90c6.eot" />
+    <Content Include="theme\wp-content\plugins\revslider\public\assets\fonts\revicons\revicons90c6.ttf" />
+    <Content Include="theme\wp-content\plugins\revslider\public\assets\fonts\revicons\revicons90c6.woff" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\fonts\star.eot" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\fonts\star.ttf" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\fonts\star.woff" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\fonts\stard41d.eot" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\fonts\WooCommerce.eot" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\fonts\WooCommerce.ttf" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\fonts\WooCommerce.woff" />
+    <Content Include="theme\wp-content\plugins\woocommerce\assets\fonts\WooCommerced41d.eot" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-wishlist\assets\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-wishlist\assets\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-wishlist\assets\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="theme\wp-content\plugins\yith-woocommerce-wishlist\assets\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="theme\wp-content\themes\gokko\assets\fonts\GlacialIndifference-Bold.woff" />
+    <Content Include="theme\wp-content\themes\gokko\assets\fonts\GlacialIndifference-Italic.woff" />
+    <Content Include="theme\wp-content\themes\gokko\assets\fonts\GlacialIndifference-Regular.woff" />
+    <Content Include="theme\wp-content\themes\gokko\assets\fonts\gokko\fonts\Gokko-Icon05fa.eot" />
+    <Content Include="theme\wp-content\themes\gokko\assets\fonts\gokko\fonts\Gokko-Icon05fa.ttf" />
+    <Content Include="theme\wp-content\themes\gokko\assets\fonts\gokko\fonts\Gokko-Icon05fa.woff" />
+    <Content Include="Views\Product\GetByCategory.cshtml" />
+    <Content Include="Views\Product\List_BACK.cshtml" />
+    <Content Include="Views\Product\Index - Copy.cshtml" />
+    <Content Include="Views\Product\GetByCategory2.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Warranty\Index.cshtml" />
+    <Content Include="Views\Warranty\Info.cshtml" />
+    <Content Include="Views\Warranty\Check.cshtml" />
+    <Content Include="Views\Warranty\AjaxInfo.cshtml" />
+    <Content Include="Views\Home\IconList.cshtml" />
+    <Content Include="Views\Warranty\CheckSeria.cshtml" />
+    <None Include="Web References\WebService\AnperoService.disco" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Web References\WebService\ProductItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebService\BlogItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebService\BlogCategory.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebService\Location.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebService\PaymentConfig.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\WebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web References\WebService\SearchResult1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebService\Webconfig1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebService\SearchArticleResults.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebService\WarrantyCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <None Include="Properties\PublishProfiles\Shoes Store.pubxml" />
+    <None Include="Web References\WebService\AnperoService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://wsv.anpero.com/AnperoService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebService\</RelPath>
+      <UpdateFromURL>http://wsv.anpero.com/AnperoService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>AnperoFrontend_AnperoService_AnperoService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Anpero\Anpero.csproj">
+      <Project>{b88546ac-d123-448f-bd9b-7287e7ce1b38}</Project>
+      <Name>Anpero</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>32561</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44312</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

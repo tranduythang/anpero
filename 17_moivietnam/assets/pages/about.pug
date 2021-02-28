@@ -1,0 +1,27 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/page-title/_page-title
+
+block variables
+	- pageName = 'About Us';
+	- pageId = 'about';
+
+block page
+	+rd-navbar(
+		data-rd-navbar = {
+			responsive: {
+				1200: { autoHeight: false }
+			}
+		}
+	).rd-navbar-absolute.rd-navbar-fullwidth-light
+	
+	+page-title({
+		bgImage: 'images/background/bg-2-1920x496.jpg'
+	})
+
+	include ../components/section/_about-us
+	include ../components/section/_about-us-2
+	include ../components/section/_our-team
+	include ../components/section/_counter-icon
+	include ../components/section/_awards
+	include ../components/footer/_footer-subscribe

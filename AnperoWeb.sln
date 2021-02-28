@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "16_Theme_MultiProduct", "16
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12_Theme_MultiProduct-2", "12_Shop_MultiProduct-2\12_Theme_MultiProduct-2.csproj", "{59346EEF-F1B9-4B84-B128-AD682F9CBD46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17_moivietnam.vn", "17_moivietnam\17_moivietnam.vn.csproj", "{93D78566-CD67-4EC5-B1C4-EA8FE69BFC6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -127,6 +129,10 @@ Global
 		{59346EEF-F1B9-4B84-B128-AD682F9CBD46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59346EEF-F1B9-4B84-B128-AD682F9CBD46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59346EEF-F1B9-4B84-B128-AD682F9CBD46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93D78566-CD67-4EC5-B1C4-EA8FE69BFC6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93D78566-CD67-4EC5-B1C4-EA8FE69BFC6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93D78566-CD67-4EC5-B1C4-EA8FE69BFC6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93D78566-CD67-4EC5-B1C4-EA8FE69BFC6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -150,6 +156,7 @@ Global
 		{EDEC179C-8C62-4DE5-8351-E805ED212B5C} = {310BA208-71D5-4381-8A50-5F78017A2012}
 		{B076034C-F633-4483-80A9-DCA15043E366} = {4A209C7A-D091-451E-A034-CF95432C6834}
 		{59346EEF-F1B9-4B84-B128-AD682F9CBD46} = {4A209C7A-D091-451E-A034-CF95432C6834}
+		{93D78566-CD67-4EC5-B1C4-EA8FE69BFC6D} = {4A209C7A-D091-451E-A034-CF95432C6834}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F458C0BB-F83B-4833-A3E1-EC94B22EC8A5}

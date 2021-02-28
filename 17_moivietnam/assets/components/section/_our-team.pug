@@ -1,0 +1,36 @@
+include ../person/_person
+
+// Our team
+section.section-md.bg-100
+	.container.container-wide
+		.text-center
+			h2.heading-decoration Popular Categories
+		.row.row-5.row-gutters-5.row-offset-lg.person-poster-container
+			.col-sm-6.col-lg-3( data-animate!={ class: 'fadeInUpBig' } )
+				+person-poster({
+					img: 'about-02-458x538.jpg',
+					author: 'Helen Gray',
+					position: 'Founder',
+					description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+				})
+			.col-sm-6.col-lg-3( data-animate!={ class: 'fadeInUpBig', delay: '.15s' } )
+				+person-poster({
+					img: 'about-03-458x538.jpg',
+					author: 'Kate Adams',
+					position: 'Manager',
+					description: 'Vix velit moderatius ex, mutat albucius menandri eum in'
+				})
+			.col-sm-6.col-lg-3( data-animate!={ class: 'fadeInUpBig', delay: '.3s' } )
+				+person-poster({
+					img: 'about-04-458x538.jpg',
+					author: 'Eva Lee',
+					position: 'Sales Advisor',
+					description: 'Natum admodum sententiae in sit, te duis veri vitae duo'
+				})
+			.col-sm-6.col-lg-3( data-animate!={ class: 'fadeInUpBig', delay: '.45s' } )
+				+person-poster({
+					img: 'about-05-458x538.jpg',
+					author: 'Jane Peters',
+					position: 'PR Manager',
+					description: 'Suas omnesque id duo, officiis laboramus id est, an duo'
+				})
