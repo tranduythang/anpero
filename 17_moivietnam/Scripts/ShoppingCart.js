@@ -109,7 +109,7 @@
         Cart.bindCartTable();
     },
     bindCartTable: function () {
-        debugger
+        
         var ttSC = 0;
 
         var _paymentFee = $('input[name=radio_4]:checked').attr("data-ship");
@@ -159,6 +159,40 @@
             }
         }
     },
+    bindSmallCart: function () {
+
+        var ttSC = 0;
+        var htmlCat = "";
+        var productCookies = Cookies.get("CartList");
+        if (productCookies!=null) {
+
+            Cart.list = jQuery.parseJSON(productCookies);
+            try {
+
+                $(".spN").html(Cart.list.length);
+                for (var i = 0; i < Cart.list.length; i++) {
+                    ttSC += parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity);
+                    htmlCat += '<div class="navbar-cart-item">';
+                    htmlCat += '<div class="navbar-cart-item-left thumbnail"><a class="thumbnail-small" href="#"><img src="' + Utils.decodeHTML(Cart.list[i].thumb) + '" alt="" width="72" height="91"></a></div>'
+                    htmlCat += '<div class="navbar-cart-item-body">';
+                    htmlCat += '<a class="navbar-cart-item-heading" href="#">' + Utils.decodeHTML(Cart.list[i].title)+'</a>';
+                    htmlCat += '<div class="navbar-cart-item-price d-flex group-10 justify-content-between">'
+                    htmlCat += '<div>' + Cart.list[i].quantity + ' x <span class="navbar-cart-item-price-value">' + Cart.list[i].price+'đ</span>';
+                    htmlCat += '</div><button class="navbar-cart-remove mdi-delete" onclick="Cart.remove3(' + Cart.list[i].id + ',' + Cart.list[i].price + ');"></button></div></div></div >';               
+                    
+                }               
+                $(".qty input").change(function () {
+                    var id = $(this).attr('id').replace("prQuantity_", "");
+                    Cart.updateQuantity(id, $(this).val());
+                });
+                htmlCat += '<div class="navbar-cart-total">Subtotal: ' + Utils.toMoneyFormat(ttSC) +'đ</div><a class="btn btn-sm navbar-cart-btn" href="/product/checkout">Checkout</a>';
+                $(".navbar-cart").html(htmlCat);
+            } catch (e) {
+                
+                $(".spN").html("0");
+            }
+        }
+    },
     remove: function (prId) {
         var productCookies = Cookies.get("CartList");
         Cart.list = jQuery.parseJSON(productCookies);
@@ -195,6 +229,7 @@
         }
         Cookies.set("CartList", JSON.stringify(Cart.list), { expires: 7, path: '/' });        
         Cart.bindCartTable();
+        Cart.bindSmallCart();
     },
     sendOrder: function () {
         var productCookies = Cookies.get("CartList");
@@ -346,11 +381,15 @@ var OrderForm = {
 
 var order = "pricedesc";
 $(document).ready(function () {
-    $(".cartContent input").change(function () {
-        Cart.saveTempForm();
-    });
-    $(".cartContent  textarea").change(function () {
-        Cart.saveTempForm();
-    });
+    Cart.bindSmallCart();
+    if ($(".cartContent input")) {
+        $(".cartContent input").change(function () {
+            Cart.saveTempForm();
+        });
+        $(".cartContent  textarea").change(function () {
+            Cart.saveTempForm();
+        });
+    }
+    
 
 });
