@@ -34,7 +34,7 @@ $(document).ready(function () {
             $(".contact-err").html("Lỗi. Vui lòng nhập nội dung tin nhắn. ");
             valid = false;
         }
-        if (_email != "" && Utils.isEmail(_email)) {
+        if (_email == "" && !Utils.isEmail(_email)) {
             $(".contact-err").html("Lỗi. Email không đúng đụng dạng. ");
             valid = false;
         }

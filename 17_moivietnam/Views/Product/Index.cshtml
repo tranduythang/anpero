@@ -51,16 +51,16 @@
     </section>
     <!-- Single product-->
     <section class="section-md bg-transparent">
-        <div class="container">
+        <div class="container" id="container">
             <div class="row row-25 row-xl-55 justify-content-between">
                 <div class="col-sm-6 col-lg-5">
                     <div class="owl-carousel owl-vertical-center">
-                        <img class="shadow-sm image image-sm product-overview-figure" src="@Model.Images" alt="@Model.PrName" width="470"/>
+                        <img class="shadow-sm image image-sm product-overview-figure" src="@Model.Images" alt="@Model.PrName" width="470" />
                         @if (Model.ImagesSlide != null && Model.ImagesSlide.Count() > 0)
                         {
                             foreach (var item in Model.ImagesSlide)
                             {
-                                <img class="shadow-sm image image-sm product-overview-figure" src="@item" alt="@Model.PrName" width="470"/>
+                                <img class="shadow-sm image image-sm product-overview-figure" src="@item" alt="@Model.PrName" width="470" />
                             }
                         }
                     </div>
@@ -80,7 +80,7 @@
 
 
                         <dl class="term-list term-list-inline text-style-btn">
-                            <dt>Categories:</dt>
+                            <dt>Danh mục:</dt>
                             <dd><a href="@Anpero.StringHelpper.GetCategoryLink(Model.CatName, Model.CatID)" title="@Model.CatName">@Model.CatName</a></dd>
                         </dl>
                         <div class="product-overview-filter-form">
@@ -104,8 +104,8 @@
         <div class="container">
             <div class="tab tab-classic">
                 <ul class="nav nav-classic tab-header" role="tablist">
-                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#navClassic1-1" role="tab" aria-selected="true">Description</a></li>
-                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#navClassic1-2" role="tab" aria-selected="false">Comment</a></li>
+                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#navClassic1-1" role="tab" aria-selected="true">Thông tin chi tiết</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#navClassic1-2" role="tab" aria-selected="false">Bình luận</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="navClassic1-1" role="tabpanel">
@@ -113,7 +113,8 @@
                     </div>
                     <div class="tab-pane fade" id="navClassic1-2" role="tabpanel">
                         <h3>Bình luận</h3>
-                        <div class="fb-comments" data-href="@HttpContext.Current.Request.Url.AbsoluteUri" data-width="" data-numposts="15"></div>
+                        <div id="facebookComment"></div>
+
                     </div>
                 </div>
             </div>
@@ -149,7 +150,6 @@
     @section scripts{
         @Html.Raw(Model.Script)
         <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0&appId=129078861768565&autoLogAppEvents=1"></script>
 
         <script>
 
@@ -157,17 +157,23 @@
     $(window).resize(function () {
         resizeVideo();
     });
-    $(document).ready(function () {
-        $(".fb-comments").attr("data-width", $("#navClassic1-1").width())
-        resizeVideo();
+            $(document).ready(function () {
+                setTimeout(function () {
+                    (function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));
+                    var pathname = window.location.href;
+                    var contentWith = $("#container").width() - 70;
+                    $('#facebookComment').html('<div data-lazy="true" class="fb-comments" data-href="' + pathname + '" data-num-posts="20" data-width="' + contentWith + '"  style="width: 100% !important;"></div>');
+                }, 2000)
+            resizeVideo();
+
         $("#single_product_addtocart").click(function () {
-            Cart.quantity = $("input[name=spinner]").val();            
+            Cart.quantity = $("input[name=spinner]").val();
             Cart.addProduct(@Model.Id,@Model.SalePrice, '@Model.Images', "@HttpUtility.HtmlEncode(Model.PrName) ",@Convert.ToInt32(Model.Price));
         });
 
     });
     function resizeVideo() {
-        var contentW = $("#navClassic1-1").width();
+        var contentW = $("#container").width();
         var iframe = $('#navClassic1-1 iframe');
         var iframeW = iframe.css('width', contentW - 20);
         iframe.css('width', iframeW);
@@ -182,7 +188,7 @@
             images = images.Select(x => "\"" + x + "\"").ToList();
             var imagesText = string.Join(",", images);
         }
-<script type="application/ld+json">
+        <script type="application/ld+json">
     {
     "@@context":"http://schema.org/",
     "@@type":"Product",
@@ -191,7 +197,7 @@
     "description":"@Model.ShortDesc",
     "sku": "@Model.Id"
     }
-</script>
+        </script>
 
     }
 
