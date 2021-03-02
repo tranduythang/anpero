@@ -590,7 +590,7 @@ namespace Anpero
         {
             if (!string.IsNullOrEmpty(productName) && productId > 0)
             {
-                return "/" + toURLgach(productName) + "-p" + productId;
+                return "/" + toURLgach(productName).ToLower() + "-p" + productId;
             }
             else
             {

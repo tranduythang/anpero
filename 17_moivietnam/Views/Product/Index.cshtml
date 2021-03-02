@@ -162,7 +162,7 @@
                     (function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));
                     var pathname = window.location.href;
                     var contentWith = $("#container").width() - 70;
-                    $('#facebookComment').html('<div data-lazy="true" class="fb-comments" data-href="' + pathname + '" data-num-posts="20" data-width="' + contentWith + '"  style="width: 100% !important;"></div>');
+                    $('#facebookComment').html('<div class="fb-comments" data-href="' + pathname + '" data-num-posts="20" data-width="' + contentWith + '"  style="width: 100% !important;"></div>');
                 }, 2000)
             resizeVideo();
 

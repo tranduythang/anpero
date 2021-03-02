@@ -191,7 +191,7 @@
                         htmlCat += '</div><button class="navbar-cart-remove mdi-delete" onclick="Cart.remove2(' + Cart.list[i].id + ',' + Cart.list[i].price + ');"></button></div></div></div >';
 
                     }
-                    htmlCat += '<div class="navbar-cart-total">Subtotal: ' + Utils.toMoneyFormat(ttSC) + 'đ</div><a class="btn btn-sm navbar-cart-btn" href="/product/checkout">Checkout</a>';
+                    htmlCat += '<div class="navbar-cart-total">Subtotal: ' + Utils.toMoneyFormat(ttSC) + 'đ</div><a class="btn btn-sm navbar-cart-btn" href="/product/checkout">Đơn hàng</a>';
                 } else {
                     htmlCat += "Chưa có sản phẩm trong giỏ hàng";
                 }
@@ -206,6 +206,8 @@
                 
                 $(".spN").html("0");
             }
+        } else {            
+            $(".navbar-cart").html("Chưa có sản phẩm trong giỏ hàng");
         }
     },
     remove: function (prId) {
