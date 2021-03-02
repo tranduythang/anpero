@@ -1,0 +1,1074 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EDEC179C-8C62-4DE5-8351-E805ED212B5C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AnperoFrontend</RootNamespace>
+    <AssemblyName>AnperoFrontend</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="handler\LocationHandler.ashx.cs">
+      <DependentUpon>LocationHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="handler\ProductHandler.ashx.cs">
+      <DependentUpon>ProductHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="Web References\WebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\checkout.html" />
+    <Content Include="assets\css\animate.css" />
+    <Content Include="assets\css\option2.css" />
+    <Content Include="assets\css\option3.css" />
+    <Content Include="assets\css\option4.css" />
+    <Content Include="assets\css\option5.css" />
+    <Content Include="assets\css\option6.css" />
+    <Content Include="assets\css\reset.css" />
+    <Content Include="assets\css\responsive.css" />
+    <Content Include="assets\css\style-contact.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\fonts\fontello.svg" />
+    <Content Include="assets\images\290x360.png" />
+    <Content Include="assets\images\384x135.jpg" />
+    <Content Include="assets\images\384x157.jpg" />
+    <Content Include="assets\images\add-cart.png" />
+    <Content Include="assets\images\banchay.png" />
+    <Content Include="assets\images\bar.png" />
+    <Content Include="assets\images\bg-top-banner.jpg" />
+    <Content Include="assets\images\bgimg.jpg" />
+    <Content Include="assets\images\br-mainmenu.jpg" />
+    <Content Include="assets\images\brand_prlx_bg-small.jpg" />
+    <Content Include="assets\images\btn-close.png" />
+    <Content Include="assets\images\cart-icon.png" />
+    <Content Include="assets\images\cart-icon4.jpg" />
+    <Content Include="assets\images\cart-icon4.png" />
+    <Content Include="assets\images\cart.png" />
+    <Content Include="assets\images\cat-br1.png" />
+    <Content Include="assets\images\cat-br2.png" />
+    <Content Include="assets\images\cat-br3.png" />
+    <Content Include="assets\images\checkbox.png" />
+    <Content Include="assets\images\checked.png" />
+    <Content Include="assets\images\compare.png" />
+    <Content Include="assets\images\dangky.gif" />
+    <Content Include="assets\images\delete_icon.png" />
+    <Content Include="assets\images\down.png" />
+    <Content Include="assets\images\dropdow.png" />
+    <Content Include="assets\images\dropdown.png" />
+    <Content Include="assets\images\email.png" />
+    <Content Include="assets\images\en.jpg" />
+    <Content Include="assets\images\fb.jpg" />
+    <Content Include="assets\images\featured-text.png" />
+    <Content Include="assets\images\featured2.png" />
+    <Content Include="assets\images\floor-elevator.png" />
+    <Content Include="assets\images\footer-logo2.png" />
+    <Content Include="assets\images\fr.jpg" />
+    <Content Include="assets\images\grid-view-bg.png" />
+    <Content Include="assets\images\heart-icon.png" />
+    <Content Include="assets\images\heart.png" />
+    <Content Include="assets\images\home.png" />
+    <Content Include="assets\images\icon-angle-right.png" />
+    <Content Include="assets\images\icon-cart-option2.png" />
+    <Content Include="assets\images\icon-cart-round.png" />
+    <Content Include="assets\images\icon-cart-round5.png" />
+    <Content Include="assets\images\icon-cart-round6.png" />
+    <Content Include="assets\images\icon-clock.jpg" />
+    <Content Include="assets\images\icon-clock.png" />
+    <Content Include="assets\images\icon-compare-round.png" />
+    <Content Include="assets\images\icon-compare-round5.png" />
+    <Content Include="assets\images\icon-compare-round6.png" />
+    <Content Include="assets\images\icon-heart-round.png" />
+    <Content Include="assets\images\icon-heart-round5.png" />
+    <Content Include="assets\images\icon-heart-round6.png" />
+    <Content Include="assets\images\icon_title.png" />
+    <Content Include="assets\images\kak.png" />
+    <Content Include="assets\images\kak2.png" />
+    <Content Include="assets\images\kak3.png" />
+    <Content Include="assets\images\latest-deal-title.png" />
+    <Content Include="assets\images\list-view-bg.png" />
+    <Content Include="assets\images\loading.gif" />
+    <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\logo2.png" />
+    <Content Include="assets\images\new-marker.gif" />
+    <Content Include="assets\images\next.png" />
+    <Content Include="assets\images\notify-right-6.png" />
+    <Content Include="assets\images\notify-right-red.png" />
+    <Content Include="assets\images\notify-right.png" />
+    <Content Include="assets\images\notify.png" />
+    <Content Include="assets\images\phone.png" />
+    <Content Include="assets\images\Preloader_4.gif" />
+    <Content Include="assets\images\prev.png" />
+    <Content Include="assets\images\price-percent-br.png" />
+    <Content Include="assets\images\range-icon.png" />
+    <Content Include="assets\images\sale-bg.png" />
+    <Content Include="assets\images\search.png" />
+    <Content Include="assets\images\sports.png" />
+    <Content Include="assets\images\up.png" />
+    <Content Include="assets\images\user-icon.png" />
+    <Content Include="assets\images\white_texture.jpg" />
+    <Content Include="assets\js\contact.js" />
+    <Content Include="assets\js\jquery.actual.min.js" />
+    <Content Include="assets\js\jquery-slimscroll-min.js" />
+    <Content Include="assets\js\option4.js" />
+    <Content Include="assets\js\theme-script.js" />
+    <Content Include="assets\lib\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="assets\lib\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="assets\lib\bootstrap\css\bootstrap.css" />
+    <Content Include="assets\lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\lib\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\lib\bootstrap\js\bootstrap.js" />
+    <Content Include="assets\lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\lib\bootstrap\js\npm.js" />
+    <Content Include="assets\lib\countdown\countdownBasic.html" />
+    <Content Include="assets\lib\countdown\countdownGlowing.gif" />
+    <Content Include="assets\lib\countdown\countdownLED.png" />
+    <Content Include="assets\lib\countdown\jquery.countdown-es.js" />
+    <Content Include="assets\lib\countdown\jquery.countdown-vi.js" />
+    <Content Include="assets\lib\countdown\jquery.countdown.css" />
+    <Content Include="assets\lib\countdown\jquery.countdown.js" />
+    <Content Include="assets\lib\countdown\jquery.countdown.min.js" />
+    <Content Include="assets\lib\countdown\jquery.plugin.js" />
+    <Content Include="assets\lib\countdown\jquery.plugin.min.js" />
+    <Content Include="assets\lib\fancyBox\blank.gif" />
+    <Content Include="assets\lib\fancyBox\fancybox_loading%402x.gif" />
+    <Content Include="assets\lib\fancyBox\fancybox_loading.gif" />
+    <Content Include="assets\lib\fancyBox\fancybox_overlay.png" />
+    <Content Include="assets\lib\fancyBox\fancybox_sprite%402x.png" />
+    <Content Include="assets\lib\fancyBox\fancybox_sprite.png" />
+    <Content Include="assets\lib\fancyBox\helpers\fancybox_buttons.png" />
+    <Content Include="assets\lib\fancyBox\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="assets\lib\fancyBox\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="assets\lib\fancyBox\helpers\jquery.fancybox-media.js" />
+    <Content Include="assets\lib\fancyBox\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="assets\lib\fancyBox\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="assets\lib\fancyBox\jquery.fancybox.css" />
+    <Content Include="assets\lib\fancyBox\jquery.fancybox.js" />
+    <Content Include="assets\lib\fancyBox\jquery.fancybox.pack.js" />
+    <Content Include="assets\lib\font-awesome\css\font-awesome.css" />
+    <Content Include="assets\lib\font-awesome\css\font-awesome.min.css" />
+    <Content Include="assets\lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\lib\hoveImages\css\reset.css" />
+    <Content Include="assets\lib\hoveImages\css\style1.css" />
+    <Content Include="assets\lib\hoveImages\css\style10.css" />
+    <Content Include="assets\lib\hoveImages\css\style2.css" />
+    <Content Include="assets\lib\hoveImages\css\style3.css" />
+    <Content Include="assets\lib\hoveImages\css\style4.css" />
+    <Content Include="assets\lib\hoveImages\css\style5.css" />
+    <Content Include="assets\lib\hoveImages\css\style6.css" />
+    <Content Include="assets\lib\hoveImages\css\style7.css" />
+    <Content Include="assets\lib\hoveImages\css\style8.css" />
+    <Content Include="assets\lib\hoveImages\css\style9.css" />
+    <Content Include="assets\lib\hoveImages\css\style_common.css" />
+    <Content Include="assets\lib\hoveImages\images\bgimg.jpg" />
+    <Content Include="assets\lib\hoveImages\images\white_texture.jpg" />
+    <Content Include="assets\lib\jquery-ui\external\jquery\jquery.js" />
+    <Content Include="assets\lib\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="assets\lib\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="assets\lib\jquery-ui\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="assets\lib\jquery-ui\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="assets\lib\jquery-ui\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="assets\lib\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="assets\lib\jquery-ui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="assets\lib\jquery-ui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="assets\lib\jquery-ui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="assets\lib\jquery-ui\images\ui-icons_222222_256x240.png" />
+    <Content Include="assets\lib\jquery-ui\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="assets\lib\jquery-ui\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="assets\lib\jquery-ui\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="assets\lib\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="assets\lib\jquery-ui\index.html" />
+    <Content Include="assets\lib\jquery-ui\jquery-ui.css" />
+    <Content Include="assets\lib\jquery-ui\jquery-ui.js" />
+    <Content Include="assets\lib\jquery-ui\jquery-ui.min.css" />
+    <Content Include="assets\lib\jquery-ui\jquery-ui.min.js" />
+    <Content Include="assets\lib\jquery-ui\jquery-ui.structure.css" />
+    <Content Include="assets\lib\jquery-ui\jquery-ui.structure.min.css" />
+    <Content Include="assets\lib\jquery-ui\jquery-ui.theme.css" />
+    <Content Include="assets\lib\jquery-ui\jquery-ui.theme.min.css" />
+    <Content Include="assets\lib\jquery-bxslider\images\bx_loader.gif" />
+    <Content Include="assets\lib\jquery-bxslider\images\controls.png" />
+    <Content Include="assets\lib\jquery-bxslider\jquery-bxslider.css" />
+    <Content Include="assets\lib\jquery-bxslider\jquery-bxslider.js" />
+    <Content Include="assets\lib\jquery-bxslider\jquery-bxslider.min.js" />
+    <Content Include="assets\lib\jquery-bxslider\plugins\jquery.easing.1.3.js" />
+    <Content Include="assets\lib\jquery-bxslider\plugins\jquery.fitvids.js" />
+    <Content Include="assets\lib\jquery.countdown\jquery.countdown.js" />
+    <Content Include="assets\lib\jquery.countdown\jquery.countdown.min.js" />
+    <Content Include="assets\lib\jquery.elevatezoom.js" />
+    <Content Include="assets\lib\jquery\jquery-1-11-2.js" />
+    <Content Include="assets\lib\jquery\jquery-1.5.js" />
+    <Content Include="assets\lib\jquery\jquery-ui.js" />
+    <Content Include="assets\lib\jqzoom\jquery.jqzoom.css" />
+    <Content Include="assets\lib\jqzoom\jquery.jqzoom.js" />
+    <Content Include="assets\lib\jqzoom\zoomloader.gif" />
+    <Content Include="assets\lib\owl-carousel\owl-carousel.css" />
+    <Content Include="assets\lib\owl-carousel\owl.carousel.js" />
+    <Content Include="assets\lib\owl-carousel\owl-carousel.min.js" />
+    <Content Include="assets\lib\select2\css\select2.css" />
+    <Content Include="assets\lib\select2\css\select2.min.css" />
+    <Content Include="assets\lib\select2\js\i18n\en.js" />
+    <Content Include="assets\lib\select2\js\i18n\vi.js" />
+    <Content Include="assets\lib\select2\js\select2.full.js" />
+    <Content Include="assets\lib\select2\js\select2.full.min.js" />
+    <Content Include="assets\lib\select2\js\select2.js" />
+    <Content Include="assets\lib\select2\js\select2.min.js" />
+    <Content Include="assets\fonts\fontello.eot" />
+    <Content Include="assets\fonts\fontello.ttf" />
+    <Content Include="assets\fonts\fontello.woff" />
+    <Content Include="assets\lib\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="assets\lib\bootstrap\css\bootstrap.css.map" />
+    <Content Include="assets\lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\lib\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\lib\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="assets\lib\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\lib\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\lib\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\lib\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="assets\lib\font-awesome\less\animated.less" />
+    <Content Include="assets\lib\font-awesome\less\bordered-pulled.less" />
+    <Content Include="assets\lib\font-awesome\less\core.less" />
+    <Content Include="assets\lib\font-awesome\less\fixed-width.less" />
+    <Content Include="assets\lib\font-awesome\less\font-awesome.less" />
+    <Content Include="assets\lib\font-awesome\less\icons.less" />
+    <Content Include="assets\lib\font-awesome\less\larger.less" />
+    <Content Include="assets\lib\font-awesome\less\list.less" />
+    <Content Include="assets\lib\font-awesome\less\mixins.less" />
+    <Content Include="assets\lib\font-awesome\less\path.less" />
+    <Content Include="assets\lib\font-awesome\less\rotated-flipped.less" />
+    <Content Include="assets\lib\font-awesome\less\stacked.less" />
+    <Content Include="assets\lib\font-awesome\less\variables.less" />
+    <Content Include="assets\lib\font-awesome\scss\_animated.scss" />
+    <Content Include="assets\lib\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="assets\lib\font-awesome\scss\_core.scss" />
+    <Content Include="assets\lib\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="assets\lib\font-awesome\scss\_icons.scss" />
+    <Content Include="assets\lib\font-awesome\scss\_larger.scss" />
+    <Content Include="assets\lib\font-awesome\scss\_list.scss" />
+    <Content Include="assets\lib\font-awesome\scss\_mixins.scss" />
+    <Content Include="assets\lib\font-awesome\scss\_path.scss" />
+    <Content Include="assets\lib\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="assets\lib\font-awesome\scss\_stacked.scss" />
+    <Content Include="assets\lib\font-awesome\scss\_variables.scss" />
+    <Content Include="assets\lib\font-awesome\scss\font-awesome.scss" />
+    <Content Include="assets\lib\jquery-bxslider\bower.json" />
+    <Content Include="assets\lib\jquery-bxslider\readme.md" />
+    <Content Include="beehome.vn\beehome.html" />
+    <Content Include="beehome.vn\contact\beehome.html" />
+    <Content Include="beehome.vn\contact\index.html" />
+    <Content Include="beehome.vn\portfolio\chung-cu-phong-cach-co-dien-anh-cong-hillstate\index.html" />
+    <Content Include="beehome.vn\portfolio\office-on-space\index.html" />
+    <Content Include="beehome.vn\portfolio\thiet-ke-phong-cach-hien-dai-chi-ly-ha-dong\index.html" />
+    <Content Include="beehome.vn\portfolio\thiet-ke-phong-cach-hien-dai-chi-yen-vnimation\index.html" />
+    <Content Include="beehome.vn\portfolio\thiet-ke-van-phong-01\index.html" />
+    <Content Include="beehome.vn\portfolio\thiet-ke-van-phong-02\index.html" />
+    <Content Include="beehome.vn\wp-content\plugins\akismet\_inc\form8aee.js" />
+    <Content Include="beehome.vn\wp-content\plugins\contact-form-7\images\ajax-loader.gif" />
+    <Content Include="beehome.vn\wp-content\plugins\contact-form-7\includes\css\stylesbdeb.css" />
+    <Content Include="beehome.vn\wp-content\plugins\contact-form-7\includes\js\scriptsbdeb.js" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\css\js_composer.min1eb7.css" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.svg" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\fonts\vc_icons_v2\fonts\vcpb-plugin-iconsb82a.svg" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\flickr.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\address-book.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\alarm-clock.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\anchor.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\application-image.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\arrow.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\asterisk.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\auction-hammer.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\balloon-buzz.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\balloon-facebook.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\balloon-twitter.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\balloon.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\battery-full.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\binocular.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\blue-document-excel.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\blue-document-image.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\blue-document-music.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\blue-document-office.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\blue-document-pdf.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\blue-document-powerpoint.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\blue-document-word.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\bookmark.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\camcorder.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\camera.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\chart-pie.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\chart.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\clock.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\control.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\fire.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\heart.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\mail.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\plus-shield.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\icons\video.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\spinner.gif" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\toggle_close.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\images\toggle_open.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\js\dist\js_composer_front.min1eb7.js" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\js\vendors\woocommerce-add-to-cart1eb7.js" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\lib\bower\animate-css\animate.min1eb7.css" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\lib\bower\isotope\dist\isotope.pkgd.min1eb7.js" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\lib\vc_waypoints\vc-waypoints.min1eb7.js" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\vc\alert.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\vc\blur.svg" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\vc\exclamation.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\vc\info.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\vc\remove.png" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\vc\tick.png" />
+    <Content Include="beehome.vn\wp-content\plugins\revslider\public\assets\assets\coloredbg.png" />
+    <Content Include="beehome.vn\wp-content\plugins\revslider\public\assets\assets\gridtile.png" />
+    <Content Include="beehome.vn\wp-content\plugins\revslider\public\assets\assets\gridtile_3x3.png" />
+    <Content Include="beehome.vn\wp-content\plugins\revslider\public\assets\assets\gridtile_3x3_white.png" />
+    <Content Include="beehome.vn\wp-content\plugins\revslider\public\assets\assets\gridtile_white.png" />
+    <Content Include="beehome.vn\wp-content\plugins\revslider\public\assets\assets\loader.gif" />
+    <Content Include="beehome.vn\wp-content\plugins\revslider\public\assets\css\closedhand.cur" />
+    <Content Include="beehome.vn\wp-content\plugins\revslider\public\assets\css\openhand.cur" />
+    <Content Include="beehome.vn\wp-content\plugins\revslider\public\assets\css\settings7923.css" />
+    <Content Include="beehome.vn\wp-content\plugins\revslider\public\assets\fonts\revicons\revicons90c6.svg" />
+    <Content Include="beehome.vn\wp-content\plugins\revslider\public\assets\js\jquery.themepunch.revolution.min7923.js" />
+    <Content Include="beehome.vn\wp-content\plugins\revslider\public\assets\js\jquery.themepunch.tools.min7923.js" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\css\blocks\style3ab2.css" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\css\woocommerce-layout3ab2.css" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\css\woocommerce-smallscreen3ab2.css" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\css\woocommerce3ab2.css" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\fonts\star.svg" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\fonts\WooCommerce.svg" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\images\icons\credit-cards\amex.svg" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\images\icons\credit-cards\diners.svg" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\images\icons\credit-cards\discover.svg" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\images\icons\credit-cards\jcb.svg" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\images\icons\credit-cards\laser.svg" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\images\icons\credit-cards\maestro.svg" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\images\icons\credit-cards\mastercard.svg" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\images\icons\credit-cards\visa.svg" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\images\icons\loader.svg" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\js\jquery-blockui\jquery.blockUI.min44fd.js" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\js\js-cookie\js.cookie.min6b25.js" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\.images\page-loader.html" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\css\AjaxLoader.html" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\css\animate2513.css" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\css\bg2513.css" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\css\bootstrap2513.css" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\css\font\ytp-regular.html" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\css\jpreloader2513.css" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\css\jquery.mb.YTPlayer.min2513.css" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\css\light2513.css" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\css\magnific-popup2513.css" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\css\owl.carousel2513.css" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\css\owl.theme2513.css" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\css\owl.transitions2513.css" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\css\plugin2513.css" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\css\rev-settings2513.css" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\css\woocommerce2513.css" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\elegant_font\HTML_CSS\fonts\ElegantIcons.svg" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\elegant_font\HTML_CSS\lte-ie72513.js" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\elegant_font\HTML_CSS\style2513.css" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\et-line-font\fonts\et-line.svg" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\et-line-font\style2513.css" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\font-awesome\css\font-awesome2513.css" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\font-awesome\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\glyphicons-halflings-regular-2.html" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\glyphicons-halflings-regular-3.html" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\glyphicons-halflings-regular-4.html" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\glyphicons-halflings-regulard41d.html" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\framework\color2513.css" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\images\close-2.html" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\images\close.html" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\images\dot-70.png" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\images\dotted.png" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\images\icon-slide-min.html" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\images\icon-slide-plus.html" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\images\icon-url.html" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\images\icon-zoom.html" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\images\large_left.png" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\images\large_right.png" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\images\list-arrow.html" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\images\page-loader.html" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\images\ui.totop.png" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\images\ui\arrow-down.png" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\images\ui\arrow-up.png" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\js\bootstrap.min2513.js" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\js\classie2513.js" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\js\designesia2513.js" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\js\enquire.min2513.js" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\js\jpreLoader2513.js" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\js\jquery.magnific-popup.min2513.js" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\js\jquery.malihu.PageScroll2id2513.js" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\js\jquery.mb.YTPlayer.min2513.js" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\js\total12513.js" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\js\typed2513.js" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\js\video.resize2513.js" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\js\wow.min2513.js" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\styleba8c.css" />
+    <Content Include="beehome.vn\wp-content\uploads\2015\07\02-2-min-700x466.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2015\07\fender-los-angeles-office-7-700x466.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2015\07\p1_a.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2015\07\p1_b.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2015\07\p1_c.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2015\07\PK-aCong-5-min-700x466.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2015\07\PK-aCong-5-min.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2015\07\techspace-office-berlin-1-700x466.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2015\07\techspace-office-berlin-10.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2015\07\techspace-office-berlin-5-700x466.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2015\08\p2_b.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2015\08\pic_3-1-700x337.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2015\08\pic_3-1.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2015\08\pic_4-1-700x337.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2015\08\pic_4-1.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2015\08\pic_5-700x337.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2015\08\pic_5.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2017\08\pic-blog-1.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2017\08\pic-blog-2.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2017\08\pic-blog-3.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2017\08\pic-blog-4.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2017\09\subheader-4.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\06\beehome-6-min.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\06\bgtk.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\06\favicon.png" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\181130_DL1_Scandinavi_Phong-Khach.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\181130_DL1_Scandinavi_Phong-Ngu-Master-2.jpg" />
+    <Content Include="assets\images\b3fd5.png" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\bông1-min.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\callgif.gif" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\noi-that-beehome.png" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\Phong-bé-trai-min.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\Phong-cách-hiện-đại-–-Chị-Ly-–-Hà-Đông.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\phong-khach-hy-lap-tu-lap-3-20170305002507022-x1200-1.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-1-1514519702257.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-1-1514519703615.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-10-1514519703624.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-12-1514519703625.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-13-1514519703626.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-14-1514519703626.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-15-1514519703627.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-16-1514519703627.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-17-1514519703628.png" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-18-1514519703629.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-19-1514519703629.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-2-1514519703616.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-20-1514519703630.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-21-1514519703630.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-22-1514519703631.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-23-1514519703632.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-24-1514519703632.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-25-1514519703634.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-26-1514519703638.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-27-1514519703639.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-29-1514519703640.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-3-1514519703618.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-30-1514519703641.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-31-1514519703642.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-32-1514519703642.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-4-1514519703619.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-5-1514519703620.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-6-1514519703621.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-7-1514518532969.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-7-1514519703622.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-8-1514519703623.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\photo-9-1514519703623.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\Phòng-khách-ấn-tượng-với-chiếc-sofa-xanh-đặt-đóng-riêng..jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\slide-xm-1-1836x928.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\techspace-berlin-mm-3.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\techspace-office-berlin-11.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\techspace-office-berlin-2.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\thiet-ke-van-phong.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\thiet_ke_biet_thu.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\v2-min.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\v3-min.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\2019\07\v8-min.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\bfi_thumb\02-2-min-oaklxdlkiofsbkwep0im3ae6e4bgpvw7ligkv26tkk.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\bfi_thumb\Phong-cách-hiện-đại-–-Chị-Ly-–-Hà-Đông-oakm16u08hnnend2fnu57brh4dj1xp10sdpgxgjcc4.jpg" />
+    <Content Include="beehome.vn\wp-content\uploads\bfi_thumb\PK-aCong-5-min-oaklv0298r6oz2cnkhjkadz8c2129fgmxr3e6vpnas.jpg" />
+    <Content Include="beehome.vn\wp-includes\css\dist\block-library\style.min2513.css" />
+    <Content Include="beehome.vn\wp-includes\js\comment-reply.min2513.js" />
+    <Content Include="beehome.vn\wp-includes\js\jquery\jquery-migrate.min330a.js" />
+    <Content Include="beehome.vn\wp-includes\js\jquery\jquery4a5f.js" />
+    <Content Include="beehome.vn\wp-includes\js\wp-embed.min2513.js" />
+    <Content Include="beehome.vn\wp-includes\wlwmanifest.xml" />
+    <Content Include="Global.asax" />
+    <Content Include="handler\ProductHandler.ashx" />
+    <Content Include="handler\LocationHandler.ashx" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.eot" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.ttf" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.woff" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v1d41d.eot" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\fonts\vc_icons_v2\fonts\vcpb-plugin-iconsb82a.eot" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\fonts\vc_icons_v2\fonts\vcpb-plugin-iconsb82a.ttf" />
+    <Content Include="beehome.vn\wp-content\plugins\js_composer\assets\fonts\vc_icons_v2\fonts\vcpb-plugin-iconsb82a.woff" />
+    <Content Include="beehome.vn\wp-content\plugins\revslider\public\assets\fonts\revicons\revicons90c6.eot" />
+    <Content Include="beehome.vn\wp-content\plugins\revslider\public\assets\fonts\revicons\revicons90c6.ttf" />
+    <Content Include="beehome.vn\wp-content\plugins\revslider\public\assets\fonts\revicons\revicons90c6.woff" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\fonts\star.eot" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\fonts\star.ttf" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\fonts\star.woff" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\fonts\stard41d.eot" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\fonts\WooCommerce.eot" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\fonts\WooCommerce.ttf" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\fonts\WooCommerce.woff" />
+    <Content Include="beehome.vn\wp-content\plugins\woocommerce\assets\fonts\WooCommerced41d.eot" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\elegant_font\HTML_CSS\fonts\ElegantIcons.eot" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\elegant_font\HTML_CSS\fonts\ElegantIcons.ttf" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\elegant_font\HTML_CSS\fonts\ElegantIcons.woff" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\elegant_font\HTML_CSS\fonts\ElegantIconsd41d.eot" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\et-line-font\fonts\et-line.eot" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\et-line-font\fonts\et-line.ttf" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\et-line-font\fonts\et-line.woff" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\et-line-font\fonts\et-lined41d.eot" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\font-awesome\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\font-awesome\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\font-awesome\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\font-awesome\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="beehome.vn\wp-content\themes\archi-3.0.1\fonts\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Scripts\Bootrap.notify.js" />
+    <Content Include="wp-content\plugins\akismet\_inc\form8aee.js" />
+    <Content Include="wp-content\plugins\contact-form-7\images\ajax-loader.gif" />
+    <Content Include="wp-content\plugins\contact-form-7\includes\css\stylesbdeb.css" />
+    <Content Include="wp-content\plugins\contact-form-7\includes\js\scriptsbdeb.js" />
+    <Content Include="wp-content\plugins\js_composer\assets\css\js_composer.min1eb7.css" />
+    <Content Include="wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.svg" />
+    <Content Include="wp-content\plugins\js_composer\assets\fonts\vc_icons_v2\fonts\vcpb-plugin-iconsb82a.svg" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\flickr.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\address-book.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\alarm-clock.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\anchor.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\application-image.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\arrow.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\asterisk.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\auction-hammer.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\balloon-buzz.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\balloon-facebook.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\balloon-twitter.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\balloon.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\battery-full.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\binocular.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\blue-document-excel.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\blue-document-image.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\blue-document-music.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\blue-document-office.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\blue-document-pdf.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\blue-document-powerpoint.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\blue-document-word.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\bookmark.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\camcorder.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\camera.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\chart-pie.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\chart.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\clock.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\control.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\fire.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\heart.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\mail.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\plus-shield.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\icons\video.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\spinner.gif" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\toggle_close.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\images\toggle_open.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\js\dist\js_composer_front.min1eb7.js" />
+    <Content Include="wp-content\plugins\js_composer\assets\js\vendors\woocommerce-add-to-cart1eb7.js" />
+    <Content Include="wp-content\plugins\js_composer\assets\lib\bower\animate-css\animate.min1eb7.css" />
+    <Content Include="wp-content\plugins\js_composer\assets\lib\bower\isotope\dist\isotope.pkgd.min1eb7.js" />
+    <Content Include="wp-content\plugins\js_composer\assets\lib\vc_waypoints\vc-waypoints.min1eb7.js" />
+    <Content Include="wp-content\plugins\js_composer\assets\vc\alert.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\vc\blur.svg" />
+    <Content Include="wp-content\plugins\js_composer\assets\vc\exclamation.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\vc\info.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\vc\remove.png" />
+    <Content Include="wp-content\plugins\js_composer\assets\vc\tick.png" />
+    <Content Include="wp-content\plugins\revslider\public\assets\assets\coloredbg.png" />
+    <Content Include="wp-content\plugins\revslider\public\assets\assets\gridtile.png" />
+    <Content Include="wp-content\plugins\revslider\public\assets\assets\gridtile_3x3.png" />
+    <Content Include="wp-content\plugins\revslider\public\assets\assets\gridtile_3x3_white.png" />
+    <Content Include="wp-content\plugins\revslider\public\assets\assets\gridtile_white.png" />
+    <Content Include="wp-content\plugins\revslider\public\assets\assets\loader.gif" />
+    <Content Include="wp-content\plugins\revslider\public\assets\css\closedhand.cur" />
+    <Content Include="wp-content\plugins\revslider\public\assets\css\openhand.cur" />
+    <Content Include="wp-content\plugins\revslider\public\assets\css\settings7923.css" />
+    <Content Include="wp-content\plugins\revslider\public\assets\fonts\revicons\revicons90c6.svg" />
+    <Content Include="wp-content\plugins\revslider\public\assets\js\jquery.themepunch.revolution.min7923.js" />
+    <Content Include="wp-content\plugins\revslider\public\assets\js\jquery.themepunch.tools.min7923.js" />
+    <Content Include="wp-content\plugins\woocommerce\assets\css\blocks\style3ab2.css" />
+    <Content Include="wp-content\plugins\woocommerce\assets\css\woocommerce-layout3ab2.css" />
+    <Content Include="wp-content\plugins\woocommerce\assets\css\woocommerce-smallscreen3ab2.css" />
+    <Content Include="wp-content\plugins\woocommerce\assets\css\woocommerce3ab2.css" />
+    <Content Include="wp-content\plugins\woocommerce\assets\fonts\star.svg" />
+    <Content Include="wp-content\plugins\woocommerce\assets\fonts\WooCommerce.svg" />
+    <Content Include="wp-content\plugins\woocommerce\assets\images\icons\credit-cards\amex.svg" />
+    <Content Include="wp-content\plugins\woocommerce\assets\images\icons\credit-cards\diners.svg" />
+    <Content Include="wp-content\plugins\woocommerce\assets\images\icons\credit-cards\discover.svg" />
+    <Content Include="wp-content\plugins\woocommerce\assets\images\icons\credit-cards\jcb.svg" />
+    <Content Include="wp-content\plugins\woocommerce\assets\images\icons\credit-cards\laser.svg" />
+    <Content Include="wp-content\plugins\woocommerce\assets\images\icons\credit-cards\maestro.svg" />
+    <Content Include="wp-content\plugins\woocommerce\assets\images\icons\credit-cards\mastercard.svg" />
+    <Content Include="wp-content\plugins\woocommerce\assets\images\icons\credit-cards\visa.svg" />
+    <Content Include="wp-content\plugins\woocommerce\assets\images\icons\loader.svg" />
+    <Content Include="wp-content\plugins\woocommerce\assets\js\jquery-blockui\jquery.blockUI.min44fd.js" />
+    <Content Include="wp-content\plugins\woocommerce\assets\js\js-cookie\js.cookie.min6b25.js" />
+    <Content Include="wp-content\themes\archi-3.0.1\.images\page-loader.html" />
+    <Content Include="wp-content\themes\archi-3.0.1\css\AjaxLoader.html" />
+    <Content Include="wp-content\themes\archi-3.0.1\css\animate2513.css" />
+    <Content Include="wp-content\themes\archi-3.0.1\css\bg2513.css" />
+    <Content Include="wp-content\themes\archi-3.0.1\css\bootstrap2513.css" />
+    <Content Include="wp-content\themes\archi-3.0.1\css\font\ytp-regular.html" />
+    <Content Include="wp-content\themes\archi-3.0.1\css\jpreloader2513.css" />
+    <Content Include="wp-content\themes\archi-3.0.1\css\jquery.mb.YTPlayer.min2513.css" />
+    <Content Include="wp-content\themes\archi-3.0.1\css\light2513.css" />
+    <Content Include="wp-content\themes\archi-3.0.1\css\magnific-popup2513.css" />
+    <Content Include="wp-content\themes\archi-3.0.1\css\owl.carousel2513.css" />
+    <Content Include="wp-content\themes\archi-3.0.1\css\owl.theme2513.css" />
+    <Content Include="wp-content\themes\archi-3.0.1\css\owl.transitions2513.css" />
+    <Content Include="wp-content\themes\archi-3.0.1\css\plugin2513.css" />
+    <Content Include="wp-content\themes\archi-3.0.1\css\rev-settings2513.css" />
+    <Content Include="wp-content\themes\archi-3.0.1\css\woocommerce2513.css" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\elegant_font\HTML_CSS\fonts\ElegantIcons.svg" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\elegant_font\HTML_CSS\lte-ie72513.js" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\elegant_font\HTML_CSS\style2513.css" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\et-line-font\fonts\et-line.svg" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\et-line-font\style2513.css" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\font-awesome\css\font-awesome2513.css" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\font-awesome\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\glyphicons-halflings-regular-2.html" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\glyphicons-halflings-regular-3.html" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\glyphicons-halflings-regular-4.html" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\glyphicons-halflings-regulard41d.html" />
+    <Content Include="wp-content\themes\archi-3.0.1\framework\color2513.css" />
+    <Content Include="wp-content\themes\archi-3.0.1\images\close-2.html" />
+    <Content Include="wp-content\themes\archi-3.0.1\images\close.html" />
+    <Content Include="wp-content\themes\archi-3.0.1\images\dot-70.png" />
+    <Content Include="wp-content\themes\archi-3.0.1\images\dotted.png" />
+    <Content Include="wp-content\themes\archi-3.0.1\images\icon-slide-min.html" />
+    <Content Include="wp-content\themes\archi-3.0.1\images\icon-slide-plus.html" />
+    <Content Include="wp-content\themes\archi-3.0.1\images\icon-url.html" />
+    <Content Include="wp-content\themes\archi-3.0.1\images\icon-zoom.html" />
+    <Content Include="wp-content\themes\archi-3.0.1\images\large_left.png" />
+    <Content Include="wp-content\themes\archi-3.0.1\images\large_right.png" />
+    <Content Include="wp-content\themes\archi-3.0.1\images\list-arrow.html" />
+    <Content Include="wp-content\themes\archi-3.0.1\images\page-loader.html" />
+    <Content Include="wp-content\themes\archi-3.0.1\images\ui.totop.png" />
+    <Content Include="wp-content\themes\archi-3.0.1\images\ui\arrow-down.png" />
+    <Content Include="wp-content\themes\archi-3.0.1\images\ui\arrow-up.png" />
+    <Content Include="wp-content\themes\archi-3.0.1\js\bootstrap.min2513.js" />
+    <Content Include="wp-content\themes\archi-3.0.1\js\classie2513.js" />
+    <Content Include="wp-content\themes\archi-3.0.1\js\designesia2513.js" />
+    <Content Include="wp-content\themes\archi-3.0.1\js\enquire.min2513.js" />
+    <Content Include="wp-content\themes\archi-3.0.1\js\jpreLoader2513.js" />
+    <Content Include="wp-content\themes\archi-3.0.1\js\jquery.magnific-popup.min2513.js" />
+    <Content Include="wp-content\themes\archi-3.0.1\js\jquery.malihu.PageScroll2id2513.js" />
+    <Content Include="wp-content\themes\archi-3.0.1\js\jquery.mb.YTPlayer.min2513.js" />
+    <Content Include="wp-content\themes\archi-3.0.1\js\total12513.js" />
+    <Content Include="wp-content\themes\archi-3.0.1\js\typed2513.js" />
+    <Content Include="wp-content\themes\archi-3.0.1\js\video.resize2513.js" />
+    <Content Include="wp-content\themes\archi-3.0.1\js\wow.min2513.js" />
+    <Content Include="wp-content\themes\archi-3.0.1\styleba8c.css" />
+    <Content Include="wp-content\uploads\2015\07\02-2-min-700x466.jpg" />
+    <Content Include="wp-content\uploads\2015\07\fender-los-angeles-office-7-700x466.jpg" />
+    <Content Include="wp-content\uploads\2015\07\p1_a.jpg" />
+    <Content Include="wp-content\uploads\2015\07\p1_b.jpg" />
+    <Content Include="wp-content\uploads\2015\07\p1_c.jpg" />
+    <Content Include="wp-content\uploads\2015\07\PK-aCong-5-min-700x466.jpg" />
+    <Content Include="wp-content\uploads\2015\07\PK-aCong-5-min.jpg" />
+    <Content Include="wp-content\uploads\2015\07\techspace-office-berlin-1-700x466.jpg" />
+    <Content Include="wp-content\uploads\2015\07\techspace-office-berlin-10.jpg" />
+    <Content Include="wp-content\uploads\2015\07\techspace-office-berlin-5-700x466.jpg" />
+    <Content Include="wp-content\uploads\2015\08\p2_b.jpg" />
+    <Content Include="wp-content\uploads\2015\08\pic_3-1-700x337.jpg" />
+    <Content Include="wp-content\uploads\2015\08\pic_3-1.jpg" />
+    <Content Include="wp-content\uploads\2015\08\pic_4-1-700x337.jpg" />
+    <Content Include="wp-content\uploads\2015\08\pic_4-1.jpg" />
+    <Content Include="wp-content\uploads\2015\08\pic_5-700x337.jpg" />
+    <Content Include="wp-content\uploads\2015\08\pic_5.jpg" />
+    <Content Include="wp-content\uploads\2017\08\pic-blog-1.jpg" />
+    <Content Include="wp-content\uploads\2017\08\pic-blog-2.jpg" />
+    <Content Include="wp-content\uploads\2017\08\pic-blog-3.jpg" />
+    <Content Include="wp-content\uploads\2017\08\pic-blog-4.jpg" />
+    <Content Include="wp-content\uploads\2017\09\subheader-4.jpg" />
+    <Content Include="wp-content\uploads\2019\06\beehome-6-min.jpg" />
+    <Content Include="wp-content\uploads\2019\06\bgtk.jpg" />
+    <Content Include="wp-content\uploads\2019\06\favicon.png" />
+    <Content Include="wp-content\uploads\2019\07\181130_DL1_Scandinavi_Phong-Khach.jpg" />
+    <Content Include="wp-content\uploads\2019\07\181130_DL1_Scandinavi_Phong-Ngu-Master-2.jpg" />
+    <Content Include="wp-content\uploads\2019\07\b3fd5.png" />
+    <Content Include="wp-content\uploads\2019\07\bông1-min.jpg" />
+    <Content Include="wp-content\uploads\2019\07\callgif.gif" />
+    <Content Include="wp-content\uploads\2019\07\noi-that-beehome.png" />
+    <Content Include="wp-content\uploads\2019\07\Phong-bé-trai-min.jpg" />
+    <Content Include="wp-content\uploads\2019\07\Phong-cách-hiện-đại-–-Chị-Ly-–-Hà-Đông.jpg" />
+    <Content Include="wp-content\uploads\2019\07\phong-khach-hy-lap-tu-lap-3-20170305002507022-x1200-1.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-1-1514519702257.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-1-1514519703615.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-10-1514519703624.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-12-1514519703625.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-13-1514519703626.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-14-1514519703626.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-15-1514519703627.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-16-1514519703627.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-17-1514519703628.png" />
+    <Content Include="wp-content\uploads\2019\07\photo-18-1514519703629.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-19-1514519703629.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-2-1514519703616.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-20-1514519703630.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-21-1514519703630.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-22-1514519703631.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-23-1514519703632.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-24-1514519703632.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-25-1514519703634.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-26-1514519703638.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-27-1514519703639.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-29-1514519703640.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-3-1514519703618.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-30-1514519703641.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-31-1514519703642.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-32-1514519703642.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-4-1514519703619.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-5-1514519703620.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-6-1514519703621.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-7-1514518532969.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-7-1514519703622.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-8-1514519703623.jpg" />
+    <Content Include="wp-content\uploads\2019\07\photo-9-1514519703623.jpg" />
+    <Content Include="wp-content\uploads\2019\07\Phòng-khách-ấn-tượng-với-chiếc-sofa-xanh-đặt-đóng-riêng..jpg" />
+    <Content Include="wp-content\uploads\2019\07\slide-xm-1-1836x928.jpg" />
+    <Content Include="wp-content\uploads\2019\07\techspace-berlin-mm-3.jpg" />
+    <Content Include="wp-content\uploads\2019\07\techspace-office-berlin-11.jpg" />
+    <Content Include="wp-content\uploads\2019\07\techspace-office-berlin-2.jpg" />
+    <Content Include="wp-content\uploads\2019\07\thiet-ke-van-phong.jpg" />
+    <Content Include="wp-content\uploads\2019\07\thiet_ke_biet_thu.jpg" />
+    <Content Include="wp-content\uploads\2019\07\v2-min.jpg" />
+    <Content Include="wp-content\uploads\2019\07\v3-min.jpg" />
+    <Content Include="wp-content\uploads\2019\07\v8-min.jpg" />
+    <Content Include="wp-content\uploads\bfi_thumb\02-2-min-oaklxdlkiofsbkwep0im3ae6e4bgpvw7ligkv26tkk.jpg" />
+    <Content Include="wp-content\uploads\bfi_thumb\Phong-cách-hiện-đại-–-Chị-Ly-–-Hà-Đông-oakm16u08hnnend2fnu57brh4dj1xp10sdpgxgjcc4.jpg" />
+    <Content Include="wp-content\uploads\bfi_thumb\PK-aCong-5-min-oaklv0298r6oz2cnkhjkadz8c2129fgmxr3e6vpnas.jpg" />
+    <Content Include="wp-includes\css\dist\block-library\style.min2513.css" />
+    <Content Include="wp-includes\js\comment-reply.min2513.js" />
+    <Content Include="wp-includes\js\jquery\jquery-migrate.min330a.js" />
+    <Content Include="wp-includes\js\jquery\jquery4a5f.js" />
+    <Content Include="wp-includes\js\wp-embed.min2513.js" />
+    <Content Include="wp-includes\wlwmanifest.xml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Robots.txt" />
+    <Content Include="Scripts\Anpero.Common.js" />
+    <Content Include="Scripts\Bootrap-notify.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\jquery.cokie.min.js" />
+    <Content Include="Scripts\ShoppingCart.js" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Shared\product\_MenuAndAdsPartial.cshtml" />
+    <Content Include="Views\Product\Category.cshtml" />
+    <Content Include="Web References\WebService\Ads.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Views\Article\Index.cshtml" />
+    <Content Include="Views\Article\Category.cshtml" />
+    <Content Include="Views\Shared\article\_MenuAndAdsPartial.cshtml" />
+    <Content Include="Views\Product\Checkout.cshtml" />
+    <Content Include="Views\Shared\_partial\_HomeSlide.cshtml" />
+    <Content Include="Views\Shared\_partial\_MainHeader_1.cshtml" />
+    <Content Include="Views\Shared\product\_productDetail.cshtml" />
+    <Content Include="Views\Shared\_partial\_searchBox.cshtml" />
+    <Content Include="Views\Home\Policy.cshtml" />
+    <Content Include="Views\Product\CategoryList.cshtml" />
+    <Content Include="Views\Shared\_partial\_contact.cshtml" />
+    <None Include="Web References\WebService\AnperoService.disco" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Web References\WebService\ProductItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebService\BlogItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebService\BlogCategory.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebService\Location.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebService\PaymentConfig.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\WebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web References\WebService\SearchResult1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebService\Webconfig1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebService\SearchArticleResults.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.eot" />
+    <Content Include="wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.ttf" />
+    <Content Include="wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.woff" />
+    <Content Include="wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v1d41d.eot" />
+    <Content Include="wp-content\plugins\js_composer\assets\fonts\vc_icons_v2\fonts\vcpb-plugin-iconsb82a.eot" />
+    <Content Include="wp-content\plugins\js_composer\assets\fonts\vc_icons_v2\fonts\vcpb-plugin-iconsb82a.ttf" />
+    <Content Include="wp-content\plugins\js_composer\assets\fonts\vc_icons_v2\fonts\vcpb-plugin-iconsb82a.woff" />
+    <Content Include="wp-content\plugins\revslider\public\assets\fonts\revicons\revicons90c6.eot" />
+    <Content Include="wp-content\plugins\revslider\public\assets\fonts\revicons\revicons90c6.ttf" />
+    <Content Include="wp-content\plugins\revslider\public\assets\fonts\revicons\revicons90c6.woff" />
+    <Content Include="wp-content\plugins\woocommerce\assets\fonts\star.eot" />
+    <Content Include="wp-content\plugins\woocommerce\assets\fonts\star.ttf" />
+    <Content Include="wp-content\plugins\woocommerce\assets\fonts\star.woff" />
+    <Content Include="wp-content\plugins\woocommerce\assets\fonts\stard41d.eot" />
+    <Content Include="wp-content\plugins\woocommerce\assets\fonts\WooCommerce.eot" />
+    <Content Include="wp-content\plugins\woocommerce\assets\fonts\WooCommerce.ttf" />
+    <Content Include="wp-content\plugins\woocommerce\assets\fonts\WooCommerce.woff" />
+    <Content Include="wp-content\plugins\woocommerce\assets\fonts\WooCommerced41d.eot" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\elegant_font\HTML_CSS\fonts\ElegantIcons.eot" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\elegant_font\HTML_CSS\fonts\ElegantIcons.ttf" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\elegant_font\HTML_CSS\fonts\ElegantIcons.woff" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\elegant_font\HTML_CSS\fonts\ElegantIconsd41d.eot" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\et-line-font\fonts\et-line.eot" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\et-line-font\fonts\et-line.ttf" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\et-line-font\fonts\et-line.woff" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\et-line-font\fonts\et-lined41d.eot" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\font-awesome\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\font-awesome\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\font-awesome\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\font-awesome\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="wp-content\themes\archi-3.0.1\fonts\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="beehome.vn\wp-content\plugins\woocommerce\assets\js\frontend\" />
+    <Folder Include="Models\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="wp-content\plugins\woocommerce\assets\js\frontend\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <None Include="Properties\PublishProfiles\Shoes Store.pubxml" />
+    <None Include="Web References\WebService\AnperoService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://wsv.anpero.com/AnperoService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebService\</RelPath>
+      <UpdateFromURL>http://wsv.anpero.com/AnperoService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>AnperoFrontend_AnperoService_AnperoService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Anpero\Anpero.csproj">
+      <Project>{b88546ac-d123-448f-bd9b-7287e7ce1b38}</Project>
+      <Name>Anpero</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>32561</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:32563</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

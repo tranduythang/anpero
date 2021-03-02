@@ -1,0 +1,219 @@
+﻿@using AnperoFrontend.WebService;
+
+@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+    string currentUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+    string pageName = string.IsNullOrEmpty(ViewBag.pageName) ? "" : ViewBag.pageName;
+    AnperoFrontend.WebService.SearchResult productList = new AnperoFrontend.WebService.SearchResult();
+    var hasData = false;
+    var categoryName = "";
+    string categoryIdList = ViewBag.category;
+    if (categoryIdList != null && !string.IsNullOrEmpty(categoryIdList))
+    {
+        var listId = categoryIdList.Split(',');
+        foreach (var CurentId in listId)
+        {
+            foreach (var item in commonInfo.ProductCategoryList)
+            {
+                if (item.Id.ToString().Equals(CurentId.Trim()))
+                {
+                    categoryName += "<a href=\"" + item.DefaultLink + "\">" + item.Name + @"</a>, ";
+                }
+            }
+        }
+        categoryName = categoryName.Trim().TrimEnd(',');
+    }
+}
+@if (ViewData["productList"] != null)
+{
+
+    productList = (AnperoFrontend.WebService.SearchResult)ViewData["productList"];
+    hasData = productList.Item.Length > 0;
+
+}
+
+
+@section health{
+    <meta name="description" content="@Html.Raw(ViewBag.Description)" />
+    <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(ViewBag.Keywords)" />
+    <meta property="og:description" content="@ViewBag.Description" />
+    <meta property="og:title" content="@ViewBag.Title" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="@ViewBag.WebsiteUrl" />
+    <meta property="og:image" content="@ViewBag.ImageUrl" />
+    <link rel="canonical" href="@ViewBag.WebsiteUrl" />
+    <style>
+    </style>
+
+}
+<section class="section page-title bg-image context-dark" style="background-image: url(https://cdn.anpero.com/images/38/22021/bg-1-1920x4962021022814580386.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-xl-8">
+                @if (pageName.ToLower().Equals("search"))
+                {
+
+                    <h2 class="page-title-text">Tìm kiếm</h2>
+                    if (!string.IsNullOrEmpty(categoryName))
+                    {
+                        <h2 class="page-title-text">@Html.Raw(categoryName)</h2>
+                    }
+                }
+                else if (ViewBag.isParent != null && hasData)
+                {
+                    categoryName = productList.Item[0].ParentCatName;
+                    <h2 class="page-title-text">@Html.Raw(categoryName)</h2>
+
+                }
+                else if (hasData)
+                {
+                    categoryName = @productList.Item[0].CatName;
+                    <h2 class="page-title-text">
+                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(productList.Item[0].ParentCatName, productList.Item[0].ParentId)" title="@productList.Item[0].ParentCatName">
+                            @productList.Item[0].ParentCatName - @categoryName
+                        </a>
+                    </h2>
+                }
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-md bg-100">
+    <div class="container">
+        <div class="row row-40">
+            <div class="col-md-8 col-lg-9">
+                <div class="row row-40 row-xl-55">
+                    @if (hasData)
+                    {
+                        foreach (var item in productList.Item)
+                        {
+                            <div class="col-6 col-lg-4">
+                                <!-- Product-->
+                                <div class="product product-simple">
+                                    <a class="product-media" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)"><img src="@item.Images" alt="@item.PrName" width="181" height="159" /></a>
+                                    <h4 class="product-title"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></h4>
+                                    <div class="h4 product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)đ</div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div>Sản phẩm đang được cập nhật. Vui lòng quay lại sau</div>
+                    }
+
+                </div>
+                @if (ViewBag.page != null)
+                {
+                    
+                        <nav aria-label="Page navigation" class="navigation top-nav mt-5">
+                            @Html.Raw(ViewBag.page)
+                        </nav>
+                    
+                }
+
+               
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <form action="/search" method="GET">
+                    <div class="widget widget-search">
+                        <div class="widget-body">
+
+                            <div class="form-group form-group-icon">
+                                <input class="form-control" type="text" placeholder="Search in shop..." autocomplete="off" name="keyword">
+                                <button class="form-group-icon-btn mdi-magnify"></button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <h4 class="widget-title">Danh mục sản phẩm</h4>
+                        <div class="widget-body">
+                            <ul class="list list-divided list-divided-sm big">
+                                @foreach (var item in commonInfo.ProductCategoryList)
+                                {
+                                    <li class="list-item"><a class="link link-arrow" href="@item.DefaultLink">@item.Name</a></li>
+
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <h4 class="widget-title">Price</h4>
+                        <div class="widget-body">
+
+                            <div class="pagination-info" style="padding-top:0px;">
+                                <select name="orderby" class="orderby" aria-label="Shop order" id="sort_by_select">
+                                    <option value="nameDesc">Tên A – Z</option>
+                                    <option value="pricedesc">Giá giảm dần</option>
+                                    <option value="priceAsc">Giá tăng dần</option>
+                                    <option value="timeDesc">Mới nhất</option>
+                                </select>
+
+                            </div>
+                            <button class="btn" type="submit">Filter</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="widget mt-5">
+                    <h4 class="widget-title">Nổi bật</h4>
+                    <div class="widget-body">
+                        @if (ViewData["BestsaleProduct"] != null)
+                        {
+                            SearchResult searchResult = (SearchResult)ViewData["BestsaleProduct"];
+                            if (searchResult.Item.Length > 0)
+                            {
+                                foreach (var item in searchResult.Item)
+                                {
+                                    <div class="product product-small">
+                                        <a class="product-img-link" href="single-product.html"><img src="@item.Images" alt="@item.PrName" width="72" height="91" /></a>
+                                        <div class="product-body">
+                                            <h5 class="product-title"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">Face Cleansing Gel</a></h5>
+                                            <div class="product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.SalePrice)đ</div>
+                                        </div>
+                                    </div>                                    
+                                }
+
+                            }
+                        }
+                        <!-- Product small-->
+
+
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+</section>
+
+<style>
+    #sort_by_select {
+        padding: 10px;
+        width: 100%;
+        border: 1px solid;
+        border-color: #019ca9;
+    }
+
+   
+</style>
+@section  scripts{
+    <script src="/Scripts/SearchControl.js"></script>
+    <script>
+            $(document).ready(function () {
+              Search.init({
+                   property: "@ViewBag.property",
+                   brands: "@ViewBag.brands",
+                   category: "@ViewBag.category"
+              });
+                if (Utils.getParameterByName("keyword") != "") {
+                    $("input[name=keyword]").val(Utils.getParameterByName("keyword"));
+                }
+            });
+    </script>
+}

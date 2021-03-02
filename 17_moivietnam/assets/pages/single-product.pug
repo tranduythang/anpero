@@ -1,0 +1,24 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/page-title/_page-title
+
+block variables
+	- pageName = 'Single product';
+
+block page
+	+rd-navbar(
+		data-rd-navbar = {
+			responsive: {
+				1200: {autoHeight: false}
+			}
+		}
+	).rd-navbar-absolute.rd-navbar-fullwidth-light
+	
+	+page-title({
+		bgImage: 'images/background/bg-3-1920x496.jpg'
+	})
+
+	include ../components/section/_product-single
+	include ../components/section/_product-overview
+	include ../components/section/_products-grid
+	include ../components/footer/_footer-subscribe

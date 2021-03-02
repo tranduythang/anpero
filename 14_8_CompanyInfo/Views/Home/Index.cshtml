@@ -1,0 +1,282 @@
+﻿@using AnperoFrontend.WebService;
+
+@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+        ViewBag.Title = commonInfo.Name;
+        ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau(commonInfo.Desc);
+        ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+    }
+
+}
+@section health{
+    <meta name="description" content="@commonInfo.Desc" />
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    <meta property="og:description" content="@commonInfo.Desc" />
+    <meta property="og:title" content="@ViewBag.Title" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="@ViewBag.WebsiteUrl" />
+    <meta property="og:image" content="@commonInfo.Logo" />
+    <link rel="canonical" href="@ViewBag.WebsiteUrl" />
+}
+
+<div class="content">
+    @if (!Request.Browser.IsMobileDevice)
+    {
+        @Html.Partial("_partial/_HomeSlide_1")
+    }
+</div>
+<div class="bg-w pt-24">
+    <div class="box-title-new about">
+        <div class="title-top">
+            <h2 class="title">Giới thiệu về chúng tôi </h2>
+        </div>
+    </div>
+</div>
+<div class="about" style="position:relative;">
+    <div class="section-bg"></div>
+    <div class="content mb-25 pt-24">
+        <div class="wow bounceInUp animated animated container">
+
+            <div class="box-title-new about">
+                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12" style="text-align:justify;color:white;font-size:16px;line-height:24px;">
+
+                    <div><strong>Kính gửi: Quý khách hàng</strong></div>
+
+                    <p>Công ty Cổ phần Cơ khí Môi trường DH Việt Nam xin gửi đến Quý khách hàng lời chào và lời chúc tốt đẹp nhất.</p>
+                    <p>Công ty Cổ phần Cơ khí Môi trường DH Việt Nam là doanh nghiệp hoạt động trong lĩnh vực Xử lý môi trường và Cơ khí chế tạo.</p>
+                    <p><strong>Sản phẩm của chúng tôi bao gồm:</strong></p>
+                    <ul>
+                        <li> Xử lý môi trường (xử lý nước thải, xử lý nước cấp, xử lý khí thải...)</li>
+                        <li> Sửa chữa, nâng cấp các hệ thống cơ khí và môi trường.</li>
+                        <li> Tư vấn, lập hồ sơ, báo cáo về môi trường.</li>
+                        <li> Chế tạo các thiết bị cơ khí công nghiệp theo yêu cầu.</li>
+                        <li> Cung cấp các loại máy móc trong lĩnh vực cơ khí và xử lý môi trường.</li>
+                    </ul>
+                    <div>
+                        <strong>Quý khách hàng hợp tác với công ty môi trường DH Việt Nam sẽ nhận được các ưu thế vượt trội sau:</strong>
+                        Tư vấn miễn phí đến khi đạt yêu cầu của khách hàng. Đội ngũ kỹ sư giỏi và lực lượng sản xuất, thi công chuyên nghiệp tạo ra các sản phẩm, dịch vụ đạt chất lượng cao và giá thành hợp lý.
+                        Đảm bảo chất lượng sản phẩm dịch vụ bằng chế độ bảo hành dài hạn.
+                    </div>
+
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12 content-video">
+                    <iframe src="https://www.youtube.com/embed/sYqCKH4vPXk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="content mt-24 pt-24 ">
+    <div class="wow bounceInUp animated animated container">
+        <div class="box-title-new">
+            <div class="title-top mb-25">
+                <h2 class="title" style="background-color:#f5f5f5;">Dịch vụ nổi bật</h2>
+            </div>
+            @if (ViewData["topArticle"] != null)
+            {
+                SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["topArticle"];
+                <div class="latest-blog wow bounceInUp animated animated container">
+                    @foreach (BlogItem item in FeatureArticle.ItemList)
+                    {
+                        <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
+                            @*<div class="blog-post">*@
+                            <div class="blog_inner resize">
+                                <div class="blog-img">
+                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
+                                    <div class="mask"> <a class="info" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Chi tiết</a> </div>
+                                </div>
+                                <div class="blog-info">
+
+                                    <h3><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h3>
+                                    <p>@Anpero.StringHelpper.SubString(150, item.ShotDesc)</p>
+                                    <a class="readmore" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Xem thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            }
+
+        </div>
+    </div>
+
+    <div class="content bg-w">
+        @if (ViewData["FeatureArticle"] != null)
+        {
+            SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
+            <div class="latest-blog wow bounceInUp animated animated container ">
+                <div class="new_title title_2">
+                    <h2>Tin tức sự kiện</h2>
+                </div>
+                <div class="slider-items">
+                    @foreach (BlogItem item in FeatureArticle.ItemList)
+                    {
+                        @*<div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">*@
+                        <div class="blog-post">
+                            <div class="blog_inner resize">
+                                <div class="blog-img">
+                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)"> <img src="@item.Thumb" alt="@item.ShotDesc"> </a>
+                                    <div class="mask"> <a class="info" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Chi tiết</a> </div>
+                                </div>
+                                <div class="blog-info">
+                                    <div class="post-date">
+                                        <time class="entry-date" datetime="@item.CreateDate">mới đăng</time>
+                                    </div>
+                                    <h3><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h3>
+                                    <p>@Anpero.StringHelpper.SubString(150, item.ShotDesc)</p>
+                                    <a class="readmore" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Xem thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+    <div class="content">
+        <div class="latest-blog wow bounceInUp animated animated container ">
+            <div class="box-title-new">
+                <div class="title-top mb-25">
+                    <h2 class="title" style="background-color:#f5f5f5;">Hình ảnh</h2>
+
+                    <div class="slider-items-5">
+                        @if (ViewData["Ads3"] != null)
+                        {
+                            Ads[] slide = (Ads[])ViewData["Ads3"];
+                            if (slide.Length > 0)
+                            {
+                                foreach (var item in slide)
+                                {
+                                    <div class="blog-post">
+                                        <div class="blog_inner">
+                                            <div class="blog-img">
+                                                <a href="@item.ImagesUrl" data-slide="slide3" class="fancybox" data-fancybox="gallery" rel="gallery" data-type="image"><img src="@item.ImagesUrl"> </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        }
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+
+    <script type="text/javascript" src="/assets/js/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src="/assets/js/revslider.js"></script>
+    <script src="//cdn.anpero.com/cdn/plugins/fancybox-3/dist/jquery.fancybox.min.js"></script>
+    
+    <link href="//cdn.anpero.com/cdn/plugins/fancybox-3/src/css/core.css" rel="stylesheet" />
+    <link href="//cdn.anpero.com/cdn/plugins/fancybox-3/src/css/fullscreen.css" rel="stylesheet" />
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            $(".fancybox").fancybox({
+                openEffect: 'elastic',
+                closeEffect: 'elastic'
+            });
+            $(".resize .blog-img").height($(".resize .blog-img").width() * 3 / 4);
+            jQuery('#thm-rev-slider').show().revolution({
+                dottedOverlay: 'none',
+                delay: 5000,
+                startwidth: 0,
+                startheight: 900,
+
+                hideThumbs: 200,
+                thumbWidth: 200,
+                thumbHeight: 50,
+                thumbAmount: 2,
+
+                navigationType: 'thumb',
+                navigationArrows: 'solo',
+                navigationStyle: 'round',
+
+                touchenabled: 'on',
+                onHoverStop: 'on',
+
+                swipe_velocity: 0.7,
+                swipe_min_touches: 1,
+                swipe_max_touches: 1,
+                drag_block_vertical: false,
+
+                spinner: 'spinner0',
+                keyboardNavigation: 'off',
+
+                navigationHAlign: 'center',
+                navigationVAlign: 'bottom',
+                navigationHOffset: 0,
+                navigationVOffset: 20,
+
+                soloArrowLeftHalign: 'left',
+                soloArrowLeftValign: 'center',
+                soloArrowLeftHOffset: 20,
+                soloArrowLeftVOffset: 0,
+
+                soloArrowRightHalign: 'right',
+                soloArrowRightValign: 'center',
+                soloArrowRightHOffset: 20,
+                soloArrowRightVOffset: 0,
+
+                shadow: 0,
+                fullWidth: 'on',
+                fullScreen: 'on',
+
+                stopLoop: 'off',
+                stopAfterLoops: -1,
+                stopAtSlide: -1,
+
+                shuffle: 'off',
+
+                autoHeight: 'on',
+                forceFullWidth: 'off',
+                fullScreenAlignForce: 'off',
+                minFullScreenHeight: 0,
+                hideNavDelayOnMobile: 1500,
+
+                hideThumbsOnMobile: 'off',
+                hideBulletsOnMobile: 'off',
+                hideArrowsOnMobile: 'off',
+                hideThumbsUnderResolution: 0,
+
+                hideSliderAtLimit: 0,
+                hideCaptionAtLimit: 0,
+                hideAllCaptionAtLilmit: 0,
+                startWithSlide: 0,
+                fullScreenOffsetContainer: ''
+            });
+            jQuery(".slider-items").owlCarousel({
+                items: 3,
+                itemsDesktop: [1024, 3],
+                itemsDesktopSmall: [900, 3],
+                itemsTablet: [600, 2],
+                itemsMobile: [320, 2],
+                navigation: !0,
+                navigationText: ['<a class="flex-prev"></a>', '<a class="flex-next"></a>'],
+                slideSpeed: 500,
+                pagination: !1
+            });
+            jQuery(".slider-items-5").owlCarousel({
+                items: 5,
+                itemsDesktop: [1024, 5],
+                itemsDesktopSmall: [900, 3],
+                itemsTablet: [600, 2],
+                itemsMobile: [320, 2],
+                navigation: !0,
+                navigationText: ['<a class="flex-prev"></a>', '<a class="flex-next"></a>'],
+                slideSpeed: 500,
+                pagination: !1
+            });
+        });
+    </script>
+    }
+

@@ -1,0 +1,59 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
+@import "../base/mixins";
+
+// Base
+.product {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.product-media {
+	padding: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: $white;
+	border-radius: 10px;
+	transition: $transition-base;
+	box-shadow: $box-shadow-sm;
+	min-height: 300px;
+
+	@include media-breakpoint-up(md) {
+		min-height: 360px;
+	}
+
+	&:hover {
+		transform: translateY(-5px);
+	}
+}
+
+.product-price {
+	color: $primary;
+}
+
+.product-title {
+	a {
+		&:hover {
+			color: $secondary;
+		}
+	}
+
+	* + & {
+		margin-top: px-to-rem(18px);
+	}
+}
+
+.product-price {
+	* + & {
+		margin-top: px-to-rem(4px);
+	}
+}
+
+
+// Layout
+@import "product-small";

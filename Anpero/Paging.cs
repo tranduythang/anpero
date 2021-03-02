@@ -131,14 +131,14 @@ namespace Anpero
             //nếu số tin lới hơn số tin trên trang mới hiển thị phân trang
             if (itemCount > pageSite)
             {
-                pagedString = "<ul class='clearfix'>";
+                pagedString = "<ul class='clearfix pagination justify-content-center'>";
                 if (curentPage == 1)
                 {
-                    pagedString += @"<li class='previous disabled pull-left'><a href='javascript:void(0);' title='Bạn đang ở trang đầu'>&laquo;</a></li>";
+                    pagedString += @"<li class='previous disabled pull-left'><a class='page-link'  href='javascript:void(0);' title='Bạn đang ở trang đầu'>&laquo;</a></li>";
                 }
                 else
                 {
-                    pagedString += @"<li class='previous pull-left'><a href='" + pageaspx + query + (curentPage - 1) + "'>&laquo;</a></li>";
+                    pagedString += @"<li class='previous pull-left'><a class='page-link'  href='" + pageaspx + query + (curentPage - 1) + "'>&laquo;</a></li>";
                 }
 
                 if (curentPage <= totalPage)
@@ -168,24 +168,25 @@ namespace Anpero
                     {
                         if (i == curentPage)
                         {
-                            pagedString += @"<li class='active pull-left'><a href='javascript:void(0);' tittle='đang ở trang này'>" + (i) + "</a></li>";
+                            pagedString += @"<li class='active pull-left'><a class='page-link' href='javascript:void(0);' title='đang ở trang này'>" + (i) + "</a></li>";
 
                         }
                         else
                         {
-                            pagedString += @"<li class='pull-left'><a href='" + pageaspx + query + i + "'>" + i + "</a></li>";
+                            pagedString += @"<li class='pull-left'><a class='page-link' href='" + pageaspx + query + i + "'>" + i + "</a></li>";
                         }
 
                     }
                 }
                 if (curentPage == totalPage)
                 {
-                    pagedString += @"<li class='active pull-left'><a href='javascript:void(0);' tittle='bạn đang ở trang cuôi'>&raquo;</a><li>";
+                    pagedString += @"<li class='active pull-left'><a class='page-link' href='" + pageaspx + query + totalPage + @"'>" + totalPage + @"</a></li>";
+                    pagedString += @"<li class=' pull-left'><a class='page-link'  href='javascript:void(0);' title='bạn đang ở trang cuôi'>&raquo;</a><li>";
                 }
                 else
                 {
-                    pagedString += @"<li class='pull-left'><a href='" + pageaspx + query + totalPage + @"'>" + totalPage + @"</a></li>";
-                    pagedString += @"<li class='next pull-left'><a href='" + pageaspx + query + (curentPage + 1) + "'>&raquo;</a></li>";
+                    pagedString += @"<li class='pull-left'><a class='page-link' href='" + pageaspx + query + totalPage + @"'>" + totalPage + @"</a></li>";
+                    pagedString += @"<li class='next pull-left'><a class='page-link'  href='" + pageaspx + query + (curentPage + 1) + "'>&raquo;</a></li>";
                 }
                 pagedString += @"</ul>";
             }

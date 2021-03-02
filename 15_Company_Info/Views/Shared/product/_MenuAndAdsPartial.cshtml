@@ -1,0 +1,25 @@
+﻿
+
+    <div class="column col-xs-12 col-sm-3  col-md-3" id="left_column">
+        <ul id="services-list">
+            @if (ViewData["commonInfo"] != null)
+            {
+                AnperoFrontend.WebService.Webconfig commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+                if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
+                {
+                    foreach (var item in commonInfo.ProductCategoryList)
+                    {
+                        <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">Tất cả - @item.Name</a></li>
+                        if (item.ChildCategory != null && item.ChildCategory.Length > 0)
+                        {
+                            foreach (var subItem in item.ChildCategory)
+                            {
+                                <li><a href="@Anpero.StringHelpper.GetParentCategoryLink(subItem.Name,subItem.Id)">@subItem.Name</a></li>
+                            }
+                        }
+                    }
+                }
+            }
+        </ul>
+    </div>
+

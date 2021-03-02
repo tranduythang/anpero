@@ -1,0 +1,45 @@
+include ../person/_person
+
+// Popular Categories
+section.section-md.bg-overlay.bg-secondary-light
+	.bg-overlay-item.bg-100
+	.container( data-animate!={ class: 'fadeIn' } )
+		.text-center
+			h2.heading-decoration Popular Categories
+		.owl-carousel.owl-content-1.owl-carousel-shadow-2( data-owl= { dots: true }, data-autoplay='false', data-items='1', data-sm-items='2', data-lg-items='3' )
+			+person-boxed({
+				img: 'popular-category-01-370x302',
+				author: 'Makeup & Cosmetics',
+				description: 'Create a little illusion with Korean makeup cosmetics.',
+				position: '250+ Products'
+			})
+			+person-boxed({
+				img: 'popular-category-02-370x302',
+				author: 'Perfumes',
+				description: 'Check out our range of captivating fragrances.',
+				position: '297+ Products'
+			})
+			+person-boxed({
+				img: 'popular-category-03-370x302',
+				author: 'Skincare',
+				description: 'A unique selection of skincare cosmetics by famous brands.',
+				position: '340+ Products'
+			})
+			+person-boxed({
+				img: 'popular-category-04-370x302',
+				author: 'Lip Care',
+				description: 'High-quality beauty care products for your lips.',
+				position: '315+ Products'
+			})
+			+person-boxed({
+				img: 'popular-category-05-370x302',
+				author: 'Body Care',
+				description: 'Make your body shine with our series of body care products.',
+				position: '245+ Products'
+			})
+			+person-boxed({
+				img: 'popular-category-06-370x302',
+				author: 'Face Care',
+				description: 'The best products to keep your face clean and fresh.',
+				position: '350+ Products'
+			})

@@ -1,0 +1,61 @@
+include _navigation
+include ../logo/_logo
+
+mixin rd-navbar
+	//RD Navbar
+	header.section.rd-navbar-wrap
+		nav.rd-navbar.navbar-dark&attributes( attributes )
+			.navbar-container
+					.navbar-cell
+						.navbar-panel
+							button.navbar-switch.linearicons-menu( data-multi-switch!= {
+								targets: '.rd-navbar',
+								scope:   '.rd-navbar',
+								isolate: '[data-multi-switch]'
+							})
+
+							+logo-navbar
+
+					.navbar-cell.navbar-spacer-small
+
+					.navbar-cell
+						+navigation( menu )
+
+					.navbar-cell.navbar-spacer
+
+					.navbar-cell
+						.navbar-subpanel
+							.navbar-subpanel-item
+								button.navbar-button.navbar-cart-button( data-multi-switch!= {
+									targets: '.rd-navbar',
+									scope:   '.rd-navbar',
+									class:   'navbar-cart-active',
+									isolate: '[data-multi-switch]'
+								})
+									svg(width='26', height='26', viewBox='0 0 26 26')
+										path(d='M5.78906 20.4648C5.17969 21.0742 4.875 21.8359 4.875 22.75C4.875 23.6641 5.17969 24.4258 5.78906 25.0352C6.43229 25.6784 7.21094 26 8.125 26C9.03906 26 9.80078 25.6784 10.4102 25.0352C11.0534 24.4258 11.375 23.6641 11.375 22.75C11.375 21.8359 11.0534 21.0742 10.4102 20.4648C9.80078 19.8216 9.03906 19.5 8.125 19.5C7.21094 19.5 6.43229 19.8216 5.78906 20.4648ZM6.95703 21.6328C7.29557 21.2943 7.6849 21.125 8.125 21.125C8.5651 21.125 8.9375 21.2943 9.24219 21.6328C9.58073 21.9375 9.75 22.3099 9.75 22.75C9.75 23.1901 9.58073 23.5625 9.24219 23.8672C8.9375 24.2057 8.5651 24.375 8.125 24.375C7.6849 24.375 7.29557 24.2057 6.95703 23.8672C6.65234 23.5625 6.5 23.1901 6.5 22.75C6.5 22.3099 6.65234 21.9375 6.95703 21.6328ZM15.5391 20.4648C14.9297 21.0742 14.625 21.8359 14.625 22.75C14.625 23.6641 14.9297 24.4258 15.5391 25.0352C16.1823 25.6784 16.9609 26 17.875 26C18.7891 26 19.5508 25.6784 20.1602 25.0352C20.8034 24.4258 21.125 23.6641 21.125 22.75C21.125 21.8359 20.8034 21.0742 20.1602 20.4648C19.5508 19.8216 18.7891 19.5 17.875 19.5C16.9609 19.5 16.1823 19.8216 15.5391 20.4648ZM16.707 21.6328C17.0456 21.2943 17.4349 21.125 17.875 21.125C18.3151 21.125 18.6875 21.2943 18.9922 21.6328C19.3307 21.9375 19.5 22.3099 19.5 22.75C19.5 23.1901 19.3307 23.5625 18.9922 23.8672C18.6875 24.2057 18.3151 24.375 17.875 24.375C17.4349 24.375 17.0456 24.2057 16.707 23.8672C16.4023 23.5625 16.25 23.1901 16.25 22.75C16.25 22.3099 16.4023 21.9375 16.707 21.6328ZM6.5 17.875C6.0599 17.875 5.67057 17.7227 5.33203 17.418C5.02734 17.0794 4.875 16.6901 4.875 16.25L23.5625 14.625C25.1875 8.05729 26 4.53646 26 4.0625C26 3.82552 25.9154 3.63932 25.7461 3.50391C25.6107 3.33464 25.4245 3.25 25.1875 3.25H4.875V1.625H5.6875C5.92448 1.625 6.11068 1.55729 6.24609 1.42188C6.41536 1.2526 6.5 1.04948 6.5 0.8125C6.5 0.575521 6.41536 0.389323 6.24609 0.253906C6.11068 0.084635 5.92448 0 5.6875 0H0.8125C0.575521 0 0.372396 0.084635 0.203125 0.253906C0.0677083 0.389323 0 0.575521 0 0.8125C0 1.04948 0.0677083 1.2526 0.203125 1.42188C0.372396 1.55729 0.575521 1.625 0.8125 1.625H3.25V16.25C3.25 17.1641 3.55469 17.9427 4.16406 18.5859C4.80729 19.1953 5.58594 19.5 6.5 19.5H8.125H17.875H25.1875V17.875H6.5ZM4.875 4.875H24.375L22.293 13.2031L4.875 14.625V4.875Z')
+									span.navbar-button-badge 1
+								
+								include _cart
+
+							.navbar-subpanel-item
+								.navbar-contact-text
+									span.h3 Get in touch
+									include _contact-form
+								button.navbar-button.navbar-contact-btn.linearicons-menu( data-multi-switch!= {
+									targets: '.rd-navbar',
+									scope:   '.rd-navbar',
+									class:   'navbar-contact-active',
+									isolate: '[data-multi-switch]:not(.rd-navbar-contact-btn)'
+								})
+
+							.navbar-subpanel-item.navbar-subpanel-item-no-padding
+								button.navbar-button.navbar-list-button.mdi-dots-vertical( data-multi-switch!= {
+									targets: '.rd-navbar',
+									scope:   '.rd-navbar',
+									class:   'navbar-list-active',
+									isolate: '[data-multi-switch]'
+								})
+
+								.navbar-list
+									a.link.link-inherit.navbar-list-link( href='shop.html' ) Shop Now

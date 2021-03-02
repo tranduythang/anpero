@@ -1,0 +1,34 @@
+include ../counter/_counter
+
+// Counter icon
+section.section-md
+	.container
+		h2.heading-decoration Statistics & Facts
+		.row.row-30.row-offset-md
+			.col-6.col-md-3
+				+counter({
+					value: '72',
+					title: 'Positive Reviews',
+					iconClass: 'thin-icon-love'
+				}).counter-bordered
+
+			.col-6.col-md-3
+				+counter({
+					value: '87',
+					title: 'Regular clients',
+					iconClass: 'thin-icon-delivery'
+				}).counter-bordered
+
+			.col-6.col-md-3
+				+counter({
+					value: '25',
+					title: 'New clients Daily',
+					iconClass: 'thin-icon-chat'
+				}).counter-bordered
+
+			.col-6.col-md-3
+				+counter({
+					value: '32',
+					title: 'New Partners',
+					iconClass: 'thin-icon-star'
+				}).counter-bordered

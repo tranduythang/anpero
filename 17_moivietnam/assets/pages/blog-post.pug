@@ -1,0 +1,24 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/page-title/_page-title
+
+block variables
+	- pageName = 'Blog post';
+
+block page
+	+rd-navbar(
+		data-rd-navbar = {
+			responsive: {
+				1200: {autoHeight: false}
+			}
+		}
+	).rd-navbar-absolute.rd-navbar-fullwidth-light
+	
+	+page-title({
+		bgImage: 'images/background/bg-4-1920x496.jpg',
+		title: 'Your Guide To Waterless K-Beauty Products',
+		subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+	})
+
+	include ../components/section/_blog-post
+	include ../components/footer/_footer-subscribe

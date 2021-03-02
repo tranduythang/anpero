@@ -1,0 +1,217 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>@ViewBag.Title</title>
+    <meta property="og:title" content="@ViewBag.Title" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:type" content="website" />
+    <meta name="distribution" content="Global" />
+    <meta name="revisit-after" content="1 days" />
+    <meta http-equiv="REFRESH" content="1800" />
+    <meta name="robots" content="index,follow,all" />
+    <link rel="shortcut icon" href="@(string.IsNullOrEmpty(commonInfo.Favicon)?commonInfo.Logo:commonInfo.Favicon)" type="image/x-icon">
+    <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+    <link rel='dns-prefetch' href='http://s.w.org/' />
+    @Styles.Render("~/Content/css")
+     
+    <link rel='stylesheet' id='archi-fonts-css' href='https://fonts.googleapis.com/css?family=Dosis%3A400%2C200%2C300%2C500%2C600%2C700%2C800%2C900%7COpen+Sans%3A300%2C500%2C600%2C700%2C900%2C400%7CRaleway%3A400%2C200%2C200italic%2C300%2C300italic%2C400italic%2C500italic%2C500%2C600%2C600italic%2C700%2C700italic%7CAllura&amp;subset=latin%2Clatin-ext' type='text/css' media='all' />    
+    <script type='text/javascript' src='/wp-includes/js/jquery/jquery4a5f.js?ver=1.12.4-wp'></script>
+    <script type='text/javascript' src='/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min7923.js?ver=5.3.1'></script>
+    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/fonts/elegant_font/HTML_CSS/lte-ie72513.js?ver=5.2.3'></script>
+    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/jquery.malihu.PageScroll2id2513.js?ver=5.2.3'></script>
+    <style type="text/css" title="dynamic-css" class="options-output">
+        h3 {
+            color: #000000;
+        }
+
+        body {
+
+            line-height: 20px;
+            font-size: 14px;
+        }
+    </style>
+    @RenderSection("health", required: false)
+</head>
+<body class="home page-template page-template-page-templates page-template-template-canvas page-template-page-templatestemplate-canvas-php page page-id-668 de_light  wpb-js-composer js-comp-ver-6.0.3 vc_responsive">
+    <div id="wrapper">
+        <!-- header begin -->
+        <header class="header-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="logo">
+                            <a href="/">
+                                <img src="@commonInfo.Logo" alt="@commonInfo.Desc">
+                            </a>
+                        </div>
+                        <span id="menu-btn"></span>
+                        <!-- mainmenu begin -->
+                        <nav>
+                            <ul id="mainmenu">
+                                @if (commonInfo.MenuList != null)
+                                {
+                                    for (int i = 0; i < commonInfo.MenuList.Length; i++)
+                                    {
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item  current_page_item">
+                                            <a href="@commonInfo.MenuList[i].Link">@commonInfo.MenuList[i].Tittle</a>
+                                            @if (commonInfo.MenuList[i].ChidMenu.Length > 0)
+                                            {
+                                                <ul role="menu" class=" dropdown-menu">
+                                                    @foreach (var item in commonInfo.MenuList[i].ChidMenu)
+                                                    {
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page"><a title="@item.Tittle" href="@item.Link.ToLower()">@item.Tittle</a></li>
+                                                    }
+                                                </ul>
+                                            }
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- mainmenu close -->
+                </div>
+            </div>
+        </header>
+        <!-- header close -->
+
+        @RenderBody()
+        <section class="wpb_row vc_row-fluid text-light vc_custom_1503992894148 vc_row-has-fill">
+            <div class="container">
+                <div class="row">
+                    <div class="wpb_column vc_column_container vc_col-sm-4">
+                        <div class="vc_column-inner ">
+                            <div class="wpb_wrapper ">
+                                <h2 class="mt20" style="text-align: left;"> Nhận tư vấn miễn phí.</h2>
+                            </div>
+                        </div>
+                    </div><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner "><div class="wpb_wrapper "></div></div></div><div class="wpb_column vc_column_container vc_col-sm-4">
+                        <div class="vc_column-inner ">
+                            <div class="wpb_wrapper ">
+                                <div class="wpb_text_column wpb_content_element  mt20">
+                                    <div class="wpb_wrapper">
+                                        <p><img class="wp-image-901 alignleft" style="margin-top: -10px;" src="/wp-content/uploads/2019/07/callgif.gif" alt="" width="62" height="62" /></p>
+                                        <h1>@Anpero.StringHelpper.FormatPhoneNumber(commonInfo.HotLine)</h1>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer style="background: #111111;">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-4 col-sm-4">
+                        <div id="text-2" class="widget widget_text">
+                            <div class="textwidget">
+                                <img src="@commonInfo.Logo" alt="" style="width: 60%"><br /><br />
+                                @commonInfo.Desc
+                            </div>
+                        </div>
+                    </div><!-- end col-lg-3 -->
+
+                    <div class="col-md-4 col-sm-4">
+                        <div id="recent-posts-4" class="widget widget_recent_entries">
+                            <h3>TIN MỚI NHẤT</h3>
+                            <ul>
+                                @if (ViewData["FeatureArticle"] != null)
+                                {
+                                    AnperoFrontend.WebService.SearchArticleResults bestSaleList = (AnperoFrontend.WebService.SearchArticleResults)ViewData["FeatureArticle"];
+                                    if (bestSaleList != null && bestSaleList.ItemList.Length > 0)
+                                    {
+                                        foreach (var item in bestSaleList.ItemList)
+                                        {
+                                            <li>
+                                                <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a>
+                                            </li>
+                                        }
+                                    }
+                                }
+
+
+                            </ul>
+                        </div>
+                    </div><!-- end col-lg-3 -->
+
+                    <div class="col-md-4 col-sm-4">
+                        <div id="text-3" class="widget widget_text">
+                            <h3>Liên hệ</h3>
+                            <div class="textwidget">
+                                <address>
+                                    <span>@commonInfo.Address</span>
+                                    <span><strong>Phone:</strong>@Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.OtherPhone)</span>
+                                    <span><strong>hotline:</strong>@Anpero.StringHelpper.ToPhoneNumberFormat(commonInfo.HotLine)</span>
+                                    <span><strong>Email:</strong><a href="mailto:@commonInfo.Email">@commonInfo.Email</a></span>
+                                    <span><strong>Web:</strong><a target="_blank" href="/" rel="noopener noreferrer">beehome.vn</a></span>
+                                </address>
+                            </div>
+                        </div>
+                    </div><!-- end col-lg-3 -->
+                </div>
+            </div>
+            <div class="subfooter">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            © Copyright 2017 - @commonInfo.Name
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <div class="social-icons">
+                                @{
+                                    string thisUrl = Request.Url.AbsoluteUri;
+                                    <a target="_blank" href="@commonInfo.FaceBookLink"><i class="fa fa-facebook"></i></a>
+                                    <a target="_blank" href="//www.twitter.com/share?url=@thisUrl"><i class="fa fa-twitter"></i></a>
+                                    <a target="_blank" href="//plus.google.com/share?url=@thisUrl"><i class="fa fa-google-plus"></i></a>
+                                    <a target="_blank" href="https://www.youtube.com/channel/UCbJ0hLcKHZQLSf22GxK0q-w"><i class="fa fa-youtube"></i></a>
+                                    <a href="//pinterest.com/pinthis?url=@thisUrl" target="_blank"><i class="fa fa-pinterest-p"></i></a>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a id="back-to-top" href="#" class="show"></a>
+        </footer>
+        @Html.Raw(commonInfo.AnperoPlugin)
+
+    </div>
+    <script type="text/javascript">
+        window.jQuery = window.$ = jQuery;
+        (function ($) {
+            "use strict";
+            /* Page Scroll to id fn call */
+            jQuery("#mainmenu li a,a[href='#'], a.scroll-to").mPageScroll2id({
+                highlightSelector: "#mainmenu li a",
+                offset: 68,
+                scrollSpeed: 750,
+                scrollEasing: "easeInOutCubic"
+            });
+
+        })(jQuery);
+    </script>
+
+    <link href="/assets/css/style.css" rel="stylesheet" />
+    <link rel='stylesheet' href='/wp-content/plugins/js_composer/assets/lib/bower/animate-css/animate.min1eb7.css?ver=6.0.3' type='text/css' media='all' />
+    <script type='text/javascript' src='/wp-content/themes/archi-3.0.1/js/bootstrap.min2513.js?ver=5.2.3'></script>
+    @Scripts.Render("~/bundles/global.js")
+    @RenderSection("scripts", required: false)
+    @Html.Raw(commonInfo.PageScript)
+
+</body>
+</html>

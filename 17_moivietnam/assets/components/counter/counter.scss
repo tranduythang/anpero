@@ -1,0 +1,62 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
+
+
+// Variables
+$counter-color: $gray-900;
+$counter-icon-color: $primary;
+$counter-size: $h1-font-size;
+
+
+// Base
+.counter-value {
+	color: $counter-color;
+
+	> * {
+		display: inline-block;
+	}
+}
+
+.counter-icon {
+	margin-left: .23em;
+	font-size: px-to-rem( 50px );
+	color: $counter-icon-color;
+	vertical-align: top;
+}
+
+.counter-title {
+	text-transform: uppercase;
+	font-size: $font-size-sm;
+	line-height: 1.16;
+	letter-spacing: 0.06em;
+}
+
+
+// Spacing
+* + .counter-title { margin-top: px-to-rem( 8px ) }
+
+
+// Modifying
+.counter-bordered {
+	padding-left: px-to-rem( 24px );
+	border-left: 1px solid $gray-400;
+}
+
+
+// Context dark
+.context-dark {
+	.counter-value {
+		color: $white;
+	}
+
+	.counter-title {
+		color: rgba( $white, .6 );
+	}
+
+	.counter-bordered {
+		border-left-color: rgba( $white, .1 );
+	}
+}

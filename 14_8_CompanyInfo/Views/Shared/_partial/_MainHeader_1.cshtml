@@ -1,0 +1,102 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+}
+<header>
+    <div class="header-banner">
+        <div class="assetBlock">
+            <div style="height: 20px; overflow: hidden;" id="slideshow">
+                <p style="display: block;">  <span>@commonInfo.Name</span> </p><p style="display: none;">HOTLINE: <a href="tel:@commonInfo.HotLine"><span>@commonInfo.HotLine</span> Liên hệ ngay với chúng tôi! &gt;</a></p>
+            </div>
+        </div>
+    </div>
+    <div id="header">
+        <div class="header-container container">
+            <div class="row">
+                <div class="logo">
+                    <a href="/" title="@commonInfo.Desc | logo" alter="@commonInfo.Desc | logo">
+                        <div><img src="@commonInfo.Logo" alt="@commonInfo.Name"></div>
+                    </a>
+                </div>
+                <div class="fl-nav-menu">
+                    <nav>
+                        <div class="mm-toggle-wrap">
+                            <div class="mm-toggle"><i class="icon-align-justify"></i><span class="mm-label">Menu</span> </div>
+                        </div>
+                        <div class="nav-inner">
+                            <ul id="nav" class="hidden-xs">
+                                @if (commonInfo.MenuList != null && commonInfo.MenuList.Length > 0)
+                                {
+                                    foreach (var item in commonInfo.MenuList)
+                                    {
+                                        <li class="level0 parent drop-menu">
+                                            <a href="@item.Link"><span>@item.Tittle</span></a>
+                                            @if (item.ChidMenu.Length > 0)
+                                            {
+                                                <ul class="level1">
+                                                    @foreach (var childItem in item.ChidMenu)
+                                                    {
+                                                        <li class="level1">
+                                                            <a href="@childItem.Link"><span>@childItem.Tittle</span></a>
+                                                        </li>
+                                                    }
+
+                                                </ul>
+                                            }
+                                        </li>
+                                    }
+                                }
+                                <li class="level0 parent drop-menu">
+                                    <a href="/blog"><span>Tin tức</span></a>
+                                    <ul class="level1">
+                                        <li class="level1"><a title="blog" href="/blog"><span>Blogs Tin tức</span></a></li>
+
+                                        <li class="level1">
+                                            <a title="rollback" href="/ProductReturnPolicy">
+                                                <span>Chính sách đổi trả</span>
+                                            </a>
+                                        </li>
+                                        <li class="level1">
+                                            <a title="pay" href="/PaymentInfo">
+                                                <span>Hướng dẫn thanh toán</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="level0 parent drop-menu"><a class="level-top" href="/about"><span>Giới thiệu</span></a></li>
+                                <li class="level0 parent drop-menu"><a class="level-top" href="/home/contact"><span>Liên hệ</span></a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="fl-header-right">
+                @*<div class="fl-links">
+                        <div class="no-js">
+                            <a title="Company" class="clicker"></a>
+                            <div class="fl-nav-links">
+                                <ul class="links">
+
+                                    <li><a href="/blog" title="Blog"><span>Blogs Tin Tức</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="collapse navbar-collapse">
+                    <form class="navbar-form" role="search" action="/search" method="get">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search" name="keyword" id="keyword">
+                            <span class="input-group-btn">
+                                <button type="submit" class="search-btn"> <span class="glyphicon glyphicon-search"> <span class="sr-only">Search</span> </span> </button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

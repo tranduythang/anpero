@@ -1,0 +1,262 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+        ViewBag.Title = commonInfo.Desc;
+    }
+
+}
+@section health{
+    <meta name="description" content="@commonInfo.Desc" />
+    <meta name="keywords" content="@commonInfo.Desc" />
+    <style  type='text/css'>
+        .vc_custom_1503992894148{
+            display:none;
+        }
+    </style>
+}
+<div id="wrapper">
+    @Html.Partial("_partial/_HomeSlide")
+    <section class="wpb_row vc_row-fluid mt-sm-0 text-light wpb_animate_when_almost_visible wpb_fadeInDown fadeInDown vc_custom_1563035993904 vc_row-has-fill side-bg">
+        <div class="image-container col-md-6 col-md-offset-6 pull-right right0"><div class="background-image" style="background-image: url(wp-content/uploads/2019/07/v2-min.jpg);"></div></div><div class="container">
+            <div class="row">
+                <div class="inner-padding clearfix">
+                    <div class="wpb_column vc_column_container vc_col-sm-5 vc_col-has-fill">
+                        <div class="vc_column-inner vc_custom_1563985999009">
+                            <div class="wpb_wrapper ">
+                                <div class="wpb_text_column wpb_content_element  vc_custom_1563985428415">
+                                    <div class="wpb_wrapper">
+                                        <h2>Chuyên gia thiết kế nội thất<span class="id-color">.</span></h2>
+                                        <p>Mục tiêu cuối cùng của chúng tôi là thiết kế những trải nghiệm khách sạn hấp dẫn sẽ tác động tích cực đến lợi nhuận của bạn. Thiết kế nội thất ở Bangkok và phần còn lại của thế giới không ngừng phát triển và thay đổi. Thiết lập một trải nghiệm mà khách có thể cộng hưởng là một cách hữu cơ để phát triển và phát triển. Nhìn vào sự phát triển của hành vi khách hàng và cách họ tương tác với các sản phẩm dẫn chúng ta đến một số tín hiệu thiết kế mà chúng ta cần để tạo ra một cái gì đó khác biệt.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><section class="wpb_row vc_row-fluid vc_custom_1503991331570">
+        <div class="container">
+            <div class="row">
+                <div class="wpb_column vc_column_container vc_col-sm-4">
+                    <div class="vc_column-inner ">
+                        <div class="wpb_wrapper wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="wpb_text_column wpb_content_element ">
+                                <div class="wpb_wrapper">
+                                    <h3 style="text-transform: uppercase;">Giàu kinh nghiệm</h3>
+                                    <p>Đội ngũ kiến trúc sư giàu kính nghiệm tốt nghiệp các trường uy tín hàng đầu Việt Nam như ĐH Kiến trúc, ĐH Xây Dựng, đã có nhiều năm làm trong lĩnh vực thiết kế nội thất.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="wpb_column vc_column_container vc_col-sm-4">
+                    <div class="vc_column-inner ">
+                        <div class="wpb_wrapper wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="wpb_text_column wpb_content_element ">
+                                <div class="wpb_wrapper">
+                                    <h3 style="text-transform: uppercase;">Quy trình rõ ràng</h3>
+                                    <p>Làm việc chuyên nghiệp, có khảo sát tư vấn báo giá, phụ lục hợp đồng thi công chính xác. Đảm bảo quyền lợi khách hàng từ khi đăng ký thiết kế đến nghiệm thu bàn giao và cả trong quá trình sử dụng.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="wpb_column vc_column_container vc_col-sm-4">
+                    <div class="vc_column-inner ">
+                        <div class="wpb_wrapper wow fadeInUp" data-wow-delay="0.6s">
+                            <div class="wpb_text_column wpb_content_element ">
+                                <div class="wpb_wrapper">
+                                    <h3 style="text-transform: uppercase;">Tư vấn miễn phí</h3>
+                                    <p>Dịch vụ tư vấn, báo giá, thiết kế sơ bộ mặt bằng tư vấn tại công trình hoàn toàn miễn phí. Với lợi thế về xưởng thi công và đối tác lâu năm của các nhà phân phối, giúp bạn tiết kiệm đến 15% so với thị trường</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><section class="wpb_row vc_row-fluid wpb_animate_when_almost_visible wpb_fadeInDown fadeInDown vc_custom_1563036100518 vc_row-has-fill side-bg">
+        <div class="image-container col-md-6 col-md-offset-6 pull-left"><div class="background-image" style="background-image: url(wp-content/uploads/2019/07/v8-min.jpg);"></div></div><div class="container">
+            <div class="row">
+                <div class="inner-padding clearfix">
+                    <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-offset-7 vc_col-lg-5 vc_col-md-offset-7 vc_col-md-5">
+                        <div class="vc_column-inner ">
+                            <div class="wpb_wrapper ">
+                                <div class="wpb_text_column wpb_content_element  vc_custom_1563985635495">
+                                    <div class="wpb_wrapper">
+                                        <h2>Chuẩn mực thiết kế<span class="id-color">.</span></h2>
+                                        <p>Là một công ty chuyên về thiết kế triển lãm, chế tạo đứng và xây dựng. Với các nhà quản lý dự án tầm cỡ và các nhà thiết kế giàu kinh nghiệm của chúng tôi, chúng tôi mong muốn chuyển đổi Ý tưởng của bạn thành Hiện thực!</p>
+                                        <p>Luôn chú trọng đến nguồn lực con người và xem con người là nhân tố hàng đầu quyết định sự phát triển bền vững của một doanh nghiệp. BeeHome luôn tạo điều kiện tốt nhất để nhân viên phát huy hết khả năng lao động và sáng tạo.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="wpb_row vc_row-fluid text-light vc_custom_1503991858344 vc_row-has-fill">
+        <div class="container">
+            <div class="row">
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner ">
+                        <div class="wpb_wrapper wow fadeIn">
+                            <h2 style="text-align: left;"> TIẾT KIỆM 15%</h2>
+                        </div>
+                    </div>
+                </div><div class="wpb_column vc_column_container vc_col-sm-4">
+                    <div class="vc_column-inner ">
+                        <div class="wpb_wrapper ">
+                            <div class="wpb_text_column wpb_content_element ">
+                                <div class="wpb_wrapper">
+                                    <p>Dịch vụ tư vấn, báo giá, thiết kế sơ bộ mặt bằng tư vấn tại công trình hoàn toàn miễn phí. Với lợi thế về xưởng thi công và đối tác lâu năm của các nhà phân phối, giúp bạn tiết kiệm đến 15% so với thị trường</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-8" style="margin-top:-50px;">
+                    <div class="vc_column-inner ">
+                        <div class="wpb_wrapper ">
+                            <div class="vc_row wpb_row vc_inner vc_row-fluid text-light">
+                                <div class="wpb_column vc_column_container vc_col-sm-4">
+                                    <div class="vc_column-inner ">
+                                        <div class="wpb_wrapper ">
+                                            <div class="de_count">
+                                                <h3 class="timer" data-to="2350" data-speed="2500">0</h3>
+                                                <span>SẢN PHẨM</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div><div class="wpb_column vc_column_container vc_col-sm-4">
+                                    <div class="vc_column-inner ">
+                                        <div class="wpb_wrapper ">
+                                            <div class="de_count">
+                                                <h3 class="timer" data-to="128" data-speed="2500">0</h3>
+                                                <span>KIẾN TRÚC THIẾT KẾ</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div><div class="wpb_column vc_column_container vc_col-sm-4">
+                                    <div class="vc_column-inner ">
+                                        <div class="wpb_wrapper ">
+                                            <div class="de_count">
+                                                <h3 class="timer" data-to="750" data-speed="2500">0</h3>
+                                                <span>DỰ ÁN VẬN HÀNH</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="wpb_row vc_row-fluid no-padding">
+        <div class="row">
+            <div class="wpb_column vc_column_container vc_col-sm-12">
+                <div class="vc_column-inner ">
+                    <div class="wpb_wrapper ">
+                        <div class="wpb_text_column wpb_content_element ">
+                            <div class="wpb_wrapper">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><section class="wpb_row vc_row-fluid vc_custom_1503991331570">
+        <div class="container">
+            <div class="row">
+                <div class="wpb_column vc_column_container vc_col-sm-4">
+                    <div class="vc_column-inner ">
+                        <div class="wpb_wrapper wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="wpb_text_column wpb_content_element ">
+                                <div class="wpb_wrapper">
+                                    <h3 style="text-transform: uppercase;">1. Phác thảo thiết kế</h3>
+                                    <p>Sau khi trao đổi và nắm được nhu cầu, Nội thất Beehome sẽ nghiên cứu và phác thảo bản vẽ ý tưởng thiết kế, sau đó chúng tôi sẽ thiết kế và bố trí cho bạn.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="wpb_column vc_column_container vc_col-sm-4">
+                    <div class="vc_column-inner ">
+                        <div class="wpb_wrapper wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="wpb_text_column wpb_content_element ">
+                                <div class="wpb_wrapper">
+                                    <h3 style="text-transform: uppercase;">2. Phối cảnh 3D</h3>
+                                    <p>Nếu bạn hài lòng với bản vẽ phác thảo 3D, Beehome sẽ tiến hành ký hợp đồng thiết kế và lên phối cảnh 3D chi tiết. Phối cảnh sẽ giúp bạn hình dung được bản thiết kế rõ ràng.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="wpb_column vc_column_container vc_col-sm-4">
+                    <div class="vc_column-inner ">
+                        <div class="wpb_wrapper wow fadeInUp" data-wow-delay="0.6s">
+                            <div class="wpb_text_column wpb_content_element ">
+                                <div class="wpb_wrapper">
+                                    <h3 style="text-transform: uppercase;">3. Thi công sản phẩm</h3>
+                                    <p>Sau khi thống nhất bản vẽ 3D với khách hàng, Beehome Vietnam tiến hành lập dự toán thi công để đảm bảo chi phí thi công được kiểm soát chặt chẽ.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer begin -->
+</div><!-- #wrapper -->
+
+@if (ViewData["featureleProduct"] != null)
+{
+    SearchResult product = (SearchResult)ViewData["featureleProduct"];
+    if (product.Item.Count() > 0)
+    {
+      
+            <div id="gallery" class="gallery full-gallery de-gallery pf_full_width pf_4_cols wow fadeInUp" data-wow-delay=".3s">
+                @foreach (var item in product.Item)
+                {
+                    <!-- gallery item -->
+                    <div class="item thiet-ke-chung-cu-vi ">
+                        <div class="picframe">
+                            <a class="simple-ajax-popup-align-top" href="@Anpero.StringHelpper.GetProductLink(item.CatName,item.Id)" >
+                                <span class="overlay">
+                                    <span class="pf_text">
+                                        <span class="project-name">@item.PrName</span>
+                                    </span>
+                                </span>
+                            </a>
+                            <img width="700" height="466" src="@item.Images" class="attachment-thumb-portfolio size-thumb-portfolio wp-post-image" />
+                        </div>
+                    </div>
+                    <!-- close gallery item -->
+                }
+            </div>      
+    }
+}
+<script src="https://www.google.com/recaptcha/api.js"></script>
+@Html.Partial("_partial/_contact")
+@section scripts{
+    <script src="/assets/js/contact.js"></script>
+    <script src="/Scripts/Bootrap-notify.js"></script>
+
+}

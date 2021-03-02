@@ -1,0 +1,24 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/page-title/_page-title
+
+block variables
+	- pageName = 'Icon boxes';
+
+block page
+	+rd-navbar(
+		data-rd-navbar = {
+			responsive: {
+				1200: {autoHeight: false}
+			}
+		}
+	).rd-navbar-absolute.rd-navbar-fullwidth-light
+	
+	+page-title({
+		bgImage: 'images/background/bg-2-1920x496.jpg'
+	})
+
+	include ../components/section/_blurb-icon-left-sample
+	include ../components/section/_blurb-icon-left-sample-2
+	include ../components/section/_blurb-hover-sample
+	include ../components/footer/_footer-subscribe

@@ -1,0 +1,126 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    BlogItem item = new BlogItem();
+    if (ViewData["blogdeltail"] != null)
+    {
+        item = (BlogItem)ViewData["blogdeltail"];
+    }
+}
+@section health{
+    <meta name="description" content="@item.ShotDesc" />
+    <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(item.Tag)" />
+    <meta property="og:description" content="@item.ShotDesc" />
+    <meta property="og:title" content="@item.Title" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="@ViewBag.WebsiteUrl" />
+    <meta property="og:image" content="@item.Thumb" />
+}
+@section canonical{
+    <link rel="canonical" href="@ViewBag.WebsiteUrl" />
+}
+<div class="page-heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="page-title bl-title">
+                    <h1><a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.CategoryName, item.CategoryId)">@item.CategoryName</a>  </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-container col2-right-layout">
+    <div class="main container">
+        <div class="row">
+            @if (!Request.Browser.IsMobileDevice)
+            {
+                @Html.Partial("article/_MenuAndAdsPartial")
+            }
+            <div class="center_column col-xs-12 col-sm-9" id="center_column">
+                <div id="main" class="blog-wrapper">
+
+                    <div id="primary" class="site-content">
+                        <div id="content" role="main">
+                            <article id="post-@item.Id" class="blog_entry clearfix">
+                                <div class="blog_entry-header clearfix">
+                                    <div class="blog_entry-header-inner">
+                                        <h2 class="blog_entry-title">
+                                            @item.Title - @Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="entry-content">
+                                    @Html.Raw(item.Content)
+                                </div>
+                                <div class="entry-tags">
+                                    <span>Tags:</span>
+                                    @item.Tag
+                                </div>
+                            </article>
+
+                        </div>
+                    </div>
+                </div>
+                @if (ViewData["ArticleList"] != null)
+                {
+                    SearchArticleResults articleList = (SearchArticleResults)ViewData["ArticleList"];
+                    if (articleList.ResultsCount > 0)
+                    {
+                            <div class="related-pro container">
+                                <div class="slider-items-products">
+                                    <div class="new_title center">
+                                        <h2>Bài liên quan</h2>
+                                    </div>
+                                    <div id="related-slider" class="product-flexslider hidden-buttons">
+                                        <div class="slider-items slider-width-col4 products-grid">
+                                            @foreach (var articleItem in articleList.ItemList)
+                                            {
+                                                <div class="item">
+                                                    <div class="item-inner">
+                                                        <div class="item-img">
+                                                            <div class="item-img-info">                                                                
+                                                                <a href="@Anpero.StringHelpper.GetArticleLink(articleItem.Title, articleItem.Id)"  class="product-image">
+                                                                    <img src="@articleItem.Thumb" alt="@articleItem.Title">
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="item-info">
+                                                            <div class="info-inner">
+                                                                <div class="item-title">
+                                                                   <a href="@Anpero.StringHelpper.GetArticleLink(articleItem.Title, articleItem.Id)">
+                                                                     @HttpUtility.HtmlDecode(articleItem.Title)
+                                                                    </a> 
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    }
+
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var owl = $('.related-posts');
+            owl.owlCarousel({
+                items: 3,
+                loop: true,
+                margin: 10,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                autoplayHoverPause: true
+            });
+        });
+    </script>
+}

@@ -53,8 +53,8 @@
                 htmlCat += '</div>';
                 htmlCat += '<div class="p-right">';
                 htmlCat += '<p class="p-name">' + Cart.list[i].title + '</p>';
-                htmlCat += '<p class="p-rice">' + Util.toMoneyFormat(Cart.list[i].price) + ' đ</p>';
-                htmlCat += '<p>SL: ' + Cart.list[i].quantity + '</p>';
+                //htmlCat += '<p class="p-rice">' + Util.toMoneyFormat(Cart.list[i].price) + ' đ</p>';
+                //htmlCat += '<p>SL: ' + Cart.list[i].quantity + '</p>';
                 htmlCat += '</div>';
                 htmlCat += '</li>';
             }
@@ -84,7 +84,7 @@
                 htmlCat += '<p class="product-name"><a href="#">' + Cart.list[i].title + ' </a></p>';
 
                 htmlCat += '</td>';
-                htmlCat += '<td class="cart_avail"><span class="label label-success">Sẵn sàng</span></td>';
+                //htmlCat += '<td class="cart_avail"><span class="label label-success">Sẵn sàng</span></td>';
                 if (Cart.list[i].price > 0) {
                     htmlCat += '<td class="price"><span>' + Util.toMoneyFormat(Cart.list[i].price) + '</span></td>';
                 } else {
@@ -92,9 +92,9 @@
                 }
                 
                 
-                htmlCat += '<td class="price">';
-                htmlCat += '<span>' + Util.toMoneyFormat(parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity)) + ' đ</span>';
-                htmlCat += '</td>';
+                //htmlCat += '<td class="price">';
+                //htmlCat += '<span>' + Util.toMoneyFormat(parseInt(Cart.list[i].price) * parseInt(Cart.list[i].quantity)) + ' đ</span>';
+                //htmlCat += '</td>';
                 htmlCat += '<td class="action">';
                 htmlCat += '<a href="javascript:Cart.remove2(' + Cart.list[i].id + ')" class="remove_link"></a>';
                 htmlCat += '</td>';

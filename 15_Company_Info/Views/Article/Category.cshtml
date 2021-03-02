@@ -1,0 +1,57 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    SearchArticleResults articleList = (SearchArticleResults)ViewData["ArticleList"];
+}
+<div id="content">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-8">
+                <ul class="blog-list">
+                    @if (articleList.ResultsCount > 0)
+                    {
+                        foreach (var item in articleList.ItemList)
+                        {
+                            <li class="wow fadeInUp animated">
+                                <div class="post-content">
+                                    <div class="post-image">
+                                        <img src="@item.Thumb" alt="@item.Title">
+                                    </div>
+
+                                    <div class="post-text">
+                                        <h3><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h3>
+                                        <p>@item.ShotDesc</p>
+                                    </div>
+
+                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="btn-more">&gt;&gt; Đọc tiếp</a>
+                                </div>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                <li>
+                    <p>Nội dung đang được cập nhật. Vui lòng quay lại sau </p>
+                </li>
+                        
+                    
+                    }
+                </ul>
+
+                <div class="pagination text-center ">
+                    @Html.Raw(ViewBag.page)
+                    <ul class="pagination">
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div id="sidebar" class="sidebar">                    
+                    @Html.Partial("article/_MenuAndAdsPartial")
+                </div>
+
+            </div>
+          
+        </div>
+    </div>
+</div>

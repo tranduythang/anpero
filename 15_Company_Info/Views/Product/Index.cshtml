@@ -1,0 +1,126 @@
+﻿@using AnperoFrontend.WebService
+@model ProductItem
+
+@if (Model != null)
+{
+    <section id="subheader" data-speed="8" data-type="background" style="background-image: url(&quot;https://cdn.anpero.com/images/38/102019/12019102201193291.jpg&quot;); background-position: 50% 0px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Mẫu thiết kế</h1>
+                    <ul class="crumb"><li><a rel="v:url" property="v:title" href="@Anpero.StringHelpper.GetParentCategoryLink(Model.CatName,Model.CatID)" title="@Model.CatName">@(string.IsNullOrEmpty(Model.CatName) ? Model.ParentCatName : Model.CatName)</a><b>/</b></li>  <li class="active">@Model.PrName</li></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-12">
+                    @if (Model.ImagesSlide != null && Model.ImagesSlide.Length > 0)
+                    {
+                        <div class="bxslider">
+                            @foreach (var item in Model.ImagesSlide)
+                            {
+                                <div><a href="@item" class="fancybox" data-fancybox="gallery" rel="gallery" data-type="image" title="@Model.PrName"><img src="@item" data-original="@item"></a></div>
+                            }
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row ">
+                <div class="center_column col-xs-12 col-sm-9 bw">
+                    <div id="product">
+                        <div class="primary-box row ">
+                            <div class="pb-right-column col-xs-12 col-sm-12">
+                                <h1 class="product-name">@Model.PrName</h1>
+                            </div>
+                        </div>
+                        @if (!string.IsNullOrEmpty(Model.Detail))
+                        {
+                            @Html.Raw(Model.Detail)
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    if (ViewData["relateProduct"] != null)
+    {
+        SearchResult product = (SearchResult)ViewData["relateProduct"];
+        if (product.Item.Count() > 0)
+        {
+            <section>
+                <h2 class="text-center" style="width:100%;">Mẫu thiết kế liên quan</h2>
+            </section>
+
+            <div id="gallery" class="gallery full-gallery de-gallery pf_full_width pf_4_cols wow fadeInUp" data-wow-delay=".3s">
+
+                @foreach (var item in product.Item)
+                {
+                    <!-- gallery item -->
+                    <div class="item thiet-ke-chung-cu-vi ">
+                        <div class="picframe">
+                            <a class="simple-ajax-popup-align-top" href="@Anpero.StringHelpper.GetProductLink(item.CatName,item.Id)">
+                                <span class="overlay">
+                                    <span class="pf_text">
+                                        <span class="project-name">@item.PrName</span>
+                                    </span>
+                                </span>
+                            </a>
+                            <img width="700" height="466" src="@item.Images" class="attachment-thumb-portfolio size-thumb-portfolio wp-post-image" />
+                        </div>
+                    </div>
+                    <!-- close gallery item -->
+                }
+            </div>
+        }
+    }
+    @section health{
+        <meta name="description" content="@Anpero.StringHelpper.removeHtmlTangs(Model.ShortDesc)" />
+        <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(Model.KeyWord)" />
+
+        <link href="//cdn.anpero.com/cdn/plugins/fancybox-3/src/css/core.css" rel="stylesheet" />
+        <link href="//cdn.anpero.com/cdn/plugins/fancybox-3/src/css/fullscreen.css" rel="stylesheet" />
+    }
+    @section  scripts{
+
+
+        <link href="/assets/lib/jquery-bxslider/jquery-bxslider.css" rel="stylesheet" />
+        <script src="/assets/lib/jquery-bxslider/jquery-bxslider.min.js"></script>
+        <script src="//cdn.anpero.com/cdn/plugins/fancybox-3/jquery.fancybox.js"></script>
+        <script src="//cdn.anpero.com/cdn/plugins/fancybox-3/src/js/fullscreen.js"></script>
+
+
+
+
+        <script>
+            $(window).load(function () {
+                $(function () {
+                    $('.bxslider').bxSlider({
+                        auto: true,
+                        autoControls: true,
+                        stopAutoOnClick: true,
+                        pager: true,
+                    });
+                    $(".lazy").fancybox({
+                        openEffect: 'none',
+                        closeEffect: 'none'
+                    });
+                    //$(".fancybox").fancybox({
+                    //    openEffect: 'none',
+                    //    closeEffect: 'none'
+                    //});
+                });
+            });
+
+        </script>
+        @Model.Script
+        $(window).resize(function () { resizeVideo(); }); function resizeVideo() { var contentW = $('.post').width(); var iframe = $('.post iframe'); var iframeW = iframe.css('width', contentW - 20); iframe.css('width', iframeW); var iframeH = contentW / 16 *9; iframe.css('height', iframeH); }</script>
+    }
+}

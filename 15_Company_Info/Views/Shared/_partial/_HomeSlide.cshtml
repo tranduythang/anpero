@@ -1,0 +1,89 @@
+﻿@using AnperoFrontend.WebService;
+
+@if (ViewData["slide"] != null)
+{
+    Ads[] slide = (Ads[])ViewData["slide"];
+
+    if (slide!=null && slide.Length > 0)
+    {
+        var item =slide.OrderBy(t => Guid.NewGuid()).FirstOrDefault();
+        
+        <section class="wpb_row vc_row-fluid no-padding">
+            <div class="row">
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner ">
+                        <div class="wpb_wrapper ">
+                            <div class="de-video-container full-height no-padding">
+                                <div class="de-video-content">
+                                    <div class="text-center">
+                                        @Html.Raw(item.Description)
+                                        <div class="spacer-single"></div>
+                                    </div>
+                                </div>
+                                <div class="moving-home" style="background-image: url('@item.ImagesUrl');"></div>
+                            </div>
+                            <script type="text/javascript">
+                                (function ($) {
+                                    "use strict";
+                                    // Moving Background Image
+                                    var x = 0;
+                                    setInterval(function () {
+                                        x -= 1;
+                                        $('.moving-home').css('background-position', x + 'px 0');
+                                    }, 50);
+                                })(jQuery);
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+    else
+    {
+        <div class="row">
+            <div class="wpb_column vc_column_container vc_col-sm-12">
+                <div class="vc_column-inner ">
+                    <div class="wpb_wrapper ">
+                        <div class="de-video-container full-height no-padding">
+                            <div class="de-video-content">
+                                <div class="text-center">
+
+                                    <div class="teaser-text">
+                                        Chào mừng bạn đến với
+                                    </div>
+                                    <div class="spacer-single"></div>
+
+
+                                    <div class="text-slider style-2 border-deco">
+
+                                        <div class="text-item">Beehome Vietnam</div>
+                                    </div>
+
+                                    <div class="spacer-single"></div>
+
+
+                                </div>
+                            </div>
+                            <div class="moving-home" style="background-image: url('wp-content/uploads/2019/07/181130_DL1_Scandinavi_Phong-Khach.jpg');"></div>
+                        </div>
+                        <script type="text/javascript">
+                            (function ($) {
+                                "use strict";
+                                // Moving Background Image
+                                var x = 0;
+                                setInterval(function () {
+                                    x -= 1;
+                                    $('.moving-home').css('background-position', x + 'px 0');
+                                }, 50);
+                            })(jQuery);
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+}
+
+

@@ -17,7 +17,7 @@ namespace AnperoFrontend.Controllers
             return View();
         }
         [BuildCommonHtml]
-        public ActionResult NLCallback(String Token)
+        public ActionResult NLCallback(string Token)
         {
             AnperoService ws = new AnperoService();
             PaymentConfig[] pc=  ws.GetPaymentAPIConfig(StoreID, TokenKey);

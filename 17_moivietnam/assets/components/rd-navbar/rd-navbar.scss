@@ -1,0 +1,145 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
+@import '../base/mixins';
+
+// Variables
+$navbar-color: $gray-900;
+$navbar-hover: $primary;
+$navbar-background: $gray-100;
+$navbar-zindex: $zindex-fixed;
+$navbar-shadow: 0 0 28px rgba( $gray-600, 0.1 );
+
+$navbar-dropdown-color: $navbar-color;
+
+
+// Base
+.rd-navbar {
+	position: relative;
+	z-index: $navbar-zindex;
+	color: $navbar-color;
+
+	li {
+		list-style: none;
+	}
+}
+
+.navbar-button {
+	position: relative;
+	display: block;
+	border: none;
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+	line-height: 1;
+	opacity: 1;
+	visibility: visible;
+	background: none;
+	color: inherit;
+	transition: .25s ease-in-out;
+
+	svg,
+	&::before,
+	&::after {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transition: .25s, color 0s;
+	}
+
+	svg,
+	&::before {
+		transform: translate( -50%, -50% ) rotate(0) scale(1);
+		opacity: 1;
+	}
+
+	&::after {
+		content: '\ec2a';
+		transform: translate( -50%, -50% ) rotate(90deg)  scale(0);
+		font-family: 'Linearicons';
+		opacity: 0;
+	}
+
+	&:hover {
+		color: $navbar-hover;
+	}
+
+	&.navbar-info-active,
+	&.navbar-search-active,
+	&.navbar-cart-active,
+	&.navbar-contact-active,
+	&.navbar-navigation-active,
+	&.navbar-social-active,
+	&.navbar-list-active,
+	&.active {
+		svg {
+			transform: translate( -50%, -50% ) rotate(-90deg)  scale(0);
+			opacity: 0;
+		}
+
+		&::before {
+			transform: translate( -50%, -50% ) rotate(-90deg)  scale(0);
+			opacity: 0;
+		}
+
+		&::after {
+			transform: translate( -50%, -50% ) rotate(0deg)  scale(1);
+			opacity: 1;
+		}
+
+		.navbar-button-badge {
+			transform: rotate(-90deg)  scale(0);
+			opacity: 0;
+		}
+	}
+}
+
+.navbar-cart-button {
+	fill: currentColor;
+}
+
+.navbar-button-badge {
+	position: absolute;
+	top: -3px;
+	right: -14px;
+	width: 16px;
+	height: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 10px;
+	font-weight: 500;
+	color: $white;
+	background-color: $primary;
+	border-radius: 16px;
+	transition: .25s, color 0s;
+}
+
+
+// Logo
+.navbar-logo-link {
+	display: block;
+}
+
+.navbar-logo-default,
+.navbar-logo-inverse {
+	margin: 0;
+}
+
+.navbar-logo-inverse {
+	display: none;
+}
+
+
+// Navbar list
+.navbar-list {
+	display: flex;
+	align-items: center;
+}
+
+
+// Layouts
+@import 'rd-navbar-fixed';
+@import 'rd-navbar-fullwidth';

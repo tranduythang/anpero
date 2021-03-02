@@ -1,0 +1,247 @@
+﻿@using AnperoFrontend.WebService;
+@{
+
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+        ViewBag.Title = commonInfo.Name;
+        ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau(commonInfo.Desc);
+        ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+    }
+}
+@section health{
+    <meta property="og:image:type" content="image/jpg">
+    <meta content="@commonInfo.Name" name="author" />
+    <meta property="og:image" content="@commonInfo.Logo">
+    <meta property="og:description" content="@commonInfo.Desc">
+    <meta name="description" content="@commonInfo.Desc" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@commonInfo.Name" />
+    <script>
+            if (window.location.protocol != "https:") {
+                window.location.protocol = "https:";
+            }
+    </script>
+}
+@if (ViewData["slide"] != null)
+{
+
+    Ads[] adsList = (Ads[])ViewData["Slide"];
+    if (adsList.Length > 0)
+    {
+        foreach (var item in adsList)
+        {
+            <section class="intro bg-image" style="background-image: url(@item.ImagesUrl)">
+                <div class="container">
+                    <div class="col-lg-6 col-md-8 col-sm-10">
+                        <div class="pr-xl-5">
+                            @Html.Raw(item.Description)
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        }
+    }
+}
+<!-- Popular Categories-->
+<section class="section-md bg-overlay bg-secondary-light">
+    <div class="bg-overlay-item bg-100"></div>
+    <div class="container" data-animate='{"class":"fadeIn"}'>
+        <div class="text-center">
+            <h2 class="heading-decoration">Danh mục nổi bật</h2>
+        </div>
+        <div class="owl-carousel owl-content-1 owl-carousel-shadow-2" data-owl="{&quot;dots&quot;:true}" data-autoplay="false" data-items="1" data-sm-items="2" data-lg-items="3">
+            @foreach (var item in commonInfo.ProductCategoryList)
+            {
+                <div class="person person-boxed">
+                    <img class="person-img" src="@item.Images" alt="" width="370" height="302" />
+                    <div class="person-inner">
+                        <div class="person-inner-item person-content">
+                            <h4 class="person-title"><a href="@item.DefaultLink">@item.Name</a></h4>
+                            <p class="person-text">@item.Description</p>
+                            <div class="person-divider"></div>
+                            @*<div class="person-meta">250+ Products</div>*@
+                        </div>
+                        <div class="person-inner-item"><a class="person-button" href="@item.DefaultLink"><span class="mdi mdi-arrow-right"></span></a></div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</section>
+
+<!-- Call to action-->
+@if (ViewData["ads2"] != null)
+{
+    Ads[] adsList = (Ads[])ViewData["ads2"];
+    if (adsList.Length > 0)
+    {
+
+        foreach (var item in adsList)
+        {
+            <section class="section-xxl bg-transparent text-center bg-image context-dark" style="background-image: url(@item.ImagesUrl)">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10 col-lg-9">
+                            @Html.Raw(item.Description)
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+
+    }
+}
+@if (ViewData["BestsaleProduct"] != null)
+{
+    SearchResult BestsaleProduct = (SearchResult)ViewData["BestsaleProduct"];
+
+    if (BestsaleProduct.Item.Length > 0)
+    {
+        <section class="section-md bg-100">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="heading-decoration">Sản phẩm nổi bật</h2>
+                </div>
+                <div class="row row-40 row-xl-55">
+                    @foreach (var item in BestsaleProduct.Item)
+                    {
+                        <div class="col-xs-6 col-lg-4 col-xl-3">
+                            <!-- Product-->
+                            <div class="product product-simple">
+                                <a class="product-media" href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">
+                                    <img src="@item.Images" alt="@item.PrName" />
+                                </a>
+                                <h4 class="product-title"><a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)">@item.PrName</a></h4>
+                                <div class="h4 product-price">@Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) đ</div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+
+    }
+
+}
+@if (ViewData["ads3"] != null)
+{
+    Ads[] adsList = (Ads[])ViewData["ads3"];
+    if (adsList.Length > 0)
+    {
+        <section class="section-quote-large bg-secondary-light">
+            <div class="container">
+                <div class="owl-carousel owl-quote" data-owl="{&quot;dots&quot;:true,&quot;autoplay&quot;:false}" data-items="1" data-autoplay="false">
+
+                    @foreach (var item in adsList)
+                    {
+                        <!-- Quote icon large-->
+                        <div class="quote quote-large">
+                            <div class="quote-icon">
+                                <svg class="quote-icon-face" width="266" height="217" viewBox="0 0 266 217">
+                                    <path d="M205.904 26.5452L205.911 26.5394L205.918 26.5334C216.3 17.5017 225.037 11.0705 232.135 7.22079L232.142 7.21738L232.148 7.21379C236.04 4.95663 239.192 3.26985 241.608 2.14887C242.816 1.58828 243.832 1.17284 244.66 0.898439C245.497 0.621039 246.106 0.5 246.512 0.5C254.562 0.5 260.874 5.95131 265.378 17.2242C247.958 27.5387 233.419 39.774 221.768 53.9323L221.766 53.9343C210.715 67.5069 203.528 78.5356 200.251 87.0072L200.247 87.0179L200.244 87.0287C197.641 94.7955 196.32 100.992 196.32 105.594C196.32 109.913 197.988 115.006 201.256 120.853C204.527 126.707 209.423 133.356 215.931 140.798L215.939 140.807L215.947 140.815C222.751 147.903 227.839 154.33 231.222 160.097C234.608 165.868 236.269 170.945 236.269 175.344C236.269 186.744 229.913 196.617 217.012 204.954C204.76 212.646 190.564 216.5 174.411 216.5C167.372 216.5 160.655 215.554 154.258 213.664C145.325 200.859 140.808 178.439 140.808 146.281C140.808 129.558 144.042 113.154 150.513 97.0664C157.642 80.3148 166.059 66.48 175.759 55.5508C185.485 44.5901 195.534 34.9222 205.904 26.5452ZM65.5962 26.5452L65.5988 26.5431C76.6324 17.5089 85.6981 11.0736 92.8025 7.22079L92.8088 7.21737L92.815 7.21378C96.7068 4.95663 99.8585 3.26985 102.275 2.14887C103.483 1.58828 104.499 1.17284 105.327 0.898442C106.164 0.621039 106.773 0.5 107.179 0.5C114.571 0.5 120.565 5.929 125.07 17.2241C107.654 27.5389 93.4375 39.776 82.4292 53.9386C71.3805 67.5092 64.1951 78.5365 60.9183 87.0072L60.9142 87.0178L60.9106 87.0286C58.3066 94.7955 56.9871 100.992 56.9871 105.594C56.9871 109.913 58.655 115.006 61.9225 120.853C65.1934 126.707 70.0892 133.356 76.598 140.798L76.6057 140.807L76.6137 140.815C83.4183 147.903 88.5056 154.33 91.8893 160.097C95.2751 165.868 96.9359 170.945 96.9359 175.344C96.9359 186.743 90.5813 196.614 77.6849 204.951C64.7785 212.647 50.2553 216.5 34.1025 216.5C28.3588 216.5 21.9671 215.556 14.9241 213.659C5.33623 199.569 0.5 177.14 0.5 146.281C0.5 129.557 3.7341 113.154 10.2056 97.0663C17.3342 80.3148 25.7516 66.48 35.451 55.5507C45.1779 44.5901 55.2265 34.9222 65.5962 26.5452Z"></path>
+                                </svg>
+                                <svg class="quote-icon-shadow" width="266" height="217" viewBox="0 0 266 217">
+                                    <path d="M205.904 26.5452L205.911 26.5394L205.918 26.5334C216.3 17.5017 225.037 11.0705 232.135 7.22079L232.142 7.21738L232.148 7.21379C236.04 4.95663 239.192 3.26985 241.608 2.14887C242.816 1.58828 243.832 1.17284 244.66 0.898439C245.497 0.621039 246.106 0.5 246.512 0.5C254.562 0.5 260.874 5.95131 265.378 17.2242C247.958 27.5387 233.419 39.774 221.768 53.9323L221.766 53.9343C210.715 67.5069 203.528 78.5356 200.251 87.0072L200.247 87.0179L200.244 87.0287C197.641 94.7955 196.32 100.992 196.32 105.594C196.32 109.913 197.988 115.006 201.256 120.853C204.527 126.707 209.423 133.356 215.931 140.798L215.939 140.807L215.947 140.815C222.751 147.903 227.839 154.33 231.222 160.097C234.608 165.868 236.269 170.945 236.269 175.344C236.269 186.744 229.913 196.617 217.012 204.954C204.76 212.646 190.564 216.5 174.411 216.5C167.372 216.5 160.655 215.554 154.258 213.664C145.325 200.859 140.808 178.439 140.808 146.281C140.808 129.558 144.042 113.154 150.513 97.0664C157.642 80.3148 166.059 66.48 175.759 55.5508C185.485 44.5901 195.534 34.9222 205.904 26.5452ZM65.5962 26.5452L65.5988 26.5431C76.6324 17.5089 85.6981 11.0736 92.8025 7.22079L92.8088 7.21737L92.815 7.21378C96.7068 4.95663 99.8585 3.26985 102.275 2.14887C103.483 1.58828 104.499 1.17284 105.327 0.898442C106.164 0.621039 106.773 0.5 107.179 0.5C114.571 0.5 120.565 5.929 125.07 17.2241C107.654 27.5389 93.4375 39.776 82.4292 53.9386C71.3805 67.5092 64.1951 78.5365 60.9183 87.0072L60.9142 87.0178L60.9106 87.0286C58.3066 94.7955 56.9871 100.992 56.9871 105.594C56.9871 109.913 58.655 115.006 61.9225 120.853C65.1934 126.707 70.0892 133.356 76.598 140.798L76.6057 140.807L76.6137 140.815C83.4183 147.903 88.5056 154.33 91.8893 160.097C95.2751 165.868 96.9359 170.945 96.9359 175.344C96.9359 186.743 90.5813 196.614 77.6849 204.951C64.7785 212.647 50.2553 216.5 34.1025 216.5C28.3588 216.5 21.9671 215.556 14.9241 213.659C5.33623 199.569 0.5 177.14 0.5 146.281C0.5 129.557 3.7341 113.154 10.2056 97.0663C17.3342 80.3148 25.7516 66.48 35.451 55.5507C45.1779 44.5901 55.2265 34.9222 65.5962 26.5452Z"></path>
+                                </svg>
+                            </div>
+                            <div class="quote-body">
+                                @Html.Raw(item.Description)
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+    }
+}
+<!-- Practice-->
+<section class="section-md bg-transparent">
+    <div class="container container-wide">
+        <div class="text-center">
+            <h2 class="heading-decoration">Blog</h2>
+        </div>
+        <div class="row row-40 row-offset-lg justify-content-center">
+            @if (ViewData["TopArticle"] != null)
+            {
+                SearchArticleResults rs = (SearchArticleResults)ViewData["TopArticle"];
+                foreach (var item in rs.ItemList)
+                {
+
+                    <div class="col-xs-11 col-sm-6 col-lg-3" data-animate='{"class":"fadeInUpBig"}'>
+                        <!-- Post-->
+                        <div class="post post-line post-line-hover">
+                            <a class="post-media" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
+                                <img src="@item.Thumb" alt="@item.Title" width="422" height="228" />
+                                <div class="post-hover-btn mdi-link-variant"></div>
+                            </a>
+                            <div class="post-content">
+                                <h4 class="post-title"><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h4>
+                                <div class="post-date">@Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+
+        </div>
+    </div>
+</section>
+<!-- Our goals-->
+<!--<section class="section-md bg-100" id="consultation-form">
+    <div class="container">
+        <div class="row row-30 justify-content-xl-between">
+            <div class="col-md-6 col-xl-5 text-center text-md-left" data-animate='{"class":"fadeInLeftBig"}'>
+                <div class="image-block">
+                    <img src="https://cdn.anpero.com/images/70/32021/12021030100011377.jpg" alt="" width="357" height="494" />
+                    <div class="image-block-embed">-->
+<!-- Counter-->
+<!--<div class="counter">
+                <div class="counter-value h2">
+                    <span data-counter="">25</span><span class="counter-unit">%</span>
+                </div>
+                <div class="counter-title">off</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-6 col-xl-7 col-xxl-6">
+    <h2 class="heading-decoration" data-animate='{"class":"fadeInRightBig"}'>100% Authentic <br> Products</h2>
+    <p class="big" data-animate='{"class":"fadeInRightBig","delay":".1"}'>At Pure, we offer a wide range of authentic Korean beauty products that are backed by lots of great reviews. Our store also provides regular discounts and free global shipping for all our clients.</p>
+    <div class="row row-5 row-content" data-animate='{"class":"fadeInRightBig","delay":".2"}'>
+        <div class="col-sm-6">-->
+<!-- Blurb hover-->
+<!--<div class="blurb blurb-icon-left">
+        <div class="blurb-header">
+            <div class="blurb-icon thin-icon-ambulance"></div>
+            <div class="blurb-title h4">Free Shipping Worldwide</div>
+        </div>
+        <div class="blurb-text"></div>
+    </div>
+</div>
+<div class="col-sm-6">-->
+<!-- Blurb hover-->
+<!--<div class="blurb blurb-icon-left">
+                            <div class="blurb-header">
+                                <div class="blurb-icon thin-icon-documents"></div>
+                                <div class="blurb-title h4">Money Back Guarantee</div>
+                            </div>
+                            <div class="blurb-text"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="group-26"><a class="btn" href="shop.html">Shop Now</a><a class="btn btn-outline" href="contact-us.html">Contact Us</a></div>
+            </div>
+        </div>
+    </div>
+</section>-->
+
+@section scripts {
+
+}

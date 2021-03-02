@@ -1,0 +1,26 @@
+include ../quote/_quote
+
+// Practice
+section.section-quote-large.bg-secondary-light
+	.container
+		.owl-carousel.owl-quote( data-owl= { dots: true, autoplay: false }, data-items='1', data-autoplay='false' )
+			+quote-large({
+				quote: 'Your store offers a wonderful range of awesome Korean cosmetics. Me & my sister are delighted!',
+				authorImg: 'person/person-01-53x53.png',
+				authorName: 'Jane Williams',
+				authorPosition: 'Client'
+			})
+
+			+quote-large({
+				quote: 'Pure has a great range of everyday makeup products. I’ll definitely be a returning client here.',
+				authorImg: 'person/person-02-53x53.png',
+				authorName: 'Eva Adams',
+				authorPosition: 'Client'
+			})
+
+			+quote-large({
+				quote: 'I like your skincare products, especially creams and cleansers. Also, your customer service is out of this world!',
+				authorImg: 'person/person-03-53x53.png',
+				authorName: 'Kate Harrison',
+				authorPosition: 'Client'
+			})

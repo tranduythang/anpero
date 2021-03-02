@@ -1,15 +1,16 @@
-﻿using System;
+﻿using Anpero;
+using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
-using Utilities.Caching;
+
 
 namespace AnperoFrontend.Controllers
 {
     public class HomeController : BaseController
     {
         [BuildCommonHtml]
-        [OutputCache(Duration = 60 * 5, VaryByParam = "none")]
+        [OutputCache(Duration = 60 * 5, VaryByParam = "none",Location =System.Web.UI.OutputCacheLocation.Server)]
         public ActionResult Index()
         {
             //Response.AppendHeader("Cache-Control", "max-age=1200,stale-while-revalidate=3600"); // HTTP 1.1.
@@ -73,7 +74,7 @@ namespace AnperoFrontend.Controllers
 
             if (!cache.TryGet(NewestProductCache, out searchResult))
             {
-                searchResult = service.SearchProduct(StoreID, TokenKey, "", "", "", 0, 999999999, 1, 7, "", SearchOrder.TimeDesc, 0,string.Empty);
+                searchResult = service.SearchProduct(StoreID, TokenKey, "", "", "", 0, 999999999, 1, 19, "", SearchOrder.TimeDesc, 0,string.Empty);
                 cache.AddOrUpdate(NewestProductCache, searchResult, DateTime.Now.AddMinutes(shortCacheTime));
             }
            

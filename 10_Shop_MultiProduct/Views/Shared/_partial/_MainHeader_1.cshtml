@@ -93,7 +93,11 @@
                                             {
                                                 <div class="megamenu_col__item align_center">
                                                     <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)">
-                                                        <img src="@item.Images" alt="@item.Name">
+                                                        @if (!string.IsNullOrEmpty(item.Images))
+                                                        {
+                                                            <img src="@item.Images" alt="@item.Name">
+
+                                                        }
                                                         <h4>@item.Name</h4>
                                                     </a>
                                                 </div>

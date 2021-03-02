@@ -1,0 +1,299 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+    string currentUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+    bool isMobileDrive = Request.Browser.IsMobileDevice;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>@Html.Raw(ViewBag.Title)</title>
+    <meta property="og:title" content="@Html.Raw(ViewBag.Title)" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:type" content="website" />
+    <meta name="distribution" content="Global" />
+    <meta name="revisit-after" content="1 days" />
+    <meta http-equiv="REFRESH" content="1800" />
+    <meta name="robots" content="index,follow,all" />
+    <link rel="shortcut icon" href="@(string.IsNullOrEmpty(commonInfo.Favicon)?commonInfo.Logo:commonInfo.Favicon)" type="image/x-icon">
+    <meta content="@commonInfo.Name" name="author" />
+
+    <script type='text/javascript' src='//cdn.anpero.com/cdn/plugins/jquery-2.2.4.js'></script>
+    @Styles.Render("~/bundles/global.css")
+    @RenderSection("health", required: false)
+    @RenderSection("Styles", required: false)
+    <link href='/static/css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="page">
+        <!--RD Navbar-->
+        <header class="section rd-navbar-wrap">
+            <nav class="rd-navbar navbar-dark rd-navbar-absolute" data-rd-navbar='{"responsive":{"1200":{"autoHeight":false}}}' id="nav-herder">
+                <div class="navbar-container">
+                    <div class="navbar-cell">
+                        <div class="navbar-panel">
+                            <button class="navbar-switch linearicons-menu" data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","isolate":"[data-multi-switch]"}'></button>
+                            <div class="navbar-logo">
+                                <a class="navbar-logo-link" href="/">
+                                    <img class="navbar-logo-default" src="@(commonInfo.Logo??"/assets/images/logo-default-87x50.svg")" alt="Pure" width="87" height="50" />
+                                    <img class="navbar-logo-inverse" src="@(commonInfo.Logo??"/assets/images/logo-default-87x50.svg")" alt="Pure" width="87" height="50" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navbar-cell navbar-spacer-small"></div>
+                    <div class="navbar-cell">
+                        <ul class="navbar-navigation rd-navbar-nav">
+                            @foreach (var item in commonInfo.MenuList)
+                            {
+                                if (item.ChidMenu != null && item.ChidMenu.Length > 0)
+                                {
+                                    <li class="navbar-navigation-root-item navbar-navigation-item-hidden">
+
+                                        <a class="navbar-navigation-root-link" href="@item.Link">@item.Tittle</a>
+                                        <ul class="navbar-navigation-dropdown rd-navbar-dropdown">
+                                            <li class="navbar-navigation-back">
+                                                <button class="navbar-navigation-back-btn">back</button>
+                                            </li>
+                                            @foreach (var chidItem in item.ChidMenu)
+                                            {
+                                                <li class="navbar-navigation-dropdown-item"><a class="navbar-navigation-dropdown-link" href="@chidItem.Link">@chidItem.Tittle</a></li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="navbar-navigation-root-item">
+                                        <a class="navbar-navigation-root-link" href="@item.Link">@item.Tittle</a>
+                                    </li>
+                                }
+
+
+                            }
+                        </ul>
+                    </div>
+                    <div class="navbar-cell navbar-spacer"></div>
+                    <div class="navbar-cell">
+                        <div class="navbar-subpanel">
+                            <div class="navbar-subpanel-item">
+                                <button class="navbar-button navbar-cart-button" data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","class":"navbar-cart-active","isolate":"[data-multi-switch]"}'>
+                                    <svg width="26" height="26" viewBox="0 0 26 26">
+                                        <path d="M5.78906 20.4648C5.17969 21.0742 4.875 21.8359 4.875 22.75C4.875 23.6641 5.17969 24.4258 5.78906 25.0352C6.43229 25.6784 7.21094 26 8.125 26C9.03906 26 9.80078 25.6784 10.4102 25.0352C11.0534 24.4258 11.375 23.6641 11.375 22.75C11.375 21.8359 11.0534 21.0742 10.4102 20.4648C9.80078 19.8216 9.03906 19.5 8.125 19.5C7.21094 19.5 6.43229 19.8216 5.78906 20.4648ZM6.95703 21.6328C7.29557 21.2943 7.6849 21.125 8.125 21.125C8.5651 21.125 8.9375 21.2943 9.24219 21.6328C9.58073 21.9375 9.75 22.3099 9.75 22.75C9.75 23.1901 9.58073 23.5625 9.24219 23.8672C8.9375 24.2057 8.5651 24.375 8.125 24.375C7.6849 24.375 7.29557 24.2057 6.95703 23.8672C6.65234 23.5625 6.5 23.1901 6.5 22.75C6.5 22.3099 6.65234 21.9375 6.95703 21.6328ZM15.5391 20.4648C14.9297 21.0742 14.625 21.8359 14.625 22.75C14.625 23.6641 14.9297 24.4258 15.5391 25.0352C16.1823 25.6784 16.9609 26 17.875 26C18.7891 26 19.5508 25.6784 20.1602 25.0352C20.8034 24.4258 21.125 23.6641 21.125 22.75C21.125 21.8359 20.8034 21.0742 20.1602 20.4648C19.5508 19.8216 18.7891 19.5 17.875 19.5C16.9609 19.5 16.1823 19.8216 15.5391 20.4648ZM16.707 21.6328C17.0456 21.2943 17.4349 21.125 17.875 21.125C18.3151 21.125 18.6875 21.2943 18.9922 21.6328C19.3307 21.9375 19.5 22.3099 19.5 22.75C19.5 23.1901 19.3307 23.5625 18.9922 23.8672C18.6875 24.2057 18.3151 24.375 17.875 24.375C17.4349 24.375 17.0456 24.2057 16.707 23.8672C16.4023 23.5625 16.25 23.1901 16.25 22.75C16.25 22.3099 16.4023 21.9375 16.707 21.6328ZM6.5 17.875C6.0599 17.875 5.67057 17.7227 5.33203 17.418C5.02734 17.0794 4.875 16.6901 4.875 16.25L23.5625 14.625C25.1875 8.05729 26 4.53646 26 4.0625C26 3.82552 25.9154 3.63932 25.7461 3.50391C25.6107 3.33464 25.4245 3.25 25.1875 3.25H4.875V1.625H5.6875C5.92448 1.625 6.11068 1.55729 6.24609 1.42188C6.41536 1.2526 6.5 1.04948 6.5 0.8125C6.5 0.575521 6.41536 0.389323 6.24609 0.253906C6.11068 0.084635 5.92448 0 5.6875 0H0.8125C0.575521 0 0.372396 0.084635 0.203125 0.253906C0.0677083 0.389323 0 0.575521 0 0.8125C0 1.04948 0.0677083 1.2526 0.203125 1.42188C0.372396 1.55729 0.575521 1.625 0.8125 1.625H3.25V16.25C3.25 17.1641 3.55469 17.9427 4.16406 18.5859C4.80729 19.1953 5.58594 19.5 6.5 19.5H8.125H17.875H25.1875V17.875H6.5ZM4.875 4.875H24.375L22.293 13.2031L4.875 14.625V4.875Z"></path>
+                                    </svg><span class="navbar-button-badge spN">0</span>
+                                </button>
+                                <div class="navbar-aside navbar-cart">
+                                    <div class="navbar-cart-item">
+                                        <div class="navbar-cart-item-left thumbnail"><a class="thumbnail-small" href="single-product.html"><img src="/assets/images/product/thumbnail-product-01-72x91.png" alt="" width="72" height="91" /></a></div>
+                                        <div class="navbar-cart-item-body">
+                                            <a class="navbar-cart-item-heading" href="single-product.html">Face Cleansing Gel</a>
+                                            <div class="navbar-cart-item-price d-flex group-10 justify-content-between">
+                                                <div>
+                                                    3 x <span class="navbar-cart-item-price-value">$25.00</span>
+                                                </div>
+                                                <button class="navbar-cart-remove mdi-delete"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="navbar-cart-total">Subtotal: $75.00</div><a class="btn btn-sm navbar-cart-btn" href="/product/checkout">Checkout</a>
+                                </div>
+                            </div>
+                            <div class="navbar-subpanel-item">
+                                <div class="navbar-contact-text">
+                                    <span class="h3">Liên hệ với chúng tôi</span>
+                                    <div class="navbar-contact">
+                                        <div class="rd-mailform rd-form" data-form-output="form-navbar" data-form-type="contact" method="post" >
+                                            <div class="row row-20 row-gutters-20">
+                                                <div class="col-xl-6">
+                                                    <div class="form-group">
+                                                        <input class="form-control" id="name" type="text" name="name" placeholder="Tên*" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <div class="form-group">
+                                                        <input class="form-control" id="email" type="email" name="email" placeholder="E-mail*" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <div class="form-group">
+                                                        <input class="form-control" id="phone" type="text" name="phone" placeholder="Số điện thoại" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <div class="form-group">
+                                                        <input class="form-control" id="address" type="text" name="address" placeholder="Địa chỉ" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" id="message" name="comment" placeholder="Tin nhắn" ></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <div class="form-selector">
+                                                        <div id="g-recaptcha"></div>
+                                                    </div>
+                                                    <div class="error contact-err"></div>
+                                                    <button class="btn" type="button" id="btn-send-contact">Send message</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-output snackbar snackbar-primary" id="form-navbar"></div>
+                                    </div>
+                                </div>
+                                <button class="navbar-button navbar-contact-btn linearicons-menu" id="open-contact" data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","class":"navbar-contact-active","isolate":"[data-multi-switch]:not(.rd-navbar-contact-btn)"}'></button>
+                            </div>
+                            <div class="navbar-subpanel-item navbar-subpanel-item-no-padding">
+                                <button class="navbar-button navbar-list-button mdi-dots-vertical" data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","class":"navbar-list-active","isolate":"[data-multi-switch]"}'></button>
+                                <div class="navbar-list"><a class="link link-inherit navbar-list-link" href="/search">Sản phẩm</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        @RenderBody()
+
+        <!-- Awards-->
+        <section class="section-sm text-center bg-secondary-light">
+            <div class="container">
+                <div class="owl-carousel owl-vertical-center owl-content-1" data-owl="{&quot;dots&quot;:true}" data-items="2" data-sm-items="3" data-md-items="4" data-lg-items="5">
+                    @if (ViewData["ads1"] != null)
+                    {
+                        Ads[] adsList = (Ads[])ViewData["ads1"];
+                        if (adsList.Length > 0)
+                        {
+                            foreach (var item in adsList)
+                            {
+                                <img src="@item.ImagesUrl" alt="@item.Description" width="128" height="48" />
+
+                            }
+                        }
+                    }
+
+                </div>
+            </div>
+        </section>
+        <!-- Footer subscribe-->
+        <footer class="footer-subscribe bg-white">
+            <div class="container">
+                <div class="row row-40 justify-content-lg-around justify-content-xxl-between flex-row-reverse justify-content-end">
+                    <div class="col-lg-5 col-xl-4">
+                        <div class="row row-30">
+                            <div class="col-6">
+                                <div class="list list-divided-double big">
+
+                                    <a class="list-item" href="/shippolicy">Chính sách vận chuyển</a>
+                                    <a class="list-item" href="/PaymentInfo">Hướng dẫn thanh toán</a>
+                                    <a class="list-item" href="/PrivacyPolicy">Chính sách bảo mật</a>
+
+                                </div>
+
+                            </div>
+                            <div class="col-6">
+                                <div class="list list-divided-double big">
+                                    <a class="list-item" href="/about">Về chúng tôi</a>
+                                    <a class="list-item" href="/blog">Blogs</a>
+                                    <a class="list-item" href="@commonInfo.FaceBookLink">Facebook</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-lg-6 col-xl-5">
+                        <div class="logo">
+                            <a class="logo-link" href="/">
+                                <img class="logo-image-default" src="@commonInfo.Logo" alt="@commonInfo.Name" width="87" height="50" />
+                                <img class="logo-image-inverse" src="@commonInfo.Logo" alt="Pure" width="87" height="50" />
+                            </a>
+                        </div>
+                        <div class="form-output snackbar snackbar-primary" id="form-footer-subscribe"></div>
+                        <ul class="list list-vertical">
+                            <li class="list-item">
+                                <div><a class="link link-inherit big" href="tel:@commonInfo.HotLine">@commonInfo.HotLine</a></div>
+                                <div><a class="link link-inherit" href="mailto:@commonInfo.Email">@commonInfo.Email</a></div>
+                            </li>
+                            <li class="list-item">@Html.Raw(commonInfo.Address.Replace("\n", "<br>"))</li>
+                        </ul>
+                        <!-- Copyright-->
+                        <p class="rights footer-rights"><span>&copy; 2020&nbsp;</span><span>@commonInfo.Name</span><span>.Build by <a href="http://concatgroup.anpero.com">Concat Group - Ccg</a>  All rights reserved.&nbsp;</span><a class="link link-inherit rights-link" href="/PrivacyPolicy">Privacy Policy</a></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-dot"></div>
+            <div class="preloader-dot"></div>
+            <div class="preloader-dot"></div>
+            <div class="preloader-dot"></div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/global.js")
+    <script src="/Scripts/Anpero.Common.js"></script>
+    <script src="/Scripts/ShoppingCart.js?v=2"></script>
+    @RenderSection("scripts", required: false)
+    @Html.Raw(commonInfo.PageScript)
+
+    @commonInfo.Footer
+    <style>
+        #menu-d-electronics li, #ovic-menu-clone-menu-d-electronics .menu-item {
+            padding-left: 10px;
+        }
+        .error{color:red;font-style:italic}
+    </style>
+    @Html.Raw(commonInfo.AnperoPlugin)
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="/Scripts/contact.js"></script>
+    <script type="text/javascript">
+        
+        $(document).ready(function () {
+            Cart.bindCart();
+        });
+    </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "https://schema.org",
+        "@@type": "WebSite",
+        "url": "@currentUrl",
+        "potentialAction": {
+        "@@type": "SearchAction",
+        "target": "@(currentUrl + Url.RouteUrl("search") + "?keyword={keyword}")",
+        "query-input": "required name=keyword"
+        }
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "https://schema.org",
+        "@@type": "Organization",
+        "url": "@currentUrl",
+        "logo": "@commonInfo.Logo"
+        }
+
+    </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "LocalBusiness",
+        "address": {
+        "@@type": "PostalAddress",
+        "addressLocality": "@commonInfo.Address",
+        "addressRegion": "@commonInfo.Address",
+        "streetAddress": "@commonInfo.Address"
+        },
+        "description": "@commonInfo.Desc",
+        "name": "@commonInfo.Name",
+        "telephone": "@commonInfo.HotLine"
+        }
+    </script>
+</body>
+</html>

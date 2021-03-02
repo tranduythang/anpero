@@ -1,0 +1,44 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    List<BlogCategory> categoryList = new List<BlogCategory>();
+    SearchArticleResults TopArticle = new SearchArticleResults();
+    if (ViewData["categoryMenuList"] != null)
+    {
+        categoryList = (List<BlogCategory>)ViewData["categoryMenuList"];
+    }
+    if (ViewData["FeatureArticle"] != null)
+    {
+        TopArticle = (SearchArticleResults)ViewData["FeatureArticle"];
+    }
+}
+
+<div id="recent-posts-2" class="widget widget_recent_entries">
+    <h4>Bài nổi bật</h4><div class="small-border"></div>
+    <ul>
+        @if (TopArticle != null && TopArticle.ItemList.Length > 0)
+        {
+            for (int i = 0; i < TopArticle.ItemList.Length; i++)
+            {
+                <li>
+                    <a href="@Anpero.StringHelpper.GetArticleLink(TopArticle.ItemList[i].Title,TopArticle.ItemList[i].Id)">@TopArticle.ItemList[i].Title</a>
+                </li>
+            }
+        }
+    </ul>
+</div>
+
+<div class="widget widget_recent_entries">
+    <h4>Chuyên mục</h4><div class="small-border"></div>
+    <ul>
+        @if (categoryList != null && categoryList.Count() > 0)
+        {
+            foreach (var item in categoryList)
+            {
+                <li>
+                    <a href="@Anpero.StringHelpper.GetBlogCategoryLink(item.Name,item.Id)">@item.Name</a>
+                </li>
+            }
+
+        }
+    </ul>
+</div>

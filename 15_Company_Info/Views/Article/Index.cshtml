@@ -1,0 +1,60 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    BlogItem item = new BlogItem();
+    if (ViewData["blogdeltail"] != null)
+    {
+        item = (BlogItem)ViewData["blogdeltail"];
+    }
+    string thisUrl = Request.Url.AbsoluteUri;
+}
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="blog-list">
+                    <li class="single">
+                        <div class="post-content">
+                            <div class="post-image">
+                                <img src="@item.Thumb" alt="">
+                            </div>
+                            <h3 class="single-title">@item.Title</h3>
+                            <div class="post-text page-content">
+                                @Html.Raw(item.Content)
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="col-xs-12">
+                    <div class="share-holder">
+                        <h4>Chia sẻ trên:</h4>
+                        <div class="social-links rounded-share-icons">
+                            <a class="facebook" href="https://www.facebook.com/sharer.php?u=@thisUrl">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a class="twitter" href="https://twitter.com/share?text=@item.Title">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a class="linkedin" href="https://linkedin.com/shareArticle?mini=true&amp;url=@thisUrl&amp;title=@item.Title">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <a class="pinterest" href="@thisUrl&amp;description=@item.Title&amp;media=@item.Thumb">
+                                <i class="fa fa-pinterest"></i>
+                            </a>
+                            <a class="tumblr" href="@thisUrl&amp;name=@item.Title">
+                                <i class="fa fa-tumblr"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="sidebar" class="sidebar">
+
+                    @Html.Partial("article/_MenuAndAdsPartial")
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,5 +1,4 @@
 ﻿@using AnperoFrontend.WebService;
-@using AnperoFrontend.WebService;
 
 <div class="col-md-9">
     @if (ViewData["AdsSlide"] != null)
@@ -7,37 +6,40 @@
         Ads[] slide = (Ads[])ViewData["AdsSlide"];
         if (slide != null && slide.Length > 0)
         {
-            <div id="example5" class="slider-pro">
-                @foreach (var item in slide)
-                {
-                    <div class="sp-slide">
-                        <a href="@item.ClickUrl">
-                            <img class="sp-image" src="@item.ImagesUrl" data-src="@item.ImagesUrl" data-retina="@item.ImagesUrl" style="max-height:350px;" />
-                        </a>
-                        @if (!string.IsNullOrEmpty(item.Description))
-                        {
-                            <p class="sp-layer sp-white sp-padding" data-vertical="10" data-horizontal="2%" data-width="96%" data-show-transition="down" data-show-delay="400" data-hide-transition="up">
-                                <a href="@item.ClickUrl">@item.Description</a>
-                            </p>
-                        }
-                    </div>
-                }
+            <div id="example1" class="slider-pro">
+                <div class="sp-slides">
+                    @foreach (var item in slide)
+                    {
+                        <div class="sp-slide">
+                            <a href="@item.ClickUrl">
+                                <img class="sp-image" src="@item.ImagesUrl" data-src="@item.ImagesUrl" data-retina="@item.ImagesUrl" />
+
+                                @if (!string.IsNullOrEmpty(item.Description))
+                                {
+                                    @*<div class="sp-caption">@item.Description</div>*@
+                                    <p class="sp-layer sp-white sp-padding" data-vertical="10" data-horizontal="2%" data-width="96%" data-show-transition="down" data-show-delay="400" data-hide-transition="up">@item.Description</p>
+                                }
+                            </a>
+                            
+                        </div>
+                    }
+                </div>
                 <div class="sp-thumbnails">
                     @foreach (var item in slide)
                     {
-
                         <div class="sp-thumbnail">
                             <div class="sp-thumbnail-image-container">
                                 <img class="sp-thumbnail-image" src="@item.ImagesUrl" />
                             </div>
                             <div class="sp-thumbnail-text">
                                 <div class="sp-thumbnail-title">@item.Description</div>
+                                <div class="sp-thumbnail-description"></div>
                             </div>
                         </div>
                     }
-
                 </div>
             </div>
         }
     }
+
 </div>

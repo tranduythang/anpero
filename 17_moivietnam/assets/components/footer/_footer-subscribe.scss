@@ -1,0 +1,37 @@
+// Base
+.footer-subscribe {
+	padding: 50px 0;
+	border-top: 1px solid $gray-200;
+
+	@include media-breakpoint-up(lg) {
+		padding: 60px 0;
+	}
+
+	@include media-breakpoint-up(xl) {
+		padding: 84px 0 120px;
+	}
+
+	.list-vertical {
+		color: $gray-900;
+	}
+
+	.form-control {
+		background-color: $white;
+	}
+
+	.footer-rights {
+		color: $gray-600;
+
+		* + & {
+			margin-top: px-to-rem(15px);
+
+			@include media-breakpoint-up(xl) {
+				margin-top: px-to-rem(53px);
+			}
+		}
+	}
+
+	* + .row {
+		margin-top: 46px;
+	}
+}

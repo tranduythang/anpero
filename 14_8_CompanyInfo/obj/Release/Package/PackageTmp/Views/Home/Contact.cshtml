@@ -1,0 +1,103 @@
+﻿@using AnperoFrontend.WebService;
+@{
+  
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+        ViewBag.WebsiteUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+        ViewBag.Keywords = Anpero.StringHelpper.UnicodeToKoDau(commonInfo.Desc);
+          ViewBag.Title = "Liên hệ với chúng tôi | "+commonInfo.Name;
+    }
+}
+@section health{
+    <meta name="description" content="@commonInfo.Desc" />
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    <meta property="og:description" content="@commonInfo.Desc" />
+    <meta property="og:title" content="@commonInfo.Desc" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="@ViewBag.WebsiteUrl" />
+    <meta property="og:image" content="@commonInfo.Logo" />
+}
+@*<div class="page-heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="page-title">
+                    <h2>Liên hệ với chúng tôi</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+
+@section scripts{
+    @*<script src="~/Scripts/Bootrap.notify.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>*@
+    <script>
+        //var width = $(window).width();
+        //$("#ajax_loader").css("left", ((width / 2) - 100) + "px");
+        //var googleCatcha;
+        //$(window).load(function () {
+            //googleCatcha = grecaptcha.render('g-recaptcha', {
+            //    'sitekey': googleCapchaSitekey,
+            //    'theme': 'light',
+            //    'hl': 'vi'
+            //});
+
+        //    $("#btn-send-contact").click(function () {
+        //        $("#btn-send-contact").removeAttr('disabled');
+        //        var valid = true;
+        //        var captchaResponse = grecaptcha.getResponse(googleCatcha);
+        //        var _name = $("#name").val();
+        //        var _email = $("#email").val();
+        //        var _phone = $("#phone").val();
+        //        var _address = $("#address").val();
+        //        var _message = $("#message").val();
+        //        if (_phone == null || _phone == "" || !Util.isVnFone(_phone)) {
+        //            Util.notify("", "Vui lòng nhập số điện thoại. ");
+        //            valid = false;
+        //        }
+        //        if (_name == null || _name == "") {
+        //            Util.notify("", "Vui lòng nhập tên liên hệ. ");
+        //            valid = false;
+        //        }
+        //        if (_message == null || _message == "") {
+        //            Util.notify("", "Vui lòng nhập nội dung tin nhắn. ");
+        //            valid = false;
+        //        }
+        //        if (captchaResponse == null || captchaResponse=="") {
+        //            Util.notify("", "Vui lòng click vào ô kiểm tra bảo mật. ");
+        //            valid = false;
+        //        }
+        //        if (valid) {
+        //            $("#ajax_loader").show();
+        //            $.ajax({
+        //                method: "post",
+        //                url: "/handler/ProductHandler.ashx",
+        //                datatype: "text/plain",
+        //                data: { op: "sendContact", name: _name, email: _email, phone: _phone, address: _address, message: _message, captcha: captchaResponse },
+        //                success: function (rs) {
+        //                    $("#ajax_loader").hide();
+        //                    if (!isNaN(rs)) {                                                      
+        //                        Util.notify("", "Tin nhắn liên hệ đã được gửi, cảm ơn bạn đã đóng góp!");
+        //                    }
+        //                    resetContactForm();
+                           
+        //                }
+        //            });
+        //        }
+        //    });
+        //});
+        //function resetContactForm() {
+        //    $("#name").val("");
+        //    $("#email").val("");
+        //    $("#phone").val("");
+        //    $("#address").val("");
+        //    $("#message").val("");
+        //    grecaptcha.reset();
+        //    $("#btn-send-contact").prop('disabled', false);
+        //}
+    </script>
+}

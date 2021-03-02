@@ -1,0 +1,2 @@
+.widget-title {	color: #019CA9;}.widget-body {	position: relative;}* + .widget-body {	margin-top: 15px;}.widget + .widget {	margin-top: 2.1875rem;}.context-dark .widget-title {	color: #019CA9;}@media (min-width: 1600px) {	* + .widget-body {		margin-top: 20px;	}	.widget + .widget {		margin-top: 2.75rem;	}}
+/*# sourceMappingURL=widget.css.map */

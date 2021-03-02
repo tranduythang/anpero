@@ -2,31 +2,22 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Utilities.Caching
+namespace Anpero
 {
     /// <summary>
     /// A cached collection of key value pairs.
     /// </summary>
     public interface ICacheService
     {
-        /// <summary>
-        /// Gets the total number of cache entries in the cache.
-        /// </summary>
+        
         long Count { get; }
 
-        /// <summary>
-        /// Inserts a cache entry into the cache by using a key, a value and no expiration.
-        /// </summary>
-        /// <typeparam name="T">The type of the cache entry value.</typeparam>
-        /// <param name="key">A unique identifier for the cache entry to insert.</param>
-        /// <param name="value">The data for the cache entry.</param>
-        /// <param name="afterItemRemoved">The action to perform after the cache entry has been removed.</param>
-        /// <param name="beforeItemRemoved">The action to perform before the cache entry has been removed.</param>
-        void AddOrUpdate<T>(
-            string key,
-            T value,
-            Action<string, T> afterItemRemoved = null,
-            Action<string, T> beforeItemRemoved = null) where T : class;
+
+        //void AddOrUpdate<T>(
+        //    string key,
+        //    T value,
+        //    Action<string, T> afterItemRemoved = null,
+        //    Action<string, T> beforeItemRemoved = null) where T : class;
 
         /// <summary>
         /// Inserts a cache entry into the cache by using a key, a value and absolute expiration.

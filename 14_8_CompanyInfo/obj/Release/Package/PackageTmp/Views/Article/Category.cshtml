@@ -1,0 +1,90 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    SearchArticleResults articleList = (SearchArticleResults)ViewData["ArticleList"];
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+
+}
+@section health{
+    <meta name="description" content="@ViewBag.Description" />
+    <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(ViewBag.Keywords)" />
+    <meta property="og:description" content="@ViewBag.Description" />
+    <meta property="og:title" content="@ViewBag.Title" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="@ViewBag.WebsiteUrl" />
+    <meta property="og:image" content="@commonInfo.Logo" />
+}
+@section canonical{
+    <link rel="canonical" href="@ViewBag.WebsiteUrl" />
+}
+<div class="page-heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="page-title">
+                    <h2>@ViewBag.Title</h2>
+                </div>
+            </div>
+            <!--col-xs-12-->
+        </div>
+        <!--row-->
+    </div>
+    <!--container-->
+</div>
+
+<div class="main-container col2-right-layout">
+    <div class="main container">
+        <div class="row">
+            @Html.Partial("article/_MenuAndAdsPartial")
+            @if (articleList.ResultsCount > 0)
+            {
+                <div class="col-main col-sm-9">
+                    <div id="main" class="blog-wrapper">
+                        <div id="primary" class="site-content">
+                            <div id="content" role="main">
+                                @foreach (var item in articleList.ItemList)
+                                {
+                                    <div class="col-md-12 blog_entry">
+                                        <article lass="wow bounceInUp animated animated ">
+                                            <div class="blog_entry-header clearfix">
+                                                <div class="blog_entry-header-inner">
+                                                    <h2 class="blog_entry-title"> <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" rel="bookmark">@item.Title</a> </h2>
+                                                    <div class="entry-meta">
+                                                        <time class="entry-date">  @item.CategoryName @*@Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)*@</time>
+                                                        .
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="entry-content">
+                                                <div class="featured-thumb col-md-5">
+                                                    <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">
+                                                        <img src="@item.Thumb" alt="@item.Title">
+                                                    </a>
+                                                </div>
+                                                <div class="entry-content col-md-7">
+                                                    @item.ShotDesc
+                                                    <div class="top15"> <a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)" class="btn">Chi tiết</a> </div>
+                                                </div>
+                                               
+                                            </div>
+                                        </article>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="pager">
+                            <div class="pages">
+                                @Html.Raw(ViewBag.page)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

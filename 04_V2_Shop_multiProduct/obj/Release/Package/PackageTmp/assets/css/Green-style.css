@@ -1,0 +1,56 @@
+.top-header {
+    background: #b1d238;
+}
+
+.option6 .top-header a {
+    color: #007176;
+}
+
+    .option6 .top-header a:hover {
+        color: #0a5558;
+    }
+
+.header, footer, #footer {
+    background-color: #0c6363 !important;
+    color: white;
+}
+
+.main-header .header-search-box .form-inline {
+    color: #0c6363;
+    min-width: 520px;
+    background-color: white;
+}
+
+    .main-header .header-search-box .form-inline .form-category {
+        background-color: white;
+        border-left: 1px solid #2feded;
+    }
+
+.option6 .select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #0c6363;
+}
+
+.option6 .header-search-box form .input-serach input, .main-header .header-search-box .form-inline .btn-search {
+    color: #0c6363;
+}
+
+.option6 .nav-top-menu {
+    background: #0c6363;
+}
+
+#main-menu .navbar {
+    background: #0c6363;
+}
+
+.main-header .header-search-box .form-inline .btn-search {
+    background-color: #b1d238;
+}
+
+.group-button-header .btn-cart {
+    background: url(/assets/images/icon-cart-round6.png) no-repeat center center;
+    position: relative;
+}
+
+.group-button-header .btn-heart {
+    background: url(/assets/images/icon-heart-round6.png) no-repeat center center;
+}

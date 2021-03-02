@@ -16,7 +16,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>44310</IISExpressSSLPort>
+    <IISExpressSSLPort>44318</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
@@ -154,25 +154,6 @@
   <ItemGroup>
     <Content Include="assets\animate.css" />
     <Content Include="assets\animate.js" />
-    <Content Include="assets\html\404error.html" />
-    <Content Include="assets\html\about-us.html" />
-    <Content Include="assets\html\blog-detail.html" />
-    <Content Include="assets\html\blog.html" />
-    <Content Include="assets\html\checkout-billing-info.html" />
-    <Content Include="assets\html\checkout-method.html" />
-    <Content Include="assets\html\checkout.html" />
-    <Content Include="assets\html\contact-us.html" />
-    <Content Include="assets\html\dashboard.html" />
-    <Content Include="assets\html\grid.html" />
-    <Content Include="assets\html\index.html" />
-    <Content Include="assets\html\list.html" />
-    <Content Include="assets\html\login.html" />
-    <Content Include="assets\html\multiple-addresses.html" />
-    <Content Include="assets\html\newsletter.html" />
-    <Content Include="assets\html\product-detail.html" />
-    <Content Include="assets\html\quickview.html" />
-    <Content Include="assets\html\shopping-cart.html" />
-    <Content Include="assets\html\wishlist.html" />
     <Content Include="assets\images\bg-menu.png" />
     <Content Include="assets\images\gachmenu.png" />
     <Content Include="assets\images\loading.gif" />
@@ -720,6 +701,8 @@
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Home\_partial_ProductListBycategory.cshtml" />
+    <Content Include="Views\Home\_partial_NewProduct.cshtml" />
     <None Include="Web References\WebService\AnperoService.disco" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -838,7 +821,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>32561</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44310</IISUrl>
+          <IISUrl>https://localhost:44318</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AnperoFrontend.Models;
-using Utilities.Caching;
+using Anpero;
 
 namespace AnperoFrontend.Controllers
 {
@@ -30,13 +30,13 @@ namespace AnperoFrontend.Controllers
         {
             model.StoreId = StoreID;
             string pageQuery = Request.QueryString["page"];
-            SearchResult rs = new SearchResult();
+            WebService.SearchResult rs = new WebService.SearchResult();
             int page = 1;
             if (!string.IsNullOrEmpty(pageQuery))
             {
                 page = Convert.ToInt32(pageQuery);
             }
-            WebService.AnperoService sv = new WebService.AnperoService();
+            AnperoService sv = new AnperoService();
             //if (!string.IsNullOrEmpty(model.ParentCategory) && model.ParentCategory!="0")
             //{
             //    rs = sv.GetProductByParentCategory(StoreID, TokenKey, Convert.ToInt32(model.ParentCategory), model.Page, model.PageSize, 0);

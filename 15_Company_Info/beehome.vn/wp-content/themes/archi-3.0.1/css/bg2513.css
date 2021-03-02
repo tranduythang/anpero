@@ -1,0 +1,36 @@
+/* section background
+/* -------------------------------------------------- */
+section,#subheader{
+-webkit-background-size: 100% !important;
+-moz-background-size: 100% !important;
+-o-background-size: 100% !important;
+background-size: 100% !important;
+}
+#subheader{
+	background-position: top;
+	background-attachment: fixed;
+}
+#view-all-projects, #call-to-action{padding:60px 0 60px 0;}
+#section-about-us-2{background:#f8f8f8; height:100%;}
+#section-coming-soon{ background:none; position:absolute; min-height:100%; width:100%;z-index:1;}
+#bg-coming-soon-page{background-position: top; background-attachment: fixed; position:fixed; min-height:100%; width:100%;}
+#section-about-us-2{background:#18191b; height:100%;}
+.de_light #section-about-us-2{background:none;}
+#section-portfolio{background:#222; width:101%;}
+.de_light #section-portfolio{background:#fff;}
+#section-team{background:#111;}
+.de_light #section-team{background:#f5f5f5;}
+#hide-content{position:absolute; width:100%; min-height:100%; z-index:100;display:none; background:rgba(0,0,0,.8);}
+
+@media only screen and (max-width: 992px) {
+	section,#subheader{
+		-webkit-background-size:cover !important;
+		-moz-background-size: cover !important;
+		-o-background-size: cover !important;
+		background-size: cover !important;
+	}
+}
+@media only screen and (max-width: 767px) {
+    #subheader {background-attachment: scroll;}
+}
+

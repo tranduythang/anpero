@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "CategoryList";
+}
+
+@using AnperoFrontend.WebService;
+@{
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+        ViewBag.Title = commonInfo.Desc;
+    }
+
+}
+    <section id="subheader" data-speed="8" data-type="background" style="background-image: url('https://cdn.anpero.com/images/38/102019/12019102201193291.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Thiết kế nội thất</h1>
+                    <ul class="crumb"><li><a rel="v:url" property="v:title" href="https://beehome.vn/">Trang chủ</a></li> <b>/</b> <li class="active">Thiết kế nội thất</li></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <section class="wpb_row vc_row-fluid vc_custom_1453975735934" style="padding-top: 90px !important;padding-bottom: 30px !important;">
+        <div class="container">
+            <div class="row">
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner ">
+                        <div class="wpb_wrapper ">
+                            <div id="services-masonry" class="masonry row">
+                                @foreach (var item in commonInfo.ProductCategoryList)
+                                {
+                                    foreach (var childItem in item.ChildCategory)
+                                    {
+                                        <div class="col-md-4 item">
+                                            <h3>@childItem.Name</h3>
+                                            <p>@childItem.Description</p>
+
+                                            <div class="spacer-single-10"></div>
+                                            <img width="700" height="337" src="@childItem.Images" class="img-responsive wp-post-image" alt="">
+                                            <div class="spacer-single"></div>
+                                            <a href="@childItem.DefaultLink" class="btn-line btn-fullwidth">Xem mẫu thiết kế</a>
+
+                                        </div>
+                                    }
+
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

@@ -18,7 +18,15 @@ namespace Anpero
         }
         public static int GetDiscountPersen(decimal oldPrice, decimal newPrive)
         {
-            return Convert.ToInt32((oldPrice - newPrive) / oldPrice * 100);
+            try
+            {
+                return Convert.ToInt32(((oldPrice - newPrive) / oldPrice) * 100);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+           
         }
         public static Boolean isUrl(String url)
         {
@@ -604,7 +612,7 @@ namespace Anpero
         {
             if (!string.IsNullOrEmpty(parentCatName) && !string.IsNullOrEmpty(productName) && productId > 0)
             {
-                return "/" + toURLgach(parentCatName) + "/" + toURLgach(productName) + "-p" + productId;
+                return "/" + toURLgach(parentCatName.ToLower()) + "/" + toURLgach(productName.ToLower()) + "-p" + productId;
             }
             else
             {
@@ -616,7 +624,7 @@ namespace Anpero
         {
             if (!string.IsNullOrEmpty(categoryName) && !string.IsNullOrEmpty(categoryName) && CategoryId > 0)
             {
-                return "/" + toURLgach(categoryName) + "-cat" + CategoryId;
+                return "/" + toURLgach(categoryName.ToLower()) + "-cat" + CategoryId;
             }
             else
             {
@@ -628,7 +636,7 @@ namespace Anpero
         {
             if (!string.IsNullOrEmpty(categoryName) && !string.IsNullOrEmpty(categoryName) && CategoryId > 0)
             {
-                return "/" + toURLgach(categoryName) + "-b" + CategoryId;
+                return "/" + toURLgach(categoryName.ToLower()) + "-b" + CategoryId;
             }
             else
             {
@@ -640,7 +648,7 @@ namespace Anpero
         {
             if (!string.IsNullOrEmpty(ArticleTitle) && !string.IsNullOrEmpty(ArticleTitle) && ArticleId > 0)
             {
-                return "/" + toURLgach(ArticleTitle) + "-a" + ArticleId;
+                return "/" + toURLgach(ArticleTitle.ToLower()) + "-a" + ArticleId;
             }
             else
             {
@@ -652,7 +660,7 @@ namespace Anpero
         {
             if (!string.IsNullOrEmpty(parentCategoryName) && !string.IsNullOrEmpty(parentCategoryName) && parentCategoryId > 0)
             {
-                return "/" + toURLgach(parentCategoryName) + "-c" + parentCategoryId;
+                return "/" + toURLgach(parentCategoryName.ToLower()) + "-c" + parentCategoryId;
             }
             else
             {
@@ -688,17 +696,17 @@ namespace Anpero
         {
             try
             {
-                if (YYYYMMddhhmmss.Length >= 8)
+                if (YYYYMMddhhmmss.Length >= 8 && YYYYMMddhhmmss.IndexOf("/")<0)
                 {
-
+                     
                     string year = YYYYMMddhhmmss.Substring(0, 4);
                     string month = YYYYMMddhhmmss.Substring(4, 2);
                     string day = YYYYMMddhhmmss.Substring(6, 2);
-                    return new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day));
+                    return new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day),23,59,0);
                 }
                 else
                 {
-                    return DateTime.Now;
+                    return ConvertTodateTime(YYYYMMddhhmmss, true);                     
                 }
             }
             catch (Exception)
@@ -709,7 +717,41 @@ namespace Anpero
 
 
         }
+        public static DateTime ConvertTodateTime(string inputString, bool getEndOfDay = false)
+        {
+            DateTime datetime = new DateTime();
+            try
+            {
+                datetime = DateTime.ParseExact(inputString, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None);
+                if (getEndOfDay)
+                {
+                    datetime.AddHours(23);
+                }
+            }
+            catch (Exception)
+            {
+                try
+                {
+                    try
+                    {
+                        string year = inputString.Substring(0, 4);
+                        string month = inputString.Substring(4, 2);
+                        string day = inputString.Substring(6, 2);
+                        datetime = new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day));
+                    }
+                    catch (Exception)
+                    {
+                    }
 
+                }
+                catch (Exception)
+                {
+
+                }
+                //                datetime = DateTime.ParseExact(inputString, "dd/MM/yyyy h:mm tt", System.Globalization.CultureInfo.InvariantCulture, DateTimeStyles.None);
+            }
+            return datetime;
+        }
         /// <summary>
     }
 }

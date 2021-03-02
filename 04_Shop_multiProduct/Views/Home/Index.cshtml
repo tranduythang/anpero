@@ -6,7 +6,7 @@
         commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
         ViewBag.Title = commonInfo.Desc;
     }
-    bool showLeftColumn = false;
+    bool showLeftColumn = true;
 }
 @section health{
     <meta name="description" content="@HttpUtility.HtmlDecode(commonInfo.Desc)" />

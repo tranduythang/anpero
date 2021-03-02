@@ -1,0 +1,65 @@
+﻿@using AnperoFrontend.WebService;
+@{
+    SearchArticleResults articleList = (SearchArticleResults)ViewData["ArticleList"];
+    AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
+    if (ViewData["commonInfo"] != null)
+    {
+        commonInfo = (AnperoFrontend.WebService.Webconfig)ViewData["commonInfo"];
+    }
+    string currentUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+
+
+}
+@section health{
+    <meta name="description" content="@ViewBag.Description" />
+    <meta name="keywords" content="@Anpero.StringHelpper.UnicodeToKoDau(ViewBag.Keywords)" />
+    <meta property="og:description" content="@ViewBag.Description" />
+    <meta property="og:title" content="@ViewBag.Title" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="@currentUrl" />
+    <meta property="og:image" content="@commonInfo.Logo" />
+    <link rel="canonical" href="@ViewBag.WebsiteUrl" />
+
+}
+<section class="section page-title bg-image context-dark" style="background-image: url(https://cdn.anpero.com/images/38/22021/bg-1-1920x4962021022814580386.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-xl-8">
+                <h2 class="page-title-text">
+                    <a href="/blog">blogs</a> / @ViewBag.CategoryName
+                </h2>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="main-container">
+    <div class="container">
+        <div class="row blog-grid content-post auto-clear">
+            <div class="main-content col-lg-9 col-md-8">
+                <!-- Main content -->
+                <div class="row blog-grid content-post auto-clear mt-5">
+                    @foreach (var item in articleList.ItemList)
+                    {
+                        <div class="post post-classic">
+                            <div class="post-embed">
+                                <a class="post-media post-img" href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)"><img src="@item.Thumb" alt="" width="769" height="431"></a>
+                            </div>
+                            <div class="post-content">
+                                <h2 class="post-title"><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">Top 5 Korean Skincare Products</a></h2>
+                                <div class="post-meta list list-inline-divided">
+                                  
+                                    <div class="list-item"><a class="post-date" href="blog.html">@Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</a></div>                                 
+                                </div>
+                                <div class="post-text"> @item.ShotDesc</div>
+                            </div>
+                        </div>
+                        }
+                </div>
+                @Html.Raw(ViewBag.page)
+            </div>
+            @Html.Partial("article/_MenuAndAdsPartial")
+        </div>
+
+
+    </div>
+</div>
