@@ -8,7 +8,12 @@
     }
     string currentUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
 
-
+    var backGroundImg = "https://cdn.anpero.com/images/38/22021/bg-1-1920x4962021022814580386.jpg";
+    Ads[] ads4 = (Ads[])ViewData["ads4"];
+    if (ads4 != null && ads4.Count() > 0)
+    {
+        backGroundImg = ads4.OrderBy(x => Guid.NewGuid()).First().ImagesUrl;
+    }
 }
 @section health{
     <meta name="description" content="@ViewBag.Description" />
@@ -21,7 +26,8 @@
     <link rel="canonical" href="@ViewBag.WebsiteUrl" />
 
 }
-<section class="section page-title bg-image context-dark" style="background-image: url(https://cdn.anpero.com/images/38/22021/bg-1-1920x4962021022814580386.jpg);">
+
+<section class="section page-title bg-image context-dark" style="background-image: url(@backGroundImg);">
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-xl-8">

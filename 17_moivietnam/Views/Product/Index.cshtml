@@ -1,4 +1,6 @@
-﻿@model AnperoFrontend.WebService.ProductItem
+﻿@using AnperoFrontend.WebService;
+@model AnperoFrontend.WebService.ProductItem
+
 @if (Model != null)
 {
     AnperoFrontend.WebService.Webconfig commonInfo = new AnperoFrontend.WebService.Webconfig();
@@ -25,11 +27,17 @@
         <link rel="canonical" href="@ViewBag.WebsiteUrl" />
 
     }
+    var backGroundImg = "https://cdn.anpero.com/images/38/22021/bg-1-1920x4962021022814580386.jpg";
+    Ads[] ads4 = (Ads[])ViewData["ads4"];
+    if (ads4 != null && ads4.Count() > 0)
+    {
+        backGroundImg = ads4.OrderBy(x => Guid.NewGuid()).First().ImagesUrl;
+    }
     @section Styles {
 
 
     }
-    <section class="section page-title bg-image context-dark" style="background-image: url(https://cdn.anpero.com/images/38/22021/bg-1-1920x4962021022814580386.jpg);">
+    <section class="section page-title bg-image context-dark ads4" style="background-image: url(@backGroundImg);">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-xl-8">
@@ -162,7 +170,7 @@
                     (function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));
                     var pathname = window.location.href;
                     var contentWith = $("#container").width() - 70;
-                    $('#facebookComment').html('<div data-lazy="true" class="fb-comments" data-href="' + pathname + '" data-num-posts="20" data-width="' + contentWith + '"  style="width: 100% !important;"></div>');
+                    $('#facebookComment').html('<div class="fb-comments" data-href="' + pathname + '" data-num-posts="20" data-width="' + contentWith + '"  style="width: 100% !important;"></div>');
                 }, 2000)
             resizeVideo();
 

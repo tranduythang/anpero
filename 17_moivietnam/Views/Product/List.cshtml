@@ -27,6 +27,12 @@
         }
         categoryName = categoryName.Trim().TrimEnd(',');
     }
+    var backGroundImg = "https://cdn.anpero.com/images/38/22021/bg-1-1920x4962021022814580386.jpg";
+    Ads[] ads4 = (Ads[])ViewData["ads4"];
+    if(ads4!=null && ads4.Count() > 0)
+    {
+        backGroundImg = ads4.OrderBy(x => Guid.NewGuid()).First().ImagesUrl;
+    }
 }
 @if (ViewData["productList"] != null)
 {
@@ -34,6 +40,7 @@
     productList = (AnperoFrontend.WebService.SearchResult)ViewData["productList"];
     hasData = productList.Item.Length > 0;
 
+    
 }
 
 
@@ -50,7 +57,8 @@
     </style>
 
 }
-<section class="section page-title bg-image context-dark" style="background-image: url(https://cdn.anpero.com/images/38/22021/bg-1-1920x4962021022814580386.jpg);">
+
+<section class="section page-title bg-image context-dark" style="background-image: url(@backGroundImg);">
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-xl-8">

@@ -6,6 +6,13 @@
         item = (BlogItem)ViewData["blogdeltail"];
     }
     string currentUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/');
+    Ads[] ads4 = (Ads[])ViewData["ads4"];
+    var backGroundImg = "https://cdn.anpero.com/images/38/22021/bg-1-1920x4962021022814580386.jpg";
+    if (ads4 != null && ads4.Count() > 0)
+    {
+        backGroundImg = ads4.OrderBy(x => Guid.NewGuid()).First().ImagesUrl;
+    }
+}
 }
 @section health{
     <meta name="description" content="@item.ShotDesc" />
@@ -17,7 +24,7 @@
     <meta property="og:image" content="@item.Thumb" />
     <link rel="canonical" href="@currentUrl" />
 }
-<section class="section page-title bg-image context-dark" style="background-image: url(https://cdn.anpero.com/images/38/22021/bg-1-1920x4962021022814580386.jpg);">
+<section class="section page-title bg-image context-dark" style="background-image: url(@backGroundImg);">
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-xl-8">
@@ -49,7 +56,7 @@
                                      data-href="@HttpContext.Current.Request.Url.AbsoluteUri"
                                      data-layout="button_count">
                                 </div>
-                        
+
 
                                 <div class="fb-comments" data-href="@HttpContext.Current.Request.Url.AbsoluteUri" data-width="" data-numposts="15"></div>
                             </div>
@@ -107,7 +114,7 @@
 }
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0&appId=129078861768565&autoLogAppEvents=1"></script>
-<script> 
+<script>
     (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) { return; }
