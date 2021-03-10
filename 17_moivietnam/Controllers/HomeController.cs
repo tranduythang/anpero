@@ -36,23 +36,23 @@ namespace AnperoFrontend.Controllers
             if (!base.cacheService.TryGet("Slide",out Slide))          
             {
                 Slide = service.GetAdsSlide(StoreID, TokenKey, PageContent.Slide);                
-                cacheService.AddOrUpdate("Slide", Slide,new TimeSpan(0,0,10,0,0));
+                cacheService.AddOrUpdate("Slide", Slide,new TimeSpan(0,0, shortCacheTime, 0,0));
             }
          
             if (!base.cacheService.TryGet("Ads2", out Ads2))
             {
                 Ads2 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads2);
-                cacheService.AddOrUpdate("Ads2", Ads2, new TimeSpan(0, 0, 10, 0, 0));
+                cacheService.AddOrUpdate("Ads2", Ads2, new TimeSpan(0, 0, shortCacheTime, 0, 0));
             }
             if (!base.cacheService.TryGet("Ads3", out Ads3))
             {
                 Ads3 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads3);
-                cacheService.AddOrUpdate("Ads3", Ads3, new TimeSpan(0, 0, 10, 0, 0));
+                cacheService.AddOrUpdate("Ads3", Ads3, new TimeSpan(0, 0, shortCacheTime, 0, 0));
             }
             if (!base.cacheService.TryGet("Ads4", out Ads4))
             {
                 Ads4 = service.GetAdsSlide(StoreID, TokenKey, PageContent.Ads4);
-                cacheService.AddOrUpdate("Ads4", Ads4, new TimeSpan(0, 0, 10, 0, 0));
+                cacheService.AddOrUpdate("Ads4", Ads4, new TimeSpan(0, 0, shortCacheTime, 0, 0));
             }
             
             //WebService.Ads[] ads3 = null;
