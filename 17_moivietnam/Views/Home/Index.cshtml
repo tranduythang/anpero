@@ -151,7 +151,7 @@
                                 </svg>
                             </div>
                             <div class="quote-body">
-                                @Html.Raw(item.Description)
+                                @Html.Raw(item.Description.Replace("[img]",item.ImagesUrl))
                             </div>
                         </div>
                     }
@@ -181,7 +181,7 @@
                                 <div class="post-hover-btn mdi-link-variant"></div>
                             </a>
                             <div class="post-content">
-                                <h4 class="post-title"><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@item.Title</a></h4>
+                                <h4 class="post-title"><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@Anpero.StringHelpper.SubString(68,item.Title)</a></h4>
                                 <div class="post-date">@Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</div>
                             </div>
                         </div>

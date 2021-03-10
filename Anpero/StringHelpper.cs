@@ -246,7 +246,7 @@ namespace Anpero
             {
                 if (inPut.Length >= maxLeng)
                 {
-                    inPut = inPut.Substring(0, maxLeng - 2) + " ..";
+                    inPut = inPut.Substring(0, maxLeng - 3) + " ...";
                 }
             }
 

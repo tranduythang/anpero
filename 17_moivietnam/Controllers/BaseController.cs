@@ -59,7 +59,13 @@ namespace AnperoFrontend.Controllers
                 cacheService.AddOrUpdate("ads1", ads1, new TimeSpan(0, 0, 10, 0, 0));
             }
             filterContext.Controller.ViewData["ads1"] = ads1;
-            
+            WebService.Ads[] ads4 = null;
+            if (!cacheService.TryGet("ads4", out ads4))
+            {
+                ads4 = service.GetAdsSlide(CommonConfig.StoreID, CommonConfig.TokenKey, PageContent.Ads4);
+                cacheService.AddOrUpdate("Ads4", ads4, new TimeSpan(0, 0, shortCacheTime, 0, 0));
+            }
+            filterContext.Controller.ViewData["ads4"] = ads4;
 
         }
         public void SetupCommonData(ActionExecutedContext filterContext)
