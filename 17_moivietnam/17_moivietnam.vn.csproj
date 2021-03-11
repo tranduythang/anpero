@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AnperoFrontend</RootNamespace>
     <AssemblyName>AnperoFrontend</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort>44312</IISExpressSSLPort>
@@ -57,6 +57,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -64,6 +65,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -871,7 +873,6 @@
     <Content Include="Views\Shared\_partial\_FooterPartial.cshtml" />
     <Content Include="Views\Shared\_partial\_HeaderPartial.cshtml" />
     <Content Include="Views\Product\GetByCategory.cshtml" />
-    <Content Include="Views\Product\List_BACK.cshtml" />
     <Content Include="Views\Product\GetByCategory2.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Warranty\Index.cshtml" />
@@ -991,7 +992,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>32561</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44312</IISUrl>
+          <IISUrl>https://localhost:44315</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

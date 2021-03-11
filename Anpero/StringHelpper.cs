@@ -246,7 +246,7 @@ namespace Anpero
             {
                 if (inPut.Length >= maxLeng)
                 {
-                    inPut = inPut.Substring(0, maxLeng - 2) + " ..";
+                    inPut = inPut.Substring(0, maxLeng - 3) + " ...";
                 }
             }
 
@@ -590,7 +590,7 @@ namespace Anpero
         {
             if (!string.IsNullOrEmpty(productName) && productId > 0)
             {
-                return "/" + toURLgach(productName) + "-p" + productId;
+                return "/" + toURLgach(productName).ToLower() + "-p" + productId;
             }
             else
             {
