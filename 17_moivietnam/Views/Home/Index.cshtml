@@ -19,11 +19,15 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="@commonInfo.Name" />
     <script>
-            if (window.location.protocol != "https:") {
-                window.location.protocol = "https:";
-            }
+        if (window.location.protocol != "https:") {
+            window.location.protocol = "https:";
+        }
     </script>
-  
+    <style>
+        .quote-body .quote-text, .quote-person .quote-cite, .quote-large .quote-cite {
+            color: white !important;
+        }
+    </style>
 }
 @if (ViewData["slide"] != null)
 {
@@ -152,7 +156,7 @@
                                 </svg>
                             </div>
                             <div class="quote-body">
-                                @Html.Raw(item.Description.Replace("[img]",item.ImagesUrl))
+                                @Html.Raw(item.Description.Replace("[img]", item.ImagesUrl))
                             </div>
                         </div>
                     }
@@ -182,7 +186,7 @@
                                 <div class="post-hover-btn mdi-link-variant"></div>
                             </a>
                             <div class="post-content">
-                                <h4 class="post-title"><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@Anpero.StringHelpper.SubString(68,item.Title)</a></h4>
+                                <h4 class="post-title"><a href="@Anpero.StringHelpper.GetArticleLink(item.Title,item.Id)">@Anpero.StringHelpper.SubString(68, item.Title)</a></h4>
                                 <div class="post-date">@Anpero.StringHelpper.ConvertTimeVN(item.CreateDate)</div>
                             </div>
                         </div>
