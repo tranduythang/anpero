@@ -19,7 +19,7 @@ namespace AnperoFrontend
                 "~/assets/components/base/base.css"
 
          ));
-            BundleTable.EnableOptimizations = false;
+            BundleTable.EnableOptimizations = true;
         }
     }
 }
