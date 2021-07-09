@@ -17,7 +17,7 @@ namespace AnperoFrontend.Controllers
             //Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
             ViewBag.storeId = StoreID;
             ViewBag.TokenKey = TokenKey;
-            GetNewestProduct();
+           // GetNewestProduct();
             SetUpSlideAds();
             
             return View();

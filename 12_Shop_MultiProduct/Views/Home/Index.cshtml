@@ -29,9 +29,9 @@
 @if (ViewBag.Slide != null)
 {
     <div class="box-slide-home">
-        <div class="container">
-            <div class="main-slide-home">
-                <div class="banner-slider">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="main-slide-home">
                     <div class="box-slide-1">
                         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
@@ -40,42 +40,17 @@
                                     for (var i = 0; i < slide.Length; i++)
                                     {
                                         <div class="carousel-item @(i == 0 ? "active" : "")">
-                                            <a href="@slide[i].ClickUrl">
-                                                <img class="d-block w-100" src="@slide[i].ImagesUrl" alt="@slide[i].Description">
-                                            </a>
+                                            <img class="d-block w-100" src="@slide[i].ImagesUrl" alt="@slide[i].Description" style="width:2000px;">
                                         </div>
                                     }
                                 }
                             </div>
-                            <ol class="carousel-indicators">
-                                @{
-                                    for (var i = 0; i < slide.Length; i++)
-                                    {
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="@(i)" class="@(i == 0 ? "active" : "")">
-                                            <a href="javascript:void(0)" title="@slide[i].Description">@slide[i].Description</a>
-                                        </li>
-                                    }
-                                }
-                            </ol>
+
                         </div>
                     </div>
-                </div>
-                <div class="banner-right">
-                    @if (ViewBag.Ads1 != null)
-                    {
-                        Ads[] ads1 = (Ads[])ViewBag.Ads1;
-                        <ul>
-                            @foreach (var item in ads1)
-                            {
-                                <li>
-                                    <a href="@item.ClickUrl"><img class="" alt="@item.Description" src="@item.ImagesUrl"></a>
-                                </li>
-                            }
-                        </ul>
-                    }
 
+                    <!--bannerSlider-->
                 </div>
-                <!--bannerSlider-->
             </div>
         </div>
     </div>
@@ -105,6 +80,50 @@
     </div>
     <!--box-slide-ads-->
 }
+
+
+@if (ViewData["BestsaleProduct"] != null)
+{
+    AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["BestsaleProduct"];
+    if (bestSaleList != null && bestSaleList.Item.Length > 0)
+    {
+        <div class="box-slide box-top-products">
+            <div class="container">
+                <div class="box-title">
+                    <h2 class="title">CÁC DỰ ÁN CỦA CHỦ ĐẦU TƯ SUNSHINE</h2>
+                    <a href="/search" class="view-all top-all hidden-xs translateY-50 transition-3">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                </div>
+                <div class="row">
+                    @for (var i = 0; i < bestSaleList.Item.Length; i++)
+                    {
+                        var item = bestSaleList.Item[i];
+                        <div class="col-md-4 col-6">
+                            <div class="item box-product" style="margin-bottom:15px;">
+                                <div class="icon icon-top">@(i + 1)</div>
+                                <div class="main">
+                                    <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="images">
+                                        <img src="@item.Images" alt="@item.PrName">
+                                    </a>
+                                    <div class="detail text-center clearfix">
+                                        <h3 class="name">
+                                            <a class="" ref="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
+                                                @item.PrName
+                                            </a>
+                                        </h3>
+                                        <p class="des">@item.ShortDesc</p>                                      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+        <!--box-top-products-->
+    }
+}
+
 @if (ViewData["FeatureArticle"] != null)
 {
     SearchArticleResults FeatureArticle = (SearchArticleResults)ViewData["FeatureArticle"];
@@ -129,7 +148,7 @@
                                     </a>
                                 </div>
                                 <ul class="info-new">
-                                    <li class="time"><i class="fa fa-calendar" aria-hidden="true"></i> <time>@Anpero.StringHelpper.ConvertDateTime(item.CreateDate).ToString("dd/mm/yyyy")</time></li>                                     
+                                    <li class="time"><i class="fa fa-calendar" aria-hidden="true"></i> <time>@Anpero.StringHelpper.ConvertDateTime(item.CreateDate).ToString("dd/mm/yyyy")</time></li>
                                     <li class="post"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>@item.CategoryName</span></li>
                                 </ul>
                             </div>
@@ -146,53 +165,6 @@
         </div>
     </div>
 }
-
-@if (ViewData["BestsaleProduct"] != null)
-{
-    AnperoFrontend.WebService.SearchResult bestSaleList = (AnperoFrontend.WebService.SearchResult)ViewData["BestsaleProduct"];
-    if (bestSaleList != null && bestSaleList.Item.Length > 0)
-    {
-        <div class="box-slide box-top-products">
-            <div class="container">
-                <div class="box-title">
-                    <h2 class="title">Top bán chạy</h2>
-                    <a href="/search" class="view-all top-all hidden-xs translateY-50 transition-3">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                </div>
-                <div class="row">
-                    @for (var i = 0; i < bestSaleList.Item.Length; i++)
-                    {
-                        var item = bestSaleList.Item[i];
-                    <div class="col-md-3 col-6">
-                        <div class="item box-product" style="margin-bottom:15px;">
-                            <div class="icon icon-top">@(i + 1)</div>
-                            <div class="main">
-                                <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="images">
-                                    <img src="@item.Images" alt="@item.PrName">
-                                </a>
-                                <div class="detail text-center clearfix">
-                                    <h3 class="name">
-                                        <a class="" ref="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName">
-                                            @item.PrName
-                                        </a>
-                                    </h3>
-                                    <div class="box-prince">
-                                        <span class="prince-new">@(item.Price == 0 ? "liên hệ" : Anpero.StringHelpper.ConVertToMoneyFormatInt(item.Price) + " đ")</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                     
-                    }
-                </div>
-            </div>
-        </div>
-        <!--box-top-products-->
-    }
-}
-@*@Html.Partial("_partial_ProductListBycategory")*@
-@Html.Partial("_partial_NewProduct")
-
 @if (ViewBag.Ads3 != null)
 {
     Ads[] ads3 = (Ads[])ViewBag.Ads3;
@@ -225,15 +197,17 @@
     <!--box-slide-ads-->
 }
 <style>
-    .box-top-products .row{
-        margin:0 -10px;
+    .box-top-products .row {
+        margin: 0 -10px;
     }
+
     .box-top-products .col-6 {
         padding-right: 10px;
         padding-left: 10px;
     }
-    .box-top-products .col-6 .item {
-        margin-right: 0px;
-        margin-left: 0px;
-    }
+
+        .box-top-products .col-6 .item {
+            margin-right: 0px;
+            margin-left: 0px;
+        }
 </style>

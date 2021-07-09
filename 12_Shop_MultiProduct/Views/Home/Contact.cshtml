@@ -31,7 +31,6 @@
     <div class="container">
 
         <div>
-            @Html.Raw(commonInfo.Footer)
         </div>
         <div class="section section_template__contact">
             <div class="row">
@@ -99,6 +98,7 @@
         $("#ajax_loader").css("left", ((width / 2) - 100) + "px");
         var googleCatcha;
         $(window).load(function () {
+            $("#contact").remove();
             googleCatcha = grecaptcha.render('g-recaptcha', {
                 'sitekey': googleCapchaSitekey,
                 'theme': 'light',

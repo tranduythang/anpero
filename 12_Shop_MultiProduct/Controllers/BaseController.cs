@@ -38,20 +38,20 @@ namespace AnperoFrontend.Controllers
             int StoreID = CommonConfig.StoreID;
             string TokenKey = CommonConfig.TokenKey;
 
-            WebService.ProductItem[] saleProduct;
+            //WebService.ProductItem[] saleProduct;
             WebService.SearchResult bestSaleProduct;
-            WebService.SearchArticleResults topArticle;
+            //WebService.SearchArticleResults topArticle;
             WebService.Webconfig webConfig;
 
             WebService.AnperoService sv = new WebService.AnperoService();
 
             ICacheService cache = new CacheService();
 
-            if (!cache.TryGet(BaseController.SaleProductCache, out saleProduct))
-            {
-                saleProduct = sv.GetSaleProduct(StoreID, TokenKey);
-                cache.AddOrUpdate(BaseController.SaleProductCache, saleProduct, DateTime.Now.AddMinutes(shortCacheTime));
-            }
+            //if (!cache.TryGet(BaseController.SaleProductCache, out saleProduct))
+            //{
+            //    saleProduct = sv.GetSaleProduct(StoreID, TokenKey);
+            //    cache.AddOrUpdate(BaseController.SaleProductCache, saleProduct, DateTime.Now.AddMinutes(shortCacheTime));
+            //}
 
             if (!cache.TryGet(BaseController.BestSaleProductCache, out bestSaleProduct))
             {
@@ -59,11 +59,11 @@ namespace AnperoFrontend.Controllers
                 cache.AddOrUpdate(BaseController.BestSaleProductCache, bestSaleProduct, DateTime.Now.AddMinutes(shortCacheTime));
             }
 
-            if (!cache.TryGet(BaseController.TopArticleCache, out topArticle))
-            {
-                topArticle = sv.SearchArticle(StoreID, TokenKey, 0, 1, 4, 2);
-                cache.AddOrUpdate(BaseController.TopArticleCache, topArticle, DateTime.Now.AddMinutes(shortCacheTime));
-            }
+            //if (!cache.TryGet(BaseController.TopArticleCache, out topArticle))
+            //{
+            //    topArticle = sv.SearchArticle(StoreID, TokenKey, 0, 1, 4, 2);
+            //    cache.AddOrUpdate(BaseController.TopArticleCache, topArticle, DateTime.Now.AddMinutes(shortCacheTime));
+            //}
 
             if (!cache.TryGet(BaseController.CommonInfoCache, out webConfig))
             {
@@ -71,9 +71,9 @@ namespace AnperoFrontend.Controllers
                 cache.AddOrUpdate(BaseController.CommonInfoCache, webConfig, DateTime.Now.AddMinutes(shortCacheTime));
             }
 
-            filterContext.Controller.ViewData["saleProduct"] = saleProduct;
+            //filterContext.Controller.ViewData["saleProduct"] = saleProduct;
             filterContext.Controller.ViewData["BestsaleProduct"] = bestSaleProduct;
-            filterContext.Controller.ViewData["FeatureArticle"] = topArticle;
+            //filterContext.Controller.ViewData["FeatureArticle"] = topArticle;
             filterContext.Controller.ViewData["commonInfo"] = webConfig;
         }
     }

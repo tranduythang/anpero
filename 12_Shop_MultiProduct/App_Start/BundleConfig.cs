@@ -27,7 +27,7 @@ namespace AnperoFrontend
                 //"~/Html/js/bootstrap-datetimepicker.js",
                 "~/Scripts/jquery.cokie.min.js",
                 "~/Scripts/Anpero.Common.js",
-                "~/Scripts/ShoppingCart.js",
+                //"~/Scripts/ShoppingCart.js",
                 "~/Html/js/javascript.js"
             ));
 
@@ -37,7 +37,7 @@ namespace AnperoFrontend
                 "~/Html/css/font-awesome.min.css"
             ));
 
-            BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = false;
         }
     }
 }

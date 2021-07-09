@@ -45,18 +45,7 @@
                                 <div class="list-action">
                                     <a href="https://www.facebook.com/sharer/sharer.php?u=@currentUrl" target="_blank" title="Chia sẻ với bạn bè" class="btn-quickview-1"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
                                     <a href="@Anpero.StringHelpper.GetProductLink(item.PrName,item.Id)" title="@item.PrName" class="view-product"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
-                                    @if (item.IsInstock)
-                                    {
-                                        <a href="javascript:Cart.addProduct(@item.Id,'@Convert.ToInt32(item.IsSale?item.SalePrice:item.Price)','@item.Images','@item.PrName')" class="add-cart" title="Mua hàng">
-                                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                                        </a>
-                                    }
-                                    else
-                                    {
-                                        <a href="javascript:void(0);" class="add-cart" title="Mua hàng">
-                                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                                        </a>
-                                    }
+                                   
                                 </div>
                                 <div class="detail text-center clearfix">
                                     <h3 class="name">

@@ -25,14 +25,7 @@
                     <h1 class="hide">
                         @commonInfo.Name
                     </h1>
-                    <div class="visible-xs visible-sm box-cart-mobile translateY-50">
-                        <a href="#">
-                            <div class="icon">
-                                <i class="fa fa-shopping-bag"></i>
-                            </div>
-                            <span class="numberCart">0</span>
-                        </a>
-                    </div>
+                   
                 </div>
                 <div class="col-md-6 col-sm-12 col-xs-12 header-search">
                     <div class="form-search">
@@ -51,20 +44,16 @@
                 <div class="col-md-3 hidden-sm hidden-xs header-user">
 
                     <div class="box-cart pull-right relative">
-                        <a href="javascript:doGTranslate('vi|en');" title="Dịch sang tiếng Việt" class="notranslate">English | </a><a href="javascript:doGTranslate('en|vi');" title="Dịch sang tiếng Việt" class="notranslate">Tiếng Việt </a>
-                        <a href="/product/checkout" style=" display: inline-block; margin-left: 10px;">
+                        <a href="@commonInfo.FaceBookLink">
                             <div class="box">
                                 <div class="box">
                                     <div class="icon">
-                                        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="text">
-                                        <span>Giỏ hàng (<span id="cartCount" class="numberCart spN">0</span>)</span>
-                                        <span id="cartPrice" class="sub">0₫</span>
+                                        <i class="fa fa-facebook" aria-hidden="true"></i>
                                     </div>
                                 </div>
                             </div>
                         </a>
+
                     </div>
                 </div>
                 <div class="overlayMenu"></div>
@@ -88,50 +77,11 @@
             </div>
             <ul class="nav-navbar">
                 <li class="active">
-                    <a href="#" class=" current" title="Trang chủ">
+                    <a href="/" class=" current" title="Trang chủ">
                         <span>Trang chủ</span>
                     </a>
                 </li>
-                @*<li class="li-child">
-                <a href="#" title="" class="">
-                    <span>Sản phẩm</span> <i class="fa fa-angle-down" aria-hidden="true"></i>
-                </a>
-                <ul class="main-child level-2">
-
-                    @if (commonInfo.ProductCategoryList != null && commonInfo.ProductCategoryList.Length > 0)
-                    {
-                        foreach (var item in commonInfo.ProductCategoryList)
-                        {
-                    <li class="li-child">
-
-                        @if (item.ChildCategory != null && item.ChildCategory.Length > 0)
-                        {
-                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" class="m-nav" title="@item.Name">
-                                <span>@item.Name</span>
-                                <i class="fa fa-angle-right" aria-hidden="true"></i>
-                            </a>
-                            <ul class="main-child level-3">
-                                @foreach (var childItem in item.ChildCategory)
-                                {
-                                    <li class="">
-                                        <a href="@Anpero.StringHelpper.GetParentCategoryLink(childItem.Name,childItem.Id)" title=""><span>@childItem.Name</span></a>
-                                    </li>
-                                }
-
-                            </ul>
-                        }
-                        else
-                        {
-                            <a href="@Anpero.StringHelpper.GetParentCategoryLink(item.Name,item.Id)" class="" title="@item.Name">
-                                <span>@item.Name</span>
-                            </a>
-                        }
-
-                    </li>
-                        }
-                    }
-                </ul>
-            </li>*@
+            
                 @if (commonInfo.MenuList != null && commonInfo.MenuList.Length > 0)
                 {
                     foreach (var item in commonInfo.MenuList)
@@ -147,7 +97,7 @@
                                 <ul class="main-child level-2">
                                     @foreach (var childItem in item.ChidMenu)
                                     {
-                                        <li class="">
+                                        <li>
                                             <a href="@childItem.Link" title="@childItem.Tittle"><span>@childItem.Tittle</span></a>
                                         </li>
                                     }

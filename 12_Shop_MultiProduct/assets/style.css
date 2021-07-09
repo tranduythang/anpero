@@ -38,7 +38,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0}input,button{margin:0;padding:0;background:none;bor
     }
 
 .contact-area .section-bg::after {
-    background-color: rgb(0, 166, 81);
+    background-color: rgb(2 47 76);
 }
 
 .contact-area .page-title {
@@ -67,7 +67,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0}input,button{margin:0;padding:0;background:none;bor
 .contact-area .battn {
     background-color: #ffffff;
     border: medium none;
-    color: #64be43;
+    color: #0B4948;
     min-width: 200px;
 }
 
@@ -75,7 +75,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0}input,button{margin:0;padding:0;background:none;bor
     background-color: #64BE43;
     border: 1px solid #64BE43;
     border-radius: 1px;
-    color: #ffffff;
+    color: #0B4948;
     display: inline-block;
     letter-spacing: 1.2px;
     margin: 0 5px;
@@ -85,5 +85,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0}input,button{margin:0;padding:0;background:none;bor
     transition: 0.3s;
     border-radius: 2px;
     letter-spacing: 1.2px;
+    background: linear-gradient( 135deg, #9f772c 0%, #ffe080 23%, #b58e3b 41%, #b58e3b 42%, #f9e9a4 65%, #e0bf63 82%, #b48e3a 100%);
+    
 }
 /*END CONTACT FORM*/
